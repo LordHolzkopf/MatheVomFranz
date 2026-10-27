@@ -1,31 +1,31 @@
 {
-    "title":"Carrés des nombres entiers",
-    "description":"carré, puissance 2, carrés parfaits, au carré",
+    "title":"Quadratzahlen",
+    "description":"Quadratzahlen bis 20 im Kopf: Quadrat, hoch 2, Potenz, Zahl mit sich selbst multiplizieren",
     "ID":"6ND13",
     "canrepeat":true,
     "dest":["5CC", "9AA"],
     "params":{
-        "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"a":"1"}},
-        "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"a":"2"}},
-        "n5":{"groupe":"Ne pas tirer","label":"5","defaut":false,"exclut":{"a":"5"}},
-        "n10":{"groupe":"Ne pas tirer","label":"10","defaut":false,"exclut":{"a":"10"}},
-        "n11":{"groupe":"Ne pas tirer","label":"11","defaut":false,"exclut":{"a":"11"}},
-        "n12":{"groupe":"Ne pas tirer","label":"12","defaut":false,"exclut":{"a":"12"}}
+        "n1":{"groupe":"Nicht abfragen","label":"1","defaut":false,"exclut":{"a":"1"}},
+        "n2":{"groupe":"Nicht abfragen","label":"2","defaut":false,"exclut":{"a":"2"}},
+        "n5":{"groupe":"Nicht abfragen","label":"5","defaut":false,"exclut":{"a":"5"}},
+        "n10":{"groupe":"Nicht abfragen","label":"10","defaut":false,"exclut":{"a":"10"}},
+        "n11":{"groupe":"Nicht abfragen","label":"11","defaut":false,"exclut":{"a":"11"}},
+        "n12":{"groupe":"Nicht abfragen","label":"12","defaut":false,"exclut":{"a":"12"}}
     },
     "options":[{
-        "name":"Carrés de 1 à 10 (6e, 5e)",
+        "name":"Quadratzahlen von 1 bis 10",
         "vars":{"a":"1_10"}
         },{
-            "name":"Carrés de 1 à 12 (4e, 3e)",
+            "name":"Quadratzahlen von 1 bis 12",
             "vars":{"a":"1_12"}
         },{
-            "name":"Carrés de 13 à 20",
+            "name":"Quadratzahlen von 13 bis 20",
             "vars":{"a":"13_20"}
         },{
-            "name":"Carrés de 1 à 15",
+            "name":"Quadratzahlen von 1 bis 15",
             "vars":{"a":"1_15"}
         },{
-            "name":"Carrés de 11 à 20",
+            "name":"Quadratzahlen von 11 bis 20",
             "vars":{"a":"11_20"}
         }
     ],

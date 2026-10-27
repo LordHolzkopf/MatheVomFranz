@@ -3,11 +3,11 @@
     "dest":["5EC"],
     "type":"text",
     "repeat":5,
-    "title":"Comparer les volumes de deux solides",
-    "description":"Dénombrer les cubes pour comparer des volumes",
+    "title":"Volumen von Würfelgebäuden vergleichen",
+    "description":"Einheitswürfel abzählen und das Volumen zweier Würfelgebäude (Körper) vergleichen",
     "options":[
         {
-            "name":"Murs",
+            "name":"Mauern",
             "vars":{
                 "a":"2_6",
                 "ah0":"1_6",
@@ -37,10 +37,10 @@
                     {"mur":["right","${:bh0}","${:bh1}","${:bh2}","${:bh3}","${:bh4}","${:bh5}"]}
                 ]
             },
-            "answer":"${:va>:vb?:va+'>'+:vb+', donc le <b>solide de gauche</b> a le plus grand'::va<:vb?:va+'<'+:vb+', donc le <b>solide de droite</b> a le plus grand'::va+'='+:vb+', donc les <b>deux solides</b> ont le même'} volume.",
-            "value":"${:va>:vb?'gauche'::va<:vb?'droite':'égaux'}"
+            "answer":"${:va>:vb?:va+' &gt; '+:vb+', also hat das <b>linke Würfelgebäude</b> das größere Volumen.'::va<:vb?:va+' &lt; '+:vb+', also hat das <b>rechte Würfelgebäude</b> das größere Volumen.'::va+' = '+:vb+', also haben <b>beide Würfelgebäude</b> das gleiche Volumen.'}",
+            "value":"${:va>:vb?'links'::va<:vb?'rechts':'gleich'}"
         },{
-            "name":"Extrait de pavé droit (de base 3x3)",
+            "name":"Teil eines Quaders (Grundfläche 3 × 3)",
             "vars":{
                 "ah0":"2_5",
                 "bh2":"1_${:ah0}",
@@ -74,10 +74,10 @@
                     {"cubeincomplet":["right","${:a2h0}","${:b2h1}","${:c2h1}","${:b2h3}","${:b2h2}","${:c2h2}","${:c2h5}","${:c2h4}","${:c2h3}"]}
                 ]
             },
-            "answer":"${:va>:vb?:va+'>'+:vb+', donc le <b>solide de gauche</b> a le plus grand'::va<:vb?:va+'<'+:vb+', donc le <b>solide de droite</b> a le plus grand'::va+'='+:vb+', donc les <b>deux solides</b> ont le même'} volume.",
-            "value":"${:va>:vb?'gauche'::va<:vb?'droite':'égaux'}"
+            "answer":"${:va>:vb?:va+' &gt; '+:vb+', also hat das <b>linke Würfelgebäude</b> das größere Volumen.'::va<:vb?:va+' &lt; '+:vb+', also hat das <b>rechte Würfelgebäude</b> das größere Volumen.'::va+' = '+:vb+', also haben <b>beide Würfelgebäude</b> das gleiche Volumen.'}",
+            "value":"${:va>:vb?'links'::va<:vb?'rechts':'gleich'}"
         },{
-            "name":"Extrait de pavé droit (de base 3x3) et pyramide",
+            "name":"Teil eines Quaders (Grundfläche 3 × 3) und Pyramide",
             "consts":{
                 "pyramides":[
                     [5,[[2,1,1,1],[1,2,1,1],[1,1,2,1],[2,2,1,0],[2,1,2,0]],5],
@@ -114,10 +114,10 @@
                     {"cubeincomplet":"right,${:pyramides[:pyr][1][:cols]}"}
                 ]
             },
-            "answer":"${:va>:vb?:va+'>'+:vb+', donc le <b>solide de gauche</b> a le plus grand'::va<:vb?:va+'<'+:vb+', donc le <b>solide de droite</b> a le plus grand'::va+'='+:vb+', donc les <b>deux solides</b> ont le même'} volume.",
-            "value":"${:va>:vb?'gauche'::va<:vb?'droite':'égaux'}"
+            "answer":"${:va>:vb?:va+' &gt; '+:vb+', also hat das <b>linke Würfelgebäude</b> das größere Volumen.'::va<:vb?:va+' &lt; '+:vb+', also hat das <b>rechte Würfelgebäude</b> das größere Volumen.'::va+' = '+:vb+', also haben <b>beide Würfelgebäude</b> das gleiche Volumen.'}",
+            "value":"${:va>:vb?'links'::va<:vb?'rechts':'gleich'}"
         },{
-            "name":"Extrait de pavé droit (de base 3x3) et double mur",
+            "name":"Teil eines Quaders (Grundfläche 3 × 3) und Doppelmauer",
             "vars":{
                 "ah0":"2_5",
                 "bh2":"1_${:ah0}",
@@ -153,8 +153,8 @@
                     {"doublemur":["right",["${:a2h0}","${:a2h1}","${:a2h2}","${:a2h3}","${:a2h4}"],["${:b2h1}","${:b2h2}","${:b2h3}","${:b2h4}"]]}
                 ]
             },
-            "answer":"${:va>:vb?:va+'>'+:vb+', donc l <b>solide de gauche</b> a le plus grand'::va<:vb?:va+'<'+:vb+', donc le <b>solide de droite</b> a le plus grand'::va+'='+:vb+', donc les <b>deux solides</b> ont le même'} volume.",
-            "value":"${:va>:vb?'gauche'::va<:vb?'droite':'égaux'}"
+            "answer":"${:va>:vb?:va+' &gt; '+:vb+', also hat das <b>linke Würfelgebäude</b> das größere Volumen.'::va<:vb?:va+' &lt; '+:vb+', also hat das <b>rechte Würfelgebäude</b> das größere Volumen.'::va+' = '+:vb+', also haben <b>beide Würfelgebäude</b> das gleiche Volumen.'}",
+            "value":"${:va>:vb?'links'::va<:vb?'rechts':'gleich'}"
         }],
-        "question":"Quel assemblage de cubes a le plus grand volume ?"
+        "question":"Welches Würfelgebäude hat das größere Volumen: das linke oder das rechte (oder sind beide gleich)?"
 }

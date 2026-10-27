@@ -1,34 +1,34 @@
 {
-    "title":"Quel est le chiffre des ... ? (entiers)",
-    "description":"chiffre des unités, dizaines, centaines, rang, position, numération",
+    "title":"Ziffer an einer Stelle angeben (natürliche Zahlen)",
+    "description":"Stellenwert, Stellenwerttafel, Ziffer, Einer, Zehner, Hunderter, Tausender, Millionen, Milliarden, große Zahlen",
     "type":"text",
     "ID":"6NA2",
     "speech":1,
     "textSize":"medium",
     "dest":["5AA", "5AB"],
-    "consts":{"u":["centaines", "dizaines", "unités"],
-        "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"],
-        "w":["centaines de millions", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"],
-        "x":["centaines de milliards","dizaines de milliards","unités de milliards","centaines de millions", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"]
+    "consts":{"u":["Hunderter", "Zehner", "Einer"],
+        "v":["Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"],
+        "w":["Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"],
+        "x":["Hundertmilliarden","Zehnmilliarden","Milliarden","Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"]
     },
     "options":[{
-        "name":"Nombres inférieurs à $$1000$$",
+        "name":"Zahlen unter $$1000$$",
         "vars":{"a":"0_9_3_^&", "b":"0_2", "c":"${:a.join('')}", "d":"${:u[:b]}"}
         },{
-        "name":"Nombres inférieurs à $$1000000$$",
+        "name":"Zahlen unter $$1000000$$",
         "vars":{"a":"0_9_6_^&", "b":"0_5", "c":"${:a.join('')}", "d":"${:v[:b]}"}
         },{
-        "name":"Nombres inférieurs à $$1000000000$$",
+        "name":"Zahlen unter $$1000000000$$",
         "vars":{"a":"0_9_9_^&", "b":"0_8", "c":"${:a.join('')}", "d":"${:w[:b]}"}
         },{
-            "name":"Nombres inférieurs à $$1000000000000$$",
+            "name":"Zahlen unter $$1000000000000$$",
             "vars":{"a0":"0_9","a":"0_9_12_^${:a0}", "b":"0_11", "c":"${:a.slice(0,:b).concat([:a0]).concat(:a.slice(:b+1)).join('')}", "d":"${:x[:b]}"},
-            "answer":"Dans $$${:c}$$, le chiffre des <u>${:d}</u> est $$\\color{red}{${:a0}}$$",
+            "answer":"In $$${:c}$$ steht an der <u>${:d}</u>stelle die Ziffer $$\\color{red}{${:a0}}$$.",
             "value":"${:a0}"
         }
     ],
-    "answer":"Dans $$${:c}$$, le chiffre des <u>${:d}</u> est $$\\color{red}{${:a[:b]}}$$",
-    "audio":"Dans ${MMmath.NumberToLetter(:c).replace('-',' ')}, quel est le chiffre des ${:d} ?",
+    "answer":"In $$${:c}$$ steht an der <u>${:d}</u>stelle die Ziffer $$\\color{red}{${:a[:b]}}$$.",
+    "audio":"Welche Ziffer steht in der Zahl ${MMmath.zahlwort(:c)} an der ${:d}stelle?",
     "value":"${:a[:b]}",
-    "question": "Dans $$${:c}$$, quel est le chiffre des <b>${:d}</b> ?"
+    "question": "Welche Ziffer steht in $$${:c}$$ an der <b>${:d}stelle</b>?"
 }

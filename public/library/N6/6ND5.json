@@ -1,25 +1,25 @@
 {
-    "title":"Somme de nombres qui se marient bien",
-    "description":"nombres qui se marient bien, compléments, somme astucieuse, regrouper, calcul réfléchi",
+    "title":"Geschickt addieren: Zahlen, die gut zusammenpassen",
+    "description":"Summe geschickt berechnen, Zahlen ergänzen sich zu runden Zahlen, Ergänzungszahlen, vorteilhaft rechnen, Kopfrechnen",
     "ID":"6ND5",
     "speech":1,
     "dest":["5CB", "5AC"],
     "options":[{
-        "name":"La somme est une dizaine",
+        "name":"Die Summe ist eine Zehnerzahl",
         "vars":{"a":"1_9", "b":"${:a*10}", "c":"2_${:b-2}", "d":"${:b-:c}"}
     },{
-        "name":"La somme est un multiple de 10 entre 100 et 1000",
+        "name":"Die Summe ist ein Vielfaches von 10 zwischen 100 und 1000",
         "vars":{"a":"11_99", "b":"${:a*10}", "c":"11_${:b-2}", "d":"${:b-:c}"}
     },{
-        "name":"La somme est un multiple de 100",
+        "name":"Die Summe ist ein Vielfaches von 100",
         "vars":{"a":"11_99", "b":"${:a*100}", "c":"101_${:b-2}", "d":"${:b-:c}"}
     },{
-        "name":"La somme est une centaine",
+        "name":"Die Summe ist eine Hunderterzahl",
         "vars":{"a":"2_9", "b":"${:a*100}", "c":"101_${:b-2}", "d":"${:b-:c}"}
     }
     ],
     "question": "${:c}+${:d}",
-    "audio": "Calcule ${:c} plusse ${:d}.",
+    "audio": "Berechne ${:c} plus ${:d}.",
     "answer":"${:c}+${:d}=\\color{red}{${:b}}",
     "value":"${:b}"
 }

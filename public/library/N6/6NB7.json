@@ -1,52 +1,52 @@
 {
-    "title":"Moitié, double ...",
+    "title":"Hälfte, Doppeltes, Drittel …",
     "type":"text",
     "ID":"6NB7",
     "speech":1,
-    "description":"Calculer le double, la moitié, le tiers, le triple, le quart ou le quadruple d'un nombre entier.",
+    "description":"Das Doppelte, die Hälfte, ein Drittel, das Dreifache, ein Viertel oder das Vierfache einer natürlichen Zahl berechnen; halbieren, verdoppeln",
     "textSize":"medium",
     "dest":["5AC", "5FF", "6AF"],
-    "consts":{"vocab":["moitié", "double","tiers","triple","quart","quadruple","carré"],
+    "consts":{"vocab":["Hälfte", "Doppelte","Drittel","Dreifache","Viertel","Vierfache","Quadrat"],
         "coef":[0.5,2,"1/3",3,0.25,4],
         "tx":["\\div2","\\times2","\\div3","\\times3","\\div4","\\times4"]
     },
     "params":{
-        "moitie":{"groupe":"Ne pas tirer","label":"moitié","defaut":false,"exclut":{"a":"0"}},
-        "double":{"groupe":"Ne pas tirer","label":"double","defaut":false,"exclut":{"a":"1"}},
-        "tiers":{"groupe":"Ne pas tirer","label":"tiers","defaut":false,"exclut":{"a":"2"}},
-        "triple":{"groupe":"Ne pas tirer","label":"triple","defaut":false,"exclut":{"a":"3"}},
-        "quart":{"groupe":"Ne pas tirer","label":"quart","defaut":false,"exclut":{"a":"4"}},
-        "quadruple":{"groupe":"Ne pas tirer","label":"quadruple","defaut":false,"exclut":{"a":"5"}}
+        "moitie":{"groupe":"Nicht abfragen","label":"Hälfte","defaut":false,"exclut":{"a":"0"}},
+        "double":{"groupe":"Nicht abfragen","label":"Doppeltes","defaut":false,"exclut":{"a":"1"}},
+        "tiers":{"groupe":"Nicht abfragen","label":"Drittel","defaut":false,"exclut":{"a":"2"}},
+        "triple":{"groupe":"Nicht abfragen","label":"Dreifaches","defaut":false,"exclut":{"a":"3"}},
+        "quart":{"groupe":"Nicht abfragen","label":"Viertel","defaut":false,"exclut":{"a":"4"}},
+        "quadruple":{"groupe":"Nicht abfragen","label":"Vierfaches","defaut":false,"exclut":{"a":"5"}}
     },
     "options":[{
-        "name":"Moitié, double",
-        "vars":{"a":"0_1","text":"${(:a<1)?'Quelle est la ':'Quel est le '}","e":"1_10","qte":"${:e*12}"}
+        "name":"Hälfte, Doppeltes",
+        "vars":{"a":"0_1","text":"${(:a<1)?'Wie viel ist die ':'Wie viel ist das '}","e":"1_10","qte":"${:e*12}"}
         },{
-            "name":"Tiers, triple",
-            "vars":{"a":"2_3","text":"Quel est le ","e":"1_10","qte":"${:e*12}"}
+            "name":"Drittel, Dreifaches",
+            "vars":{"a":"2_3","text":"${(:a==2)?'Wie viel ist ein ':'Wie viel ist das '}","e":"1_10","qte":"${:e*12}"}
         },{
-            "name":"Quart, quadruple",
-            "vars":{"a":"4_5","text":"Quel est le ","e":"1_10","qte":"${:e*12}"}
+            "name":"Viertel, Vierfaches",
+            "vars":{"a":"4_5","text":"${(:a==4)?'Wie viel ist ein ':'Wie viel ist das '}","e":"1_10","qte":"${:e*12}"}
         },{
-            "name":"Moitié, double (tables)",
-            "vars":{"a":"0_1","text":"${(:a<1)?'Quelle est la ':'Quel est le '}","e":"1_10","qte":"${(:a<1)?:e*2::e+1}"}
+            "name":"Hälfte, Doppeltes (Einmaleins)",
+            "vars":{"a":"0_1","text":"${(:a<1)?'Wie viel ist die ':'Wie viel ist das '}","e":"1_10","qte":"${(:a<1)?:e*2::e+1}"}
         },{
-            "name":"Tiers, triple (tables)",
-            "vars":{"a":"2_3","text":"Quel est le ","e":"1_10","qte":"${(:a==2)?:e*3::e+2}"}
+            "name":"Drittel, Dreifaches (Einmaleins)",
+            "vars":{"a":"2_3","text":"${(:a==2)?'Wie viel ist ein ':'Wie viel ist das '}","e":"1_10","qte":"${(:a==2)?:e*3::e+2}"}
         },{
-            "name":"Quart, quadruple (tables)",
-            "vars":{"a":"4_5","text":"Quel est le ","e":"1_10","qte":"${(:a==4)?:e*4::e+3}"}
+            "name":"Viertel, Vierfaches (Einmaleins)",
+            "vars":{"a":"4_5","text":"${(:a==4)?'Wie viel ist ein ':'Wie viel ist das '}","e":"1_10","qte":"${(:a==4)?:e*4::e+3}"}
         },{
-            "name":"Confusion double/carré",
-            "vars":{"a":[1,6],"text":"Quel est le ","e":"1_12_^2","ans":"${:a==1?:e*2::e*:e}"},
-            "question":"${:text}<b>${:vocab[:a]}</b> de $$${:e}$$ ?",
-            "audio":"${:text} ${:vocab[:a]} de ${:e} ?",
+            "name":"Doppeltes oder Quadrat? (Verwechslungsgefahr)",
+            "vars":{"a":[1,6],"text":"Wie viel ist das ","e":"1_12_^2","ans":"${:a==1?:e*2::e*:e}"},
+            "question":"${:text}<b>${:vocab[:a]}</b> von $$${:e}$$?",
+            "audio":"${:text} ${:vocab[:a]} von ${:e}?",
             "answer":"$$${:a==1?'2\\times'+:e::e+'^2'}=\\color{red}{${:ans}}$$",
             "value":"${:ans}"
         }
     ],
-    "question":"${:text}<b>${:vocab[:a]}</b> de $$${:qte}$$ ?",
-    "audio":"${:text} ${:vocab[:a]} de ${:qte} ?",
+    "question":"${:text}<b>${:vocab[:a]}</b> von $$${:qte}$$?",
+    "audio":"${:text} ${:vocab[:a]} von ${:qte}?",
     "answer":"$$${:qte+:tx[:a]}=\\color{red}{${eval(MMmath.calc(:qte+'*'+:coef[:a]))}}$$",
     "value":"${eval(MMmath.calc(:qte+'*'+:coef[:a]))}"
 }

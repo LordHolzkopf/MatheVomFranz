@@ -1,12 +1,12 @@
 {
-    "title":"Comparaison de fractions",
+    "title":"Brüche vergleichen",
     "type":"text",
-    "description":"Comparer des fractions, avec 1 ou entre elles. Utiliser <, > ou =",
+    "description":"Brüche vergleichen: mit 1 als Vergleichszahl, gleiche Nenner, gleiche Zähler, Nenner als Vielfache; Zeichen <, > oder = einsetzen",
     "speech":1,
     "keys":["<",">","="],
     "dest":["5FC", "6AC"],
     "options":[{
-        "name":"Comparer à 1",
+        "name":"Mit 1 als Vergleichszahl",
         "vars":{
             "num":"10_100",
             "den":"10_100",
@@ -17,26 +17,26 @@
             "sym":"${(:num>=:den)?'\\gt':'\\lt'}",
             "symv":"${(:num>=:den)?'>':'<'}"
         },
-        "question":"Comparer $$\\dfrac{${:num}}{${:den}}~...~\\dfrac{${:num2}}{${:den2}}$$",
+        "question":"Vergleiche $$\\dfrac{${:num}}{${:den}}~...~\\dfrac{${:num2}}{${:den2}}$$",
         "shortq":"$$\\dfrac{${:num}}{${:den}}~\\colorbox{#ECECEC}{\\quad}~\\dfrac{${:num2}}{${:den2}}$$",
-        "audio":"Comparer ${:num} ${MMmath.NumberToFraction(:den)} et ${:num2} ${MMmath.NumberToFraction(:den2)}",
+        "audio":"Vergleiche ${MMmath.bruchwort(:num,:den)} und ${MMmath.bruchwort(:num2,:den2)}",
         "answer":"$$\\dfrac{${:num}}{${:den}} \\color{red}{${:sym}} \\dfrac{${:num2}}{${:den2}}$$",
         "value":"${:sym}"    
     },{
-        "name":"Mêmes dénominateurs",
+        "name":"Gleiche Nenner",
         "vars":{
             "nums":"2_100_2",
             "den":"2_100",
             "sym":"${(:nums[0]<:nums[1])?'\\lt':((:nums[0]>:nums[1])?'\\gt':'=')}",
             "symv":"${(:nums[0]<:nums[1])?'<':((:nums[0]>:nums[1])?'>':'=')}"
         },
-        "question":"Comparer $$\\dfrac{${:nums[0]}}{${:den}}~...~\\dfrac{${:nums[1]}}{${:den}}$$",
+        "question":"Vergleiche $$\\dfrac{${:nums[0]}}{${:den}}~...~\\dfrac{${:nums[1]}}{${:den}}$$",
         "shortq":"$$\\dfrac{${:nums[0]}}{${:den}}~\\colorbox{#ECECEC}{\\quad}~\\dfrac{${:nums[1]}}{${:den}}$$",
-        "audio":"Comparer ${:nums[0]} ${MMmath.NumberToFraction(:den)} et ${:nums[1]} ${MMmath.NumberToFraction(:den)}",
+        "audio":"Vergleiche ${MMmath.bruchwort(:nums[0],:den)} und ${MMmath.bruchwort(:nums[1],:den)}",
         "answer":"$$\\dfrac{${:nums[0]}}{${:den}} \\color{red}{${:sym}} \\dfrac{${:nums[1]}}{${:den}}$$",
         "value":"${:sym}"
     },{
-        "name":"Dénominateurs multiples",
+        "name":"Ein Nenner ist Vielfaches des anderen",
         "vars":{
             "num1":"2_20",
             "den1":"2_10",
@@ -46,13 +46,13 @@
             "sym":"${(:num1*:coeff<:num2)?'\\lt':((:num1*:coeff>:num2)?'\\gt':'=')}",
             "symv":"${(:num1*:coeff<:num2)?'<':((:num1*:coeff>:num2)?'>':'=')}"
         },
-        "question":"Comparer $$\\dfrac{${:num1}}{${:den1}}~...~\\dfrac{${:num2}}{${:den2}}$$",
+        "question":"Vergleiche $$\\dfrac{${:num1}}{${:den1}}~...~\\dfrac{${:num2}}{${:den2}}$$",
         "shortq":"$$\\dfrac{${:num1}}{${:den1}}~\\colorbox{#ECECEC}{\\quad}~\\dfrac{${:num2}}{${:den2}}$$",
-        "audio":"Comparer ${:num1} ${MMmath.NumberToFraction(:den1)} et ${:num2} ${MMmath.NumberToFraction(:den2)}",
+        "audio":"Vergleiche ${MMmath.bruchwort(:num1,:den1)} und ${MMmath.bruchwort(:num2,:den2)}",
         "answer":"$$\\dfrac{${:num1}}{${:den1}} \\color{red}{${:sym}} \\dfrac{${:num2}}{${:den2}}$$",
         "value":"${:sym}"
     },{
-        "name":"Dénominateurs multiples (2)",
+        "name":"Ein Nenner ist Vielfaches des anderen (2)",
         "vars":{
             "num1":"2_20",
             "den1":"2_10",
@@ -62,22 +62,22 @@
             "sym":"${(:num1*:coeff<:num2)?'\\gt':((:num1*:coeff>:num2)?'\\lt':'=')}",
             "symv":"${(:num1*:coeff<:num2)?'<':((:num1*:coeff>:num2)?'>':'=')}"
         },
-        "question":"Comparer $$\\dfrac{${:num2}}{${:den2}}~...~\\dfrac{${:num1}}{${:den1}}$$",
+        "question":"Vergleiche $$\\dfrac{${:num2}}{${:den2}}~...~\\dfrac{${:num1}}{${:den1}}$$",
         "shortq":"$$\\dfrac{${:num2}}{${:den2}}~\\colorbox{#ECECEC}{\\quad}~\\dfrac{${:num1}}{${:den1}}$$",
-        "audio":"Comparer ${:num2} ${MMmath.NumberToFraction(:den2)} et ${:num1} ${MMmath.NumberToFraction(:den1)}",
+        "audio":"Vergleiche ${MMmath.bruchwort(:num2,:den2)} und ${MMmath.bruchwort(:num1,:den1)}",
         "answer":"$$\\dfrac{${:num2}}{${:den2}} \\color{red}{${:sym}} \\dfrac{${:num1}}{${:den1}}$$",
         "value":"${:sym}"
     },{
-        "name":"Mêmes numérateur",
+        "name":"Gleiche Zähler",
         "vars":{
             "num":"2_100",
             "den":"2_100_2",
             "sym":"${(:den[0]<:den[1])?'\\gt':((:den[0]>:den[1])?'\\lt':'=')}",
             "symv":"${(:den[0]<:den[1])?'>':((:den[0]>:den[1])?'<':'=')}"
         },
-        "question":"Comparer $$\\dfrac{${:num}}{${:den[0]}}~...~\\dfrac{${:num}}{${:den[1]}}$$",
+        "question":"Vergleiche $$\\dfrac{${:num}}{${:den[0]}}~...~\\dfrac{${:num}}{${:den[1]}}$$",
         "shortq":"$$\\dfrac{${:num}}{${:den[0]}}~\\colorbox{#ECECEC}{\\quad}~\\dfrac{${:num}}{${:den[1]}}$$",
-        "audio":"Comparer ${:num} ${MMmath.NumberToFraction(:den[0])} et ${:num} ${MMmath.NumberToFraction(:den[1])}",
+        "audio":"Vergleiche ${MMmath.bruchwort(:num,:den[0])} und ${MMmath.bruchwort(:num,:den[1])}",
         "answer":"$$\\dfrac{${:num}}{${:den[0]}} \\color{red}{${:sym}} \\dfrac{${:num}}{${:den[1]}}$$",
         "value":"${:sym}"
     }

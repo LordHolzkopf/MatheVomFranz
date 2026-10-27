@@ -1,39 +1,39 @@
 {
-    "title":"Trouver la fraction égale",
+    "title":"Brüche erweitern: Zähler oder Nenner ergänzen",
     "ID":"6NB6",
     "speech":1,
-    "description":"Compléter une fraction en donnant le nombre manquant",
+    "description":"Gleichwertige Brüche: beim Erweitern den fehlenden Zähler oder Nenner ergänzen",
     "dest":["5FB", "6AB"],
     "options":[{
-        "name":"Trouver le numérateur, tables jusqu'à 10",
+        "name":"Zähler ergänzen, Einmaleins bis 10",
         "vars":{"num":"2_10", "coeff":"2_9", "den":"2_10_^${:num}"},
         "question":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{...}{${:den*:coeff}}",
         "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{\\colorbox{#ECECEC}{\\quad\\quad}}{${:den*:coeff}}",
-        "audio":"Trouver le numérateur de la fraction sur ${:den*:coeff}",
+        "audio":"${MMmath.bruchwort(:num,:den)} sind wie viele ${MMmath.bruchwort(2,:den*:coeff).split(' ')[1]}?",
         "answer":"\\dfrac{${:num}}{${:den}} = \\dfrac{\\color{red}{${:num*:coeff}}}{${:den*:coeff}}",
         "value":"${:num*:coeff}"
     },{
-        "name":"Trouver le dénominateur, tables jusqu'à 10",
+        "name":"Nenner ergänzen, Einmaleins bis 10",
         "vars":{"num":"2_10", "coeff":"2_9", "den":"2_10_^${:num}"},
         "question":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{${:num*:coeff}}{...}",
         "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{${:num*:coeff}}{\\colorbox{#ECECEC}{\\quad\\quad}}",
-        "audio":"Trouver le dénomitateur de la fraction de numérateur ${:num*:coeff}",
+        "audio":"Welcher Bruch mit dem Zähler ${:num*:coeff} ist gleich ${MMmath.bruchwort(:num,:den)}? Gib den Nenner an.",
         "answer":"\\dfrac{${:num}}{${:den}} = \\dfrac{${:num*:coeff}}{\\color{red}{${:den*:coeff}}}",
         "value":"${:den*:coeff}"
     },{
-        "name":"Trouver le numérateur, nombres plus grands que 10",
+        "name":"Zähler ergänzen, Zahlen größer als 10",
         "vars":{"num":"10_30", "coeff":"2_9", "den":"10_30_^${:num}"},
         "question":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{...}{${:den*:coeff}}",
         "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{\\colorbox{#ECECEC}{\\quad\\quad}}{${:den*:coeff}}",
-        "audio":"Trouver le numérateur de la fraction sur ${:den*:coeff}",
+        "audio":"${MMmath.bruchwort(:num,:den)} sind wie viele ${MMmath.bruchwort(2,:den*:coeff).split(' ')[1]}?",
         "answer":"\\dfrac{${:num}}{${:den}} = \\dfrac{\\color{red}{${:num*:coeff}}}{${:den*:coeff}}",
         "value":"${:num*:coeff}"
     },{
-        "name":"Trouver le dénominateur, nombres plus grands que 10",
+        "name":"Nenner ergänzen, Zahlen größer als 10",
         "vars":{"num":"10_30", "coeff":"2_9", "den":"10_30_^${:num}"},
         "question":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{${:num*:coeff}}{...}",
         "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\dfrac{${:num*:coeff}}{\\colorbox{#ECECEC}{\\quad\\quad}}",
-        "audio":"Trouver le dénomitateur de la fraction de numérateur ${:num*:coeff}",
+        "audio":"Welcher Bruch mit dem Zähler ${:num*:coeff} ist gleich ${MMmath.bruchwort(:num,:den)}? Gib den Nenner an.",
         "answer":"\\dfrac{${:num}}{${:den}} = \\dfrac{${:num*:coeff}}{\\color{red}{${:den*:coeff}}}",
         "value":"${:den*:coeff}"
     }

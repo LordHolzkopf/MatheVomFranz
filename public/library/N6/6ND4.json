@@ -1,25 +1,25 @@
 {
-    "title":"Complément à une dizaine, une centaine",
-    "description":"complément, compléter à la dizaine, à la centaine, soustraction à trou",
+    "title":"Ergänzen zu Zehner- und Hunderterzahlen",
+    "description":"Ergänzen bis zur Zehnerzahl oder Hunderterzahl, Ergänzungsaufgabe, Additionsaufgabe mit Lücke, Kopfrechnen",
     "type":"text",
     "ID":"6ND4",
     "speech":1,
     "textSize":"medium",
     "dest":["5AC"],
     "options":[{
-        "name":"Trouver le complément à une dizaine",
+        "name":"Zu einer Zehnerzahl ergänzen",
         "vars":{"a":"2_9", "b":"${10*:a}", "c":"2_${:b-1}"}
     },{
-        "name":"Trouver le complément à une centaine",
+        "name":"Zu einer Hunderterzahl ergänzen",
         "vars":{"a":"2_9", "b":"${100*:a}", "c":"2_${:b-1}"}
     }
     ],
-    "question": ["Combien manque-t-il à ${:c} pour faire ${:b} ?",
+    "question": ["Wie viel fehlt von ${:c} bis ${:b}?",
     "$$${:c}+?=${:b}$$",
     "$$${:b}-${:c}$$"],
-    "audio": ["Combien manquetil à ${:c} pour faire ${:b} ?",
-        "${:c} plusse combien pour faire ${:b} ?",
-        "Calcule ${:b} moins ${:c}."],
+    "audio": ["Wie viel fehlt von ${:c} bis ${:b}?",
+        "${:c} plus wie viel ergibt ${:b}?",
+        "Berechne ${:b} minus ${:c}."],
     "shortq": ["$$${:c}+\\colorbox{#ececec}{\\quad\\quad}=${:b}$$",
         "$$${:c}+\\colorbox{#ececec}{\\quad\\quad}=${:b}$$",
         "$$${:b}-${:c}=$$"],

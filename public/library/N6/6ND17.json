@@ -1,35 +1,35 @@
 {
-    "title":"Multiplier par 2, 5, 20, 50, 4, 25, 0,5, 0,25",
-    "description":"calcul réfléchi, multiplier, astuce, décomposer, distributivité",
+    "title":"Geschickt multiplizieren mit 2, 5, 20, 50, 4, 25, 0,5, 0,25",
+    "description":"Kopfrechnen, vorteilhaft rechnen, geschickt multiplizieren, Rechentrick, verdoppeln, halbieren, zerlegen",
     "ID":"6ND17",
     "dest":["5CB", "6EG"],
     "params":{
-        "mult10":{"groupe":"Ne pas tirer","label":"les multiples de 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300"}},
-        "mult5":{"groupe":"Ne pas tirer","label":"les multiples de 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210,215,220,225,230,235,240,245,250,255,260,265,270,275,280,285,290,295,300"}}
+        "mult10":{"groupe":"Nicht abfragen","label":"Vielfache von 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300"}},
+        "mult5":{"groupe":"Nicht abfragen","label":"Vielfache von 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210,215,220,225,230,235,240,245,250,255,260,265,270,275,280,285,290,295,300"}}
     },
     "options":[{
-        "name":"Par 2",
+        "name":"Mit 2",
         "vars":{"a":2,"c":"11_100"}
     },{
-        "name":"Par 5",
+        "name":"Mit 5",
         "vars":{"a":5,"c":"11_100"}
     },{
-        "name":"Par 20",
+        "name":"Mit 20",
         "vars":{"a":20,"c":"11_100"}
     },{
-        "name":"Par 50",
+        "name":"Mit 50",
         "vars":{"a":50,"c":"11_100"}
     },{
-        "name":"Par 4",
+        "name":"Mit 4",
         "vars":{"a":4,"c":"13_50"}
     },{
-        "name":"Par 25",
+        "name":"Mit 25",
         "vars":{"a":25,"c":"13_50"}
     },{
-        "name":"Par 0,5",
+        "name":"Mit 0,5",
         "vars":{"a":0.5,"c":"12_300"}
     },{
-        "name":"Par 0,25",
+        "name":"Mit 0,25",
         "vars":{"a":0.25,"c":"12_300"}
     }
     ],

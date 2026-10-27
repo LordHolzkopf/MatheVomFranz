@@ -1,9 +1,9 @@
 {
-    "title":"Enchaînements d'opérations",
-    "description":"parenthèses, priorités opératoires, enchaînement, expression numérique",
+    "title":"Terme mit mehreren Rechenarten berechnen",
+    "description":"Rechenreihenfolge, Klammern zuerst, Punkt vor Strich, Terme mit zwei oder drei Rechenoperationen berechnen",
     "dest":["5CA"],
     "options":[{
-        "name":"Deux opérations (+, -, ×) avec parenthèses (6e)",
+        "name":"Zwei Rechenoperationen (+, −, ×) mit Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "d":"1_${:b}",
@@ -23,7 +23,7 @@
             "${(:e+:f)*:g}",
             "${(:e-:f)*:g}"]
     },{
-        "name":"Deux opérations (+, -, ÷) avec parenthèses (6e)",
+        "name":"Zwei Rechenoperationen (+, −, ÷) mit Klammern",
         "vars":{
             "e":"2_5",
             "f":"1_${:e-1}",
@@ -43,7 +43,7 @@
             "${(:e*:g+:f*:g)/:g}",
             "${(:e*:g-:f*:g)/:g}"]
     },{
-        "name":"Trois opérations (+, -, ×) avec parenthèses (6e)",
+        "name":"Drei Rechenoperationen (+, −, ×) mit Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "c":"2_${:a+:b}",
@@ -73,7 +73,7 @@
             "${(:g+:h)*(:b-:j)}",
             "${(:b-:j)*(:g+:h)}"]
     },{
-        "name":"Trois opérations (+, -, ÷) avec parenthèses (6e)",
+        "name":"Drei Rechenoperationen (+, −, ÷) mit Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "g":"1_5",
@@ -108,7 +108,7 @@
             "${(:g*:n+:h*:n)/(:b-:j)}",
             "${(:b*:o-:j*:o)/(:g+:h)}"]
     },{
-        "name":"Deux opérations (+, -, ×) sans parenthèses (5e)",
+        "name":"Zwei Rechenoperationen (+, −, ×) ohne Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "c":"2_10",
@@ -129,7 +129,7 @@
             "${:a*:b+:d}",
             "${:a*:b-:d}"]
     },{
-        "name":"Deux opérations (+, -, ÷) sans parenthèses (5e)",
+        "name":"Zwei Rechenoperationen (+, −, ÷) ohne Klammern",
         "vars":{
             "e":"2_5",
             "f":"1_${:e-1}",
@@ -149,7 +149,7 @@
             "${:e+:f}",
             "${:e-:f}"]
     },{
-        "name":"Trois opérations (+, -, ×) sans parenthèses (5e)",
+        "name":"Drei Rechenoperationen (+, −, ×) ohne Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "c":"2_10",
@@ -179,7 +179,7 @@
             "${:a-:i+:b*:c}",
             "${:j-:a*:b+:c}"]
     },{
-        "name":"Trois opérations (+, -, ÷) sans parenthèses (5e)",
+        "name":"Drei Rechenoperationen (+, −, ÷) ohne Klammern",
         "vars":{"a":"2_10",
             "b":"2_10",
             "c":"2_10",

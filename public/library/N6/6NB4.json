@@ -1,23 +1,23 @@
 {
-    "title":"Décomposition de fraction en entier + fraction inférieure à 1",
+    "title":"Unechten Bruch als gemischte Zahl schreiben",
     "ID":"6NB4",
     "speech":1,
     "keys":["_","_","/","+"],
-    "description":"Écrire une fraction en utilisant la décomposition qui correspond aux notations anglo saxones.",
+    "description":"Unechten Bruch zerlegen in eine ganze Zahl plus einen echten Bruch (gemischte Zahl), z. B. 17/5 = 3 + 2/5",
     "dest":["5FA", "6AA"],
-    "consigne":"Décomposer en entier + fraction inférieure à 1",
+    "consigne":"Zerlege in eine ganze Zahl plus einen Bruch kleiner als 1.",
     "question":"\\dfrac{${:num}}{${:den}}~=~ ... + \\dfrac{...}{...}",
     "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\colorbox{#ECECEC}{\\quad} + \\dfrac{\\colorbox{#ECECEC}{\\quad}}{\\colorbox{#ECECEC}{\\quad}}",
-    "audio":"Décomposer ${:num} ${MMmath.NumberToFraction(:den)} en un entier plusse une fraction plus petite que 1.",
+    "audio":"Zerlege ${MMmath.bruchwort(:num,:den)} in eine ganze Zahl plus einen Bruch kleiner als 1.",
     "options":[{
-        "name":"Dénominateur entre 2 et 11",
+        "name":"Nenner zwischen 2 und 11",
         "vars":{"den":"2_11", "num":"12_${:den*10}","entier":"${Math.floor(:num/:den)}", "reste":"${:num%:den}"},
-        "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${:entier}${(:reste>0)?'+\\dfrac{'+:reste+'}{'+:den+'}':''}}",
+        "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${:entier}${(:reste>0)?'+\\dfrac{'+:reste+'}{'+:den+'}':''}}${(:entier>0 && :reste>0)?'='+:entier+'\\tfrac{'+:reste+'}{'+:den+'}':''}",
         "value":"${(:entier>0)?:entier:''}${(:reste>0)?'+'+:reste+'/'+:den:''}"
     },{
-        "name":"Dénominateur entre 12 et 17",
+        "name":"Nenner zwischen 12 und 17",
         "vars":{"den":"12_17", "num":"12_100","entier":"${Math.floor(:num/:den)}", "reste":"${:num%:den}"},
-        "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${(:entier>0)?:entier:''}${(:entier>0 && :reste>0)?'+':''}${(:reste>0)?'\\dfrac{'+:reste+'}{'+:den+'}':''}}",
+        "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${(:entier>0)?:entier:''}${(:entier>0 && :reste>0)?'+':''}${(:reste>0)?'\\dfrac{'+:reste+'}{'+:den+'}':''}}${(:entier>0 && :reste>0)?'='+:entier+'\\tfrac{'+:reste+'}{'+:den+'}':''}",
         "value":"${(:entier>0)?:entier:''}${(:entier>0 && :reste>0)?'+':''}${(:reste>0)?:reste+'/'+:den:''}"
     }]
 }

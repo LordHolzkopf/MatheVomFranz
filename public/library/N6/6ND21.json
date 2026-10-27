@@ -1,28 +1,28 @@
 {
-    "title":"Multiplier par un multiple de 10, 100, 1000",
-    "description":"calcul réfléchi, multiplier, astuce, décomposer, multiple de 10, 100, 1000",
+    "title":"Mit Vielfachen von 10, 100, 1000 multiplizieren",
+    "description":"Kopfrechnen, geschickt multiplizieren, Nullen anhängen, Zehnerzahlen, Hunderterzahlen, Tausenderzahlen, Vielfache von 10, 100, 1000",
     "ID":"6ND21",
-    "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["a"]}},
+    "params":{"fige":{"label":"Gleiche Ziffern (ohne Nullen) beibehalten","defaut":false,"fige":["a"]}},
     "dest":["5AC"],
     "options":[{
-        "name":"Par un multiple de 10 (tables)",
+        "name":"Mit Vielfachen von 10 (Einmaleins)",
         "vars":{"a":"2_9","m":"10","b":"${10*:a}","c":"2_9"}
     },{
-        "name":"Par un multiple de 100 (tables)",
+        "name":"Mit Vielfachen von 100 (Einmaleins)",
         "vars":{"a":"2_9","m":"100","b":"${100*:a}","c":"2_9"}
     },
     {
-        "name":"Par un multiple de 1000 (tables)",
+        "name":"Mit Vielfachen von 1000 (Einmaleins)",
         "vars":{"a":"2_9","m":"1000","b":"${1000*:a}","c":"2_9"}
     },{
-        "name":"Par un multiple de 10 (nombres simples)",
+        "name":"Mit Vielfachen von 10 (einfache Zahlen)",
         "vars":{"a":"2_9","m":"10","b":"${10*:a}","u":[1,2,3,5],"d":[10,20,30],"c":"${:u+:d}"}
     },{
-        "name":"Par un multiple de 100 (nombres simples)",
+        "name":"Mit Vielfachen von 100 (einfache Zahlen)",
         "vars":{"a":"2_9","m":"100","b":"${100*:a}","u":[1,2,3,5],"d":[10,20,30],"c":"${:u+:d}"}
     },
     {
-        "name":"Par un multiple de 1000 (nombres simples)",
+        "name":"Mit Vielfachen von 1000 (einfache Zahlen)",
         "vars":{"a":"2_9","m":"1000","b":"${1000*:a}","u":[1,2,3,5],"d":[10,20,30],"c":"${:u+:d}"}
     }
     ],

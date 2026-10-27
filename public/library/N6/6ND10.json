@@ -1,36 +1,36 @@
 {
-    "title":"Division entière, division euclidienne",
+    "title":"Dividieren ohne und mit Rest",
     "ID":"6ND10",
     "type":"text",
-    "description":"Pour répondre, donner le quotient, puis le reste si nécessaire, séparés d'un point-virgule",
+    "description":"Division, Quotient, Rest, Division mit Rest, Divisionsaufgabe mit Lücke; Antwort: Quotient, ggf. Rest, getrennt durch Semikolon",
     "keys":["_","_",";","_","_","_","_","_"],
     "dest":["5AC", "5CF"],
     "options":[{
-        "name":"Division entière",
+        "name":"Division ohne Rest",
         "vars":{"a":"0_10", "b":"1_10", "p":"${:a*:b}"},
         "question": "$$:p\\div :b = ?$$",
         "answer":":question|5 $$ $$\\color{red}{:a}$$",
         "value":":a"
     },{
-        "name":"Division à trou",
+        "name":"Division mit Lücke",
         "vars":{"a":"1_10", "b":"1_10", "p":"${:a*:b}"},
         "question":"$$:p\\, \\div \\, ? \\,=:a$$",
         "shortq":"$$:p\\, \\div  \\colorbox{#ececec}{\\quad} =:a$$",
         "answer":"$$:p\\div\\color{red}{:b}=:a$$",
         "value":":b"
     },{
-        "name":"Division euclidienne (petits nombres)",
+        "name":"Division mit Rest (kleine Zahlen)",
         "vars":{"a":"11_50","b":"2_10", "qo":"${~~(:a/:b)}", "r":"${:a%:b}"},
-        "question":"Quels sont le quotient et le reste de la division euclidienne de $$:a$$ par $$:b$$ ?",
+        "question":"Dividiere $$:a$$ durch $$:b$$ mit Rest. Gib Quotient und Rest an (Quotient; Rest).",
         "shortq":"$$\\begin{array}{r|l}:a & \\underline{:b\\hspace{.1cm}} \\\\ & \\end{array} \\enspace Q=\\colorbox{#ececec}{\\quad}; R=\\colorbox{#ececec}{\\quad}$$",
-        "answer":"$$:a=:b\\times\\color{red}{:qo}+\\color{red}{:r}$$ ou $$\\color{green}{Q=${:qo}; R=${:r}}$$",
+        "answer":"$$:a\\div :b=\\color{red}{:qo}\\text{ Rest }\\color{red}{:r}$$, denn $$:a=:b\\times:qo+:r$$. Eingabe: $$\\color{green}{${:qo}; ${:r}}$$ oder $$\\color{green}{Q=${:qo}; R=${:r}}$$",
         "value":["${:qo};${:r}", "Q=${:qo};R=${:r}"]
     },{
-        "name":"Division euclidienne (grands nombres)",
+        "name":"Division mit Rest (große Zahlen)",
         "vars":{"a":"25_300","b":"2_25", "qo":"${~~(:a/:b)}", "r":"${:a%:b}"},
-        "question":"Quels sont le quotient et le reste de la division euclidienne de $$:a$$ par $$:b$$ ?",
+        "question":"Dividiere $$:a$$ durch $$:b$$ mit Rest. Gib Quotient und Rest an (Quotient; Rest).",
         "shortq":"$$\\begin{array}{r|l}:a & \\underline{:b\\hspace{.1cm}} \\\\ & \\end{array} \\enspace Q=\\colorbox{#ececec}{\\quad\\quad}; R=\\colorbox{#ececec}{\\quad}$$",
-        "answer":"$$:a=:b\\times\\color{red}{${:qo}}+\\color{red}{${:r}}$$ ou $$\\color{green}{Q=${:qo}; R=${:r}}$$",
+        "answer":"$$:a\\div :b=\\color{red}{${:qo}}\\text{ Rest }\\color{red}{${:r}}$$, denn $$:a=:b\\times${:qo}+${:r}$$. Eingabe: $$\\color{green}{${:qo}; ${:r}}$$ oder $$\\color{green}{Q=${:qo}; R=${:r}}$$",
         "value":["${:qo};${:r}", "Q=${:qo};R=${:r}"]
     }
     ]

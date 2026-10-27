@@ -1,45 +1,45 @@
 {
     "ID":"6NB9",
-    "title": "Exprimer une proportion",
-    "description": "proportion, fraction, part, fraction d'une figure, partage",
+    "title": "Anteile als Bruch angeben",
+    "description": "Anteil, Bruch, Bruchteil einer Figur, gefärbte Kästchen, Kugeln im Beutel, Sachaufgaben zu Anteilen",
     "dest":["5FA", "6AA"],
     "type":"text",
     "keys":["_","/","_","_","_","_","_","_"],
     "options":[
         {
-            "name":"Texte et proportion",
+            "name":"Anteile in Sachaufgaben",
             "consts":{
                 "qv1":[
-                    "Dans ma classe, il y a $$${:nbe}$$ élèves dont $$${:nbp1}$$ garçons. Quelle est la proportion de garçons dans cette classe ?",
-                    "Dans ma classe, il y a $$${:nbe}$$ élèves dont $$${:nbp1}$$ filles. Quelle est la proportion de filles dans cette classe ?",
-                    "En tirant à pile ou face $$${:nbe}$$ fois, j'ai obtenu $$${:nbp1}$$ piles. Quelle est la proportion de piles ?",
-                    "En tirant à pile ou face $$${:nbe}$$ fois, j'ai obtenu $$${:nbp1}$$ faces. Quelle est la proportion de faces ?",
-                    "Dans un panier, il y a $$${:nbe}$$ fruits dont $$${:nbp1}$$ pommes. Quelle est la proportion de pommes parmi les fruits ?",
-                    "Dans un panier, il y a $$${:nbe}$$ fruits. $$${:nbp1}$$ sont des bananes. Quelle est la proportion de bananes parmi les fruits ?"
+                    "In meiner Klasse sind $$${:nbe}$$ Kinder, davon $$${:nbp1}$$ Jungen. Wie groß ist der Anteil der Jungen in der Klasse?",
+                    "In meiner Klasse sind $$${:nbe}$$ Kinder, davon $$${:nbp1}$$ Mädchen. Wie groß ist der Anteil der Mädchen in der Klasse?",
+                    "Ich habe $$${:nbe}$$-mal eine Münze geworfen und $$${:nbp1}$$-mal „Zahl“ erhalten. Wie groß ist der Anteil der Würfe mit „Zahl“?",
+                    "Ich habe $$${:nbe}$$-mal eine Münze geworfen und $$${:nbp1}$$-mal „Kopf“ erhalten. Wie groß ist der Anteil der Würfe mit „Kopf“?",
+                    "In einem Korb liegen $$${:nbe}$$ Früchte, davon $$${:nbp1}$$ Äpfel. Wie groß ist der Anteil der Äpfel an den Früchten?",
+                    "In einem Korb liegen $$${:nbe}$$ Früchte. $$${:nbp1}$$ davon sind Bananen. Wie groß ist der Anteil der Bananen an den Früchten?"
                 ],
                 "qv2":[
-                    "Dans une classe de $$${:nbe}$$ élèves, il y a $$${:nbp2}$$ filles. Quelle est la proportion de garçons dans cette classe ?",
-                    "Dans une classe de $$${:nbe}$$ élèves, il y a $$${:nbp2}$$ garçons. Quelle est la proportion de filles dans cette classe ?",
-                    "En tirant à pile ou face $$${:nbe}$$ fois, j'ai obtenu $$${:nbp2}$$ faces. Quelle est la proportion de piles ?",
-                    "En tirant à pile ou face $$${:nbe}$$ fois, j'ai obtenu $$${:nbp2}$$ piles. Quelle est la proportion de faces ?",
-                    "Dans un panier, il y a $$${:nbe}$$ fruits dont $$${:nbp2}$$ poires et les autres sont des pommes. Quelle est la proportion de pommes ?",
-                    "Dans un panier, il y a $$${:nbe}$$ fruits. $$${:nbp2}$$ sont des pommes et les autres sont des bananes. Quelle est la proportion de bananes ?"
+                    "In einer Klasse mit $$${:nbe}$$ Kindern sind $$${:nbp2}$$ Mädchen. Wie groß ist der Anteil der Jungen in der Klasse?",
+                    "In einer Klasse mit $$${:nbe}$$ Kindern sind $$${:nbp2}$$ Jungen. Wie groß ist der Anteil der Mädchen in der Klasse?",
+                    "Ich habe $$${:nbe}$$-mal eine Münze geworfen und $$${:nbp2}$$-mal „Kopf“ erhalten. Wie groß ist der Anteil der Würfe mit „Zahl“?",
+                    "Ich habe $$${:nbe}$$-mal eine Münze geworfen und $$${:nbp2}$$-mal „Zahl“ erhalten. Wie groß ist der Anteil der Würfe mit „Kopf“?",
+                    "In einem Korb liegen $$${:nbe}$$ Früchte: $$${:nbp2}$$ Birnen, der Rest sind Äpfel. Wie groß ist der Anteil der Äpfel?",
+                    "In einem Korb liegen $$${:nbe}$$ Früchte. $$${:nbp2}$$ davon sind Äpfel, der Rest sind Bananen. Wie groß ist der Anteil der Bananen?"
                 ],
                 "qv3":[
-                    "Une classe comporte $$${:nbp2}$$ filles et $$${:nbp1}$$ garçons. Quelle est la proportion de garçons dans cette classe ?",
-                    "Une classe comporte $$${:nbp1}$$ filles et $$${:nbp2}$$ garçons. Quelle est la proportion de filles dans cette classe ?",
-                    "En tirant à pile ou face j'ai obtenu $$${:nbp1}$$ piles et $$${:nbp2}$$ faces. Quelle est la proportion de piles ?",
-                    "En tirant à piles ou faces j'ai obtenu $$${:nbp2}$$ piles et $$${:nbp1}$$ faces. Quelle est la proportion de faces ?",
-                    "Dans un panier il y a $$${:nbp1}$$ pommes et $$${:nbp2}$$ bananes. Quelle est la proportion de pommes ?",
-                    "Dans un panier il y a $$${:nbp2}$$ pommes et $$${:nbp1}$$ bananes. Quelle est la proportion de bananes ?"
+                    "In einer Klasse sind $$${:nbp2}$$ Mädchen und $$${:nbp1}$$ Jungen. Wie groß ist der Anteil der Jungen in der Klasse?",
+                    "In einer Klasse sind $$${:nbp1}$$ Mädchen und $$${:nbp2}$$ Jungen. Wie groß ist der Anteil der Mädchen in der Klasse?",
+                    "Beim Münzwerfen habe ich $$${:nbp1}$$-mal „Zahl“ und $$${:nbp2}$$-mal „Kopf“ erhalten. Wie groß ist der Anteil der Würfe mit „Zahl“?",
+                    "Beim Münzwerfen habe ich $$${:nbp2}$$-mal „Zahl“ und $$${:nbp1}$$-mal „Kopf“ erhalten. Wie groß ist der Anteil der Würfe mit „Kopf“?",
+                    "In einem Korb liegen $$${:nbp1}$$ Äpfel und $$${:nbp2}$$ Bananen. Wie groß ist der Anteil der Äpfel?",
+                    "In einem Korb liegen $$${:nbp2}$$ Äpfel und $$${:nbp1}$$ Bananen. Wie groß ist der Anteil der Bananen?"
                 ],
                 "av1":[
-                    "La proportion de garçons est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$",
-                    "La proportion de filles est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$",
-                    "La proportion de piles est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$",
-                    "La proportion de faces est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$",
-                    "La proportion de pommes est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$",
-                    "La proportion de bananes est $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$"
+                    "Der Anteil der Jungen beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$.",
+                    "Der Anteil der Mädchen beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$.",
+                    "Der Anteil der Würfe mit „Zahl“ beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$.",
+                    "Der Anteil der Würfe mit „Kopf“ beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$.",
+                    "Der Anteil der Äpfel beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$.",
+                    "Der Anteil der Bananen beträgt $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$."
                 ]
             },
             "vars":{
@@ -52,7 +52,7 @@
             "answer":"${:av1[:chxq]}",
             "value":"\\dfrac{${:nbp1}}{${:nbe}}"
         },{
-            "name":"Rectangle et proportion rempli par colonnes",
+            "name":"Rechteck, spaltenweise gefärbt",
             "vars":{
                 "l":"2_5",
                 "L":"2_6",
@@ -80,17 +80,17 @@
                 ]
             },
             "question":[
-                "Quelle est la proportion de carrés colorés ?",
-                "Quelle est la proportion de carrés non colorés ?"],
+                "Welcher Anteil der Kästchen ist gefärbt?",
+                "Welcher Anteil der Kästchen ist nicht gefärbt?"],
             "answer":[
-                "Le rectangle comporte $$\\dfrac{${:nbp1}}{${:nbe}}$$ de carrés colorés.",
-                "Le rectangle comporte $$\\dfrac{${:nbp2}}{${:nbe}}$$ de carrés non colorés."],
+                "Gefärbt sind $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$ der Kästchen.",
+                "Nicht gefärbt sind $$\\color{red}{\\dfrac{${:nbp2}}{${:nbe}}}$$ der Kästchen."],
             "value":[
                 "\\dfrac{${:nbp1}}{${:nbe}}",
                 "\\dfrac{${:nbp2}}{${:nbe}}"
             ]
         },{
-            "name":"Rectangle et proportion rempli par lignes",
+            "name":"Rechteck, zeilenweise gefärbt",
             "vars":{
                 "l":"2_5",
                 "L":"2_6",
@@ -118,17 +118,17 @@
                 ]
             },
             "question":[
-                "Quelle est la proportion de carrés colorés ?",
-                "Quelle est la proportion de carrés non colorés ?"],
+                "Welcher Anteil der Kästchen ist gefärbt?",
+                "Welcher Anteil der Kästchen ist nicht gefärbt?"],
             "answer":[
-                "Le rectangle comporte $$\\dfrac{${:nbp1}}{${:nbe}}$$ de carrés colorés.",
-                "Le rectangle comporte $$\\dfrac{${:nbp2}}{${:nbe}}$$ de carrés non colorés."],
+                "Gefärbt sind $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$ der Kästchen.",
+                "Nicht gefärbt sind $$\\color{red}{\\dfrac{${:nbp2}}{${:nbe}}}$$ der Kästchen."],
             "value":[
                 "\\dfrac{${:nbp1}}{${:nbe}}",
                 "\\dfrac{${:nbp2}}{${:nbe}}"
             ]
         },{
-            "name":"Rectangle et proportion rempli au hasard",
+            "name":"Rechteck, zufällig gefärbt",
             "vars":{
                 "height":"2_5",
                 "width":"2_6",
@@ -152,17 +152,17 @@
                 ]
             },
             "question":[
-                "Quelle est la proportion de carrés colorés ?",
-                "Quelle est la proportion de carrés non colorés ?"],
+                "Welcher Anteil der Kästchen ist gefärbt?",
+                "Welcher Anteil der Kästchen ist nicht gefärbt?"],
             "answer":[
-                "Le rectangle comporte $$\\dfrac{${:nbp1}}{${:nbe}}$$ de carrés colorés.",
-                "Le rectangle comporte $$\\dfrac{${:nbp2}}{${:nbe}}$$ de carrés non colorés."],
+                "Gefärbt sind $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe}}}$$ der Kästchen.",
+                "Nicht gefärbt sind $$\\color{red}{\\dfrac{${:nbp2}}{${:nbe}}}$$ der Kästchen."],
             "value":[
                 "\\dfrac{${:nbp1}}{${:nbe}}",
                 "\\dfrac{${:nbp2}}{${:nbe}}"
             ]
         },{
-            "name":"Sac de balles et proportion",
+            "name":"Kugeln im Beutel",
             "consts":{
                 "display":["block","block","block","block","block","${:nbe>4?'block':'none'}","${:nbe>5?'block':'none'}","${:nbe>6?'block':'none'}","${:nbe>7?'block':'none'}","${:nbe>8?'block':'none'}","${:nbe>9?'block':'none'}","${:nbe>10?'block':'none'}","${:nbe>11?'block':'none'}","${:nbe>12?'block':'none'}","${:nbe>13?'block':'none'}","${:nbe>14?'block':'none'}","${:nbe>15?'block':'none'}","${:nbe>16?'block':'none'}"],
                 "fill":["${:tofill[0]==0?'#FFF':'#000'}","${:tofill[1]==0?'#FFF':'#000'}","${:tofill[2]==0?'#FFF':'#000'}","${:tofill[3]==0?'#FFF':'#000'}","${:tofill[4]==0?'#FFF':'#000'}","${:tofill[5]==0?'#FFF':'#000'}","${:tofill[6]==0?'#FFF':'#000'}","${:tofill[7]==0?'#FFF':'#000'}","${:tofill[8]==0?'#FFF':'#000'}","${:tofill[9]==0?'#FFF':'#000'}","${:tofill[10]==0?'#FFF':'#000'}","${:tofill[11]==0?'#FFF':'#000'}","${:tofill[12]==0?'#FFF':'#000'}","${:tofill[13]==0?'#FFF':'#000'}","${:tofill[14]==0?'#FFF':'#000'}","${:tofill[15]==0?'#FFF':'#000'}","${:tofill[16]==0?'#FFF':'#000'}","${:tofill[17]==0?'#FFF':'#000'}"]
@@ -173,8 +173,8 @@
                 "nbp1":"${:tofill.filter(x=>x===1).length}",
                 "nbp2":"${:nbe+1-:nbp1}"
             },
-            "question":["Quelle est la proportion de balles noires ?","Quelle est la proportion de balles blanches ?"],
-            "answer":["Le sac comporte $$\\dfrac{${:nbp1}}{${:nbe+1}}$$ de balles noires.","Le sac comporte $$\\dfrac{${:nbp2}}{${:nbe+1}}$$ de balles blanches."],
+            "question":["Welcher Anteil der Kugeln ist schwarz?","Welcher Anteil der Kugeln ist weiß?"],
+            "answer":["Schwarz sind $$\\color{red}{\\dfrac{${:nbp1}}{${:nbe+1}}}$$ der Kugeln.","Weiß sind $$\\color{red}{\\dfrac{${:nbp2}}{${:nbe+1}}}$$ der Kugeln."],
             "value":["\\dfrac{${:nbp1}}{${:nbe+1}}","\\dfrac{${:nbp2}}{${:nbe+1}}"],
             "figure":{
                 "type":"svg",

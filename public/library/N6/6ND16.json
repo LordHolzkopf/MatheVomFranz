@@ -1,21 +1,21 @@
 {
-    "title":"Multiplier par un multiple de 10",
-    "description":"calcul réfléchi, multiplier, astuce, décomposer, multiple de 10",
+    "title":"Mit Zehnerzahlen multiplizieren",
+    "description":"Kopfrechnen, geschickt multiplizieren mit 20, 30, …, 90; Vielfache von 10, Zehnerzahlen, zerlegen",
     "ID":"6ND16",
     "dest":["5AC"],
     "params":{
-        "mult10":{"groupe":"Ne pas tirer","label":"les multiples de 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90"}},
-        "mult5":{"groupe":"Ne pas tirer","label":"les multiples de 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95"}}
+        "mult10":{"groupe":"Nicht abfragen","label":"Vielfache von 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90"}},
+        "mult5":{"groupe":"Nicht abfragen","label":"Vielfache von 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95"}}
     },
     "options":[{
-        "name":"Par 20 ou 30",
+        "name":"Mit 20 oder 30",
         "vars":{"a":[2,3],"b":"${10*:a}","c":"2_99"}
     },{
-        "name":"Par 40 ou 50",
+        "name":"Mit 40 oder 50",
         "vars":{"a":[4,5],"b":"${10*:a}","c":"2_99"}
     },
     {
-        "name":"Par 60, ...90",
+        "name":"Mit 60 bis 90",
         "vars":{"a":"6_9","b":"${10*:a}","c":"2_99"}
     }
     ],

@@ -1,15 +1,15 @@
 {
-    "title":"Déterminer si un nombre est un multiple, un diviseur d'un autre nombre",
-    "description":"multiple, diviseur, divisible, table",
+    "title":"Vielfache und Teiler erkennen",
+    "description":"Vielfaches, Teiler, teilbar, Einmaleins: aus einer Liste das Vielfache bzw. den Teiler einer Zahl auswählen",
     "type":"text",
     "ID":"6ND14",
     "textSize":"small",
     "dest":["5CD"],
     "params":{
-        "soi":{"label":"Proposer parfois le nombre lui-même","defaut":true}
+        "soi":{"label":"Manchmal die Zahl selbst als Lösung","defaut":true}
     },
     "options":[{
-        "name":"Trouver le multiple",
+        "name":"Vielfaches finden",
         "vars":{
             "a":"8_24_^prime",
             "d":"${MMmath.unDiviseur(:a,true,true)}",
@@ -19,12 +19,12 @@
             "nm":"${:a*MMmath.aleaInt(2,5)+MMmath.aleaInt(1,:a-1)*:e}",
             "t":"${:d},${:nd},${:m},${:nm}"
         },
-        "question": "Parmi les nombres ci-dessous, lequel est un <b>multiple</b> de ${:a} ?<br>${utils.shuffle(:t.split(',')).join(' ; ')}",
-        "shortq":"Que est le <b>multiple</b> de ${:a} ?<br>${utils.shuffle(:t.split(',')).join(' ; ')}",
-        "answer":"<span class='red'>${:m}</span> est un <b>multiple</b> de ${:a}.",
+        "question": "Welche dieser Zahlen ist ein <b>Vielfaches</b> von ${:a}?<br>${utils.shuffle(:t.split(',')).join('; ')}",
+        "shortq":"<b>Vielfaches</b> von ${:a}?<br>${utils.shuffle(:t.split(',')).join('; ')}",
+        "answer":"<span class='red'>${:m}</span> ist ein <b>Vielfaches</b> von ${:a}.",
         "value":"${:m}"
     },{
-        "name":"Trouver le diviseur",
+        "name":"Teiler finden",
         "vars":{
             "a":"8_24_^prime",
             "d":"${:soi && utils.alea()<0.25 ? :a : MMmath.unDiviseur(:a,true,true)}",
@@ -34,9 +34,9 @@
             "nm":"${:a*MMmath.aleaInt(2,5)+MMmath.aleaInt(1,:a-1)*:e}",
             "t":"${:d},${:nd},${:m},${:nm}"
         },
-        "question": "Parmi les nombres ci-dessous, lequel est un <b>diviseur</b> de ${:a} ?<br>${utils.shuffle(:t.split(',')).join(' ; ')}",
-        "shortq":"Quel est le <b>diviseur</b> de ${:a}?<br>${utils.shuffle(:t.split(',')).join(' ; ')}",
-        "answer":"<span class='red'>${:d}</span> est un <b>diviseur</b> de ${:a}.",
+        "question": "Welche dieser Zahlen ist ein <b>Teiler</b> von ${:a}?<br>${utils.shuffle(:t.split(',')).join('; ')}",
+        "shortq":"<b>Teiler</b> von ${:a}?<br>${utils.shuffle(:t.split(',')).join('; ')}",
+        "answer":"<span class='red'>${:d}</span> ist ein <b>Teiler</b> von ${:a}.",
         "value":"${:d}"
     }]
 }

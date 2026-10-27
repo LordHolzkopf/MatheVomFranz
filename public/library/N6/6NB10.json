@@ -1,14 +1,14 @@
 {
     "ID":"6NB10",
-    "title": "Lire une fraction supérieure à 1 sur un axe",
-    "description": "fraction, droite graduée, abscisse, repérer, lire, fraction supérieure à 1",
+    "title": "Brüche größer als 1 am Zahlenstrahl ablesen",
+    "description": "Bruch, Zahlenstrahl, ablesen, Punkt, Einteilung, unechter Bruch, Brüche größer als 1",
     "dest":["5FE", "6AE"],
     "type":"latex",
     "keys":["/"],
-    "consigne":"Donner l’abscisse du point A sous forme de fraction",
+    "consigne":"Welche Zahl gehört zum Punkt A? Gib sie als Bruch an.",
     "options":[
         {
-            "name":"Lire des demis",
+            "name":"Halbe ablesen",
             "vars":{
                 "num":"3_7"
             },
@@ -24,10 +24,10 @@
                 ]
             },
             "question":"",
-            "answer":"A\\left(\\dfrac{${:num}}{2}\\right)${:num%2==0?'\\text{ soit }A('+(:num/2)+')':''}",
+            "answer":"A\\left(\\dfrac{${:num}}{2}\\right)${:num%2==0?'\\text{, also }A('+(:num/2)+')':''}",
             "value":"\\dfrac{${:num}}{2}"
         },{
-            "name":"Lire des tiers",
+            "name":"Drittel ablesen",
             "vars":{
                 "num":"4_11"
             },
@@ -43,10 +43,10 @@
                 ]
             },
             "question":"",
-            "answer":"A\\left(\\dfrac{${:num}}{3}\\right)${:num%3==0?'\\text{ soit }A('+(:num/3)+')':''}",
+            "answer":"A\\left(\\dfrac{${:num}}{3}\\right)${:num%3==0?'\\text{, also }A('+(:num/3)+')':''}",
             "value":"\\dfrac{${:num}}{3}"
         },{
-            "name":"Lire des quarts",
+            "name":"Viertel ablesen",
             "vars":{
                 "num":"5_15"
             },
@@ -62,10 +62,10 @@
                 ]
             },
             "question":"",
-            "answer":"A\\left(\\dfrac{${:num}}{4}\\right)${:num%4==0?'\\text{ soit }A('+(:num/4)+')':''}",
+            "answer":"A\\left(\\dfrac{${:num}}{4}\\right)${:num%4==0?'\\text{, also }A('+(:num/4)+')':''}",
             "value":"\\dfrac{${:num}}{4}"
         },{
-            "name":"Lire des cinquièmes",
+            "name":"Fünftel ablesen",
             "vars":{
                 "num":"6_18"
             },
@@ -81,10 +81,10 @@
                 ]
             },
             "question":"",
-            "answer":"A\\left(\\dfrac{${:num}}{5}\\right)${:num%5==0?'\\text{ soit }A('+(:num/5)+')':''}",
+            "answer":"A\\left(\\dfrac{${:num}}{5}\\right)${:num%5==0?'\\text{, also }A('+(:num/5)+')':''}",
             "value":"\\dfrac{${:num}}{5}"
         },{
-            "name":"Lire des sixièmes",
+            "name":"Sechstel ablesen",
             "vars":{
                 "num":"7_22"
             },
@@ -100,7 +100,7 @@
                 ]
             },
             "question":"",
-            "answer":"A\\left(\\dfrac{${:num}}{6}\\right)${:num%6==0?'\\text{ soit }A('+(MMmath.round(:num/6,0))+')':''}",
+            "answer":"A\\left(\\dfrac{${:num}}{6}\\right)${:num%6==0?'\\text{, also }A('+(MMmath.round(:num/6,0))+')':''}",
             "value":"\\dfrac{${:num}}{6}"
         }
     ]

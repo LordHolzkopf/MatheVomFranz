@@ -1,62 +1,62 @@
 {
-    "title":"Écrire l'opération correspondant à la phrase",
+    "title":"Rechenterm zu einem Text aufstellen",
     "type":"text",
     "textSize":"medium",
-    "description":"traduire une phrase en calcul, expression, opération, somme, différence, produit, quotient",
+    "description":"Text in einen Rechenterm übersetzen: Summe, Differenz, Produkt, Quotient; Fachbegriffe, Term aufstellen",
     "dest":["5AD"],
     "options":[{
-        "name":"Opération unique",
+        "name":"Eine Rechenart",
         "vars":{"x":"2_99","z":"1_${:x}","y":"1_99"},
-        "question": ["Écris l'opération :<br>la somme de ${:x} et de ${:y}",
-            "Écris l'opération :<br>le produit de ${:x} par ${:y}",
-            "Écris l'opération :<br>la différence entre ${:x} et ${:z}",
-            "Écris l'opération :<br>le quotient de ${:x} par ${:y}"],
-        "answer":[":question : $$\\color{red}{${:x}+${:y}}$$",
-        ":question : $$\\color{red}{${:x}\\times ${:y}}$$",
-        ":question :$$\\color{red}{${:x}-${:z}}$$",
-        ":question : $$\\color{red}{${:x}\\div ${:y}}$$"],
+        "question": ["Schreibe als Rechenterm:<br>die Summe von ${:x} und ${:y}",
+            "Schreibe als Rechenterm:<br>das Produkt von ${:x} und ${:y}",
+            "Schreibe als Rechenterm:<br>die Differenz von ${:x} und ${:z}",
+            "Schreibe als Rechenterm:<br>der Quotient von ${:x} und ${:y}"],
+        "answer":[":question: $$\\color{red}{${:x}+${:y}}$$",
+        ":question: $$\\color{red}{${:x}\\times ${:y}}$$",
+        ":question: $$\\color{red}{${:x}-${:z}}$$",
+        ":question: $$\\color{red}{${:x}\\div ${:y}}$$"],
         "value":["${:x}+${:y}","${:x}\\times${:y}","${:x}-${:z}","${:x}/${:y}"]
     },{
-        "name":"Additions et soustractions",
+        "name":"Addition und Subtraktion",
         "vars":{"o1":["+","-"],"o2":["+","-"],"x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions ou soustractions, multiplication",
+        "name":"Addition oder Subtraktion, Multiplikation",
         "vars":{"op1":["+","-"],"c":"0_1","o1":"${:c?:op1:'*'}","o2":"${:c?'*'::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions ou soustractions, division (en ligne)",
+        "name":"Addition oder Subtraktion, Division (mit ÷)",
         "vars":{"op1":["+","-"],"c":"0_1","o1":"${:c?:op1:'/'}","o2":"${:c?'/'::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions ou soustractions ou division (en ligne)",
+        "name":"Addition, Subtraktion oder Division, Division (mit ÷)",
         "vars":{"op1":["+","-","/"],"c":"0_1","o1":"${:c?:op1:'/'}","o2":"${:c?'/'::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions, soustractions, division (fractionnaire)",
+        "name":"Addition oder Subtraktion, Division (als Bruch)",
         "vars":{"op1":["+","-","q"],"c":"0_1","o1":"${:c?:op1:'q'}","o2":"${:c?'q'::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions ou soustractions, multiplication ou division",
+        "name":"Addition oder Subtraktion, Multiplikation oder Division",
         "vars":{"op1":["+","-"],"op2":["*","/"],"c":"0_1","o1":"${:c?:op1::op2}","o2":"${:c?:op2::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     },{
-        "name":"Additions, soustractions, multiplication, division (fractionnaire)",
+        "name":"Addition, Subtraktion, Multiplikation, Division (als Bruch)",
         "vars":{"op1":["+","-","*","q"],"op2":["*","q"],"c":"0_1","o1":"${:c?:op1::op2}","o2":"${:c?:op2::op1}","x":"1_99","y":"1_99","z":"1_99","o":"0_1"},
-        "question": "Écris l'opération :<br>${MMmath.phrase([:x,:y,:z],[:o1,:o2],'p',:o)}",
-        "answer":":question : $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
+        "question": "Schreibe als Rechenterm:<br>${MMmath.satz([:x,:y,:z],[:o1,:o2],'p',:o)}",
+        "answer":":question: $$\\color{red}{${MMmath.phrase([:x,:y,:z],[:o1,:o2],'a',:o)}}$$",
         "value":"${MMmath.phrase([:x,:y,:z],[:o1,:o2],'v',:o)}"
     }
     ]

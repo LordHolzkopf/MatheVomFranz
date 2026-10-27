@@ -1,14 +1,14 @@
 {
-    "title":"Comparaison de fractions à 1",
+    "title":"Brüche mit 1 vergleichen",
     "ID":"6NB2",
     "speech":1,
     "keys":["<",">","="],
-    "description":"Comparer en utilisant l'un des symboles >, < ou =",
+    "description":"Bruch mit 1 vergleichen: größer, kleiner oder gleich; Zeichen <, > oder = einsetzen",
     "dest":["5FC", "6AC"],
     "vars":{"den":"1_100", "num":"0_100", "sym":"${(:num>:den)?'\\gt':((:num<:den)?'\\lt':'=')}"},
-    "question":"\\text{Comparer }\\dfrac{${:num}}{${:den}}~...~1",
-    "shortq":"\\text{Comparer }\\dfrac{${:num}}{${:den}}~\\colorbox{#ECECEC}{\\quad}~1",
-    "audio":"${:num} ( ) ${MMmath.NumberToFraction(:den)} ( ) est-il plus grand, plus petit ou égal à 1 ?",
+    "question":"\\text{Vergleiche }\\dfrac{${:num}}{${:den}}~...~1",
+    "shortq":"\\text{Vergleiche }\\dfrac{${:num}}{${:den}}~\\colorbox{#ECECEC}{\\quad}~1",
+    "audio":"Ist ${MMmath.bruchwort(:num,:den)} größer als 1, kleiner als 1 oder gleich 1?",
     "answer":"\\dfrac{${:num}}{${:den}} \\color{red}{${:sym}} 1",
     "value":"${:sym}"
 }

@@ -188,8 +188,8 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
     if (valueType !== false) {
       // confrontation de listes séparées par des ;
       if (valueType === "liste") {
-        let arrayUser = userAnswer.split(";").map(value => value.trim()).sort((a, b) => a - b);
-        let arrayExpected = goodAnswer.split(";").map(value => value.trim()).sort((a, b) => a - b);
+        let arrayUser = String(userAnswer).split(";").map(value => value.trim()).sort((a, b) => a - b);
+        let arrayExpected = String(goodAnswer).split(";").map(value => value.trim()).sort((a, b) => a - b);
         // comparons les contenus en transformant en une chaine
         if (arrayUser.toString() === arrayExpected.toString()) {
           return true
@@ -197,8 +197,8 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
           return false
         }
       } else if (valueType === "listeOrdonnee") {
-        let arrayUser = userAnswer.split(";");
-        let arrayExpected = goodAnswer.split(";");
+        let arrayUser = String(userAnswer).split(";");
+        let arrayExpected = String(goodAnswer).split(";");
         // comparons les contenus en transformant en une chaine
         if (arrayUser.toString() === arrayExpected.toString()) {
           return true
@@ -207,7 +207,7 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
         }
       } else if (valueType === "inInterval") {
         // ici la valeur doit être comprise entre les deux bornes de l'intervalle
-        let minmax = goodAnswer.split("-").map(value => Number(value));
+        let minmax = String(goodAnswer).split("-").map(value => Number(value));
         // minmax[0] est la borne inf et minmax[1] est la borne sup;
         if (Number(userAnswer) > minmax[0] && Number(userAnswer) < minmax[1]) {
           return true

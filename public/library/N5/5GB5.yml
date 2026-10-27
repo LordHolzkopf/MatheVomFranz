@@ -1,5 +1,5 @@
-title: Relation entre deux angles formés par des droites coupées par une sécante
-description: Adjacents, supplémentaires, opposés par le sommet, correspondants, alternes-internes
+title: Stufen-, Wechsel- und Scheitelwinkel erkennen
+description: Winkel an geschnittenen Geraden und Parallelen, zwei Geraden und eine Schnittgerade, Stufenwinkel, Wechselwinkel, Scheitelwinkel, Nebenwinkel, Supplementwinkel, Winkelbeziehungen erkennen
 dest: [7EA]
 type: text
 keys:
@@ -29,7 +29,7 @@ consts:
       indigo,
       olive,
       violet,
-      navy
+      navy,
       orangered,
       teal,
       tomato,
@@ -40,7 +40,7 @@ vars:
   cc: "0_${:colors.length-1}_8_^&"
   sizes: "10_25_8"
 options:
-  - name: Reconnaitre des angles correspondants
+  - name: Stufenwinkel erkennen
     consts:
       corr: [[1, 5], [2, 6], [3, 7], [4, 8]]
       autre:
@@ -74,10 +74,10 @@ options:
       a2: "${:prop?:corr[:paire][1]::autre[:paire][1]}"
       ang1: "70_110"
       ang2: "70_110_^${:ang1},${:ang1-1},${:ang1+1}"
-    question: "Les angles marqués sont-ils correspondants ?"
-    answer: "${:prop?'Oui':'Non'}, les angles marqués <b>${:prop?'sont':'ne sont pas'}</b> correspondants."
-    value: ["${:prop?'oui':'non'}", "${:prop?'O':'N'}"]
-  - name: Reconnaitre des angles alternes-internes
+    question: "Sind die markierten Winkel Stufenwinkel?"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'keine '}Stufenwinkel</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Wechselwinkel erkennen
     consts:
       alt: [[2, 8], [3, 5]]
       autre:
@@ -113,10 +113,10 @@ options:
       a2: "${:prop?:alt[:paire][1]::autre[:paire][1]}"
       ang1: "70_110"
       ang2: "70_110_^${:ang1},${:ang1-1},${:ang1+1}"
-    question: "Les angles marqués sont-ils alternes-internes ?"
-    answer: "${:prop?'Oui':'Non'}, les angles marqués <b>${:prop?'sont':'ne sont pas'}</b> alternes-internes."
-    value: ["${:prop?'oui':'non'}", "${:prop?'O':'N'}"]
-  - name: Reconnaitre des angles opposés par le sommet
+    question: "Sind die markierten Winkel Wechselwinkel?"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'keine '}Wechselwinkel</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Scheitelwinkel erkennen
     consts:
       opp: [[1, 3], [2, 4], [5, 7], [6, 8]]
       autre:
@@ -150,10 +150,10 @@ options:
       a2: "${:prop?:opp[:paire][1]::autre[:paire][1]}"
       ang1: "70_110"
       ang2: "70_110_^${:ang1},${:ang1-1},${:ang1+1}"
-    question: "Les angles marqués sont-ils opposés par le sommet ?"
-    answer: "${:prop?'Oui':'Non'}, les angles marqués <b>${:prop?'sont':'ne sont pas'}</b> opposés par le sommet."
-    value: ["${:prop?'oui':'non'}", "${:prop?'O':'N'}"]
-  - name: Angles entre deux droites non parallèles
+    question: "Sind die markierten Winkel Scheitelwinkel?"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'keine '}Scheitelwinkel</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Winkel an zwei nicht parallelen Geraden
     consts:
       adj: [[1, 2], [2, 3], [3, 4], [4, 1], [5, 6], [6, 7], [7, 8], [8, 5]]
       corr: [[1, 5], [2, 6], [3, 7], [4, 8]]
@@ -167,10 +167,10 @@ options:
       a2: "${:chx==0?:adj[:paire][1]::chx==1?:corr[:paire][1]::chx==2?:opp[:paire][1]::chx==3?:alt[:paire][1]::autre[:paire][1]}"
       ang1: "70_110"
       ang2: "70_110_^${:ang1},${:ang1-1},${:ang1+1}"
-    question: "Les droites ne sont pas parallèles. Que dire des angles marqués ?<br><i>Utiliser le vocabulaire : adjacents, supplémentaires, correspondants, opposés par le sommet, alternes-internes, sans lien.</i>."
-    answer: Les angles marqués sont <span class='red'>${:chx==0?'adjacents et supplémentaires'::chx==1?'correspondants'::chx==2?'opposés par le sommet'::chx==3?'alternes-internes':'sans lien'}</span>.
-    value: ${:chx==0?'adjacents et supplémentaires'::chx==1?'correspondants'::chx==2?'opposés par le sommet'::chx==3?'alternes-internes':'sans lien'}
-  - name: Angles entre deux droites parallèles
+    question: "Die beiden Geraden sind nicht parallel. Welche Beziehung besteht zwischen den markierten Winkeln?<br><i>Wähle: Nebenwinkel, Supplementwinkel, Stufenwinkel, Scheitelwinkel, Wechselwinkel oder keine Beziehung.</i>"
+    answer: "Die markierten Winkel ${:chx==4?'haben':'sind'} <span class='red'>${:chx==0?'Nebenwinkel'::chx==1?'Stufenwinkel'::chx==2?'Scheitelwinkel'::chx==3?'Wechselwinkel':'keine Beziehung'}</span>${:chx==4?' zueinander':''}."
+    value: ["${:chx==0?'\\text{Nebenwinkel}'::chx==1?'\\text{Stufenwinkel}'::chx==2?'\\text{Scheitelwinkel}'::chx==3?'\\text{Wechselwinkel}':'\\text{keine Beziehung}'}", "${:chx==0?'Nebenwinkel'::chx==1?'Stufenwinkel'::chx==2?'Scheitelwinkel'::chx==3?'Wechselwinkel':'keine Beziehung'}"]
+  - name: Winkel an zwei parallelen Geraden
     consts:
       adj: [[1, 2], [2, 3], [3, 4], [4, 1], [5, 6], [6, 7], [7, 8], [8, 5]]
       supp: [[1, 6], [1, 8], [2, 5], [2, 7], [3, 6], [3, 8], [4, 5], [4, 7]]
@@ -184,9 +184,9 @@ options:
       a2: "${:chx==0?:adj[:paire][1]::chx==1?:supp[:paire][1]::chx==2?:corr[:paire][1]::chx==3?:opp[:paire][1]::alt[:paire][1]}"
       ang1: "70_110"
       ang2: "${:ang1}"
-    question: "Deux droites parallèles sont coupées par une sécante. Que dire des angles marqués ?<br><i>Utiliser le vocabulaire : adjacents, supplémentaires, correspondants, opposés par le sommet, alternes-internes, sans lien</i>."
-    answer: Les angles marqués sont <span class='red'>${:chx==0?'adjacents et supplémentaires'::chx==1?'supplémentaires'::chx==2?'correspondants'::chx==3?'opposés par le sommet'::chx==4?'alternes-internes':'sans lien'}</span>.
-    value: ${:chx==0?'adjacents et supplémentaires'::chx==1?'supplémentaires'::chx==2?'correspondants'::chx==3?'opposés par le sommet'::chx==4?'alternes-internes':'sans lien'}
+    question: "Zwei parallele Geraden werden von einer dritten Geraden geschnitten. Welche Beziehung besteht zwischen den markierten Winkeln?<br><i>Wähle: Nebenwinkel, Supplementwinkel (ergänzen sich zu 180°), Stufenwinkel, Scheitelwinkel, Wechselwinkel oder keine Beziehung.</i>"
+    answer: "Die markierten Winkel sind <span class='red'>${:chx==0?'Nebenwinkel'::chx==1?'Supplementwinkel'::chx==2?'Stufenwinkel'::chx==3?'Scheitelwinkel':'Wechselwinkel'}</span>${:chx==1?' (sie ergänzen sich zu 180°)':''}."
+    value: ["${:chx==0?'\\text{Nebenwinkel}'::chx==1?'\\text{Supplementwinkel}'::chx==2?'\\text{Stufenwinkel}'::chx==3?'\\text{Scheitelwinkel}':'\\text{Wechselwinkel}'}", "${:chx==0?'Nebenwinkel'::chx==1?'Supplementwinkel'::chx==2?'Stufenwinkel'::chx==3?'Scheitelwinkel':'Wechselwinkel'}"]
 figure:
   type: graph
   boundingbox: [-5, 5, 10, -5]

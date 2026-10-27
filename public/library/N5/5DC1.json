@@ -1,26 +1,26 @@
 {
-    "title":"Augmenter ou réduire en pourcentage",
-    "description":"pourcentage, augmentation, réduction, remise, hausse, baisse, promotion, soldes",
+    "title":"Um p % erhöhen oder verringern",
+    "description":"Prozent, Erhöhung, Senkung, Rabatt, Preisnachlass, Preiserhöhung, Aufschlag, Sonderangebot, Ausverkauf, vermehrter und verminderter Grundwert",
     "type":"text",
     "textSize":"medium",
     "ID":"5DC1",
     "dest":["7CB", "7CD"],
     "options":[{
-        "name":"Augmenter/réduire de 5 ou 50 %",
+        "name":"Um 5 % oder 50 % erhöhen/verringern",
         "vars":{"nb":"2_20","qte":"${:nb*12}","pourcent":[5,50]}
     },{
-        "name":"Augmenter/réduire de 10, 20 ou 30 %",
+        "name":"Um 10 %, 20 % oder 30 % erhöhen/verringern",
         "vars":{"nb":"2_20","qte":"${:nb*12}","pourcent":[10,20,30]}
     },{
-        "name":"Augmenter/réduire de 25 ou 75 %",
+        "name":"Um 25 % oder 75 % erhöhen/verringern",
         "vars":{"nb":"2_20","qte":"${:nb*12}","pourcent":[25,75]}
     },{
-        "name":"Augmenter/réduire de 50 %",
+        "name":"Um 50 % erhöhen/verringern",
         "vars":{"nb":"2_20","qte":"${:nb*12}","pourcent":50}
     }
     ],
-    "question": ["Augmenter ${:qte} de ${:pourcent} %", "Réduire ${:qte} de ${:pourcent} %"],
-    "shortq": [" + ${:pourcent} % à ${:qte} :", "- ${:pourcent} % à ${:qte} :"],
-    "answer":["${:qte} + ${:pourcent}% de ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1+:pourcent/100),2)}$$</span>","${:qte} - ${:pourcent}% de ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1-:pourcent/100),2)}$$</span>"],
+    "question": ["Erhöhe ${:qte} um ${:pourcent} %.", "Verringere ${:qte} um ${:pourcent} %."],
+    "shortq": ["${:qte} + ${:pourcent} %", "${:qte} − ${:pourcent} %"],
+    "answer":["${:qte} + ${:pourcent} % von ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1+:pourcent/100),2)}$$</span>","${:qte} − ${:pourcent} % von ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1-:pourcent/100),2)}$$</span>"],
     "value":["${MMmath.round(:qte*(1+:pourcent/100),2)}","${MMmath.round(:qte*(1-:pourcent/100),2)}"]
 }

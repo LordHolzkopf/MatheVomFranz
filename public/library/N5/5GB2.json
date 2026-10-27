@@ -1,8 +1,8 @@
 {
     "ID":"5GB2",
     "dest":["7EB"],
-    "title":"Mesure d'un 3e angle, cas particuliers.",
-    "description":"Déterminer la mesure d'un angle en degré dans un triangle particulier",
+    "title":"Fehlende Winkel in besonderen Dreiecken berechnen",
+    "description":"Winkelsumme im Dreieck, gleichschenkliges Dreieck, Basiswinkel, Basiswinkelsatz, rechtwinkliges Dreieck, fehlenden Winkel in Grad berechnen",
     "repeat":true,
     "textSize":"small",
     "type":"text",
@@ -45,55 +45,55 @@
     },
     "options":[
         {
-            "name":"Triangle isocèle cas 1",
+            "name":"Gleichschenkliges Dreieck, Fall 1",
             "vars":{"pts":"0_16_3_^&", "a":"1_89", "b":"${180-2*:a}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"],"numill":"0_3", "illustration":"${:a>45?:numill:(:numill+4)}"},
             "figure":{"type":"svg","content":"${:trianglesisocelesAngleB[:illustration]}"},
-            "question":"Le triangle ${:T} est isocèle en ${:A}. Quelle est la mesure de l'angle $$\\widehat{${:B+:A+:C}}$$ sachant que $$\\widehat{${:A+:B+:C}}=${:a}°$$ ?",
-            "shortq":"${:T} isocèle en ${:A}. $$\\widehat{${:A+:B+:C}}=${:a}°$$, $$\\widehat{${:B+:A+:C}}=?$$",
-            "answer":"L'angle $$\\widehat{${:B+:A+:C}}$$ mesure $$180°-2\\times${:a}°=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} ist gleichschenklig mit der Spitze ${:A}. Wie groß ist der Winkel $$\\widehat{${:B+:A+:C}}$$, wenn $$\\widehat{${:A+:B+:C}}=${:a}°$$ ist?",
+            "shortq":"${:T} gleichschenklig, Spitze ${:A}. $$\\widehat{${:A+:B+:C}}=${:a}°$$, $$\\widehat{${:B+:A+:C}}=?$$",
+            "answer":"Die Basiswinkel sind gleich groß, also $$\\widehat{${:B+:A+:C}}=180°-2\\times${:a}°=\\color{red}{${:b}°}$$",
             "value":["${:b}", "${:b}°"]
         },{
-            "name":"Triangle isocèle cas 2",
+            "name":"Gleichschenkliges Dreieck, Fall 2",
             "vars":{"pts":"0_16_3_^&", "b":"1_89", "a":"${180-2*:b}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"],"numill":"0_3", "illustration":"${:b>45?:numill:(:numill+4)}"},
             "figure":{"type":"svg","content":"${:trianglesisocelesAngleA[:illustration]}"},
-            "question":"Le triangle ${:T} est isocèle en ${:A}. Quelle est la mesure de l'angle $$\\widehat{${:A+:B+:C}}$$ sachant que $$\\widehat{${:B+:A+:C}}=${:a}°$$ ?",
-            "shortq":"${:T} isocèle en ${:B}. $$\\widehat{${:B+:A+:C}}=${:a}°$$, $$\\widehat{${:A+:B+:C}}=?$$",
-            "answer":"L'angle $$\\widehat{${:A+:B+:C}}$$ mesure $$(180°-${:a}°)\\div2=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} ist gleichschenklig mit der Spitze ${:A}. Wie groß ist der Winkel $$\\widehat{${:A+:B+:C}}$$, wenn $$\\widehat{${:B+:A+:C}}=${:a}°$$ ist?",
+            "shortq":"${:T} gleichschenklig, Spitze ${:A}. $$\\widehat{${:B+:A+:C}}=${:a}°$$, $$\\widehat{${:A+:B+:C}}=?$$",
+            "answer":"Die Basiswinkel sind gleich groß, also $$\\widehat{${:A+:B+:C}}=(180°-${:a}°)\\div2=\\color{red}{${:b}°}$$",
             "value":["${:b}", "${:b}°"]
         },
         {
-            "name":"Triangle rectangle",
+            "name":"Rechtwinkliges Dreieck",
             "vars":{"pts":"0_16_3_^&", "a":"1_89", "b":"${90-:a}", "numill":"0_3", "illustration":"${:a>45?:numill:(:numill+4)}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"]},
             "figure":{"type":"svg","content":"${:trianglesrectangles[:illustration]}"},
-            "question":"Le triangle ${:T} est rectangle en ${:C}. Quelle est la mesure de l'angle $$\\widehat{${:A+:B+:C}}$$ sachant que $$\\widehat{${:C+:A+:B}}=${:a}°$$ ?",
-            "shortq":"${:T} rectangle en ${:A}, $$\\widehat{${:A+:B+:C}}=${:a}°$$, $$\\widehat{${:C+:A+:B}}=?$$",
-            "answer":"L'angle $$\\widehat{${:C+:A+:B}}$$ mesure $$90°-${:a}=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} hat bei ${:C} einen rechten Winkel. Wie groß ist der Winkel $$\\widehat{${:A+:B+:C}}$$, wenn $$\\widehat{${:C+:A+:B}}=${:a}°$$ ist?",
+            "shortq":"${:T} rechtwinklig bei ${:C}, $$\\widehat{${:C+:A+:B}}=${:a}°$$, $$\\widehat{${:A+:B+:C}}=?$$",
+            "answer":"Die beiden spitzen Winkel ergänzen sich zu $$90°$$, also $$\\widehat{${:A+:B+:C}}=90°-${:a}°=\\color{red}{${:b}°}$$",
             "value":["${:b}°","${:b}"]
         },
         {
-            "name":"Triangle isocèle cas 1 (multiple de 5)",
+            "name":"Gleichschenkliges Dreieck, Fall 1 (Vielfache von 5)",
             "vars":{"pts":"0_16_3_^&", "c":"1_17", "a":"${5*:c}", "b":"${180-2*:a}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"],"numill":"0_3", "illustration":"${:a>45?:numill:(:numill+4)}"},
             "figure":{"type":"svg","content":"${:trianglesisocelesAngleB[:illustration]}"},
-            "question":"Le triangle ${:T} est isocèle en ${:A}. Quelle est la mesure de l'angle $$\\widehat{${:B+:A+:C}}$$ sachant que $$\\widehat{${:A+:B+:C}}=${:a}°$$ ?",
-            "shortq":"${:T} isocèle en ${:A}. $$\\widehat{${:A+:B+:C}}=${:a}°$$, $$\\widehat{${:C+:A+:B}}=?$$",
-            "answer":"L'angle $$\\widehat{${:C+:A+:B}}$$ mesure $$180°-2\\times${:a}°=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} ist gleichschenklig mit der Spitze ${:A}. Wie groß ist der Winkel $$\\widehat{${:B+:A+:C}}$$, wenn $$\\widehat{${:A+:B+:C}}=${:a}°$$ ist?",
+            "shortq":"${:T} gleichschenklig, Spitze ${:A}. $$\\widehat{${:A+:B+:C}}=${:a}°$$, $$\\widehat{${:C+:A+:B}}=?$$",
+            "answer":"Die Basiswinkel sind gleich groß, also $$\\widehat{${:C+:A+:B}}=180°-2\\times${:a}°=\\color{red}{${:b}°}$$",
             "value":["${:b}", "${:b}°"]
         },{
-            "name":"Triangle isocèle cas 2 (multiple de 5)",
+            "name":"Gleichschenkliges Dreieck, Fall 2 (Vielfache von 5)",
             "vars":{"pts":"0_16_3_^&", "c":"1_17", "b":"${5*:c}", "a":"${180-2*:b}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"],"numill":"0_3", "illustration":"${:b>45?:numill:(:numill+4)}"},
             "figure":{"type":"svg","content":"${:trianglesisocelesAngleA[:illustration]}"},
-            "question":"Le triangle ${:T} est isocèle en ${:A}. Quelle est la mesure de l'angle $$\\widehat{${:A+:B+:C}}$$ sachant que $$\\widehat{${:C+:A+:B}}=${:a}°$$ ?",
-            "shortq":"${:T} isocèle en ${:B}. $$\\widehat{${:C+:A+:B}}=${:a}°$$, $$\\widehat{${:A+:B+:C}}=?$$",
-            "answer":"L'angle $$\\widehat{${:A+:B+:C}}$$ mesure $$(180°-${:a}°)\\div2=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} ist gleichschenklig mit der Spitze ${:A}. Wie groß ist der Winkel $$\\widehat{${:A+:B+:C}}$$, wenn $$\\widehat{${:C+:A+:B}}=${:a}°$$ ist?",
+            "shortq":"${:T} gleichschenklig, Spitze ${:A}. $$\\widehat{${:C+:A+:B}}=${:a}°$$, $$\\widehat{${:A+:B+:C}}=?$$",
+            "answer":"Die Basiswinkel sind gleich groß, also $$\\widehat{${:A+:B+:C}}=(180°-${:a}°)\\div2=\\color{red}{${:b}°}$$",
             "value":["${:b}", "${:b}°"]
         },
         {
-            "name":"Triangle rectangle (multiple de 5)",
+            "name":"Rechtwinkliges Dreieck (Vielfache von 5)",
             "vars":{"pts":"0_16_3_^&", "c":"1_17", "a":"${5*:c}", "b":"${90-:a}", "numill":"0_3", "illustration":"${:a>45?:numill:(:numill+4)}", "T":["${:A+:B+:C}", "${:B+:A+:C}", "${:C+:B+:A}", "${:B+:C+:A}"], "connu":["${:B+:A+:C}", "${:C+:A+:B}"], "cherche":["${:A+:B+:C}","${:C+:B+:A}"]},
             "figure":{"type":"svg","content":"${:trianglesrectangles[:illustration]}"},
-            "question":"Le triangle ${:T} est rectangle en ${:C}. Quelle est la mesure de l'angle $$\\widehat{${:cherche}}$$ sachant que $$\\widehat{${:connu}}=${:a}°$$ ?",
-            "shortq":"${:T} rectangle en ${:C}, $$\\widehat{${:connu}}=${:a}°$$, $$\\widehat{${:cherche}}=?$$",
-            "answer":"L'angle $$\\widehat{${:cherche}}$$ mesure $$90°-${:a}=\\color{red}{${:b}°}$$",
+            "question":"Das Dreieck ${:T} hat bei ${:C} einen rechten Winkel. Wie groß ist der Winkel $$\\widehat{${:cherche}}$$, wenn $$\\widehat{${:connu}}=${:a}°$$ ist?",
+            "shortq":"${:T} rechtwinklig bei ${:C}, $$\\widehat{${:connu}}=${:a}°$$, $$\\widehat{${:cherche}}=?$$",
+            "answer":"Die beiden spitzen Winkel ergänzen sich zu $$90°$$, also $$\\widehat{${:cherche}}=90°-${:a}°=\\color{red}{${:b}°}$$",
             "value":["${:b}°","${:b}"]
         }
     ]

@@ -1,38 +1,38 @@
 {
     "ID":"3DD5",
     "dest":["7CD", "8BB"],
-    "title":"Lien entre coefficient de fonction linéaire et pourcentage",
-    "description":"Relier le pourcentage d'augmentation ou de réduction au coefficient d'une fonction linéaire.",
+    "title":"Prozentuale Änderung und Wachstumsfaktor",
+    "description":"Prozentuale Zunahme oder Abnahme in den Wachstumsfaktor (Änderungsfaktor, Proportionalitätsfaktor) umrechnen und umgekehrt, Prozent, Faktor q",
     "type":"text",
     "textSize":"medium",
     "keys":["+","-","%","_"],
     "options":[{
-            "name":"Trouver l'augmentation en pourcentage",
+            "name":"Prozentuale Zunahme bestimmen",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel pourcentage d'augmentation correspond le coefficient $$${MMmath.round(1+:a,2)}$$ ?",
+            "question":"Welcher prozentualen Zunahme entspricht der Wachstumsfaktor $$${MMmath.round(1+:a,2)}$$?",
             "shortq":"$$\\times${MMmath.round(1+:a,2)}$$",
-            "answer":"$$${MMmath.round(1+:a,2)}$$ correspond à $$\\color{red}{+${:p}\\%}$$",
+            "answer":"Der Faktor $$${MMmath.round(1+:a,2)}$$ entspricht $$\\color{red}{+${:p}\\%}$$.",
             "value":["${:p}\\%","+${:p}\\%"]
         },{
-            "name":"Trouver la diminution en pourcentage",
+            "name":"Prozentuale Abnahme bestimmen",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel pourcentage de réduction correspond le coefficient $$${MMmath.round(1-:a,2)}$$ ?",
+            "question":"Welcher prozentualen Abnahme entspricht der Wachstumsfaktor $$${MMmath.round(1-:a,2)}$$?",
             "shortq":"$$\\times${MMmath.round(1-:a,2)}$$",
-            "answer":"$$${MMmath.round(1-:a,2)}$$ correspond à $$\\color{red}{-${:p}\\%}$$",
+            "answer":"Der Faktor $$${MMmath.round(1-:a,2)}$$ entspricht $$\\color{red}{-${:p}\\%}$$.",
             "value":"-${:p}\\%"
         },{
-            "name":"Trouver le coefficient correspondant à l'augmentation",
+            "name":"Wachstumsfaktor zu einer Zunahme bestimmen",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel coefficient de fonction linéaire correspond $$+${:p}\\%$$ ?",
+            "question":"Welcher Wachstumsfaktor gehört zu $$+${:p}\\%$$?",
             "shortq":"$$+${:p}\\%$$",
-            "answer":"$$+${:p}\\%$$ revient à multiplier par $$\\color{red}{${MMmath.round(1+:a,2)}}$$",
+            "answer":"$$+${:p}\\%$$ bedeutet: mit $$\\color{red}{${MMmath.round(1+:a,2)}}$$ multiplizieren.",
             "value":"${MMmath.round(1+:a,2)}"
         },{
-            "name":"Trouver le coefficient correspondant à la réduction",
+            "name":"Wachstumsfaktor zu einer Abnahme bestimmen",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel coefficient de fonction linéaire correspond $$-${:p}\\%$$ ?",
+            "question":"Welcher Wachstumsfaktor gehört zu $$-${:p}\\%$$?",
             "shortq":"$$-${:p}\\%$$",
-            "answer":"$$-${:p}\\%$$ revient à multiplier par $$\\color{red}{${MMmath.round(1-:a,2)}}$$",
+            "answer":"$$-${:p}\\%$$ bedeutet: mit $$\\color{red}{${MMmath.round(1-:a,2)}}$$ multiplizieren.",
             "value":"${MMmath.round(1-:a,2)}"
         }
     ]

@@ -1,74 +1,74 @@
-title: Reconnaitre graphiquement une situation de proportionnalité
+title: Proportionalität am Graphen erkennen
 description: >
-  droite ou points alignés passant par l’origine du repère.
+  proportionale Zuordnung am Graphen erkennen: Ursprungsgerade, Punkte auf einer Geraden durch den Ursprung, Koordinatensystem, Werte am Graphen ablesen
 dest: [7BB, 8BB]
 type: text
 textSize: medium
 repeat: 2
-keys: ["O", "N", "_", "_"]
+keys: ["o", "n", "_", "_"]
 consts:
   contextes:
     [
       [
-        "temps (min)",
-        "distance (km)",
-        "La distance parcourue est-elle proportionnelle au temps ?",
+        "Zeit (min)",
+        "Strecke (km)",
+        "Ist die zurückgelegte Strecke proportional zur Zeit?",
       ],
       [
-        "masse (kg)",
-        "prix (€)",
-        "Le prix payé est-il proportionnel à la masse achetée ?",
+        "Masse (kg)",
+        "Preis (€)",
+        "Ist der Preis proportional zur gekauften Masse?",
       ],
       [
-        "durée (h)",
-        "volume (L)",
-        "Le volume d’eau est-il proportionnel à la durée de remplissage ?",
+        "Dauer (h)",
+        "Volumen (L)",
+        "Ist das Wasservolumen proportional zur Füllzeit?",
       ],
       [
-        "nombre de billets",
-        "prix (€)",
-        "Le prix est-il proportionnel au nombre de billets ?",
+        "Anzahl Tickets",
+        "Preis (€)",
+        "Ist der Preis proportional zur Anzahl der Tickets?",
       ],
     ]
-  # [axe des abscisses, axe des ordonnées,
-  #  question x → y, unité de x, question y → x, unité de y]
+  # [x-Achse, y-Achse,
+  #  Frage x → y, Einheit von x, Frage y → x, Einheit von y]
   lectures:
     [
       [
-        "temps (min)",
-        "distance (km)",
-        "Quelle distance parcourt-on en",
+        "Zeit (min)",
+        "Strecke (km)",
+        "Welche Strecke schafft man in",
         "min",
-        "Combien de temps faut-il pour parcourir",
+        "Wie lange braucht man für",
         "km",
       ],
       [
-        "nombre de personnes",
-        "parts de pizza",
-        "Combien de parts de pizza faut-il pour",
-        "personnes",
-        "Combien de personnes peut-on servir avec",
-        "parts de pizza",
+        "Anzahl Personen",
+        "Pizzastücke",
+        "Wie viele Pizzastücke braucht man für",
+        "Personen",
+        "Für wie viele Personen reichen",
+        "Pizzastücke",
       ],
       [
-        "nombre de ventes",
-        "prime (€)",
-        "Quelle prime touche-t-on pour",
-        "ventes",
-        "Combien de ventes faut-il faire pour toucher une prime de",
+        "Anzahl Verkäufe",
+        "Prämie (€)",
+        "Welche Prämie bekommt man für",
+        "Verkäufe",
+        "Wie viele Verkäufe braucht man für eine Prämie von",
         "€",
       ],
       [
-        "durée (min)",
-        "volume (L)",
-        "Quel volume d’eau s’écoule en",
+        "Dauer (min)",
+        "Volumen (L)",
+        "Wie viel Wasser fließt innerhalb von",
         "min",
-        "Combien de temps faut-il pour recueillir",
+        "Wie lange braucht man zum Auffangen von",
         "L",
       ],
     ]
 options:
-  - name: Un nuage de points
+  - name: Einzelne Punkte
     vars:
       prop: [0, 1]
       cas: "1_3"
@@ -92,10 +92,10 @@ options:
         - [point, [2, "${:y2}"], { face: "x", size: 4, strokeWidth: 2, withLabel: false, fixed: true }]
         - [point, [3, "${:y3}"], { face: "x", size: 4, strokeWidth: 2, withLabel: false, fixed: true }]
         - [point, [4, "${:y4}"], { face: "x", size: 4, strokeWidth: 2, withLabel: false, fixed: true }]
-    question: Cette représentation correspond-elle à une situation de proportionnalité ?
-    answer: "${:prop==1 ? '<b>Oui</b> : les points sont alignés <b>avec l’origine</b> du repère.' : :cas==1 ? '<b>Non</b> : les points sont alignés, mais pas avec l’origine du repère.' : '<b>Non</b> : les points ne sont pas alignés.'}"
-    value: ["${:prop==1 ? 'Oui' : 'Non'}", "${:prop==1 ? 'oui' : 'non'}", "${:prop==1 ? 'O' : 'N'}"]
-  - name: Un tracé continu
+    question: Gehört diese Darstellung zu einer proportionalen Zuordnung?
+    answer: "${:prop==1 ? '<b>Ja</b>: Die Punkte liegen auf einer Geraden <b>durch den Ursprung</b>.' : :cas==1 ? '<b>Nein</b>: Die Punkte liegen zwar auf einer Geraden, diese geht aber nicht durch den Ursprung.' : '<b>Nein</b>: Die Punkte liegen nicht auf einer Geraden.'}"
+    value: ["${:prop==1 ? '\\text{ja}' : '\\text{nein}'}", "${:prop==1 ? 'ja' : 'nein'}", "${:prop==1 ? 'Ja' : 'Nein'}"]
+  - name: Durchgezogener Graph
     vars:
       prop: [0, 1]
       cas: "1_3"
@@ -111,10 +111,10 @@ options:
       grid: true
       content:
         - [functiongraph, "${:f}", { strokeWidth: 3, strokeColor: "#0055aa" }]
-    question: Cette représentation correspond-elle à une situation de proportionnalité ?
-    answer: "${:prop==1 ? '<b>Oui</b> : le tracé est une droite qui passe par l’origine du repère.' : :cas==1 ? '<b>Non</b> : le tracé est une droite, mais elle ne passe pas par l’origine du repère.' : :cas==2 ? '<b>Non</b> : le tracé passe par l’origine, mais ce n’est pas une droite.' : '<b>Non</b> : le tracé n’est pas une droite et ne passe pas par l’origine du repère.'}"
-    value: ["${:prop==1 ? 'Oui' : 'Non'}", "${:prop==1 ? 'oui' : 'non'}", "${:prop==1 ? 'O' : 'N'}"]
-  - name: Deux tracés, lequel est proportionnel ?
+    question: Gehört diese Darstellung zu einer proportionalen Zuordnung?
+    answer: "${:prop==1 ? '<b>Ja</b>: Der Graph ist eine Gerade durch den Ursprung.' : :cas==1 ? '<b>Nein</b>: Der Graph ist eine Gerade, sie geht aber nicht durch den Ursprung.' : :cas==2 ? '<b>Nein</b>: Der Graph geht durch den Ursprung, ist aber keine Gerade.' : '<b>Nein</b>: Der Graph ist keine Gerade und geht nicht durch den Ursprung.'}"
+    value: ["${:prop==1 ? '\\text{ja}' : '\\text{nein}'}", "${:prop==1 ? 'ja' : 'nein'}", "${:prop==1 ? 'Ja' : 'Nein'}"]
+  - name: Zwei Graphen vergleichen
     keys: ["1", "2", "_", "_"]
     vars:
       q: [1, 2]
@@ -137,10 +137,10 @@ options:
         - [text, [1.15, 8.5, "(1)"], { fontSize: 16, strokeColor: "#cc0000", anchorY: "middle", fixed: true }]
         - [segment, [[2.4, 8.5], [3.2, 8.5]], { strokeWidth: 3, strokeColor: "#0055aa", dash: 3, fixed: true }]
         - [text, [3.35, 8.5, "(2)"], { fontSize: 16, strokeColor: "#0055aa", anchorY: "middle", fixed: true }]
-    question: Lequel de ces deux tracés correspond à une situation de proportionnalité ?
-    answer: "C’est le tracé <b>(:q)</b> : c’est une droite qui passe par l’origine du repère."
+    question: Welcher der beiden Graphen gehört zu einer proportionalen Zuordnung?
+    answer: "Es ist der Graph <b>(:q)</b>: Er ist eine Gerade durch den Ursprung."
     value: ["${:q}", "(${:q})"]
-  - name: Une situation concrète
+  - name: Sachsituation
     vars:
       prop: [0, 1]
       cas: "1_2"
@@ -159,10 +159,10 @@ options:
         - [functiongraph, "${:f}", { strokeWidth: 3, strokeColor: "#0055aa" }]
         - [text, [2.8, -0.75, "${:contextes[:n][0]}"], { fontSize: 14, anchorX: "middle", anchorY: "bottom", fixed: true }]
         - [text, [0.3, 8.5, "${:contextes[:n][1]}"], { fontSize: 14, fixed: true }]
-    question: "D’après ce graphique : ${:contextes[:n][2]}"
-    answer: "${:prop==1 ? '<b>Oui</b> : le tracé est une droite qui passe par l’origine du repère.' : :cas==1 ? '<b>Non</b> : le tracé est une droite, mais elle ne passe pas par l’origine du repère.' : '<b>Non</b> : le tracé n’est pas une droite.'}"
-    value: ["${:prop==1 ? 'Oui' : 'Non'}", "${:prop==1 ? 'oui' : 'non'}", "${:prop==1 ? 'O' : 'N'}"]
-  - name: Lecture graphique dans une situation de proportionnalité
+    question: "Nutze den Graphen: ${:contextes[:n][2]}"
+    answer: "${:prop==1 ? '<b>Ja</b>: Der Graph ist eine Gerade durch den Ursprung.' : :cas==1 ? '<b>Nein</b>: Der Graph ist eine Gerade, sie geht aber nicht durch den Ursprung.' : '<b>Nein</b>: Der Graph ist keine Gerade.'}"
+    value: ["${:prop==1 ? '\\text{ja}' : '\\text{nein}'}", "${:prop==1 ? 'ja' : 'nein'}", "${:prop==1 ? 'Ja' : 'Nein'}"]
+  - name: Werte am Graphen einer proportionalen Zuordnung ablesen
     keys: ["_", "_", "_", "_"]
     vars:
       a0: [0.5, 1, 1.5, 2]
@@ -197,6 +197,6 @@ options:
         - [segment, [["${:xq}", 0], ["${:xq}", "${:yq}"]], { strokeWidth: 2, strokeColor: "#cc0000", dash: 3, fixed: true }]
         - [segment, [[0, "${:yq}"], ["${:xq}", "${:yq}"]], { strokeWidth: 2, strokeColor: "#cc0000", dash: 3, fixed: true }]
         - [point, ["${:xq}", "${:yq}"], { face: "x", size: 4, strokeWidth: 2, strokeColor: "#cc0000", withLabel: false, fixed: true }]
-    question: "${:sens==0 ? :lectures[:n][2]+' '+:xq+' '+:lectures[:n][3]+' ?' : :lectures[:n][4]+' '+:yq+' '+:lectures[:n][5]+' ?'}"
-    answer: "${:sens==0 ? 'On lit <b>'+:yq+' '+:lectures[:n][5]+'</b> sur l’axe vertical.' : 'On lit <b>'+:xq+' '+:lectures[:n][3]+'</b> sur l’axe horizontal.'}"
+    question: "${:sens==0 ? :lectures[:n][2]+' '+:xq+' '+:lectures[:n][3]+'?' : :lectures[:n][4]+' '+:yq+' '+:lectures[:n][5]+'?'}"
+    answer: "${:sens==0 ? 'An der senkrechten Achse liest man <b>'+:yq+' '+:lectures[:n][5]+'</b> ab.' : 'An der waagerechten Achse liest man <b>'+:xq+' '+:lectures[:n][3]+'</b> ab.'}"
     value: ["${:sens==0 ? :yq : :xq}", "${:sens==0 ? :yq+' '+:lectures[:n][5] : :xq+' '+:lectures[:n][3]}"]

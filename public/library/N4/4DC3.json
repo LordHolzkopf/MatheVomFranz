@@ -1,6 +1,6 @@
 {
-    "title":"Compléter un calcul de pourcentage",
-    "description":"Retrouver le résultat, le pourcentage ou la quantité totale manquant dans un calcul de pourcentage, sous forme usuelle ou fractionnaire.",
+    "title":"Prozentrechnung ergänzen",
+    "description":"Prozentwert, Prozentsatz oder Grundwert berechnen, Prozentrechnung, Prozent von, Anteil, Bruchschreibweise p/100, Hundertstel",
     "ID":"4DC3",
     "dest":["7CA", "5FD", "6AD"],
     "vars":{
@@ -10,29 +10,29 @@
         "r":"${Math.round(:p*:n/100)}"
     },
     "options":[{
-        "name":"Trouver le résultat (pourcentages usuels)",
-        "question":"${:p}\\%\\text{ de }${:n} = \\, ?",
+        "name":"Prozentwert berechnen (gängige Prozentsätze)",
+        "question":"${:p}\\%\\text{ von }${:n} = \\, ?",
         "answer":"\\dfrac{${:p}}{100}\\times${:n}=\\color{red}{${:r}}",
         "value":"${:r}"
     },{
-        "name":"Trouver le pourcentage",
-        "question":"?\\,\\%\\text{ de }${:n} = ${:r}",
+        "name":"Prozentsatz berechnen",
+        "question":"?\\,\\%\\text{ von }${:n} = ${:r}",
         "answer":":question\\\\\\dfrac{${:r}\\times100}{${:n}}=\\color{red}{${:p}}",
         "value":"${:p}"
     },{
-        "name":"Trouver la quantité totale",
-        "question":"${:p}\\%\\text{ de }\\, ? = ${:r}",
+        "name":"Grundwert berechnen",
+        "question":"${:p}\\%\\text{ von }\\, ? = ${:r}",
         "answer":":question\\\\\\dfrac{${:r}\\times100}{${:p}}=\\color{red}{${:n}}",
         "value":"${:n}"
     },{
-        "name":"Écriture fractionnaire : trouver le pourcentage",
+        "name":"Bruchschreibweise: Prozentsatz berechnen",
         "question":"${:r} = \\dfrac{?}{100}\\times${:n}",
-        "answer":":question\\\\${:r}=\\dfrac{${:p}}{100}\\times${:n}\\text{, donc }?=\\color{red}{${:p}}",
+        "answer":":question\\\\${:r}=\\dfrac{${:p}}{100}\\times${:n}\\text{, also }?=\\color{red}{${:p}}",
         "value":"${:p}"
     },{
-        "name":"Écriture fractionnaire : trouver la quantité totale",
+        "name":"Bruchschreibweise: Grundwert berechnen",
         "question":"${:r} = \\dfrac{${:p}}{100}\\times \\, ?",
-        "answer":"${:r}=\\dfrac{${:p}}{100}\\times${:n}\\\\\\text{donc }?=\\color{red}{${:n}}",
+        "answer":"${:r}=\\dfrac{${:p}}{100}\\times${:n}\\\\\\text{also }?=\\color{red}{${:n}}",
         "value":"${:n}"
     }]
 }

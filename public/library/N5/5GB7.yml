@@ -1,5 +1,5 @@
-title: Déterminer si des points sont alignés à l’aide des angles
-description: Adjacents, supplémentaires
+title: Mit Winkeln prüfen, ob Punkte auf einer Geraden liegen
+description: gestreckter Winkel, Winkel ergänzen sich zu 180°, Nebenwinkel, benachbarte Winkel addieren, liegen drei Punkte auf einer Geraden, ja oder nein
 dest: [7EA]
 type: text
 repeat: 2
@@ -21,7 +21,7 @@ consts:
       indigo,
       olive,
       violet,
-      navy
+      navy,
       orangered,
       teal,
       tomato,
@@ -32,7 +32,8 @@ vars:
   prop: [true, false]
   cc: "0_${:colors.length-1}_3_^&"
 options:
-  - name: Deux angles adjacents
+  - name: Zwei benachbarte Winkel
+    keys: ["o", "n", "_", "_"]
     vars:
       pts: "0_${:noms.length-1}_4_^&"
       A: ${:noms[:pts[0]]}
@@ -46,9 +47,9 @@ options:
       delta: "${:prop?0:'-5_5_^0'}"
       mes2: "${180+:delta-:ang2ad1}"
 
-    question: Les points :A, :O et :C sont-ils alignés ?
-    answer: $$:mes1° + :mes2° = ${:mes1+:mes2}° $$ donc les points <span class="red">${:prop?'sont':' ne sont pas '} alignés</span>.
-    value: ${:prop?'Oui':'Non'}
+    question: "Liegen die Punkte :A, :O und :C auf einer Geraden?"
+    answer: "$$:mes1° + :mes2° = ${:mes1+:mes2}°$$, also liegen die Punkte <span class='red'>${:prop?'':'nicht '}auf einer Geraden</span>${:prop?' (gestreckter Winkel)':''}."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
     figure:
       type: graph
       boundingbox: [-5, 5, 5, -5]
@@ -158,7 +159,8 @@ options:
               visible: true,
             },
           ]
-  - name: Trois angles adjacents
+  - name: Drei benachbarte Winkel
+    keys: ["o", "n", "_", "_"]
     vars:
       pts: "0_${:noms.length-1}_5_^&"
       A: ${:noms[:pts[0]]}
@@ -177,9 +179,9 @@ options:
       delta: "${:prop?0:'-5_5_^0'}"
       mes3: "${:ang4ad3+:delta}"
 
-    question: Les points :A, :O et :D sont-ils alignés ?
-    answer: $$:mes1° + :mes2° + :mes3° = ${:mes1+:mes2+:mes3}° $$ donc les points <span class="red">${:prop?'sont':' ne sont pas '} alignés</span>.
-    value: ${:prop?'Oui':'Non'}
+    question: "Liegen die Punkte :A, :O und :D auf einer Geraden?"
+    answer: "$$:mes1° + :mes2° + :mes3° = ${:mes1+:mes2+:mes3}°$$, also liegen die Punkte <span class='red'>${:prop?'':'nicht '}auf einer Geraden</span>${:prop?' (gestreckter Winkel)':''}."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
     figure:
       type: graph
       boundingbox: [-5, 6, 5, -4]

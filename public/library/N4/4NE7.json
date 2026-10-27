@@ -1,6 +1,6 @@
 {
-    "title":"Résoudre une équation de type a ± x = b",
-    "description":"équation, résoudre, inconnue, solution, premier degré",
+    "title":"Gleichungen der Form a ± x = b lösen",
+    "description":"Gleichung lösen, lineare Gleichung, Variable, Lösung, Äquivalenzumformung",
     "type":"latex",
     "ID":"4NE7",
     "textSize":"medium",
@@ -8,28 +8,28 @@
     "keys":["_","_","/","-","_","_","_","_"],
     "consts":{"lettres":["u","v","t","x", "y", "z"]},
     "options":[{
-        "name":"a ± x = b, a et b entiers",
+        "name":"a ± x = b, ganze Zahlen",
         "vars":{"a":"1_99","b":"-99_99", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": ["\\text{Résoudre } ${:a}+${:x}=${:b}","\\text{Résoudre } ${:a}-${:x}=${:b}"],
-        "answer":["${:a}+${:x}=${:b} \\text{ pour } \\color{red}{${:x}=${:b-:a}}","${:a}-${:x}=${:b} \\text{ pour } \\color{red}{${:x}=${:a-:b}}"],
+        "question": ["\\text{Löse } ${:a}+${:x}=${:b}","\\text{Löse } ${:a}-${:x}=${:b}"],
+        "answer":["${:a}+${:x}=${:b} \\text{ gilt für } \\color{red}{${:x}=${:b-:a}}","${:a}-${:x}=${:b} \\text{ gilt für } \\color{red}{${:x}=${:a-:b}}"],
         "value":["${:b-:a}","${:a-:b}"]
     },{
-        "name":"x ± a = b, a et b décimaux",
+        "name":"a ± x = b, Dezimalzahlen",
         "vars":{"a":"d0.1_10_1","b":"d-10_10_1", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": ["\\text{Résoudre } ${:a}+${:x}=${:b}","\\text{Résoudre } ${:a}-${:x}=${:b}"],
-        "answer":["${:a}+${:x}=${:b} \\text{ pour } \\color{red}{${:x}=${MMmath.round(:b-:a,1)}}","${:a}-${:x}=${:b} \\text{ pour } \\color{red}{${:x}=${MMmath.round(:a-:b,1)}}"],
+        "question": ["\\text{Löse } ${:a}+${:x}=${:b}","\\text{Löse } ${:a}-${:x}=${:b}"],
+        "answer":["${:a}+${:x}=${:b} \\text{ gilt für } \\color{red}{${:x}=${MMmath.round(:b-:a,1)}}","${:a}-${:x}=${:b} \\text{ gilt für } \\color{red}{${:x}=${MMmath.round(:a-:b,1)}}"],
         "value":["${MMmath.round(:b-:a,1)}","${MMmath.round(:a-:b,1)}"]
     },{
-        "name":"a ± x = b, a et b fractions",
+        "name":"a ± x = b, Brüche",
         "vars":{"n":"1_12_2","d":"2_12_2", "f1":"${MMmath.fractionSimplifiee(:n[0],:d[0])}", "f2":"${MMmath.fractionSimplifiee(:n[1],:d[1])}", "l":"0_5","x":"${:lettres[:l]}"},
-        "question":["\\text{Résoudre } ${:f1}+${:x}=${:f2}","\\text{Résoudre } ${:f1}-${:x}=${:f2}"],
-        "answer":["${:f1}+${:x}=${:f2} \\text{ pour } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}}", "${:f1}-${:x}=${:f2} \\text{ pour } \\color{red}{${:x}=${MMmath.calc(:n[0]+'/'+:d[0]+'-'+:n[1]+'/'+:d[1])}}"],
+        "question":["\\text{Löse } ${:f1}+${:x}=${:f2}","\\text{Löse } ${:f1}-${:x}=${:f2}"],
+        "answer":["${:f1}+${:x}=${:f2} \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}}", "${:f1}-${:x}=${:f2} \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc(:n[0]+'/'+:d[0]+'-'+:n[1]+'/'+:d[1])}}"],
         "value":["${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}","${MMmath.calc(:n[0]+'/'+:d[0]+'-'+:n[1]+'/'+:d[1])}"]
     },{
-        "name":"x ± a = b, a et b fractions",
+        "name":"x ± a = b, Brüche",
         "vars":{"n":"1_12_2","d":"2_12_2", "f1":"${MMmath.fractionSimplifiee(:n[0],:d[0])}", "f2":"${MMmath.fractionSimplifiee(:n[1],:d[1])}", "l":"0_5","x":"${:lettres[:l]}"},
-        "question":["\\text{Résoudre } ${:x}+${:f1}=${:f2}","\\text{Résoudre } ${:x}-${:f1}=${:f2}"],
-        "answer":["${:x}+${:f1}=${:f2} \\text{ pour } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}}", "${:x}-${:f1}=${:f2} \\text{ pour } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'+'+:n[0]+'/'+:d[0])}}"],
+        "question":["\\text{Löse } ${:x}+${:f1}=${:f2}","\\text{Löse } ${:x}-${:f1}=${:f2}"],
+        "answer":["${:x}+${:f1}=${:f2} \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}}", "${:x}-${:f1}=${:f2} \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc(:n[1]+'/'+:d[1]+'+'+:n[0]+'/'+:d[0])}}"],
         "value":["${MMmath.calc(:n[1]+'/'+:d[1]+'-'+:n[0]+'/'+:d[0])}","${MMmath.calc(:n[1]+'/'+:d[1]+'+'+:n[0]+'/'+:d[0])}"]
     }]
 }

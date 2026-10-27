@@ -1,6 +1,6 @@
 {
-    "title":"Opposé d'une expression littérale (supprimer les parenthèses)",
-    "description":"Trouver l'opposé d'une expression algébrique entre parenthèses.",
+    "title":"Minusklammern auflösen (Gegenterm bilden)",
+    "description":"Klammern auflösen, Minusklammer, Plusklammer, Vorzeichen umkehren, Gegenterm eines Terms in Klammern, Terme vereinfachen",
     "type":"latex",
     "ID":"3ND3",
     "dest":["7DC", "7DB"],
@@ -8,15 +8,15 @@
     "textSize":"medium",
     "keys":["-","+","a","b","c","x","y","z"],
     "consts":{"lettres":["a","b","c","x","y","z"]},
-    "consigne":"Développer et réduire",
+    "consigne":"Löse die Klammern auf und fasse zusammen.",
     "options":[{
-        "name":"Opposé d'une expression",
+        "name":"Gegenterm (Minus vor der Klammer)",
         "vars":{"a":"-9_9_2_^0","l":"0_5","x":"${:lettres[:l]}","posx":"0_1","s":"${:a[0]+:a[1]}","sx":"${:a[:posx]}"},
         "question": "-(${(:posx==0)?MMmath.signIfOne(:a[0])+:x::a[0]}${(:posx==1)?MMmath.signedNumberButOne(:a[1])+:x:MMmath.signedNumber(:a[1])})",
         "answer":":question=\\color{red}{${(:posx==0)?MMmath.signIfOne(-:a[0])+:x:-:a[0]}${(:posx==1)?MMmath.signedNumberButOne(-:a[1])+:x:MMmath.signedNumber(-:a[1])}}",
         "value":"${(:posx==0)?MMmath.signIfOne(-:a[0])+:x:-:a[0]}${(:posx==1)?MMmath.signedNumberButOne(-:a[1])+:x:MMmath.signedNumber(-:a[1])}"
     },{
-        "name":"Supprimer les parenthèses(1)",
+        "name":"Klammern auflösen (1)",
         "vars":{"a":"-9_9_3_^0","l":"0_5","x":"${:lettres[:l]}","posx":"1_2","s":"${:a[0]+:a[1]+:a[2]}","sx":"${:a[0]+:a[:posx]}","smx":"${:a[0]-:a[:posx]}"},
         "question":["${MMmath.signIfOne(:a[0])}${:x}-(${(:posx==1)?MMmath.signIfOne(:a[1])+:x::a[1]}${(:posx==2)?MMmath.signedNumberButOne(:a[2])+:x:MMmath.signedNumber(:a[2])})","${MMmath.signIfOne(:a[0])}${:x}+(${(:posx==1)?MMmath.signIfOne(:a[1])+:x::a[1]}${(:posx==2)?MMmath.signedNumberButOne(:a[2])+:x:MMmath.signedNumber(:a[2])})"],
         "answer":[":question=\\color{red}{${MMmath.signIfOne(:a[0])}${:x}${(:posx==1)?MMmath.signedNumberButOne(-:a[1])+:x:MMmath.signedNumber(-:a[1])}${(:posx==2)?MMmath.signedNumberButOne(-:a[2])+:x:MMmath.signedNumber(-:a[2])}}=\\color{green}{${:smx!=0?MMmath.signIfOne(:smx)+:x:''}${MMmath.signedNumber(-:a[:posx==1?2:1])}}",
@@ -24,7 +24,7 @@
         "value":["${:smx!=0?MMmath.signIfOne(:smx)+:x:''}${MMmath.signedNumber(-:a[:posx==1?2:1])}",
             "${:sx!=0?MMmath.signIfOne(:sx)+:x:''}${MMmath.signedNumber(:a[:posx==1?2:1])}"]
     },{
-        "name":"Supprimer les parenthèses(2)",
+        "name":"Klammern auflösen (2)",
         "vars":{"a":"-9_9_4_^0","l":"0_5","x":"${:lettres[:l]}", "cmx":"${:a[0]-:a[2]}", "cpx":"${-:a[0]+:a[2]}","cmmx":"${-:a[0]-:a[2]}","cm":"${:a[1]-:a[3]}", "cp":"${-:a[1]+:a[3]}","cmm":"${-:a[1]-:a[3]}"},
         "question":[
             "(${MMmath.signIfOne(:a[0])+:x+MMmath.signedNumber(:a[1])})-(${MMmath.signIfOne(:a[2])+:x+MMmath.signedNumber(:a[3])})",

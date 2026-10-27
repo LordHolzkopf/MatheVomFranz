@@ -1,12 +1,12 @@
 {
-    "title":"Aires et périmètres des figures usuelles en fonction d'une inconnue",
+    "title":"Umfang und Flächeninhalt als Term mit x angeben",
     "type":"text",
     "ID":"5MA1",
-    "description":"Périmètre et aire en fonction de x : expression littérale, calcul littéral, figures usuelles. Non adapté au mode interactif (online/duel).",
+    "description":"Umfang und Flächeninhalt von Rechteck und Quadrat als Term mit der Variablen x aufstellen, Terme aufstellen, Variable. Nicht für den Online-Modus (online/Duell) geeignet.",
     "textSize":"small",
     "dest":["7DA"],
     "options":[{
-        "name":"Périmètre en fonction de $$x$$",
+        "name":"Umfang als Term mit $$x$$",
         "vars":{"a":"2_6","sor":"0_1","b":"${:sor==0?8:(:a+1)+'_11'}", "px":"0_1"},
         "figure":{
             "type":"graph","axis":false,"boundingbox":[0,10,15,0],
@@ -30,12 +30,12 @@
                 ["text", ["${:b/2+0.6}",2,"//"],{"visible":"${:sor==1?0:1}"}],
                 ["text", ["${:b}",5,"//"],{"rotate":90,"visible":"${:sor==1?0:1}"}]
             ]},
-        "shortq":"Périmètre ?",
-        "question": "Exprime en fonction de $$x$$ le périmètre de cette figure.",
-        "answer":"$$p=\\color{red}{${:sor==1?'2x+'+2*:a:'4\\times x'}}${:sor==0?'=4x':''}$$",
+        "shortq":"Umfang?",
+        "question": "Gib den Umfang dieser Figur als Term mit $$x$$ an.",
+        "answer":"$$u=\\color{red}{${:sor==1?'2x+'+2*:a:'4\\times x'}}${:sor==0?'=4x':''}$$",
         "value":"${:sor==1?'2x+'+2*:a:'4\\times x'}"
     },{
-        "name":"Aire en fonction de $$x$$",
+        "name":"Flächeninhalt als Term mit $$x$$",
         "vars":{"a":"2_6","sor":"0_1","b":"${:sor==0?8:(:a+1)+'_11'}", "px":"0_1"},
         "figure":{
             "type":"graph",
@@ -60,8 +60,8 @@
                 ["text", ["${:b/2+0.6}",2,"//"],{"visible":"${:sor==1?0:1}"}],
                 ["text", ["${:b}",5,"//"],{"rotate":90,"visible":"${:sor==1?0:1}"}]
             ]},
-        "shortq":"Aire ?",
-        "question": "Exprime en fonction de $$x$$ l'aire de cette figure.",
+        "shortq":"Flächeninhalt?",
+        "question": "Gib den Flächeninhalt dieser Figur als Term mit $$x$$ an.",
         "answer":"$$A=\\color{red}{${:sor==1?:a+'\\times x':'x\\times x'}}=${:sor==1?:a+'x':'x^2'}$$",
         "value":"${:sor==1?:a+'x':'x^2'}"
     }]

@@ -1,5 +1,5 @@
-title: Relation entre deux angles formés par des droites concourantes
-description: Adjacents, supplémentaires, opposés par le sommet
+title: Nebenwinkel und Scheitelwinkel erkennen
+description: Winkel an Geradenkreuzungen, Winkelbeziehungen erkennen, benachbarte Winkel, Nebenwinkel (ergänzen sich zu 180°), Scheitelwinkel, keine Beziehung
 dest: [7EA]
 type: text
 repeat: 2
@@ -22,7 +22,7 @@ consts:
       olive,
       pink,
       violet,
-      navy
+      navy,
       orangered,
       teal,
       tomato,
@@ -32,7 +32,8 @@ vars:
   prop: [true, false]
   cc: "0_${:colors.length-1}_8_^&"
 options:
-  - name: Des droites concourantes, angles adjacents
+  - name: Benachbarte Winkel erkennen
+    keys: ["o", "n", "_", "_"]
     consts:
       adj: [[1, 2], [2, 5], [5, 7], [7, 8], [4, 6]]
     vars:
@@ -47,10 +48,11 @@ options:
       ang3ad1: "2_${:ang2ad1-2}"
       angd3: ${:ang3ad1*10 + :angd1}
 
-    question: Les angles marqués sont-ils adjacents ?
-    answer: ${:prop?'Oui':'Non'}, les angles ${:prop?'sont':' ne sont pas '} <b>adjacents</b>.
-    value: ${:prop?'Oui':'Non'}
-  - name: Des droites concourantes, angles supplémentaires
+    question: "Sind die markierten Winkel benachbart?<br><i>Benachbarte Winkel haben einen gemeinsamen Scheitel und einen gemeinsamen Schenkel und überlappen sich nicht.</i>"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'nicht '}benachbart</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Nebenwinkel erkennen
+    keys: ["o", "n", "_", "_"]
     consts:
       supp: [[1, 4], [3, 5], [4, 7], [5, 6]]
     vars:
@@ -65,10 +67,11 @@ options:
       ang3ad1: "2_${:ang2ad1-2}"
       angd3: ${:ang3ad1*10 + :angd1}
 
-    question: Les angles marqués sont-ils supplémentaires ?
-    answer: ${:prop?'Oui':'Non'}, les angles ${:prop?'sont':' ne sont pas '} <b>supplémentaires</b>.
-    value: ${:prop?'Oui':'Non'}
-  - name: Des droites concourantes, angles opposés par le sommet
+    question: "Sind die markierten Winkel Nebenwinkel?<br><i>Nebenwinkel liegen nebeneinander und ergänzen sich zu 180°.</i>"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'keine '}Nebenwinkel</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Scheitelwinkel erkennen
+    keys: ["o", "n", "_", "_"]
     consts:
       opp: [[1, 7], [3, 6], [2, 8]]
     vars:
@@ -83,10 +86,11 @@ options:
       ang3ad1: "2_${:ang2ad1-2}"
       angd3: ${:ang3ad1*10 + :angd1}
 
-    question: Les angles marqués sont-ils opposés par le sommet ?
-    answer: ${:prop?'Oui':'Non'}, les angles ${:prop?'sont':' ne sont pas '} <b>opposés par le sommet</b>.
-    value: ${:prop?'Oui':'Non'}
-  - name: Des droites concourantes, trouver le vocabulaire
+    question: "Sind die markierten Winkel Scheitelwinkel?<br><i>Scheitelwinkel liegen sich an einem Schnittpunkt zweier Geraden gegenüber.</i>"
+    answer: "${:prop?'Ja':'Nein'}, die markierten Winkel sind <b>${:prop?'':'keine '}Scheitelwinkel</b>."
+    value: ["${:prop?'\\text{ja}':'\\text{nein}'}", "${:prop?'ja':'nein'}"]
+  - name: Beziehung benennen
+    keys: ["ad&sup", "opps", "ssln", "_"]
     consts:
       adj: [[1, 2], [2, 5], [5, 7], [7, 8], [4, 6]]
       supp: [[1, 4], [3, 5], [4, 7], [5, 6]]
@@ -104,9 +108,9 @@ options:
       ang3ad1: "2_${:ang2ad1-2}"
       angd3: ${:ang3ad1*10 + :angd1}
 
-    question: Les angles marqués sont-ils adjacents, supplémentaires, opposés par le sommet ou sans lien ?
-    answer: les angles sont <b>${:chx==0?'adjacents'::chx==1?'supplémentaires'::chx==2?'opposés par le sommet':'sans lien'}</b>.
-    value: ${:chx==0?'adjacents'::chx==1?'supplémentaires'::chx==2?'opposés par le sommet':'sans lien'}
+    question: "Welche Beziehung besteht zwischen den markierten Winkeln?<br><i>Wähle: benachbart, Nebenwinkel, Scheitelwinkel oder keine Beziehung.</i>"
+    answer: "Die markierten Winkel ${:chx==0?'sind <b>benachbart</b>'::chx==1?'sind <b>Nebenwinkel</b>'::chx==2?'sind <b>Scheitelwinkel</b>':'haben <b>keine Beziehung</b> zueinander'}."
+    value: ["${:chx==0?'\\text{benachbart}'::chx==1?'\\text{Nebenwinkel}'::chx==2?'\\text{Scheitelwinkel}':'\\text{keine Beziehung}'}", "${:chx==0?'benachbart'::chx==1?'Nebenwinkel'::chx==2?'Scheitelwinkel':'keine Beziehung'}"]
 figure:
   type: graph
   boundingbox: [-5, 5, 5, -5]

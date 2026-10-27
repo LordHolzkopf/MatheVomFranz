@@ -1,6 +1,6 @@
 {
-    "title":"Résoudre une équation du premier degré",
-    "description":"équation, résoudre, inconnue, solution, premier degré",
+    "title":"Lineare Gleichungen lösen",
+    "description":"Gleichung lösen, lineare Gleichung, Variable, Lösung, Äquivalenzumformung",
     "type":"latex",
     "ID":"4NE9",
     "dest":["7DD"],
@@ -10,23 +10,23 @@
     "options":[{
         "name":"ax + b = 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=0",
+        "question": "\\text{Löse } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=0",
         "shortq":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=0",
-        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=0 \\text{ pour } \\color{red}{${:x}=${MMmath.calc('-('+:b+')/('+:a+')')}}",
+        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=0 \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc('-('+:b+')/('+:a+')')}}",
         "value":"${MMmath.calc('-('+:b+')/('+:a+')')}"
     },{
         "name":"ax + b = c",
         "vars":{"a":"-10_10_^0","b":"-10_10", "c":"-10_10_^0", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${:c}",
+        "question": "\\text{Löse } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${:c}",
         "shortq":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${:c}",
-        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${:c} \\text{ pour } \\color{red}{${:x}=${MMmath.calc('('+:c+'-('+:b+'))/('+:a+')')}}",
+        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${:c} \\text{ gilt für } \\color{red}{${:x}=${MMmath.calc('('+:c+'-('+:b+'))/('+:a+')')}}",
         "value":"${MMmath.calc('('+:c+'-('+:b+'))/('+:a+')')}"
     },{
         "name":"ax + b = cx + d",
         "vars":{"a":"-10_10_^0","b":"-10_10", "c":"-10_10_^0", "d":"-10_10", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
+        "question": "\\text{Löse } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
         "shortq":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
-        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)} \\text{ pour } \\color{red}{${:a-:c==0?'\\text{pas de solution}'::x+'='+MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}}",
-        "value":"${:a-:c==0?'pas de solution':MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}"
+        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)} \\text{ gilt für } \\color{red}{${:a-:c==0?(:b==:d?'\\text{alle Zahlen}':'\\text{keine Zahl}')::x+'='+MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}}",
+        "value":"${:a-:c==0?(:b==:d?'alle Zahlen':'keine Lösung'):MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}"
     }]
 }

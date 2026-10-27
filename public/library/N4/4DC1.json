@@ -1,47 +1,47 @@
 {
-    "title":"Calculer une 4e proportionnelle (calculatrice)",
+    "title":"Fehlenden Wert proportional ergänzen (Taschenrechner)",
     "ID":"4DC1",
-    "description":"quatrième proportionnelle, produit en croix, règle de trois, tableau, proportionnalité",
+    "description":"Dreisatz, Verhältnisgleichung, proportionale Zuordnung, Wertetabelle, fehlenden Wert berechnen, Quotientengleichheit, Taschenrechner",
     "dest":["7BD", "7BB"],
     "type":"text",
     "vars":{"a":"1_50_2_^&", "b":"d0.2_3_1_^1"},
     "options":[{
-        "name":"Dans un tableau (1)",
+        "name":"In einer Tabelle (1)",
         "question": "<table class='inline-table'><tr><td>:a[0]</td><td>:a[1]</td></tr><tr><td>${MMmath.round(:a[0]*:b,3)}</td><td>?</td></tr></table>",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[0]*:b,3)}\\times:a[1]}{:a[0]}=\\color{red}{${MMmath.round(:a[1]*:b,3)}}$$",
         "value":"${MMmath.round(:a[1]*:b,3)}"
     },{
-        "name":"Dans un tableau (2)",
+        "name":"In einer Tabelle (2)",
         "question":"<table class='inline-table'><tr><td>:a[0]</td><td>:a[1]</td></tr><tr><td>?</td><td>${MMmath.round(:a[1]*:b,3)}</td></tr></table>",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[1]*:b,3)}\\times:a[0]}{:a[1]}=\\color{red}{${MMmath.round(:a[0]*:b,3)}}$$",
         "value":"${MMmath.round(:a[0]*:b,3)}"
     },{
-        "name":"Dans un tableau (3)",
+        "name":"In einer Tabelle (3)",
         "question":"<table class='inline-table'><tr><td>?</td><td>:a[1]</td></tr><tr><td>${MMmath.round(:a[0]*:b,3)}</td><td>${MMmath.round(:a[1]*:b,3)}</td></tr></table>",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[0]*:b,3)}\\times:a[1]}{${MMmath.round(:a[1]*:b,3)}}=\\color{red}{:a[0]}$$",
         "value":":a[0]"
     },{
-        "name":"Dans un tableau (4)",
+        "name":"In einer Tabelle (4)",
         "question":"<table class='inline-table'><tr><td>:a[0]</td><td>?</td></tr><tr><td>${MMmath.round(:a[0]*:b,3)}</td><td>${MMmath.round(:a[1]*:b,3)}</td></tr></table>",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[1]*:b,3)}\\times:a[0]}{${MMmath.round(:a[0]*:b,3)}}=\\color{red}{:a[1]}$$",
         "value":":a[1]"
     }, {
-        "name":"Dans une égalité de fractions",
+        "name":"In einer Verhältnisgleichung (1)",
         "question":"$$\\dfrac{:a[0]}{${MMmath.round(:a[0]*:b,3)}} = \\dfrac{:a[1]}{?}$$",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[0]*:b,3)}\\times:a[1]}{:a[0]}=\\color{red}{${MMmath.round(:a[1]*:b,3)}}$$",
         "value":"${MMmath.round(:a[1]*:b,3)}"
     },{
-        "name":"Dans une égalité de fractions (2)",
+        "name":"In einer Verhältnisgleichung (2)",
         "question":"$$\\dfrac{:a[0]}{?} = \\dfrac{:a[1]}{${MMmath.round(:a[1]*:b,3)}}$$",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[1]*:b,3)}\\times:a[0]}{:a[1]}=\\color{red}{${MMmath.round(:a[0]*:b,3)}}$$",
         "value":"${MMmath.round(:a[0]*:b,3)}"
     },{
-        "name":"Dans une égalité de fractions (3)",
+        "name":"In einer Verhältnisgleichung (3)",
         "question":"$$\\dfrac{:a[0]}{${MMmath.round(:a[0]*:b,3)}} = \\dfrac{?}{${MMmath.round(:a[1]*:b,3)}}$$",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[1]*:b,3)}\\times:a[0]}{${MMmath.round(:a[0]*:b,3)}}=\\color{red}{:a[1]}$$",
         "value":":a[1]"
     },{
-        "name":"Dans une égalité de fractions (4)",
+        "name":"In einer Verhältnisgleichung (4)",
         "question":"$$\\dfrac{?}{${MMmath.round(:a[0]*:b,3)}} = \\dfrac{:a[1]}{${MMmath.round(:a[1]*:b,3)}}$$",
         "answer":":question$$\\quad\\dfrac{${MMmath.round(:a[0]*:b,3)}\\times:a[1]}{${MMmath.round(:a[1]*:b,3)}}=\\color{red}{:a[0]}$$",
         "value":":a[0]"

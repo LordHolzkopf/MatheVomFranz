@@ -1,14 +1,14 @@
 {
-    "title":"Puissance de relatif",
-    "description":"Donner l'écriture décimale d'une puissance, attention aux parenthèses !",
+    "title":"Potenzen ganzer Zahlen berechnen",
+    "description":"Potenz berechnen, Quadratzahl, Kubikzahl, negative Basis, Vorzeichen, Klammern beachten: (-3)² oder -3²",
     "type":"latex",
     "ID":"4NA6",
     "dest":["7AD", "5CC"],
     "options":[{
-        "name":"Nombres positifs",
+        "name":"Positive Basis",
         "vars":{"a":"0_10","p":"2_${:a<6||:a==10?3:2}","calc":"${:a+'^'+:p}"}
     },{
-        "name":"Nombres négatifs",
+        "name":"Negative Basis (Klammern beachten)",
         "vars":{"b":"-10_-1","z":"0_1","a":"${:z?:b:'('+:b+')'}",
         "p":"2_${(-:b<6||-:b==10)?3:2}",
         "calc":"${(:z?'-('+(-:b)+')':'('+:b+')')+'^'+:p}"}

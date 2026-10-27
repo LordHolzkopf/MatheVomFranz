@@ -1,42 +1,42 @@
 {
-    "title":"Exprimer une transformation à l'aide de n",
+    "title":"Beschreibungen als Term mit n schreiben",
     "type":"text",
     "ID":"4NE10",
-    "description":"Traduire par une expression littérale : double, triple, moitié, prédécesseur, successeur, carré d'un nombre noté n.",
+    "description":"Term aufstellen, Variable n, Sprache in Term übersetzen: das Doppelte, Dreifache, die Hälfte, Vorgänger, Nachfolger, Quadrat einer Zahl n",
     "dest":["7DA"],
     "keys":["+","-","x²","/","_","_","_","_"],
     "consts":{
-        "multNoms":["double","triple","quadruple"],
-        "multExpr":["2n","3n"],
-        "divNoms":["la moitié","le tiers","le quart"],
+        "multNoms":["das Doppelte","das Dreifache","das Vierfache"],
+        "multExpr":["2n","3n","4n"],
+        "divNoms":["die Hälfte","ein Drittel","ein Viertel"],
         "divExpr":["\\dfrac{n}{2}","\\dfrac{n}{3}", "\\dfrac{n}{4}"],
-        "suiteNoms":["prédécesseur de","successeur de", "nombre suivant", "nombre précédent"],
+        "suiteNoms":["der Vorgänger von","der Nachfolger von", "die nächste Zahl nach", "die Zahl vor"],
         "suiteExpr":["n-1","n+1", "n+1", "n-1"],
-        "puissNoms":["carré", "cube"],
+        "puissNoms":["das Quadrat", "die dritte Potenz"],
         "puissExpr":["n^2", "n^3"]
     },
     "options":[{
-        "name":"Multiple (double, triple, quadruple)",
+        "name":"Vielfaches (Doppeltes, Dreifaches, Vierfaches)",
         "vars":{"i":"0_2"},
-        "question":"Exprimer à l'aide de $$n$$ : « le ${:multNoms[:i]} de $$n$$ ».",
+        "question":"Schreibe als Term mit $$n$$: „${:multNoms[:i]} von $$n$$“.",
         "answer":"$$\\color{red}{${:multExpr[:i]}}$$",
         "value":"${:multExpr[:i]}"
     },{
-        "name":"Fraction (moitié, tiers, quart)",
+        "name":"Bruchteil (Hälfte, Drittel, Viertel)",
         "vars":{"i":"0_2"},
-        "question":"Exprimer à l'aide de $$n$$ : « ${:divNoms[:i]} de $$n$$ ».",
+        "question":"Schreibe als Term mit $$n$$: „${:divNoms[:i]} von $$n$$“.",
         "answer":"$$\\color{red}{${:divExpr[:i]}}$$",
         "value":"${:divExpr[:i]}"
     },{
-        "name":"Suite (prédécesseur, successeur)",
+        "name":"Vorgänger und Nachfolger",
         "vars":{"i":"0_1"},
-        "question":"Exprimer à l'aide de $$n$$ : « le ${:suiteNoms[:i]} $$n$$ ».",
+        "question":"Schreibe als Term mit $$n$$: „${:suiteNoms[:i]} $$n$$“.",
         "answer":"$$\\color{red}{${:suiteExpr[:i]}}$$",
         "value":"${:suiteExpr[:i]}"
     },{
-        "name":"Puissance (carré, cube)",
+        "name":"Potenz (Quadrat, dritte Potenz)",
         "vars":{"i":"0_1"},
-        "question":"Exprimer à l'aide de $$n$$ : « le ${:puissNoms[:i]} de $$n$$ ».",
+        "question":"Schreibe als Term mit $$n$$: „${:puissNoms[:i]} von $$n$$“.",
         "answer":"$$\\color{red}{${:puissExpr[:i]}}$$",
         "value":"${:puissExpr[:i]}"
     }

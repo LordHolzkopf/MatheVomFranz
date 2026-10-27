@@ -1,8 +1,8 @@
 {
     "ID":"5GB1",
     "dest":["7EB"],
-    "title":"Trouver la mesure d'un 3e angle, en degrés.",
-    "description":"Déterminer la mesure d'un angle en degré dans un triangle quelconque",
+    "title":"Dritten Winkel im Dreieck berechnen",
+    "description":"Winkelsumme im Dreieck (180°), fehlenden Innenwinkel berechnen, Winkelgröße in Grad, beliebiges Dreieck",
     "repeat":true,
     "textSize":"small",
     "type":"text",
@@ -18,7 +18,7 @@
         "frad":"${Math.round(100*Math.min(0.9,0.3*:zf*Math.sqrt(Math.min(:AB2,:BC2,:AC2))))/100}"},
     "options":[
         {
-            "name":"Avec figure",
+            "name":"Mit Figur",
             "figure":{
                 "type":"graph",
                 "boundingbox":[-5,5,5,-5],
@@ -33,19 +33,19 @@
                         ["angle", ["${:C}", "${:B}", "${:A}"],{"radius":"${:frad}", "orthoSensitivity":0.5,"name":"${:ABC}°"}]
                     ]
                 },
-            "question":"Quelle est la mesure de l'angle $$\\widehat{${:B+:C+:A}}$$ sachant que $$\\widehat{${:C+:A+:B}}=${:CAB}°$$ et $$\\widehat{${:A+:B+:C}}=${:ABC}°$$ ?",
-            "answer":"L'angle $$\\widehat{${:B+:C+:A}}$$ mesure $$180°-(${:CAB}°+${:ABC}°)=\\color{red}{${:BCA}°}$$"
+            "question":"Wie groß ist der Winkel $$\\widehat{${:B+:C+:A}}$$, wenn $$\\widehat{${:C+:A+:B}}=${:CAB}°$$ und $$\\widehat{${:A+:B+:C}}=${:ABC}°$$ gilt?",
+            "answer":"Winkelsumme im Dreieck: $$\\widehat{${:B+:C+:A}}=180°-(${:CAB}°+${:ABC}°)=\\color{red}{${:BCA}°}$$"
         },{
-            "name":"Version courte",
+            "name":"Kurzform",
             "question":"$$\\widehat{${:A}}=${:CAB}°$$, $$\\widehat{${:B}}=${:ABC}°$$, $$\\widehat{${:C}}$$ = ?",
             "answer":"$$\\widehat{${:C}} = \\color{red}{${:BCA}°}$$"
         },{
-            "name":"Version courte, multiples de 5",
+            "name":"Kurzform, Vielfache von 5",
             "vars":{"pts":"0_16_3_^&","A":"${:points[:pts[0]]}","B":"${:points[:pts[1]]}","C":"${:points[:pts[2]]}","xa":"d-4_-2_1", "ya":"d-4_-2_1", "xb":"d2_4_1","yb":"d-3_-2_1", "a":"1_34","b":"1_${35-:a}", "CAB":"${:a*5}","ABC":"${:b*5}", "BCA":"${180-:CAB-:ABC}"},
             "question":"$$\\widehat{${:A}}=${:CAB}°$$, $$\\widehat{${:B}}=${:ABC}°$$, $$\\widehat{${:C}}$$ = ?",
             "answer":"$$\\widehat{${:C}} = \\color{red}{${:BCA}°}$$"
         },{
-            "name":"Avec figure, multiples de 5",
+            "name":"Mit Figur, Vielfache von 5",
             "vars":{"pts":"0_16_3_^&","A":"${:points[:pts[0]]}","B":"${:points[:pts[1]]}","C":"${:points[:pts[2]]}","xa":"d-2_-0.5_1", "ya":"d-4_-2_1", "xb":"d2_4_1","yb":"d-4_-1_1","xc":"d-4_4_1","yc":"1_4", "a":"1_34","b":"1_${35-:a}", "CAB":"${:a*5}","ABC":"${:b*5}", "BCA":"${180-:CAB-:ABC}",
                 "ra":"${Math.round(100*Math.PI*:CAB/180)/100}","rb":"${Math.round(100*Math.PI*:ABC/180)/100}",
                 "dAB":"${Math.sqrt((:xb-:xa)*(:xb-:xa)+(:yb-:ya)*(:yb-:ya))}","tAB":"${Math.atan2(:yb-:ya,:xb-:xa)}",
@@ -77,8 +77,8 @@
                         ["angle", ["${:C}", "${:B}", "${:A}"],{"radius":"${:grad}", "orthoSensitivity":0.5,"name":"${:ABC}°"}]
                     ]
                 },
-            "question":"Quelle est la mesure de l'angle $$\\widehat{${:B+:C+:A}}$$ sachant que $$\\widehat{${:C+:A+:B}}=${:CAB}°$$ et $$\\widehat{${:A+:B+:C}}=${:ABC}°$$ ?",
-            "answer":"L'angle $$\\widehat{${:B+:C+:A}}$$ mesure $$180°-(${:CAB}°+${:ABC}°)=\\color{red}{${:BCA}°}$$"
+            "question":"Wie groß ist der Winkel $$\\widehat{${:B+:C+:A}}$$, wenn $$\\widehat{${:C+:A+:B}}=${:CAB}°$$ und $$\\widehat{${:A+:B+:C}}=${:ABC}°$$ gilt?",
+            "answer":"Winkelsumme im Dreieck: $$\\widehat{${:B+:C+:A}}=180°-(${:CAB}°+${:ABC}°)=\\color{red}{${:BCA}°}$$"
         }
     ],
     "value":["${:BCA}°","${:BCA}"]

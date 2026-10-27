@@ -1,68 +1,68 @@
 {
-    "title":"Leçon : Proportionnalité",
+    "title":"Wissen: Proportionale Zuordnungen",
     "type":"text",
     "ID":"5LN3",
-    "description":"18 questions sur la proportionnalité entre grandeurs : coefficient, tableau, méthodes, applications. Non adapté au mode interactif (online/duel).",
+    "description":"18 Wissensfragen zu proportionalen Zuordnungen: Größen, Proportionalitätsfaktor, Wertetabelle, Quotientengleichheit, Dreisatz, Graph (Ursprungsgerade), Maßstab, Verhältnis, Prozent. Nicht für den Online-Modus (online/Duell) geeignet.",
     "dest":["7BB", "7BD", "5DE"],
     "options":[{
-        "name":"Notion de grandeur",
+        "name":"Größen und Einheiten",
         "question": [
-            "Qu’est-ce qu’une grandeur ?",
-            "Qu'est-ce qu'une unité de grandeur ?"
+            "Was ist eine Größe?",
+            "Was ist eine Einheit?"
     ],
         "answer":[
-            "Une grandeur est quelque chose <b>que l'on peut mesurer, calculer ou compter</b>. Elle est souvent accompagnée d'une unité.",
-            "Une unité de grandeur est une quantité de base qui permet de quantifier la grandeur."
+            "Eine Größe ist etwas, das man <b>messen, berechnen oder zählen</b> kann, z. B. eine Länge, eine Masse, eine Zeitdauer oder ein Preis. Sie wird mit Maßzahl und Einheit angegeben, z. B. 3 kg.",
+            "Eine Einheit ist eine festgelegte Vergleichsgröße (z. B. 1 m, 1 kg, 1 €), mit der man eine Größe angibt: 3 m bedeutet „3-mal 1 m“."
     ]
     },{
-        "name":"Notion de proportionnalité",
+        "name":"Proportionale Zuordnungen",
         "question":[
-            "Qu'appelle-t-on grandeurs proportionnelles ?",
-            "Qu'est-ce qu'un tableau de proportionnalité ?",
-            "Comment déterminer si un tableau est un tableau de proportionnalité ?",
-            "Qu'appelle-t-on quatrième proportionnelle ?",
-            "Qu'est-ce qu'on appelle produits en croix ?",
-            "À quoi reconnait-on graphiquement qu'on a une situation de proportionnalité ?"
+            "Wann heißt eine Zuordnung proportional?",
+            "Was ist der Proportionalitätsfaktor einer proportionalen Zuordnung?",
+            "Wie prüft man, ob eine Wertetabelle zu einer proportionalen Zuordnung gehört?",
+            "Was berechnet man mit dem Dreisatz?",
+            "Was ist eine Verhältnisgleichung?",
+            "Woran erkennt man eine proportionale Zuordnung an ihrem Graphen?"
         ],
         "answer":[
-            "Deux grandeurs sont proportionnelles lorsqu'on peut passer de l'une à l'autre en <b>multipliant par un nombre unique</b> appellé coefficient de proportionnalité.",
-            "Un tableau de proportionnalité est un tableau contenant les données de deux grandeurs où l'on passe de l'une à l'autre par une multiplication par un nombre unique appelé coefficient de proportionnalité.",
-            "On peut <b>calculer tous les quotients</b> de chaque colonne et regarder s'ils sont exactement égaux. Si oui, c'est un tableau de proportionnalité, sinon non.",
-            "Dans un tableau de proportionnalité comportant 4 valeurs, si on en connait déjà 3, celle qui manque est appelée <b>quatrième proportionnelle</b>.",
-            "Connaissant deux rapports, on appelle <b>produits en croix</b> les produits du numérateur de l'un par le dénominateur de l'autre.",
-            "Les points dont les coordonnées sont les <b>données proportionnelles</b> sont <b>alignés avec l'origine du repère</b>."
+            "Eine Zuordnung heißt proportional, wenn zum <b>Doppelten, Dreifachen, … der Ausgangsgröße</b> das Doppelte, Dreifache, … der zugeordneten Größe gehört. Man erhält jeden zugeordneten Wert durch <b>Multiplizieren mit derselben Zahl</b>.",
+            "Der Proportionalitätsfaktor ist die feste Zahl, mit der man jeden Ausgangswert multipliziert, um den zugeordneten Wert zu erhalten. In der Wertetabelle führt er von der ersten zur zweiten Zeile.",
+            "Man <b>berechnet in jeder Spalte den Quotienten</b> zugeordneter Wert : Ausgangswert. Sind alle Quotienten gleich (<b>Quotientengleichheit</b>), ist die Zuordnung proportional, sonst nicht.",
+            "Kennt man bei einer proportionalen Zuordnung drei von vier Werten zweier Wertepaare, berechnet man mit dem Dreisatz den <b>fehlenden vierten Wert</b>.",
+            "Eine Gleichung zweier Quotienten, z. B. $$\\dfrac{a}{b}=\\dfrac{c}{d}$$. Bei einer proportionalen Zuordnung gilt sie für je zwei Wertepaare. Multipliziert man „über Kreuz“, erhält man $$a\\cdot d=b\\cdot c$$ (Produktgleichheit).",
+            "Die Punkte liegen auf einer <b>Geraden durch den Ursprung</b> (Ursprungsgerade)."
         ]
     },{
-        "name":"Méthodes",
+        "name":"Lösungsverfahren",
         "question":[
-            "Qu'est-ce que le passage à l'unité ?",
-            "Comment trouver le coefficient de proportionnalité ?",
-            "À quelle fraction correspond le coefficient de proportionnalité ?",
-            "Quelles sont les propriétés de linéarité en proportionnalité ?",
-            "Comment compléter un tableau de proportionnalité ?"
+            "Was bedeutet beim Dreisatz „über die Einheit rechnen“?",
+            "Wie bestimmt man den Proportionalitätsfaktor?",
+            "Als welcher Quotient lässt sich der Proportionalitätsfaktor schreiben?",
+            "Welche Rechenregeln gelten für die Wertepaare einer proportionalen Zuordnung?",
+            "Wie kann man eine Wertetabelle einer proportionalen Zuordnung ergänzen?"
         ],
         "answer":[
-            "C'est chercher à quoi est associté une unité d'une des grandeurs dans l'autre grandeur.",
-            "On obtient le coefficient de proportionnalité en <b>divisant une valeur de la 2e grandeur par la valeur correspondante de la 1ère</b>",
-            "Le coefficient de proportionnalité s'écrit $$\\dfrac{\\text{valeur de départ}}{\\text{valeur d'arrivée}}$$",
-            "On peut multiplier ou diviser (pas par zéro) un couple de valeurs proporionnelles pour en avoir un nouveau. On peut ajouter ou soustraire deux couples de valeurs pour en avoir un nouveau.",
-            "On peut utiliser : le passage à l'unité, le coefficient de proportionnalité, les propriétés de linéarité ou l'application des produits en croix égaux."
+            "Man berechnet zuerst, welcher Wert zu <b>einer Einheit</b> (z. B. 1 kg oder 1 Stück) gehört, und schließt dann auf die gesuchte Menge.",
+            "Man <b>dividiert einen zugeordneten Wert durch den zugehörigen Ausgangswert</b>.",
+            "Der Proportionalitätsfaktor ist $$\\dfrac{\\text{zugeordneter Wert}}{\\text{Ausgangswert}}$$.",
+            "Man kann ein Wertepaar mit derselben Zahl multiplizieren oder durch dieselbe Zahl (ungleich null) dividieren und erhält wieder ein Wertepaar. Man kann zwei Wertepaare addieren oder subtrahieren und erhält wieder ein Wertepaar.",
+            "Mit dem Dreisatz (über die Einheit), mit dem Proportionalitätsfaktor, durch Vervielfachen, Addieren oder Subtrahieren von Spalten oder mit einer Verhältnisgleichung."
         ]
     },{
-        "name":"Applications de la proportionnalité",
+        "name":"Anwendungen",
         "question":[
-            "Qu'appelle-t-on échelle d'une carte ou d'une photo ?",
-            "Que signifie que deux nombres sont dans le ratio a : b ?",
-            "Que signifie que trois nombres sont dans le ratio ratio a : b : c ?",
-            "À quelle opération correspond calculer t % d'une quantité ?",
-            "Que signifie déterminer un pourcentage ?"
+            "Was gibt der Maßstab einer Karte oder eines Fotos an?",
+            "Was bedeutet es, dass zwei Zahlen im Verhältnis a : b stehen?",
+            "Was bedeutet es, dass drei Zahlen im Verhältnis a : b : c stehen?",
+            "Mit welcher Rechnung bestimmt man p % einer Größe?",
+            "Was bedeutet es, einen Prozentsatz anzugeben?"
         ],
         "answer":[
-            "L'échelle d'une carte ou une photo est le <b>coefficient de proportionnalité</b> entre une longueur représentée et sa valeur réelle, mesurées dans la même unité. On l'exprime souvent par une fraction comportant le nombre 1 au numérateur ou au dénominateur.",
-            "Cela signifie que les deux nombres sont dans les mêmes proportions que a et b. $$\\dfrac{nb1}{a}=\\dfrac{nb2}{b}$$.",
-            "Cela signifie que les trois nombres sont dans les mêmes proportions que a, b et c. $$\\dfrac{nb1}{a}=\\dfrac{nb2}{b}=\\dfrac{nb3}{c}$$.",
-            "Calculer t% d'une quantité revient à <b>multiplier cette quantité</b> par $$\\dfrac{t}{100}$$.",
-            "Déterminer un <b>pourcentage</b>, c'est déterminer une <b>proportion par rapport à 100</b>."
+            "Der Maßstab gibt an, in welchem <b>Verhältnis</b> eine Länge auf der Karte zur wirklichen Länge steht (beide in derselben Einheit). Er wird meist mit einer 1 geschrieben, z. B. 1 : 25 000: 1 cm auf der Karte sind 25 000 cm = 250 m in Wirklichkeit.",
+            "Die beiden Zahlen $$x$$ und $$y$$ verhalten sich wie a zu b: $$\\dfrac{x}{a}=\\dfrac{y}{b}$$.",
+            "Die drei Zahlen $$x$$, $$y$$ und $$z$$ verhalten sich wie a zu b zu c: $$\\dfrac{x}{a}=\\dfrac{y}{b}=\\dfrac{z}{c}$$.",
+            "Man <b>multipliziert die Größe</b> (den Grundwert) mit $$\\dfrac{p}{100}$$.",
+            "Man gibt einen Anteil <b>bezogen auf 100</b> an: p % bedeutet p Hundertstel."
         ]
     }
     ]

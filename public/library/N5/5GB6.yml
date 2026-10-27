@@ -1,5 +1,5 @@
-title: Déterminer si des droites sont parallèles
-description: Usage des angles supplémentaires, opposés par le sommet, correspondants, alternes-internes
+title: Mit Winkeln prüfen, ob Geraden parallel sind
+description: Parallelität nachweisen, Stufenwinkel, Wechselwinkel, Nebenwinkel, Supplementwinkel (ergänzen sich zu 180°), Scheitelwinkel, Stufenwinkelsatz und seine Umkehrung, ja oder nein
 dest: [7EA]
 type: text
 repeat: 2
@@ -20,7 +20,7 @@ consts:
       indigo,
       olive,
       violet,
-      navy
+      navy,
       orangered,
       teal,
       tomato,
@@ -33,7 +33,8 @@ vars:
   paral: [true, false]
 
 options:
-  - name: À l’aide des angles correspondants
+  - name: Mit Stufenwinkeln
+    keys: ["o", "n", "_", "_"]
     consts:
       corr: [[1, 5], [2, 6], [3, 7], [4, 8]]
     vars:
@@ -45,10 +46,11 @@ options:
       ang2: "${:ang1+:delta}"
       mesA1: :ang1
       mesA2: ${:paral?:ang1::ang2}
-    question: Les droites sont-elles parallèles ?
-    answer: ${:paral?"Oui":"Non"}, les droites <span class="red">${:paral?'sont':'ne sont pas'} parallèles</span>.
-    value: ['${:paral?"Oui":"Non"}', '${:paral?"O":"N"}']
-  - name: À l’aide des angles alternes-internes
+    question: Sind die beiden Geraden parallel?
+    answer: "${:paral?'Ja':'Nein'}, die Geraden <span class='red'>sind ${:paral?'':'nicht '}parallel</span>."
+    value: ["${:paral?'\\text{ja}':'\\text{nein}'}", "${:paral?'ja':'nein'}"]
+  - name: Mit Wechselwinkeln
+    keys: ["o", "n", "_", "_"]
     consts:
       alt: [[2, 8], [3, 5]]
     vars:
@@ -60,10 +62,11 @@ options:
       ang2: "${:ang1+:delta}"
       mesA1: :ang1
       mesA2: ${:paral?:ang1::ang2}
-    question: Les droites sont-elles parallèles ?
-    answer: ${:paral?"Oui":"Non"}, les droites <span class="red">${:paral?'sont':'ne sont pas'} parallèles</span>.
-    value: ['${:paral?"Oui":"Non"}', '${:paral?"O":"N"}']
-  - name: À l’aide des angles supplémentaires
+    question: Sind die beiden Geraden parallel?
+    answer: "${:paral?'Ja':'Nein'}, die Geraden <span class='red'>sind ${:paral?'':'nicht '}parallel</span>."
+    value: ["${:paral?'\\text{ja}':'\\text{nein}'}", "${:paral?'ja':'nein'}"]
+  - name: Mit Winkeln, die sich zu 180° ergänzen
+    keys: ["o", "n", "_", "_"]
     consts:
       supp: [[1, 6], [1, 8], [2, 5], [2, 7], [3, 6], [3, 8], [4, 5], [4, 7]]
     vars:
@@ -75,10 +78,11 @@ options:
       ang2: "${:ang1+:delta}"
       mesA1: :ang1
       mesA2: ${:paral?:ang1::ang2}
-    question: Les droites sont-elles parallèles ?
-    answer: ${:paral?"Oui":"Non"}, les droites <span class="red">${:paral?'sont':'ne sont pas'} parallèles</span>.
-    value: ['${:paral?"Oui":"Non"}', '${:paral?"O":"N"}']
-  - name: Mélange, avec des pièges d'indétermination
+    question: Sind die beiden Geraden parallel?
+    answer: "${:paral?'Ja':'Nein'}, die Geraden <span class='red'>sind ${:paral?'':'nicht '}parallel</span>."
+    value: ["${:paral?'\\text{ja}':'\\text{nein}'}", "${:paral?'ja':'nein'}"]
+  - name: Gemischt, auch nicht entscheidbare Fälle
+    keys: ["o", "n", "_", "_"]
     consts:
       poss:
         [
@@ -120,12 +124,12 @@ options:
       ang2: "${:ang1+:delta}"
       mesA1: :ang1
       mesA2: ${:paral?:ang1::ang2}
-    question: Les droites sont-elles parallèles ?
-    answer: <span class="red">${:possible?(:paral?"Oui":"Non"):"On ne peut pas savoir si "}</span> les droites ${!:possible?'sont'::paral?'sont':'ne sont pas'} parallèles.
+    question: Sind die beiden Geraden parallel?
+    answer: "<span class='red'>${:possible?(:paral?'Ja':'Nein'):'Man kann es nicht entscheiden'}</span>${:possible?(:paral?', die Geraden sind parallel.':', die Geraden sind nicht parallel.'):': Beide Winkel liegen am selben Schnittpunkt und sagen nichts darüber aus, ob die Geraden parallel sind.'}"
     value:
       [
-        '${!:possible?"On ne peut pas savoir"::paral?"Oui":"Non"}',
-        '${!:possible?"NSP"::paral?"O":"N"}',
+        "${!:possible?'\\text{nicht entscheidbar}'::paral?'\\text{ja}':'\\text{nein}'}",
+        "${!:possible?'nicht entscheidbar'::paral?'ja':'nein'}",
       ]
 
 figure:

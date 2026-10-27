@@ -1,79 +1,79 @@
 {
-    "title":"Enchainements d'opérations avec des carrés",
+    "title":"Rechenausdrücke mit Quadraten (Summen und Differenzen)",
     "ID":"4NC6",
     "dest":["7AD", "5CA"],
-    "description":"Enchainement d'opérations avec des carrés comportant des sommes ou des différences. Carrés des nombres jusqu'à 20.",
-    "consigne":"Calculer",
+    "description":"Rechenausdrücke mit Quadratzahlen, Summen und Differenzen berechnen, Vorrangregeln (Klammer vor Potenz vor Punkt vor Strich), Quadratzahlen bis 20², Ergebnisse auch negativ",
+    "consigne":"Berechne.",
     "options":[{
-        "name":"Somme simple",
+        "name":"Einfache Summe",
         "vars":{"x":"1_10","y":"1_99"},
         "question": ["${:x}^2+${:y}","${:y}+${:x}^2"],
         "answer":":question = \\color{red}{${:x*:x+:y}}",
         "value":"${:x*:x+:y}"
     },{
-        "name":"Différence simple",
+        "name":"Einfache Differenz",
         "vars":{"x":"1_10","y":"1_99"},
         "question": ["${:x}^2-${:y}","-${:y}+${:x}^2"],
         "answer":":question = \\color{red}{${:x*:x-:y}}",
         "value":"${:x*:x-:y}"
     },{
-        "name":"Différence simple 2",
+        "name":"Einfache Differenz 2",
         "vars":{"x":"1_10","y":"1_99"},
         "question": ["-${:x}^2+${:y}","${:y}-${:x}^2"],
         "answer":":question = \\color{red}{${-:x*:x+:y}}",
         "value":"${-:x*:x+:y}"
     },{
-        "name":"Somme avec le carré d'une somme",
+        "name":"Summe mit dem Quadrat einer Summe",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}+${:y})^2+${:z}","${:z}+(${:x}+${:y})^2"],
         "answer":":question = \\color{red}{${(:x+:y)**2+:z}}",
         "value":"${(:x+:y)**2+:z}"
     },{
-        "name":"Somme avec le carré d'une différence",
+        "name":"Summe mit dem Quadrat einer Differenz",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}-${:y})^2+${:z}","${:z}+(${:x}-${:y})^2"],
         "answer":":question = \\color{red}{${(:x-:y)**2+:z}}",
         "value":"${(:x-:y)**2+:z}"
     },{
-        "name":"Différence avec le carré d'une somme",
+        "name":"Differenz mit dem Quadrat einer Summe",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}+${:y})^2-${:z}","-${:z}+(${:x}+${:y})^2"],
         "answer":":question = \\color{red}{${(:x+:y)**2-:z}}",
         "value":"${(:x+:y)**2-:z}"
     },{
-        "name":"Différence avec le carré d'une somme 2",
+        "name":"Differenz mit dem Quadrat einer Summe 2",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["-(${:x}+${:y})^2+${:z}","${:z}-(${:x}+${:y})^2"],
         "answer":":question = \\color{red}{${:z-(:x+:y)**2}}",
         "value":"${:z-(:x+:y)**2}"
     },{
-        "name":"Différence avec le carré d'une différence",
+        "name":"Differenz mit dem Quadrat einer Differenz",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}-${:y})^2-${:z}","-${:z}+(${:x}-${:y})^2"],
         "answer":":question = \\color{red}{${(:x-:y)**2-:z}}",
         "value":"${(:x-:y)**2-:z}"
     },{
-        "name":"Différence avec le carré d'une différence 2",
+        "name":"Differenz mit dem Quadrat einer Differenz 2",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["-(${:x}-${:y})^2+${:z}","${:z}-(${:x}-${:y})^2"],
         "answer":":question = \\color{red}{${:z-(:x-:y)**2}}",
         "value":"${:z-(:x-:y)**2}"
     },{
-        "name":"Somme avec un carré",
+        "name":"Summe mit einem Quadrat",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}+${:y}^2)+${:z}","(${:y}^2+${:x})+${:z}",
             "${:z}+(${:x}+${:y}^2)","${:z}+(${:y}^2+${:x})"],
         "answer":":question = \\color{red}{${(:x+:y**2)+:z}}",
         "value":"${(:x+:y**2)+:z}"
     },{
-        "name":"Différence avec un carré",
+        "name":"Differenz mit einem Quadrat",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["(${:x}+${:y}^2)-${:z}","(${:y}^2+${:x})-${:z}",
             "-${:z}+(${:x}+${:y}^2)","-${:z}+(${:y}^2+${:x})"],
         "answer":":question = \\color{red}{${(:x+:y**2)-:z}}",
         "value":"${(:x+:y**2)-:z}"
     },{
-        "name":"Différence avec un carré 2",
+        "name":"Differenz mit einem Quadrat 2",
         "vars":{"x":"1_10","y":"1_10", "z":"1_50"},
         "question": ["${:z}-(${:x}+${:y}^2)","${:z}-(${:y}^2+${:x})",
         "-(${:x}+${:y}^2)+${:z}","-(${:y}^2+${:x})+${:z}"],

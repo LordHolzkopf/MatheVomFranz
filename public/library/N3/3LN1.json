@@ -1,48 +1,48 @@
 {
-    "title":"Équations",
+    "title":"Gleichungen – Grundwissen",
     "type":"text",
     "ID":"3LN1",
-    "description":"16 questions de leçon sur les équations : vocabulaire, inconnue, solution, propriétés. Non adapté au mode interactif (online/duel).",
+    "description":"Wissensfragen zu Gleichungen: Begriffe (Variable, Lösung, linke und rechte Seite), Äquivalenzumformungen, Lösungen von x² = a, Satz vom Nullprodukt. Nicht für den Online-Modus (online/Duell) geeignet.",
     "dest":["7DD", "10BB"],
     "vars":{"a":"-9_9_4_^0,-1,1", "pos":"2_99", "neg":"-99_-2"},
     "options":[
         {
-            "name":"Vocabulaire",
+            "name":"Begriffe",
             "question":[
-                "Comment s’appelle ce type d’égalité : $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}$$ ?",
-                "Comment s’appellent les lettres dans une équation ?",
-                "Qu’est-ce qu’une solution d’une équation ?",
-                "Dans l’équation $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$, comment s’appelle $$${:a[0]}x${MMmath.signedNumber(:a[1])}$$ ?",
-                "Dans l’équation $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$, comment s’appelle $$${:a[2]}x${MMmath.signedNumber(:a[3])}$$ ?",
-                "Que veut dire résoudre une équation ?"
+                "Wie nennt man eine solche Gleichheit mit einer Variablen: $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}$$?",
+                "Wie nennt man die Buchstaben in einer Gleichung?",
+                "Was ist eine Lösung einer Gleichung?",
+                "Wie nennt man in der Gleichung $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$ den Term $$${:a[0]}x${MMmath.signedNumber(:a[1])}$$?",
+                "Wie nennt man in der Gleichung $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$ den Term $$${:a[2]}x${MMmath.signedNumber(:a[3])}$$?",
+                "Was bedeutet es, eine Gleichung zu lösen?"
             ],
             "answer":[
-                "$$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}$$ est une <b>équation</b>.",
-                "Les lettres dans une équations s’appellent les <b>inconnues</b>?",
-                "Une solution est un nombre qui rend vraie l’égalité entre les deux membres de l’équation.",
-                "Dans l’équation $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$, $$${:a[0]}x${MMmath.signedNumber(:a[1])}$$ est le <b>membre de gauche</b> ou premier membre.",
-                "Dans l’équation $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$, $$${:a[2]}x${MMmath.signedNumber(:a[3])}$$ est le <b>membre de droite</b> ou deuxième membre.",
-                "Résoudre une équation veut dire <b>trouver toutes ses solutions</b>."
+                "$$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}$$ ist eine <b>Gleichung</b>.",
+                "Die Buchstaben in einer Gleichung heißen <b>Variablen</b> (Platzhalter für gesuchte Zahlen).",
+                "Eine Lösung ist eine Zahl, die beim Einsetzen für die Variable eine wahre Aussage ergibt: Linke und rechte Seite haben dann denselben Wert.",
+                "In der Gleichung $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$ ist $$${:a[0]}x${MMmath.signedNumber(:a[1])}$$ die <b>linke Seite</b> der Gleichung.",
+                "In der Gleichung $$${:a[0]}x${MMmath.signedNumber(:a[1])}=${:a[2]}x${MMmath.signedNumber(:a[3])}$$ ist $$${:a[2]}x${MMmath.signedNumber(:a[3])}$$ die <b>rechte Seite</b> der Gleichung.",
+                "Eine Gleichung lösen heißt, <b>alle ihre Lösungen zu bestimmen</b> (die Lösungsmenge angeben)."
             ]
         },{
-            "name":"Propriétés",
+            "name":"Umformungen und Lösungsregeln",
             "question":[
-                "Que se passe-t-il quand on ajoute ou retranche une même expression aux deux membres d’une équation ?",
-                "Que se passe-t-il quand on multiplie ou divise les deux membres d’une équation par une même expression non nulle ?",
-                "Quel objectif essayer d’atteindre avec les opérations sur les équations ?",
-                "Quelle propriété permet de résoudre une équation produit nul ?",
-                "Quelles sont les solutions d’une équation de type $$x^2=${:pos}$$",
-                "Quelles sont les solutions d’une équation de type $$x^2=0$$",
-                "Quelles sont les solutions d’une équation de type $$x^2=${:neg}$$"
+                "Was passiert, wenn man auf beiden Seiten einer Gleichung denselben Term addiert oder subtrahiert?",
+                "Was passiert, wenn man beide Seiten einer Gleichung mit demselben Term (ungleich null) multipliziert oder durch ihn dividiert?",
+                "Welches Ziel verfolgt man beim Umformen einer Gleichung?",
+                "Welcher Satz hilft beim Lösen einer Gleichung der Form „Produkt = 0“?",
+                "Welche Lösungen hat die Gleichung $$x^2=${:pos}$$?",
+                "Welche Lösungen hat die Gleichung $$x^2=0$$?",
+                "Welche Lösungen hat die Gleichung $$x^2=${:neg}$$?"
             ],
             "answer":[
-                "On obtient une équation équivalente (aux mêmes solutions)",
-                "On obtient une équation équivalente (aux mêmes solutions)",
-                "On essaie de parvenir à une équation de type $$x=a$$ dont la solution est simplement $$a$$",
-                "Un produit de facteurs est nul si et seulement si l’un au moins de ses facteurs est nul.",
-                "Les solutions de $$x^2=a$$ avec $$a>0$$ sont $$\\colors{red}{sqrt{${:pos}}}$$ et $$\\colors{red}{-sqrt{${:pos}}}$$",
-                "Il n’y a qu’une seule solution : zéro.",
-                "Ces équations n’ont pas de solution."
+                "Man erhält eine äquivalente Gleichung (mit denselben Lösungen). Das ist eine Äquivalenzumformung.",
+                "Man erhält eine äquivalente Gleichung (mit denselben Lösungen). Das ist eine Äquivalenzumformung.",
+                "Man formt so lange um, bis die Variable allein auf einer Seite steht: $$x=a$$. Dann ist $$a$$ die Lösung.",
+                "Satz vom Nullprodukt: Ein Produkt ist genau dann null, wenn mindestens einer seiner Faktoren null ist.",
+                "Die Gleichung $$x^2=a$$ mit $$a>0$$ hat zwei Lösungen, hier $$\\color{red}{\\sqrt{${:pos}}}$$ und $$\\color{red}{-\\sqrt{${:pos}}}$$.",
+                "Es gibt genau eine Lösung: $$x=0$$.",
+                "Diese Gleichung hat keine Lösung, denn ein Quadrat ist nie negativ."
             ]
         }
     ]

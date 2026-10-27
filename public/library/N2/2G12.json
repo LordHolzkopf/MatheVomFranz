@@ -1,6 +1,6 @@
 {
-    "title":"Somme et différence de deux vecteurs",
-    "description":"Calculer les coordonnées d'un vecteur resultant de la somme et de la différence de deux vecteurs.",
+    "title":"Vektoren addieren und subtrahieren",
+    "description":"Summe und Differenz zweier Vektoren koordinatenweise berechnen: Vektoraddition, Vektorsubtraktion, Koordinaten, Spaltenvektor",
     "type":"latex",
     "ID":"2G12",
     "dest":["EEC"],
@@ -8,20 +8,20 @@
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},
     "options":[{
-        "name":"Somme à coordonnées positives",
+        "name":"Summe, positive Koordinaten",
         "vars":{"x":"1_20_4","v":"0_5_2_^&","signe":"+"}
     },{
-        "name":"Somme à coordonnées relatives",
+        "name":"Summe, Koordinaten auch negativ",
         "vars":{"x":"-20_20_4","v":"0_5_2_^&","signe":"+"}
     },{
-        "name":"Différence à coordonnées positives",
+        "name":"Differenz, positive Koordinaten",
         "vars":{"x":"1_20_4","v":"0_5_2_^&","signe":"-"}
     },{
-        "name":"Différence à coordonnées relatives",
+        "name":"Differenz, Koordinaten auch negativ",
         "vars":{"x":"-20_20_4","v":"0_5_2_^&","signe":"-"}
     }
     ],
-    "question": "\\begin{cases}\\vec{${:vecteurs[:v[0]]}}(${:x[0]+';\\color{blue}{'+:x[1]}}) \\\\ \\vec{${:vecteurs[:v[1]]}}(${:x[2]+';\\color{blue}{'+:x[3]}})\\end{cases} \\quad \\vec{${:vecteurs[:v[0]]}}${:signe}\\vec{${:vecteurs[:v[1]]}}(? ; ?)",
-    "answer":"\\text{Pour }${:vecteurs[:v[0]]}(${:x[0]+';\\color{blue}{'+:x[1]}}) \\text{ et } ${:vecteurs[:v[1]]}(${:x[2]+';\\color{blue}{'+:x[3]}}), \\vec{${:vecteurs[:v[0]]+:vecteurs[:v[1]]}}\\color{red}{(${MMmath.round(:signe=='+'?:x[2]+:x[0]::x[0]-:x[2],2)};${MMmath.round(:signe=='-'?:x[1]-:x[3]::x[3]+:x[1],2)})}",
+    "question": "\\vec{${:vecteurs[:v[0]]}}=\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix},\\quad \\vec{${:vecteurs[:v[1]]}}=\\begin{pmatrix}${:x[2]}\\\\${:x[3]}\\end{pmatrix} \\qquad \\vec{${:vecteurs[:v[0]]}}${:signe}\\vec{${:vecteurs[:v[1]]}}=\\,?",
+    "answer":"\\vec{${:vecteurs[:v[0]]}}${:signe}\\vec{${:vecteurs[:v[1]]}}=\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix}${:signe}\\begin{pmatrix}${:x[2]}\\\\${:x[3]}\\end{pmatrix}=\\color{red}{\\begin{pmatrix}${MMmath.round(:signe=='+'?:x[2]+:x[0]::x[0]-:x[2],2)}\\\\${MMmath.round(:signe=='-'?:x[1]-:x[3]::x[3]+:x[1],2)}\\end{pmatrix}}",
     "value":"\\left(${MMmath.round(:signe=='+'?:x[2]+:x[0]::x[0]-:x[2],2)};${MMmath.round(:signe=='-'?:x[1]-:x[3]::x[3]+:x[1],2)}\\right)"
 }

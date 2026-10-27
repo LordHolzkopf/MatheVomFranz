@@ -1,12 +1,12 @@
 {
-  "title": "Calculs avec logarithmes de base 10, 5, 2",
-  "description": "logarithme, log, propriétés algébriques, somme, différence",
+  "title": "Logarithmengesetze anwenden (Basen 10, 5, 2)",
+  "description": "Summen und Differenzen von Logarithmen mit den Logarithmengesetzen zusammenfassen und vereinfachen: log, Produkt, Quotient, Potenz, Basis 10, 5, 2, auch mit Variablen",
   "dest":["10DC", "QCC"],
   "keys":["/","lgn"],
-  "consigne": "Simplifier",
+  "consigne": "Vereinfache.",
   "options": [
     {
-      "name": "Somme de logarithmes de base 10",
+      "name": "Summe von Logarithmen zur Basis 10",
       "consts": {
         "duos": [
           [
@@ -141,7 +141,7 @@
       "value":"${[10,100,1000].includes(:n1*:n2)?(:n1*:n2==10 ? 1 : :n1*:n2==100 ? 2 : 3):`\\log_{10}(${:n1*:n2})`}"
     },
     {
-      "name": "Différence de logarithmes",
+      "name": "Differenz von Logarithmen",
       "vars": {
         "logSimplifiable": [
           true,
@@ -163,7 +163,7 @@
       "answer": ":question=\\color{green}{\\log_{10}\\left(\\dfrac{:n1}{:n2}\\right)}${:n1%:n2==0?'=\\log_{10}('+MMmath.fractionSimplifiee(:n1,:n2)+')':''}${:logSimplifiable?'='+(:log==10?1:2):''}",
       "value":"${!:logSimplifiable?'\\log_{10}('+MMmath.fractionSimplifiee(:n1,:n2)+')'::log==10?1:2}"
     },{
-        "name":"Logarithme en base de 2 de puissances de 2",
+        "name":"Logarithmen von Zweierpotenzen zur Basis 2",
         "vars":{
             "p1":"1_10",
             "p2":"1_10",
@@ -176,7 +176,7 @@
         "value":"${:sig=='+'?:p1+:p2::p1-:p2}"
     },
     {
-      "name": "Sommes de logarithmes de variables",
+      "name": "Summen von Logarithmen mit Variablen",
       "consts": {
         "lettres": "abcdghmnxyz"
       },
@@ -196,7 +196,7 @@
       "value":"\\log_{:log}(${:l[0]!=:l[1]?:x+(:a[0]>1?'^'+:a[0]:'')+:y+(:a[1]>1?'^'+:a[1]:'')::x+'^'+(:a[0]+:a[1])})"
     },
     {
-      "name": "Différence de logarithmes de variables",
+      "name": "Differenzen von Logarithmen mit Variablen",
       "consts": {
         "lettres": "abcdghmnxyz"
       },
@@ -216,7 +216,7 @@
       "value":"\\log_{:log}\\left(${:l[0]!=:l[1]?'\\dfrac{'+:x+(:a[0]>1?'^'+:a[0]:'')+'}{'+:y+(:a[1]>1?'^'+:a[1]:'')+'}'::a[0]-:a[1]>1?:x+'^'+(:a[0]-:a[1])::a[0]-:a[1]==1?:x::a[0]-:a[1]<-1?'\\dfrac 1{'+:x+'^'+(:a[1]-:a[0])+'}'::a[0]-:a[1]==-1?'\\dfrac 1{'+:x+'}':1}\\right)"
     },
     {
-      "name": "Somme algébrique de logarithmes de variables",
+      "name": "Summen und Differenzen von Logarithmen mit Variablen",
       "consts": {
         "lettres": "abcdghmnxyz"
       },

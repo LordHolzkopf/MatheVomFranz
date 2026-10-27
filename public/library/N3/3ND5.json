@@ -1,6 +1,6 @@
 {
-    "title":"Résoudre une équation se ramenant à x² = a",
-    "description":"Donner les solutions d'une équation x² = a ou ax²=b",
+    "title":"Gleichungen der Form x² = a lösen",
+    "description":"Lösungen reinquadratischer Gleichungen x² = a, x² + a = 0 oder ax² = b angeben: Quadratwurzel, Lösungsmenge, quadratische Gleichung ohne lineares Glied",
     "type":"latex",
     "textSize":"medium",
     "ID":"3ND5",
@@ -8,31 +8,31 @@
     "keys":["{","-",";","√","Ø","_","_","_"],
     "consts":{"lettres":["u","v","t","x", "y","z"]},
     "options":[{
-        "name":"x² = a, a entier",
+        "name":"x² = a, a ganzzahlig",
         "vars":{"n":"1_20","alea":"1_10", "a":"${:alea<10?:n*:n:-:n*:n}" , "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${:x}^2=${:a}",
-        "answer":"${:x}^2=${:a} \\text{ pour } \\color{red}{${:a<0?'\\text{Pas de solution}':(:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
+        "question": "\\text{Löse } ${:x}^2=${:a}",
+        "answer":"${:x}^2=${:a} \\quad \\color{red}{${:a<0?'\\text{keine Lösung}':('\\Leftrightarrow '+:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
     },{
-        "name":"x² = a, a décimal",
+        "name":"x² = a, a Dezimalzahl",
         "vars":{"n":"d0.1_2_1","alea":"1_10", "a":"${:alea<10?MMmath.round(:n*:n,2):-MMmath.round(:n*:n,2)}" , "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${:x}^2=${:a}",
-        "answer":"${:x}^2=${:a} \\text{ pour } \\color{red}{${:a>0?(:x+'\\in\\{-'+:n+';'+:n+'\\}'):'\\text{Pas de solution}'}}"
+        "question": "\\text{Löse } ${:x}^2=${:a}",
+        "answer":"${:x}^2=${:a} \\quad \\color{red}{${:a>0?('\\Leftrightarrow '+:x+'\\in\\{-'+:n+';'+:n+'\\}'):'\\text{keine Lösung}'}}"
     },{
-        "name":"x² + a = 0, a entier",
+        "name":"x² + a = 0, a ganzzahlig",
         "vars":{"n":"1_20","alea":"1_10", "a":"${:alea>4?:n*:n:-:n*:n}" , "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${:x}^2${MMmath.signedNumber(-:a)}=0",
-        "answer":"${:x}^2${MMmath.signedNumber(-:a)}=0 \\text{ pour } \\color{red}{${:a<0?'\\text{Pas de solution}':(:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
+        "question": "\\text{Löse } ${:x}^2${MMmath.signedNumber(-:a)}=0",
+        "answer":"${:x}^2${MMmath.signedNumber(-:a)}=0 \\quad \\color{red}{${:a<0?'\\text{keine Lösung}':('\\Leftrightarrow '+:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
     },{
-        "name":"x² + a = 0, a décimal",
+        "name":"x² + a = 0, a Dezimalzahl",
         "vars":{"n":"d0.1_2_1","alea":"1_10", "a":"${:alea>4?MMmath.round(:n*:n,2):MMmath.round(-:n*:n,2)}" , "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${:x}^2${MMmath.signedNumber(-:a)}=0",
-        "answer":"${:x}^2${MMmath.signedNumber(-:a)}=0 \\text{ pour } \\color{red}{${:a<0?'\\text{Pas de solution}':(:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
+        "question": "\\text{Löse } ${:x}^2${MMmath.signedNumber(-:a)}=0",
+        "answer":"${:x}^2${MMmath.signedNumber(-:a)}=0 \\quad \\color{red}{${:a<0?'\\text{keine Lösung}':('\\Leftrightarrow '+:x+'\\in\\{-'+:n+';'+:n+'\\}')}}"
     },{
-        "name":"ax² = b, a, b entiers",
+        "name":"ax² = b, a und b ganzzahlig",
         "vars":{"a":"-20_20_^0","alea":"1_10", "n":"-20_20_^0", "b":"${(:alea<3 || :a*:n>0)?:n:-:n}" , "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${MMmath.signIfOne(:a)}${:x}^2=${:b}",
-        "answer":"${MMmath.signIfOne(:a)}${:x}^2=${:b} \\text{ pour } \\color{red}{${:a*:b<0?'\\text{Pas de solution}':(:x+'\\in\\{-'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+';'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+'\\}')}}",
-        "value":"${:a*:b<0?'\\text{Pas de solution}':(:x+'\\in\\{-'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+';'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+'\\}')}"
+        "question": "\\text{Löse } ${MMmath.signIfOne(:a)}${:x}^2=${:b}",
+        "answer":"${MMmath.signIfOne(:a)}${:x}^2=${:b} \\quad \\color{red}{${:a*:b<0?'\\text{keine Lösung}':('\\Leftrightarrow '+:x+'\\in\\{-'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+';'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+'\\}')}}",
+        "value":"${:a*:b<0?'\\text{keine Lösung}':(:x+'\\in\\{-'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+';'+MMmath.calc('\\sqrt{'+:b+'\\div('+:a+')}')+'\\}')}"
     }],
     "value":["${:a<0?'\\empty':-:n+';'+:n}","${:a<0?'\\empty'::n+';-'+:n}","${:a<0?'\\empty':'\\left\\{'+-:n+';'+:n+'\\right\\}'}","${:a<0?'\\empty':'\\left\\{'+:n+';-'+:n+'\\right\\}'}"]
 }

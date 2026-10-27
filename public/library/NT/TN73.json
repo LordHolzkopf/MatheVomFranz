@@ -1,11 +1,11 @@
 {
     "ID":"TN73",
-    "title":"Primitives avec les fonctions trigonométriques",
-    "description":"primitive, intégration, cosinus, sinus, trigonométrie",
+    "title":"Stammfunktionen von Sinus und Kosinus",
+    "description":"Stammfunktionen von sin(f(x)), cos(f(x)), f'(x)·sin(f(x)) und f'(x)·cos(f(x)) mit linearer Funktion f bestimmen: Stammfunktion, Integral, Sinus, Kosinus, Trigonometrie",
     "dest":["QBC", "QDA"],
     "type":"text",
     "options":[{
-        "name":"Primitive de $$f'(x)\\cos(f(x))$$",
+        "name":"Stammfunktion von $$f'(x)\\cos(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -14,7 +14,7 @@
             "f":"${:a}\\cos(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     },{
-        "name":"Primitive de $$f'(x)\\sin(f(x))$$",
+        "name":"Stammfunktion von $$f'(x)\\sin(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -23,7 +23,7 @@
             "f":"${:a}\\sin(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     },{
-        "name":"Primitive de $$\\cos(f(x))$$",
+        "name":"Stammfunktion von $$\\cos(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -32,7 +32,7 @@
             "f":"\\cos(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     },{
-        "name":"Primitive de $$\\sin(f(x))$$",
+        "name":"Stammfunktion von $$\\sin(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -41,7 +41,7 @@
             "f":"\\sin(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     },{
-        "name":"Primitive de $$a\\cos(f(x))$$",
+        "name":"Stammfunktion von $$a\\cos(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -51,7 +51,7 @@
             "f":"${:c}\\cos(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     },{
-        "name":"Primitive de $$a\\sin(f(x))$$",
+        "name":"Stammfunktion von $$a\\sin(f(x))$$",
         "vars":{
             "a":"-10_10_^0",
             "bz":"0_1",
@@ -61,7 +61,7 @@
             "f":"${:c}\\sin(${MMmath.box(['Add',['Multiply',:a,'x'],:b])})"
         }
     }],
-    "question": "Donner une primitive de la fonction<br> $$f(x)=${:f}$$",
-    "answer":"$$\\int\\!${:f}\\,\\operatorname{d}x = \\color{red}{${:F}}$$",
+    "question": "Bestimme die Stammfunktionen von<br> $$f(x)=${:f}$$.",
+    "answer":"$$F(x)=\\color{red}{${:F}}$$ mit $$C\\in\\mathbb{R}$$",
     "value":"${:F}"
 }

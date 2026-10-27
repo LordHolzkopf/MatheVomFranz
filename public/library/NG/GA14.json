@@ -1,42 +1,42 @@
 {
-    "title":"Dérivée de fonction composée / g(ax+b)",
+    "title":"Kettenregel mit linearer innerer Funktion g(ax+b)",
     "repeat":true,
     "type":"latex",
     "ID":"GA14",
-    "description":"Trouver la dérivée de fonctions composées avec un polynome de degré 1, en utilisant $$g(ax+b)'=ag'(ax+b)$$",
+    "description":"Verkettete Funktionen mit linearer innerer Funktion ableiten: $$\\left(g(ax+b)\\right)'=a\\cdot g'(ax+b)$$, Kettenregel, Wurzel, e-Funktion, ln, Sinus, Kosinus, Tangens",
     "dest":["QDC", "QCB", "QDA"],
     "textSize":"medium",
     "keys":["x²","/","+","-","x","y","z","t"],
     "consts":{"lettres":["x","y","z","t"]},
     "vars":{"a":"-3_3_^0","b":"-3_3","cx":"0_3","x":"${:lettres[:cx]}","f":"${MMmath.signIfOne(:a)+:x}${MMmath.signedNumber(:b)}","s":"${MMmath.calc((-:b)+'/('+:a+')')}"},
-    "consigne":"Donner la fonction dérivée.",
+    "consigne":"Bestimme die Ableitung.",
     "options":[{
-        "name":"Racine carrée",
-        "question": ["${:x}\\in\\rbrack${:a>0?:s+';+\\infty':'-\\infty;'+:s}\\lbrack, \\left(\\sqrt{${:f}}\\right)'", "${:x}\\in\\rbrack${:a<0?:s+';+\\infty':'-\\infty;'+:s}\\lbrack, \\dfrac{d}{d${:x}} \\sqrt{${:f}}"],
+        "name":"Quadratwurzel",
+        "question": ["${:x}\\in(${:a>0?:s+';\\infty':'-\\infty;'+:s}),\\quad \\left(\\sqrt{${:f}}\\right)'", "${:x}\\in(${:a>0?:s+';\\infty':'-\\infty;'+:s}),\\quad \\dfrac{d}{d${:x}} \\sqrt{${:f}}"],
         "answer":":question=\\color{red}{\\dfrac{${:a%2==0?:a/2::a}}{${:a%2==0?'':'2'}\\sqrt{${:f}}}}",
         "value":"\\dfrac{${:a%2==0?:a/2::a}}{${:a%2==0?'':'2'}\\sqrt{${:f}}}"
     },{
-        "name":"Exponentielle",
+        "name":"e-Funktion",
         "question":["\\left(e^{${:f}}\\right)'","\\dfrac{d}{d${:x}} e^{${:f}}"],
         "answer":":question=\\color{red}{${MMmath.signIfOne(:a)} e^{${:f}}}",
         "value":"${MMmath.signIfOne(:a)} e^{${:f}}"
     },{
-        "name":"Logarithme népérien",
+        "name":"Natürlicher Logarithmus (nur LK)",
         "question":["\\left(\\ln(${:f})\\right)'","\\dfrac{d}{d${:x}} \\ln(${:f})"],
         "answer":":question=\\color{red}{\\dfrac{${:a}}{${:f}}}",
         "value":"\\dfrac{${:a}}{${:f}}"
     },{
-        "name":"Fonction sinus",
+        "name":"Sinusfunktion",
         "question":["\\left(\\sin(${:f})\\right)'","\\dfrac{d}{d${:x}} \\sin(${:f})"],
         "answer":":question=\\color{red}{${MMmath.signIfOne(:a)}\\cos(${:f})}",
         "value":"${MMmath.signIfOne(:a)}\\cos(${:f})"
     },{
-        "name":"Fonction cosinus",
+        "name":"Kosinusfunktion",
         "question":["\\left(\\cos(${:f})\\right)'","\\dfrac{d}{d${:x}} \\cos(${:f})"],
         "answer":":question=\\color{red}{${MMmath.signIfOne(-:a)}\\sin(${:f})}",
         "value":"${MMmath.signIfOne(-:a)}\\sin(${:f})"
     },{
-        "name":"Fonction tangente",
+        "name":"Tangensfunktion (nicht im Kernlehrplan NRW)",
         "question":["\\left(\\tan(${:f})\\right)'","\\dfrac{d}{d${:x}} \\tan(${:f})"],
         "answer":":question=\\color{red}{${:a}${MMmath.signedNumberButOne(:a)}\\tan^2(${:f})}",
         "value":"${:a}${MMmath.signedNumberButOne(:a)}\\tan^2(${:f})"

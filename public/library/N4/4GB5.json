@@ -1,9 +1,9 @@
 {
-    "title":"Trouver la relation trigonométrique.",
+    "title":"Passende Winkelfunktion wählen",
     "type":"text",
     "textSize":"small",
     "ID":"4GB5",
-    "description":"Déterminer s'il faut utiliser le sinus, le cosinus ou la tangente à partir des données connues dans un triangle rectangle.",
+    "description":"Entscheiden, ob man im rechtwinkligen Dreieck mit den gegebenen Größen Sinus, Kosinus oder Tangens verwendet: Gegenkathete, Ankathete, Hypotenuse, Trigonometrie",
     "dest":["10EB", "10EA"],
     "consts":{
         "lettres":"ABCDEFGHIJKLMNPRSTVW",
@@ -27,28 +27,28 @@
                 "<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 52.9 26.5\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M36.705 8.442A5.443 5.463-89.038 0136.13 5.9l5.462.111z\" fill=\"#ff0003\"/><g font-family=\"Arial\" font-size=\"4.23\" letter-spacing=\"0\" stroke-width=\".265\" word-spacing=\"0\"><text x=\"7.348\" y=\"5.334\" style=\"line-height:1.25\"><tspan x=\"7.348\" y=\"5.334\">${:A}</tspan></text><text x=\"42.211\" y=\"6.504\" style=\"line-height:1.25\"><tspan x=\"42.211\" y=\"6.504\">${:B}</tspan></text><text x=\"15.599\" y=\"22.563\" style=\"line-height:1.25\"><tspan x=\"15.599\" y=\"22.563\">${:C}</tspan></text></g><g fill=\"none\" stroke=\"#000\" stroke-width=\".265\"><path d=\"M10.889 5.988l6.51 12.507 24.127-12.56z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16.85 17.44l1.091-.568.568 1.09-1.091.569z\"/></g></svg>"
             ]
         ],
-        "oA":["${:choixligne==0?:CA+' et '+:AB::choixligne==1?:BC+' et '+:AB::BC+' et '+:CA}","${:choixligne==0?:AB+' et '+:CA::choixligne==1?:AB+' et '+:BC::CA+' et '+:BC}"],
-        "oB":["${:choixligne==0?:BC+' et '+:AB::choixligne==1?:CA+' et '+:AB::CA+' et '+:BC}","${:choixligne==0?:AB+' et '+:BC::choixligne==1?:AB+' et '+:CA::BC+' et '+:CA}"]
+        "oA":["${:choixligne==0?:CA+' und '+:AB::choixligne==1?:BC+' und '+:AB::BC+' und '+:CA}","${:choixligne==0?:AB+' und '+:CA::choixligne==1?:AB+' und '+:BC::CA+' und '+:BC}"],
+        "oB":["${:choixligne==0?:BC+' und '+:AB::choixligne==1?:CA+' und '+:AB::CA+' und '+:BC}","${:choixligne==0?:AB+' und '+:BC::choixligne==1?:AB+' und '+:CA::BC+' und '+:CA}"]
     },
     "options":[
         {
-            "name":"À partir de 2 côtés",
+            "name":"Zwei Seiten gegeben",
             "vars":{"l":"0_19_3_^&","choixangle":"0_1","choixligne":"0_2", "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7", "AB":["${:A+:B}","${:B+:A}"],"BC":["${:B+:C}","${:C+:B}"],"CA":["${:C+:A}","${:A+:C}"],"cv":"0_1"},
-            "question":["On connait <b>${:choixangle==0?:oA[:cv]::oB[:cv]}</b>. Sont-ils liés à $$\\color{red}{\\widehat{${:choixangle==0?:A::B}}}$$ par cosinus, sinus ou tangente&nbsp;?",
-              "On connait <b>${:choixangle==0?:oA[:cv]::oB[:cv]}</b>.Utilise-t-on cosinus, sinus ou tangente pour déterminer $$\\color{red}{\\widehat{${:choixangle==0?:A::B}}}$$ ?"
+            "question":["Bekannt sind die Seiten <b>${:choixangle==0?:oA[:cv]::oB[:cv]}</b>. Welche Winkelfunktion von $$\\color{red}{\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)}}$$ (Sinus, Kosinus oder Tangens) verknüpft diese beiden Seiten?",
+              "Bekannt sind die Seiten <b>${:choixangle==0?:oA[:cv]::oB[:cv]}</b>. Verwendest du Sinus, Kosinus oder Tangens, um $$\\color{red}{\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)}}$$ zu bestimmen?"
             ],
             "figure":{"type":"svg","content":"${:figures[:choixangle][:idfig]}"},
-            "shortQ":"sin, cos ou tan relie ${:choixangle==0?:oA[:cv]::oB[:cv]} et $$\\color{red}{\\widehat{${:choixangle==0?:A::B}}}$$ ?",
-            "answer":"$$\\color{red}{${:choixligne==0?'cosinus'::choixligne==1?'sinus':'tangente'}}$$ car $$\\color{green}{${:choixligne==0?'cos'::choixligne==1?'sin':'tan'}}(\\widehat{${:choixangle==0?:A::B}})=\\dfrac{${(:choixangle==0?:oA[0]::oB[0]).replace(' et ','}{')}}$$",
+            "shortQ":"sin, cos oder tan für ${:choixangle==0?:oA[:cv]::oB[:cv]} und $$\\color{red}{\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)}}$$?",
+            "answer":"$$\\color{red}{\\text{${:choixligne==0?'Kosinus'::choixligne==1?'Sinus':'Tangens'}}}$$, denn $$\\color{green}{${:choixligne==0?'\\cos'::choixligne==1?'\\sin':'\\tan'}}(\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)})=\\dfrac{\\overline{${(:choixangle==0?:oA[0]::oB[0]).replace(' und ','}}{\\overline{')}}}$$",
             "value":"${:choixligne==0?'cos'::choixligne==1?'sin':'tan'}"
         },
         {
-            "name":"À partir de l'angle et d'un côté",
+            "name":"Winkel und eine Seite gegeben",
             "vars":{"l":"0_19_3_^&","choixangle":"0_1","choixligne":"0_2", "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7", "AB":["${:A+:B}","${:B+:A}"],"BC":["${:B+:C}","${:C+:B}"],"CA":["${:C+:A}","${:A+:C}"],"cv":"0_1"},
-            "question":"On connait $$\\widehat{${:choixangle==0?:A::B}}$$ et <b>${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' et ')[0]}</b>. Utilise-t-on cosinus, sinus ou tangente pour déterminer <b>${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' et ')[1]}</b>&nbsp;?",
+            "question":"Bekannt sind $$\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)}$$ und die Seite <b>${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' und ')[0]}</b>. Verwendest du Sinus, Kosinus oder Tangens, um die Seite <b>${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' und ')[1]}</b> zu berechnen?",
             "figure":{"type":"svg","content":"${:figures[:choixangle][:idfig]}"},
-            "shortQ":"sin, cos ou tan avec ${:choixangle==0?:oA::oB} et ${(:choixangle==0?:oA::oB).split(' et ')[0]} pour trouver ${(:choixangle==0?:oA::oB).split(' et ')[1]} ?",
-            "answer":"$$\\color{red}{${:choixligne==0?'cosinus'::choixligne==1?'sinus':'tangente'}}$$ car $$\\color{green}{${:choixligne==0?'cos'::choixligne==1?'sin':'tan'}}(\\widehat{${:choixangle==0?:A::B}})=\\dfrac{${(:choixangle==0?:oA[0]::oB[0]).replace(' et ','}{')}}$$",
+            "shortQ":"sin, cos oder tan mit $$\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)}$$ und ${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' und ')[0]}, um ${(:choixangle==0?:oA[:cv]::oB[:cv]).split(' und ')[1]} zu berechnen?",
+            "answer":"$$\\color{red}{\\text{${:choixligne==0?'Kosinus'::choixligne==1?'Sinus':'Tangens'}}}$$, denn $$\\color{green}{${:choixligne==0?'\\cos'::choixligne==1?'\\sin':'\\tan'}}(\\sphericalangle ${:choixangle==0?(:B+:A+:C):(:A+:B+:C)})=\\dfrac{\\overline{${(:choixangle==0?:oA[0]::oB[0]).replace(' und ','}}{\\overline{')}}}$$",
             "value":"${:choixligne==0?'cos'::choixligne==1?'sin':'tan'}"
         }
     ]

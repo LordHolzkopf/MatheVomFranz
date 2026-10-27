@@ -1,6 +1,6 @@
 {
-  "title": "Norme d’un vecteur",
-  "description": "norme, longueur d'un vecteur, distance, coordonnées",
+  "title": "Betrag eines Vektors berechnen",
+  "description": "Betrag (Länge) eines Vektors in der Ebene und im Raum aus seinen Koordinaten berechnen: Betrag, Länge eines Vektors, Abstand, Quadratwurzel, Koordinaten",
   "dest":["EEB"],
   "type": "text",
   "consts": {
@@ -12,30 +12,30 @@
   },
   "options": [
     {
-      "name": "Vecteur du plan",
+      "name": "Vektor in der Ebene",
       "vars": {
         "x": "-10_10",
         "y": "-10_10"
       },
       "question": [
-        "Sachant que $$\\vec :v(:x;:y)$$, calculer $$\\lVert \\vec :v \\rVert$$.",
-        "Sachant que $$\\vec :v=:x\\vec i ${MMmath.signedNumberButOne(:y)} \\vec j$$, calculer $$\\lVert \\vec :v \\rVert$$."
+        "Berechne den Betrag $$|\\vec{${:v}}|$$ von $$\\vec{${:v}}=\\begin{pmatrix}${:x}\\\\${:y}\\end{pmatrix}$$.",
+        "Wie lang ist der Vektor $$\\vec{${:v}}=\\begin{pmatrix}${:x}\\\\${:y}\\end{pmatrix}$$? Berechne $$|\\vec{${:v}}|$$."
       ],
-      "answer": "$$\\lVert \\vec :v \\rVert=\\sqrt{(:x)^2+(:y)^2}=\\color{red}{${MMmath.simplifieRacine((:x)**2+(:y)**2)}}$$",
+      "answer": "$$|\\vec{${:v}}|=\\sqrt{(${:x})^2+(${:y})^2}=\\color{red}{${MMmath.simplifieRacine((:x)**2+(:y)**2)}}$$",
       "value":"${MMmath.simplifieRacine((:x)**2+(:y)**2)}"
     },
     {
-      "name": "Vecteur de l’espace",
+      "name": "Vektor im Raum",
       "vars": {
         "x": "-10_10",
         "y": "-10_10",
         "z": "-10_10"
       },
       "question": [
-        "Sachant que $$\\vec :v(:x;:y;:z)$$, calculer $$\\lVert \\vec :v \\rVert$$.",
-        "Sachant que $$\\vec ${:v}=${:x}\\vec i ${MMmath.signedNumberButOne(:y)} \\vec j ${MMmath.signedNumberButOne(:y)} \\vec k$$, calculer $$\\lVert \\vec ${:v} \\rVert$$."
+        "Berechne den Betrag $$|\\vec{${:v}}|$$ von $$\\vec{${:v}}=\\begin{pmatrix}${:x}\\\\${:y}\\\\${:z}\\end{pmatrix}$$.",
+        "Wie lang ist der Vektor $$\\vec{${:v}}=\\begin{pmatrix}${:x}\\\\${:y}\\\\${:z}\\end{pmatrix}$$? Berechne $$|\\vec{${:v}}|$$."
       ],
-      "answer": "$$\\lVert \\vec ${:v} \\rVert=\\sqrt{(${:x})^2+(${:y})^2+(${:z})^2}=\\color{red}{${MMmath.simplifieRacine((:x)**2+(:y)**2+(:z)**2)}}$$",
+      "answer": "$$|\\vec{${:v}}|=\\sqrt{(${:x})^2+(${:y})^2+(${:z})^2}=\\color{red}{${MMmath.simplifieRacine((:x)**2+(:y)**2+(:z)**2)}}$$",
       "value":"${MMmath.simplifieRacine((:x)**2+(:y)**2+(:z)**2)}"
     }
   ]

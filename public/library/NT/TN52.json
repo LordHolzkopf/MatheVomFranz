@@ -1,42 +1,42 @@
 {
-  "title": "Exponentielle de logarithme népérien",
-  "description": "ln, exp, logarithme népérien, exponentielle, simplifier",
+  "title": "e hoch ln berechnen",
+  "description": "Terme wie e^(ln n), e^(2 ln n) und e^(−ln n) vereinfachen: e-Funktion, natürlicher Logarithmus, Umkehrfunktion, ln, exp",
   "dest":["QCC"],
-  "consigne": "Calculer",
+  "consigne": "Berechne.",
   "options": [
     {
-      "name": "exp(ln) nombres positifs",
+      "name": "e^(ln n), positive Zahlen",
       "vars": {
         "n": "1_20"
       },
-      "question": "e^{ln(${:n})}",
+      "question": "e^{\\ln(${:n})}",
       "answer": ":question=\\color{red}{${:n}}",
       "value":":n"
     },
     {
-      "name": "exp(2ln), nombres positifs",
+      "name": "e^(2 ln n), positive Zahlen",
       "vars": {
         "n": "1_20"
       },
-      "question": "e^{2 ln( ${:n})}",
+      "question": "e^{2 \\ln(${:n})}",
       "answer": ":question=\\color{red}{${:n**2}}",
       "value":"${:n**2}"
     },
     {
-      "name": "exp(-ln)",
+      "name": "e^(−ln n)",
       "vars": {
         "n": "1_20"
       },
-      "question": "e^{-ln(${:n})}",
+      "question": "e^{-\\ln(${:n})}",
       "answer": ":question=\\color{red}{${MMmath.fractionSimplifiee(1,:n)}}",
       "value":"${MMmath.fractionSimplifiee(1,:n)}"
     },
     {
-      "name": "exp(-2ln)",
+      "name": "e^(−2 ln n)",
       "vars": {
         "n": "1_20"
       },
-      "question": "e^{-2 ln(${:n})}",
+      "question": "e^{-2 \\ln(${:n})}",
       "answer": ":question=\\color{red}{${MMmath.fractionSimplifiee(1,:n**2)}}",
       "value":"${MMmath.fractionSimplifiee(1,:n**2)}"
     }

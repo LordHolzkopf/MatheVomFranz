@@ -1,6 +1,6 @@
 {
-    "title":"Calculer les coordonnées d'un vecteur",
-    "description":"Utilisation des coordonnées de l'origine et de l'extrémité pour calculer les coordonnées.",
+    "title":"Koordinaten eines Vektors berechnen",
+    "description":"Die Koordinaten des Verbindungsvektors aus den Koordinaten von Anfangs- und Endpunkt berechnen: Vektor, Verbindungsvektor, Spitze minus Fuß, Punkte in der Ebene",
     "type":"latex",
     "ID":"2G11",
     "dest":["EEB"],
@@ -8,22 +8,22 @@
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"points":"ABCDEFGHKLMNPQRST"},
     "options":[{
-        "name":"Coordonnées entières positives",
+        "name":"Positive ganzzahlige Koordinaten",
         "vars":{"x":"1_20_4","pt":"0_16_2_^&"}
 
     },{
-        "name":"Coordonnées entières relatives",
+        "name":"Ganzzahlige Koordinaten (auch negativ)",
         "vars":{"x":"-20_20_4","pt":"0_16_2_^&"}
     },{
-        "name":"Coordonnées décimales positives",
+        "name":"Positive Dezimalzahlen als Koordinaten",
         "vars":{"nbd":[1,2],"x":"d0.1_10_${:nbd}_4","pt":"0_16_2_^&"}
 
     },{
-        "name":"Coordonnées décimales relatives",
+        "name":"Dezimalzahlen als Koordinaten (auch negativ)",
         "vars":{"nbd":[1,2],"x":"d-10_10_${:nbd}_4","pt":"0_16_2_^&"}
     }
     ],
-    "question": "\\begin{cases}${:points[:pt[0]]}(${:x[0]+';\\color{blue}{'+:x[1]}}) \\\\ ${:points[:pt[1]]}(${:x[2]+';\\color{blue}{'+:x[3]}})\\end{cases} \\quad \\overrightarrow{${:points[:pt[0]]+:points[:pt[1]]}}(? ; ?)",
-    "answer":"\\text{Pour }${:points[:pt[0]]}(${:x[0]+';\\color{blue}{'+:x[1]}}) \\text{ et } ${:points[:pt[1]]}(${:x[2]+';\\color{blue}{'+:x[3]}}), \\newline \\overrightarrow{${:points[:pt[0]]+:points[:pt[1]]}}\\color{red}{(${MMmath.round(:x[2]-:x[0],2)};${MMmath.round(:x[3]-:x[1],2)})}",
-    "value":"\\left(${MMmath.round(:x[2]-:x[0])};${MMmath.round(:x[3]-:x[1])}\\right)"
+    "question": "\\begin{cases}${:points[:pt[0]]}(${:x[0]+'|\\color{blue}{'+:x[1]}}) \\\\ ${:points[:pt[1]]}(${:x[2]+'|\\color{blue}{'+:x[3]}})\\end{cases} \\quad \\overrightarrow{${:points[:pt[0]]+:points[:pt[1]]}}=\\,?",
+    "answer":"\\text{Für }${:points[:pt[0]]}(${:x[0]+'|\\color{blue}{'+:x[1]}}) \\text{ und } ${:points[:pt[1]]}(${:x[2]+'|\\color{blue}{'+:x[3]}}) \\text{ gilt} \\newline \\overrightarrow{${:points[:pt[0]]+:points[:pt[1]]}}=\\color{red}{\\begin{pmatrix}${MMmath.round(:x[2]-:x[0],2)}\\\\${MMmath.round(:x[3]-:x[1],2)}\\end{pmatrix}}",
+    "value":"\\left(${MMmath.round(:x[2]-:x[0],2)};${MMmath.round(:x[3]-:x[1],2)}\\right)"
 }

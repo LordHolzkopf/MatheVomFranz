@@ -1,32 +1,32 @@
 {
     "ID":"TN71",
-    "title":"Primitive d’un polynome",
-    "description":"primitive, intégration, polynôme, monôme",
+    "title":"Stammfunktionen ganzrationaler Funktionen",
+    "description":"Stammfunktionen von Potenzfunktionen und ganzrationalen Funktionen bis Grad 3 bestimmen: Stammfunktion, Integral, Potenzregel, ganzrationale Funktion",
     "type":"text",
     "dest":["QBC"],
     "options":[{
-        "name":"Monôme de degré 0",
+        "name":"Grad 0: f(x) = a",
         "vars":{
             "a":"-10_10_^0",
             "F":"${MMmath.box(['Multiply',:a,'x'])} + C",
             "f":"${:a}"
         }
     }, {
-        "name":"Monôme de degré 1",
+        "name":"Grad 1: f(x) = ax",
         "vars":{
             "a":"-10_10_^0",
             "F":"${MMmath.box(['Multiply',['Divide',:a,2],['Power','x',2]])} + C",
             "f":"${MMmath.box(['Multiply',:a,'x'])}"
         }
     }, {
-        "name":"Monôme de degré 2",
+        "name":"Grad 2: f(x) = ax²",
         "vars":{
             "a":"-10_10_^0",
             "F":"${MMmath.box(['Multiply',['Divide',:a,3],['Power','x',3]])} + C",
             "f":"${MMmath.box(['Multiply',:a,['Power','x',2]])}"
         }
     }, {
-        "name":"Monôme de degré 3",
+        "name":"Grad 3: f(x) = ax³",
         "vars":{
             "a":"-10_10_^0",
             "F":"${MMmath.box(['Multiply',['Divide',:a,4],['Power','x',4]])} + C",
@@ -34,7 +34,7 @@
         }
     },
         {
-        "name":"Polynome de degré 1",
+        "name":"Ganzrationale Funktion vom Grad 1",
         "vars":{
             "a":"-10_10_^0",
             "b":"-10_10",
@@ -42,7 +42,7 @@
             "f":"${MMmath.box(['Add', ['Multiply', :a, 'x'], :b])}"
         }
     },{
-        "name":"Polynome de degré 2",
+        "name":"Ganzrationale Funktion vom Grad 2",
         "vars":{
             "a":"-10_10_^0",
             "b":"-10_10",
@@ -51,7 +51,7 @@
             "f":"${MMmath.box(['Add', ['Multiply', :a, ['Power','x',2]], ['Add',['Multiply',:b,'x'],:c]])}"
         }
     },{
-        "name":"Polynome de degré 3",
+        "name":"Ganzrationale Funktion vom Grad 3",
         "vars":{
             "a":"-10_10_^0",
             "b":"-10_10",
@@ -61,7 +61,7 @@
             "f":"${MMmath.box(['Add', ['Multiply', :a, ['Power','x',3]], ['Add',['Multiply',:b,['Power','x',2]],['Multiply',:c,'x']],:d])}"
         }
     }],
-    "question": "Donner une primitive de la fonction<br> $$f(x)=${:f}$$",
-    "answer":"$$\\int\\!${:f}\\,\\operatorname{d}x = \\color{red}{${:F}}$$",
+    "question": "Bestimme die Stammfunktionen von<br> $$f(x)=${:f}$$.",
+    "answer":"$$F(x)=\\color{red}{${:F}}$$ mit $$C\\in\\mathbb{R}$$",
     "value":"${:F}"
 }

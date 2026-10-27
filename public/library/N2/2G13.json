@@ -1,6 +1,6 @@
 {
-    "title":"Produit d'un vecteur par un nombre",
-    "description":"Calculer les coordonnées d'un produit d'un vecteur par un nombre.",
+    "title":"Vektoren mit einer Zahl multiplizieren",
+    "description":"Die Koordinaten eines Vielfachen eines Vektors berechnen: Vektor mit einer Zahl multiplizieren, Skalarmultiplikation (S-Multiplikation), Vielfache von Vektoren zusammenfassen",
     "type":"text",
     "ID":"2G13",
     "dest":["EEC"],
@@ -8,19 +8,19 @@
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},
     "options":[{
-        "name":"Produit par un positif",
+        "name":"Multiplikation mit einer positiven Zahl",
         "vars":{"k":"0_10","x":"-12_12_2","v":"0_5"}
     },{
-        "name":"Produit par un négatif",
+        "name":"Multiplikation mit einer negativen Zahl",
         "vars":{"k":"-10_-1","x":"-12_12_2","v":"0_5"}
     },{
-        "name":"Linéarité",
+        "name":"Vielfache desselben Vektors zusammenfassen",
         "vars":{"k":"-10_10_2_^0","v":"0_5","x":"-10_10_2"},
-        "question":"Si $$\\vec{${:vecteurs[:v]}}(${:x[0]};${:x[1]})$$, alors $$${MMmath.signIfOne(:k[0])}\\vec{${:vecteurs[:v]}}${MMmath.signedNumberButOne(:k[1])}\\vec{${:vecteurs[:v]}}(?;?)$$",
-        "answer":"$$\\vec{${:vecteurs[:v]}}(${:x[0]};${:x[1]})$$, donc $$${MMmath.signIfOne(:k[0])}\\vec{${:vecteurs[:v]}}${MMmath.signedNumberButOne(:k[1])}\\vec{${:vecteurs[:v]}}\\color{red}{(${(:k[0]+:k[1])*:x[0]};${(:k[0]+:k[1])*:x[1]})}$$",
+        "question":"Es ist $$\\vec{${:vecteurs[:v]}}=\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix}$$. Berechne $$${MMmath.signIfOne(:k[0])}\\vec{${:vecteurs[:v]}}${MMmath.signedNumberButOne(:k[1])}\\vec{${:vecteurs[:v]}}$$.",
+        "answer":"$$${MMmath.signIfOne(:k[0])}\\vec{${:vecteurs[:v]}}${MMmath.signedNumberButOne(:k[1])}\\vec{${:vecteurs[:v]}}=${:k[0]+:k[1]}\\cdot\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix}=\\color{red}{\\begin{pmatrix}${(:k[0]+:k[1])*:x[0]}\\\\${(:k[0]+:k[1])*:x[1]}\\end{pmatrix}}$$",
         "value":"(${(:k[0]+:k[1])*:x[0]};${(:k[0]+:k[1])*:x[1]})"
     }],
-    "question": "Si $$\\vec{${:vecteurs[:v]}}(${:x[0]};${:x[1]})$$, alors $$${:k==0?:k+'\\times '::k}\\vec{${:vecteurs[:v]}} (?;?)$$",
-    "answer":"$$\\vec{${:vecteurs[:v]}}(${:x[0]};${:x[1]})$$, donc $$${:k}\\vec{${:vecteurs[:v]}} \\color{red}{(${:k*:x[0]};${:k*:x[1]})}$$",
+    "question": "Es ist $$\\vec{${:vecteurs[:v]}}=\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix}$$. Berechne $$${:k}\\cdot\\vec{${:vecteurs[:v]}}$$.",
+    "answer":"$$${:k}\\cdot\\vec{${:vecteurs[:v]}}=${:k}\\cdot\\begin{pmatrix}${:x[0]}\\\\${:x[1]}\\end{pmatrix}=\\color{red}{\\begin{pmatrix}${:k*:x[0]}\\\\${:k*:x[1]}\\end{pmatrix}}$$",
     "value":"\\left(${:k*:x[0]};${:k*:x[1]}\\right)"
 }

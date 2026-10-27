@@ -1,10 +1,10 @@
 {
-    "title":"Valeurs du cercle trigonométrique",
+    "title":"Bogenmaß am Einheitskreis",
     "repeat":true,
     "type":"text",
     "textSize":"small",
     "ID":"GA41",
-    "description":"Connaitre les valeurs réelles des angles : cercle trigonométrique, radians, π. Éviter pour le moment le mode interactif (saisie par le clavier virtuel).",
+    "description":"Punkte auf dem Einheitskreis und Bogenmaß (Vielfache von π/6) einander zuordnen: Einheitskreis, Bogenmaß, Radiant, π. Den interaktiven Modus (Eingabe über die Bildschirmtastatur) vorerst nicht verwenden.",
     "dest":["10FA", "EAD"],
     "consts":{"points":["A","B","C","D","E","F","G","K","L","M","N","P"],
         "angles":[0,"\\dfrac{\\pi}{6}", "\\dfrac{\\pi}{3}","\\dfrac{\\pi}{2}","\\dfrac{2\\pi}{3}","\\dfrac{5\\pi}{6}","\\pi","\\dfrac{7\\pi}{6}","\\dfrac{4\\pi}{3}","\\dfrac{3\\pi}{2}","\\dfrac{5\\pi}{3}", "\\dfrac{11\\pi}{6}"]},
@@ -18,18 +18,18 @@
         ]
     },
     "options":[{
-        "name":"Trouver le point",
+        "name":"Punkt bestimmen",
         "vars":{"n":"0_11"},
         "keys":"alphabetique",
-        "question": "À quel point correspond le réel $$${:angles[:n]}$$ ?",
-        "answer":"$$${:angles[:n]}$$ correspond à <span class='red'>${:points[:n]}</span>",
+        "question": "Welcher Punkt des Einheitskreises gehört zum Bogenmaß $$${:angles[:n]}$$?",
+        "answer":"Zum Bogenmaß $$${:angles[:n]}$$ gehört der Punkt <span class='red'>${:points[:n]}</span>.",
         "value":"${:points[:n]}"
     },{
-        "name":"Trouver l'angle",
+        "name":"Bogenmaß bestimmen",
         "vars":{"n":"0_11"},
         "keys":["pi","/","√","-","_","_","_","_"],
-        "question": "À quel réel de $$\\lbrack 0; 2\\pi \\lbrack$$ correspond <b>${:points[:n]}</b> ?",
-        "answer":"${:points[:n]} correspond à $$\\color{red}{${:angles[:n]}}$$",
+        "question": "Welches Bogenmaß aus $$[0; 2\\pi)$$ gehört zum Punkt <b>${:points[:n]}</b>?",
+        "answer":"Zum Punkt ${:points[:n]} gehört das Bogenmaß $$\\color{red}{${:angles[:n]}}$$.",
         "value":"${:angles[:n]}"
     }
     ]

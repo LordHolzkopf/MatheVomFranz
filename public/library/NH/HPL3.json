@@ -1,12 +1,12 @@
 {
-  "title": "Calculs avec ln",
-  "description": "logarithme népérien, ln, propriétés algébriques, somme, différence",
+  "title": "Mit dem natürlichen Logarithmus rechnen",
+  "description": "Terme mit dem natürlichen Logarithmus ln mit den Logarithmengesetzen vereinfachen: Summe, Differenz, Produkt, Quotient, Potenz, Wurzel, ln(e^x)",
   "dest":["QCC", "QCF"],
   "keys":["+","-","/","ln","x","y","ln","^"],
-  "consigne": "Simplifier",
+  "consigne": "Vereinfache.",
   "options": [
     {
-      "name": "ln d'une racine carrée",
+      "name": "ln einer Quadratwurzel",
       "vars": {
         "n": "1_10"
       },
@@ -15,7 +15,7 @@
       "value":"${:n==1?0:'\\dfrac12 \\ln ('+:n+')'}"
     },
     {
-      "name": "Sommes de ln de variables",
+      "name": "Summen von ln-Termen mit Variablen",
       "consts": {
         "lettres": "abcdexyz"
       },
@@ -30,7 +30,7 @@
       "value":"\\ln(${MMmath.calc(MMmath.box(['Multiply',['Power',:x,:a[0]],['Power',:y,:a[1]]]))})"
     },
     {
-      "name": "Différence de logarithmes de variables",
+      "name": "Differenzen von ln-Termen mit Variablen",
       "consts": {
         "lettres": "abcdexyz"
       },
@@ -45,7 +45,7 @@
       "value":"\\ln\\left(${MMmath.calc(MMmath.box(['Divide',['Power',:x,:a[0]],['Power',:y,:a[1]]]))}\\right)"
     },
     {
-      "name": "Introduction de ln(e^ax)",
+      "name": "Einstieg: ln(e^(ax))",
       "vars": {
         "letter": [
           "",
@@ -60,7 +60,7 @@
       "value":":n:letter"
     },
     {
-      "name": "Somme de ln(e^ax)",
+      "name": "Summe von ln(e^(ax))-Termen",
       "vars": {
         "l1": [
           "",
@@ -77,12 +77,12 @@
         ],
         "n2": "2_5"
       },
-      "question": "\\ln\\left(e^{:n1:l1}\\right)+ln\\left(e^{:n2:l2}\\right)",
+      "question": "\\ln\\left(e^{:n1:l1}\\right)+\\ln\\left(e^{:n2:l2}\\right)",
       "answer": ":question=${:l1!=:l2?'\\color{red}{':''}:n1:l1+:n2:l2${:l1!=:l2?'}':'=\\color{red}{'+MMmath.parse(:n1+:l1+'+'+:n2+:l2)+'}'}",
       "value":"${MMmath.parse(:n1+:l1+'+'+:n2+:l2)}"
     },
     {
-      "name": "Différence de ln(e^ax)",
+      "name": "Differenz von ln(e^(ax))-Termen",
       "vars": {
         "l1": [
           "",
@@ -99,12 +99,12 @@
         ],
         "n2": "2_5"
       },
-      "question": "\\ln\\left(e^{:n1:l1}\\right)-ln\\left(e^{:n2:l2}\\right)",
+      "question": "\\ln\\left(e^{:n1:l1}\\right)-\\ln\\left(e^{:n2:l2}\\right)",
       "answer": ":question=${:l1!=:l2?'\\color{red}{':''}:n1:l1-:n2:l2${:l1!=:l2?'}':'=\\color{red}{'+MMmath.parse(:n1+:l1+'-'+:n2+:l2)+'}'}",
       "value":"${MMmath.parse(:n1+:l1+'-'+:n2+:l2)}"
     },
     {
-      "name": "Somme de ln(x^n)",
+      "name": "Summe von ln(xⁿ)-Termen",
       "vars": {
         "l1": [
           "x",
@@ -124,7 +124,7 @@
       "value":"\\ln\\left(${MMmath.parse(:l1+'^'+:n1+'*'+:l2+'^'+:n2)}\\right)"
     },
     {
-      "name": "ln d’un quotient de puissances",
+      "name": "ln eines Quotienten von Potenzen",
       "consts": {
         "letters": "abcexyz"
       },

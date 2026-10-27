@@ -1,7 +1,7 @@
 {
     "ID": "GG12",
-    "title":"Vecteur orthogonal",
-    "description":"Faire le lien entre l'équation cartésienne, et les coordonnées du vecteur orthogonal / normal au plan.",
+    "title":"Normalenvektor und Koordinatengleichung einer Ebene",
+    "description":"Aus der Koordinatengleichung einer Ebene einen Normalenvektor ablesen und umgekehrt zu einem Normalenvektor eine Koordinatengleichung angeben: Koordinatenform, Normalenvektor, Ebene",
     "type":"text",
     "valueType":"listeOrdonnee",
     "keys":["+","-","x²",";","x","y","z","="],
@@ -12,18 +12,18 @@
         "c":"-10_10",
         "d":"-10_10",
         "ans":"${:a}\\\\${:b}\\\\${:c}",
-        "eq":"${:a!==0?MMmath.signIfOne(:a)+'x':''} ${(:a!==0&&:b!==0)?MMmath.signedNumberButOne(:b)+'y'::b!==0?MMmath.signIfOne(:b)+'y':''} ${(:a!==0||:b!==0&&:c!==0)?MMmath.signedNumberButOne(:c)+'z'::c!==0?MMmath.signIfOne(:c)+'z':''} ${MMmath.signedNumber(:d)} = 0"
+        "eq":"${:a!==0?MMmath.signIfOne(:a)+'x':''} ${(:a!==0&&:b!==0)?MMmath.signedNumberButOne(:b)+'y'::b!==0?MMmath.signIfOne(:b)+'y':''} ${:c!==0?((:a!==0||:b!==0)?MMmath.signedNumberButOne(:c):MMmath.signIfOne(:c))+'z':''} ${MMmath.signedNumber(:d)} = 0"
     },
     "options":[
         {
-            "name":"Donner les coordonnées du vecteur normal",
-            "question":"Déterminer le vecteur normal au plan d’équation : $$${:eq}$$",
-            "answer":"Le vecteur normal au plan d'équation $$${:eq}$$ est : $$\\vec{n} \\begin{pmatrix}${:ans}\\end{pmatrix}$$",
+            "name":"Normalenvektor ablesen",
+            "question":"Lies aus der Koordinatengleichung $$E\\colon ${:eq}$$ einen Normalenvektor der Ebene ab.",
+            "answer":"Ein Normalenvektor der Ebene $$E\\colon ${:eq}$$ ist $$\\vec{n}=\\color{red}{\\begin{pmatrix}${:ans}\\end{pmatrix}}$$.",
             "value":["\\vec n (:a;:b;:c)",":a;:b;:c"]
         },{
-            "name":"Donner une équation du plan",
-            "question":"Donner une équation d'un plan de vecteur normal : $$\\vec{n} \\begin{pmatrix}${:ans}\\end{pmatrix}$$",
-            "answer":"Si $$\\vec{n} \\begin{pmatrix}${:ans}\\end{pmatrix}$$ est le vecteur normal au plan, son équation peut être : $$\\color{red}{${:eq}}$$",
+            "name":"Koordinatengleichung angeben",
+            "question":"Gib eine Koordinatengleichung einer Ebene mit dem Normalenvektor $$\\vec{n}=\\begin{pmatrix}${:ans}\\end{pmatrix}$$ an.",
+            "answer":"Eine Ebene mit dem Normalenvektor $$\\vec{n}=\\begin{pmatrix}${:ans}\\end{pmatrix}$$ hat zum Beispiel die Koordinatengleichung $$\\color{red}{${:eq}}$$.",
             "value":"${:eq}"
         }
     ]

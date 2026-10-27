@@ -1,12 +1,12 @@
 {
     "ID": "GG11",
-    "title":"Produit scalaire",
-    "description":"Le produit scalaire est une opération entre deux vecteurs qui renvoie un nombre réel.",
+    "title":"Skalarprodukt berechnen",
+    "description":"Das Skalarprodukt zweier Vektoren in der Ebene und im Raum aus den Koordinaten berechnen; das Ergebnis ist eine Zahl: Skalarprodukt, Orthogonalität, Vektoren",
     "type":"text",
     "dest":["QEB"],
     "options":[
         {
-            "name":"Dimension 2, avec entiers",
+            "name":"In der Ebene (2D), ganzzahlig",
             "vars":{
                 "u1":"-10_10",
                 "u2":"-10_10",
@@ -18,7 +18,7 @@
                 "ans":"${:u1*:v1 + :u2*:v2}"
             }
         },{
-            "name":"Dimension 3, avec entiers",
+            "name":"Im Raum (3D), ganzzahlig",
             "vars":{
                 "u1":"-10_10",
                 "u2":"-10_10",
@@ -33,7 +33,7 @@
             }
         }
     ],
-    "question":"Calculer le produit scalaire de $$\\vec{u} \\begin{pmatrix}${:cu}\\end{pmatrix}$$ et $$\\vec{v} \\begin{pmatrix}${:cv}\\end{pmatrix}$$.",
-    "answer":"$$\\vec{u}.\\vec{v} = ${:calc} = \\color{red}{${:ans}}$$",
+    "question":"Berechne das Skalarprodukt von $$\\vec{u}=\\begin{pmatrix}${:cu}\\end{pmatrix}$$ und $$\\vec{v}=\\begin{pmatrix}${:cv}\\end{pmatrix}$$.",
+    "answer":"$$\\vec{u}\\cdot\\vec{v} = ${:calc} = \\color{red}{${:ans}}$$",
     "value":"${:ans}"
 }

@@ -1,9 +1,9 @@
 {
-    "title":"Exprimer cosinus, sinus, tangente",
+    "title":"Sinus, Kosinus und Tangens als Seitenverhältnis angeben",
     "type":"text",
     "textSize":"small",
     "ID":"4GB4",
-    "description":"Écrire le quotient égal au cosinus, au sinus ou à la tangente d'un angle dans un triangle rectangle",
+    "description":"Sinus, Kosinus oder Tangens eines Winkels im rechtwinkligen Dreieck als Seitenverhältnis angeben: Gegenkathete, Ankathete, Hypotenuse, Trigonometrie",
     "dest":["10EA"],
     "keys":["alphabetique","math"],
     "consts":{
@@ -31,30 +31,30 @@
     },
     "options":[
         {
-            "name":"Cosinus (4e)",
+            "name":"Kosinus",
             "vars":{"l":"0_19_3_^&","choix":"0_1", "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7"},
-            "question":"À quel quotient est égal le <b>cosinus</b> de l'angle $$\\color{red}{\\widehat{${:choix==0?:A::B}}}$$&nbsp;?",
-            "shortq":"cosinus ?",
+            "question":"Gib den <b>Kosinus</b> von $$\\color{red}{\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)}}$$ als Seitenverhältnis an.",
+            "shortq":"Kosinus?",
             "figure":{"type":"svg","content":"${:figures[:choix][:idfig]}"},
-            "answer":"$$cos(\\widehat{${:choix==0?:A::B}})=\\color{red}{\\dfrac{${(:choix==0?:A::B)+:C}}{${:A+:B}}}$$",
+            "answer":"$$\\cos(\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)})=\\color{red}{\\dfrac{\\overline{${(:choix==0?:A::B)+:C}}}{\\overline{${:A+:B}}}}$$",
             "value":["\\dfrac{${(:choix==0?:A::B)+:C}}{${:A+:B}}","\\dfrac{${:C+(:choix==0?:A::B)}}{${:A+:B}}","\\dfrac{${(:choix==0?:A::B)+:C}}{${:B+:A}}","\\dfrac{${:C+(:choix==0?:A::B)}}{${:B+:A}}"]
         },
         {
             "name":"Sinus",
             "vars":{"l":"0_19_3_^&","choix":"0_1", "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7"},
-            "question":"À quel quotient est égal le <b>sinus</b> de l'angle $$\\color{red}{\\widehat{${:choix==0?:A::B}}}$$&nbsp;?",
+            "question":"Gib den <b>Sinus</b> von $$\\color{red}{\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)}}$$ als Seitenverhältnis an.",
             "figure":{"type":"svg","content":"${:figures[:choix][:idfig]}"},
-            "shortq":"sinus ?",
-            "answer":"$$sin(\\widehat{${:choix==0?:A::B}})=\\color{red}{\\dfrac{${(:choix==1?:A::B)+:C}}{${:A+:B}}}$$",
+            "shortq":"Sinus?",
+            "answer":"$$\\sin(\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)})=\\color{red}{\\dfrac{\\overline{${(:choix==1?:A::B)+:C}}}{\\overline{${:A+:B}}}}$$",
             "value":["\\dfrac{${(:choix==1?:A::B)+:C}}{${:A+:B}}","\\dfrac{${:C+(:choix==1?:A::B)}}{${:A+:B}}","\\dfrac{${(:choix==1?:A::B)+:C}}{${:B+:A}}","\\dfrac{${:C+(:choix==1?:A::B)}}{${:B+:A}}"]
         },
         {
-            "name":"Tangente",
+            "name":"Tangens",
             "vars":{"l":"0_19_3_^&","choix":"0_1", "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7"},
-            "question":"À quel quotient est égale la <b>tangente</b> de l'angle $$\\color{red}{\\widehat{${:choix==0?:A::B}}}$$&nbsp;?",
-            "shortq":"tangente ?",
+            "question":"Gib den <b>Tangens</b> von $$\\color{red}{\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)}}$$ als Seitenverhältnis an.",
+            "shortq":"Tangens?",
             "figure":{"type":"svg","content":"${:figures[:choix][:idfig]}"},
-            "answer":"$$tan(\\widehat{${:choix==0?:A::B}})=\\color{red}{\\dfrac{${(:choix==1?:A::B)+:C}}{${(:choix==0?:A::B)+:C}}}$$",
+            "answer":"$$\\tan(\\sphericalangle ${:choix==0?(:B+:A+:C):(:A+:B+:C)})=\\color{red}{\\dfrac{\\overline{${(:choix==1?:A::B)+:C}}}{\\overline{${(:choix==0?:A::B)+:C}}}}$$",
             "value":["\\dfrac{${(:choix==1?:A::B)+:C}}{${(:choix==0?:A::B)+:C}}","\\dfrac{${:C+(:choix==1?:A::B)}}{${(:choix==0?:A::B)+:C}}","\\dfrac{${(:choix==1?:A::B)+:C}}{${:C+(:choix==0?:A::B)}}","\\dfrac{${:C+(:choix==1?:A::B)}}{${:C+(:choix==0?:A::B)}}"]
         }
     ]

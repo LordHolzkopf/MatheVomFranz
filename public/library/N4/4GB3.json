@@ -1,9 +1,9 @@
 {
-    "title":"Vocabulaire du triangle rectangle",
+    "title":"Seiten im rechtwinkligen Dreieck benennen",
     "type":"text",
     "textSize":"small",
     "ID":"4GB3",
-    "description":"Hypoténuse, côté opposé, côté adjacent",
+    "description":"Hypotenuse, Ankathete und Gegenkathete eines Winkels im rechtwinkligen Dreieck erkennen und benennen: Katheten, Trigonometrie, Pythagoras",
     "keys":["alphabetique","math"],
     "dest":["10EA", "9EA"],
     "consts":{
@@ -21,31 +21,31 @@
     },
     "options":[
         {
-            "name":"Déterminer l'hypoténuse",
+            "name":"Hypotenuse bestimmen",
             "vars":{"l":"0_19_3_^&","A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_7"},
-            "question":"Quel côté est l'hypoténuse ?",
+            "question":"Welche Seite ist die Hypotenuse?",
             "figure":{"type":"svg","content":"${:figures[:idfig]}"},
-            "shortq":"Hypoténuse ?",
-            "answer":["L'hypoténuse est $$\\color{red}{[${:A+:B}]}$$","L'hypoténuse est $$\\color{red}{[${:B+:A}]}$$"],
-            "value":["[${:A+:B}]","[${:B+:A}]"]
+            "shortq":"Hypotenuse?",
+            "answer":["Die Hypotenuse ist $$\\color{red}{\\overline{${:A+:B}}}$$","Die Hypotenuse ist $$\\color{red}{\\overline{${:B+:A}}}$$"],
+            "value":["\\overline{${:A+:B}}","\\overline{${:B+:A}}","${:A+:B}","${:B+:A}"]
         },
         {
-            "name":"Déterminer le côté adjacent",
+            "name":"Ankathete bestimmen",
             "vars":{"l":"0_19_3_^&","choix":"0_1","A":"${:choix==0?'<tspan style=\"fill:#ff0000;\">'+:lettres[:l[0]]+'</tspan>'::lettres[:l[0]]}", "B":"${:choix==0?:lettres[:l[1]]:'<tspan style=\"fill:#ff0000;\">'+:lettres[:l[1]]+'</tspan>'}", "C":"${:lettres[:l[2]]}", "idfig":"0_7", "lettreB":"${:lettres[:l[1]]}", "lettreA":"${:lettres[:l[0]]}"},
-            "question":"Quel côté est le côté adjacent à $$\\color{red}{\\widehat{${:choix==0?:lettreA::lettreB}}}$$&nbsp;?",
+            "question":"Welche Seite ist die Ankathete von $$\\color{red}{\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}}$$?",
             "figure":{"type":"svg","content":"${:figures[:idfig]}"},
-            "shortq":"Adjacent à $$\\color{red}{\\widehat{${:choix==0?:lettreA::lettreB}}}$$ ?",
-            "answer":["Le côté adjacent à $$\\widehat{${:choix==0?:lettreA::lettreB}}$$ est $$\\color{red}{[${(:choix==0?:lettreA::lettreB)+:C}]}$$","Le côté adjacent à $$\\widehat{${:choix==0?:lettreA::lettreB}}$$ est $$\\color{red}{[${:C+(:choix==0?:lettreA::lettreB)}]}$$"],
-            "value":["[${(:choix==0?:lettreA::lettreB)+:C}]","[${:C+(:choix==0?:lettreA::lettreB)}]"]
+            "shortq":"Ankathete von $$\\color{red}{\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}}$$?",
+            "answer":["Die Ankathete von $$\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}$$ ist $$\\color{red}{\\overline{${(:choix==0?:lettreA::lettreB)+:C}}}$$","Die Ankathete von $$\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}$$ ist $$\\color{red}{\\overline{${:C+(:choix==0?:lettreA::lettreB)}}}$$"],
+            "value":["\\overline{${(:choix==0?:lettreA::lettreB)+:C}}","\\overline{${:C+(:choix==0?:lettreA::lettreB)}}","${(:choix==0?:lettreA::lettreB)+:C}","${:C+(:choix==0?:lettreA::lettreB)}"]
         },
         {
-            "name":"Déterminer le côté opposé",
+            "name":"Gegenkathete bestimmen",
             "vars":{"l":"0_19_3_^&","choix":"0_1","A":"${:choix==0?'<tspan style=\"fill:#ff0000;\">'+:lettres[:l[0]]+'</tspan>'::lettres[:l[0]]}", "B":"${:choix==0?:lettres[:l[1]]:'<tspan style=\"fill:#ff0000;\">'+:lettres[:l[1]]+'</tspan>'}", "C":"${:lettres[:l[2]]}", "lettreA":"${:lettres[:l[0]]}", "lettreB":"${:lettres[:l[1]]}" , "idfig":"0_7"},
-            "question":"Quel côté est le côté opposé à $$\\color{red}{\\widehat{${:choix==0?:lettreA::lettreB}}}$$&nbsp;?",
+            "question":"Welche Seite ist die Gegenkathete von $$\\color{red}{\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}}$$?",
             "figure":{"type":"svg","content":"${:figures[:idfig]}"},
-            "shortq":"Opposé à $$\\color{red}{\\widehat{${:choix==0?:lettreA::lettreB}}}$$ ?",
-            "answer":["Le côté opposé à $$\\widehat{${:choix==0?:lettreA::lettreB}}$$ est $$\\color{red}{[${(:choix==1?:lettreA::lettreB)+:C}]}$$","Le côté opposé à $$\\widehat{${:choix==0?:lettreA::lettreB}}$$ est $$\\color{red}{[${:C+(:choix==1?:lettreA::lettreB)}]}$$"],
-            "value":["[${(:choix==1?:lettreA::lettreB)+:C}]","[${:C+(:choix==1?:lettreA::lettreB)}]"]
+            "shortq":"Gegenkathete von $$\\color{red}{\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}}$$?",
+            "answer":["Die Gegenkathete von $$\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}$$ ist $$\\color{red}{\\overline{${(:choix==1?:lettreA::lettreB)+:C}}}$$","Die Gegenkathete von $$\\sphericalangle ${:choix==0?(:lettreB+:lettreA+:C):(:lettreA+:lettreB+:C)}$$ ist $$\\color{red}{\\overline{${:C+(:choix==1?:lettreA::lettreB)}}}$$"],
+            "value":["\\overline{${(:choix==1?:lettreA::lettreB)+:C}}","\\overline{${:C+(:choix==1?:lettreA::lettreB)}}","${(:choix==1?:lettreA::lettreB)+:C}","${:C+(:choix==1?:lettreA::lettreB)}"]
         }
     ]
 

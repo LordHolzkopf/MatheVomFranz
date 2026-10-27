@@ -1,0 +1,23 @@
+{
+    "title":"Multiplier par 75; 7,5; 0,75",
+    "description":"calcul réfléchi, multiplier, astuce, décomposer, décimaux",
+    "dest":["6NE","7NE","5NC","4NC","3NB"],
+    "params":{
+        "mult10":{"groupe":"Ne pas tirer","label":"les multiples de 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100"}},
+        "mult5":{"groupe":"Ne pas tirer","label":"les multiples de 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100"}}
+    },
+    "options":[{
+        "name":"Multiplier par 75",
+        "vars":{"a":75,"c":"12_100"}
+    },{
+        "name":"Multiplier par 7,5",
+        "vars":{"a":7.5,"c":"12_100"}
+    },{
+        "name":"Multiplier par 0,75",
+        "vars":{"a":0.75,"c":"12_100"}
+    }
+    ],
+    "question": ["${:a}\\times ${:c}", "${:c}\\times ${:a}"],
+    "answer":":question = \\color{red}{${:a*:c}}",
+    "value":"${:a*:c}"
+}

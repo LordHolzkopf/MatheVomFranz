@@ -1,0 +1,63 @@
+title: Fraction d'une figure au découpage piégeux
+description: Rectangle, carré ou disque dont certaines parts ne sont pas égales ; il faut imaginer le découpage en parts égales pour trouver la fraction colorée.
+dest: [8NB, 7NB, 6NB]
+type: text
+keys: ["_", "/", "_", "_", "_", "_", "_", "_"]
+consigne: Quelle fraction de la figure est colorée ?
+question: ""
+vars:
+  n: [3, 4, 5]
+  s: [2, 3]
+  p: "0_${:n-1}"
+  k: "0_${:n-1}"
+  h0: "0_${:s}"
+  h: "${:k==0&&:h0==0?1:(:k==:n-1&&:h0==:s?:s-1::h0)}"
+  den: "${:n*:s}"
+  num: "${:k*:s+:h}"
+value: "\\dfrac{:num}{:den}"
+options:
+  - name: Rectangle
+    answer: "Le rectangle est coupé en $$:n$$ colonnes égales, l’une d’elles étant coupée en $$:s$$ parts égales : le rectangle entier équivaut à $$:den$$ parts égales. On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du rectangle."
+    figure:
+      type: graph
+      boundingbox: [0, 5, 10, 0]
+      axis: false
+      content:
+          - ["polygon", [["${1+Math.min(0,:n-1)*8/:n}", "1"], ["${1+(Math.min(0,:n-1)+1)*8/:n}", "1"], ["${1+(Math.min(0,:n-1)+1)*8/:n}", "4"], ["${1+Math.min(0,:n-1)*8/:n}", "4"]], {fillColor: "${0<:n&&0!=:p&&(0<:p?0:0-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(1,:n-1)*8/:n}", "1"], ["${1+(Math.min(1,:n-1)+1)*8/:n}", "1"], ["${1+(Math.min(1,:n-1)+1)*8/:n}", "4"], ["${1+Math.min(1,:n-1)*8/:n}", "4"]], {fillColor: "${1<:n&&1!=:p&&(1<:p?1:1-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(2,:n-1)*8/:n}", "1"], ["${1+(Math.min(2,:n-1)+1)*8/:n}", "1"], ["${1+(Math.min(2,:n-1)+1)*8/:n}", "4"], ["${1+Math.min(2,:n-1)*8/:n}", "4"]], {fillColor: "${2<:n&&2!=:p&&(2<:p?2:2-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(3,:n-1)*8/:n}", "1"], ["${1+(Math.min(3,:n-1)+1)*8/:n}", "1"], ["${1+(Math.min(3,:n-1)+1)*8/:n}", "4"], ["${1+Math.min(3,:n-1)*8/:n}", "4"]], {fillColor: "${3<:n&&3!=:p&&(3<:p?3:3-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(4,:n-1)*8/:n}", "1"], ["${1+(Math.min(4,:n-1)+1)*8/:n}", "1"], ["${1+(Math.min(4,:n-1)+1)*8/:n}", "4"], ["${1+Math.min(4,:n-1)*8/:n}", "4"]], {fillColor: "${4<:n&&4!=:p&&(4<:p?4:4-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+:p*8/:n}", "${4-(Math.min(0,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-(Math.min(0,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-Math.min(0,:s-1)*3/:s}"], ["${1+:p*8/:n}", "${4-Math.min(0,:s-1)*3/:s}"]], {fillColor: "${0<:s&&:h>0?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+:p*8/:n}", "${4-(Math.min(1,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-(Math.min(1,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-Math.min(1,:s-1)*3/:s}"], ["${1+:p*8/:n}", "${4-Math.min(1,:s-1)*3/:s}"]], {fillColor: "${1<:s&&:h>1?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+:p*8/:n}", "${4-(Math.min(2,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-(Math.min(2,:s-1)+1)*3/:s}"], ["${1+(:p+1)*8/:n}", "${4-Math.min(2,:s-1)*3/:s}"], ["${1+:p*8/:n}", "${4-Math.min(2,:s-1)*3/:s}"]], {fillColor: "${2<:s&&:h>2?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+  - name: Carré
+    answer: "Le carré est coupé en $$:n$$ bandes égales, l’une d’elles étant coupée en $$:s$$ parts égales : le carré entier équivaut à $$:den$$ parts égales. On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du carré."
+    figure:
+      type: graph
+      boundingbox: [0, 6, 6, 0]
+      axis: false
+      content:
+          - ["polygon", [["1", "${5-(Math.min(0,:n-1)+1)*4/:n}"], ["5", "${5-(Math.min(0,:n-1)+1)*4/:n}"], ["5", "${5-Math.min(0,:n-1)*4/:n}"], ["1", "${5-Math.min(0,:n-1)*4/:n}"]], {fillColor: "${0<:n&&0!=:p&&(0<:p?0:0-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["1", "${5-(Math.min(1,:n-1)+1)*4/:n}"], ["5", "${5-(Math.min(1,:n-1)+1)*4/:n}"], ["5", "${5-Math.min(1,:n-1)*4/:n}"], ["1", "${5-Math.min(1,:n-1)*4/:n}"]], {fillColor: "${1<:n&&1!=:p&&(1<:p?1:1-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["1", "${5-(Math.min(2,:n-1)+1)*4/:n}"], ["5", "${5-(Math.min(2,:n-1)+1)*4/:n}"], ["5", "${5-Math.min(2,:n-1)*4/:n}"], ["1", "${5-Math.min(2,:n-1)*4/:n}"]], {fillColor: "${2<:n&&2!=:p&&(2<:p?2:2-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["1", "${5-(Math.min(3,:n-1)+1)*4/:n}"], ["5", "${5-(Math.min(3,:n-1)+1)*4/:n}"], ["5", "${5-Math.min(3,:n-1)*4/:n}"], ["1", "${5-Math.min(3,:n-1)*4/:n}"]], {fillColor: "${3<:n&&3!=:p&&(3<:p?3:3-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["1", "${5-(Math.min(4,:n-1)+1)*4/:n}"], ["5", "${5-(Math.min(4,:n-1)+1)*4/:n}"], ["5", "${5-Math.min(4,:n-1)*4/:n}"], ["1", "${5-Math.min(4,:n-1)*4/:n}"]], {fillColor: "${4<:n&&4!=:p&&(4<:p?4:4-1)<:k?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(0,:s-1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(0,:s-1)+1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(0,:s-1)+1)*4/:s}", "${5-:p*4/:n}"], ["${1+Math.min(0,:s-1)*4/:s}", "${5-:p*4/:n}"]], {fillColor: "${0<:s&&:h>0?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(1,:s-1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(1,:s-1)+1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(1,:s-1)+1)*4/:s}", "${5-:p*4/:n}"], ["${1+Math.min(1,:s-1)*4/:s}", "${5-:p*4/:n}"]], {fillColor: "${1<:s&&:h>1?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+          - ["polygon", [["${1+Math.min(2,:s-1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(2,:s-1)+1)*4/:s}", "${5-(:p+1)*4/:n}"], ["${1+(Math.min(2,:s-1)+1)*4/:s}", "${5-:p*4/:n}"], ["${1+Math.min(2,:s-1)*4/:s}", "${5-:p*4/:n}"]], {fillColor: "${2<:s&&:h>2?'black':'none'}", highlight: false, vertices: {visible: false}, borders: {strokeWidth: 1}}]
+  - name: Disque
+    answer: "Le disque est coupé en $$:n$$ secteurs égaux, l’un d’eux étant coupé en $$:s$$ parts égales : le disque entier équivaut à $$:den$$ parts égales. On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du disque."
+    figure:
+      type: graph
+      boundingbox: [0, 6, 6, 0]
+      axis: false
+      content:
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*Math.min(0,:n-1)/:n)}", "${3+2*Math.sin(2*Math.PI*Math.min(0,:n-1)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(Math.min(0,:n-1)+1)/:n)}", "${3+2*Math.sin(2*Math.PI*(Math.min(0,:n-1)+1)/:n)}"]], {fillColor: "${0<:n&&0!=:p&&(0<:p?0:0-1)<:k?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*Math.min(1,:n-1)/:n)}", "${3+2*Math.sin(2*Math.PI*Math.min(1,:n-1)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(Math.min(1,:n-1)+1)/:n)}", "${3+2*Math.sin(2*Math.PI*(Math.min(1,:n-1)+1)/:n)}"]], {fillColor: "${1<:n&&1!=:p&&(1<:p?1:1-1)<:k?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*Math.min(2,:n-1)/:n)}", "${3+2*Math.sin(2*Math.PI*Math.min(2,:n-1)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(Math.min(2,:n-1)+1)/:n)}", "${3+2*Math.sin(2*Math.PI*(Math.min(2,:n-1)+1)/:n)}"]], {fillColor: "${2<:n&&2!=:p&&(2<:p?2:2-1)<:k?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*Math.min(3,:n-1)/:n)}", "${3+2*Math.sin(2*Math.PI*Math.min(3,:n-1)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(Math.min(3,:n-1)+1)/:n)}", "${3+2*Math.sin(2*Math.PI*(Math.min(3,:n-1)+1)/:n)}"]], {fillColor: "${3<:n&&3!=:p&&(3<:p?3:3-1)<:k?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*Math.min(4,:n-1)/:n)}", "${3+2*Math.sin(2*Math.PI*Math.min(4,:n-1)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(Math.min(4,:n-1)+1)/:n)}", "${3+2*Math.sin(2*Math.PI*(Math.min(4,:n-1)+1)/:n)}"]], {fillColor: "${4<:n&&4!=:p&&(4<:p?4:4-1)<:k?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*(:p+Math.min(0,:s-1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+Math.min(0,:s-1)/:s)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(:p+(Math.min(0,:s-1)+1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+(Math.min(0,:s-1)+1)/:s)/:n)}"]], {fillColor: "${0<:s&&:h>0?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*(:p+Math.min(1,:s-1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+Math.min(1,:s-1)/:s)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(:p+(Math.min(1,:s-1)+1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+(Math.min(1,:s-1)+1)/:s)/:n)}"]], {fillColor: "${1<:s&&:h>1?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]
+          - ["sector", [[3, 3], ["${3+2*Math.cos(2*Math.PI*(:p+Math.min(2,:s-1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+Math.min(2,:s-1)/:s)/:n)}"], ["${3+2*Math.cos(2*Math.PI*(:p+(Math.min(2,:s-1)+1)/:s)/:n)}", "${3+2*Math.sin(2*Math.PI*(:p+(Math.min(2,:s-1)+1)/:s)/:n)}"]], {fillColor: "${2<:s&&:h>2?'black':'none'}", highlight: false, strokeWidth: 1, arc: {strokeWidth: 1}, center: {visible: false, withLabel: false, label: {visible: false}}, radiusPoint: {visible: false, withLabel: false, label: {visible: false}}, anglePoint: {visible: false, withLabel: false, label: {visible: false}}, withLabel: false, label: {visible: false}}]

@@ -1,0 +1,33 @@
+{
+    "title":"Multiplier par 1,5; 2,5; 3,5",
+    "description":"calcul réfléchi, multiplier, astuce, décomposer, distributivité, décimaux",
+    "ID":"6NE3",
+    "dest":["6NE","7NE","5NC","4NC","3NB"],
+    "params":{
+        "mult10":{"groupe":"Ne pas tirer","label":"les multiples de 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100"}},
+        "mult5":{"groupe":"Ne pas tirer","label":"les multiples de 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100"}}
+    },
+    "options":[{
+        "name":"Multiplier un petit nombre (<41) par 1,5",
+        "vars":{"a":1.5,"c":"2_40"}
+    },{
+        "name":"Multiplier un grand nombre (de 40 à 101) par 1,5",
+        "vars":{"a":1.5,"c":"41_100"}
+    },{
+        "name":"Multiplier un petit nombre par 2,5",
+        "vars":{"a":2.5,"c":"2_40"}
+    },{
+        "name":"Multiplier un grand nombre par 2,5",
+        "vars":{"a":2.5,"c":"41_100"}
+    },{
+        "name":"Multiplier un petit nombre par 3,5",
+        "vars":{"a":3.5,"c":"2_40"}
+    },{
+        "name":"Multiplier un grand nombre par 3,5",
+        "vars":{"a":3.5,"c":"41_100"}
+    }
+    ],
+    "question": ["${:a}\\times ${:c}", "${:c}\\times ${:a}"],
+    "answer":":question = \\color{red}{${:a*:c}}",
+    "value":"${:a*:c}"
+}

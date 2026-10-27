@@ -1,0 +1,40 @@
+{
+    "title":"Connaître les carrés parfaits",
+    "description":"racine carrée, carrés parfaits, √, carré",
+    "ID":"4NC1",
+    "dest":["4NC", "3NB", "5NC", "6ND"],
+    "params":{
+        "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"a":"1"}},
+        "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"a":"2"}},
+        "n5":{"groupe":"Ne pas tirer","label":"5","defaut":false,"exclut":{"a":"5"}},
+        "n10":{"groupe":"Ne pas tirer","label":"10","defaut":false,"exclut":{"a":"10"}},
+        "n11":{"groupe":"Ne pas tirer","label":"11","defaut":false,"exclut":{"a":"11"}},
+        "n12":{"groupe":"Ne pas tirer","label":"12","defaut":false,"exclut":{"a":"12"}}
+    },
+    "options":[{
+        "name":"Carrés des tables (6e, 5e)",
+        "vars":{"a":"1_10"}
+    }, {
+        "name":"Carrés de 1 à 12 (4e, 3e)",
+        "vars":{"a":"1_12"}
+    }, {
+        "name":"Racines de 1 à 144",
+        "vars":{"a":"1_12"},
+        "question":["\\sqrt {${:a*:a}}", "?^2=${:a*:a}"],
+        "answer":[":question=\\color{red}{${:a}}",":question \\text{ réponse }\\color{red}{${:a}}"],
+        "value":"${:a}"
+    }, {
+        "name":"Carrés de 1 à 15",
+        "vars":{"a":"1_15"}
+    }, {
+        "name":"Racines de 1 à 225",
+        "vars":{"a":"1_15"},
+        "question":["\\sqrt{ ${:a*:a}}", "?^2=${:a*:a}"],
+        "answer":[":question=\\color{red}{${:a}}",":question \\text{ réponse } \\color{red}{${:a}}"],
+        "value":"${:a}"
+    }
+    ],
+    "question": ["${:a}\\times${:a}", "${:a}^2"],
+    "answer":":question=\\color{red}{${:a*:a}}",
+    "value":"${:a*:a}"
+}

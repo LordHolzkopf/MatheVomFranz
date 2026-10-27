@@ -1,0 +1,35 @@
+{
+    "title":"Carrés des nombres entiers",
+    "description":"carré, puissance 2, carrés parfaits, au carré",
+    "ID":"6ND13",
+    "canrepeat":true,
+    "dest":["6ND", "5NC", "4NC", "3NB"],
+    "params":{
+        "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"a":"1"}},
+        "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"a":"2"}},
+        "n5":{"groupe":"Ne pas tirer","label":"5","defaut":false,"exclut":{"a":"5"}},
+        "n10":{"groupe":"Ne pas tirer","label":"10","defaut":false,"exclut":{"a":"10"}},
+        "n11":{"groupe":"Ne pas tirer","label":"11","defaut":false,"exclut":{"a":"11"}},
+        "n12":{"groupe":"Ne pas tirer","label":"12","defaut":false,"exclut":{"a":"12"}}
+    },
+    "options":[{
+        "name":"Carrés de 1 à 10 (6e, 5e)",
+        "vars":{"a":"1_10"}
+        },{
+            "name":"Carrés de 1 à 12 (4e, 3e)",
+            "vars":{"a":"1_12"}
+        },{
+            "name":"Carrés de 13 à 20",
+            "vars":{"a":"13_20"}
+        },{
+            "name":"Carrés de 1 à 15",
+            "vars":{"a":"1_15"}
+        },{
+            "name":"Carrés de 11 à 20",
+            "vars":{"a":"11_20"}
+        }
+    ],
+    "question":["${:a}^2","${:a}\\times${:a}"],
+    "answer":":question=\\color{red}{${:a**2}}",
+    "value":"${:a**2}"
+}

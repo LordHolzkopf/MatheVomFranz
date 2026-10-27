@@ -1,0 +1,106 @@
+{
+  "ID": "DEFA1",
+  "dest": [
+    "EFA"
+  ],
+  "title": "Geraden in Parameterform: Punkte, Parameter und Spurpunkte",
+  "description": "Gerade im Raum, Parameterform, Parametergleichung, Stützvektor, Ortsvektor, Richtungsvektor, Parameter, Punktprobe, liegt der Punkt auf der Geraden, Spurpunkt, Koordinatenebene, Gerade durch zwei Punkte. Im Online-Modus Koordinaten durch Semikolon trennen, z. B. (2;-3;5).",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Punkt zu einem Parameterwert",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-4_4_3_^0",
+        "r0": "-3_3_^0"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Gegeben ist $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$. Bestimme den Punkt $$P$$ der Geraden für $$r=${:r0}$$.",
+      "answer": "$$\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}${:r0<0?'-':'+'}${Math.abs(:r0)==1?'':Math.abs(:r0)+'\\cdot '}\\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}=\\begin{pmatrix}${:p[0]+(:r0)*:u[0]}\\\\${:p[1]+(:r0)*:u[1]}\\\\${:p[2]+(:r0)*:u[2]}\\end{pmatrix}$$, also $$\\color{red}{P({${:p[0]+(:r0)*:u[0]}}\\,|\\,{${:p[1]+(:r0)*:u[1]}}\\,|\\,{${:p[2]+(:r0)*:u[2]}})}$$",
+      "value": [
+        "\\left(${:p[0]+(:r0)*:u[0]};${:p[1]+(:r0)*:u[1]};${:p[2]+(:r0)*:u[2]}\\right)",
+        "${:p[0]+(:r0)*:u[0]};${:p[1]+(:r0)*:u[1]};${:p[2]+(:r0)*:u[2]}"
+      ]
+    },
+    {
+      "name": "Parameterwert zu einem Punkt",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-4_4_3_^0",
+        "r0": "-4_4_^0"
+      },
+      "question": "Der Punkt $$P({${:p[0]+(:r0)*:u[0]}}\\,|\\,{${:p[1]+(:r0)*:u[1]}}\\,|\\,{${:p[2]+(:r0)*:u[2]}})$$ liegt auf der Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$. Zu welchem Parameterwert $$r$$ gehört $$P$$?",
+      "answer": "Erste Koordinate: $$${:p[0]}${MMmath.signedNumberButOne(:u[0])}r=${:p[0]+:r0*:u[0]}$$ $$\\Rightarrow$$ $$r=\\color{red}{${:r0}}$$ (die anderen Koordinaten passen ebenfalls)",
+      "value": "${:r0}"
+    },
+    {
+      "name": "Punktprobe",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-4_4_3_^0",
+        "r0": "-3_3_^0",
+        "on": "0_1",
+        "k": "1_2",
+        "dl": "-2_2_^0",
+        "P": "${[0,1,2].map(i=>:p[i]+:r0*:u[i]+((:on==0&&i==:k)?:dl:0)).join(';')}"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Liegt der Punkt $$P({${String(:P).split(';')[0]}}\\,|\\,{${String(:P).split(';')[1]}}\\,|\\,{${String(:P).split(';')[2]}})$$ auf der Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$?",
+      "answer": "Aus der ersten Koordinate folgt $$r=${:r0}$$. Für $$r=${:r0}$$ erhält man den Punkt $$({${:p[0]+(:r0)*:u[0]}}\\,|\\,{${:p[1]+(:r0)*:u[1]}}\\,|\\,{${:p[2]+(:r0)*:u[2]}})$$. ${:on==1?'Er stimmt mit $$P$$ überein.':'Die '+(:k+1)+'. Koordinate passt nicht.'}<br>Antwort: $$\\color{red}{\\text{${(:on==1)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:on==1)?'\\text{ja}':'\\text{nein}'}",
+        "${(:on==1)?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Spurpunkt mit einer Koordinatenebene",
+      "vars": {
+        "k": "0_2",
+        "r0": "-3_3_^0",
+        "u": "-3_3_3_^0",
+        "pr": "-5_5_3",
+        "p": "${[0,1,2].map(i=>i==:k?-:r0*:u[i]: :pr[i]).join(';')}",
+        "q0": "${String(:p).split(';')[0]}",
+        "q1": "${String(:p).split(';')[1]}",
+        "q2": "${String(:p).split(';')[2]}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme den Schnittpunkt (Spurpunkt) der Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:q0}\\\\${:q1}\\\\${:q2}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$ mit der $$${['x_2x_3','x_1x_3','x_1x_2'][:k]}$$-Ebene.",
+      "answer": "Bedingung $$x_${:k+1}=0$$: $$${[:q0,:q1,:q2][:k]}${MMmath.signedNumberButOne(:u[:k])}r=0$$ $$\\Rightarrow$$ $$r=${:r0}$$, also $$\\color{red}{S({${[:q0,:q1,:q2][0]+:r0*:u[0]}}\\,|\\,{${[:q0,:q1,:q2][1]+:r0*:u[1]}}\\,|\\,{${[:q0,:q1,:q2][2]+:r0*:u[2]}})}$$",
+      "value": [
+        "\\left(${[:q0,:q1,:q2][0]+:r0*:u[0]};${[:q0,:q1,:q2][1]+:r0*:u[1]};${[:q0,:q1,:q2][2]+:r0*:u[2]}\\right)",
+        "${[:q0,:q1,:q2][0]+:r0*:u[0]};${[:q0,:q1,:q2][1]+:r0*:u[1]};${[:q0,:q1,:q2][2]+:r0*:u[2]}"
+      ]
+    },
+    {
+      "name": "Gerade durch zwei Punkte",
+      "vars": {
+        "a": "-5_5_3",
+        "u": "-4_4_3_^0",
+        "r0": [
+          -2,
+          -1,
+          2,
+          3
+        ]
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Die Gerade $$g$$ verläuft durch $$A({${:a[0]}}\\,|\\,{${:a[1]}}\\,|\\,{${:a[2]}})$$ und $$B({${:a[0]+:u[0]}}\\,|\\,{${:a[1]+:u[1]}}\\,|\\,{${:a[2]+:u[2]}})$$ und hat die Gleichung $$g\\colon\\ \\vec{x}=\\overrightarrow{OA}+r\\cdot\\overrightarrow{AB}$$. Bestimme den Punkt $$P$$ von $$g$$ für $$r=${:r0}$$.",
+      "answer": "$$\\overrightarrow{AB}=\\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$, $$\\begin{pmatrix}${:a[0]}\\\\${:a[1]}\\\\${:a[2]}\\end{pmatrix}${:r0<0?'-':'+'}${Math.abs(:r0)==1?'':Math.abs(:r0)+'\\cdot '}\\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$, also $$\\color{red}{P({${:a[0]+:r0*:u[0]}}\\,|\\,{${:a[1]+:r0*:u[1]}}\\,|\\,{${:a[2]+:r0*:u[2]}})}$$",
+      "value": [
+        "\\left(${:a[0]+:r0*:u[0]};${:a[1]+:r0*:u[1]};${:a[2]+:r0*:u[2]}\\right)",
+        "${:a[0]+:r0*:u[0]};${:a[1]+:r0*:u[1]};${:a[2]+:r0*:u[2]}"
+      ]
+    }
+  ]
+}

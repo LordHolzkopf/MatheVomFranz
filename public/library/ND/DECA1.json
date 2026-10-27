@@ -1,0 +1,75 @@
+{
+  "ID": "DECA1",
+  "dest": [
+    "ECA"
+  ],
+  "title": "Mittlere und lokale Änderungsrate berechnen",
+  "description": "mittlere Änderungsrate, Differenzenquotient, Sekantensteigung, lokale Änderungsrate, momentane Änderungsrate, Grenzwert, h-Methode, lim, Wertetabelle, Sachzusammenhang, Intervall",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Mittlere Änderungsrate (quadratische Funktion)",
+      "vars": {
+        "a": "-3_3_^0",
+        "b": "-5_5",
+        "c": "-5_5",
+        "xs": "-4_5_2_^&",
+        "x1": "${Math.min(...:xs)}",
+        "x2": "${Math.max(...:xs)}",
+        "y1": "${:a*:x1**2+:b*:x1+:c}",
+        "y2": "${:a*:x2**2+:b*:x2+:c}"
+      },
+      "keys": [
+        "/"
+      ],
+      "question": "Berechne die mittlere Änderungsrate von $$f(x)=${(([[:a,2],[:b,1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ im Intervall $$[${:x1};\\,${:x2}]$$.",
+      "answer": "$$\\dfrac{f(${:x2})-f(${:x1})}{${:x2}-${MMmath.nP(:x1)}}=\\dfrac{${:y2}-${MMmath.nP(:y1)}}{${:x2-:x1}}=\\dfrac{${:y2-:y1}}{${:x2-:x1}}=\\color{red}{${(:y2-:y1)/(:x2-:x1)}}$$",
+      "value": "${(:y2-:y1)/(:x2-:x1)}"
+    },
+    {
+      "name": "Mittlere Änderungsrate (x³ oder 1/x)",
+      "vars": {
+        "t": "0_1",
+        "xs": "${:t==0?'-3_3_2_^&':'1_6_2_^&'}",
+        "x1": "${Math.min(...:xs)}",
+        "x2": "${Math.max(...:xs)}"
+      },
+      "keys": [
+        "/"
+      ],
+      "question": "Berechne die mittlere Änderungsrate von $$f(x)=${:t==0?'x^3':'\\dfrac{1}{x}'}$$ im Intervall $$[${:x1};\\,${:x2}]$$.",
+      "answer": "${:t==0?'$$\\dfrac{'+:x2+'^3-'+MMmath.nP(:x1)+'^3}{'+:x2+'-'+MMmath.nP(:x1)+'}=\\dfrac{'+(:x2**3)+'-'+MMmath.nP(:x1**3)+'}{'+(:x2-:x1)+'}=\\color{red}{'+((:x2**3-:x1**3)/(:x2-:x1))+'}$$':'$$\\dfrac{\\frac{1}{'+:x2+'}-\\frac{1}{'+:x1+'}}{'+:x2+'-'+:x1+'}=\\dfrac{-\\frac{'+(:x2-:x1)+'}{'+(:x1*:x2)+'}}{'+(:x2-:x1)+'}=\\color{red}{'+((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(-1,:x1*:x2)+'}$$'}",
+      "value": "${:t==0?(:x2**3-:x1**3)/(:x2-:x1):((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(-1,:x1*:x2)}"
+    },
+    {
+      "name": "Mittlere Änderungsrate aus einer Tabelle",
+      "vars": {
+        "ctx": "0_2",
+        "h": "1_2",
+        "m": "${['-4_4_^0','-9_9_^0','-12_12_^0'][:ctx]}",
+        "base": "${['5_15','60_90','100_200'][:ctx]}",
+        "off": "-6_6_4",
+        "pr": "0_4",
+        "j": "${[0,0,1,0,2][:pr]}",
+        "k": "${[2,3,3,1,3][:pr]}",
+        "ys": "${[0,1,2,3].map(i=>i==:j?:base:(i==:k?:base+:m*(:k-:j)*:h: :base+:off[i])).join(';')}"
+      },
+      "question": "${['Die Temperatur wird regelmäßig gemessen.','Ein Wetterballon steigt und sinkt.','Ein Wassertank wird befüllt und entleert.'][:ctx]}<br><table class='inline-table'><tr><td>${['$$t$$ in h','$$t$$ in min','$$t$$ in min'][:ctx]}</td>${[0,1,2,3].map(i=>'<td>$$'+i*:h+'$$</td>').join('')}</tr><tr><td>${['Temperatur in °C','Höhe in m','Wassermenge in l'][:ctx]}</td>${String(:ys).split(';').map(y=>'<td>$$'+y+'$$</td>').join('')}</tr></table><br>Berechne die mittlere Änderungsrate zwischen $$t=${:j*:h}$$ und $$t=${:k*:h}$$.",
+      "answer": "$$\\dfrac{${String(:ys).split(';')[:k]}-${MMmath.nP(Number(String(:ys).split(';')[:j]))}}{${:k*:h}-${:j*:h}}=\\dfrac{${:m*(:k-:j)*:h}}{${(:k-:j)*:h}}=\\color{red}{${:m}}$$ ${['°C pro Stunde','m pro Minute','Liter pro Minute'][:ctx]}",
+      "value": "${:m}"
+    },
+    {
+      "name": "Lokale Änderungsrate als Grenzwert",
+      "vars": {
+        "a": "-3_3_^0",
+        "b": "-6_6",
+        "c": "-5_5",
+        "x0": "-4_4"
+      },
+      "question": "Berechne für $$f(x)=${(([[:a,2],[:b,1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ die lokale Änderungsrate an der Stelle $$x_0=${:x0}$$, also $$\\lim\\limits_{h\\to 0}\\dfrac{f(${:x0}+h)-f(${:x0})}{h}$$.",
+      "answer": "$$\\dfrac{f(${:x0}+h)-f(${:x0})}{h}=\\dfrac{${(([[2*:a*:x0+:b,1],[:a,2]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'h':'h^{'+k+'}'));}).join('')||'0')}}{h}=${(([[2*:a*:x0+:b,0],[:a,1]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'h':'h^{'+k+'}'));}).join('')||'0')}\\;\\xrightarrow{h\\to 0}\\;\\color{red}{${2*:a*:x0+:b}}$$",
+      "value": "${2*:a*:x0+:b}"
+    }
+  ]
+}

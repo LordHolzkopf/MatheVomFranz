@@ -1,0 +1,86 @@
+{
+  "ID": "DEBB1",
+  "dest": [
+    "EBB"
+  ],
+  "title": "Symmetrie ganzrationaler Funktionen untersuchen",
+  "description": "Symmetrie, achsensymmetrisch zur y-Achse, punktsymmetrisch zum Ursprung, gerade und ungerade Exponenten, f(-x)=f(x), f(-x)=-f(x), ganzrationale Funktion, Produktform, Parameter bestimmen",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Symmetrie erkennen (Summenform)",
+      "vars": {
+        "art": "0_2",
+        "nt": "2_3",
+        "i": "0_3_3_^&",
+        "c": "-9_9_3_^0",
+        "e": "${(:art==0?:i.slice(0,:nt).map(k=>[6,4,2,0][k]):(:art==1?:i.slice(0,:nt).map(k=>[7,5,3,1][k]):[[6,4,2,0][:i[0]],[7,5,3,1][:i[1]]].concat(:nt==3?[[6,4,2,0][:i[2]]]:[]))).sort((a,b)=>b-a).join(',')}",
+        "f": "${((:e.split(',').map((k,j)=>[:c[j],Number(k)])).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "q": "0_1"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Ist der Graph von $$f(x)=${:f}$$ ${:q==0?'achsensymmetrisch zur $$y$$-Achse':'punktsymmetrisch zum Ursprung'}?",
+      "answer": "${:art==0?'Es kommen nur gerade Exponenten vor. ':(:art==1?'Es kommen nur ungerade Exponenten vor. ':'Es kommen gerade und ungerade Exponenten vor. ')}${:art==0?'Der Graph ist achsensymmetrisch zur $$y$$-Achse.':(:art==1?'Der Graph ist punktsymmetrisch zum Ursprung.':'Der Graph ist weder achsensymmetrisch zur $$y$$-Achse noch punktsymmetrisch zum Ursprung.')}<br>Antwort: $$\\color{red}{\\text{${(:art==:q)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:art==:q)?'\\text{ja}':'\\text{nein}'}",
+        "${(:art==:q)?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Funktionswert mit Symmetrie ergänzen",
+      "vars": {
+        "q": "0_1",
+        "a": "-9_9_^0",
+        "b": "-20_20_^0"
+      },
+      "question": "Der Graph von $$f$$ ist ${:q==0?'achsensymmetrisch zur $$y$$-Achse':'punktsymmetrisch zum Ursprung'}. Es gilt $$f(${:a})=${:b}$$. Gib $$f(${-:a})$$ an.",
+      "answer": "${:q==0?'Achsensymmetrie: $$f(-x)=f(x)$$':'Punktsymmetrie: $$f(-x)=-f(x)$$'}, also $$f(${-:a})=\\color{red}{${:q==0?:b:-:b}}$$",
+      "value": "${:q==0?:b:-:b}"
+    },
+    {
+      "name": "Parameter für Symmetrie bestimmen",
+      "vars": {
+        "q": "0_1",
+        "r": "1_2",
+        "mm": "-4_4_^0",
+        "m": "${:r*:mm}",
+        "a": "-4_4_^0",
+        "b": "-6_6_^0",
+        "c": "-9_9_^0",
+        "kt": "(${:r==1?'':(:r)}k${MMmath.signedNumber(:m)})",
+        "f": "${:q==0?MMmath.signIfOne(:a)+'x^4+'+:kt+'x^3'+MMmath.signedNumberButOne(:b)+'x^2'+MMmath.signedNumber(:c):MMmath.signIfOne(:a)+'x^3+'+:kt+'x^2'+MMmath.signedNumberButOne(:b)+'x'}"
+      },
+      "question": "Gegeben ist $$f(x)=${:f}$$. Für welchen Wert von $$k$$ ist der Graph von $$f$$ ${:q==0?'achsensymmetrisch zur $$y$$-Achse':'punktsymmetrisch zum Ursprung'}?",
+      "answer": "Der Summand mit ${:q==0?'$$x^3$$':'$$x^2$$'} muss wegfallen: $$${:kt.slice(1,-1)}=0$$, also $$k=\\color{red}{${-:mm}}$$",
+      "value": "${-:mm}"
+    },
+    {
+      "name": "Symmetrie aus der Produktform erkennen",
+      "vars": {
+        "t": "0_6",
+        "a": "-3_3_^0",
+        "p": "1_9",
+        "p2": "1_5",
+        "w": "1_9",
+        "q": "0_1",
+        "fp": "${MMmath.signIfOne(:a)}${['x(x^2-'+:p+')','(x^2-'+:p+')(x^2+'+:w+')','x^2(x^2-'+:p+')','x(x-'+:p2+')','(x-'+:p2+')(x+'+:p2+')','(x-'+:p2+')^2','x^3(x^2+'+:w+')'][:t]}",
+        "fe": "${(([[[:a,3],[-:a*:p,1]],[[:a,4],[:a*(:w-:p),2],[-:a*:p*:w,0]],[[:a,4],[-:a*:p,2]],[[:a,2],[-:a*:p2,1]],[[:a,2],[-:a*:p2*:p2,0]],[[:a,2],[-2*:a*:p2,1],[:a*:p2*:p2,0]],[[:a,5],[:a*:w,3]]][:t]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "sym": "${[1,0,0,2,0,2,1][:t]}"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Ist der Graph von $$f(x)=${:fp}$$ ${:q==0?'achsensymmetrisch zur $$y$$-Achse':'punktsymmetrisch zum Ursprung'}?",
+      "answer": "Ausmultipliziert: $$f(x)=${:fe}$$. ${:sym==0?'Der Graph ist achsensymmetrisch zur $$y$$-Achse.':(:sym==1?'Der Graph ist punktsymmetrisch zum Ursprung.':'Der Graph ist weder achsensymmetrisch zur $$y$$-Achse noch punktsymmetrisch zum Ursprung.')}<br>Antwort: $$\\color{red}{\\text{${(:sym==:q)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:sym==:q)?'\\text{ja}':'\\text{nein}'}",
+        "${(:sym==:q)?'ja':'nein'}"
+      ]
+    }
+  ]
+}

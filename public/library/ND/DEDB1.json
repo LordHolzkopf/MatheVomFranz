@@ -1,0 +1,102 @@
+{
+  "ID": "DEDB1",
+  "dest": [
+    "EDB"
+  ],
+  "title": "Extremstellen und Extrempunkte bestimmen",
+  "description": "Extremstelle, Extrempunkt, Hochpunkt, Tiefpunkt, lokales Maximum, lokales Minimum, notwendige Bedingung f'(x)=0, hinreichende Bedingung, Vorzeichenwechsel, zweite Ableitung f''(x), Extremwert. Im Online-Modus mehrere Stellen durch Semikolon trennen.",
+  "type": "text",
+  "textSize": "medium",
+  "valueType": "liste",
+  "options": [
+    {
+      "name": "Extremstelle und Extremwert einer Parabel",
+      "vars": {
+        "a": "-3_3_^0",
+        "xs": "-4_4",
+        "b": "${-2*:a*:xs}",
+        "c": "-9_9",
+        "ys": "${:c-:a*:xs*:xs}",
+        "typ": "0_1"
+      },
+      "question": "Gegeben ist $$f(x)=${(([[:a,2],[:b,1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$. Gib ${:typ==0?'die Extremstelle':'den Extremwert (die $$y$$-Koordinate des Extrempunkts)'} an.",
+      "answer": "$$f'(x)=${(([[2*:a,1],[:b,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}=0$$ $$\\Rightarrow$$ $$x=${:typ==0?'\\color{red}{'+:xs+'}':(:xs)}$$ (${:a>0?'Tiefpunkt':'Hochpunkt'}), $$f(${:xs})=${:typ==1?'\\color{red}{'+:ys+'}':(:ys)}$$",
+      "value": "${:typ==0?:xs: :ys}"
+    },
+    {
+      "name": "Hoch- oder Tiefpunkt einer Funktion 3. Grades",
+      "vars": {
+        "pq": "-4_4_2_^&",
+        "p": "${Math.min(...:pq)}",
+        "q": "${Math.max(...:pq)}",
+        "s": [
+          1,
+          -1
+        ],
+        "e": "-5_5",
+        "typ": "0_1",
+        "xh": "${:s>0?:p: :q}",
+        "xt": "${:s>0?:q: :p}"
+      },
+      "question": "Gegeben ist $$f(x)=${(([[2*:s,3],[-3*:s*(:p+:q),2],[6*:s*:p*:q,1],[:e,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$. Gib die $$x$$-Koordinate des ${:typ==0?'Hochpunkts':'Tiefpunkts'} an.",
+      "answer": "$$f'(x)=${(([[6*:s,2],[-6*:s*(:p+:q),1],[6*:s*:p*:q,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}=${6*:s}${:p==0?'x':'(x'+MMmath.signedNumber(-(:p))+')'}${:q==0?'x':'(x'+MMmath.signedNumber(-(:q))+')'}$$<br>$$f'$$ wechselt bei $$${:xh}$$ von $$+$$ nach $$-$$ (Hochpunkt) und bei $$${:xt}$$ von $$-$$ nach $$+$$ (Tiefpunkt).<br>$$x_${:typ==0?'H':'T'}=\\color{red}{${:typ==0?:xh: :xt}}$$",
+      "value": "${:typ==0?:xh: :xt}"
+    },
+    {
+      "name": "Hinreichende Bedingung mit f''",
+      "vars": {
+        "x0": "-5_5",
+        "k": "-9_9_^0",
+        "typ": "0_1"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Für eine Funktion $$f$$ gilt $$f'(${:x0})=0$$ und $$f''(${:x0})=${:k}$$. Hat der Graph von $$f$$ an der Stelle $$${:x0}$$ einen ${:typ==0?'Hochpunkt':'Tiefpunkt'}?",
+      "answer": "$$f''(${:x0})${:k>0?'\\gt':'\\lt'} 0$$, also liegt ein ${:k>0?'Tiefpunkt':'Hochpunkt'} vor: $$\\color{red}{\\text{${((:k<0)==(:typ==0))?'ja':'nein'}}}$$",
+      "value": [
+        "${((:k<0)==(:typ==0))?'\\text{ja}':'\\text{nein}'}",
+        "${((:k<0)==(:typ==0))?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "y-Koordinate eines Extrempunkts",
+      "vars": {
+        "a": "1_3",
+        "sg": [
+          1,
+          -1
+        ],
+        "c": "-9_9",
+        "typ": "0_1",
+        "xh": "${-:sg*:a}",
+        "xt": "${:sg*:a}",
+        "yh": "${2*:a**3+:c}",
+        "yt": "${-2*:a**3+:c}"
+      },
+      "question": "Gegeben ist $$f(x)=${(([[:sg,3],[-3*:sg*:a*:a,1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$. Gib die $$y$$-Koordinate des ${:typ==0?'Hochpunkts':'Tiefpunkts'} an.",
+      "answer": "$$f'(x)=${(([[3*:sg,2],[-3*:sg*:a*:a,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}=0$$ $$\\Rightarrow$$ $$x=\\pm ${:a}$$; $$f''(x)=${(([[6*:sg,1]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$<br>${:typ==0?'Hochpunkt bei $$x='+:xh+'$$':'Tiefpunkt bei $$x='+:xt+'$$'}: $$f(${:typ==0?:xh: :xt})=\\color{red}{${:typ==0?:yh: :yt}}$$",
+      "value": "${:typ==0?:yh: :yt}"
+    },
+    {
+      "name": "Alle Extremstellen einer Funktion 4. Grades",
+      "vars": {
+        "k": "1_4",
+        "sg": [
+          1,
+          -1,
+          2,
+          -2
+        ],
+        "c": "-9_9"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Gib alle Extremstellen von $$f(x)=${(([[:sg,4],[-2*:sg*:k*:k,2],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ an.",
+      "answer": "$$f'(x)=${(([[4*:sg,3],[-4*:sg*:k*:k,1]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}=${MMmath.signIfOne(4*:sg)}x(x^2-${:k*:k})=0$$<br>$$\\color{red}{x_1=${-:k},\\ x_2=0,\\ x_3=${:k}}$$ (jeweils mit Vorzeichenwechsel von $$f'$$)",
+      "value": "${-:k};0;${:k}"
+    }
+  ]
+}

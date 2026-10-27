@@ -1,0 +1,254 @@
+{
+  "ID": "DECC1",
+  "dest": [
+    "ECC"
+  ],
+  "title": "Grafisch ableiten: Graphen von f und f' deuten",
+  "description": "Ableitungsfunktion, grafisches Ableiten, Graph der Ableitung, f' ablesen, waagerechte Tangente, Steigung ablesen, Tangente ablesen, Hochpunkt und Tiefpunkt am Graphen von f', Vorzeichen der Ableitung, Graph",
+  "type": "text",
+  "textSize": "medium",
+  "repeat": true,
+  "options": [
+    {
+      "name": "Waagerechte Tangente am Graphen von f' erkennen",
+      "vars": {
+        "m": [
+          0.5,
+          1,
+          2,
+          -0.5,
+          -1,
+          -2
+        ],
+        "c": "-4_4",
+        "t": "0_1"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "figure": {
+        "type": "graph",
+        "scale": 2.5,
+        "boundingbox": [
+          -7,
+          7,
+          7,
+          -7
+        ],
+        "axis": true,
+        "grid": true,
+        "content": [
+          [
+            "functiongraph",
+            "${:m}*(x-(${:c}))",
+            {
+              "strokeColor": "#1565c0",
+              "strokeWidth": 3
+            }
+          ],
+          [
+            "text",
+            [
+              "${:c+(:c>0?2:-2)}",
+              "${(:c>0?2:-2)*:m+((:c>0?2:-2)*:m>0?0.8:-0.8)}",
+              "f'"
+            ],
+            {
+              "fontSize": 20,
+              "strokeColor": "#1565c0"
+            }
+          ]
+        ]
+      },
+      "question": "Abgebildet ist der Graph der Ableitungsfunktion $$f'$$. ${:t==0?'An welcher Stelle hat der Graph von $$f$$ eine waagerechte Tangente?':'Hat der Graph von $$f$$ an der Stelle $$'+:c+'$$ einen Hochpunkt?'}",
+      "answer": "$$f'(${:c})=0$$ und $$f'$$ wechselt dort das Vorzeichen von ${:m>0?'$$-$$ nach $$+$$ (Tiefpunkt)':'$$+$$ nach $$-$$ (Hochpunkt)'}.<br>${:t==0?'Waagerechte Tangente bei $$x=\\color{red}{'+:c+'}$$':'Hochpunkt: $$\\color{red}{\\text{'+(:m<0?'ja':'nein')+'}}$$'}",
+      "value": [
+        "${:t==0?:c:(:m<0?'\\text{ja}':'\\text{nein}')}",
+        "${:t==0?:c:(:m<0?'ja':'nein')}"
+      ]
+    },
+    {
+      "name": "Steigung von f am Graphen von f' ablesen",
+      "vars": {
+        "a": [
+          1,
+          -1,
+          0.5,
+          -0.5
+        ],
+        "c": "-2_2",
+        "d": "-2_2",
+        "t": "${Math.abs(:a)==1?'-2_2':'-2_2_^-1,1'}",
+        "x0": "${:c+:t}",
+        "y0": "${:a*:t*:t+:d}"
+      },
+      "figure": {
+        "type": "graph",
+        "scale": 2.5,
+        "boundingbox": [
+          -7,
+          7,
+          7,
+          -7
+        ],
+        "axis": true,
+        "grid": true,
+        "content": [
+          [
+            "functiongraph",
+            "${:a}*(x-(${:c}))**2+(${:d})",
+            {
+              "strokeColor": "#1565c0",
+              "strokeWidth": 3
+            }
+          ],
+          [
+            "text",
+            [
+              "${:c+0.4}",
+              "${:d+(:a>0?-0.9:0.9)}",
+              "f'"
+            ],
+            {
+              "fontSize": 20,
+              "strokeColor": "#1565c0"
+            }
+          ]
+        ]
+      },
+      "question": "Abgebildet ist der Graph der Ableitungsfunktion $$f'$$. Welche Steigung hat der Graph von $$f$$ an der Stelle $$${:x0}$$?",
+      "answer": "Die Steigung von $$f$$ ist der Funktionswert von $$f'$$: $$f'(${:x0})=\\color{red}{${:y0}}$$",
+      "value": "${:y0}"
+    },
+    {
+      "name": "Vom Graphen von f auf f' schließen",
+      "vars": {
+        "a": [
+          1,
+          -1,
+          0.5,
+          -0.5
+        ],
+        "c": "-3_3",
+        "d": "${:a>0?'-4_0':'0_4'}",
+        "t": "0_1",
+        "u": "${Math.abs(:a)==1?2:'2_3'}",
+        "sx": [
+          -1,
+          1
+        ],
+        "x0": "${:c+:sx*:u}"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "figure": {
+        "type": "graph",
+        "scale": 2.5,
+        "boundingbox": [
+          -7,
+          7,
+          7,
+          -7
+        ],
+        "axis": true,
+        "grid": true,
+        "content": [
+          [
+            "functiongraph",
+            "${:a}*(x-(${:c}))**2+(${:d})",
+            {
+              "strokeColor": "#1565c0",
+              "strokeWidth": 3
+            }
+          ],
+          [
+            "text",
+            [
+              "${:c+2.5}",
+              "${4.84*:a+:d}",
+              "f"
+            ],
+            {
+              "fontSize": 20,
+              "strokeColor": "#1565c0"
+            }
+          ]
+        ]
+      },
+      "question": "Abgebildet ist der Graph von $$f$$. ${:t==0?'An welcher Stelle gilt $$f^{\\prime}(x)=0$$?':'Ist $$f^{\\prime}('+:x0+')$$ positiv?'}",
+      "answer": "${:t==0?'Waagerechte Tangente im '+(:a>0?'Tiefpunkt':'Hochpunkt')+': $$x=\\color{red}{'+:c+'}$$':'Bei $$x='+:x0+'$$ '+(:a*(:x0-:c)>0?'steigt':'fällt')+' der Graph, also ist $$f^{\\prime}('+:x0+')$$ '+(:a*(:x0-:c)>0?'positiv':'negativ')+': $$\\color{red}{\\text{'+(:a*(:x0-:c)>0?'ja':'nein')+'}}$$'}",
+      "value": [
+        "${:t==0?:c:(:a*(:x0-:c)>0?'\\text{ja}':'\\text{nein}')}",
+        "${:t==0?:c:(:a*(:x0-:c)>0?'ja':'nein')}"
+      ]
+    },
+    {
+      "name": "Tangentensteigung am Graphen ablesen",
+      "vars": {
+        "a": [
+          1,
+          -1,
+          0.5,
+          -0.5
+        ],
+        "c": "-2_2",
+        "d": "${:a>0?'-4_-1':'1_4'}",
+        "t": "${Math.abs(:a)==1?'-2_2_^0':'-3_3_^0'}",
+        "x0": "${:c+:t}",
+        "y0": "${:a*:t*:t+:d}",
+        "m": "${2*:a*:t}"
+      },
+      "figure": {
+        "type": "graph",
+        "scale": 2.5,
+        "boundingbox": [
+          -7,
+          7,
+          7,
+          -7
+        ],
+        "axis": true,
+        "grid": true,
+        "content": [
+          [
+            "functiongraph",
+            "${:a}*(x-(${:c}))**2+(${:d})",
+            {
+              "strokeColor": "#1565c0",
+              "strokeWidth": 3
+            }
+          ],
+          [
+            "functiongraph",
+            "${:m}*(x-(${:x0}))+(${:y0})",
+            {
+              "strokeColor": "#c62828",
+              "strokeWidth": 2,
+              "dash": 2
+            }
+          ],
+          [
+            "point",
+            [
+              "${:x0}",
+              "${:y0}"
+            ],
+            {
+              "name": "P",
+              "size": 3,
+              "fixed": true,
+              "strokeColor": "#c62828",
+              "fillColor": "#c62828"
+            }
+          ]
+        ]
+      },
+      "question": "Abgebildet sind der Graph von $$f$$ und die Tangente im Punkt $$P$$. Lies $$f'(${:x0})$$ ab.",
+      "answer": "Steigungsdreieck an der Tangente: $$f'(${:x0})=\\color{red}{${:m}}$$",
+      "value": "${:m}"
+    }
+  ]
+}

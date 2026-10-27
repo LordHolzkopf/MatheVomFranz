@@ -1,0 +1,136 @@
+{
+  "ID": "DEFB1",
+  "dest": [
+    "EFB"
+  ],
+  "title": "Lagebeziehungen von Geraden im Raum untersuchen",
+  "description": "Lagebeziehung, Geraden im Raum, parallel, identisch, schneidend, Schnittpunkt, windschief, kollinear, Richtungsvektoren, Vielfaches, lineares Gleichungssystem, gleichsetzen. Im Online-Modus Koordinaten durch Semikolon trennen, z. B. (2;-3;5).",
+  "type": "text",
+  "textSize": "small",
+  "options": [
+    {
+      "name": "Parallel oder identisch (ja/nein)",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-3_3_3_^0",
+        "k": [
+          -3,
+          -2,
+          -1,
+          2,
+          3
+        ],
+        "par": "0_1",
+        "j": "0_2",
+        "dl": "-1_1_^0",
+        "q": "-5_5_3"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Sind die Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$ und $$h\\colon\\ \\vec{x}=\\begin{pmatrix}${:q[0]}\\\\${:q[1]}\\\\${:q[2]}\\end{pmatrix}+s\\cdot \\begin{pmatrix}${:k*:u[0]+(0==:j?:par==1?0: :dl:0)}\\\\${:k*:u[1]+(1==:j?:par==1?0: :dl:0)}\\\\${:k*:u[2]+(2==:j?:par==1?0: :dl:0)}\\end{pmatrix}$$ parallel oder identisch?",
+      "answer": "${:par==1?'Der Richtungsvektor von $$h$$ ist das $$'+MMmath.nP(:k)+'$$-Fache des Richtungsvektors von $$g$$, die Vektoren sind kollinear.':'Die Richtungsvektoren sind keine Vielfachen voneinander (Faktor $$'+MMmath.nP(:k)+'$$ passt nicht in der '+(:j+1)+'. Koordinate).'}<br>Antwort: $$\\color{red}{\\text{${(:par==1)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:par==1)?'\\text{ja}':'\\text{nein}'}",
+        "${(:par==1)?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Parallele Geraden: identisch (ja/nein)",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-3_3_3_^0",
+        "k": [
+          -3,
+          -2,
+          -1,
+          2,
+          3
+        ],
+        "id": "0_1",
+        "t": "-3_3_^0",
+        "j": "1_2",
+        "dl": "-2_2_^0",
+        "q": "${[0,1,2].map(i=>:p[i]+:t*:u[i]+((:id==0&&i==:j)?:dl:0)).join(';')}"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Die Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:p[2]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$ und $$h\\colon\\ \\vec{x}=\\begin{pmatrix}${String(:q).split(';')[0]}\\\\${String(:q).split(';')[1]}\\\\${String(:q).split(';')[2]}\\end{pmatrix}+s\\cdot \\begin{pmatrix}${:k*:u[0]+(0==0?0:0)}\\\\${:k*:u[1]+(1==0?0:0)}\\\\${:k*:u[2]+(2==0?0:0)}\\end{pmatrix}$$ sind parallel. Sind sie identisch?",
+      "answer": "Punktprobe mit dem Stützpunkt von $$h$$: Aus der ersten Koordinate folgt $$r=${:t}$$. ${:id==1?'Auch die anderen Koordinaten passen, der Punkt liegt auf $$g$$.':'Die '+(:j+1)+'. Koordinate passt nicht, der Punkt liegt nicht auf $$g$$.'}<br>Antwort: $$\\color{red}{\\text{${(:id==1)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:id==1)?'\\text{ja}':'\\text{nein}'}",
+        "${(:id==1)?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Schnittpunkt bestimmen",
+      "vars": {
+        "S": "-5_5_3",
+        "u1": "-3_3_^0",
+        "u3": "-3_3_^0",
+        "v2": "-3_3_^0",
+        "v3": "-3_3_^0",
+        "r0": "-3_3_^0",
+        "s0": "-3_3_^0",
+        "sg": "0_5",
+        "dl": 0
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Die Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}$$ und $$h\\colon\\ \\vec{x}=\\begin{pmatrix}${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}+s\\cdot \\begin{pmatrix}${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}$$ schneiden sich. Bestimme den Schnittpunkt $$S$$.",
+      "answer": "Gleichsetzen: Aus der $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(0)+1}$$-Zeile folgt $$r=${:r0}$$, aus der $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(1)+1}$$-Zeile $$s=${:s0}$$; die $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(2)+1}$$-Zeile ist erfüllt.<br>$$\\color{red}{S({${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}}\\,|\\,{${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}}\\,|\\,{${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}})}$$",
+      "value": [
+        "\\left(${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]};${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]};${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\right)",
+        "${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]};${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]};${(:S)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}"
+      ]
+    },
+    {
+      "name": "Schneidend oder windschief (ja/nein)",
+      "vars": {
+        "S": "-5_5_3",
+        "u1": "-3_3_^0",
+        "u3": "-3_3_^0",
+        "v2": "-3_3_^0",
+        "v3": "-3_3_^0",
+        "r0": "-3_3_^0",
+        "s0": "-3_3_^0",
+        "sg": "0_5",
+        "w": "0_1",
+        "dl0": "-2_2_^0",
+        "dl": "${:w==1?:dl0:0}"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Die Richtungsvektoren der Geraden $$g\\colon\\ \\vec{x}=\\begin{pmatrix}${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:S[0]-:r0*:u1,:S[1],:S[2]-:r0*:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}+r\\cdot \\begin{pmatrix}${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:u1,0,:u3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}$$ und $$h\\colon\\ \\vec{x}=\\begin{pmatrix}${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([:S[0],:S[1]-:s0*:v2,:S[2]-:s0*:v3+:dl])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}+s\\cdot \\begin{pmatrix}${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}\\\\${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}\\\\${([0,:v2,:v3])[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}\\end{pmatrix}$$ sind nicht kollinear. Schneiden sich $$g$$ und $$h$$?",
+      "answer": "Gleichsetzen: Aus der $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(0)+1}$$-Zeile folgt $$r=${:r0}$$, aus der $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(1)+1}$$-Zeile $$s=${:s0}$$. Die $$x_${[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg].indexOf(2)+1}$$-Zeile ist dann ${:w==0?'erfüllt, die Geraden schneiden sich.':'nicht erfüllt, die Geraden sind windschief.'}<br>Antwort: $$\\color{red}{\\text{${(:w==0)?'ja':'nein'}}}$$",
+      "value": [
+        "${(:w==0)?'\\text{ja}':'\\text{nein}'}",
+        "${(:w==0)?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Parameter für parallele Richtungsvektoren",
+      "vars": {
+        "p": "-5_5_3",
+        "u": "-3_3_3_^0",
+        "k": [
+          -3,
+          -2,
+          -1,
+          2,
+          3
+        ],
+        "j": "0_2"
+      },
+      "question": "Für welchen Wert von $$a$$ sind die Vektoren $$\\begin{pmatrix}${:u[0]}\\\\${:u[1]}\\\\${:u[2]}\\end{pmatrix}$$ und $$\\begin{pmatrix}${:j==0?'a'::k*:u[0]}\\\\${:j==1?'a'::k*:u[1]}\\\\${:j==2?'a'::k*:u[2]}\\end{pmatrix}$$ kollinear?",
+      "answer": "Der Faktor ist $$${:k}$$ (aus den anderen Koordinaten), also $$a=${:k}\\cdot ${MMmath.nP(:u[:j])}=\\color{red}{${:k*:u[:j]}}$$",
+      "value": "${:k*:u[:j]}"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "ID": "DEBA1",
+  "dest": [
+    "EBA"
+  ],
+  "title": "Grad, Koeffizienten und Globalverlauf ganzrationaler Funktionen",
+  "description": "ganzrationale Funktion, Polynom, Grad, Leitkoeffizient, absolutes Glied, Koeffizienten ablesen, Produktform, Verhalten für x gegen unendlich, Globalverlauf, Verhalten im Unendlichen, wahr oder falsch",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Grad, Leitkoeffizient, absolutes Glied ablesen",
+      "vars": {
+        "e": "0_5_4_^&",
+        "c": "-9_9_4_^0",
+        "t": "0_2",
+        "f": "${:e.map((k,i)=>{const c=:c[i];const m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')}",
+        "fs": "${((:e.map((k,i)=>[:c[i],k]).sort((u,v)=>v[1]-u[1])).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "grad": "${Math.max(...:e)}",
+        "lk": "${:c[:e.indexOf(Math.max(...:e))]}",
+        "ag": "${:e.indexOf(0)>-1?:c[:e.indexOf(0)]:0}"
+      },
+      "question": "Gegeben ist $$f(x)=${:f}$$. Gib ${['den Grad','den Leitkoeffizienten','das absolute Glied'][:t]} von $$f$$ an.",
+      "answer": "Geordnet: $$f(x)=${:fs}$$<br>Grad: $$${:t==0?'\\color{red}{'+:grad+'}':(:grad)}$$, Leitkoeffizient: $$${:t==1?'\\color{red}{'+:lk+'}':(:lk)}$$, absolutes Glied: $$${:t==2?'\\color{red}{'+:ag+'}':(:ag)}$$",
+      "value": "${[:grad,:lk,:ag][:t]}"
+    },
+    {
+      "name": "Grad und Leitkoeffizient aus der Produktform",
+      "vars": {
+        "a": "-4_4_^0",
+        "k": "0_3",
+        "p": "-5_5_^0",
+        "m": "1_3",
+        "b": [
+          1,
+          2,
+          3,
+          -1,
+          -2
+        ],
+        "r": "-5_5_^0",
+        "j": "1_2",
+        "grad": "${:k+:m+:j}",
+        "lk": "${:a*:b**:j}",
+        "fp": "${MMmath.signIfOne(:a)}${:k==0?'':(:k==1?'x':'x^{'+:k+'}')}(x${MMmath.signedNumber(-:p)})${:m>1?'^{'+:m+'}':''}(${MMmath.signIfOne(:b)}x${MMmath.signedNumber(:r)})${:j>1?'^{'+:j+'}':''}",
+        "t": "0_1"
+      },
+      "question": "Gegeben ist $$f(x)=${:fp}$$. Gib ${:t==0?'den Grad':'den Leitkoeffizienten'} von $$f$$ an.",
+      "answer": "Höchste Potenz beim Ausmultiplizieren: $$${:a==1?'':(:a==-1?'-':(:a)+'\\cdot ')}${:k==0?'':(:k==1?'x\\cdot ':'x^{'+:k+'}\\cdot ')}${:m>1?'x^{'+:m+'}':'x'}\\cdot (${MMmath.signIfOne(:b)}x)${:j>1?'^{'+:j+'}':''}=${MMmath.signIfOne(:lk)}x^{${:grad}}$$<br>Grad: $$${:t==0?'\\color{red}{'+:grad+'}':(:grad)}$$, Leitkoeffizient: $$${:t==1?'\\color{red}{'+:lk+'}':(:lk)}$$",
+      "value": "${:t==0?:grad: :lk}"
+    },
+    {
+      "name": "Verhalten für x → ±∞ (wahr/falsch)",
+      "vars": {
+        "n": "2_5",
+        "a": "-4_4_^0",
+        "b": "-6_6",
+        "c": "-9_9",
+        "s": "-1_1_^0",
+        "z": "-1_1_^0",
+        "f": "${(([[:a,:n],[:b,:n-1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "lim": "${:a*:s**:n}"
+      },
+      "keys": [
+        "V",
+        "F"
+      ],
+      "question": "Gegeben ist $$f(x)=${:f}$$. Wahr oder falsch? Für $$x\\to ${:s>0?'+':'-'}\\infty$$ gilt $$f(x)\\to ${:z>0?'+':'-'}\\infty$$.",
+      "answer": "Für große $$|x|$$ bestimmt $$${MMmath.signIfOne(:a)}x^{${:n}}$$ den Verlauf (Grad ${:n} ist ${:n%2==0?'gerade':'ungerade'}, Leitkoeffizient $$${:a}$$): für $$x\\to ${:s>0?'+':'-'}\\infty$$ gilt $$f(x)\\to ${:lim>0?'+':'-'}\\infty$$.<br>Die Aussage ist $$\\color{red}{\\text{${((:lim>0)==(:z>0))?'wahr':'falsch'}}}$$.",
+      "value": [
+        "${((:lim>0)==(:z>0))?'\\text{wahr}':'\\text{falsch}'}",
+        "${((:lim>0)==(:z>0))?'wahr':'falsch'}"
+      ]
+    },
+    {
+      "name": "Verhalten für x → ±∞ aus der Produktform (wahr/falsch)",
+      "vars": {
+        "a": "-4_4_^0",
+        "k": "0_3",
+        "p": "-5_5_^0",
+        "m": "1_3",
+        "b": [
+          1,
+          2,
+          3,
+          -1,
+          -2
+        ],
+        "r": "-5_5_^0",
+        "j": "1_2",
+        "grad": "${:k+:m+:j}",
+        "lk": "${:a*:b**:j}",
+        "fp": "${MMmath.signIfOne(:a)}${:k==0?'':(:k==1?'x':'x^{'+:k+'}')}(x${MMmath.signedNumber(-:p)})${:m>1?'^{'+:m+'}':''}(${MMmath.signIfOne(:b)}x${MMmath.signedNumber(:r)})${:j>1?'^{'+:j+'}':''}",
+        "s": "-1_1_^0",
+        "z": "-1_1_^0",
+        "lim": "${:lk*:s**:grad}"
+      },
+      "keys": [
+        "V",
+        "F"
+      ],
+      "question": "Gegeben ist $$f(x)=${:fp}$$. Wahr oder falsch? Für $$x\\to ${:s>0?'+':'-'}\\infty$$ gilt $$f(x)\\to ${:z>0?'+':'-'}\\infty$$.",
+      "answer": "Ausmultipliziert beginnt $$f(x)$$ mit $$${MMmath.signIfOne(:lk)}x^{${:grad}}$$. Für $$x\\to ${:s>0?'+':'-'}\\infty$$ gilt daher $$f(x)\\to ${:lim>0?'+':'-'}\\infty$$.<br>Die Aussage ist $$\\color{red}{\\text{${((:lim>0)==(:z>0))?'wahr':'falsch'}}}$$.",
+      "value": [
+        "${((:lim>0)==(:z>0))?'\\text{wahr}':'\\text{falsch}'}",
+        "${((:lim>0)==(:z>0))?'wahr':'falsch'}"
+      ]
+    }
+  ]
+}

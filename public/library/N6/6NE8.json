@@ -1,16 +1,16 @@
 {
-    "title":"Division par 75, 7,5 ou 0,75",
-    "description":"diviser, calcul réfléchi, quotient, astuce",
+    "title":"Durch 75, 7,5 oder 0,75 dividieren",
+    "description":"geschickt dividieren, vorteilhaft rechnen, Rechenvorteil, Quotient, geteilt durch 75, 7,5 oder 0,75, Dreiviertel, Kopfrechnen",
     "ID":"6NE8",
     "dest":["6EF", "6EG"],
     "options":[{
-        "name":"Diviser par 75",
+        "name":"Durch 75",
         "vars":{"n":"2_50","a":"${3*:n}","b":75}
     },{
-        "name":"Diviser par 7,5",
+        "name":"Durch 7,5",
         "vars":{"n":"2_50","a":"${3*:n}","b":7.5}
     },{
-        "name":"Diviser par 0,75",
+        "name":"Durch 0,75",
         "vars":{"n":"2_50","a":"${3*:n}","b":0.75}
     }
     ],

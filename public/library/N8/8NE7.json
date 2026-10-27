@@ -1,12 +1,12 @@
 {
     "ID": "8NE7",
     "dest":["6EE", "6EG"],
-    "title":"Multiplier un décimal par 5 ou 50",
+    "title":"Dezimalzahlen mit 5 oder 50 multiplizieren",
     "keys":"numerique",
-    "description":"décimal contenant au plus 3 chiffres significatifs",
+    "description":"geschickt rechnen: mal 5 als mal 10 und durch 2, mal 50 als mal 100 und durch 2, Dezimalzahlen mit höchstens 3 gültigen Ziffern, Kopfrechnen",
     "type":"latex",
     "options":[{
-        "name":"Multiplier par 5 un décimal à 1 chiffre significatif",
+        "name":"Dezimalzahl mit 1 gültigen Ziffer mal 5",
         "vars":{
             "n":"1_9",
             "p":[1,-1,-2],
@@ -17,7 +17,7 @@
         "answer":":question=${:d}\\times10\\div2=\\color{red}{${MMmath.round(:d*5,2)}}",
         "value":"${MMmath.round(:d*5,2)}"
     },{
-        "name":"Multiplier par 5 un décimal à 2 chiffre significatif dernier chiffre pair",
+        "name":"Dezimalzahl mit 2 gültigen Ziffern (letzte Ziffer gerade) mal 5",
         "vars":{
             "u":"1_4",
             "diz":"1_9",
@@ -26,10 +26,10 @@
         },
         "question":"${:d}\\times5",
         "shortq":"${:d}\\times5=\\colorbox{#ECECEC}{\\quad}",
-        "answer":":question=${:d}\\times10\\div2=\\color{red}{${MMmath.round(:d*5)}}",
+        "answer":":question=${:d}\\times10\\div2=\\color{red}{${MMmath.round(:d*5,2)}}",
         "value":"${MMmath.round(:d*5,2)}"
     },{
-        "name":"Multiplier par 5 un décimal à 3 chiffre significatif dernier chiffre pair",
+        "name":"Dezimalzahl mit 3 gültigen Ziffern (letzte Ziffer gerade) mal 5",
         "vars":{
             "u":"1_4",
             "diz":"0_9",
@@ -39,10 +39,10 @@
         },
         "question":"${:d}\\times5",
         "shortq":"${:d}\\times5=\\colorbox{#ECECEC}{\\quad}",
-        "answer":":question=${:d}\\times10\\div2=\\color{red}{${MMmath.round(:d*5)}}",
+        "answer":":question=${:d}\\times10\\div2=\\color{red}{${MMmath.round(:d*5,2)}}",
         "value":"${MMmath.round(:d*5,2)}"
     },{
-        "name":"Multiplier par 50 un décimal à 1 chiffre significatif",
+        "name":"Dezimalzahl mit 1 gültigen Ziffer mal 50",
         "vars":{
             "n":"1_9",
             "p":[1,0,-1,-2],
@@ -53,7 +53,7 @@
         "answer":":question=${:d}\\times100\\div2=\\color{red}{${MMmath.round(:d*50,2)}}",
         "value":"${MMmath.round(:d*50,2)}"
     },{
-        "name":"Multiplier par 50 un décimal à 2 chiffre significatif dernier chiffre pair",
+        "name":"Dezimalzahl mit 2 gültigen Ziffern (letzte Ziffer gerade) mal 50",
         "vars":{
             "u":"1_4",
             "diz":"1_9",
@@ -62,10 +62,10 @@
         },
         "question":"${:d}\\times50",
         "shortq":"${:d}\\times50=\\colorbox{#ECECEC}{\\quad}",
-        "answer":":question=${:d}\\times100\\div2=\\color{red}{${MMmath.round(:d*50)}}",
+        "answer":":question=${:d}\\times100\\div2=\\color{red}{${MMmath.round(:d*50,2)}}",
         "value":"${MMmath.round(:d*50,2)}"
     },{
-        "name":"Multiplier par 50 un décimal à 3 chiffre significatif dernier chiffre pair",
+        "name":"Dezimalzahl mit 3 gültigen Ziffern (letzte Ziffer gerade) mal 50",
         "vars":{
             "u":"1_4",
             "diz":"0_9",

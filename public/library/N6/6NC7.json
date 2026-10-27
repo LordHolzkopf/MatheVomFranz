@@ -1,27 +1,27 @@
 {
-    "title":"Comparer des nombres décimaux",
+    "title":"Dezimalzahlen vergleichen",
     "type":"text",
     "speech":1,
     "ID":"6NC7",
     "keys":["<",">","=","_"],
-    "description":"Pour comparer les nombres, utiliser l'un des symboles <, > ou =",
+    "description":"Natürliche Zahlen und Dezimalzahlen vergleichen, ordnen, größer, kleiner, gleich, mit den Zeichen <, > oder =",
     "dest":["6BB", "5AA"],
     "options":[{
-        "name":"Comparer des petits entiers",
+        "name":"Kleine natürliche Zahlen vergleichen",
         "vars":{"c":"100_999","d1":"-99_99","d2":"-99_99","a":"${:c+:d1}","b":"${:c+:d2}","s":"${MMmath.compare(:a,:b)}"}
     },
     {
-        "name":"Comparer des grands entiers",
+        "name":"Große natürliche Zahlen vergleichen",
         "vars":{"c":"10000_99999","d1":"100_999","d2":"100_999","n":"-1_1_2_^0","a":"${:c+:d1*:n[0]}","b":"${:c+:d2*:n[1]}","s":"${MMmath.compare(:a,:b)}"}
     },
     {
-        "name":"Comparer des décimaux",
+        "name":"Dezimalzahlen vergleichen",
         "vars":{"c":"1_1000","pd":"d0.001_0.999_3_2","p":"-3_2","dec":"1_3_2","d1":"${MMmath.round(:pd[0],:dec[0])*Number(10+'e'+:p)+:c}","d2":"${MMmath.round(:pd[1],:dec[1])*Number(10+'e'+:p)+:c}","a":"${MMmath.round(:d1,6)}","b":"${MMmath.round(:d2,6)}","s":"${MMmath.compare(:a,:b)}"}
     }
     ],
-    "question": "Compare $$${:a}$$ et $$${:b}$$",
+    "question": "Vergleiche $$${:a}$$ und $$${:b}$$.",
     "shortq":"$$${:a}~\\colorbox{#ECECEC}{\\quad}~1${:b}$$",
-    "audio": "Compare ${String(:a).replace('.',',')} ( ) et ( ) ${String(:b).replace('.',',')}",
+    "audio": "Vergleiche ${String(:a).replace('.',',')} ( ) und ( ) ${String(:b).replace('.',',')}.",
     "answer":"$$${:a}\\color{red}{${:s}}${:b}$$",
     "value":["${:a}${:s}${:b}","${:s}"]
 }

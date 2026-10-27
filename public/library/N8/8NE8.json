@@ -1,12 +1,12 @@
 {
-    "title":"Ajouter deux décimaux à une décimale",
-    "description":"Somme de deux nombres",
+    "title":"Dezimalzahlen mit einer Nachkommastelle addieren",
+    "description":"Zwei Dezimalzahlen mit einer Nachkommastelle addieren, Summe, mit und ohne Übertrag, Zehntel ergänzen sich zu einem Ganzen, Kopfrechnen",
     "dest":["6CB"],
     "keys":"numerique",
-    "consigne":"Calculer",
+    "consigne":"Berechne.",
     "options":[
         {
-            "name":"Somme sans retenue",
+            "name":"Ohne Übertrag",
             "vars":{
                 "dec1":"1_8",
                 "dec2":"1_${10-:dec1-1}",
@@ -16,7 +16,7 @@
                 "nb2":"${MMmath.round(:ent2+:dec2/10,1)}"
             }
         },{
-            "name":"Nombres qui se marient bien",
+            "name":"Zehntel ergänzen sich zu einem Ganzen",
             "vars":{
                 "dec1":"1_9",
                 "dec2":"${10-:dec1}",
@@ -26,7 +26,7 @@
                 "nb2":"${MMmath.round(:ent2+:dec2/10,1)}"
             }
         },{
-            "name":"Somme avec retenue",
+            "name":"Mit Übertrag",
             "vars":{
                 "dec1":"2_9",
                 "dec2":"${10-:dec1+1}_9",

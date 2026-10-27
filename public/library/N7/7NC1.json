@@ -1,12 +1,12 @@
 {
     "ID":"7NC1",
-    "title":"Ajouter un nombre inférieur à 10 d'unités, dizaines, ... avec passage de dizaine",
-    "description":"centaines, milliers, dixièmes, centièmes ou millièmes avec retenue",
+    "title":"Einer, Zehner, Zehntel … mit Übertrag addieren",
+    "description":"Vielfache von Tausendern, Hundertern, Zehnern, Einern, Zehnteln, Hundertsteln oder Tausendsteln addieren, mit Übertrag, Stellenwerte, Kopfrechnen, Dezimalzahlen",
     "keys":"numerique",
     "dest":["6CB", "5AC"],
     "type":"text",
     "options":[{
-        "name":"Ajouter des milliers",
+        "name":"Tausender addieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"0_9",
@@ -18,16 +18,16 @@
         "question":[
             "$$${:n} + ${:x*1000}$$",
             "$$${:n} + ${:x}\\times 1000$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ millier${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Tausender zu $$${:n}$$."
         ],
         "answer":[
             "$$${:n} + ${:x*1000} = \\color{red}{${:n+:x*1000}}$$",
             "$$${:n} + ${:x}\\times 1000 = \\color{red}{${:n+:x*1000}}$$",
-            "$$${:n}$$ et $$${:x}$$ centaine${:x>1?'s':''} font $$\\color{red}{${:n+:x*1000}}$$"
+            "$$${:n} + ${:x}$$ Tausender $$=\\color{red}{${:n+:x*1000}}$$."
         ],
         "value":"${MMmath.round(:n+:x*1000)}"
     },{
-        "name":"Ajouter des centaines",
+        "name":"Hunderter addieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"0_9",
@@ -39,16 +39,16 @@
         "question":[
             "$$${:n} + ${:x*100}$$",
             "$$${:n} + ${:x}\\times 100$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ centaine${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Hunderter zu $$${:n}$$."
         ],
         "answer":[
             "$$${:n} + ${:x*100} = \\color{red}{${:n+:x*100}}$$",
             "$$${:n} + ${:x}\\times 100 = \\color{red}{${:n+:x*100}}$$",
-            "$$${:n}$$ et $$${:x}$$ centaine${:x>1?'s':''} font $$\\color{red}{${:n+:x*100}}$$"
+            "$$${:n} + ${:x}$$ Hunderter $$=\\color{red}{${:n+:x*100}}$$."
         ],
         "value":"${MMmath.round(:n+:x*100)}"
     },{
-        "name":"Ajouter des dizaines",
+        "name":"Zehner addieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"1_9",
@@ -60,16 +60,16 @@
         "question":[
             "$$${:n} + ${:x*10}$$",
             "$$${:n} + ${:x}\\times 10$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ dizaine${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Zehner zu $$${:n}$$."
         ],
         "answer":[
             "$$${:n} + ${:x*10} = \\color{red}{${:n+:x*10}}$$",
             "$$${:n} + ${:x}\\times 10 = \\color{red}{${:n+:x*10}}$$",
-            "$$${:n}$$ et $$${:x}$$ dizaine${:x>1?'s':''} font $$\\color{red}{${:n+:x*10}}$$"
+            "$$${:n} + ${:x}$$ Zehner $$=\\color{red}{${:n+:x*10}}$$."
         ],
         "value":"${MMmath.round(:n+:x*10)}"
     },{
-        "name":"Ajouter des unités",
+        "name":"Einer addieren",
         "vars":{
             "unites":"1_9",
             "dizaines":"0_9",
@@ -81,16 +81,16 @@
         "question":[
             "$$${:n}+${:x}$$",
             "$$${:n} + ${:x}\\times 1$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ unité${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Einer zu $$${:n}$$."
         ],
         "answer":[
             "$$${:n}+${:x}= \\color{red}{${MMmath.round(:n+:x,1)}}$$",
             "$$${:n}+${:x}\\times 1= \\color{red}{${MMmath.round(:n+:x,1)}}$$",
-            "$$${:n}$$ et $$${:x}$$ unité${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n+:x,1)}}$$"
+            "$$${:n} + ${:x}$$ Einer $$=\\color{red}{${MMmath.round(:n+:x,1)}}$$."
         ],
         "value":"${MMmath.round(:n+:x,1)}"
     },{
-        "name":"Ajouter des dixièmes",
+        "name":"Zehntel addieren",
         "vars":{
             "dizaines":"0_9",
             "unites":"0_9",
@@ -102,15 +102,16 @@
         "question":[
             "$$${:n}+${MMmath.round(:x/10,1)}$$",
             "$$${:n} + \\dfrac{${:x}}{10}$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ dixième${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Zehntel zu $$${:n}$$."
         ],
         "answer":[
             "$$:n+${MMmath.round(:x/10,1)}=\\color{red}{${MMmath.round(:n+:x/10,2)}}$$",
             "$$:n + \\dfrac{:x}{10} = \\color{red}{${MMmath.round(:n+:x/10,2)}}$$",
-            "$$:n$$ et $$:x$$ dixième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n+:x/10,2)}}$$."
-        ]
+            "$$:n + :x$$ Zehntel $$=\\color{red}{${MMmath.round(:n+:x/10,2)}}$$."
+        ],
+        "value":"${MMmath.round(:n+:x/10,2)}"
     },{
-        "name":"Ajouter des centièmes",
+        "name":"Hundertstel addieren",
         "vars":{
             "unites":"0_9",
             "dixiemes":"0_9",
@@ -122,15 +123,16 @@
         "question":[
             "$$${:n}+${MMmath.round(:x/100,2)}$$",
             "$$${:n} + \\dfrac{${:x}}{100}$$",
-            "Combien font $$${:n}$$ et $$${:x}$$ centième${:x>1?'s':''} ?"
+            "Addiere $$${:x}$$ Hundertstel zu $$${:n}$$."
         ],
         "answer":[
             "$$:n+${MMmath.round(:x/100,2)}=\\color{red}{${MMmath.round(:n+:x/100,3)}}$$",
             "$$:n + \\dfrac{:x}{100} = \\color{red}{${MMmath.round(:n+:x/100,3)}}$$",
-            "$$:n$$ et $$:x$$ centième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n+:x/100,3)}}$$."
-        ]
+            "$$:n + :x$$ Hundertstel $$=\\color{red}{${MMmath.round(:n+:x/100,3)}}$$."
+        ],
+        "value":"${MMmath.round(:n+:x/100,3)}"
     },{
-        "name":"Ajouter des millièmes",
+        "name":"Tausendstel addieren",
         "vars":{
             "unites":"0_9",
             "dixiemes":"0_9",
@@ -142,12 +144,12 @@
         "question":[
             "$$:n+${MMmath.round(:x/1000,3)}$$",
             "$$:n + \\dfrac{:x}{1000}$$",
-            "Combien font $$:n$$ et $$:x$$ millièmes${:x>1?'s':''} ?"
+            "Addiere $$:x$$ Tausendstel zu $$:n$$."
         ],
         "answer":[
             "$$:n+${MMmath.round(:x/1000,3)}=\\color{red}{${MMmath.round(:n+:x/1000,3)}}$$",
             "$$:n + \\dfrac{:x}{1000} = \\color{red}{${MMmath.round(:n+:x/1000,3)}}$$",
-            "$$:n$$ et $$:x$$ millième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n+:x/1000,3)}}$$."
+            "$$:n + :x$$ Tausendstel $$=\\color{red}{${MMmath.round(:n+:x/1000,3)}}$$."
         ],
         "value":"${MMmath.round(:n+:x/1000,3)}"
     }]

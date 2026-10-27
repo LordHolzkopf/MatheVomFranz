@@ -1,22 +1,23 @@
 {
     "ID":"8ME1",
     "dest":["6DD", "7EA"],
-    "title":"Reconnaître un angle",
-    "description":"angle droit, aigu, obtus, plat, nul, adjacents, opposés par le sommet",
+    "title":"Winkelarten erkennen",
+    "description":"Winkelarten bestimmen: spitzer, rechter, stumpfer, gestreckter Winkel, Nullwinkel, Vollwinkel; Nebenwinkel und Scheitelwinkel erkennen, Winkel an Geraden",
     "speech":1,
     "textSize":"small",
     "keys":["obtus","aigu","droit","_","_","_","_","_"],
     "repeat":3,
     "type":"text",
     "consts":{
-        "vocab":["aigu", "droit", "obtus", "nul", "plat", "plein"],
-        "relation":["adjacents", "opposés par le sommet", "supplémentaires"],
+        "vocab":["spitz", "recht", "stumpf", "Nullwinkel", "gestreckt", "Vollwinkel"],
+        "art":["spitzer Winkel", "rechter Winkel", "stumpfer Winkel", "Nullwinkel", "gestreckter Winkel", "Vollwinkel"],
+        "relation":["benachbart", "Scheitelwinkel", "Nebenwinkel"],
         "points":"ABCDEFGHJKLMNPRST",
         "directions":"xyztuvw"
     },
     "options":[
         {
-            "name":"Angle droit, obtus, aigu",
+            "name":"Rechter, stumpfer, spitzer Winkel",
             "vars":{
                 "pts":"0_16_3_^&",
                 "A":"${:points[:pts[0]]}",
@@ -41,13 +42,13 @@
                         ["angle", ["${:B}", "${:A}", "${:C}"],{"radius":1,"label":{"visible":false}}]
                     ]
                 },
-            "question":"Quelle est la nature de l'angle $$\\widehat{\\text{${:B+:A+:C}}}$$ ?",
-            "audio":"Quelle est la nature de l'angle ${:B} ${:A} ${:C} ?",
-            "answer":"L'angle $$\\widehat{\\text{${:B+:A+:C}}}$$ est un angle <span class='red'>${:vocab[:cx]}</span>",
-            "value":"${:vocab[:cx]}"
+            "question":"Welche Art von Winkel ist $$\\widehat{\\text{${:B+:A+:C}}}$$?",
+            "audio":"Welche Art von Winkel ist der Winkel ${:B} ${:A} ${:C}?",
+            "answer":"Der Winkel $$\\widehat{\\text{${:B+:A+:C}}}$$ ist ein <span class='red'>${:art[:cx]}</span>.",
+            "value":["${:vocab[:cx]}","${:art[:cx]}"]
         },
         {
-            "name": "Angle nul, plat ou plein",
+            "name": "Nullwinkel, gestreckter Winkel, Vollwinkel",
             "vars":{
                 "pts":"0_16_3_^&",
                 "A":"${:points[:pts[0]]}",
@@ -70,20 +71,23 @@
                         ["angle", ["${:B}", "${:A}", "${:C}"],{"radius":1,"label":{"visible":false}}]
                     ]
                 },
-            "question":"Quelle est la nature de l'angle $$\\widehat{\\text{${:B+:A+:C}}}$$ ?",
-            "audio":"Quelle est la nature de l'angle ${:B} ${:A} ${:C} ?",
-            "answer":"L'angle $$\\widehat{\\text{${:B+:A+:C}}}$$ est un angle <span class='red'>${:vocab[:cx]}</span>",
-            "value":"${:vocab[:cx]}"
+            "question":"Welche Art von Winkel ist $$\\widehat{\\text{${:B+:A+:C}}}$$?",
+            "audio":"Welche Art von Winkel ist der Winkel ${:B} ${:A} ${:C}?",
+            "answer":"Der Winkel $$\\widehat{\\text{${:B+:A+:C}}}$$ ist ein <span class='red'>${:art[:cx]}</span>.",
+            "value":["${:vocab[:cx]}","${:art[:cx]}"]
         },
         {
-            "name": "Angles adjacents, opposés par le sommet, supplémentaires",
+            "name": "Nebenwinkel, Scheitelwinkel oder nur benachbart",
+            "keys":["ad&sup","opps","ssln","_","_","_","_","_"],
             "vars":{
                 "cx":"0_2",
                 "angh":"-9_9",
                 "aa":"${:angh*10}",
                 "ab":"20_149",
                 "ac":"${:cx==0?(:ab+20)+'_170':180}",
-                "ans":"${:cx==0?'adjacents'::cx==1?'opposés par le sommet':'supplémentaires'}"
+                "ans":"${:cx==0?'\\text{keine Beziehung}'::cx==1?'\\text{Scheitelwinkel}':'\\text{Nebenwinkel}'}",
+                "ansl":"${:cx==0?'keine Beziehung'::cx==1?'Scheitelwinkel':'Nebenwinkel'}",
+                "anst":"${:cx==0?'nur benachbart, aber weder Nebenwinkel noch Scheitelwinkel':(:cx==1?'Scheitelwinkel':'Nebenwinkel – sie ergänzen sich zu 180°')}"
             },
             "figure":{
                 "type":"graph",
@@ -105,9 +109,9 @@
                     ["angle", ["C","O","D"], {"radius":2,"label":{"visible":false},"fillColor":"blue","strokeColor":"blue", "visible":"${:cx!=1?0:1}"}]
                 ]
             },
-            "question":"Les angles semblent adjacents, opposés par le sommet ou supplémentaires ?",
-            "answer":"Les angles jaune et bleu semblent <span class='red'>${:ans}</span>.",
-            "value":"${:ans}"
+            "question":"Sind der gelbe und der blaue Winkel Nebenwinkel, Scheitelwinkel oder keins von beiden?",
+            "answer":"Der gelbe und der blaue Winkel sind <span class='red'>${:anst}</span>.",
+            "value":["${:ans}","${:ansl}"]
         }
     ]
 }

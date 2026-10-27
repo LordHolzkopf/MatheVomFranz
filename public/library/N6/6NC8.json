@@ -1,46 +1,46 @@
 {
-    "title":"Place du chiffre 9 dans un décimal",
+    "title":"Stellenwert der Ziffer 9 bestimmen",
     "type":"text",
     "speech":1,
-    "description":"Place du chiffre 9 : rang, chiffre des, numération, décimaux, partie décimale. Non adapté au mode interactif (online/duel).",
+    "description":"Stellenwert der Ziffer 9 angeben: Stellenwerttafel, Einer, Zehner, Hunderter, Zehntel, Hundertstel, Tausendstel, Millionen, Milliarden, Dezimalzahlen, große Zahlen. Nicht für den interaktiven Modus (online/Duell) geeignet.",
     "textSize":"medium",
     "ID":"6NC8",
     "dest":["6BA", "5AB"],
-    "consts":{"u":["centaines", "dizaines", "unités","dixièmes","centièmes","millièmes"],
-        "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités","dixièmes","centièmes","millièmes","dix-millièmes"],
-        "w":["centaines de million", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités","dixièmes","centièmes","millièmes","dix-millièmes","cent-millièmes","millionièmes"]
+    "consts":{"u":["Hunderter", "Zehner", "Einer","Zehntel","Hundertstel","Tausendstel"],
+        "v":["Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer","Zehntel","Hundertstel","Tausendstel","Zehntausendstel"],
+        "w":["Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer","Zehntel","Hundertstel","Tausendstel","Zehntausendstel","Hunderttausendstel","Millionstel"]
     },
     "options":[{
-        "name":"Nombres inférieurs à $$1$$",
+        "name":"Zahlen kleiner als $$1$$",
         "vars":{"cs":"3_6","a":"0_8_${:cs}_^&","b":"0_${:cs-1}","c":"${Number(:a.slice(0,:b).concat([9]).concat(:a.slice(:b+1)).join(''))/1000000}"},
-        "answer":"Dans $$${:c}$$, 9 est le chiffre des <span class='red'>${:w[6-:cs+:b+9]}</span>",
+        "answer":"In $$${:c}$$ steht die 9 an der Stelle der <span class='red'>${:w[6-:cs+:b+9]}</span>",
         "value":"${:w[6-:cs+:b+9]}"
         },{
-        "name":"Nombres inférieurs à $$1000$$",
+        "name":"Zahlen kleiner als $$1000$$",
         "vars":{"a":"0_8_6_^&", "b":"0_5", "c":"${Number(:a.slice(0,:b).concat([9]).concat(:a.slice(:b+1)).join(''))/1000}"},
-        "answer":"Dans $$${:c}$$, 9 est le chiffre des <span class='red'>${:u[:b]}</span>",
+        "answer":"In $$${:c}$$ steht die 9 an der Stelle der <span class='red'>${:u[:b]}</span>",
         "value":"${:u[:b]}"
         },{
-        "name":"Nombres inférieurs à $$1000000$$",
+        "name":"Zahlen kleiner als $$1000000$$",
         "vars":{"a":"0_8_10", "b":"0_9", "c":"${Number(:a.slice(0,:b).concat([9]).concat(:a.slice(:b+1)).join(''))/10000}"},
-        "answer":"Dans $$${:c}$$, 9 est le chiffre des <span class='red'>${:v[:b]}</span>",
+        "answer":"In $$${:c}$$ steht die 9 an der Stelle der <span class='red'>${:v[:b]}</span>",
         "value":"${:v[:b]}"
         },{
-        "name":"Nombres inférieurs à $$1000000000$$",
+        "name":"Zahlen kleiner als $$1000000000$$",
         "vars":{"a":"0_8_15", "b":"0_14", "c":"${Number(:a.slice(0,:b).concat([9]).concat(:a.slice(:b+1)).join(''))/1000000}"},
-        "answer":"Dans $$${:c}$$, 9 est le chiffre des <span class='red'>${:w[:b]}</span>",
+        "answer":"In $$${:c}$$ steht die 9 an der Stelle der <span class='red'>${:w[:b]}</span>",
         "value":"${:w[:b]}"
         },{
-            "name":"Entiers entre 1 milliard et 1000 milliards",
-            "consts":{"u":["centaines de milliards", "dizaines de milliards", "unités de milliards","centaines de million", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"]},
+            "name":"Natürliche Zahlen zwischen 1 Milliarde und 1000 Milliarden",
+            "consts":{"u":["Hundertmilliarden", "Zehnmilliarden", "Milliarden","Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"]},
             "vars":{"a0":"1_8","a1":"0_8_11", "b":"0_11", "c":"${Number([:a0,...:a1].slice(0,:b).concat([9]).concat([:a0,...:a1].slice(:b+1)).join(''))}"},
-            "answer":"Dans $$${:c}$$, 9 est le chiffre des <span class='red'>${:u[:b]}</span>",
+            "answer":"In $$${:c}$$ steht die 9 an der Stelle der <span class='red'>${:u[:b]}</span>",
             "value":"${:u[:b]}",
-            "question": "Dans $$${:c}$$, quelle est la valeur du chiffre 9 ?",
-            "audio":"Dans ${MMmath.NumberToLetter(:c)}, quel est le rang du chiffre 9 ?"
+            "question": "Welchen Stellenwert hat die Ziffer 9 in $$${:c}$$?",
+            "audio":"Welchen Stellenwert hat die Ziffer 9 in ${MMmath.zahlwort(:c)}?"
         }
     ],
-    "question": "Dans $$${:c}$$, quelle est la valeur du chiffre 9 ?",
+    "question": "Welchen Stellenwert hat die Ziffer 9 in $$${:c}$$?",
     "shortq":"$$${:c}$$",
-    "audio":"Dans ${String(:c).replace('.',',')}, quel est le rang du chiffre 9 ?"
+    "audio":"Welchen Stellenwert hat die Ziffer 9 in ${String(:c).replace('.',',')}?"
 }

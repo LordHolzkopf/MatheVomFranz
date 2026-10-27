@@ -1,12 +1,12 @@
 {
-    "title":"Doubles de décimaux dans des cas simples",
-    "description":"double, doubler, décimaux, fois 2",
+    "title":"Dezimalzahlen verdoppeln",
+    "description":"das Doppelte, verdoppeln, Dezimalzahlen mal 2, Kopfrechnen, Zehntel, Hundertstel",
     "ID":"7NC2",
     "keys":"numerique",
     "dest":["6EE", "6CB"],
     "type":"text",
     "options":[{
-        "name":"Nombres à deux chiffres",
+        "name":"Einer mit Zehnteln (z. B. 3,7)",
         "vars":{
             "u":"1_9",
             "dx":"1_9",
@@ -14,7 +14,7 @@
             "double":"${MMmath.round(2*:n,1)}"
         }
     },{
-        "name":"Nombres à partie décimale > 10",
+        "name":"Zahlen ab 10 mit Zehnteln (z. B. 23,6)",
         "vars":{
             "u":"10_50",
             "dx":"1_9",
@@ -22,7 +22,7 @@
             "double":"${MMmath.round(2*:n,1)}"
         }
     },{
-        "name":"Nombres avec des centièmes",
+        "name":"Zahlen mit Hundertsteln (z. B. 4,58)",
         "vars":{
             "u":"1_9",
             "dx":"0_9",
@@ -33,11 +33,11 @@
     }
     ],
     "question":[
-        "Quel est le double de $$${:n}$$ ?",
+        "Was ist das Doppelte von $$${:n}$$?",
         "$$${:n}\\times 2$$"
     ],
     "answer":[
-        "Le double de $$${:n}$$ est $$\\color{red}{${:double}}$$.",
+        "Das Doppelte von $$${:n}$$ ist $$\\color{red}{${:double}}$$.",
         "$$${:n} \\times 2 = \\color{red}{${:double}}$$"
     ],
     "value":"${:double}"

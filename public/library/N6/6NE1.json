@@ -1,25 +1,25 @@
 {
-    "title":"Calculer le carré d'un décimal simple",
-    "description":"carré, puissance 2, décimal, au carré",
+    "title":"Quadrat einfacher Dezimalzahlen berechnen",
+    "description":"Quadratzahl, Quadrat, Potenz mit Exponent 2, hoch 2, Dezimalzahlen, Zehnerzahlen quadrieren",
     "ID":"6NE1",
     "dest":["6EE", "5CC"],
     "options":[{
-        "name":"Nombre de 1 à 10 multiplié par 10 ou 100",
+        "name":"Zahlen von 1 bis 10, mal 10 oder 100",
         "vars":{"a":[10,100], "b":"1_10", "c":"${:a*:b}"}
     },{
-        "name":"Nombre de 1 à 10 divisé par 10 ou 100",
+        "name":"Zahlen von 1 bis 10, durch 10 oder 100",
         "vars":{"a":[10,100], "b":"1_10", "c":"${:b/:a}"}
     },{
-        "name":"Nombre de 11 à 15 multiplié par 10 ou 100",
+        "name":"Zahlen von 11 bis 15, mal 10 oder 100",
         "vars":{"a":[10,100], "b":"11_15", "c":"${:a*:b}"}
     },{
-        "name":"Nombre de 11 à 15 divisé par 10 ou 100",
+        "name":"Zahlen von 11 bis 15, durch 10 oder 100",
         "vars":{"a":[10,100], "b":"11_15", "c":"${:b/:a}"}
     },{
-        "name":"Nombre de 16 à 20 multiplié par 10 ou 100",
+        "name":"Zahlen von 16 bis 20, mal 10 oder 100",
         "vars":{"a":[10,100], "b":"16_20", "c":"${:a*:b}"}
     },{
-        "name":"Nombre de 16 à 20 divisé par 10 ou 100",
+        "name":"Zahlen von 16 bis 20, durch 10 oder 100",
         "vars":{"a":[10,100], "b":"16_20", "c":"${:b/:a}"}
     }
     ],

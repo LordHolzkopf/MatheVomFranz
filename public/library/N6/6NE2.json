@@ -1,22 +1,22 @@
 {
-    "title":"Multiplier un décimal par 0,1, 0,01, 0,001",
-    "description":"multiplier par 0,1, 0,01 ou 0,001, diviser par 10, 100 ou 1000, décimal",
+    "title":"Dezimalzahlen mit 0,1, 0,01, 0,001 multiplizieren",
+    "description":"Kommaverschiebung, Dezimalzahlen mit 0,1, 0,01 oder 0,001 multiplizieren, entspricht Division durch 10, 100 oder 1000, Komma nach links verschieben",
     "ID":"6NE2",
-    "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["m"]}},
+    "params":{"fige":{"label":"Gleiche gültige Ziffern beibehalten","defaut":false,"fige":["m"]}},
     "dest":["6ED"],
     "vars":{"a":[1,9,99,999,9999], "b":"1_4", "c0":"d0_${:a}_${:b}_^0", "m":"1_999", "q":"-3_1", "c":"${:fige ? MMmath.round(:m*Math.pow(10,:q),4) : :c0}"},
         "options":[{
-        "name":"Multiplier un décimal par 0,1",
+        "name":"Dezimalzahl mal 0,1",
         "question": ["${:c}\\times 0.1", "0.1\\times ${:c}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*.1,7)}}",
         "value":"${MMmath.round(:c*.1,6)}"
     },{
-        "name":"Multiplier un décimal par 0,01",
+        "name":"Dezimalzahl mal 0,01",
         "question": ["${:c}\\times 0.01", "0.01\\times ${:c}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*.01,7)}}",
         "value":"${MMmath.round(:c*.01,7)}"
     },{
-        "name":"Multiplier un décimal par 0,001",
+        "name":"Dezimalzahl mal 0,001",
         "question": ["${:c}\\times 0.001", "0.001\\times ${:c}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*.001,7)}}",
         "value":"${MMmath.round(:c*.001,7)}"

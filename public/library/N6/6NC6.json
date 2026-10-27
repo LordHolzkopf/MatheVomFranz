@@ -1,43 +1,43 @@
 {
-    "title":"Intercaler un nombre entre deux autres",
+    "title":"Zahl zwischen zwei Zahlen finden",
     "type":"text",
     "speech":1,
     "valueType":"inInterval",
-    "description":"Trouver un nombre entre deux valeurs données",
+    "description":"Eine Zahl angeben, die zwischen zwei gegebenen Zahlen liegt, Dezimalzahlen einschieben, ordnen, Zehner, Zehntel, Hundertstel, Tausendstel",
     "dest":["6BB", "5AA"],
     "options":[{
-        "name":"Entre deux dizaines consécutives",
+        "name":"Zwischen zwei benachbarten Zehnerzahlen",
         "vars":{"a":"1_9","b":"${:a+1}","c":"1_9"},
-        "question": "Donne un nombre entre $$${:a*10}$$ et $$${:b*10}$$",
-        "audio": "Donne un nombre entre ${:a*10} et ${:b*10}.",
+        "question": "Gib eine Zahl zwischen $$${:a*10}$$ und $$${:b*10}$$ an.",
+        "audio": "Gib eine Zahl zwischen ${:a*10} und ${:b*10} an.",
         "answer":"$$${:a*10}\\lt\\color{red}{${MMmath.round(:a*10+:c)}}\\lt${:b*10}$$",
         "value":"${:a*10}-${:b*10}"
     },{
-        "name":"Entre deux entiers consécutifs",
+        "name":"Zwischen zwei benachbarten natürlichen Zahlen",
         "vars":{"a":"1_99","b":"${:a+1}","c":"d0.1_0.9_1"},
-        "question": "Donne un nombre entre $$${:a}$$ et $$${:b}$$",
-        "audio": "Donne un nombre entre ${:a} et ${:b}.",
+        "question": "Gib eine Zahl zwischen $$${:a}$$ und $$${:b}$$ an.",
+        "audio": "Gib eine Zahl zwischen ${:a} und ${:b} an.",
         "answer":"$$${:a}\\lt\\color{red}{${:a+:c}}\\lt${:b}$$",
         "value":"${:a}-${:b}"
     },{
-        "name":"Entre deux dixièmes consécutifs",
+        "name":"Zwischen zwei benachbarten Zehnteln",
         "vars":{"a":"10_99","b":"${:a+1}","n1":"${MMmath.round(:a/10,1)}","n2":"${MMmath.round(:b/10,1)}","c":"d0.01_0.09_2","ni":"${MMmath.round(:a/10+:c,2)}"},
-        "question": "Donne un nombre entre $$${:n1}$$ et $$${:n2}$$",
-        "audio": "Donne un nombre entre ${String(:n1).replace('.',',')} ( ) et ( ) ${String(:n2).replace('.',',')}.",
+        "question": "Gib eine Zahl zwischen $$${:n1}$$ und $$${:n2}$$ an.",
+        "audio": "Gib eine Zahl zwischen ${String(:n1).replace('.',',')} ( ) und ( ) ${String(:n2).replace('.',',')} an.",
         "answer":"$$${:n1}\\lt\\color{red}{${:ni}}\\lt${:n2}$$",
         "value":"${:n1}-${:n2}"
     },{
-        "name":"Entre deux centièmes consécutifs",
+        "name":"Zwischen zwei benachbarten Hundertsteln",
         "vars":{"a":"10_999","b":"${:a+1}","n1":"${MMmath.round(:a/100,2)}","n2":"${MMmath.round(:b/100,2)}","c":"d0.001_0.009_3","ni":"${MMmath.round(:a/100+:c,3)}"},
-        "question": "Donne un nombre entre $$${:n1}$$ et $$${:n2}$$",
-        "audio": "Donne un nombre entre ${String(:n1).replace('.',',')} ( ) et ( ) ${String(:n2).replace('.',',')}.",
+        "question": "Gib eine Zahl zwischen $$${:n1}$$ und $$${:n2}$$ an.",
+        "audio": "Gib eine Zahl zwischen ${String(:n1).replace('.',',')} ( ) und ( ) ${String(:n2).replace('.',',')} an.",
         "answer":"$$${:n1}\\lt\\color{red}{${:ni}}\\lt${:n2}$$",
         "value":"${:n1}-${:n2}"
     },{
-        "name":"Entre deux millièmes consécutifs",
+        "name":"Zwischen zwei benachbarten Tausendsteln",
         "vars":{"a":"10_9999","b":"${:a+1}","n1":"${MMmath.round(:a/1000,3)}","n2":"${MMmath.round(:b/1000,3)}","c":"d0.0001_0.0009_4","ni":"${MMmath.round(:a/1000+:c,4)}"},
-        "question": "Donne un nombre entre $$${:n1}$$ et $$${:n2}$$",
-        "audio": "Donne un nombre entre ${String(:n1).replace('.',',')} ( ) et ( ) ${String(:n2).replace('.',',')}.",
+        "question": "Gib eine Zahl zwischen $$${:n1}$$ und $$${:n2}$$ an.",
+        "audio": "Gib eine Zahl zwischen ${String(:n1).replace('.',',')} ( ) und ( ) ${String(:n2).replace('.',',')} an.",
         "answer":"$$${:n1}\\lt\\color{red}{${:ni}}\\lt${:n2}$$",
         "value":"${:n1}-${:n2}"
     }

@@ -1,47 +1,47 @@
 {
-    "title": "Trouver le n<sup>e</sup> terme d’une suite",
-    "description": "terme général, nᵉ terme, suite, récurrence, formule explicite",
+    "title": "Zahlen einer Folge mit einem Term berechnen",
+    "description": "Zahlenfolge, n-te Zahl einer Folge, Folgenglied mit einem Term berechnen, explizite Darstellung, Quadratzahlen, Dreieckszahlen, Muster",
     "dest":["6GA", "WEB"],
     "type": "text",
     "options": [
         {
-            "name": "Suite quadratique",
+            "name": "Quadratzahl plus Zahl: n² + b",
             "consts": {
-                "quest": "Soit la suite définie par $$u_n=n^2${MMmath.signedNumber(:b)}$$<br>"
+                "quest": "Die n-te Zahl einer Folge berechnet man mit dem Term $$n^2${MMmath.signedNumber(:b)}$$.<br>"
             },
             "vars": {
                 "n": "2_20",
                 "b": "0_10"
             },
-            "answer": "$$u_{${:n}}=${:n}^2${MMmath.signedNumber(:b)}=\\color{red}{${:n**2+:b}}$$",
+            "answer": "${:n}. Zahl: $$${:n}^2${MMmath.signedNumber(:b)}=\\color{red}{${:n**2+:b}}$$",
             "value":"${:n**2+:b}"
         },
         {
-            "name": "Suite alternante",
+            "name": "Wechselndes Vorzeichen: (−1)ⁿ⁺ᵇ · n",
             "consts": {
-                "quest": "Soit la suite définie par $$u_n=(-1)^{n${MMmath.signedNumber(:b)}}\\times n$$<br>"
+                "quest": "Die n-te Zahl einer Folge berechnet man mit dem Term $$(-1)^{n${MMmath.signedNumber(:b)}}\\times n$$.<br>"
             },
             "vars": {
                 "n": "2_99",
                 "b": "-10_10"
             },
-            "answer": "$$u_{${:n}}=(-1)^{${:n}${MMmath.signedNumber(:b)}}\\times ${:n}=\\color{red}{${(-1)**(:n+:b)*:n}}$$",
+            "answer": "${:n}. Zahl: $$(-1)^{${:n}${MMmath.signedNumber(:b)}}\\times ${:n}=\\color{red}{${(-1)**(:n+:b)*:n}}$$",
             "value":"${(-1)**(:n+:b)*:n}"
         },
         {
-            "name": "Suite 'triangulaire'",
+            "name": "Dreieckszahlen: n(n + 1) : 2",
             "consts": {
-                "quest": "Soit la suite définie par $$u_n=\\dfrac{n(n+1)}2$$<br>"
+                "quest": "Die n-te Zahl einer Folge berechnet man mit dem Term $$\\dfrac{n(n+1)}2$$.<br>"
             },
             "vars": {
                 "n": "2_20"
             },
-            "answer": "$$u_{${:n}}=\\dfrac{${:n}\\times${:n+1}}2=\\color{red}{${:n*(:n+1)/2}}$$",
+            "answer": "${:n}. Zahl: $$\\dfrac{${:n}\\times${:n+1}}2=\\color{red}{${:n*(:n+1)/2}}$$",
             "value":"${:n*(:n+1)/2}"
         }
     ],
     "question": [
-        "${:quest}Calculer $$u_{${:n}}$$",
-        "${:quest}Quel est le ${:n}<sup>e</sup> terme ?"
+        "${:quest}Berechne die ${:n}. Zahl der Folge.",
+        "${:quest}Wie lautet die ${:n}. Zahl der Folge?"
     ]
 }

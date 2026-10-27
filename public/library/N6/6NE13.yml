@@ -1,10 +1,10 @@
-title: "Compléter des égalités du type 1 200 = 1,2 × …"
+title: "Fehlenden Faktor 10, 100, 1000 ergänzen"
 speech: 1
 keys: ["_","_","_","_","_","_","_","_"]
-description: "Retrouver le multiplicateur (10, 100 ou 1000) manquant dans une égalité"
+description: "Kommaverschiebung, fehlenden Faktor 10, 100 oder 1000 in Gleichungen wie 1200 = 1,2 · … finden, Lücke ergänzen, Stufenzahlen"
 dest: [6ED]
 options:
-  - name: "1 chiffre significatif, multiplicateur 10"
+  - name: "1 gültige Ziffer, Faktor 10"
     vars:
       a: "1_9"
       p: "-3_3"
@@ -12,10 +12,10 @@ options:
       prod: "${MMmath.round(:c*10,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{10}"
     value: 10
-  - name: "1 chiffre significatif, multiplicateur 100"
+  - name: "1 gültige Ziffer, Faktor 100"
     vars:
       a: "1_9"
       p: "-3_3"
@@ -23,10 +23,10 @@ options:
       prod: "${MMmath.round(:c*100,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{100}"
     value: 100
-  - name: "1 chiffre significatif, multiplicateur 1000"
+  - name: "1 gültige Ziffer, Faktor 1000"
     vars:
       a: "1_9"
       p: "-3_3"
@@ -34,10 +34,10 @@ options:
       prod: "${MMmath.round(:c*1000,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{1000}"
     value: "1000"
-  - name: "2 chiffres significatifs, multiplicateur 10"
+  - name: "2 gültige Ziffern, Faktor 10"
     vars:
       a: "1_9_2"
       p: "-3_3"
@@ -45,10 +45,10 @@ options:
       prod: "${MMmath.round(:c*10,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{10}"
     value: "10"
-  - name: "2 chiffres significatifs, multiplicateur 100"
+  - name: "2 gültige Ziffern, Faktor 100"
     vars:
       a: "1_9_2"
       p: "-3_3"
@@ -56,10 +56,10 @@ options:
       prod: "${MMmath.round(:c*100,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{100}"
     value: "100"
-  - name: "2 chiffres significatifs, multiplicateur 1000"
+  - name: "2 gültige Ziffern, Faktor 1000"
     vars:
       a: "1_9_2"
       p: "-3_3"
@@ -67,10 +67,10 @@ options:
       prod: "${MMmath.round(:c*1000,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{1000}"
     value: "1000"
-  - name: "3 chiffres significatifs, multiplicateur 10"
+  - name: "3 gültige Ziffern, Faktor 10"
     vars:
       a: "1_9_2"
       b: "0_9"
@@ -79,10 +79,10 @@ options:
       prod: "${MMmath.round(:c*10,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{10}"
     value: "10"
-  - name: "3 chiffres significatifs, multiplicateur 100"
+  - name: "3 gültige Ziffern, Faktor 100"
     vars:
       a: "1_9_2"
       b: "0_9"
@@ -91,10 +91,10 @@ options:
       prod: "${MMmath.round(:c*100,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{100}"
     value: "100"
-  - name: "3 chiffres significatifs, multiplicateur 1000"
+  - name: "3 gültige Ziffern, Faktor 1000"
     vars:
       a: "1_9_2"
       b: "0_9"
@@ -103,6 +103,6 @@ options:
       prod: "${MMmath.round(:c*1000,6)}"
     question: ":prod=:c\\times\\, ?"
     shortq: ":prod=:c\\times\\colorbox{#ececec}{\\quad}"
-    audio: "${String(:prod).replace('.',',')} égale ${String(:c).replace('.',',')} fois combien ?"
+    audio: "${String(:prod).replace('.',',')} ist gleich ${String(:c).replace('.',',')} mal wie viel?"
     answer: ":prod=:c\\times\\color{red}{1000}"
     value: "1000"

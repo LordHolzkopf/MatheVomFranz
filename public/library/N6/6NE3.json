@@ -1,29 +1,29 @@
 {
-    "title":"Multiplier par 1,5; 2,5; 3,5",
-    "description":"calcul réfléchi, multiplier, astuce, décomposer, distributivité, décimaux",
+    "title":"Mit 1,5; 2,5; 3,5 multiplizieren",
+    "description":"geschickt rechnen, vorteilhaft multiplizieren, Rechenvorteil, zerlegen, Distributivgesetz, Dezimalzahlen, mal 1,5, mal 2,5, mal 3,5, Kopfrechnen",
     "ID":"6NE3",
     "dest":["6EE", "6EG"],
     "params":{
-        "mult10":{"groupe":"Ne pas tirer","label":"les multiples de 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100"}},
-        "mult5":{"groupe":"Ne pas tirer","label":"les multiples de 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100"}}
+        "mult10":{"groupe":"Nicht abfragen","label":"Vielfache von 10","defaut":false,"exclut":{"c":"10,20,30,40,50,60,70,80,90,100"}},
+        "mult5":{"groupe":"Nicht abfragen","label":"Vielfache von 5","defaut":false,"exclut":{"c":"5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100"}}
     },
     "options":[{
-        "name":"Multiplier un petit nombre (<41) par 1,5",
+        "name":"Kleine Zahl (2 bis 40) mal 1,5",
         "vars":{"a":1.5,"c":"2_40"}
     },{
-        "name":"Multiplier un grand nombre (de 40 à 101) par 1,5",
+        "name":"Große Zahl (41 bis 100) mal 1,5",
         "vars":{"a":1.5,"c":"41_100"}
     },{
-        "name":"Multiplier un petit nombre par 2,5",
+        "name":"Kleine Zahl mal 2,5",
         "vars":{"a":2.5,"c":"2_40"}
     },{
-        "name":"Multiplier un grand nombre par 2,5",
+        "name":"Große Zahl mal 2,5",
         "vars":{"a":2.5,"c":"41_100"}
     },{
-        "name":"Multiplier un petit nombre par 3,5",
+        "name":"Kleine Zahl mal 3,5",
         "vars":{"a":3.5,"c":"2_40"}
     },{
-        "name":"Multiplier un grand nombre par 3,5",
+        "name":"Große Zahl mal 3,5",
         "vars":{"a":3.5,"c":"41_100"}
     }
     ],

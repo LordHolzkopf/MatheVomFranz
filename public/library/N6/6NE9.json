@@ -1,25 +1,25 @@
 {
-    "title":"Multiplier un entier par 0,1 0,01 0,001",
-    "description":"multiplier par 0,1, 0,01 ou 0,001, diviser par 10, 100 ou 1000, entier",
+    "title":"Natürliche Zahlen mit 0,1, 0,01, 0,001 multiplizieren",
+    "description":"Kommaverschiebung, natürliche Zahlen mit 0,1, 0,01 oder 0,001 multiplizieren, entspricht Division durch 10, 100 oder 1000",
     "ID":"6NE9",
     "repeat":"true",
-    "params":{"fige":{"label":"Garder les mêmes chiffres non nuls","defaut":false,"fige":["n0"]}},
+    "params":{"fige":{"label":"Gleiche Ziffern (ohne Nullen) beibehalten","defaut":false,"fige":["n0"]}},
     "dest":["6ED"],
     "options":[{
-        "name":"Entier à 1 chiffre",
+        "name":"Einstellige natürliche Zahl",
         "vars":{"n0":"1_9","z":"0_2","n":"${:fige ? :n0*Math.pow(10,:z) : :n0}"}
     },{
-        "name":"Entier à deux chiffres",
+        "name":"Zweistellige natürliche Zahl",
         "vars":{"ns":"1_9_2","n0":"${Number(:ns[0]+''+:ns[1])}","z":"0_2","n":"${:fige ? :n0*Math.pow(10,:z) : :n0}"}
     },{
-        "name":"Entier à trois chiffres",
+        "name":"Dreistellige natürliche Zahl",
         "vars":{"n13":"1_9_2","n2":"0_9","n0":"${Number(:n13[0]+''+:n2+''+:n13[1])}","z":"0_2","n":"${:fige ? :n0*Math.pow(10,:z) : :n0}"}
     }
     ],
     "question":[
-        "${:n}\\times 0,1",
-        "${:n}\\times 0,01",
-        "${:n}\\times 0,001"
+        "${:n}\\times 0.1",
+        "${:n}\\times 0.01",
+        "${:n}\\times 0.001"
     ],
     "answer":[
         ":question=\\color{red}{${MMmath.round(:n*0.1,3)}}",

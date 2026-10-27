@@ -1,19 +1,19 @@
 {
-    "title":"Suites additives, multiplicatives",
+    "title":"Zahlenfolgen fortsetzen",
     "type":"text",
     "ID":"6ND24",
-    "description":"Trouver le terme ou le facteur suivant",
+    "description":"Zahlenfolgen fortsetzen, nächste Zahl finden, Muster erkennen, immer dieselbe Zahl addieren oder mit derselben Zahl multiplizieren",
     "dest":["6GA"],
     "options":[{
-        "name":"Suite additive",
+        "name":"Immer dieselbe Zahl addieren",
         "vars":{"r":"2_12","u0":"0_50"},
-        "question": "Quel nombre continue la suite : $$${:u0} ; ${:u0+:r} ; ${:u0+:r*2}$$ ?",
+        "question": "Welche Zahl setzt die Folge fort?<br>$$${:u0} ; ${:u0+:r} ; ${:u0+:r*2} ; \\ldots$$",
         "answer":"$$${:u0} ; ${:u0+:r} ; ${:u0+:r*2} ; \\color{red}{${:u0+:r*3} }$$",
         "value":"${:u0+:r*3} "
     },{
-        "name":"Suite multiplicative",
+        "name":"Immer mit derselben Zahl multiplizieren",
         "vars":{"r":[2,3,5,10],"u0":[1,2,3,4,5,6,7,8,9,10,20,50,100]},
-        "question": "Quel nombre continue la suite : $$${:u0} ; ${:u0*:r} ; ${:u0*:r*:r}$$ ?",
+        "question": "Welche Zahl setzt die Folge fort?<br>$$${:u0} ; ${:u0*:r} ; ${:u0*:r*:r} ; \\ldots$$",
         "answer":"$$${:u0} ; ${:u0*:r} ; ${:u0*:r*:r} ; \\color{red}{${:u0*:r*:r*:r} }$$",
         "value":"${:u0*:r*:r*:r} "
     }]

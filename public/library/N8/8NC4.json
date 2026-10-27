@@ -1,12 +1,12 @@
 {
     "ID":"8NC4",
-    "title":"Soustraire un nombre inférieur à 10 d'unités, dizaines, ... sans passage de dizaine",
-    "description":"centaines, milliers, dixièmes, centièmes ou millièmes sans retenue",
+    "title":"Einer, Zehner, Zehntel … ohne Übertrag subtrahieren",
+    "description":"Vielfache von Tausendern, Hundertern, Zehnern, Einern, Zehnteln, Hundertsteln oder Tausendsteln subtrahieren, ohne Übertrag, Stellenwerte, Kopfrechnen, Dezimalzahlen",
     "keys":"numerique",
     "dest":["6CB", "6BA", "5AC"],
     "type":"text",
     "options":[{
-        "name":"Soustraire des milliers (CM2)",
+        "name":"Tausender subtrahieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"0_9",
@@ -18,16 +18,16 @@
         "question":[
             "$$${:n} - ${:x*1000}$$",
             "$$${:n} - ${:x}\\times 1000$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ millier${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Tausender von $$${:n}$$."
         ],
         "answer":[
             "$$${:n} - ${:x*1000} = \\color{red}{${:n-:x*1000}}$$",
             "$$${:n} - ${:x}\\times 1000 = \\color{red}{${:n-:x*1000}}$$",
-            "$$${:n}$$ moins $$${:x}$$ millier${:x>1?'s':''} font $$\\color{red}{${:n-:x*1000}}$$"
+            "$$${:n} - ${:x}$$ Tausender $$=\\color{red}{${:n-:x*1000}}$$"
         ],
         "value":"${MMmath.round(:n-:x*1000)}"
     },{
-        "name":"Soustraire des centaines",
+        "name":"Hunderter subtrahieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"0_9",
@@ -39,16 +39,16 @@
         "question":[
             "$$${:n} - ${:x*100}$$",
             "$$${:n} - ${:x}\\times 100$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ centaine${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Hunderter von $$${:n}$$."
         ],
         "answer":[
             "$$${:n} - ${:x*100} = \\color{red}{${:n-:x*100}}$$",
             "$$${:n} - ${:x}\\times 100 = \\color{red}{${:n-:x*100}}$$",
-            "$$${:n}$$ moins $$${:x}$$ centaine${:x>1?'s':''} font $$\\color{red}{${:n-:x*100}}$$"
+            "$$${:n} - ${:x}$$ Hunderter $$=\\color{red}{${:n-:x*100}}$$"
         ],
         "value":"${MMmath.round(:n-:x*100)}"
     },{
-        "name":"Soustraire des dizaines",
+        "name":"Zehner subtrahieren",
         "vars":{
             "unites":"0_9",
             "dizaines":"1_9",
@@ -60,16 +60,16 @@
         "question":[
             "$$${:n} - ${:x*10}$$",
             "$$${:n} - ${:x}\\times 10$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ dizaine${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Zehner von $$${:n}$$."
         ],
         "answer":[
             "$$${:n} - ${:x*10} = \\color{red}{${:n-:x*10}}$$",
             "$$${:n} - ${:x}\\times 10 = \\color{red}{${:n-:x*10}}$$",
-            "$$${:n}$$ moins $$${:x}$$ dizaine${:x>1?'s':''} font $$\\color{red}{${:n-:x*10}}$$"
+            "$$${:n} - ${:x}$$ Zehner $$=\\color{red}{${:n-:x*10}}$$"
         ],
         "value":"${MMmath.round(:n-:x*10)}"
     },{
-        "name":"Soustraire des unités",
+        "name":"Einer subtrahieren",
         "vars":{
             "unites":"1_9",
             "dizaines":"0_9",
@@ -81,16 +81,16 @@
         "question":[
             "$$${:n}-${:x}$$",
             "$$${:n} - ${:x}\\times 1$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ unité${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Einer von $$${:n}$$."
         ],
         "answer":[
             "$$${:n}-${:x}= \\color{red}{${MMmath.round(:n-:x,1)}}$$",
             "$$${:n}-${:x}\\times 1= \\color{red}{${MMmath.round(:n-:x,1)}}$$",
-            "$$${:n}$$ moins $$${:x}$$ unité${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n-:x,1)}}$$"
+            "$$${:n} - ${:x}$$ Einer $$=\\color{red}{${MMmath.round(:n-:x,1)}}$$"
         ],
         "value":"${MMmath.round(:n-:x,1)}"
     },{
-        "name":"Soustraire des dixièmes",
+        "name":"Zehntel subtrahieren",
         "vars":{
             "dizaines":"0_9",
             "unites":"0_9",
@@ -102,16 +102,16 @@
         "question":[
             "$$${:n}-${MMmath.round(:x/10,1)}$$",
             "$$${:n} - \\dfrac{${:x}}{10}$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ dixième${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Zehntel von $$${:n}$$."
         ],
         "answer":[
-            "$$${:n}-${:x}=\\color{red}{${MMmath.round(:n-:x/10,2)}}$$",
+            "$$${:n}-${MMmath.round(:x/10,1)}=\\color{red}{${MMmath.round(:n-:x/10,2)}}$$",
             "$$${:n} - \\dfrac{${:x}}{10} = \\color{red}{${MMmath.round(:n-:x/10,2)}}$$",
-            "$$${:n}$$ moins $$${:x}$$ dixième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n-:x/10,2)}}$$."
+            "$$${:n} - ${:x}$$ Zehntel $$=\\color{red}{${MMmath.round(:n-:x/10,2)}}$$."
         ],
         "value":"${MMmath.round(:n-:x/10,2)}"
     },{
-        "name":"Soustraire des centièmes",
+        "name":"Hundertstel subtrahieren",
         "vars":{
             "unites":"0_9",
             "dixiemes":"0_9",
@@ -123,16 +123,16 @@
         "question":[
             "$$${:n}-${MMmath.round(:x/100,2)}$$",
             "$$${:n} - \\dfrac{${:x}}{100}$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ centième${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Hundertstel von $$${:n}$$."
         ],
         "answer":[
-            "$$${:n}-${:x}=\\color{red}{${MMmath.round(:n-:x/100,3)}}$$",
+            "$$${:n}-${MMmath.round(:x/100,2)}=\\color{red}{${MMmath.round(:n-:x/100,3)}}$$",
             "$$${:n} - \\dfrac{${:x}}{100} = \\color{red}{${MMmath.round(:n-:x/100,3)}}$$",
-            "$$${:n}$$ moins $$${:x}$$ centième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n-:x/100,3)}}$$."
+            "$$${:n} - ${:x}$$ Hundertstel $$=\\color{red}{${MMmath.round(:n-:x/100,3)}}$$."
         ],
         "value":"${MMmath.round(:n-:x/100,3)}"
     },{
-        "name":"Soustraire des millièmes (CM2)",
+        "name":"Tausendstel subtrahieren",
         "vars":{
             "unites":"0_9",
             "dixiemes":"0_9",
@@ -144,12 +144,12 @@
         "question":[
             "$$${:n}-${MMmath.round(:x/1000,3)}$$",
             "$$${:n} - \\dfrac{${:x}}{1000}$$",
-            "Combien font $$${:n}$$ moins $$${:x}$$ millième${:x>1?'s':''} ?"
+            "Subtrahiere $$${:x}$$ Tausendstel von $$${:n}$$."
         ],
         "answer":[
-            "$$${:n}-${:x}=\\color{red}{${MMmath.round(:n-:x/1000,3)}}$$",
+            "$$${:n}-${MMmath.round(:x/1000,3)}=\\color{red}{${MMmath.round(:n-:x/1000,3)}}$$",
             "$$${:n} - \\dfrac{${:x}}{1000} = \\color{red}{${MMmath.round(:n-:x/1000,3)}}$$",
-            "$$${:n}$$ moins $$${:x}$$ millième${:x>1?'s':''} font $$\\color{red}{${MMmath.round(:n-:x/1000,3)}}$$."
+            "$$${:n} - ${:x}$$ Tausendstel $$=\\color{red}{${MMmath.round(:n-:x/1000,3)}}$$."
         ],
         "value":"${MMmath.round(:n-:x/1000,3)}"
     }]

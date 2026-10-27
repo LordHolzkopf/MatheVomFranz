@@ -1,38 +1,38 @@
 {
     "dest":["6EE", "6EF"],
     "keys":"numerique",
-    "title": "Résoudre des problèmes multiplicatifs avec des décimaux",
-    "description": "problèmes, énoncés, multiplication, division, décimaux, modélisation",
+    "title": "Sachaufgaben mit Dezimalzahlen: multiplizieren und dividieren",
+    "description": "Sachaufgaben, Textaufgaben, Dezimalzahlen multiplizieren, Dezimalzahlen dividieren, Größen, Liter, Kilogramm, Millimeter, Deziliter, Zentiliter, Modellieren",
     "type": "text",
     "consts":{
         "prenoms": [
-            "Alexandre", "Pierre", "Jean", "Paul", "Théo",
-            "Luc", "Guillaume", "Hugo", "Clément", "Jules",
-            "Marie", "Anne", "Sophie", "Alice", "Chloé",
-            "Émilie", "Léa", "Manon", "Sarah", "Camille",
-            "Lina","Fatima","Amina","Amira","Samira",
-            "Rayan","Aaron","Leo","Liam",
-            "Ava","Emma","Mia"
+            "Alexander", "Paul", "Jonas", "Felix", "Theo",
+            "Lukas", "Maximilian", "Ben", "Emil", "Leon",
+            "Marie", "Anna", "Sophie", "Clara", "Lena",
+            "Emilia", "Lea", "Hannah", "Sarah", "Ida",
+            "Lina","Fatma","Amina","Amira","Elif",
+            "Yusuf","Can","Mehmet","Noah",
+            "Ella","Emma","Mia"
         ]
     },
 
     "options": [
         {
-            "name":"Résolution par multiplication (CM)",
+            "name":"Lösen durch Multiplizieren (natürliche Zahl · Dezimalzahl)",
             "consts": {
                 "phrases": [
                     [
-                        "Des feuilles ont une épaisseur de $$${:n2}~mm$$. Quelle est l’épaisseur d’un tas de ${:n1} de ces mêmes feuilles ?",
-                        "Le tas mesure $$${:n1}\\times${:n2}=\\color{red}{${:produit}~mm}$$."
+                        "Ein Blatt Papier ist $$${:n2}~\\text{mm}$$ dick. Wie hoch ist ein Stapel aus ${:n1} dieser Blätter?",
+                        "Der Stapel ist $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{mm}}$$ hoch."
                     ],[
-                        "Un fabriquant de cosmétiques verse $$${:n2}~L$$ d'un principe actif pour 1L. Combien doit-il verser pour $$${:n1}~L$$ ?",
-                        "Il doit verser $$${:n1}\\times${:n2}=\\color{red}{${:produit}~L}$$."
+                        "Eine Firma gibt in 1&nbsp;L Shampoo $$${:n2}~\\text{L}$$ Pflegeöl. Wie viel Pflegeöl braucht sie für $$${:n1}~\\text{L}$$ Shampoo?",
+                        "Sie braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{L}}$$ Pflegeöl."
                     ],[
-                        "Pour faire un sirop dans 1 L d’eau, ${:paul} utilise $$${:n2}~kg$$ de sucre. Quelle quantité de sucre est nécessaire pour ${:n1} L de sirop ?",
-                        "Il faut $$${:n1}\\times${:n2}=\\color{red}{${:produit}~kg}$$ de sucre."
+                        "Für 1&nbsp;L Sirup verwendet ${:paul} $$${:n2}~\\text{kg}$$ Zucker. Wie viel Zucker braucht man für ${:n1}&nbsp;L Sirup?",
+                        "Man braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{kg}}$$ Zucker."
                     ],[
-                        "Pour une vinaigrette de 1 dL, ${:paul} utilise $$${:n2}~cL$$ de son ingrédient secret. Quelle quantité de cet ingrédient serait nécessaire pour ${:n1} dL de vinaigrette ?",
-                        "Il faudrait $$${:n1}\\times${:n2}=\\color{red}{${:produit}~cL}$$"
+                        "Für 1&nbsp;dL Salatsoße nimmt ${:paul} $$${:n2}~\\text{cL}$$ einer geheimen Zutat. Wie viel von dieser Zutat braucht man für ${:n1}&nbsp;dL Salatsoße?",
+                        "Man braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{cL}}$$ der geheimen Zutat."
                     ]
                 ]
             },
@@ -48,21 +48,21 @@
                 "rep":":produit"
             }
         },{
-            "name":"Résolution par division (CM)",
+            "name":"Lösen durch Dividieren",
             "consts":{
                 "phrases":[
                     [
-                        "Un tas de ${:n1} feuilles identiques a une épaisseur de $$${MMmath.round(:n1*:n2,3)}~mm$$. Combien mesure une feuille ?",
-                        "Le tas mesure $$${:produit}\\div${:n1}=\\color{red}{${:n2}~mm}$$."
+                        "Ein Stapel aus ${:n1} gleichen Blättern Papier ist $$${MMmath.round(:n1*:n2,3)}~\\text{mm}$$ hoch. Wie dick ist ein Blatt?",
+                        "Ein Blatt ist $$${:produit}\\div${:n1}=\\color{red}{${:n2}~\\text{mm}}$$ dick."
                     ],[
-                        "Un fabriquant de cosmétiques a préparé ${:n1} L de champoing avec $$${MMmath.round(:n1*:n2,3)}~L$$ de principe actif. Combien en faut-il pour 1 L ?",
-                        "Il faut $$${:produit}\\div${:n1}=\\color{red}{${:n2}~L}$$."
+                        "Eine Firma hat ${:n1}&nbsp;L Shampoo mit $$${MMmath.round(:n1*:n2,3)}~\\text{L}$$ Pflegeöl hergestellt. Wie viel Pflegeöl ist in 1&nbsp;L Shampoo?",
+                        "In 1&nbsp;L Shampoo sind $$${:produit}\\div${:n1}=\\color{red}{${:n2}~\\text{L}}$$ Pflegeöl."
                     ],[
-                        "Sachant que ${:paul} a préparé ${:n1} L de sirop en utilisant $$${MMmath.round(:n1*:n2,3)}~kg$$ de sucre, combien faut-il de sucre pour 1 L d’eau ?",
-                        "Il faut $$${:produit}\\div${:n1}=\\color{red}{${:n2}~kg}$$ de sucre."
+                        "${:paul} hat ${:n1}&nbsp;L Sirup mit $$${MMmath.round(:n1*:n2,3)}~\\text{kg}$$ Zucker gekocht. Wie viel Zucker braucht man für 1&nbsp;L Sirup?",
+                        "Man braucht $$${:produit}\\div${:n1}=\\color{red}{${:n2}~\\text{kg}}$$ Zucker."
                     ],[
-                        "Dans les ${:n1} dL de vinaigrette que ${:paul} a préparés, il y a $$${MMmath.round(:n1*:n2,3)}~cL$$ d’un ingrédient secret. Quelle quantité de cet ingrédient y a-t-il dans 1 dL?",
-                        "Il y a $$${:produit}\\div${:n1}=\\color{red}{${:n2}~cL}$$ de cet ingrédient."
+                        "In den ${:n1}&nbsp;dL Salatsoße, die ${:paul} gemacht hat, sind $$${MMmath.round(:n1*:n2,3)}~\\text{cL}$$ einer geheimen Zutat. Wie viel von dieser Zutat ist in 1&nbsp;dL?",
+                        "In 1&nbsp;dL sind $$${:produit}\\div${:n1}=\\color{red}{${:n2}~\\text{cL}}$$ der geheimen Zutat."
                     ]
                 ]
             },
@@ -79,18 +79,18 @@
                 "rep":":n2"
             }
         },{
-            "name":"Résolution par multiplication (6e)",
+            "name":"Lösen durch Multiplizieren (Dezimalzahl · Dezimalzahl)",
             "consts": {
                 "phrases": [
                     [
-                        "Un fabriquant de cosmétiques verse $$${:n2}~L$$ d'un principe actif pour 1L. Combien doit-il verser pour $$${:n1}~L$$ ?",
-                        "Il doit verser $$${:n1}\\times${:n2}=\\color{red}{${:produit}~L}$$."
+                        "Eine Firma gibt in 1&nbsp;L Shampoo $$${:n2}~\\text{L}$$ Pflegeöl. Wie viel Pflegeöl braucht sie für $$${:n1}~\\text{L}$$ Shampoo?",
+                        "Sie braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{L}}$$ Pflegeöl."
                     ],[
-                        "Pour faire un sirop dans 1 L d’eau, ${:paul} utilise $$${:n2}~kg$$ de sucre. Quelle quantité de sucre est nécessaire pour $$${:n1}~L$$ de sirop ?",
-                        "Il faut $$${:n1}\\times${:n2}=\\color{red}{${:produit}~kg}$$ de sucre."
+                        "Für 1&nbsp;L Sirup verwendet ${:paul} $$${:n2}~\\text{kg}$$ Zucker. Wie viel Zucker braucht man für $$${:n1}~\\text{L}$$ Sirup?",
+                        "Man braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{kg}}$$ Zucker."
                     ],[
-                        "Pour une vinaigrette de 1 dL, ${:paul} utilise $$${:n2}~cL$$ de son ingrédient secret. Quelle quantité de cet ingrédient serait nécessaire pour $$${:n1}~dL$$ de vinaigrette ?",
-                        "Il faudrait $$${:n1}\\times${:n2}=\\color{red}{${:produit}~cL}$$"
+                        "Für 1&nbsp;dL Salatsoße nimmt ${:paul} $$${:n2}~\\text{cL}$$ einer geheimen Zutat. Wie viel von dieser Zutat braucht man für $$${:n1}~\\text{dL}$$ Salatsoße?",
+                        "Man braucht $$${:n1}\\times${:n2}=\\color{red}{${:produit}~\\text{cL}}$$ der geheimen Zutat."
                     ]
                 ]
             },

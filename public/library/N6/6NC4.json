@@ -1,10 +1,10 @@
 {
-    "title":"Ordre de grandeur d'une opération",
-    "description":"Trouver un ordre de grandeur d'une somme (addition), une différence (soustraction), un produit (multiplication)",
+    "title":"Ergebnisse überschlagen",
+    "description":"Überschlag, Überschlagsrechnung, ungefähres Ergebnis einer Summe (Addition), Differenz (Subtraktion) oder eines Produkts (Multiplikation), runden",
     "speech":1,
     "dest":["6CC", "5CF"],
     "options":[{
-        "name":"Ordre de grandeur d'une somme",
+        "name":"Überschlag einer Summe",
         "vars":{"a":[10,100,1000,10000],
             "c":"1_14", "d":"1_14",
             "e":"d-0.25_0.25_3","f":"d-0.25_0.25_3",
@@ -13,12 +13,12 @@
         },
         "question": "${:p1}+${:p2}\\approx ?",
         "shortq": "${:p1}+${:p2}\\approx \\colorbox{#ececec}{\\quad\\quad}",
-        "audio": "Donner un ordre de grandeur de ${:p1} ( ) plusse ( ) ${:p2}",
+        "audio": "Überschlage ${:p1} ( ) plus ( ) ${:p2}.",
         "answer":":question \\approx \\color{red}{${:rep}} \\color{blue}{=${:n1}+${:n2}}",
         "value":"${:rep}"
     },
     {
-        "name":"Ordre de grandeur d'une différence",
+        "name":"Überschlag einer Differenz",
         "vars":{"a":[10,100,1000,10000],
             "c":"1_14", "d":"${:c+1}_16",
             "e":"d-0.25_0.25_3","f":"d-0.25_0.25_3",
@@ -27,12 +27,12 @@
         },
         "question": "${:p2}-${:p1}\\approx ?",
         "shortq": "${:p2}-${:p1}\\approx \\colorbox{#ececec}{\\quad\\quad}",
-        "audio": "Donner un ordre de grandeur de ${:p2} ( ) moins ( ) ${:p1}",
+        "audio": "Überschlage ${:p2} ( ) minus ( ) ${:p1}.",
         "answer":":question \\approx \\color{red}{${:rep}} \\color{blue}{=${:n2}-${:n1}}",
         "value":"${:rep}"
     },
     {
-        "name":"Ordre de grandeur d'un produit",
+        "name":"Überschlag eines Produkts",
         "vars":{"a":[10,100,1000],"b":[10,100,1000],
             "c":"1_9", "d":"2_9",
             "e":"d-0.25_0.25_3","f":"d-0.25_0.25_3",
@@ -41,7 +41,7 @@
         },
         "question": "${:p1}\\times${:p2}\\approx ?",
         "shortq": "${:p1}\\times${:p2}\\approx  \\colorbox{#ececec}{\\quad\\quad}",
-        "audio": "Donner un ordre de grandeur de ${:p1} ( ) × ( ) ${:p2}",
+        "audio": "Überschlage ${:p1} ( ) mal ( ) ${:p2}.",
         "answer":":question \\approx \\color{red}{${:rep}} \\color{blue}{=${:n1}\\times ${:n2}}",
         "value":"${:rep}"
     }

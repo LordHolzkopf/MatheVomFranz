@@ -1,49 +1,49 @@
 {
-    "title":"Quel est le chiffre des / le nombre de (entier) ... ? (décimaux)",
+    "title":"Ziffern und Stellenwerte in Dezimalzahlen",
     "type":"text",
     "ID":"6NC9",
     "speech":1,
     "textSize":"medium",
-    "description":"Donner le chiffre d'un rang. Donner le nombre entier d'un rang.",
+    "description":"Ziffer an einer bestimmten Stelle angeben, Stellenwerttafel, Einer, Zehner, Hunderter, Zehntel, Hundertstel, Tausendstel; angeben, wie viele ganze Zehner, Zehntel … in einer Dezimalzahl stecken",
     "dest":["6BA"],
-    "consts":{"u":["centaines", "dizaines", "unités","dixièmes","centièmes","millièmes"],
-        "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités", "dixièmes","centièmes","millièmes"],
-        "w":["centaines de million", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités", "dixièmes","centièmes","millièmes","dix-millièmes","cent-millièmes","millionièmes"]
+    "consts":{"u":["Hunderter", "Zehner", "Einer","Zehntel","Hundertstel","Tausendstel"],
+        "v":["Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer", "Zehntel","Hundertstel","Tausendstel"],
+        "w":["Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer", "Zehntel","Hundertstel","Tausendstel","Zehntausendstel","Hunderttausendstel","Millionstel"]
     },
     "options":[{
-        "name":"Chiffre des $$(10^2 \\text{ à } 10^{-3})$$",
+        "name":"Ziffer an einer Stelle $$(10^2 \\text{ bis } 10^{-3})$$",
         "vars":{"n":"0_9","a":"0_9_6_^${:n}", "b":"0_5", "c":"${Number(:a.slice(0,:b).concat([:n]).concat(:a.slice(:b+1)).join(''))/1000}", "d":"${:u[:b]}"}
         },{
-        "name":"Chiffre des $$(10^5 \\text{ à } 10^{-3})$$",
+        "name":"Ziffer an einer Stelle $$(10^5 \\text{ bis } 10^{-3})$$",
         "vars":{"n":"0_9","a":"0_9_9_^${:n}", "b":"0_8", "c":"${Number(:a.slice(0,:b).concat([:n]).concat(:a.slice(:b+1)).join(''))/1000}", "d":"${:v[:b]}"}
         },{
-        "name":"Chiffre des $$(10^8 \\text{ à } 10^{-6})$$",
+        "name":"Ziffer an einer Stelle $$(10^8 \\text{ bis } 10^{-6})$$",
         "vars":{"n":"0_9","a":"0_9_15_^${:n}", "b":"0_14", "c":"${Number(:a.slice(0,:b).concat([:n]).concat(:a.slice(:b+1)).join(''))/1000000}", "d":"${:w[:b]}"}
         },{
-            "name":"Nombre entier de $$(10^2 \\text{ à } 10^{-3})$$",
-            "vars":{"c":"d0_1000_3_^0,1000", "b":"0_5", "d":"${:u[:b]}", "de":"${:b==2?'d’':'de '}", "nb":"${Math.floor(Number(:c)*Math.pow(10,:b-2))}"},
-            "question":"Quel est le nombre ${:de}<b>${:d}</b> de $$${:c}$$&nbsp;?",
-            "audio":"Quel est le nombre ${:de}${:d} de ${MMmath.NumberToLetter(:c)} ?",
-            "answer":"Dans $$${:c}$$ le nombre ${:de}<b>${:d}</b> est $$\\color{red}{${:nb}}$$",
+            "name":"Anzahl ganzer Zehner, Zehntel … $$(10^2 \\text{ bis } 10^{-3})$$",
+            "vars":{"c":"d0_1000_3_^0,1000", "b":"0_5", "d":"${:u[:b]}", "nb":"${Math.floor(MMmath.round(Number(:c)*Math.pow(10,:b-2),6))}"},
+            "question":"Wie viele ganze <b>${:d}</b> stecken in $$${:c}$$?",
+            "audio":"Wie viele ganze ${:d} stecken in ${MMmath.zahlwort(:c)}?",
+            "answer":"In $$${:c}$$ stecken $$\\color{red}{${:nb}}$$ ganze <b>${:d}</b>.",
             "value":"${:nb}"
         },{
-            "name":"Nombre entier de $$(10^5 \\text{ à } 10^{-3})$$",
-            "vars":{"c":"d0_1000000_3_^0,1000000", "b":"0_8", "d":"${:v[:b]}", "de":"${:b==2||:b==5?'d’':'de '}", "nb":"${Math.floor(Number(:c)*Math.pow(10,:b-5))}"},
-            "question":"Quel est le nombre ${:de}<b>${:d}</b> de $$${:c}$$&nbsp;?",
-            "audio":"Quel est le nombre ${:de}${:d} de ${MMmath.NumberToLetter(:c)} ?",
-            "answer":"Dans $$${:c}$$ le nombre ${:de}<b>${:d}</b> est $$\\color{red}{${:nb}}$$",
+            "name":"Anzahl ganzer Zehner, Zehntel … $$(10^5 \\text{ bis } 10^{-3})$$",
+            "vars":{"c":"d0_1000000_3_^0,1000000", "b":"0_8", "d":"${:v[:b]}", "nb":"${Math.floor(MMmath.round(Number(:c)*Math.pow(10,:b-5),6))}"},
+            "question":"Wie viele ganze <b>${:d}</b> stecken in $$${:c}$$?",
+            "audio":"Wie viele ganze ${:d} stecken in ${MMmath.zahlwort(:c)}?",
+            "answer":"In $$${:c}$$ stecken $$\\color{red}{${:nb}}$$ ganze <b>${:d}</b>.",
             "value":"${:nb}"
         },{
-            "name":"Nombre entier de $$(10^8 \\text{ à } 10^{-6})$$",
-            "vars":{"c":"d0_1000000000_6_^0,1000000000", "b":"0_14", "d":"${:w[:b]}", "de":"${:b==2||:b==5||:d==8?'d’':'de '}", "nb":"${Math.floor(Number(:c)*Math.pow(10,:b-8))}"},
-            "question":"Quel est le nombre ${:de}<b>${:d}</b> de $$${:c}$$&nbsp;?",
-            "audio":"Quel est le nombre ${:de}${:d} de ${MMmath.NumberToLetter(:c)} ?",
-            "answer":"Dans $$${:c}$$ le nombre ${:de}<b>${:d}</b> est $$\\color{red}{${:nb}}$$",
+            "name":"Anzahl ganzer Zehner, Zehntel … $$(10^8 \\text{ bis } 10^{-6})$$",
+            "vars":{"c":"d0_1000000000_6_^0,1000000000", "b":"0_14", "d":"${:w[:b]}", "nb":"${Math.floor(MMmath.round(Number(:c)*Math.pow(10,:b-8),6))}"},
+            "question":"Wie viele ganze <b>${:d}</b> stecken in $$${:c}$$?",
+            "audio":"Wie viele ganze ${:d} stecken in ${MMmath.zahlwort(:c)}?",
+            "answer":"In $$${:c}$$ stecken $$\\color{red}{${:nb}}$$ ganze <b>${:d}</b>.",
             "value":"${:nb}"
         }
     ],
-    "answer":"Dans $$${:c}$$ le chiffre des <u>${:d}</u> est <span class='red'>${:n}</span>",
+    "answer":"In $$${:c}$$ steht an der Stelle der <u>${:d}</u> die Ziffer <span class='red'>${:n}</span>.",
     "value":"${:n}",
-    "question": "Quel est le chiffre des <b>${:d}</b> de $$${:c}$$&nbsp;?",
-    "audio":"Quel est le chiffre des ${:d} de ${MMmath.NumberToLetter(:c)} ?"
+    "question": "Welche Ziffer steht in $$${:c}$$ an der Stelle der <b>${:d}</b>?",
+    "audio":"Welche Ziffer steht in ${MMmath.zahlwort(:c)} an der Stelle der ${:d}?"
 }

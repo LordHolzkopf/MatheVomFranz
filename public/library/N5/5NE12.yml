@@ -1,8 +1,5 @@
 title: "Suites de motifs : décrire et continuer une progression"
-dest:
-  - 5NE
-  - 4NE
-  - 3ND
+dest: [6GA]
 type: text
 textSize: medium
 # chaque figure n'est utile qu'une fois : au-delà, les questions se répètent

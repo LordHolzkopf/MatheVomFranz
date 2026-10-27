@@ -4,7 +4,7 @@
     "type":"text",
     "textSize":"medium",
     "ID":"GL11",
-    "dest":["GL1"],
+    "dest":["WEB", "10DD"],
     "keys":["arth","geom","_",";","r","q","=","_"],
     "options":[
         {

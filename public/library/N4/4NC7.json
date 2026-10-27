@@ -1,7 +1,7 @@
 {
     "title":"Enchainements complexes d'opérations avec des carrés",
     "ID":"4NC7",
-    "dest":["4NC","3NB"],
+    "dest":["7AD", "5CA"],
     "description":"Enchainement d'opérations avec des carrés comportant des produits ou des quotients",
     "consigne":"Calculer",
     "consts":{

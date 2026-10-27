@@ -2,7 +2,7 @@
     "title":"Division par 2, 5, 20, 50, 4, 25, 0,5, 0,25",
     "description":"diviser, calcul réfléchi, quotient, astuce",
     "ID":"6NE7",
-    "dest":["6NE","5NC","4NC","3NB"],
+    "dest":["5CB", "6EF"],
     "options":[{
         "name":"Diviser par 2",
         "vars":{"a":"11_100","b":2}

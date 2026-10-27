@@ -8,7 +8,7 @@ import Figure from './mods/figure.js';
 const MM={};
 MM.version = utils.getVersion()
 const content = document.getElementById("creator-content");
-const pageOrientations = ["Paysage","Portrait"]
+const pageOrientations = ["Querformat","Hochformat"]
 let pageHeight = 275; // cm
 let pageFormat = 0;// portrait
 let questionBackgroundColor = "#ffffff"
@@ -74,13 +74,13 @@ function setSeparationv () {
 document.getElementById('btnModele').onclick = (evt) => {
     if(parameters.disposition === 'mod1') {
         parameters.disposition = 'mod2'
-        evt.target.innerHTML = 'Modèle 2 (R/V)'
+        evt.target.innerHTML = 'Layout 2 (beidseitig)'
         pageFormat = 0
         changeOrientation()
     } else {
         pageFormat = 1
         parameters.disposition = 'mod1'
-        evt.target.innerHTML = 'Modèle 1'
+        evt.target.innerHTML = 'Layout 1'
         refresh()
     }
 }
@@ -261,7 +261,7 @@ function makePage(){
         content.classList.remove('modele2')
 
         content.innerHTML = '<h1 class="titreFiche">'+parameters.titreFiche+'</h1>';
-        const arrayOfFlashCardsSection = [utils.create("section",{className:"flash-section grid"+(parameters.separationh?' separationh':'')+(parameters.separationv?' separationv':''), style:'grid-template-columns: '+parameters.separation+'% auto', innerHTML:'<div class="center">Questions</div><div class="center">Réponses</div>'})]
+        const arrayOfFlashCardsSection = [utils.create("section",{className:"flash-section grid"+(parameters.separationh?' separationh':'')+(parameters.separationv?' separationv':''), style:'grid-template-columns: '+parameters.separation+'% auto', innerHTML:'<div class="center">Fragen</div><div class="center">Antworten</div>'})]
         for (const [index,activity] of parameters.cart.activities.entries()) {
             for(let j=0;j<activity.questions.length;j++){
                 nbOfCards++
@@ -295,10 +295,10 @@ function makePage(){
                     MM.memory["fc"+index+"-"+j] = new Figure(utils.clone(activity.figuresCorrection[j]), "fc"+index+"-"+j, divr);
                 }
                 if(globalPrintHeight > pageHeight){
-                    arrayOfFlashCardsSection.push(utils.create("section",{className:"flash-section grid", style:'grid-template-columns: repeat('+nombreDeCartesParLigne+',1fr);'}))
+                    arrayOfFlashCardsSection.push(utils.create("section",{className:"flash-section grid"+(parameters.separationh?' separationh':'')+(parameters.separationv?' separationv':''), style:'grid-template-columns: '+parameters.separation+'% auto'}))
                     currentSection++;
                     if(parameters.disposition === 'separated'){
-                        arrayOfFlashCardsSection.push(utils.create("section",{className:"flash-section grid", style:'grid-template-columns: repeat('+nombreDeCartesParLigne+',1fr);'}))
+                        arrayOfFlashCardsSection.push(utils.create("section",{className:"flash-section grid"+(parameters.separationh?' separationh':'')+(parameters.separationv?' separationv':''), style:'grid-template-columns: '+parameters.separation+'% auto'}))
                     }
                     globalPrintHeight = parameters.cardHeight
                 }
@@ -320,14 +320,14 @@ function makePage(){
             visible = 'hidden'
         }
         content.appendChild(utils.create('div',{id:'progrev', className:visible,
-            innerHTML: `<i>Note la date puis refais régulièrement cette fiche</i>.
+            innerHTML: `<i>Trag das Datum ein und wiederhole dieses Merkblatt regelmäßig.</i>
             <hr>
             <div class="reviser">
-            <div><div>Jour J</div><div>.../...</div></div>
-            <div><div>J + 3 jours</div><div>.../...</div></div>
-            <div><div>J + 1 semaine</div><div>.../...</div></div>
-        <div><div>J + 2 semaines</div><div>.../...</div></div>
-            <div><div>J + 1 mois</div><div>.../...</div></div></div>`}))
+            <div><div>Heute</div><div>___.___.</div></div>
+            <div><div>+ 3 Tage</div><div>___.___.</div></div>
+            <div><div>+ 1 Woche</div><div>___.___.</div></div>
+        <div><div>+ 2 Wochen</div><div>___.___.</div></div>
+            <div><div>+ 1 Monat</div><div>___.___.</div></div></div>`}))
     } else {
         // création de la mise en page
         content.classList.remove('page','modele1')
@@ -346,21 +346,21 @@ function makePage(){
         const containerVerso = utils.create('div',{className:'verso'})
         verso.appendChild(containerVerso)
         const questionsLeftPart = utils.create('div',{className:'questions fin'})
-        const aColler = utils.create('div',{className:'aColler',innerHTML:'Encoller cette partie'})
-        const titleDiv = utils.create('div',{className:'col',id:'instructions', innerHTML:'<h2 contenteditable="true">Fiche Mémorisation</h2><h3 class="titreFiche">'+parameters.titreFiche+'</h3>'})
+        const aColler = utils.create('div',{className:'aColler',innerHTML:'Hier<br>kleben'})
+        const titleDiv = utils.create('div',{className:'col',id:'instructions', innerHTML:'<h2 contenteditable="true">Merkblatt</h2><h3 class="titreFiche">'+parameters.titreFiche+'</h3>'})
         let visible = ''
         if (!document.getElementById('inputprogrammerev').checked){
             visible = 'hidden'
         }
         titleDiv.appendChild(utils.create('div',{id:'progrev', className:visible,
-            innerHTML: `<i>Note la date puis refais régulièrement cette fiche</i>.
+            innerHTML: `<i>Trag das Datum ein und wiederhole dieses Merkblatt regelmäßig.</i>
             <hr>
             <div class="reviser">
-            <div><div>Jour J</div><div>.../...</div></div>
-            <div><div>J + 3 jours</div><div>.../...</div></div>
-            <div><div>J + 1 semaine</div><div>.../...</div></div>
-        <div><div>J + 2 semaines</div><div>.../...</div></div>
-            <div><div>J + 1 mois</div><div>.../...</div></div></div>`}))
+            <div><div>Heute</div><div>___.___.</div></div>
+            <div><div>+ 3 Tage</div><div>___.___.</div></div>
+            <div><div>+ 1 Woche</div><div>___.___.</div></div>
+        <div><div>+ 2 Wochen</div><div>___.___.</div></div>
+            <div><div>+ 1 Monat</div><div>___.___.</div></div></div>`}))
         const questionsRightPart = utils.create('div',{className:'questions debut'})
         containerVerso.appendChild(questionsLeftPart)
         containerVerso.appendChild(aColler)
@@ -488,9 +488,9 @@ function checkURL(urlString){
     if (window.opener === null) {
         const $destination = document.getElementById('creator-menu');
         const buttonEdit = utils.create('button', {
-             innerHTML: '🖋️ Éditer',
+             innerHTML: '🖋️ Bearbeiten',
              className: 'noprint fright',
-             title:'Refaire la sélection de questions' });
+             title:'Fragen neu auswählen' });
         buttonEdit.onclick = () => {
             let url = window.location.href.replace('fichememo.html', 'index.html') + '&edit&type=cartesflash';
             // add alea key
@@ -511,7 +511,7 @@ function checkURL(urlString){
         parameters.fontType = vars.fs??'serif'
         parameters.tailleTexte=10.5;
         parameters.disposition=vars.disp||'mod1';//'mod1' or 'mod2'
-        document.getElementById('btnModele').innerText = parameters.disposition==='mod1'?'Modèle 1':'Modèle 2 (R/V)'
+        document.getElementById('btnModele').innerText = parameters.disposition==='mod1'?'Layout 1':'Layout 2 (beidseitig)'
         zoom = new Zoom("changeFontSize","#creator-content",true,"pt",parameters.tailleTexte);
         document.getElementById("fontSize").appendChild(zoom.createCursor());
         parameters.titreFiche=decodeURI(vars.t);
@@ -537,7 +537,7 @@ function checkURL(urlString){
             {
                 id:"messageerreur",
                 className:"message",
-                innerHTML:"Impossible de charger le panier :(<br>"+err
+                innerHTML:"Der Korb konnte nicht geladen werden :(<br>"+err
             });
             document.getElementById("creator-container").appendChild(alert);
         });

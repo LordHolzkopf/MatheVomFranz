@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Fiche Mémorisation MathsMentales</title>
+        <title>Merkblatt – MatheVomFranz</title>
         <style>
             /*MMentales*/
             @page {
@@ -21,25 +21,25 @@
     </head>
     <body size="A4">
         <section id="creator-menu">
-            <button onclick="window.print()">Imprimer</button> pour imprimer ou
-            faire un pdf (pas de marge).
+            <button onclick="window.print()">Drucken</button> – auf Papier oder
+            als PDF (ohne Ränder).
             <button
                 id="btnPageOrientation"
-                title="Change l'orientation de la page"
+                title="Seitenausrichtung ändern"
             >
-                Portrait
+                Hochformat
             </button>
-            <button id="btnModele" title="Change le type d'impression">
-                Modèle 2
+            <button id="btnModele" title="Layout wechseln">
+                Layout 2
             </button>
             <br />
-            Police : <span id="fontSize"></span> Titre fiche
+            Schrift: <span id="fontSize"></span> Titel
             <input
                 type="text"
                 id="title"
                 size="15"
-                title="Entrée pour valider"
-                placeholder="Titre de la fiche"
+                title="Mit Enter bestätigen"
+                placeholder="Titel des Merkblatts"
             />
             <button id="btnValidateTitle">
                 <svg
@@ -54,31 +54,31 @@
                     ></path>
                 </svg>
             </button>
-            | Couleur de fond pour :
+            | Hintergrundfarbe für:
             <input
                 type="color"
                 id="inputColorQuestion"
-                title="Couleur de fond des question"
+                title="Hintergrundfarbe der Fragen"
             />
-            <label for="inputColorQuestion">Questions</label>
+            <label for="inputColorQuestion">Fragen</label>
             <input
                 type="color"
                 id="inputColorReponse"
-                title="Couleur de fond des réponses"
+                title="Hintergrundfarbe der Antworten"
             />
-            <label for="inputColorReponse">réponses</label>
+            <label for="inputColorReponse">Antworten</label>
             <input
                 type="color"
                 id="inputColorNumero"
-                title="Couleur de fond des numéros"
+                title="Hintergrundfarbe der Nummern"
             />
-            <label for="inputColorNumero">Numéros</label>
+            <label for="inputColorNumero">Nummern</label>
             <br />
-            Intérieur des zones textes :
+            Innenabstand der Felder:
             <input
                 id="inputPadding"
                 value="5"
-                title="Taille cartes"
+                title="Innenabstand"
                 type="number"
                 size="4"
                 min="1"
@@ -86,35 +86,35 @@
             />
             mm | <input type="checkbox" id="inputprogrammerev" /><label
                 for="inputprogrammerev"
-                >Programme de révision</label
+                >Wiederholungsplan</label
             >
-            <br />=== Modèle 1 ===<br />
+            <br />=== Layout 1 ===<br />
             <input type="checkbox" id="inputseparationh" checked />
-            <label for="inputseparationh">Séparation horizontale</label> |
-            Séparation verticale question / réponse :
+            <label for="inputseparationh">Waagerechte Trennlinien</label> |
+            Trennung Frage/Antwort bei:
             <input
                 id="inputSeparator"
                 value="50"
                 type="number"
-                title="Placement de la séparation"
+                title="Position der Trennlinie"
                 size="4"
                 min="20"
                 max="80"
             />% <input type="checkbox" id="inputseparationv" checked /><label
                 for="inputseparationv"
-                >Afficher</label
+                >Linie zeigen</label
             >
-            | Numérotation :
+            | Nummerierung:
             <input
                 type="radio"
                 id="radioNo"
                 name="num"
                 value="no"
                 checked
-            /><label for="radioNo">non</label>
+            /><label for="radioNo">nein</label>
             <input type="radio" id="radioQ" name="num" value="Q" /><label
                 for="radioQ"
-                >oui</label
+                >ja</label
             >
         </section>
         <div id="creator-container">

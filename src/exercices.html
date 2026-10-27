@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <style>
@@ -9,7 +9,7 @@
                 margin: 0.8cm;
             }
         </style>
-        <title>Fiche d'exercices MathsMentales</title>
+        <title>Übungsblatt – MatheVomFranz</title>
         <link rel="stylesheet" href="css/exercices.css?v=5" type="text/css" />
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
@@ -23,30 +23,30 @@
         <div class="noprint" style="text-align: center">
             <button
                 onclick="window.print()"
-                title="Imprimer ou enregistrer en pdf"
+                title="Drucken oder als PDF speichern"
                 style="width: 70pt; height: 18pt"
             >
-                🖨️ Imprimer
+                🖨️ Drucken
             </button>
             <button
                 id="pageOrientation"
-                title="Change l'orientation de la page"
+                title="Seitenausrichtung ändern"
             >
-                paysage
+                Querformat
             </button>
-            (mettre les marges à zéro)
+            (Ränder auf null stellen)
         </div>
         <div id="creator-container">
             <section id="creator-menu" class="noprint">
-                Police : <span id="fontSize"></span> <br /><b>Énoncés</b> :
+                Schrift: <span id="fontSize"></span> <br /><b>Blätter</b>:
                 <input type="number" min="1" id="nbFiches" size="3" />
                 <button
                     id="fichesSeparation"
-                    title="Fiches imprimées sur une même page ou pas"
+                    title="Blätter auf getrennten Seiten drucken oder nicht"
                 >
-                    Feuilles séparées
+                    Getrennte Seiten
                 </button>
-                Affichés en colonnes :
+                Spalten:
                 <input
                     type="radio"
                     name="columns"
@@ -58,7 +58,7 @@
                 <input type="radio" name="columns" value="2" id="columns2" />
                 <label for="columns2"> 2 </label>
                 <div id="corriges-params">
-                    <b>Corrigés</b> :
+                    <b>Lösungen</b>:
                     <input
                         type="radio"
                         name="corriges"
@@ -66,35 +66,35 @@
                         id="corriges-hidden"
                         checked
                     />
-                    <label for="corriges-hidden">cachés</label>
+                    <label for="corriges-hidden">ausgeblendet</label>
                     <input
                         type="radio"
                         name="corriges"
                         value="each"
                         id="corriges-dessous"
                     />
-                    <label for="corriges-dessous">sous chaque exercice</label>
+                    <label for="corriges-dessous">unter jeder Aufgabe</label>
                     <input
                         type="radio"
                         name="corriges"
                         value="acote"
                         id="corriges-acote"
                     />
-                    <label for="corriges-acote">à côté</label>
+                    <label for="corriges-acote">daneben</label>
                     <input
                         type="radio"
                         name="corriges"
                         value="end"
                         id="corriges-end"
                     />
-                    <label for="corriges-end">après les exercices</label>
+                    <label for="corriges-end">nach den Aufgaben</label>
                     <input
                         type="radio"
                         name="corriges"
                         value="separe"
                         id="corriges-separe"
                     />
-                    <label for="corriges-separe">sur feuille séparée</label>
+                    <label for="corriges-separe">auf eigenem Blatt</label>
                 </div>
             </section>
             <section id="tab-accueil" class="noprint"></section>

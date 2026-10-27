@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5DC4",
     "description":"Utilisation des différentes méthodes pour savoir si un tableau est de proportionnalité",
-    "dest":["5DC","4DC","3DC", "2N1"],
+    "dest":["7BB"],
     "consts":{"prime":[2,3,5,7,11]},
     "options":[{
         "name":"Par addition de colonnes sachant que deux colonnes correspondent à de la proportionnalité",

@@ -2,7 +2,7 @@
     "title":"Leçon : Nombres entiers et décimaux",
     "type":"text",
     "description":"15 questions sur la numération : nombres entiers, décimaux, chiffres, rangs, connaissances. Non adapté au mode interactif (online/duel).",
-    "dest":["6LN"],
+    "dest":["5AA", "6BA"],
     "options":[
         {
             "name":"Nombres entiers naturels",

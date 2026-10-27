@@ -5,7 +5,7 @@
     "ID":"6NA2",
     "speech":1,
     "textSize":"medium",
-    "dest":[ "6NA", "5NA"],
+    "dest":["5AA", "5AB"],
     "consts":{"u":["centaines", "dizaines", "unités"],
         "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"],
         "w":["centaines de millions", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"],

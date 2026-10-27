@@ -1,6 +1,6 @@
 {
     "ID":"3DD7",
-    "dest":["3DD","2F2","Ko4"],
+    "dest":["10BB", "8BE"],
     "title":"Résolution graphique d'équations",
     "description":"Utilisation de la méthode graphique pour résoudre des équations : lecture graphique, courbe, fonction, f(x)=k, f(x)=g(x). Pas de correction automatique en mode interactif (online/duel).",
     "type":"latex",

@@ -2,7 +2,7 @@
     "ID":"6MC3",
     "title":"Passage entre unités d'aire voisines",
     "description":"unités d'aire, m², dm², cm², conversion",
-    "dest":["6MC"],
+    "dest":["5DA"],
     "type":"text",
     "consts":{"units":["km","hm","dam","m","dm","cm","mm"]},
     "fontSize":"small",

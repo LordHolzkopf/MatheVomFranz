@@ -2,7 +2,7 @@
     "ID":"6GC14",
     "title":"Angles et bissectrices",
     "description":"bissectrice, angle, codage, moitié d'un angle, mesure",
-    "dest":["6GC"],
+    "dest":["6DD", "8FC"],
     "type":"text",
     "repeat":4,
     "consts":{

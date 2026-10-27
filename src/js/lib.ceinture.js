@@ -426,20 +426,20 @@ function displayFigures(idcol) {
   if (idcol === "all") {
     btn = document.getElementById("btndisplayfig");
     elts = document.querySelectorAll("div.flex");
-    idcol = "Toutes";
+    idcol = "Alle";
   } else {
     btn = document.getElementById("btndisplayfig" + idcol);
     elts = document.querySelectorAll(".col" + idcol);
   }
-  if (btn.innerHTML === idcol + " on") {
+  if (btn.innerHTML === idcol + " an") {
     elts.forEach((el) => {
       el.classList.add("nofig");
     });
-    btn.innerHTML = idcol + " off";
-    if (idcol === "Toutes") {
+    btn.innerHTML = idcol + " aus";
+    if (idcol === "Alle") {
       let cpt = 1;
       while (document.getElementById("btndisplayfig" + cpt) !== null) {
-        document.getElementById("btndisplayfig" + cpt).innerHTML = cpt + " off";
+        document.getElementById("btndisplayfig" + cpt).innerHTML = cpt + " aus";
         cpt++;
       }
     }
@@ -447,11 +447,11 @@ function displayFigures(idcol) {
     elts.forEach((el) => {
       el.classList.remove("nofig");
     });
-    btn.innerHTML = idcol + " on";
-    if (idcol === "Toutes") {
+    btn.innerHTML = idcol + " an";
+    if (idcol === "Alle") {
       let cpt = 1;
       while (document.getElementById("btndisplayfig" + cpt) !== null) {
-        document.getElementById("btndisplayfig" + cpt).innerHTML = cpt + " on";
+        document.getElementById("btndisplayfig" + cpt).innerHTML = cpt + " an";
         cpt++;
       }
     }
@@ -564,7 +564,7 @@ function makePage() {
   let correction;
   if (parameters.posCorrection === "fin") {
     correction = utils.create("div", { id: "correction" });
-    correction.appendChild(utils.create("div", { innerHTML: "Correction" }));
+    correction.appendChild(utils.create("div", { innerHTML: "Lösungen" }));
   }
   let divsPar = [];
   // recréation des boutons individuels de dimensions
@@ -576,7 +576,7 @@ function makePage() {
     for (let i = 0; i < parameters.nbcols; i++) {
       const colid = i + 1;
       const divcol = utils.create("div", {
-        innerHTML: `<img src="img/fleche-droite.png" height="16" class="is-flipped"><input id="asize${i + 1}" value="1" title="Taille colonne ${i + 1}" type="number" size="4" min="0.5" max="4" step="0.1"><img src="img/fleche-droite.png"" height="16">`,
+        innerHTML: `<img src="img/fleche-droite.png" height="16" class="is-flipped"><input id="asize${i + 1}" value="1" title="Breite Spalte ${i + 1}" type="number" size="4" min="0.5" max="4" step="0.1"><img src="img/fleche-droite.png"" height="16">`,
         className: "ceinture-titre-colonne border-black col" + colid,
         style: "grid-column:" + colid,
       });
@@ -585,15 +585,15 @@ function makePage() {
     for (let i = 0; i < parameters.nbcols; i++) {
       const colid = i + 1;
       const divcol = utils.create("div", {
-        innerHTML: `Texte <input class="fsizei" id="fsize${i + 1}" value="10" title="Taille énoncé colonne ${i + 1}" type="number" size="5" min="8" max="16" step="0.5"></input>pt<br>
-                Question : <button id="btnorder${i + 1}">Mélanger</button><br>
-                figure <button id="btndisplayfig${i + 1}">${i + 1} on</button><br>
-                <span class="ans answer bg-grey colorpicker">Réponse</span>
+        innerHTML: `Text <input class="fsizei" id="fsize${i + 1}" value="10" title="Schriftgröße der Aufgaben in Spalte ${i + 1}" type="number" size="5" min="8" max="16" step="0.5"></input>pt<br>
+                Fragen: <button id="btnorder${i + 1}">Mischen</button><br>
+                Abbildung <button id="btndisplayfig${i + 1}">${i + 1} an</button><br>
+                <span class="ans answer bg-grey colorpicker">Antwort</span>
                 <select id="selpos${i + 1}" class="selectpos">
-                    <option value="row">à côté</option>
-                    <option value="column">dessous</option>
+                    <option value="row">daneben</option>
+                    <option value="column">darunter</option>
                 </select><br>
-                larg : <input type="number" class="answidth" id="ansWidth${i + 1}" value="20" min="0" max="100" size="3" step="5">%`,
+                Breite: <input type="number" class="answidth" id="ansWidth${i + 1}" value="20" min="0" max="100" size="3" step="5">%`,
         className: "border-black col" + colid,
         style: "grid-column:" + colid,
       });
@@ -647,17 +647,17 @@ function makePage() {
     });
     const bloc2 = utils.create("div", {
       className: "border-black",
-      innerHTML: "NOM :<br>Classe :",
+      innerHTML: "Name:<br>Klasse:",
     });
     let cleseed = "";
-    if (parameters.ceintprintToEnonce) cleseed = "Clé : " + MM.seed + "<br> ";
+    if (parameters.ceintprintToEnonce) cleseed = "Startwert: " + MM.seed + "<br> ";
     const bloc3 = utils.create("div", {
       className: "border-black",
-      innerHTML: cleseed + "grille " + (qty + 1),
+      innerHTML: cleseed + "Nr. " + (qty + 1),
     });
     const blocevaluation = utils.create("div", {
       className: "border-black evaluation",
-      innerHTML: "□ Validée<br>□ non Validée",
+      innerHTML: "□ bestanden<br>□ nicht bestanden",
     });
     header.appendChild(bloc1);
     header.appendChild(bloc2);
@@ -665,12 +665,12 @@ function makePage() {
     header.appendChild(bloc3);
     ceinture.appendChild(header);
     // entête du corrigé
-    if (parameters.ceintprintToCorrige) cleseed = "Clé : " + MM.seed + " / ";
+    if (parameters.ceintprintToCorrige) cleseed = "Startwert: " + MM.seed + " / ";
     else cleseed = "";
     corrige.appendChild(
       utils.create("div", {
         innerHTML:
-          parameters.titreCeinture + "<br>" + cleseed + "grille : " + (qty + 1),
+          parameters.titreCeinture + "<br>" + cleseed + "Nr. " + (qty + 1),
         className: "border-black",
       }),
     );
@@ -909,7 +909,8 @@ function setPageBreaks() {
   const ceintures = document.querySelectorAll("#creator-content .ceinture");
   const spacers = document.querySelectorAll("#creator-content .spacer");
   const corriges = document.querySelectorAll("#creator-content .corrige");
-  const heightOfSpacer = spacers[0].getBoundingClientRect().height;
+  // un seul exemplaire : pas de .spacer
+  const heightOfSpacer = spacers.length ? spacers[0].getBoundingClientRect().height : 0;
   spacers.forEach((el) => el.classList.remove("pagebreak"));
   let heightOfElements = 0;
   const parQuatre = document.querySelector(".parquatre");
@@ -959,9 +960,9 @@ function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.body;
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Éditer",
+      innerHTML: "🖋️ Bearbeiten",
       className: "noprint abstopright",
-      title: "Éditer les activités de la ceinture",
+      title: "Aufgaben des Gürtels bearbeiten",
     });
     buttonEdit.onclick = () => {
       let url =
@@ -988,13 +989,13 @@ function checkURL(urlString) {
     parameters.fontType = vars.fs ?? "serif";
     parameters.nb = Number(vars.n);
     parameters.posCorrection = vars.cor;
-    parameters.titreCeinture = vars.t ? decodeURI(vars.t) : "Ceinture";
+    parameters.titreCeinture = vars.t ? decodeURI(vars.t) : "Gürtel";
     parameters.nbcols = Number(vars.nc);
     parameters.nbrows = Number(vars.nr);
     parameters.ceintprintToEnonce = vars.ke === "true" ? true : false;
     parameters.ceintprintToCorrige = vars.kc === "true" ? true : false;
     parameters.titres = [];
-    parameters.pied = decodeURI(vars.pie) || "";
+    parameters.pied = vars.pie ? decodeURI(vars.pie) : "";
     parameters.orientation = vars.or;
     for (let i = 0; i < 5; i++) {
       if (vars["t" + i] !== undefined && vars["t" + i] !== false) {
@@ -1020,7 +1021,7 @@ function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("creator-content").appendChild(alert);
       });

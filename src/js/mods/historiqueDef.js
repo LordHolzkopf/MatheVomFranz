@@ -16,22 +16,22 @@ export const VERSION = 2;
  * `bouton` est l'id du bouton « → Historique » correspondant dans index.html.
  */
 export const TYPES = {
-  diaporama: { libelle: "Diaporama", emoji: "📊", bouton: "btncopytohistoric" },
-  cansheet: { libelle: "Course aux nombres", emoji: "🏃‍♀️", bouton: "btn-can-copytohistoric" },
-  exosheet: { libelle: "Fiche d'exercices", emoji: "📖", bouton: "btn-ex-copytohistoric" },
-  exam: { libelle: "Interrogation", emoji: "📝", bouton: "btn-exam-copytohistoric" },
-  duel: { libelle: "Duel", emoji: "💫", bouton: "btn-duel-copytohistoric" },
-  ceinture: { libelle: "Ceinture", emoji: "🥋", bouton: "btn-ceinture-copytohistoric" },
-  cartesflash: { libelle: "Cartes flash", emoji: "⚡", bouton: "btn-flash-copytohistoric" },
-  fichememo: { libelle: "Fiche Memo", emoji: "🎦", bouton: "btn-memo-copytohistoric" },
+  diaporama: { libelle: "Diashow", emoji: "📊", bouton: "btncopytohistoric" },
+  cansheet: { libelle: "Zahlenrennen", emoji: "🏃‍♀️", bouton: "btn-can-copytohistoric" },
+  exosheet: { libelle: "Übungsblatt", emoji: "📖", bouton: "btn-ex-copytohistoric" },
+  exam: { libelle: "Testblatt", emoji: "📝", bouton: "btn-exam-copytohistoric" },
+  duel: { libelle: "Duell", emoji: "💫", bouton: "btn-duel-copytohistoric" },
+  ceinture: { libelle: "Kopfrechen-Gürtel", emoji: "🥋", bouton: "btn-ceinture-copytohistoric" },
+  cartesflash: { libelle: "Karteikarten", emoji: "⚡", bouton: "btn-flash-copytohistoric" },
+  fichememo: { libelle: "Merkblatt", emoji: "🎦", bouton: "btn-memo-copytohistoric" },
   puzzle: { libelle: "Puzzle", emoji: "🧩", bouton: "btn-puzzle-copytohistoric" },
-  whogots: { libelle: "J’ai/Qui a ?", emoji: "⁉️", bouton: "btn-wg-copytohistoric" },
+  whogots: { libelle: "Ich hab – wer hat?", emoji: "⁉️", bouton: "btn-wg-copytohistoric" },
   dominos: { libelle: "Dominos", emoji: "🀄", bouton: "btn-dominos-copytohistoric" },
-  assoc: { libelle: "Association", emoji: "⛓️‍💥", bouton: "btn-assoc-copytohistoric" },
-  wall: { libelle: "Panneau", emoji: "🧱", bouton: "btn-wall-copytohistoric" },
-  pixelart: { libelle: "Pixel Art", emoji: "🎨", bouton: "btn-pixelart-copytohistoric" },
-  docLOOO: { libelle: "Document LibreOffice", emoji: "📃", bouton: "btn-doc-copytohistoric" },
-  inconnu: { libelle: "Élément", emoji: "❔", bouton: "" },
+  assoc: { libelle: "Zuordnen", emoji: "⛓️‍💥", bouton: "btn-assoc-copytohistoric" },
+  wall: { libelle: "Aufgabenwand", emoji: "🧱", bouton: "btn-wall-copytohistoric" },
+  pixelart: { libelle: "Pixel-Art", emoji: "🎨", bouton: "btn-pixelart-copytohistoric" },
+  docLOOO: { libelle: "LibreOffice-Dokument", emoji: "📃", bouton: "btn-doc-copytohistoric" },
+  inconnu: { libelle: "Eintrag", emoji: "❔", bouton: "" },
 };
 
 /**
@@ -311,7 +311,11 @@ export function trie(entrees) {
   });
 }
 
-const MOIS_LIBELLE = MOIS_FR;
+// libellés affichés (MOIS_FR ci-dessus sert à relire les anciennes dates)
+const MOIS_LIBELLE = [
+  "Januar", "Februar", "März", "April", "Mai", "Juni",
+  "Juli", "August", "September", "Oktober", "November", "Dezember",
+];
 
 function cleDeGroupe(entree, maintenant) {
   if (entree.epingle) return "epingles";
@@ -324,9 +328,9 @@ function cleDeGroupe(entree, maintenant) {
 }
 
 function libelleDeGroupe(cle) {
-  if (cle === "epingles") return "📌 Épinglés";
-  if (cle === "aujourdhui") return "Aujourd’hui";
-  if (cle === "semaine") return "Cette semaine";
+  if (cle === "epingles") return "📌 Angeheftet";
+  if (cle === "aujourdhui") return "Heute";
+  if (cle === "semaine") return "Diese Woche";
   const [annee, mois] = cle.split("-");
   return MOIS_LIBELLE[Number(mois) - 1] + " " + annee;
 }
@@ -436,13 +440,13 @@ export function fusionne(entreesA, entreesB) {
 export function valideImport(objet) {
   const erreurs = [];
   if (objet === null || typeof objet !== "object" || Array.isArray(objet)) {
-    return { ok: false, entrees: [], erreurs: ["Le fichier ne contient pas un historique."] };
+    return { ok: false, entrees: [], erreurs: ["Die Datei enthält keinen Verlauf."] };
   }
   if (objet.version === undefined) {
     return {
       ok: false,
       entrees: [],
-      erreurs: ["Ce fichier ne précise aucune version : il n’est pas reconnu comme un historique."],
+      erreurs: ["Die Datei nennt keine Version und wird daher nicht als Verlauf erkannt."],
     };
   }
   if (Number(objet.version) > VERSION) {
@@ -450,14 +454,14 @@ export function valideImport(objet) {
       ok: false,
       entrees: [],
       erreurs: [
-        "Ce fichier a été écrit par une version plus récente de MathsMentales (version " +
+        "Diese Datei stammt aus einer neueren Version von MatheVomFranz (Version " +
           objet.version +
           ").",
       ],
     };
   }
   if (!Array.isArray(objet.entrees)) {
-    return { ok: false, entrees: [], erreurs: ["Le fichier ne contient aucune liste d’entrées."] };
+    return { ok: false, entrees: [], erreurs: ["Die Datei enthält keine Liste von Einträgen."] };
   }
   const entrees = [];
   objet.entrees.forEach((brute, rang) => {
@@ -468,18 +472,18 @@ export function valideImport(objet) {
     // et la suppression ne se propagerait alors jamais à un autre poste.
     if (source.supprime !== true) {
       if (typeof source.url !== "string" || source.url === "") {
-        erreurs.push("Entrée n°" + (rang + 1) + " ignorée : aucune adresse.");
+        erreurs.push("Eintrag Nr. " + (rang + 1) + " übersprungen: keine Adresse.");
         return;
       }
       if (urlSure(source.url) === "") {
-        erreurs.push("Entrée n°" + (rang + 1) + " ignorée : adresse non autorisée.");
+        erreurs.push("Eintrag Nr. " + (rang + 1) + " übersprungen: Adresse nicht erlaubt.");
         return;
       }
     }
     entrees.push(normalise(source));
   });
   if (entrees.length === 0) {
-    erreurs.push("Aucune entrée exploitable dans ce fichier.");
+    erreurs.push("Die Datei enthält keinen verwendbaren Eintrag.");
     return { ok: false, entrees: [], erreurs };
   }
   return { ok: true, entrees, erreurs };

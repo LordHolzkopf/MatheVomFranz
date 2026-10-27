@@ -3,11 +3,7 @@ description: Un patron de cube est un assemblage de 6 carr√©s qui, une fois pli√
 type: text
 ID: 5GA1
 repeat: 2
-dest:
-  - 5GA
-  - 6GB
-  - 4GA
-  - 3GA
+dest: [5EB]
 consts:
   figuresOpt1:
     - <svg width="9em" height="9em" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><rect x="13" y="23" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/><rect x="23" y="23" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/><rect x="3" y="23" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/><rect x="13" y="33" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/><rect x="13" y="13" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/><rect x="33" y="23" width="10" height="10" fill="none" stroke="rgb(0, 114, 178)" stroke-width="1.2"/></svg>

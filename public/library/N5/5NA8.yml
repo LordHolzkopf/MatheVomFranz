@@ -1,9 +1,6 @@
 title: Lire l’abscisse sur une droite graduée
 description: Point sur axe gradué, abscisse relative
-dest:
-  - 5NA
-  - 4NA
-  - 3NA
+dest: [7AA, 6GD, 6BA]
 type: text
 consts:
   nomspts: "ABCDEFGHJKLMNPQRSTVW"

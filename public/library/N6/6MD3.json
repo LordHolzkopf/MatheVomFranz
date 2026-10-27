@@ -1,6 +1,6 @@
 {
     "ID":"6MD3",
-    "dest":["6MD"],
+    "dest":["5EC", "5ED"],
     "type":"text",
     "title":"Volume en cm³ par comptage de cubes",
     "description":"Dénombrer les cubes pour trouver le volume",

@@ -2,7 +2,7 @@
     "ID":"8NB2",
     "title": "Fraction (supérieure à 1) d’un disque unité",
     "description": "fraction, partage, disque, parts, fraction supérieure à 1",
-    "dest": [ "6NB"],
+    "dest":["5FA", "6AA"],
     "type":"text",
     "keys":["_","/","_","_","_","_","_","_"],
     "options":[

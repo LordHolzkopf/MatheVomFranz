@@ -2,7 +2,7 @@ title: "Compléter des égalités du type 1 200 = 1,2 × …"
 speech: 1
 keys: ["_","_","_","_","_","_","_","_"]
 description: "Retrouver le multiplicateur (10, 100 ou 1000) manquant dans une égalité"
-dest: ["6NE", "5NC", "4NC", "3NB"]
+dest: [6ED]
 options:
   - name: "1 chiffre significatif, multiplicateur 10"
     vars:

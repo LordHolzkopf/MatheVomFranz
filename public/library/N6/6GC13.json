@@ -2,7 +2,7 @@
     "ID":"6GC13",
     "title":"Reconnaitre une bissectrice",
     "description":"bissectrice, angle, codage, moitié d'un angle",
-    "dest":["6GC"],
+    "dest":["8FC", "6DD"],
     "type":"text",
     "repeat":4,
     "consts":{

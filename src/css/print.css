@@ -315,7 +315,7 @@ input[type="color"]{
         padding: 10mm;
     }
     #creator-container::before{
-        content:"\ CC-BY-NC © 2022 MathsMentales.net";
+        content:"\ Erstellt mit MatheVomFranz · nach MathsMentales von Sébastien Cogez";
         color:darkblue !important;
         font-size: 0.8rem;
         border-bottom: 1pt solid black;

@@ -3,7 +3,7 @@
     "title":"Dessiner un schéma de triangle à main levée connaissant un angle et 2 longueurs",
     "description":"Schéma à main levée, construire, dessiner un triangle connaissant un angle et deux longueurs : isocèle, rectangle, hypoténuse. Non adapté au mode interactif (online/duel).",
     "type":"text",
-    "dest":["6GC","5GB"],
+    "dest":["7EC"],
     "consts":{
         "lettres":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         "schemas":{

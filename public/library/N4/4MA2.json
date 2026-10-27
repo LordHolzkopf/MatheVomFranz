@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"4MA2",
     "description":"Trouver une donnée à partir des deux autres.",
-    "dest":["4MA","3MA"],
+    "dest":["WDB", "7BB"],
     "consts":{
         "unitetemps":["h","min","s"],
         "prefixes":["k","h","da","","d","c","m"],

@@ -1,11 +1,6 @@
 {
     "ID": "5GB3",
-    "dest": [
-        "5GB",
-        "4GB",
-        "3GB",
-        "2G2"
-    ],
+    "dest":["7EC", "7EB"],
     "title": "Existence d'un triangle.",
     "description": "Déterminer l'existence ou non d'un triangle en fonction des côtés ou des angles",
     "repeat": true,

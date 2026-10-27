@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Éditeur d’activité MathsMentales</title>
+    <title>YAML-Aufgaben-Editor – MatheVomFranz</title>
     <link rel="stylesheet" href="css/editoryaml.css">
     <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
     <link rel="stylesheet" href="css/mm-katex.css" />
@@ -12,38 +12,38 @@
 <body>
 <div style="display:flex; width:100%;height: calc( 100vh - 50px);">
     <div id="input" style="width:50%; height: 100%;">
-        <h2>Éditeur d’activité MathsMentales en yaml</h2>
-        <button id="testBtn" title="Affiche l'activité">Visualiser</button>
-        <button id="saveBtn" title="Charge le fichier json sur l'ordinateur">Télécharger</button>
-        <button title="Charge une activité au hasard" id="randomBtn">Au hasard</button>
-        <input type="text" placeholder="ID d'activité" id="actIDImport" size="8" title="Importe une activité existante par son ID">
-        <input type="file" id="openFileInput" title="Importe un fichier json dans l'éditeur"><br>
-        <textarea id="inputTextArea">title: blabla
-type: text ou latex
+        <h2>Aufgaben-Editor für MatheVomFranz (YAML)</h2>
+        <button id="testBtn" title="Zeigt die Aufgabe an">Anzeigen</button>
+        <button id="saveBtn" title="Speichert die Datei auf dem Computer">Herunterladen</button>
+        <button title="Lädt eine zufällige Aufgabe" id="randomBtn">Zufällig</button>
+        <input type="text" placeholder="Aufgaben-ID" id="actIDImport" size="8" title="Importiert eine vorhandene Aufgabe über ihre ID">
+        <input type="file" id="openFileInput" title="Importiert eine JSON- oder YAML-Datei in den Editor"><br>
+        <textarea id="inputTextArea">title: Titel der Aufgabe
+type: text oder latex
 dest: [chap1, chap2, ...]
-speech: 1 # les questions seront lues telles quelles, sauf si vous définissez ce qu’il faut lire par audio
+speech: 1 # die Fragen werden so vorgelesen, wie sie dastehen – außer Sie legen mit audio fest, was gelesen werden soll
 
-consts: # constantes utilisées globalement.
-# Attention, si elles contiennent des variables, ces variables doivent être définies dans toutes les options
-  nom1: valeurs
-  nom2: valeurs
-vars: # variables globales, disponibles dans toutes les options
-  v1: valeur
-  v2: valeur
+consts: # global verwendete Konstanten.
+# Achtung: Enthalten sie Variablen, müssen diese Variablen in allen Varianten (options) definiert sein
+  name1: Werte
+  name2: Werte
+vars: # globale Variablen, in allen Varianten verfügbar
+  v1: Wert
+  v2: Wert
 options:
-  - name: un texte qui décrit l’option
+  - name: ein Text, der die Variante beschreibt
     vars:
-      v3: valeur # ne pas utiliser des noms utilisés dans les constantes ou les variables globales
-      v4: valeur
-    question: un texte ou une formule, objet de la question
-    answer: :question reprend la question
-    shortq: question version courte
-    audio: le texte à voix haute qui reprend la question
-    value: la valeur courte attendue pour les ceintures, ou la version online. # si elle n’existe pas, c’est answer qui est pris je crois
+      v3: Wert # keine Namen verwenden, die schon bei den Konstanten oder globalen Variablen vorkommen
+      v4: Wert
+    question: ein Text oder eine Formel – das, was gefragt wird
+    answer: :question übernimmt die Frage
+    shortq: Kurzfassung der Frage
+    audio: der Text zum Vorlesen, der die Frage wiedergibt
+    value: der erwartete kurze Wert für die Gürtel oder die Online-Version. # fehlt er, wird vermutlich answer verwendet
 </textarea>
     </div>
     <div style="width:50%">
-        <h2>Visualisation</h2>
+        <h2>Vorschau</h2>
             <section id="result">
                 <div id="display">
                 <div id="param-title-act"></div>

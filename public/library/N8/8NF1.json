@@ -1,8 +1,6 @@
 {
     "ID": "8NF1",
-    "dest": [
-        "6NF"
-    ],
+    "dest":["5CG", "5AD"],
     "keys":"numerique",
     "title": "Résoudre des problèmes multiplicatifs",
     "description": "problèmes, énoncés, multiplication, division, partage, modélisation",

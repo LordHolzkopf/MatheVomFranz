@@ -1,7 +1,7 @@
 {
     "title":"Reconnaitre un quadrilatère particulier à partir des codages",
     "ID":"8GC2",
-    "dest":["6GC"],
+    "dest":["5BD"],
     "description":"Faire référence aux définitions des quadrilatères particuliers : parallélogramme, losange, rectangle, carré",
     "keys":["rect","carr","losg","paral","qdqcq","_","_","_"],
     "type":"text",

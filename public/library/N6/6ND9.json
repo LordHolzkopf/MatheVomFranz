@@ -2,7 +2,7 @@
     "title":"Factoriser pour calculer",
     "description":"factoriser, distributivité, calcul réfléchi, facteur commun",
     "ID":"6ND9",
-    "dest":["6ND", "5NC"],
+    "dest":["5CB", "5CA"],
     "options":[{
         "name":"ajouter pour faire 10",
         "vars":{"a":"1_9", "b":"${10-:a}", "c":"11_40"},

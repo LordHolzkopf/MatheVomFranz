@@ -3,7 +3,7 @@
     "title": "Utiliser des variables",
     "description":"scratch variables dire texte ou variable",
     "type":"text",
-    "dest":["5AA","4AA","3AA"],
+    "dest":["WGB"],
     "options":[
         {
             "name":"Utiliser une variable ou sa valeur",

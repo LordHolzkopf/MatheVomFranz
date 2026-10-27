@@ -5,7 +5,7 @@
     "ID":"6GC3",
     "keys":["alphabetique","math"],
     "valueType":"liste",
-    "dest":["6GC", "5GB", "4GB", "3GB"],
+    "dest":["5BA"],
     "consts":{
         "points":"ABCDEFGHIJKLMNOPRST",
         "directions":"tuvwxyz"

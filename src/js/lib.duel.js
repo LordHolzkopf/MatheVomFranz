@@ -9,7 +9,7 @@ import { MathfieldElement } from "./libs/mathlive/mathlive.mjs.js";
 import MM from "./mods/MM.js";
 import analyseReponse from "./mods/analysereponse.js";
 
-MathfieldElement.fontsDirectory = "../css/katex/fonts";
+MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
 MathfieldElement.soundsDirectory = null;
 
 MM.touched = false;
@@ -40,33 +40,33 @@ const parameters = {};
 let zoom;
 let typesDuel = {
   tochoose: "",
-  thefaster: "Lucky Luke",
-  mortal: "mortel",
-  normal: "Que le meilleur gagne !",
-  roulette: "Alternatif",
-  coop: "Coopératif",
+  thefaster: "Wer schneller ist",
+  mortal: "Wer übrig bleibt",
+  normal: "Möge der Bessere gewinnen!",
+  roulette: "Roulette",
+  coop: "Gemeinsam",
 };
 document.getElementById("intro").onclick = (evt) => {
   let explain = document.getElementById("explanations");
   if (evt.target.id === "btn-choice-normal") {
     setChoice("normal");
     explain.innerHTML =
-      "Chacun répond à son rythme, le score final décide du vainqueur";
+      "Jeder antwortet in seinem Tempo – am Ende entscheidet die Punktzahl.";
   } else if (evt.target.id === "btn-choice-mortal") {
     setChoice("mortal");
     explain.innerHTML =
-      "Le premier qui fait une erreur perd. Attention au temps !";
+      "Wer zuerst einen Fehler macht, verliert. Achtung, die Zeit läuft!";
   } else if (evt.target.id === "btn-choice-roulette") {
     setChoice("roulette");
-    explain.innerHTML = "Chacun répond à son tour, premier qui rate perd.";
+    explain.innerHTML = "Ihr antwortet abwechselnd – wer zuerst danebenliegt, verliert.";
   } else if (evt.target.id === "btn-choice-thefaster") {
     setChoice("thefaster");
     explain.innerHTML =
-      "Le premier qui répond marque des points, pas l'autre !";
+      "Nur wer zuerst richtig antwortet, bekommt Punkte – der andere nicht!";
   } else if (evt.target.id === "btn-choice-coop") {
     setChoice("coop");
     explain.innerHTML =
-      "Les points s'accumulent par la meilleure des deux réponses.";
+      "Von euren beiden Antworten zählt jeweils die bessere – die Punkte werden addiert.";
   } else if (evt.target.id === "introPersol") {
     setPerso("l");
   } else if (evt.target.id === "introPersor") {
@@ -192,7 +192,7 @@ class player {
   constructor(id) {
     this.id = id;
     this.name = id === "l" ? "left" : "right";
-    this.nom = id === "l" ? "JOUEUR 1" : "JOUEUR 2";
+    this.nom = id === "l" ? "SPIELER 1" : "SPIELER 2";
     this.perso = "";
     this.score = 0;
     this.scores = [];
@@ -282,7 +282,7 @@ class player {
       document.querySelector("#jauge" + this.id).classList.add("hidden");
       document.getElementById("enonces" + this.id).appendChild(
         utils.create("button", {
-          innerHTML: "Terminé !",
+          innerHTML: "Fertig!",
           className: "selected",
         }),
       );
@@ -479,7 +479,7 @@ function WhoWon() {
         egaliteTxt,
         score = 0,
         thelooz,
-        finmessage = " points est";
+        finmessage = "Punkten:";
       if (
         parameters.typeduel === "normal" ||
         parameters.typeduel === "thefaster"
@@ -491,10 +491,10 @@ function WhoWon() {
           thewinner = PLAYER2;
           thelooz = PLAYER1;
         } else {
-          egaliteTxt = "Égalité !!! Avec";
+          egaliteTxt = "Unentschieden! Beide haben";
           score = PLAYER1.score;
           thewinner = "both";
-          finmessage = "points";
+          finmessage = "Punkte!";
         }
       } else if (
         parameters.typeduel === "mortal" ||
@@ -512,18 +512,18 @@ function WhoWon() {
           thewinner = PLAYER2;
           thelooz = PLAYER1;
         } else {
-          egaliteTxt = "Égalité !!! Avec";
+          egaliteTxt = "Unentschieden! Beide haben";
           score = PLAYER1.success.lastIndexOf(true) + 1;
           thewinner = "both";
-          finmessage = " réussites !";
+          finmessage = "richtige Antworten!";
         }
       } else if (parameters.typeduel === "coop") {
-        egaliteTxt = "Vous avez cumulé ";
+        egaliteTxt = "Ihr habt zusammen";
         for (let i = 0, len = PLAYER1.scores.length; i < len; i++) {
           score += Math.max(PLAYER1.scores[i], PLAYER2.scores[i]);
         }
         thewinner = "both";
-        finmessage = "points";
+        finmessage = "Punkte!";
       }
       let thewinnerDOM = document.getElementById("thewinnercontent");
       thewinnerDOM.innerHTML = "";
@@ -532,7 +532,7 @@ function WhoWon() {
         thewinnerDOM.appendChild(
           utils.create("h1", {
             innerHTML:
-              "Le gagnant, avec <span class='scorewinner'>" +
+              "Es gewinnt mit <span class='scorewinner'>" +
               thewinner.score +
               "</span> " +
               finmessage,
@@ -955,9 +955,9 @@ function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.getElementById("infodebug");
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Revenir à l’édition des activités de ce duel",
+      innerHTML: "🖋️ Zurück zur Bearbeitung der Aufgaben dieses Duells",
       className: "noprint",
-      title: "Éditer les activités du duel",
+      title: "Aufgaben des Duells bearbeiten",
     });
     buttonEdit.onclick = () => {
       let url =
@@ -1013,7 +1013,7 @@ function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("creator-menu").appendChild(alert);
       });

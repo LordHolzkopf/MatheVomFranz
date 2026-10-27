@@ -4,7 +4,7 @@
     "type":"text",
     "keys":["o","n","_","_","_","_","_","_"],
     "ID":"5ND2",
-    "dest":["6ND","5ND", "4ND", "3NC"],
+    "dest":["5CD"],
     "consts":{"d":[2,3,5,9,10]},
     "vars":{"a":"0_1","b":"2_5", "c":"${MMmath.round(10**:b)}_${MMmath.round(10**(:b+1))}"},
     "options":[{

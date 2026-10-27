@@ -3,7 +3,7 @@
     "title": "Cercle circonscrit au triangle",
     "description": "Cercle circonscrit à un triangle : cercle passant par les sommets, diamètre, rayon, égalités de longueurs.",
     "type":"text",
-    "dest":["6GD","5GB"],
+    "dest":["8FB", "6DC"],
     "consts":{"lettres":"ABCDEFGHJKLMNPQRSTUVW"},
     "options":[
         {

@@ -1,7 +1,7 @@
 {
     "title":"Leçon : Distances : cercle, disque, médiatrice",
     "description":"Leçon : cercle, disque, médiatrice, rayon, diamètre, centre, distance, définitions, propriétés, inégalités. Non adapté au mode interactif (online/duel).",
-    "dest":["6LG"],
+    "dest":["6DC", "8FB"],
     "type":"text",
     "consts":{
         "lettres":"ABCDEFGHIJKLMNOPQRSTUV"

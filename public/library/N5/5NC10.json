@@ -4,7 +4,7 @@
     "type":"text",
     "ID":"5NC10",
     "consigne":"Calculer.",
-    "dest":["5NC", "4NC", "3NB"],
+    "dest":["7CA", "5FD", "6AD"],
     "options":[{
         "name":"10%",
         "vars":{"p":10,"qte":"2_50"}

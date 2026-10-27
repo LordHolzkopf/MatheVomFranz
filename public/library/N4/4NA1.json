@@ -4,7 +4,7 @@
     "type":"text",
     "ID":"4NA1",
     "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["i","b","m"]}},
-    "dest":["4NA","3NA", "2N1"],
+    "dest":["9DB"],
     "keys":["_","-","×","10n"],
     "textSize":"small",
     "options":[{

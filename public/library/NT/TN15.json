@@ -3,9 +3,7 @@
   "title": "Limite de suites géométriques",
   "description": "limite, suite géométrique, convergence, divergence, qⁿ",
   "type": "text",
-  "dest": [
-    "TN1"
-  ],
+  "dest":["WEB"],
   "options": [
     {
       "name": "q>1",

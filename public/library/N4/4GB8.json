@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"4GB8",
     "description":"Utiliser l'égalité de Pythagore ou la propriété des angles pour savoir si un triangle est rectangle",
-    "dest":["4GB","3GB","2G2"],
+    "dest":["9EA", "7EB"],
     "vars":{
         "l":"0_19_3_^&",
         "A":"${:lettres[:l[0]]}",

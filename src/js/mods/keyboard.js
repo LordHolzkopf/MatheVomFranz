@@ -76,95 +76,95 @@ const KB_SCALE_STEP = 0.1;
     constructor(target, keys, displayContener, sliderId, keyboardId, nbOfSliders = 1) {
         this.nbOfSliders = nbOfSliders;
         this.keyConf = {
-            "÷": ["key colored", "÷", this.insertCmd("\\div"), "diviser"],
-            "×": ["key colored", "×", this.insertCmd("\\times"), "multiplier"],
-            "*": ["key colored", "×", this.insertCmd("\\times"), "multiplier"],
-            "-": ["key colored", "−", this.insertCmd("-"), "moins"],
-            "mns": ["key colored", "−", this.insertCmd("\\text{ moins}"), "moins"],
-            "(": ["key colored", "( )", this.insertCmd("(#0)"), "parenthèses"],
-            "{": ["key colored", "{ }", this.insertCmd("{#0;#0}"), "accolades"],
-            "[": ["key colored", "[ ]", this.insertCmd("[#0]"), "crochets"],
-            "x²": ["key times colored", "x²", this.insertCmd("^2"), "x au carré"],
-            "x³": ["key times colored", "x³", this.insertCmd("^3"), "x au cube"],
-            "√": ["key colored", keysSVG.srqt, this.insertCmd("\\sqrt{#0}"), "racine carrée"],
-          "/": ["key colored", keysSVG.fractionKey, this.insertCmd("\\dfrac{#0}{#0}"), "fraction"],
-            "vide":["key colored", "∅", this.insertCmd("\\emptyset"), "Ensemble vide"],
+            "÷": ["key colored", "÷", this.insertCmd("\\div"), "geteilt durch"],
+            "×": ["key colored", "×", this.insertCmd("\\times"), "mal"],
+            "*": ["key colored", "×", this.insertCmd("\\times"), "mal"],
+            "-": ["key colored", "−", this.insertCmd("-"), "minus"],
+            "mns": ["key colored", "−", this.insertCmd("\\text{ moins}"), "minus"],
+            "(": ["key colored", "( )", this.insertCmd("(#0)"), "Klammern"],
+            "{": ["key colored", "{ }", this.insertCmd("{#0;#0}"), "geschweifte Klammern"],
+            "[": ["key colored", "[ ]", this.insertCmd("[#0]"), "eckige Klammern"],
+            "x²": ["key times colored", "x²", this.insertCmd("^2"), "x Quadrat"],
+            "x³": ["key times colored", "x³", this.insertCmd("^3"), "x hoch 3"],
+            "√": ["key colored", keysSVG.srqt, this.insertCmd("\\sqrt{#0}"), "Quadratwurzel"],
+          "/": ["key colored", keysSVG.fractionKey, this.insertCmd("\\dfrac{#0}{#0}"), "Bruch"],
+            "vide":["key colored", "∅", this.insertCmd("\\emptyset"), "leere Menge"],
           "pi": ["key colored", "π", this.insertCmd("\\pi"), "pi"],
             "ln":["key colored", "ln", this.insertCmd("\\ln"), "ln"],
-            "lgn": ["key colored", "log", this.insertCmd("\\log_{#0}(#0)"), "logarithme"],
-            "lg": ["key colored", "log", this.insertCmd("\\log(#0))"), "logarithme décimal"],
-            "GD": ["key colored", "GD", this.insertCmd("\\text{grand}"), "grand"],
-            "pt": ["key colored", "pt", this.insertCmd("\\text{petit}"), "petit"],
-            "^": ["key colored", "xⁿ", this.insertCmd("^{#0}", {format:"latex"}), "puissance"],
-            "10n": ["key colored", "10ⁿ", this.insertCmd("10^{#0}", {format:"latex"}), "puissance de dix"],
-            "aigu": ["key colored", "aig", this.insertCmd("aigu"), "aigu"],
-            "obtus": ["key colored", "obt", this.insertCmd("obtus"), "obtus"],
-          "droit": ["key colored", "drt", this.insertCmd("droit"), "droit"],
-          "ang": ["key colored", "Â", this.insertCmd("\\widehat{#0}"), "angle"],
-          "corr": ["key colored", "corr", this.insertCmd("\\text{correspondants}"), "correspondants"],
-          "supp": ["key colored", "supp", this.insertCmd("\\text{supplémentaires}"), "supplémentaires"],
-          "ad&sup": ["key colored", "adj&sup", this.insertCmd("\\text{adjacents et supplémentaires}"), "adjacents et supplémentaires"],
-          "opps": ["key colored", "opp", this.insertCmd("\\text{opposés par le sommet}"), "opposés par le sommet"],
-          "altint": ["key colored", "alt/int", this.insertCmd("\\text{alternes-internes}"), "alternes-internes"],
-          "ssln": ["key colored", "ss lien", this.insertCmd("\\text{sans lien}"), "sans lien"],
-          "qcq": ["key colored", "qcq", this.insertCmd("\\text{quelconque}"), "quelconque"],
-          "iso": ["key colored", "iso", this.insertCmd("\\text{isocèle}"), "isocèle"],
-          "equi": ["key colored", "équi", this.insertCmd("\\text{équilatéral}"), "équilatéral"],
-          "rect": ["key colored", "rect", this.insertCmd("\\text{rectangle}"), "rectangle"],
-          "rec&iso": ["key colored", "r&iso", this.insertCmd("\\text{rectangle et isocèle}"), "rectangle et isocèle"],
-          "qdqcq": ["key colored", "qlc", this.insertCmd("\\text{quadrilatère quelconque}"), "quadrilatère quelconque"],
-          "paral": ["key colored", "paral", this.insertCmd("\\text{parallélogramme}"), "rectangle et isocèle"],
-          "losg": ["key colored", "losg", this.insertCmd("\\text{losange}"), "losange"],
-          "carr": ["key colored", "carré", this.insertCmd("\\text{carré}"), "carré"],
-            "vec": ["key colored", "→", this.insertCmd("\\vec{#0}"), "vecteur"],
-            "o": ["key colored", "Oui", this.insertCmd("\\text{oui}"), "oui"],
-            "n": ["key colored", "Non", this.insertCmd("\\text{non}"), "non"],
-            "V": ["key colored", "V", this.insertCmd("\\text{VRAI}"), "VRAI"],
-            "F": ["key colored", "F", this.insertCmd("\\text{FAUX}"), "FAUX"],
-            "A": ["key colored", "A", this.insertCmd("\\text{affine non linéaire}"), "affine non linéaire"],
-            "L": ["key colored", "L", this.insertCmd("\\text{linéaire}"), "linéaire"],
-            "lt": ["key colored", "L", this.insertCmd("\\text{ L}"), "litre"],
-            "ml": ["key colored", "mL", this.insertCmd("\\text{ mL}"), "millilitre"],
-            "cl": ["key colored", "cL", this.insertCmd("\\text{ cL}"), "centilitre"],
-            "dl": ["key colored", "dL", this.insertCmd("\\text{ dL}"), "décilitre"],
-            "dal": ["key colored", "daL", this.insertCmd("\\text{ daL}"), "décalitre"],
-            "hl": ["key colored", "hL", this.insertCmd("\\text{ hL}"), "hectolitre"],
-            "kl": ["key colored", "kL", this.insertCmd("\\text{ kL}"), "kilolitre"],
-            "mt": ["key colored", "m", this.insertCmd("\\text{ m}"), "mètre"],
-            "mm": ["key colored", "mm", this.insertCmd("\\text{ mm}"), "millimètre"],
-            "cm": ["key colored", "cm", this.insertCmd("\\text{ cm}"), "centimètre"],
-            "dm": ["key colored", "dm", this.insertCmd("\\text{ dm}"), "décimètre"],
-            "km": ["key colored", "km", this.insertCmd("\\text{ km}"), "kilomètre"],
-            "hm": ["key colored", "hm", this.insertCmd("\\text{ hm}"), "hectomètre"],
-            "dam": ["key colored", "dam", this.insertCmd("\\text{ dam}"), "décamètre"],
-            "gr": ["key colored", "g", this.insertCmd("\\text{ g}"), "gramme"],
-            "mg": ["key colored", "mg", this.insertCmd("\\text{ mg}"), "milligramme"],
-            "cg": ["key colored", "cg", this.insertCmd("\\text{ cg}"), "centigramme"],
-            "dg": ["key colored", "dg", this.insertCmd("\\text{ dg}"), "décigramme"],
-            "kg": ["key colored", "kg", this.insertCmd("\\text{ kg}"), "kilogramme"],
-            "hg": ["key colored", "hg", this.insertCmd("\\text{ hg}"), "hectogramme"],
-            "dag": ["key colored", "dag", this.insertCmd("\\text{ dag}"), "décagramme"],
-            "qt": ["key colored", "q", this.insertCmd("\\text{ q}"), "quintal"],
-            "tn": ["key colored", "t", this.insertCmd("\\text{ t}"), "tonne"],
-            "%": ["key colored", "%", this.insertCmd("\\%"), "pour cent"],
-            "Ø": ["key colored", "Ø", this.insertCmd("\\empty"), "ensemble vide"],
-            "hr": ["key colored", "h", this.insertCmd("\\text{ h}"), "heures"],
-            "mn": ["key colored", "min", this.insertCmd("\\text{ min}"), "minutes"],
-            "sc": ["key colored", "s", this.insertCmd("\\text{ s}"), "secondes"],
-            "jr": ["key colored", "j", this.insertCmd("\\text{ j}"), "jours"],
-            "sm": ["key colored", "sem", this.insertCmd("\\text{ sem}"), "semaines"],
-            "an": ["key colored", "a", this.insertCmd("\\text{ a}"), "années"],
-            "scl": ["key colored", "scl", this.insertCmd("\\text{ siècles}"), "sicèles"],
-            "1/2h": ["key colored", "½", this.insertCmd("\\text{demi-heure}"), "un demi"],
-            "3/4h": ["key colored", "¾", this.insertCmd("\\text{trois quarts d’heure}"), "trois quarts"],
-            "1/4h": ["key colored", "¼", this.insertCmd("\\text{quart d’heure}"), "un quart"],
-          "le1/4": ["key colored", "¼", this.insertCmd("\\text{ le quart}"), "le quart"],
-          "moit": ["key colored", "moit", this.insertCmd("\\text{la moitié}"), "la moitié"],
-          "dbl": ["key colored", "dble", this.insertCmd("\\text{le double}"), "le double"],
-          "tiers": ["key colored", "tiers", this.insertCmd("\\text{le tiers}"), "le tiers"],
-          "trpl": ["key colored", "tripl", this.insertCmd("\\text{le triple}"), "le triple"],
-          "qrt": ["key colored", "quart", this.insertCmd("\\text{le quart}"), "le quart"],
-            "qdpl":["key colored", "quad", this.insertCmd("\\text{le quadruple}"), "le quadruple"],
+            "lgn": ["key colored", "log", this.insertCmd("\\log_{#0}(#0)"), "Logarithmus"],
+            "lg": ["key colored", "log", this.insertCmd("\\log(#0))"), "Zehnerlogarithmus"],
+            "GD": ["key colored", "GD", this.insertCmd("\\text{grand}"), "groß (grand)"],
+            "pt": ["key colored", "pt", this.insertCmd("\\text{petit}"), "klein (petit)"],
+            "^": ["key colored", "xⁿ", this.insertCmd("^{#0}", {format:"latex"}), "Potenz"],
+            "10n": ["key colored", "10ⁿ", this.insertCmd("10^{#0}", {format:"latex"}), "Zehnerpotenz"],
+            "aigu": ["key colored", "aig", this.insertCmd("aigu"), "spitz (aigu)"],
+            "obtus": ["key colored", "obt", this.insertCmd("obtus"), "stumpf (obtus)"],
+          "droit": ["key colored", "drt", this.insertCmd("droit"), "recht (droit)"],
+          "ang": ["key colored", "Â", this.insertCmd("\\widehat{#0}"), "Winkel"],
+          "corr": ["key colored", "corr", this.insertCmd("\\text{correspondants}"), "Stufenwinkel (correspondants)"],
+          "supp": ["key colored", "supp", this.insertCmd("\\text{supplémentaires}"), "supplementär (supplémentaires)"],
+          "ad&sup": ["key colored", "adj&sup", this.insertCmd("\\text{adjacents et supplémentaires}"), "Nebenwinkel (adjacents et supplémentaires)"],
+          "opps": ["key colored", "opp", this.insertCmd("\\text{opposés par le sommet}"), "Scheitelwinkel (opposés par le sommet)"],
+          "altint": ["key colored", "alt/int", this.insertCmd("\\text{alternes-internes}"), "Wechselwinkel (alternes-internes)"],
+          "ssln": ["key colored", "ss lien", this.insertCmd("\\text{sans lien}"), "ohne Beziehung (sans lien)"],
+          "qcq": ["key colored", "qcq", this.insertCmd("\\text{quelconque}"), "allgemein (quelconque)"],
+          "iso": ["key colored", "iso", this.insertCmd("\\text{isocèle}"), "gleichschenklig (isocèle)"],
+          "equi": ["key colored", "équi", this.insertCmd("\\text{équilatéral}"), "gleichseitig (équilatéral)"],
+          "rect": ["key colored", "rect", this.insertCmd("\\text{rectangle}"), "rechtwinklig (rectangle)"],
+          "rec&iso": ["key colored", "r&iso", this.insertCmd("\\text{rectangle et isocèle}"), "rechtwinklig und gleichschenklig (rectangle et isocèle)"],
+          "qdqcq": ["key colored", "qlc", this.insertCmd("\\text{quadrilatère quelconque}"), "allgemeines Viereck (quadrilatère quelconque)"],
+          "paral": ["key colored", "paral", this.insertCmd("\\text{parallélogramme}"), "Parallelogramm (parallélogramme)"],
+          "losg": ["key colored", "losg", this.insertCmd("\\text{losange}"), "Raute (losange)"],
+          "carr": ["key colored", "carré", this.insertCmd("\\text{carré}"), "Quadrat (carré)"],
+            "vec": ["key colored", "→", this.insertCmd("\\vec{#0}"), "Vektor"],
+            "o": ["key colored", "Oui", this.insertCmd("\\text{oui}"), "ja (oui)"],
+            "n": ["key colored", "Non", this.insertCmd("\\text{non}"), "nein (non)"],
+            "V": ["key colored", "V", this.insertCmd("\\text{VRAI}"), "wahr (VRAI)"],
+            "F": ["key colored", "F", this.insertCmd("\\text{FAUX}"), "falsch (FAUX)"],
+            "A": ["key colored", "A", this.insertCmd("\\text{affine non linéaire}"), "affin, nicht linear (affine non linéaire)"],
+            "L": ["key colored", "L", this.insertCmd("\\text{linéaire}"), "linear (linéaire)"],
+            "lt": ["key colored", "L", this.insertCmd("\\text{ L}"), "Liter"],
+            "ml": ["key colored", "mL", this.insertCmd("\\text{ mL}"), "Milliliter"],
+            "cl": ["key colored", "cL", this.insertCmd("\\text{ cL}"), "Zentiliter"],
+            "dl": ["key colored", "dL", this.insertCmd("\\text{ dL}"), "Deziliter"],
+            "dal": ["key colored", "daL", this.insertCmd("\\text{ daL}"), "Dekaliter"],
+            "hl": ["key colored", "hL", this.insertCmd("\\text{ hL}"), "Hektoliter"],
+            "kl": ["key colored", "kL", this.insertCmd("\\text{ kL}"), "Kiloliter"],
+            "mt": ["key colored", "m", this.insertCmd("\\text{ m}"), "Meter"],
+            "mm": ["key colored", "mm", this.insertCmd("\\text{ mm}"), "Millimeter"],
+            "cm": ["key colored", "cm", this.insertCmd("\\text{ cm}"), "Zentimeter"],
+            "dm": ["key colored", "dm", this.insertCmd("\\text{ dm}"), "Dezimeter"],
+            "km": ["key colored", "km", this.insertCmd("\\text{ km}"), "Kilometer"],
+            "hm": ["key colored", "hm", this.insertCmd("\\text{ hm}"), "Hektometer"],
+            "dam": ["key colored", "dam", this.insertCmd("\\text{ dam}"), "Dekameter"],
+            "gr": ["key colored", "g", this.insertCmd("\\text{ g}"), "Gramm"],
+            "mg": ["key colored", "mg", this.insertCmd("\\text{ mg}"), "Milligramm"],
+            "cg": ["key colored", "cg", this.insertCmd("\\text{ cg}"), "Zentigramm"],
+            "dg": ["key colored", "dg", this.insertCmd("\\text{ dg}"), "Dezigramm"],
+            "kg": ["key colored", "kg", this.insertCmd("\\text{ kg}"), "Kilogramm"],
+            "hg": ["key colored", "hg", this.insertCmd("\\text{ hg}"), "Hektogramm"],
+            "dag": ["key colored", "dag", this.insertCmd("\\text{ dag}"), "Dekagramm"],
+            "qt": ["key colored", "q", this.insertCmd("\\text{ q}"), "Doppelzentner"],
+            "tn": ["key colored", "t", this.insertCmd("\\text{ t}"), "Tonne"],
+            "%": ["key colored", "%", this.insertCmd("\\%"), "Prozent"],
+            "Ø": ["key colored", "Ø", this.insertCmd("\\empty"), "leere Menge"],
+            "hr": ["key colored", "h", this.insertCmd("\\text{ h}"), "Stunden"],
+            "mn": ["key colored", "min", this.insertCmd("\\text{ min}"), "Minuten"],
+            "sc": ["key colored", "s", this.insertCmd("\\text{ s}"), "Sekunden"],
+            "jr": ["key colored", "j", this.insertCmd("\\text{ j}"), "Tage (jours)"],
+            "sm": ["key colored", "sem", this.insertCmd("\\text{ sem}"), "Wochen (semaines)"],
+            "an": ["key colored", "a", this.insertCmd("\\text{ a}"), "Jahre (années)"],
+            "scl": ["key colored", "scl", this.insertCmd("\\text{ siècles}"), "Jahrhunderte (siècles)"],
+            "1/2h": ["key colored", "½", this.insertCmd("\\text{demi-heure}"), "halbe Stunde (demi-heure)"],
+            "3/4h": ["key colored", "¾", this.insertCmd("\\text{trois quarts d’heure}"), "Dreiviertelstunde (trois quarts d’heure)"],
+            "1/4h": ["key colored", "¼", this.insertCmd("\\text{quart d’heure}"), "Viertelstunde (quart d’heure)"],
+          "le1/4": ["key colored", "¼", this.insertCmd("\\text{ le quart}"), "ein Viertel (le quart)"],
+          "moit": ["key colored", "moit", this.insertCmd("\\text{la moitié}"), "die Hälfte (la moitié)"],
+          "dbl": ["key colored", "dble", this.insertCmd("\\text{le double}"), "das Doppelte (le double)"],
+          "tiers": ["key colored", "tiers", this.insertCmd("\\text{le tiers}"), "ein Drittel (le tiers)"],
+          "trpl": ["key colored", "tripl", this.insertCmd("\\text{le triple}"), "das Dreifache (le triple)"],
+          "qrt": ["key colored", "quart", this.insertCmd("\\text{le quart}"), "ein Viertel (le quart)"],
+            "qdpl":["key colored", "quad", this.insertCmd("\\text{le quadruple}"), "das Vierfache (le quadruple)"],
         };
         // touches à insertion littérale directe (pas de mise en forme LaTeX)
         for(const ch of ["a","b","c","e","i","t",":",";","u","v","w","x","y","z","€","<",">","=","+","°","'"]){
@@ -191,7 +191,7 @@ const KB_SCALE_STEP = 0.1;
             this.watchSize();
             keyBoard.watchEscape();
         } catch(err){
-            console.log("Création de clavier "+keyboardId+"\n"+ err);
+            console.log("Fehler beim Erzeugen der Tastatur "+keyboardId+"\n"+ err);
         }
     }
     /**
@@ -202,16 +202,16 @@ const KB_SCALE_STEP = 0.1;
     wrap(keyboardId){
         this.frame = utils.create("div",{className:"kb"});
         this.frame.setAttribute("role","group");
-        this.frame.setAttribute("aria-label","Clavier mathématique");
+        this.frame.setAttribute("aria-label","Mathe-Tastatur");
         this.bar = utils.create("div",{className:"kb-bar"});
-        this.smaller = this.barButton("kb-resize","−","Réduire le clavier",()=>keyBoard.scaleBy(-1));
+        this.smaller = this.barButton("kb-resize","−","Tastatur verkleinern",()=>keyBoard.scaleBy(-1));
         this.handle = utils.create("button",{
             type:"button",
             className:"kb-handle",
             innerHTML:keysSVG.chevronKey,
-            title:"Masquer le clavier"
+            title:"Tastatur ausblenden"
         });
-        this.handle.setAttribute("aria-label","Masquer le clavier");
+        this.handle.setAttribute("aria-label","Tastatur ausblenden");
         this.handle.setAttribute("aria-expanded","true");
         if(keyboardId !== undefined)
             this.handle.setAttribute("aria-controls",keyboardId);
@@ -219,7 +219,7 @@ const KB_SCALE_STEP = 0.1;
         this.handle.addEventListener("click",(event)=>{
             if(event.detail === 0) keyBoard.toggleAll(this);
         });
-        this.bigger = this.barButton("kb-resize","+","Agrandir le clavier",()=>keyBoard.scaleBy(1));
+        this.bigger = this.barButton("kb-resize","+","Tastatur vergrößern",()=>keyBoard.scaleBy(1));
         this.bar.appendChild(this.smaller);
         this.bar.appendChild(this.handle);
         this.bar.appendChild(this.bigger);
@@ -333,7 +333,7 @@ const KB_SCALE_STEP = 0.1;
         const collapsed = visual === "collapsed";
         this.frame.dataset.state = collapsed ? "collapsed" : "open";
         this.handle.setAttribute("aria-expanded",collapsed ? "false" : "true");
-        const label = collapsed ? "Afficher le clavier" : "Masquer le clavier";
+        const label = collapsed ? "Tastatur einblenden" : "Tastatur ausblenden";
         this.handle.title = label;
         this.handle.setAttribute("aria-label",label);
         this.updateHeight();
@@ -554,7 +554,7 @@ const KB_SCALE_STEP = 0.1;
             try {
                 this.bindKey(elm,afunction);
             } catch (err){
-                console.log("Erreur de création de touche\n"+err)
+                console.log("Fehler beim Erzeugen einer Taste\n"+err)
             }
         }
         this.content.appendChild(elm);
@@ -584,30 +584,30 @@ const KB_SCALE_STEP = 0.1;
     }
     /** touche « effacer » */
     addBackspaceKey(className="key colored"){
-        this.addKey(className,keysSVG.backspaceKey,()=>{this.targetField.executeCommand("deleteBackward");this.focus();},"effacer");
+        this.addKey(className,keysSVG.backspaceKey,()=>{this.targetField.executeCommand("deleteBackward");this.focus();},"Löschen");
     }
     /** touche « valider » : complète le champ puis simule un Entrée */
     addEnterKey(className="key colored"){
         this.addKey(className,keysSVG.enterKey,()=>{
             this.targetField.executeCommand("complete");
             this.targetField.dispatchEvent(new KeyboardEvent("keyup",{"key":"Enter"}));
-        },"valider");
+        },"Prüfen");
     }
     /** touche « annuler » */
     addUndoKey(className="key action"){
-        this.addKey(className,keysSVG.undoKey,()=>{this.targetField.executeCommand("undo");this.focus();},"annuler");
+        this.addKey(className,keysSVG.undoKey,()=>{this.targetField.executeCommand("undo");this.focus();},"Rückgängig");
     }
     /** touche « refaire » */
     addRedoKey(className="key action"){
-        this.addKey(className,keysSVG.redoKey,()=>{this.targetField.executeCommand("redo");this.focus();},"refaire");
+        this.addKey(className,keysSVG.redoKey,()=>{this.targetField.executeCommand("redo");this.focus();},"Wiederholen");
     }
     /** touche « reculer d'un caractère » */
     addLeftArrowKey(className="key action"){
-        this.addKey(className,keysSVG.leftArrowKey,()=>{this.targetField.executeCommand("moveToPreviousChar");this.focus();},"reculer d'un caractère");
+        this.addKey(className,keysSVG.leftArrowKey,()=>{this.targetField.executeCommand("moveToPreviousChar");this.focus();},"ein Zeichen nach links");
     }
     /** touche « avancer d'un caractère » */
     addRightArrowKey(className="key action"){
-        this.addKey(className,keysSVG.rightArrowKey,()=>{this.targetField.executeCommand("moveToNextChar");this.focus();},"avancer d'un caractère");
+        this.addKey(className,keysSVG.rightArrowKey,()=>{this.targetField.executeCommand("moveToNextChar");this.focus();},"ein Zeichen nach rechts");
     }
     create(config=[]){
         if(config === "alphabetique" || config[0] === "alphabetique"){
@@ -629,9 +629,9 @@ const KB_SCALE_STEP = 0.1;
           } else {
             this.insertRow(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],"key colored");
           }
-            this.insertRow(["A","Z","E","R","T","Y","U","I","O","P"]);
-            this.insertRow(["Q","S","D","F","G","H","J","K","L","M"]);
-            this.insertRow(["W","X","C","V","B","N",",",";"]);
+            this.insertRow(["Q","W","E","R","T","Z","U","I","O","P"]);
+            this.insertRow(["A","S","D","F","G","H","J","K","L",";"]);
+            this.insertRow(["Y","X","C","V","B","N","M",","]);
             this.addBackspaceKey("key colored");
             this.addEnterKey("key colored");
 
@@ -643,7 +643,7 @@ const KB_SCALE_STEP = 0.1;
           this.addEnterKey("key enter");
           this.insertRow(["1","2","3"]);
           this.addKey("key zero","0",this.insertCmd("0"));
-          this.addKey("key",",",this.insertCmd("."),"virgule");
+          this.addKey("key",",",this.insertCmd("."),"Komma");
         } else {
             this.content = utils.create("div",{className:"numkey-base"});
             /** Première ligne */
@@ -681,7 +681,7 @@ const KB_SCALE_STEP = 0.1;
             else this.addRedoKey();
             /** Quatrième ligne */
             this.addKey("key zero","0",this.insertCmd("0"));
-            this.addKey("key",",",this.insertCmd("."),"virgule");
+            this.addKey("key",",",this.insertCmd("."),"Komma");
             // touche plus
             this.addKey(config[3] !== undefined ? config[3] : "+");
             // trou

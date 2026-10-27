@@ -3,7 +3,7 @@
     "title":"Primitive d’un polynome",
     "description":"primitive, intégration, polynôme, monôme",
     "type":"text",
-    "dest":["TN7"],
+    "dest":["QBC"],
     "options":[{
         "name":"Monôme de degré 0",
         "vars":{

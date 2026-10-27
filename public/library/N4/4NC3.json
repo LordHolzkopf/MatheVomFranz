@@ -5,7 +5,7 @@
     "ID":"4NC3",
     "textSize":"medium",
     "keys":["_","_","-","/","_","_","_","_"],
-    "dest":["4NC", "3NB", "2N2"],
+    "dest":["6EB", "7AC"],
     "consigne":"Donner la fraction irréductible ou l'entier égal.",
     "valueType":"fractionIrreductible",
     "options":[{

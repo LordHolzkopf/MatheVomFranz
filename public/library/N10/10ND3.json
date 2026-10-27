@@ -5,7 +5,7 @@
     "title":"Tables de division des nombres de 2 à 9",
     "description":"division, quotient, tables, partage",
     "speech":1,
-    "dest":[ "6ND"],
+    "dest":["5AC"],
     "params":{
         "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"b":1}},
         "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"b":2}},

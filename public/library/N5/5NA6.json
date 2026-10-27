@@ -4,7 +4,7 @@
     "speech":1,
     "keys":["_","_","/","+"],
     "description":"Écrire une fraction en utilisant une décomposition.",
-    "dest":["5NA","4NA","3NA"],
+    "dest":["5FA", "6AA"],
     "question":"\\dfrac{${:num}}{${:den}}~=~ ... - \\dfrac{...}{...}",
     "audio":"Décomposer ${:num} ${MMmath.NumberToFraction(:den)} en un entier moins une fraction plus petite que 1.",
     "options":[{

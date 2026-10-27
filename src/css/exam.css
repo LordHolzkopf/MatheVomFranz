@@ -389,7 +389,7 @@ custom-svg.corrige svg .correction,
     }
 
     #creator-menu #fontSize::after {
-        content: "\ CC-BY-NC © 2026 MathsMentales.net";
+        content: "\ Erstellt mit MatheVomFranz · nach MathsMentales von Sébastien Cogez";
         color: darkblue !important;
         font-size: 0.8rem;
         border-bottom: 1pt solid black;

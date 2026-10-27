@@ -1,9 +1,6 @@
 title: Placer un point d’abscisse donnée sur une droite graduée
 description: "Placer un point sur axe gradué, droite graduée, abscisse relative, repérer. Non adapté au mode interactif (online/duel)."
-dest:
-  - 5NA
-  - 4NA
-  - 3NA
+dest: [7AA, 6GD, 6BA]
 type: text
 consts:
   nomspts: "ABCDEFGHJKLMNPQRSTVW"

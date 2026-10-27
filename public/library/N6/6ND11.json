@@ -1,7 +1,7 @@
 {
     "title":"Calculs successifs (6e)",
     "description":"Suivre les priorités des opérations.",
-    "dest":["6ND", "5NC"],
+    "dest":["5CA"],
     "options":[{
         "name":"+ suivi de -",
         "vars":{"a":"1_30", "b":"10_20", "c":"2_${:a+:b-2}"},

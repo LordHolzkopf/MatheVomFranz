@@ -2,7 +2,7 @@
     "title":"Multiplication de relatifs",
     "description":"relatifs, produit, multiplication, règle des signes, négatifs",
     "ID":"5NC5",
-    "dest":["5NC","4NC","3NB"],
+    "dest":["7AC", "7AD"],
     "consigne":"Calculer.",
     "params":{
         "pm1":{"groupe":"Ne pas tirer","label":"-1 et 1","defaut":false,"exclut":{"n":"1,-1"}}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
     <head>
         <meta charset="utf-8" />
         <style>
@@ -16,13 +16,13 @@
             type="module"
             id="mmscriptid"
         ></script>
-        <title>Puzzle Mathsmentales</title>
+        <title>Puzzle – MatheVomFranz</title>
     </head>
     <body size="A4">
         <button
             onclick="window.print()"
             class="noprint"
-            title="Imprimer ou enregistrer en pdf"
+            title="Drucken oder als PDF speichern"
             style="
                 position: absolute;
                 left: 1pt;
@@ -31,41 +31,41 @@
                 height: 18pt;
             "
         >
-            🖨️ Imprimer
+            🖨️ Drucken
         </button>
         <section class="noprint">
             <section class="is-flex" id="puzzleChoice">
                 <article>Puzzle >></article>
                 <article class="btn selected" id="btn-pyr16">
-                    <span class="noselect">Pyramide 16 pièces</span>
+                    <span class="noselect">Pyramide, 16 Teile</span>
                     <div class="circle"></div>
                 </article>
                 <article class="btn" id="btn-los18">
-                    <span class="noselect">Losange 18 pièces</span>
+                    <span class="noselect">Raute, 18 Teile</span>
                     <div class="circle"></div>
                 </article>
                 <article class="btn" id="btn-hexa24">
-                    <span class="noselect">Hexagone 24 pièces</span>
+                    <span class="noselect">Sechseck, 24 Teile</span>
                     <div class="circle"></div>
                 </article>
                 <article class="btn" id="btn-pier12">
-                    <span class="noselect">Pierre 12 pièces</span>
+                    <span class="noselect">Stein, 12 Teile</span>
                     <div class="circle"></div>
                 </article>
             </section>
-            Distracteurs :
+            Ablenker:
             <input
                 type="radio"
                 id="radio-nodistract"
                 name="radio-distract"
                 checked
-            /><label for="radio-nodistract"> sans</label>
+            /><label for="radio-nodistract"> ohne</label>
             <input
                 type="radio"
                 id="radio-distract"
                 name="radio-distract"
-            /><label for="radio-distract"> avec</label> |
-            <label for="formulaSize">Taille des formules </label
+            /><label for="radio-distract"> mit</label> |
+            <label for="formulaSize">Formelgröße </label
             ><input
                 type="number"
                 size="6"
@@ -79,9 +79,9 @@
             <div id="info"></div>
         </section>
         <section id="creator-content">
-            <h2>Solution</h2>
+            <h2>Lösung</h2>
             <div id="puzzle"></div>
-            <h2>Pièces</h2>
+            <h2>Teile</h2>
             <div id="impression"></div>
         </section>
     </body>

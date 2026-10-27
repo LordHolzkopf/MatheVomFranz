@@ -1,6 +1,6 @@
 {
     "ID":"3AA1",
-    "dest":["4AA","3AA"],
+    "dest":["8BA", "WGB"],
     "title":"Déterminer une image ou un antécédent par un algorithme",
     "description":"Scratch, Calculer l'image ou antécédent d'un nombre par une fonction linéaire ou affine.",
     "type":"text",

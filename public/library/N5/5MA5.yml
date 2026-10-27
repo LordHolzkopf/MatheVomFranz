@@ -15,10 +15,7 @@ keys:
   - hm
   - km
   - x²
-dest:
-  - 5MA
-  - 4MA
-  - 3MA
+dest: [8DA, 8DC]
 consts:
   unites: [mm, cm, dm, m, dam, hm, km]
   uv:

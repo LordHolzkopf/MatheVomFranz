@@ -3,7 +3,7 @@ import utils from "./utils.js";
 import seedrandom from "../libs/seedrandom/seedrandom.esm.js";
 
 export { common as default };
-const pageOrientations = ["portrait", "paysage"];
+const pageOrientations = ["Hochformat", "Querformat"];
 const pageWidthes = ["794", "1123"];
 let pageFormat = 0;
 const btnOrientation = document.getElementById("pageOrientation");
@@ -211,7 +211,7 @@ const common = {
                 {
                     id:"messageerreur",
                     className:"message",
-                    innerHTML:"Impossible de charger les paniers :(<br>"+err
+                    innerHTML:"Die Körbe konnten nicht geladen werden.<br>"+err
                 });
                 document.getElementById("creator-content").appendChild(alert);
                 // on ferme le message d'alerte après 3 secondes

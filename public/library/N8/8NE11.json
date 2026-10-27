@@ -1,5 +1,5 @@
 {
-    "dest":["6NE"],
+    "dest":["5CB", "5AC", "6EE"],
     "title":"CM Procédures -> Multiplier par 5 ou 50",
     "description":"entier ou décimal contenant au plus 3 chiffres significatifs",
     "auteur":"Xavier Levet",

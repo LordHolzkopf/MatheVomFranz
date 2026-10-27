@@ -1,6 +1,6 @@
 {
     "ID": "6DA6",
-    "dest": ["6DA"],
+    "dest":["7FB", "8AB"],
     "type": "text",
     "title":"Déterminer une probabilité",
     "description":"probabilité, hasard, dé, cartes, roue, urne, chance",

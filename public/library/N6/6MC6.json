@@ -1,5 +1,5 @@
 {
-    "dest":["6MC"],
+    "dest":["5AE"],
     "type":"text",
     "title":"Lire les trois aiguilles d'une horloge",
     "description":"heures, minutes secondes à partir de la position des aiguilles d'une horloge.",

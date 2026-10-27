@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"GA15",
     "description":"Trouver la dérivée de fonctions composées avec un polynome de degré 2, en utilisant $$g(ax²+bx+c)'=(2ax+b)g'(ax²+bx+c)$$",
-    "dest":["GA1"],
+    "dest":["QDC", "QCB"],
     "textSize":"medium",
     "keys":["x²","/","+","-","x","y","z","t"],
     "consts":{"lettres":["x","y","z","t"]},

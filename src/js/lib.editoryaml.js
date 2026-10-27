@@ -2,8 +2,8 @@ import CodeMirror from './libs/codemirror/codemirror.js'
 import yaml from './libs/codemirror/addon/yaml.min.js'
 import js from './libs/codemirror/addon/javascript.min.js'
 import ylt from './libs/codemirror/addon/yaml-lint.min.js'
-import activity from './mods/activity.js'
-import MM from './mods/MM.js'
+// MatheVomFranz : la classe dérivée de MM.js porte la méthode display()
+import MM, { Activity as activity } from './mods/MM.js'
 import utils from './mods/utils.js'
 import library from './mods/library.js'
 import jsYaml from './libs/js-yaml.mjs.js'
@@ -24,28 +24,28 @@ for (const niv of Object.values(MM.content)){
     }
 }
 
-let initialData = `title: blabla
-type: text ou latex
+let initialData = `title: Titel der Aufgabe
+type: text oder latex
 dest: [chap1, chap2, ...]
-speech: 1 # les questions seront lues telles quelles, sauf si vous définissez ce qu’il faut lire par audio
+speech: 1 # die Fragen werden so vorgelesen, wie sie dastehen – außer Sie legen mit audio fest, was gelesen werden soll
 
-consts: # constantes utilisées globalement.
-# Attention, si elles contiennent des variables, ces variables doivent être définies dans toutes les options
-  nom1: valeurs
-  nom2: valeurs
-vars: # variables globales, disponibles dans toutes les options
-  v1: valeur
-  v2: valeur
+consts: # global verwendete Konstanten.
+# Achtung: Enthalten sie Variablen, müssen diese Variablen in allen Varianten (options) definiert sein
+  name1: Werte
+  name2: Werte
+vars: # globale Variablen, in allen Varianten verfügbar
+  v1: Wert
+  v2: Wert
 options:
-  - name: un texte qui décrit l’option
+  - name: ein Text, der die Variante beschreibt
     vars:
-      v3: valeur # ne pas utiliser des noms utilisés dans les constantes ou les variables globales
-      v4: valeur
-    question: un texte ou une formule, objet de la question
-    answer: :question reprend la question
-    shortq: question version courte
-    audio: le texte à voix haute qui reprend la question
-    value: la valeur courte attendue pour les ceintures, ou la version online. # si elle n’existe pas, c’est answer qui est pris je crois
+      v3: Wert # keine Namen verwenden, die schon bei den Konstanten oder globalen Variablen vorkommen
+      v4: Wert
+    question: ein Text oder eine Formel – das, was gefragt wird
+    answer: :question übernimmt die Frage
+    shortq: Kurzfassung der Frage
+    audio: der Text zum Vorlesen, der die Frage wiedergibt
+    value: der erwartete kurze Wert für die Gürtel oder die Online-Version. # fehlt er, wird vermutlich answer verwendet
 `
 function saveYaml() {
     const yamlString = source.getValue()
@@ -119,7 +119,7 @@ document.getElementById('actIDImport').oninput = async (evt) => {
             act.display('sample',MM)
         }
         catch (err) {
-            document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+            document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
         }
     }
 }
@@ -133,7 +133,7 @@ document.getElementById('randomBtn').onclick = async()=>{
         MM.editedActivity = act
         act.display('sample',MM)
     } catch (err){
-            document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+            document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
     }
 }
 document.getElementById('openFileInput').onchange = (event) => {
@@ -157,7 +157,7 @@ document.getElementById('openFileInput').onchange = (event) => {
                 MM.editedActivity = act
                 act.display('sample',MM)
             }catch(err){
-                document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+                document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
             }
         } catch (error) {
             utils.debug("Error parsing Yaml: ", error);

@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"5NE1",
     "textSize":"medium",
-    "dest":["5NE","4NE","3ND","2N3"],
+    "dest":["7DB"],
     "keys":["+","-","x²","a","b","c","x","y"],
     "consigne":"Réduire, si possible",
     "valueType":"expressionSimplifiee",

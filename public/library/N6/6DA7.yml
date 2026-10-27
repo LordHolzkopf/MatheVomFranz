@@ -1,8 +1,6 @@
 title: Lire un diagramme circulaire ou en barres
 description: "diagramme en barres, diagramme circulaire, camembert, lire un graphique, statistiques"
-dest:
-  - 6DA
-  - 5DA
+dest: [6FB, 5AG]
 type: text
 consigne: On a fait un sondage auprès d'un groupe de personnes.
 consts:

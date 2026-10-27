@@ -2,7 +2,7 @@
     "title":"Distribuer pour calculer",
     "description":"Décomposer un nombre pour calculer un produit",
     "ID":"6ND22",
-    "dest":["6ND", "5NC"],
+    "dest":["5CB", "5CA"],
     "options":[{
         "name":"Produit d'un nombre inférieur à 10 par des dizaines",
         "vars":{"a":"3_9", "d":"1_9", "c":"1_9", "b":"${:d*10+:c}"},

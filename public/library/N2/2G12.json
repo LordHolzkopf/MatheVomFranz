@@ -3,7 +3,7 @@
     "description":"Calculer les coordonnées d'un vecteur resultant de la somme et de la différence de deux vecteurs.",
     "type":"latex",
     "ID":"2G12",
-    "dest":["2G1"],
+    "dest":["EEC"],
     "textSize":"medium",
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},

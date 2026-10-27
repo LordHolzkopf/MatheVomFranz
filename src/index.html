@@ -1,94 +1,94 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description"
-        content="Mathsmentales est une webapplication qui facilite la mise en place de rituels de calcul mental avec un corrigé final. Les questions aléatoires portent sur de nombreux thèmes." />
-    <meta name="keywords" content="Mathématiques, automatisme, calcul mental, images mentales, entiers, décimaux, relatifs,
-                fractions, fonctions, géométrie, calcul littéral, variable, aléatoire" />
+        content="MatheVomFranz ist eine Web-App für Kopfrechnen und das Automatisieren mathematischer Grundfertigkeiten, mit Lösungen am Ende. Die Fragen mit Zufallswerten decken viele Themen ab." />
+    <meta name="keywords" content="Mathematik, Kopfrechnen, Automatisieren, Grundfertigkeiten, ganze Zahlen, Dezimalzahlen,
+                negative Zahlen, Brüche, Funktionen, Geometrie, Terme, Variable, Zufallswerte" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MathsMentales : Automatismes et calcul mental en mathématiques</title>
+    <title>MatheVomFranz – Kopfrechnen und Automatisieren in Mathematik</title>
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="MathsMentales" />
-    <meta property="og:url" content="https://www.mathsmentales.net/" />
-    <meta property="og:title" content="MathsMentales : Automatismes et calcul mental en mathématiques" />
+    <meta property="og:site_name" content="MatheVomFranz" />
+    <meta property="og:title" content="MatheVomFranz – Kopfrechnen und Automatisieren in Mathematik" />
     <meta property="og:description"
-        content="Mathsmentales est une webapplication qui facilite la mise en place de rituels de calcul mental avec un corrigé final. Les questions aléatoires portent sur de nombreux thèmes." />
-    <meta property="og:image" content="https://www.mathsmentales.net/img/og-image.webp" />
+        content="MatheVomFranz ist eine Web-App für Kopfrechnen und das Automatisieren mathematischer Grundfertigkeiten, mit Lösungen am Ende. Die Fragen mit Zufallswerten decken viele Themen ab." />
+    <meta property="og:image" content="img/mvf-og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="MathsMentales : Automatismes et calcul mental" />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image:alt" content="MatheVomFranz – Kopfrechnen und Automatisieren" />
+    <meta property="og:locale" content="de_DE" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MathsMentales : Automatismes et calcul mental en mathématiques" />
+    <meta name="twitter:title" content="MatheVomFranz – Kopfrechnen und Automatisieren in Mathematik" />
     <meta name="twitter:description"
-        content="Mathsmentales est une webapplication qui facilite la mise en place de rituels de calcul mental avec un corrigé final. Les questions aléatoires portent sur de nombreux thèmes." />
-    <meta name="twitter:image" content="https://www.mathsmentales.net/img/og-image.webp" />
+        content="MatheVomFranz ist eine Web-App für Kopfrechnen und das Automatisieren mathematischer Grundfertigkeiten, mit Lösungen am Ende. Die Fragen mit Zufallswerten decken viele Themen ab." />
+    <meta name="twitter:image" content="img/mvf-og.png" />
     <link rel="icon" type="image/png" href="/favicon/favicon-48x48.png" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MathsMentales" />
+    <meta name="apple-mobile-web-app-title" content="MatheVomFranz" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#fdfcf6" />
+    <meta name="theme-color" content="#1f4fa3" />
     <link rel="stylesheet" href="css/mathsmentales.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
     <link rel="stylesheet" href="css/mm-katex.css" />
+    <link rel="stylesheet" href="css/mvf-theme.css" />
     <script type="module" src="js/lib.mathsmentales.js?v=23" id="mmscriptid"></script>
 </head>
 <body>
     <div id="app-container">
         <header>
             <button type="button" id="btnaccueil" numero="#tab-accueil" class="logo tabs-menu-link btn-plain"
-                title="Revenir à l’accueil" aria-label="Revenir à l’accueil"><i
-                    numero="#tab-accueil" class="sprite sprite-logocm32x32"></i></button>
-            <button type="button" id="openMenuButton" class="btn-plain" aria-label="Afficher le menu"
+                title="Zur Startseite" aria-label="Zur Startseite"><i
+                    numero="#tab-accueil" class="mvf-logo-klein"></i></button>
+            <button type="button" id="openMenuButton" class="btn-plain" aria-label="Menü anzeigen"
                 aria-expanded="false">
                 <span class="bar1"></span>
                 <span class="bar2"></span>
                 <span class="bar3"></span>
             </button>
-            <nav id="nav-menu-niveaux" class="hidden-phone" aria-label="Niveaux">
+            <nav id="nav-menu-niveaux" class="hidden-phone" aria-label="Klassenstufen">
                 <!--<div class="icon-menu"></div>-->
                 <ul class="menu color-inverse">
-                    <li><button type="button" class="btn-plain" aria-expanded="false">Collège</button>
+                    <li><button type="button" class="btn-plain" aria-expanded="false" title="Sekundarstufe I">Sek. I</button>
                         <ul>
-                            <li><button type="button" class="btn-plain" data-niv="6">6e</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="5">5e</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="4">4e</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="3">3e</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="5">Klasse 5</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="6">Klasse 6</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="7">Klasse 7</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="8">Klasse 8</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="9">Klasse 9</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="10">Klasse 10</button></li>
                         </ul>
                     </li>
-                    <li><button type="button" class="btn-plain" aria-expanded="false">Lycée</button>
+                    <li><button type="button" class="btn-plain" aria-expanded="false" title="Sekundarstufe II">Sek. II</button>
                         <ul>
-                            <li><button type="button" class="btn-plain" data-niv="2">2nde</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="G">1ère Générale</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="K">1ère/Tale Techno</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="T">Tale</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="H">Hors Programmes</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="E">EF</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="Q">Q1/Q2</button></li>
+                            <li><button type="button" class="btn-plain" data-niv="W">Weitere Aufgaben</button></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
             <div class="tabs hidden-phone" id="header-menu">
-                <nav class="tabs-menu" role="tablist" aria-label="Sections de MathsMentales">
+                <nav class="tabs-menu" role="tablist" aria-label="Bereiche von MatheVomFranz">
                     <button type="button" role="tab" id="tabbtn-accueil" numero="#tab-accueil"
-                        aria-controls="tab-accueil" aria-selected="false" class="tabs-menu-link">Accueil</button>
+                        aria-controls="tab-accueil" aria-selected="false" class="tabs-menu-link">Start</button>
                     <button type="button" role="tab" id="tabbtn-chercher" numero="#tab-chercher"
-                        aria-controls="tab-chercher" aria-selected="false" class="tabs-menu-link">Rechercher</button>
+                        aria-controls="tab-chercher" aria-selected="false" class="tabs-menu-link">Suchen</button>
                     <button type="button" role="tab" id="tabbtn-parameters" numero="#tab-parameters"
-                        aria-controls="tab-parameters" aria-selected="false" class="tabs-menu-link">Paramétrer</button>
+                        aria-controls="tab-parameters" aria-selected="false" class="tabs-menu-link">Einstellen</button>
                     <button type="button" role="tab" id="tabbtn-enonce" numero="#tab-enonce"
-                        aria-controls="tab-enonce" aria-selected="false" class="tabs-menu-link">Énoncé</button>
+                        aria-controls="tab-enonce" aria-selected="false" class="tabs-menu-link">Aufgaben</button>
                     <button type="button" role="tab" id="tabbtn-corrige" numero="#tab-corrige"
-                        aria-controls="tab-corrige" aria-selected="false" class="tabs-menu-link">Corrigé</button>
+                        aria-controls="tab-corrige" aria-selected="false" class="tabs-menu-link">Lösungen</button>
                     <button type="button" role="tab" id="tabbtn-historique" numero="#tab-historique"
-                        aria-controls="tab-historique" aria-selected="false" class="tabs-menu-link">Historique</button>
+                        aria-controls="tab-historique" aria-selected="false" class="tabs-menu-link">Verlauf</button>
                     <button type="button" role="tab" id="tabbtn-telechargements" numero="#tab-telechargements"
                         aria-controls="tab-telechargements" aria-selected="false"
-                        class="tabs-menu-link">Téléchargements</button>
+                        class="tabs-menu-link">Materialien</button>
                 </nav>
             </div>
 
@@ -99,85 +99,97 @@
                 aria-labelledby="tabbtn-accueil">
                 <section class="grille">
                     <article class="accueillogo" id="accueillogo">
-                        <i class="sprite sprite-logocm160x132 logoMM"></i>
-                        <h1>Automatismes et calcul mental à données aléatoires</h1>
+                        <img src="img/mvf-logo.svg" class="logoMM mvf-logo" alt="" width="132" height="132">
+                        <h1 class="mvf-titel">MatheVomFranz</h1>
+                        <p class="untertitel">Mathematik von und mit Franz. Angepasst an den beeindruckenden
+                            Gymnasial-Lehrplan von NRW. – Sie wohnen nicht in NRW? Erwägen Sie einen Umzug!</p>
                         <p>
-                            Choisissez un niveau, composez un panier d'activités, et MathsMentales en tire des
-                            questions à données aléatoires, dans le format qui vous arrange. (<a
-                                href="old/">ancienne version</a>) plus d'infos sur <a href="about.html">À propos</a> et pour compléter : <a href="https://logicogrilles.mathsmentales.net/automatismes-college.html">des grilles de jeux logiques</a>.
+                            Klasse wählen, Aufgaben in den Korb legen – MatheVomFranz erzeugt daraus Fragen mit
+                            Zufallswerten, im Format Ihrer Wahl. Mehr dazu unter <a href="about.html">Über
+                                MatheVomFranz</a>.
                         </p>
                         <ul id="liste-formats" class="formats"></ul>
                     </article>
                 </section>
                 <section class="accueil-recherche">
-                    <label for="recherche-accueil">Chercher une activité :</label>
-                    <input type="search" id="recherche-accueil" placeholder="fractions, Pythagore, tables… (3 car. min.)">
+                    <label for="recherche-accueil">Aufgabe suchen:</label>
+                    <input type="search" id="recherche-accueil" placeholder="Brüche, Pythagoras … (ab 3 Zeichen)">
                 </section>
-                <h2 class="sg-title">Collège</h2>
+                <h2 class="sg-title">Sekundarstufe I</h2>
                 <section id="grille-college" class="grille college">
                 </section>
-                <h2 class="sg-title">Lycée</h2>
+                <h2 class="sg-title">Sekundarstufe II</h2>
                 <section id="grille-lycee" class="grille lycee">
                 </section>
+                <h2 class="sg-title">Weitere Aufgaben</h2>
+                <section id="grille-weitere" class="grille weitere">
+                </section>
                 <section id="reprise" class="reprise hidden">
-                    <h2 class="sg-title">Reprendre</h2>
+                    <h2 class="sg-title">Weitermachen</h2>
                     <ul id="liste-reprise"></ul>
                 </section>
                 <h2 class="sg-title">Infos</h2>
                 <section class="infosbug">
                     <article>
-                        <h3>Ça bloque ?</h3>
-                        <p><span class="green">Un bon CTRL + F5 peut aider lors d’un blocage</span>, mais pas
-                            toujours !</p>
-                        <p>Pour <span class="red">signaler un bug</span>, préférez déposer un <a
-                                href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr/-/issues">ticket
-                                sur LaForgeEdu</a>.</p>
+                        <h3>Es hakt?</h3>
+                        <p><span class="green">Ein beherztes Strg + F5 hilft oft weiter</span>, aber nicht
+                            immer!</p>
+                        <p><span class="red">Fehler melden</span> Sie am besten als <a
+                                href="https://github.com/LordHolzkopf/MatheVomFranz/issues">Issue auf
+                                GitHub</a>.</p>
                     </article>
                     <article>
-                        <h3>Contribuer</h3>
-                        <p>Vous pouvez écrire vos propres activités avec l’un des deux éditeurs : <a
-                                href="editor.html">en json</a> ou <a href="editoryaml.html">en yaml</a> (plus simple,
-                            mais pas facile).</p>
-                        <p>MathsMentales est un logiciel libre et gratuit ; licence, code source et manières de
-                            contribuer sont détaillés sur <a href="about.html">À propos</a>.</p>
+                        <h3>Mitmachen</h3>
+                        <p>Eigene Aufgaben schreiben Sie mit einem der beiden Editoren: <a
+                                href="editor.html">in JSON</a> oder <a href="editoryaml.html">in YAML</a> (einfacher,
+                            aber nicht ganz leicht).</p>
+                        <p>MatheVomFranz ist freie und kostenlose Software; Lizenz, Quellcode und Möglichkeiten
+                            zum Mitmachen stehen unter <a href="about.html">Über MatheVomFranz</a>.</p>
                     </article>
                     <article>
-                        <h3>Contact</h3>
-                        <p><a href="mailto:contact@mathsmentales.net">contact@mathsmentales.net</a> pour poser des
-                            questions, proposer une activité, remercier l’auteur.</p>
+                        <h3>Kontakt</h3>
+                        <p>Fragen, Aufgabenvorschläge oder Lob gern über <a
+                                href="https://github.com/LordHolzkopf/MatheVomFranz/issues">GitHub</a>; die
+                            Kontaktdaten stehen im <a href="impressum.html">Impressum</a>.</p>
                     </article>
                 </section>
+                <footer class="txtcenter hinweis-original">
+                    <p>MatheVomFranz basiert auf <a href="https://mathsmentales.net">MathsMentales</a> von Sébastien
+                        Cogez und Mitwirkenden – freie Software unter der Apache-Lizenz 2.0. · <a
+                            href="about.html">Über</a> · <a href="impressum.html">Impressum</a> · <a
+                            href="datenschutz.html">Datenschutz</a></p>
+                </footer>
             </section>
             <section id="tab-parameters" class="grid-3 has-gutter tabs-content-item" role="tabpanel"
                 aria-labelledby="tabbtn-parameters" style="display: none;">
                 <div>
-                    <button id="addToCart" title="Ajouter au panier"><!--<img src="img/addtocart.png">--><i
-                            class="sprite sprite-addtocart"></i><br>Ajouter<br>au panier</button>
+                    <button id="addToCart" title="In den Korb legen"><!--<img src="img/addtocart.png">--><i
+                            class="sprite sprite-addtocart"></i><br>In den<br>Korb</button>
                     <button id="unlinkCart" class="hidden"
-                        title="Désolidariser l'édition du panier"><!--<img src="img/iconfinder_pin.png">--><i
-                            class="sprite sprite-iconfinder_pin"></i><br>Désolidariser<br>du panier</button>
+                        title="Bearbeitung vom Korb lösen"><!--<img src="img/iconfinder_pin.png">--><i
+                            class="sprite sprite-iconfinder_pin"></i><br>Vom Korb<br>lösen</button>
                     <button id="removeFromCart" class="hidden"
-                        title="Supprimer du panier"><!--<img src="img/removefromcart.png">--><i
-                            class="sprite sprite-removefromcart48"></i><br>Retirer<br>du panier</button>
-                    <input type="text" id="activityDirectID" size="5" class="input" placeholder="ID + ✔️" title="Taper un ID puis valider par Enter">
-                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Activité <span
+                        title="Aus dem Korb nehmen"><!--<img src="img/removefromcart.png">--><i
+                            class="sprite sprite-removefromcart48"></i><br>Aus dem<br>Korb</button>
+                    <input type="text" id="activityDirectID" size="5" class="input" placeholder="ID + ✔️" title="ID eingeben und mit Enter bestätigen">
+                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Aufgabe <span
                             id="param-title-act"></span></h2>
                     <div id="activityTitle"></div>
                     <div id="activityDescription"></div>
                     <!-- Durée et nombre de questions de l'activité -->
-                    <b>Durée d’affichage :</b> <span id="tempo-value"></span><br>
+                    <b>Anzeigedauer:</b> <span id="tempo-value"></span><br>
                     <input type="range" id="tempo-slider" min="0" max="120" value="8"><br>
-                    <b>Nombre de questions :</b> <span id="nbq-value"></span><br>
+                    <b>Anzahl der Fragen:</b> <span id="nbq-value"></span><br>
                     <input type="range" id="nbq-slider" min="1" max="20" value="10"><br>
                     <div id="voix" class="hidden">
-                        Lecture audio : <input type="radio" class="radio" name="audioRadio" value="0" checked="true"
-                            id="radioaudiooff"> off
-                        <input type="radio" class="radio" name="audioRadio" value="1" id="radioaudioon"> on <input
+                        Vorlesen: <input type="radio" class="radio" name="audioRadio" value="0" checked="true"
+                            id="radioaudiooff"> aus
+                        <input type="radio" class="radio" name="audioRadio" value="1" id="radioaudioon"> an <input
                             type="number" id="audiorepeat" min="1" max="5" value="1" size="1"
-                            title="Nombre de répétitions"> rép.<br>
-                        Voix <select id="selectVoice"></select> <button class="pointer btn" id="btntestreader"
-                            title="Lire les exemples proposés ci-dessous">▶</button> <button id="btnstopreader"
-                            class="pointer btn" title="Stopper la lecture en cours">⏹</button>
+                            title="Anzahl der Wiederholungen"> Wdh.<br>
+                        Stimme <select id="selectVoice"></select> <button class="pointer btn" id="btntestreader"
+                            title="Beispiele unten vorlesen">▶</button> <button id="btnstopreader"
+                            class="pointer btn" title="Vorlesen stoppen">⏹</button>
                     </div>
                 </div>
                 <div id="phantom" class=""></div>
@@ -187,224 +199,218 @@
                             <button class="tabs-menu-link is-active" value="1"
                                 id="button-cart1"><!--<img src="img/cart1.png">--><i
                                     class="sprite sprite-cart1"></i></button>
-                            <button id="addcart" title="Ajouter un panier"><!--<img src="img/cartadd.png">--><i
+                            <button id="addcart" title="Korb hinzufügen"><!--<img src="img/cartadd.png">--><i
                                     class="sprite sprite-cartadd"></i></button>
                         </nav>
                     </div>
                     <div id="cartscontainer">
                         <section id="cart0" class="cartcontent">
                             <button id="btncartclose1" class="cart-close"
-                                title="Vider le panier"><!--<img src="img/recyclecart.png">--><i
+                                title="Korb leeren"><!--<img src="img/recyclecart.png">--><i
                                     class="sprite sprite-recyclecart"></i></button>
-                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Dupliquer le panier" id="imgduplicatecart1">--><i
-                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Dupliquer le panier"
+                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Korb duplizieren" id="imgduplicatecart1">--><i
+                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Korb duplizieren"
                                 id="imgduplicatecart1"></i>
-                            <h3 contenteditable="true" title="Cliquer pour éditer" id="titlecart1">Groupe 1</h3>
+                            <h3 contenteditable="true" title="Zum Bearbeiten klicken" id="titlecart1">Gruppe 1</h3>
                             <div class="totaux">
-                                <div class="title" title="Durée totale du panier">Durée</div>
-                                <div class="title" title="Nombre total de questions du panier">Quest.</div>
-                                <div class="title" title="Zone d'affichage du panier">Cible</div>
-                                <div title="Ordre des questions du diaporama" class="title">Ordre</div>
-                                <div title="Affichage du corrigé" class="title">Corrigé</div>
-                                <div title="Tirage aléatoire d'un nombre de questions parmi le panier" class="title">Tirage</div>
+                                <div class="title" title="Gesamtdauer des Korbs">Dauer</div>
+                                <div class="title" title="Gesamtzahl der Fragen im Korb">Fragen</div>
+                                <div class="title" title="Anzeigebereich des Korbs">Ziel</div>
+                                <div title="Reihenfolge der Fragen in der Diashow" class="title">Folge</div>
+                                <div title="Anzeige der Lösung" class="title">Lösung</div>
+                                <div title="Zufällige Auswahl einer Anzahl von Fragen aus dem Korb" class="title">Auswahl</div>
                                 <div><span>0</span> s.</div>
                                 <div><span>0</span></div>
                                 <div><span>1</span></div>
                                 <div>
                                     <div data-ordered="true" id="imgordercart1" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau, Feuille d’interro, Course aux nombres, Ceintures de CM, Duel"
-                                        title="Ordonné / Mélangé">ordonné</div>
+                                        data-usage="Diashow, Aufgabenwand, Testblatt, Zahlenrennen, Kopfrechen-Gürtel, Duell"
+                                        title="Sortiert / Zufällig">sortiert</div>
                                 </div>
                                 <div>
                                     <div data-progress="normal" id="progress-cart1" class="pointer has-choice"
-                                        data-usage="Diaporama"
-                                        title="Sans / Après / Avec">sans</div>
+                                        data-usage="Diashow"
+                                        title="Ohne / Danach / Mit">ohne</div>
                                 </div>
                                 <div>
                                     <div data-randomdraw="all" id="randomdraw-cart1" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau"
-                                        title="Toutes les questions du panier (cliquer pour tirer un nombre au hasard)">toutes</div>
+                                        data-usage="Diashow, Aufgabenwand"
+                                        title="Alle Fragen des Korbs (klicken, um eine Anzahl zufällig auszuwählen)">alle</div>
                                 </div>
                             </div>
-                            <div class="cart-content-title"><span><b>ID</b></span><span>Titre</span><span title="durée en secondes">dur.</span><span title="nombre de questions">nbQ</span></div>
+                            <div class="cart-content-title"><span><b>ID</b></span><span>Titel</span><span title="Dauer in Sekunden">Dauer</span><span title="Anzahl der Fragen">Anz.</span></div>
                             <ul id="cart0-list" class="cart-list">
                             </ul>
-                            Si vous voulez utiliser plus d’une activité dans votre séance, ajouter-les ici pour composer
-                            un panier.<br>Cliquer sur l’ID d’une activité de la liste pour l’<b>éditer</b>.
+                            Wenn Sie in einer Stunde mehrere Aufgaben nutzen möchten, legen Sie sie hier in den
+                            Korb.<br>Ein Klick auf die ID einer Aufgabe in der Liste öffnet sie zum <b>Bearbeiten</b>.
                         </section>
                         <section id="cart1" class="hidden">
                             <button class="cart-close" id="btncartdelete2"
-                                title="Supprimer le panier"><!--<img src="img/burnCart.png">--><i
+                                title="Korb löschen"><!--<img src="img/burnCart.png">--><i
                                     class="sprite sprite-burnCart"></i></button>
                             <button class="cart-close" id="btncartclose2"
-                                title="Vider le panier"><!--<img src="img/recyclecart.png">--><i
+                                title="Korb leeren"><!--<img src="img/recyclecart.png">--><i
                                     class="sprite sprite-recyclecart"></i></button>
-                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Dupliquer le panier" id="imgduplicatecart2">--><i
-                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Dupliquer le panier"
+                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Korb duplizieren" id="imgduplicatecart2">--><i
+                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Korb duplizieren"
                                 id="imgduplicatecart2"></i>
-                            <h3 contenteditable="true" title="Cliquer pour éditer" id="titlecart2">Groupe 2</h3>
+                            <h3 contenteditable="true" title="Zum Bearbeiten klicken" id="titlecart2">Gruppe 2</h3>
                             <div class="totaux">
-                                <div class="title" title="Durée totale du panier">Durée</div>
-                                <div class="title" title="Nombre total de questions du panier">Quest.</div>
-                                <div class="title" title="Zone d'affichage du panier">Cible</div>
-                                <div title="Ordre des questions du diaporama" class="title">Ordre</div>
-                                <div title="Affichage du corrigé" class="title">Corrigé</div>
-                                <div title="Tirage aléatoire d'un nombre de questions parmi le panier" class="title">Tirage</div>
+                                <div class="title" title="Gesamtdauer des Korbs">Dauer</div>
+                                <div class="title" title="Gesamtzahl der Fragen im Korb">Fragen</div>
+                                <div class="title" title="Anzeigebereich des Korbs">Ziel</div>
+                                <div title="Reihenfolge der Fragen in der Diashow" class="title">Folge</div>
+                                <div title="Anzeige der Lösung" class="title">Lösung</div>
+                                <div title="Zufällige Auswahl einer Anzahl von Fragen aus dem Korb" class="title">Auswahl</div>
                                 <div><span>0</span> s.</div>
                                 <div><span>0</span></div>
                                 <div><span>1</span></div>
                                 <div>
                                     <div data-ordered="true" id="imgordercart2" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau, Feuille d’interro, Course aux nombres, Ceintures de CM, Duel"
-                                        title="Ordonné / Mélangé">ordonné</div>
+                                        data-usage="Diashow, Aufgabenwand, Testblatt, Zahlenrennen, Kopfrechen-Gürtel, Duell"
+                                        title="Sortiert / Zufällig">sortiert</div>
                                 </div>
                                 <div>
                                     <div data-progress="normal" id="progress-cart2" class="pointer has-choice"
-                                        data-usage="Diaporama"
-                                        title="Sans / Après / Avec">sans</div>
+                                        data-usage="Diashow"
+                                        title="Ohne / Danach / Mit">ohne</div>
                                 </div>
                                 <div>
                                     <div data-randomdraw="all" id="randomdraw-cart2" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau"
-                                        title="Toutes les questions du panier (cliquer pour tirer un nombre au hasard)">toutes</div>
+                                        data-usage="Diashow, Aufgabenwand"
+                                        title="Alle Fragen des Korbs (klicken, um eine Anzahl zufällig auszuwählen)">alle</div>
                                 </div>
                             </div>
-                            <div class="cart-content-title"><span><b>ID</b></span><span>Titre</span><span title="durée en secondes">dur.</span><span title="nombre de questions">nbQ</span></div>
+                            <div class="cart-content-title"><span><b>ID</b></span><span>Titel</span><span title="Dauer in Sekunden">Dauer</span><span title="Anzahl der Fragen">Anz.</span></div>
                             <ul id="cart1-list" class="cart-list">
                             </ul>
                         </section>
                         <section id="cart2" class="hidden">
                             <button class="cart-close" id="btncartdelete3"
-                                title="Supprimer le panier"><!--<img src="img/burnCart.png">--><i
+                                title="Korb löschen"><!--<img src="img/burnCart.png">--><i
                                     class="sprite sprite-burnCart"></i></button>
                             <button class="cart-close" id="btncartclose3"
-                                title="Vider le panier"><!--<img src="img/recyclecart.png">--><i
+                                title="Korb leeren"><!--<img src="img/recyclecart.png">--><i
                                     class="sprite sprite-recyclecart"></i></button>
-                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Dupliquer le panier" id="imgduplicatecart3">--><i
-                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Dupliquer le panier"
+                            <!--<img src="img/iconfinder_copy.png" class="pointer cartduplicate" title="Korb duplizieren" id="imgduplicatecart3">--><i
+                                class="sprite sprite-iconfinder_copy pointer cartduplicate" title="Korb duplizieren"
                                 id="imgduplicatecart3"></i>
-                            <h3 contenteditable="true" id="titlecart3" title="Cliquer pour éditer">Groupe 3</h3>
+                            <h3 contenteditable="true" id="titlecart3" title="Zum Bearbeiten klicken">Gruppe 3</h3>
                             <div class="totaux">
-                                <div class="title" title="Durée totale du panier">Durée</div>
-                                <div class="title" title="Nombre total de questions du panier">Quest.</div>
-                                <div class="title" title="Zone d'affichage du panier">Cible</div>
-                                <div title="Ordre des questions du diaporama" class="title">Ordre</div>
-                                <div title="Affichage du corrigé" class="title">Corrigé</div>
-                                <div title="Tirage aléatoire d'un nombre de questions parmi le panier" class="title">Tirage</div>
+                                <div class="title" title="Gesamtdauer des Korbs">Dauer</div>
+                                <div class="title" title="Gesamtzahl der Fragen im Korb">Fragen</div>
+                                <div class="title" title="Anzeigebereich des Korbs">Ziel</div>
+                                <div title="Reihenfolge der Fragen in der Diashow" class="title">Folge</div>
+                                <div title="Anzeige der Lösung" class="title">Lösung</div>
+                                <div title="Zufällige Auswahl einer Anzahl von Fragen aus dem Korb" class="title">Auswahl</div>
                                 <div><span>0</span> s.</div>
                                 <div><span>0</span></div>
                                 <div><span>1</span></div>
                                 <div>
                                     <div data-ordered="true" id="imgordercart3" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau, Feuille d’interro, Course aux nombres, Ceintures de CM, Duel"
-                                        title="Ordonné / Mélangé">ordonné</div>
+                                        data-usage="Diashow, Aufgabenwand, Testblatt, Zahlenrennen, Kopfrechen-Gürtel, Duell"
+                                        title="Sortiert / Zufällig">sortiert</div>
                                 </div>
                                 <div>
                                     <div data-progress="normal" id="progress-cart3" class="pointer has-choice"
-                                        data-usage="Diaporama"
-                                        title="Sans / Après / Avec">sans</div>
+                                        data-usage="Diashow"
+                                        title="Ohne / Danach / Mit">ohne</div>
                                 </div>
                                 <div>
                                     <div data-randomdraw="all" id="randomdraw-cart3" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau"
-                                        title="Toutes les questions du panier (cliquer pour tirer un nombre au hasard)">toutes</div>
+                                        data-usage="Diashow, Aufgabenwand"
+                                        title="Alle Fragen des Korbs (klicken, um eine Anzahl zufällig auszuwählen)">alle</div>
                                 </div>
                             </div>
-                            <div class="cart-content-title"><span><b>ID</b></span><span>Titre</span><span title="durée en secondes">dur.</span><span title="nombre de questions">nbQ</span></div>
+                            <div class="cart-content-title"><span><b>ID</b></span><span>Titel</span><span title="Dauer in Sekunden">Dauer</span><span title="Anzahl der Fragen">Anz.</span></div>
                             <ul id="cart2-list" class="cart-list">
                             </ul>
                         </section>
                         <section id="cart3" class="hidden">
                             <button class="cart-close" id="btncartdelete4"
-                                title="Supprimer le panier"><!--<img src="img/burnCart.png">--><i
+                                title="Korb löschen"><!--<img src="img/burnCart.png">--><i
                                     class="sprite sprite-burnCart"></i></button>
                             <button class="cart-close" id="btncartclose4"
-                                title="Vider le panier"><!--<img src="img/recyclecart.png">--><i
+                                title="Korb leeren"><!--<img src="img/recyclecart.png">--><i
                                     class="sprite sprite-recyclecart"></i></button>
-                            <h3 contenteditable="true" id="titlecart4" title="Cliquer pour éditer">Groupe 4</h3>
+                            <h3 contenteditable="true" id="titlecart4" title="Zum Bearbeiten klicken">Gruppe 4</h3>
                             <div class="totaux">
-                                <div class="title" title="Durée totale du panier">Durée</div>
-                                <div class="title" title="Nombre total de questions du panier">Quest.</div>
-                                <div class="title" title="Zone d'affichage du panier">Cible</div>
-                                <div title="Ordre des questions du diaporama" class="title">Ordre</div>
-                                <div title="Affichage du corrigé" class="title">Corrigé</div>
-                                <div title="Tirage aléatoire d'un nombre de questions parmi le panier" class="title">Tirage</div>
+                                <div class="title" title="Gesamtdauer des Korbs">Dauer</div>
+                                <div class="title" title="Gesamtzahl der Fragen im Korb">Fragen</div>
+                                <div class="title" title="Anzeigebereich des Korbs">Ziel</div>
+                                <div title="Reihenfolge der Fragen in der Diashow" class="title">Folge</div>
+                                <div title="Anzeige der Lösung" class="title">Lösung</div>
+                                <div title="Zufällige Auswahl einer Anzahl von Fragen aus dem Korb" class="title">Auswahl</div>
                                 <div><span>0</span> s.</div>
                                 <div><span>0</span></div>
                                 <div><span>1</span></div>
                                 <div>
                                     <div data-ordered="true" id="imgordercart4" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau, Feuille d’interro, Course aux nombres, Ceintures de CM, Duel"
-                                        title="Ordonné / Mélangé">ordonné</div>
+                                        data-usage="Diashow, Aufgabenwand, Testblatt, Zahlenrennen, Kopfrechen-Gürtel, Duell"
+                                        title="Sortiert / Zufällig">sortiert</div>
                                 </div>
                                 <div>
                                     <div data-progress="normal" id="progress-cart4" class="pointer has-choice"
-                                        data-usage="Diaporama"
-                                        title="Sans / Après / Avec">sans</div>
+                                        data-usage="Diashow"
+                                        title="Ohne / Danach / Mit">ohne</div>
                                 </div>
                                 <div>
                                     <div data-randomdraw="all" id="randomdraw-cart4" class="pointer has-choice"
-                                        data-usage="Diaporama, Panneau"
-                                        title="Toutes les questions du panier (cliquer pour tirer un nombre au hasard)">toutes</div>
+                                        data-usage="Diashow, Aufgabenwand"
+                                        title="Alle Fragen des Korbs (klicken, um eine Anzahl zufällig auszuwählen)">alle</div>
                                 </div>
                             </div>
-                            <div class="cart-content-title"><span><b>ID</b></span><span>Titre</span><span title="durée en secondes">dur.</span><span title="nombre de questions">nbQ</span></div>
+                            <div class="cart-content-title"><span><b>ID</b></span><span>Titel</span><span title="Dauer in Sekunden">Dauer</span><span title="Anzahl der Fragen">Anz.</span></div>
                             <ul id="cart3-list" class="cart-list">
                             </ul>
                         </section>
                     </div>
                 </div>
                 <div class="row-5" id="colparameters">
-                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Paramètres</h2>
+                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Einstellungen</h2>
                     <fieldset id="param-type-choix" class="type-usage">
-                        <legend>Type d'usage</legend>
+                        <legend>Format</legend>
                         <div class="type-usage-famille">
-                            <p class="type-usage-famille-titre" id="tuf-projeter">Projeter</p>
+                            <p class="type-usage-famille-titre" id="tuf-projeter">Zeigen</p>
                             <div class="type-usage-tuiles" role="group" aria-labelledby="tuf-projeter">
                                 <input type="radio" name="paramtype" id="tuile-paramsdiapo" value="paramsdiapo"
                                     class="visually-hidden" checked>
                                 <label for="tuile-paramsdiapo" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">🖥️</span><span class="type-usage-nom">Diaporama</span></label>
+                                        aria-hidden="true">🖥️</span><span class="type-usage-nom">Diashow</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramswall" value="paramswall"
                                     class="visually-hidden">
                                 <label for="tuile-paramswall" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">🧱</span><span class="type-usage-nom">Panneau
-                                        💻</span></label>
+                                        aria-hidden="true">🧱</span><span class="type-usage-nom">Aufgabenwand 💻</span></label>
                             </div>
                         </div>
                         <div class="type-usage-famille">
-                            <p class="type-usage-famille-titre" id="tuf-imprimer">Imprimer</p>
+                            <p class="type-usage-famille-titre" id="tuf-imprimer">Drucken</p>
                             <div class="type-usage-tuiles" role="group" aria-labelledby="tuf-imprimer">
                                 <input type="radio" name="paramtype" id="tuile-paramsexos" value="paramsexos"
                                     class="visually-hidden">
                                 <label for="tuile-paramsexos" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">📖</span><span class="type-usage-nom">Feuille
-                                        d’exercices</span></label>
+                                        aria-hidden="true">📖</span><span class="type-usage-nom">Übungsblatt</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsinterro" value="paramsinterro"
                                     class="visually-hidden">
                                 <label for="tuile-paramsinterro" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">📝</span><span class="type-usage-nom">Feuille
-                                        d’interro</span></label>
+                                        aria-hidden="true">📝</span><span class="type-usage-nom">Testblatt</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsceinture" value="paramsceinture"
                                     class="visually-hidden">
                                 <label for="tuile-paramsceinture" class="type-usage-tuile"><span
                                         class="type-usage-icone" aria-hidden="true">🥋</span><span
-                                        class="type-usage-nom">Ceintures de CM</span></label>
+                                        class="type-usage-nom">Kopfrechen-Gürtel</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramscourse" value="paramscourse"
                                     class="visually-hidden">
                                 <label for="tuile-paramscourse" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">🏃</span><span class="type-usage-nom">Course aux
-                                        nombres</span></label>
+                                        aria-hidden="true">🏃</span><span class="type-usage-nom">Zahlenrennen</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsdocLOOO" value="paramsdocLOOO"
                                     class="visually-hidden">
                                 <label for="tuile-paramsdocLOOO" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">📃</span><span class="type-usage-nom">Document
-                                        LibreOffice</span></label>
+                                        aria-hidden="true">📃</span><span class="type-usage-nom">LibreOffice-Dokument</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramswhogots" value="paramswhogots"
                                     class="visually-hidden">
                                 <label for="tuile-paramswhogots" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">⁉️</span><span class="type-usage-nom">J’ai/qui
-                                        a ?</span></label>
+                                        aria-hidden="true">⁉️</span><span class="type-usage-nom">Ich hab – wer hat?</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsdominos" value="paramsdominos"
                                     class="visually-hidden">
                                 <label for="tuile-paramsdominos" class="type-usage-tuile"><span class="type-usage-icone"
@@ -417,107 +423,107 @@
                                     value="paramsflashcards" class="visually-hidden">
                                 <label for="tuile-paramsflashcards" class="type-usage-tuile"><span
                                         class="type-usage-icone" aria-hidden="true">⚡</span><span
-                                        class="type-usage-nom">Cartes flash</span></label>
+                                        class="type-usage-nom">Karteikarten</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsfichememo" value="paramsfichememo"
                                     class="visually-hidden">
                                 <label for="tuile-paramsfichememo" class="type-usage-tuile"><span
                                         class="type-usage-icone" aria-hidden="true">🎦</span><span
-                                        class="type-usage-nom">Fiche mémorisation</span></label>
+                                        class="type-usage-nom">Merkblatt</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramspixelart" value="paramspixelart"
                                     class="visually-hidden">
                                 <label for="tuile-paramspixelart" class="type-usage-tuile"><span
                                         class="type-usage-icone" aria-hidden="true">🎨</span><span
-                                        class="type-usage-nom">Pixel Art 💻</span></label>
+                                        class="type-usage-nom">Pixel-Art 💻</span></label>
                             </div>
                         </div>
                         <div class="type-usage-famille">
-                            <p class="type-usage-famille-titre" id="tuf-jouer">Jouer en ligne 💻</p>
+                            <p class="type-usage-famille-titre" id="tuf-jouer">Online spielen 💻</p>
                             <div class="type-usage-tuiles" role="group" aria-labelledby="tuf-jouer">
                                 <input type="radio" name="paramtype" id="tuile-paramsassocs" value="paramsassocs"
                                     class="visually-hidden">
                                 <label for="tuile-paramsassocs" class="type-usage-tuile"><span class="type-usage-icone"
                                         aria-hidden="true">⛓️</span><span
-                                        class="type-usage-nom">Associations</span></label>
+                                        class="type-usage-nom">Zuordnen</span></label>
                                 <input type="radio" name="paramtype" id="tuile-paramsduel" value="paramsduel"
                                     class="visually-hidden">
                                 <label for="tuile-paramsduel" class="type-usage-tuile"><span class="type-usage-icone"
-                                        aria-hidden="true">⚔️</span><span class="type-usage-nom">Duel</span></label>
+                                        aria-hidden="true">⚔️</span><span class="type-usage-nom">Duell</span></label>
                             </div>
                         </div>
                     </fieldset>
                     <div id="param-type-legacy" class="hidden">
-                    Type d'usage :
+                    Format:
                     <select id="chooseParamType">
-                        <option value="paramsdiapo" selected="selected">Diaporama</option>
-                        <option value="paramsdocLOOO">Document LibreOffice</option>
-                        <option value="paramsexos">Feuille d’exercices</option>
-                        <option value="paramsinterro">Feuille d’interro</option>
-                        <option value="paramsceinture">Ceintures de CM</option>
-                        <option value="paramscourse">Course aux nombres</option>
-                        <option value="paramsflashcards">Cartes flash</option>
-                        <option value="paramsfichememo">Fiche Mémorisation</option>
-                        <option value="paramswhogots">J’ai/qui a ?</option>
+                        <option value="paramsdiapo" selected="selected">Diashow</option>
+                        <option value="paramsdocLOOO">LibreOffice-Dokument</option>
+                        <option value="paramsexos">Übungsblatt</option>
+                        <option value="paramsinterro">Testblatt</option>
+                        <option value="paramsceinture">Kopfrechen-Gürtel</option>
+                        <option value="paramscourse">Zahlenrennen</option>
+                        <option value="paramsflashcards">Karteikarten</option>
+                        <option value="paramsfichememo">Merkblatt</option>
+                        <option value="paramswhogots">Ich hab – wer hat?</option>
                         <option value="paramsdominos">Dominos</option>
                         <option value="paramspuzzle">Puzzles</option>
-                        <option value="paramswall">Panneau 💻</option>
-                        <option value="paramspixelart">Pixel Art 💻</option>
-                        <option value="paramsassocs">Associations 💻</option>
-                        <option value="paramsduel">Duel 💻</option>
+                        <option value="paramswall">Aufgabenwand 💻</option>
+                        <option value="paramspixelart">Pixel-Art 💻</option>
+                        <option value="paramsassocs">Zuordnen 💻</option>
+                        <option value="paramsduel">Duell 💻</option>
                     </select>
                     <br>
                     </div>
-                    <em>Consultez les éléments générés dans <b>Énoncé</b> ou <b>Corrigé</b></em><br>
+                    <em>Das Ergebnis finden Sie unter <b>Aufgaben</b> und <b>Lösungen</b>.</em><br>
                     <fieldset>
-                        <legend>Clé de données</legend>
+                        <legend>Startwert</legend>
                         <input type="checkbox" id="aleaInURL" value="1" class="switch"
-                            title="Prendre en compte dans l'adresse">Utiliser
+                            title="Startwert in den Link übernehmen">Verwenden
                         <input type="text" placeholder="eHDtp" id="aleaKey" size="6">
                         <!--<img src="img/iconfinder_die_32px.png" class="pointer" id="btn-params-aleakey">-->
                         <i class="pointer sprite sprite-iconfinder_dice_32px" id="btn-params-aleakey"></i>
                     </fieldset>
                     <fieldset>
-                        <legend>Police</legend>
+                        <legend>Schrift</legend>
                         <input type="checkbox" id="fontType" value="1" class="switch"
-                            title="Utiliser une police sans Serif"><label for="fontType"> Sans Serif</label>
+                            title="Serifenlose Schrift verwenden"><label for="fontType"> Serifenlos</label>
                     </fieldset>
                     <div id="paramsdiapo">
                         <fieldset>
-                            <legend>Introduction au diaporama</legend>
-                            <span title="Commencer sur un exemple que l'on pourra discuter"><input type="checkbox"
+                            <legend>Einstieg in die Diashow</legend>
+                            <span title="Mit einem Beispiel beginnen, das man gemeinsam besprechen kann"><input type="checkbox"
                                     class="checkbox" name="beforeSlider" id="radiobeforeslider1" value="example"><label
-                                    for="radiobeforeslider1">Exemple</label></span>
-                            <span title="Commencer par un décompte 3...2...1..."><input type="checkbox" class="checkbox"
+                                    for="radiobeforeslider1">Beispiel</label></span>
+                            <span title="Mit einem Countdown 3 … 2 … 1 … beginnen"><input type="checkbox" class="checkbox"
                                     name="beforeSlider" id="radiobeforeslider2" value="321" checked="true"><label
-                                    for="radiobeforeslider2">Décompte</label></span>
-                            <span title="Commencer directement"><input type="radio" class="radio" name="beforeSlider"
+                                    for="radiobeforeslider2">Countdown</label></span>
+                            <span title="Direkt beginnen"><input type="radio" class="radio" name="beforeSlider"
                                     id="radiobeforeslider3" value="nothing"><label
-                                    for="radiobeforeslider3">Rien</label></span>
+                                    for="radiobeforeslider3">Nichts</label></span>
                         </fieldset>
                         <fieldset class="lh2">
-                            <legend>Son</legend>
-                            <select title="Son entre chaque diapo - panier unique" id="playerlist">
-                                <option value="null">Aucun</option>
+                            <legend>Ton</legend>
+                            <select title="Ton zwischen den Folien – nur bei einem Korb" id="playerlist">
+                                <option value="null">Keiner</option>
                             </select>
                             <audio src="" autoplay id="soundplayer"></audio>
                         </fieldset>
                         <fieldset id="onlinechoice">
-                            <legend>Répondre en ligne</legend>
+                            <legend>Online antworten</legend>
                             <input type="radio" class="radio" name="online" id="radioonline1" value="no"
-                                checked="true"><label for="radioonline1">Non</label>
+                                checked="true"><label for="radioonline1">Nein</label>
                             <input type="radio" class="radio" name="online" id="radioonline2" value="yes"><label
-                                for="radioonline2">Oui</label>
+                                for="radioonline2">Ja</label>
                         </fieldset>
                         <br>
                         <fieldset>
-                            <legend>Énoncé</legend>
+                            <legend>Bildschirm</legend>
                             <input type="radio" class="radio" name="Enonces" id="radionbenonces1" value="1"
-                                checked="true"><label for="radionbenonces1">Simple</label>
+                                checked="true"><label for="radionbenonces1">Ungeteilt</label>
                             <input type="radio" class="radio" name="Enonces" id="radionbenonces2" value="2"><label
-                                for="radionbenonces2">Double</label>
+                                for="radionbenonces2">Zweigeteilt</label>
                             <input type="radio" class="radio" name="Enonces" id="radionbenonces3" value="3"><label
-                                for="radionbenonces3">Triple</label>
+                                for="radionbenonces3">Dreigeteilt</label>
                             <input type="radio" class="radio" name="Enonces" id="radionbenonces4" value="4"><label
-                                for="radionbenonces4">Quadruple</label><br />
+                                for="radionbenonces4">Viergeteilt</label><br />
                             <div id="screen-division">
                                 <div id="sddiv1" class="sddiv1"><span>1</span></div>
                                 <div id="sddiv2" class="hidden"><span>2</span></div>
@@ -526,48 +532,48 @@
                             </div>
                             <div id="divisionsOption" class="hidden">
                                 <input type="radio" class="radio" id="radiodir1" name="direction" value="h"><label
-                                    for="radiodir1">Horizontale</label><br>
+                                    for="radiodir1">Horizontal</label><br>
                                 <input type="radio" class="radio" id="radiodir2" name="direction" value="v"
-                                    checked="true"> <label for="radiodir2">Verticale</label>
+                                    checked="true"> <label for="radiodir2">Vertikal</label>
                             </div>
                             <div id="facetofaceOption" class="hidden">
                                 <input type="radio" class="radio" name="facetoface" id="radioftf1" value="n"
                                     checked="true"><label for="radioftf1">Normal</label><br>
                                 <input type="radio" class="radio" name="facetoface" id="radioftf2" value="y"><label
                                     for="radioftf2">
-                                    <!--<img src="img/facetoface.png" title="Face à face sur une tablette">-->
-                                    <i class="sprite sprite-facetoface" title="Face à face sur une tablette"></i>
+                                    <!--<img src="img/facetoface.png" title="Gegenüber an einem Tablet">-->
+                                    <i class="sprite sprite-facetoface" title="Gegenüber an einem Tablet"></i>
                                 </label>
                             </div>
                         </fieldset>
                         <br>
                         <fieldset>
-                            <legend>Fin du diaporama</legend>
+                            <legend>Ende der Diashow</legend>
                             <input type="radio" class="radio" name="endOfSlideRadio" value="correction" checked="true"
-                                id="radioendslider1"><label for="radioendslider1">Correction</label>
+                                id="radioendslider1"><label for="radioendslider1">Lösungen</label>
                             <input type="radio" class="radio" name="endOfSlideRadio" value="nothing"
-                                id="radioendslider2"><label for="radioendslider2">Rien</label>
+                                id="radioendslider2"><label for="radioendslider2">Nichts</label>
                             <input type="radio" class="radio" name="endOfSlideRadio" value="list"
-                                id="radioendslider3"><label for="radioendslider3">Énoncés</label>
+                                id="radioendslider3"><label for="radioendslider3">Aufgaben</label>
                         </fieldset><br>
                         <section data-actions-legacy class="txtcenter" id="startbuttons">
-                            <button class="button--primary tooltip" id="btnstart">C'est parti !
-                                <span class="tooltiptext">Démarre le diaporama</span>
+                            <button class="button--primary tooltip" id="btnstart">Los geht’s!
+                                <span class="tooltiptext">Startet die Diashow</span>
                             </button>
-                            <button class="button--inverse tooltip" id="btnadresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse de<br>l’activité dans<br>le presse
-                                    papier</span>
+                            <button class="button--inverse tooltip" id="btnadresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zur Aufgabe in<br>die
+                                    Zwischenablage</span>
                             </button>
                             <input type="text" class="hidden" id="acturl" maxlength="1024">
-                            <button class="button--success tooltip" id="btncopytohistoric">→ Historique
-                                <span class="tooltiptext">Copie la sélection<br>dans l’historique</span>
+                            <button class="button--success tooltip" id="btncopytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt die Auswahl<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsdocLOOO" class="hidden">
                         <fieldset>
-                            <legend>Titre du document</legend>
-                            <input type="text" placeholder="fichier MathsMentales" id="docTitle">
+                            <legend>Titel des Dokuments</legend>
+                            <input type="text" placeholder="MatheVomFranz-Datei" id="docTitle">
                         </fieldset>
                         <br>
                         <fieldset>
@@ -581,467 +587,467 @@
                         </fieldset>
                         <br>
                         <fieldset>
-                            <legend>Intégrer</legend>
+                            <legend>Inhalt</legend>
                             <input type="radio" class="radio" name="radiodoc" id="radiodocEnonce" value="questions">
-                                <label for="radiodocEnonce">Questions</label>
+                                <label for="radiodocEnonce">Fragen</label>
                             <input type="radio" class="radio" name="radiodoc" id="radiodocCorriges" value="answers">
-                                <label for="radiodocCorriges">Réponses</label>
+                                <label for="radiodocCorriges">Antworten</label>
                             <input type="radio" class="radio" name="radiodoc" id="radiodocBoth" value="both" checked>
-                                <label for="radiodocBoth">Les deux</label>
-                            <p id="docformathelp" class="minitext">En Impress, « Les deux » alterne une diapositive
-                                d’énoncé et une diapositive de réponse pour chaque question.</p>
+                                <label for="radiodocBoth">Beides</label>
+                            <p id="docformathelp" class="minitext">In Impress wechseln sich bei „Beides“ für jede Frage
+                                eine Folie mit der Aufgabe und eine mit der Antwort ab.</p>
                         </fieldset>
                         <br>
                         <fieldset id="docpresentation">
-                            <legend>Présentation</legend>
+                            <legend>Anordnung</legend>
                             <span class="docpres-choix" id="docpres-suite">
                                 <input type="radio" class="radio" name="radiodocpres" id="radiodocSuite" value="suite"
                                     checked>
-                                <label for="radiodocSuite">Questions puis réponses</label></span><br>
+                                <label for="radiodocSuite">Erst Fragen, dann Antworten</label></span><br>
                             <span class="docpres-choix" id="docpres-page">
                                 <input type="radio" class="radio" name="radiodocpres" id="radiodocPage" value="page">
-                                <label for="radiodocPage">Réponses sur feuille séparée</label><br></span>
+                                <label for="radiodocPage">Antworten auf eigenem Blatt</label><br></span>
                             <span class="docpres-choix" id="docpres-tableau">
                                 <input type="radio" class="radio" name="radiodocpres" id="radiodocTableau"
                                     value="tableau">
-                                <label for="radiodocTableau">Questions | réponses</label></span>
-                            <p class="minitext">Mise en page du document Writer.</p>
+                                <label for="radiodocTableau">Fragen | Antworten</label></span>
+                            <p class="minitext">Layout des Writer-Dokuments.</p>
                         </fieldset>
                         <br>
                         <fieldset id="docnumerotation">
-                            <legend>Numérotation</legend>
+                            <legend>Nummerierung</legend>
                             <input type="radio" class="radio" name="radiodocnum" id="radiodocNumerote" value="oui"
                                 checked>
-                                <label for="radiodocNumerote">Numéroté</label>
+                                <label for="radiodocNumerote">Nummeriert</label>
                             <input type="radio" class="radio" name="radiodocnum" id="radiodocSansNumero" value="non">
-                                <label for="radiodocSansNumero">Non numéroté</label>
+                                <label for="radiodocSansNumero">Ohne Nummern</label>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngeneratedoc">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-doc-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse du<br>document dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngeneratedoc">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-doc-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Dokument in<br>die Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-doc-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie le document<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-doc-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt das Dokument<br>im Verlauf ab</span>
                             </button>
                         </section>
                         <fieldset>
-                            <legend>Information</legend>
-                            <p>MathsMentales exporte les paniers au format <a href="https://fr.libreoffice.org/">LibreOffice</a> (version >= 24) : en document Writer sous forme de listes numérotées, ou en présentation Impress à raison d’une question par diapositive. Les formules restent modifiables, les tableaux et les illustrations sont inclus, et les <span class="red">couleurs</span> des corrigés sont conservées.</p>
-                            <p>Les formules sont affichées “bizarrement”. Le document généré comporte une macro pour les remettre d’aplomb. (Niveau moyen de <a href="https://help.libreoffice.org/latest/fr/text/shared/optionen/macrosecurity.html?&DbPAR=SHARED&System=WIN">sécurité des macros</a>)</p>
-                            <p>Quelques figures ne sont pas bien exportées, notamment celles avec le rapporteur.</p>
+                            <legend>Hinweise</legend>
+                            <p>MatheVomFranz exportiert die Körbe als <a href="https://de.libreoffice.org/">LibreOffice</a>-Datei (ab Version 24): als Writer-Dokument mit nummerierten Listen oder als Impress-Präsentation mit einer Frage pro Folie. Formeln bleiben bearbeitbar, Tabellen und Abbildungen werden übernommen, und die <span class="red">Farben</span> der Lösungen bleiben erhalten.</p>
+                            <p>Die Formeln sehen zunächst „seltsam“ aus. Das erzeugte Dokument enthält ein Makro, das sie wieder geraderückt. (Dazu die <a href="https://help.libreoffice.org/latest/de/text/shared/optionen/macrosecurity.html?&DbPAR=SHARED&System=WIN">Makrosicherheit</a> auf „Mittel“ stellen.)</p>
+                            <p>Einige Abbildungen werden nicht sauber exportiert, vor allem solche mit Geodreieck oder Winkelmesser.</p>
                         </fieldset>
                     </div>
                     <div id="paramsexos" class="hidden">
                         <fieldset>
-                            <legend>Titre de la fiche</legend>
-                            <input type="text" placeholder="Fiche d'exercices" id="extitle">
+                            <legend>Titel des Blatts</legend>
+                            <input type="text" placeholder="Übungsblatt" id="extitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Titre de chaque exercice</legend>
-                            <input type="text" placeholder="Exercice n°" id="exeachex">
+                            <legend>Überschrift jeder Aufgabe</legend>
+                            <input type="text" placeholder="Aufgabe" id="exeachex">
                         </fieldset>
                         <fieldset>
-                            <legend>Taille des caractères : <span id="exTxtSize" class="blue">10</span>pt</legend>
+                            <legend>Schriftgröße: <span id="exTxtSize" class="blue">10</span> pt</legend>
                             <input id="exTxtSizeValue" type="range" min="8" max="16" step="0.5" value="10"
                                 oninput="document.getElementById('exTxtSize').innerHTML=this.value;">
                         </fieldset>
                         <fieldset>
-                            <legend>Nombres d’exemplaires différents</legend>
+                            <legend>Anzahl verschiedener Versionen</legend>
                             <input id="exQtyValue" type="number" value="1">
                         </fieldset>
                         <fieldset>
-                            <legend>Corrigé</legend>
-                            <input type="radio" name="excorr" value="each" class="radio"> Après chaque exercice<br>
-                            <input type="radio" name="excorr" value="end" class="radio" checked> En fin de fiche <br>
-                            <input type="radio" name="excorr" value="sans" class="radio"> Sans corrigé
+                            <legend>Lösungen</legend>
+                            <input type="radio" name="excorr" value="each" class="radio"> Nach jeder Aufgabe<br>
+                            <input type="radio" name="excorr" value="end" class="radio" checked> Am Ende des Blatts<br>
+                            <input type="radio" name="excorr" value="sans" class="radio"> Ohne Lösungen
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngeneratesheet">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-ex-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse de<br>la fiche dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngeneratesheet">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-ex-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Blatt in<br>die Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-ex-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie la fiche<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-ex-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt das Blatt<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsinterro" class="hidden">
                         <fieldset>
-                            <legend>Titre de l’interro</legend>
-                            <input type="text" placeholder="Interrogation écrite" id="inttitle">
+                            <legend>Titel des Tests</legend>
+                            <input type="text" placeholder="Test" id="inttitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Titre de chaque exercice</legend>
-                            <input type="text" placeholder="Exercice n°" id="inteachex">
+                            <legend>Überschrift jeder Aufgabe</legend>
+                            <input type="text" placeholder="Aufgabe" id="inteachex">
                         </fieldset>
                         <fieldset>
-                            <legend>Taille des caractères : <span id="intTxtSize" class="blue">12</span>pt</legend>
+                            <legend>Schriftgröße: <span id="intTxtSize" class="blue">12</span> pt</legend>
                             <input id="intTxtSizeValue" type="range" min="8" max="16" step="0.5" value="12"
                                 oninput="document.getElementById('intTxtSize').innerHTML=this.value;">
                         </fieldset>
                         <fieldset>
-                            <legend>Nombres d’exemplaires différents</legend>
+                            <legend>Anzahl verschiedener Versionen</legend>
                             <input id="intQtyValue" type="number" value="1">
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateexams">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-exam-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse de<br>l’interro dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateexams">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-exam-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Test in<br>die
+                                    Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-exam-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie l’interro<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-exam-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt den Test<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsceinture" class="hidden">
                         <fieldset>
-                            <legend>Imprimer la clé</legend>
-                            <input type="checkbox" id="ceintprintToEnonce" value="1" class="switch"> Dans les
-                            énoncés<br>
-                            <input type="checkbox" id="ceintprintToCorrige" value="1" class="switch"> Dans les corrigés
+                            <legend>Startwert mitdrucken</legend>
+                            <input type="checkbox" id="ceintprintToEnonce" value="1" class="switch"> Bei den
+                            Aufgaben<br>
+                            <input type="checkbox" id="ceintprintToCorrige" value="1" class="switch"> Bei den Lösungen
                         </fieldset>
                         <fieldset>
-                            <legend>Titre de la ceinture</legend>
-                            <input type="text" placeholder="Ceinture blanche" id="ceinttitle">
+                            <legend>Titel des Gürtels</legend>
+                            <input type="text" placeholder="Weißer Gürtel" id="ceinttitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Nb de colonnes : <span id="ceintcols" class="blue">4</span></legend>
+                            <legend>Spalten: <span id="ceintcols" class="blue">4</span></legend>
                             <input id="ceintcolsval" type="range" min="1" max="5" step="1" value="4">
                         </fieldset>
                         <fieldset>
-                            <legend>Titres des colonnes</legend>
+                            <legend>Spaltenüberschriften</legend>
                             <div id="ceintcolumnTitle">
-                                <label for="ceinttitlecol1">Colonne 1 : </label><input type="text" id="ceinttitlecol1"
-                                    placeholder="Tables de multiplication"><br>
-                                <label for="ceinttitlecol2">Colonne 2 : </label><input type="text" id="ceinttitlecol2"
-                                    placeholder="Trouver le 3e angle"><br>
-                                <label for="ceinttitlecol3">Colonne 3 : </label><input type="text" id="ceinttitlecol3"
-                                    placeholder="Ecriture décimale de"><br>
-                                <label for="ceinttitlecol4">Colonne 4 : </label><input type="text" id="ceinttitlecol4"
-                                    placeholder="Somme de 3 termes">
+                                <label for="ceinttitlecol1">Spalte 1: </label><input type="text" id="ceinttitlecol1"
+                                    placeholder="Einmaleins"><br>
+                                <label for="ceinttitlecol2">Spalte 2: </label><input type="text" id="ceinttitlecol2"
+                                    placeholder="Dritten Winkel bestimmen"><br>
+                                <label for="ceinttitlecol3">Spalte 3: </label><input type="text" id="ceinttitlecol3"
+                                    placeholder="Dezimalschreibweise von"><br>
+                                <label for="ceinttitlecol4">Spalte 4: </label><input type="text" id="ceinttitlecol4"
+                                    placeholder="Summe aus 3 Zahlen">
                             </div>
                         </fieldset>
                         <fieldset>
-                            <legend>Nb de lignes : <span id="ceintrows" class="blue">5</span></legend>
+                            <legend>Zeilen: <span id="ceintrows" class="blue">5</span></legend>
                             <input id="ceintrowsval" type="range" min="1" max="10" step="1" value="5">
                         </fieldset>
                         <fieldset>
-                            <legend>Nb de sujets : <span id="ceintqty" class="blue">3</span></legend>
+                            <legend>Anzahl der Versionen: <span id="ceintqty" class="blue">3</span></legend>
                             <input id="ceintqtyvalue" type="range" min="1" max="30" step="1" value="3">
                         </fieldset>
                         <fieldset>
-                            <legend>Position corrigé</legend>
-                            <input type="radio" class="radio" name="ceintcorrpos" value="fin" checked> à part <input
-                                type="radio" class="radio" name="ceintcorrpos" value="apres"> après ceinture
+                            <legend>Lösungen</legend>
+                            <input type="radio" class="radio" name="ceintcorrpos" value="fin" checked> separat <input
+                                type="radio" class="radio" name="ceintcorrpos" value="apres"> nach jedem Gürtel
                         </fieldset>
                         <fieldset>
-                            <legend>Pied des colonnes</legend>
+                            <legend>Fußzeile der Spalten</legend>
                             <input type="text" id="ceintpiedcol" placeholder="😕 😀 😎" value="😕 😀 😎"
-                                title="Laisser vide si vous ne voulez pas de pied">
+                                title="Leer lassen, wenn Sie keine Fußzeile möchten">
                         </fieldset>
                         <fieldset>
-                            <legend>Orientation page</legend>
-                            <input type="radio" class="radio" name="ceintorientation" value="portrait" checked> portrait
-                            <input type="radio" class="radio" name="ceintorientation" value="landscape"> paysage
+                            <legend>Seitenformat</legend>
+                            <input type="radio" class="radio" name="ceintorientation" value="portrait" checked> Hochformat
+                            <input type="radio" class="radio" name="ceintorientation" value="landscape"> Querformat
                         </fieldset>
                         <fieldset>
-                            <legend>Paramètres supplémentaires</legend>
-                            <input type="text" id="ceintureplus" placeholder="laisser vide">
+                            <legend>Weitere Einstellungen</legend>
+                            <input type="text" id="ceintureplus" placeholder="leer lassen">
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateceinture">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-ceinture-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse de<br>l’activité dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateceinture">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-ceinture-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zur Aufgabe in<br>die
+                                    Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-ceinture-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie la course<br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Gürtel<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramscourse" class="hidden">
                         <fieldset>
-                            <legend>Titre de la course</legend>
-                            <input type="text" placeholder="Course aux nombres" id="cantitle">
+                            <legend>Titel des Rennens</legend>
+                            <input type="text" placeholder="Zahlenrennen" id="cantitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Titres des colonnes</legend>
-                            <input type="text" placeholder="Énoncé" id="cancol1title"><br>
-                            <input type="text" placeholder="Réponse" id="cancol2title"><br>
-                            <input type="text" placeholder="Jury" id="cancol3title"><br>
+                            <legend>Spaltenüberschriften</legend>
+                            <input type="text" placeholder="Aufgabe" id="cancol1title"><br>
+                            <input type="text" placeholder="Antwort" id="cancol2title"><br>
+                            <input type="text" placeholder="Bewertung" id="cancol3title"><br>
                         </fieldset>
                         <fieldset>
-                            <legend>Temps de la course</legend>
+                            <legend>Dauer des Rennens</legend>
                             <input type="text" placeholder="7" id="cantime" size="3"> min
                         </fieldset>
                         <fieldset>
-                            <legend>Nb de sujets : <span id="canqty" class="blue">3</span></legend>
+                            <legend>Anzahl der Versionen: <span id="canqty" class="blue">3</span></legend>
                             <input id="canqtyvalue" type="range" min="1" max="30" step="1" value="3">
                         </fieldset>
                         <fieldset>
-                            <legend>Position corrigé</legend>
-                            <input type="radio" class="radio" name="cancorrpos" value="end" checked> à part<br>
-                            <input type="radio" class="radio" name="cancorrpos" value="each"> après chaque fiche<br>
-                            <input type="radio" class="radio" name="cancorrpos" value="none"> sans
+                            <legend>Lösungen</legend>
+                            <input type="radio" class="radio" name="cancorrpos" value="end" checked> separat<br>
+                            <input type="radio" class="radio" name="cancorrpos" value="each"> nach jedem Blatt<br>
+                            <input type="radio" class="radio" name="cancorrpos" value="none"> ohne
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateCAN">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-can-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse de<br>la course dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateCAN">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-can-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Rennen in<br>die
+                                    Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-can-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie la course<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-can-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt das Rennen<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsflashcards" class="hidden">
                         <fieldset>
-                            <legend>Titre de la page</legend>
-                            <input type="text" placeholder="Je retiens les..." id="FCtitle">
+                            <legend>Seitentitel</legend>
+                            <input type="text" placeholder="Das merke ich mir …" id="FCtitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Disposition</legend>
+                            <legend>Anordnung</legend>
                             <input type="radio" class="radio" name="flashcarddispo" id="fcdispoboth" value="both"
-                                checked><label for="fcdispoboth">Recto à côté du verso</label><br>
+                                checked><label for="fcdispoboth">Vorder- neben Rückseite</label><br>
                             <input type="radio" class="radio" name="flashcarddispo" id="fcdisposeparated"
-                                value="separated"><label for="fcdisposeparated">Page rectos/page
-                                versos</label><br><br>
-                            <p>Réglages à faire pour l’impression...</p>
+                                value="separated"><label for="fcdisposeparated">Eine Seite Vorderseiten, eine
+                                Seite Rückseiten</label><br><br>
+                            <p>Beim Drucken auf die passenden Einstellungen achten.</p>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateFC">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-flash-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse du<br>document dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateFC">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-flash-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Dokument in<br>die Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-flash-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie l’adresse du document<br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsfichememo" class="hidden">
                         <fieldset>
-                            <legend>Info</legend>
-                            <p>Fiche adaptée aux questions de leçon.<br><u>Modèle 1 :</u> plier la partie droite sur elle-même pour cacher les réponses en ne laissant apparaitre que les questions.<br><u>Modèle 2 :</u> plier les deux bords extérieurs pour ne laisser apparaitre que les numéros et replier.<br>Coller dans le cahier.</p>
+                            <legend>Hinweis</legend>
+                            <p>Geeignet für Lernfragen zum Unterrichtsstoff.<br><u>Modell 1:</u> den rechten Teil umknicken, sodass die Antworten verdeckt sind und nur die Fragen sichtbar bleiben.<br><u>Modell 2:</u> beide Außenränder einklappen, sodass nur die Nummern sichtbar bleiben, dann noch einmal falten.<br>Ins Heft kleben.</p>
                         </fieldset>
                         <fieldset>
-                            <legend>Titre de la fiche</legend>
-                            <input type="text" placeholder="Fiche Mémorisation n°..." id="FMtitle">
+                            <legend>Titel des Blatts</legend>
+                            <input type="text" placeholder="Merkblatt Nr. …" id="FMtitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Disposition</legend>
+                            <legend>Anordnung</legend>
                             <input type="radio" class="radio" name="fichememodispo" id="fmdispomod1" value="mod1"
-                                checked><label for="fmdispomod1">Modèle 1 : Recto simple</label><br>
+                                checked><label for="fmdispomod1">Modell 1: einseitig</label><br>
                             <input type="radio" class="radio" name="fichememodispo" id="fmdispomod2"
-                                value="mod2"><label for="fmdispomod2">Modèle 2 : Paysage recto-verso</label><br><br>
+                                value="mod2"><label for="fmdispomod2">Modell 2: Querformat, beidseitig</label><br><br>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateFM">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-memo-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse du<br>document dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateFM">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-memo-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Dokument in<br>die Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-memo-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie l’adresse du document<br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramswall" class="hidden">
                         <fieldset>
-                            <legend>Titre de la page</legend>
-                            <input type="text" placeholder="Panneau d'activités" id="walltitle">
+                            <legend>Seitentitel</legend>
+                            <input type="text" placeholder="Aufgabenwand" id="walltitle">
                         </fieldset>
                         <fieldset>
-                            <legend>Info</legend>
-                            Si vous créez deux paniers, vous aurez un mur avec une partie gauche (panier 1) et une partie droite (panier 2)
+                            <legend>Hinweis</legend>
+                            Wenn Sie zwei Körbe anlegen, hat die Wand eine linke Hälfte (Korb 1) und eine rechte Hälfte (Korb 2).
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateWall">Ouvrir</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-wall-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse du<br>document dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateWall">Öffnen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-wall-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Dokument in<br>die Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-wall-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie l’adresse du document<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-wall-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramspixelart" class="hidden">
                         <fieldset>
-                            <legend>Info</legend>
-                            Ouvre l'appli PixelArt avec les questions et réponses du premier panier.
+                            <legend>Hinweis</legend>
+                            Öffnet die Pixel-Art-App mit den Fragen und Antworten des ersten Korbs.
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngeneratePixelArt">Ouvrir</button>
-                            <button class="button--success tooltip beaubutton" id="btn-pixelart-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie l’adresse du document<br>dans l’historique</span>
+                            <button class="button--primary beaubutton" id="btngeneratePixelArt">Öffnen</button>
+                            <button class="button--success tooltip beaubutton" id="btn-pixelart-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramswhogots" class="hidden">
                         <fieldset>
-                            <legend>Affirmation</legend>
-                            <input type="text" placeholder="J’ai ..." id="WGaffirmation">
+                            <legend>Aussage</legend>
+                            <input type="text" placeholder="Ich hab …" id="WGaffirmation">
                         </fieldset>
                         <fieldset>
-                            <legend>Question</legend>
-                            <input type="text" placeholder="Qui a ... ?" id="WGquestion">
+                            <legend>Frage</legend>
+                            <input type="text" placeholder="Wer hat …?" id="WGquestion">
                         </fieldset>
                         <fieldset>
-                            <legend>Nombre de cartes : <span id="cardsNb" class="blue">30</span> (si 1 seule activité)
+                            <legend>Anzahl der Karten: <span id="cardsNb" class="blue">30</span> (bei nur einer Aufgabe)
                             </legend>
                             <input id="cardsNbValue" type="range" min="2" max="100" step="1" value="30">
                         </fieldset>
                         <fieldset>
-                            <legend>Doublons autorisés</legend>
+                            <legend>Doppelte erlaubt</legend>
                             <input type="checkbox" id="WGDoublons" value="1" class="switch"
-                                title="Autorise la présence de réponses doubles dans les cartes" checked> <span
-                                id="WGDoublonsText">Oui</span>
+                                title="Erlaubt doppelte Antworten auf den Karten" checked> <span
+                                id="WGDoublonsText">Ja</span>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateWG">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-wg-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse <br>du J’ai/qui a ? dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateWG">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-wg-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zu „Ich hab – wer hat?“<br>in die
+                                    Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-wg-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie la référence <br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-wg-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsdominos" class="hidden">
                         <fieldset>
-                            <legend>Nombre de dominos : <span id="dominosNb" class="blue">28</span> (si 1 seule
-                                activité)</legend>
+                            <legend>Anzahl der Dominos: <span id="dominosNb" class="blue">28</span> (bei nur einer
+                                Aufgabe)</legend>
                             <input id="dominosNbValue" type="range" min="2" max="100" step="1" value="28">
                         </fieldset>
                         <fieldset>
-                            <legend>Doublons autorisés</legend>
+                            <legend>Doppelte erlaubt</legend>
                             <input type="checkbox" id="dominosDoublons" value="1" class="switch"
-                                title="Autorise la présence de réponses doubles dans les dominos" checked> <span
-                                id="dominosDoublonsText">Oui</span>
+                                title="Erlaubt doppelte Antworten auf den Dominos" checked> <span
+                                id="dominosDoublonsText">Ja</span>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateDominos">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-dominos-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse <br>des dominos dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateDominos">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-dominos-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zu den Dominos in<br>die
+                                    Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-dominos-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie la référence <br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsassocs" class="hidden">
                         <fieldset>
-                            <legend>Chronomètre</legend>
+                            <legend>Timer</legend>
                             <input type="checkbox" id="assocsChronoYes" value="1" class="switch"
-                                title="Utiliser un compte à rebours"><label for="assocsChronoYes"> Chrono</label>
+                                title="Mit Countdown spielen"><label for="assocsChronoYes"> Timer</label>
                             <input type="number" id="assocTime" min="10" max="300" value="0" size="4" disabled> s
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngenerateAssoc">Ouvrir</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-assoc-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse <br>de l’activité dans<br>le presse
-                                    papier</span>
+                            <button class="button--primary beaubutton" id="btngenerateAssoc">Öffnen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-assoc-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zur Aufgabe in<br>die
+                                    Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-assoc-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie la référence <br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramspuzzle" class="hidden">
                         <fieldset>
-                            <legend>Explications</legend>
-                            <p>Choisissez une ou plusieurs activités dans le premier panier et cliquez sur générer.</p>
-                            <p>S’il n’y a pas assez de données, l’outil s’adaptera selon le ratio des choix effectués.
-                            </p>
-                            <p>Ce type d’outil est lisible avec les énoncés courts et n’affichera pas les figures.</p>
+                            <legend>Hinweise</legend>
+                            <p>Eine oder mehrere Aufgaben in den ersten Korb legen und auf „Erzeugen“ klicken.</p>
+                            <p>Reichen die Fragen nicht aus, verteilt das Werkzeug sie im Verhältnis der gewählten
+                                Aufgaben.</p>
+                            <p>Puzzles eignen sich für kurze Aufgabentexte; Abbildungen werden nicht angezeigt.</p>
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary beaubutton" id="btngeneratePuzzle">Générer</button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-puzzle-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse <br>du puzzle dans<br>le presse papier</span>
+                            <button class="button--primary beaubutton" id="btngeneratePuzzle">Erzeugen</button>
+                            <button class="button--inverse tooltip beaubutton" id="btn-puzzle-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Puzzle in<br>die Zwischenablage</span>
                             </button>
                             <button class="button--success tooltip beaubutton" id="btn-puzzle-copytohistoric">→
-                                Historique
-                                <span class="tooltiptext">Copie la référence<br>dans l’historique</span>
+                                Verlauf
+                                <span class="tooltiptext">Legt den Link<br>im Verlauf ab</span>
                             </button>
                         </section>
                     </div>
                     <div id="paramsduel" class="hidden">
                         <fieldset class="lh2">
-                            <legend>Thème</legend>
+                            <legend>Hintergrund</legend>
                             <select name="duelbackground" id="duelbackgroundselect">
                                 <option value="vs" selected>VS</option>
-                                <option value="space">Espace</option>
-                                <option value="foret">Forêt</option>
-                                <option value="marais">Marais</option>
-                                <option value="hangar">Hangar</option>
+                                <option value="space">Weltraum</option>
+                                <option value="foret">Wald</option>
+                                <option value="marais">Sumpf</option>
+                                <option value="hangar">Halle</option>
                                 <option value="saloon">Saloon</option>
-                                <option value="desert">Désert</option>
-                                <option value="nightdesert">Désert la nuit</option>
+                                <option value="desert">Wüste</option>
+                                <option value="nightdesert">Wüste bei Nacht</option>
                             </select><br><br>
                             <div id="duelbg"></div>
                         </fieldset>
                         <fieldset class="lh3">
-                            <legend>Type de duel</legend>
+                            <legend>Duell-Modus</legend>
                             <input type="radio" class="radio" name="dueltype" value="tochoose"
-                                title="Au choix des joueurs" checked> Au choix
-                            <input type="radio" class="radio" name="dueltype" value="normal" title="Meilleur score">
-                            Normal
+                                title="Die Spieler wählen selbst" checked> Freie Wahl
+                            <input type="radio" class="radio" name="dueltype" value="normal" title="Die meisten Punkte gewinnen">
+                            Bestwert
                             <input type="radio" class="radio" name="dueltype" value="mortal"
-                                title="Le premier qui échoue perd"> À mort
+                                title="Wer zuerst falsch antwortet, verliert"> Wer übrig bleibt
                             <input type="radio" class="radio" name="dueltype" value="roulette"
-                                title="Chacun son tour, le premier qui échoue"> Roulette <br>
+                                title="Abwechselnd antworten – wer zuerst falsch antwortet, verliert"> Roulette <br>
                             <input type="radio" class="radio" name="dueltype" value="thefaster"
-                                title="Le plus rapide gagne le point"> Lucky Luke
+                                title="Wer am schnellsten richtig antwortet, bekommt den Punkt"> Wer schneller ist
                             <input type="radio" class="radio" name="dueltype" value="coop"
-                                title="Réponses alternées, donner le plus de bonnes réponses"> Coopératif
+                                title="Abwechselnd antworten, gemeinsam möglichst viele richtige Antworten geben"> Gemeinsam
                         </fieldset>
                         <fieldset class="lh3">
-                            <legend>Durée</legend>
-                            <input type="radio" class="radio" name="dueltemps" value="panier" checked> Durée définie par
-                            le panier<br>
-                            <input type="radio" class="radio" name="dueltemps" value="limit"> Durée donnée<br>
+                            <legend>Dauer</legend>
+                            <input type="radio" class="radio" name="dueltemps" value="panier" checked> Dauer laut
+                            Korb<br>
+                            <input type="radio" class="radio" name="dueltemps" value="limit"> Feste Dauer<br>
                             <input type="time" id="dueltotaltime" value="03:00">
                         </fieldset>
                         <section data-actions-legacy>
-                            <button class="button--primary tooltip beaubutton" id="btn-duel-start">C’est parti !
-                                <span class="tooltiptext">Démarre le diaporama</span>
+                            <button class="button--primary tooltip beaubutton" id="btn-duel-start">Los geht’s!
+                                <span class="tooltiptext">Startet das Duell</span>
                             </button>
-                            <button class="button--inverse tooltip beaubutton" id="btn-duel-adresse">Adresse/QRCode
-                                <span class="tooltiptext">Copie l’adresse <br>du duel dans<br>le presse papier</span>
+                            <button class="button--inverse tooltip beaubutton" id="btn-duel-adresse">Link/QR-Code
+                                <span class="tooltiptext">Kopiert den Link<br>zum Duell in<br>die Zwischenablage</span>
                             </button>
-                            <button class="button--success tooltip beaubutton" id="btn-duel-copytohistoric">→ Historique
-                                <span class="tooltiptext">Copie le duel<br>dans l’historique</span>
+                            <button class="button--success tooltip beaubutton" id="btn-duel-copytohistoric">→ Verlauf
+                                <span class="tooltiptext">Legt das Duell<br>im Verlauf ab</span>
                             </button>
                         </section>
 
                     </div>
-                    <div id="barre-actions" role="group" aria-label="Actions du type d'usage sélectionné">
-                        <span class="barre-actions-type" id="barre-actions-type">Diaporama</span>
+                    <div id="barre-actions" role="group" aria-label="Aktionen für das gewählte Format">
+                        <span class="barre-actions-type" id="barre-actions-type">Diashow</span>
                         <button type="button" class="button--primary beaubutton" id="barre-action-principale"
-                            title="Produire le document ou ouvrir l'activité">Lancer</button>
+                            title="Dokument erzeugen oder Aufgabe öffnen">Starten</button>
                         <button type="button" class="button--inverse beaubutton" id="barre-action-adresse"
-                            title="Obtenir l'adresse et le QRCode">Adresse/QRCode</button>
+                            title="Link und QR-Code anzeigen">Link/QR-Code</button>
                         <button type="button" class="button--success beaubutton" id="barre-action-historique"
-                            title="Ranger cette adresse dans l'historique">→ Historique</button>
+                            title="Diesen Link im Verlauf ablegen">→ Verlauf</button>
                     </div>
                 </div>
                 <div class="row-4 colsx2" id="divparams">
-                    <button id="btn-annotation2" title="Annoter l'énoncé">
+                    <button id="btn-annotation2" title="Auf der Aufgabe zeichnen">
                         <i class="sprite sprite-iconfinder_pencil_1055013"></i>
                     </button>
-                    <button id="btn-shuffle" title="Changer les exemples">
+                    <button id="btn-shuffle" title="Andere Beispiele">
                         <i class="sprite sprite-iconfinder_dice_48px"></i>
                     </button>
-                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Questions types</h2>
+                    <h2 class="titre-colonne"><i class="icon-arrow--right"></i>Beispielfragen</h2>
                     <div id="activityConsigne"></div>
                     <div id="activityOptions"></div>
                 </div>
@@ -1049,37 +1055,37 @@
             <section id="tab-enonce" class="tabs-content-item" role="tabpanel" aria-labelledby="tabbtn-enonce"
                 style="display: none;">
                 <aside>
-                    <button id="btn-annotation-enonce" title="Annoter">
+                    <button id="btn-annotation-enonce" title="Auf den Aufgaben zeichnen">
                         <i class="sprite sprite-iconfinder_pencil_1055013"></i>
                     </button>
-                    <button id="btn-export-enonce-pixelart" title="Ouvrir l'appli PixelArt avec les paramètres du premier panier">
+                    <button id="btn-export-enonce-pixelart" title="Pixel-Art-App mit dem ersten Korb öffnen">
                         <i class="sprite sprite-pixelart"></i>
                     </button>
                 </aside>
-                <div>Clé de données : <input type="text" id="aleaKeyenonces" size="6">
+                <div>Startwert: <input type="text" id="aleaKeyenonces" size="6">
                 <i class="pointer sprite sprite-iconfinder_dice_32px" id="btn-params-aleakey-enonces"></i>
-                <button class="button--success tooltip beaubutton btntohistoric">→ Historique
-                    <span class="tooltiptext">Copie la sélection<br>dans l’historique</span>
+                <button class="button--success tooltip beaubutton btntohistoric">→ Verlauf
+                    <span class="tooltiptext">Legt die Auswahl<br>im Verlauf ab</span>
                 </button></div>
                 <div id="enonce-content" class="grid"></div>
             </section>
             <section id="tab-corrige" class="tabs-content-item" role="tabpanel" aria-labelledby="tabbtn-corrige"
                 style="display: none;">
                 <aside>
-                    <button id="btn-annotation-corrige" title="Annoter le corrigé">
+                    <button id="btn-annotation-corrige" title="Auf den Lösungen zeichnen">
                         <i class="sprite sprite-iconfinder_pencil_1055013"></i>
                     </button>
-                    <button id="btn-restart-otherdata" title="Recommencer avec de nouvelles données">
+                    <button id="btn-restart-otherdata" title="Neu starten mit neuen Zufallswerten">
                         <i class="sprite sprite-restart"></i>
                     </button>
-                    <button id="btn-restart-samedata" title="Recommencer avec les mêmes données">
+                    <button id="btn-restart-samedata" title="Neu starten mit denselben Werten">
                         <i class="sprite sprite-restartsame"></i>
                     </button>
                 </aside>
-                <div>Clé de données : <input type="text" id="aleaKeycorriges" size="6">
+                <div>Startwert: <input type="text" id="aleaKeycorriges" size="6">
                 <i class="pointer sprite sprite-iconfinder_dice_32px" id="btn-params-aleakey-corriges"></i>
-                <button class="button--success tooltip beaubutton btntohistoric">→ Historique
-                    <span class="tooltiptext">Copie la sélection<br>dans l’historique</span>
+                <button class="button--success tooltip beaubutton btntohistoric">→ Verlauf
+                    <span class="tooltiptext">Legt die Auswahl<br>im Verlauf ab</span>
                 </button></div>
                 <div id="corrige-content" class="grid"></div>
             </section>
@@ -1089,40 +1095,46 @@
             </section>
             <section id="tab-telechargements" class="tabs-content-item" role="tabpanel"
                 aria-labelledby="tabbtn-telechargements" style="display: none;">
-                <!-- MatheVomFranz : contenu provisoire, remplacé lors de la traduction (étape 2). -->
-                <p>MatheVomFranz est gratuit et placé sous licence libre Apache 2.0.</p>
-                <h2 class="sg-title">Code source</h2>
-                <p>MatheVomFranz est une adaptation allemande de MathsMentales de Sébastien Cogez. Le code source de
-                    MathsMentales est disponible sur la forge du développeur :
-                    <a
-                        href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr">https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr</a>
-                </p>
+                <!-- MatheVomFranz : Platzhalter, die Materialien folgen später. -->
+                <p>Hier entsteht eine Sammlung von Materialien rund um MatheVomFranz. Bis dahin gilt:
+                    MatheVomFranz ist kostenlos und freie Software unter der Apache-Lizenz 2.0.</p>
+                <h2 class="sg-title">Quellcode</h2>
+                <p>MatheVomFranz ist eine deutsche Bearbeitung von MathsMentales von Sébastien Cogez und
+                    Mitwirkenden.</p>
+                <ul>
+                    <li>Quellcode von MatheVomFranz:
+                        <a href="https://github.com/LordHolzkopf/MatheVomFranz">https://github.com/LordHolzkopf/MatheVomFranz</a>
+                    </li>
+                    <li>Quellcode des Originals MathsMentales:
+                        <a
+                            href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr">https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr</a>
+                    </li>
+                </ul>
             </section>
             <section id="tab-chercher" class="tabs-content-item" role="tabpanel" aria-labelledby="tabbtn-chercher"
                 style="display: none;">
                 <div class="flex-container">
                     <div>
-                        <input type="text" placeholder="Mots clés (au moins 3 car.)" id="searchinput"> <button
-                            id="btn-addToCart" title="Ajouter la sélection au panier">Au panier</button> <input
+                        <input type="text" placeholder="Suchbegriffe (mind. 3 Zeichen)" id="searchinput"> <button
+                            id="btn-addToCart" title="Auswahl in den Korb legen">In den Korb</button> <input
                             type="number" id="addToCartNbq" min="1" max="20" value="2" size="3"
-                            title="Nombre de questions par activité de la sélection">
+                            title="Anzahl der Fragen je ausgewählter Aufgabe">
                     </div>
                     <div id="searchLevels" class="flex-container"></div>
-                    <div class="info">📣 avec version audio / 📃 automatisme au BO</div>
+                    <div class="info">📣 mit Vorlesefunktion</div>
                 </div>
                 <div id="resultat-chercher">
-                    Dans cet onglet s'affiche le résultat d'une recherche d'activités : soit un niveau complet, soit un début de mot clé.
+                    Hier erscheinen die Suchergebnisse: entweder alle Aufgaben einer Klassenstufe oder die Treffer zu einem Suchbegriff.
                 </div>
             </section>
         </main>
         <div id="figurescontainer"></div>
         <div class="tabs" id="footer-menu">
-            <a href="./mentions-legales.html">Mentions légales</a>
-            <a href="./cgu.html">CGU</a>
-            <a href="https://blog.mathsmentales.net">Blog<span class="red">*</span></a>
-            <a href="./liste-des-exercices.html">Liste des exercices</a>
-            <a href="about.html">À propos</a>
-            <a href="https://forge.apps.education.fr">LaForgeEdu</a>
+            <a href="./impressum.html">Impressum</a>
+            <a href="./datenschutz.html">Datenschutz</a>
+            <a href="./liste-des-exercices.html">Aufgabenliste</a>
+            <a href="about.html">Über</a>
+            <a href="https://github.com/LordHolzkopf/MatheVomFranz">Quellcode</a>
         </div>
         <div id="loading" class="hidden">
             <div class="particles">
@@ -1149,14 +1161,14 @@
             <div class="dot"></div>
         </div>
 
-        <div class="loading-text">Génération</div>
+        <div class="loading-text">Wird erzeugt</div>
     </div>
         </div>
         <div class="toast" id="toast">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span id="toastText">URL copiée dans l'historique</span>
+            <span id="toastText">Link im Verlauf abgelegt</span>
         </div>
     </div>
 </body>

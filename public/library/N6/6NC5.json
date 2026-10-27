@@ -4,7 +4,7 @@
     "type":"text",
     "speech":1,
     "ID":"6NC5",
-    "dest":["6NC"],
+    "dest":["6BA", "5AA"],
     "consts":{
         "u":["millions","milliers","centaines","dizaines","dixièmes","centièmes","millièmes"],
         "p":[1000000,1000,100,10,0.1,0.01,0.001]

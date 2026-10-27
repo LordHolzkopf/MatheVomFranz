@@ -1,9 +1,7 @@
 title: 'Leçon : Statistiques'
 type: text
 description: "10 questions sur le vocabulaire et les formules de Statistiques : effectif, fréquence, moyenne, médiane, étendue, diagrammes. Non adapté au mode interactif (online/duel)."
-dest:
-  - 5LD
-  - 4LD
+dest: [6FA, 6FC, 6FB]
 options:
   - name: Vocabulaire
     question:

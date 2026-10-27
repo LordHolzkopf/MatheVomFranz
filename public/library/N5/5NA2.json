@@ -5,7 +5,7 @@
     "textSize":"medium",
     "keys":["/"],
     "description":"Donner l'opposé d'un nombre, positif, ou négatif. Mode online : pour les fractions, laisser les numérateurs et dénominateurs positifs et mettre le moins devant la fraction négative.",
-    "dest":["5NA", "4NA", "3NA"],
+    "dest":["7AA", "6GD"],
     "options":[{
         "name":"Opposé d'un entier",
         "vars":{"a":"-100_100", "opp":"${-:a}"}

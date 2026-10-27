@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"6ND24",
     "description":"Trouver le terme ou le facteur suivant",
-    "dest":["6ND", "5NC", "4NC", "3NB"],
+    "dest":["6GA"],
     "options":[{
         "name":"Suite additive",
         "vars":{"r":"2_12","u0":"0_50"},

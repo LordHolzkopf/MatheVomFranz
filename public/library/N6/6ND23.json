@@ -4,7 +4,7 @@
     "ID":"6ND23",
     "textSize":"medium",
     "description":"Traduire une opération par une phrase : somme, différence, produit, quotient, vocabulaire des opérations. Non adapté au mode interactif (online/duel).",
-    "dest":["6ND","5NC","4NC","3NB"],
+    "dest":["5AD"],
     "options":[
         {
             "name":"Simple nom de l'opération",

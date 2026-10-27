@@ -2,7 +2,7 @@
     "title":"Carrés de relatifs",
     "description":"relatifs, carré, règle des signes, négatifs",
     "ID":"5NC4",
-    "dest":["5NC","4NC","3NB"],
+    "dest":["7AC", "5CC"],
     "consigne":"Calculer.",
     "params":{
         "n0":{"groupe":"Ne pas tirer","label":"0","defaut":false,"exclut":{"a":"0","n":"0"}},

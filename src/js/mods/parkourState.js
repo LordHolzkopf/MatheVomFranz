@@ -60,7 +60,7 @@ export default class ParkourState {
 
   getStatus(etapeId) {
     const record = this.etapes[etapeId];
-    if (!record) throw new Error("étape inconnue: " + etapeId);
+    if (!record) throw new Error("unbekannte Etappe: " + etapeId);
     const now = this.now();
     if (record.passedAt !== null) return STATUS.PASSED;
     if (record.lockedUntil !== null && now < record.lockedUntil) {
@@ -98,11 +98,11 @@ export default class ParkourState {
 
   recordAttempt(etapeId, { correctCount, tempsReel, tempsPrevu }) {
     const record = this.etapes[etapeId];
-    if (!record) throw new Error("étape inconnue: " + etapeId);
+    if (!record) throw new Error("unbekannte Etappe: " + etapeId);
     const now = this.now();
     if (record.lockedUntil !== null) {
       if (now < record.lockedUntil) {
-        throw new Error("étape verrouillée jusqu'à " + record.lockedUntil);
+        throw new Error("Etappe gesperrt bis " + record.lockedUntil);
       }
       record.lockedUntil = null;
       record.attemptsInWindow = 0;
@@ -160,17 +160,17 @@ export default class ParkourState {
     try {
       payload = JSON.parse(decodeURIComponent(escape(atob(code))));
     } catch {
-      throw new Error("code de sauvegarde invalide");
+      throw new Error("ungültiger Speichercode");
     }
     if (!payload || payload.parcoursId !== this.parcoursDef.id) {
-      throw new Error("ce code vient d'un autre parcours");
+      throw new Error("dieser Code gehört zu einem anderen Parkour");
     }
     const requiredKeys = ["passedAt", "attemptsInWindow", "lockedUntil", "bestScore"];
     for (const etape of this.parcoursDef.etapes) {
       const incoming = payload.etapes && payload.etapes[etape.id];
       if (!incoming) continue;
       if (!requiredKeys.every((k) => k in incoming)) {
-        throw new Error("code de sauvegarde invalide");
+        throw new Error("ungültiger Speichercode");
       }
       this.etapes[etape.id] = {
         passedAt: incoming.passedAt,

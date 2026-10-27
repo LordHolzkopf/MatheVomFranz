@@ -2,7 +2,7 @@
     "title":"Calculer une 4e proportionnelle (calculatrice)",
     "ID":"4DC1",
     "description":"quatrième proportionnelle, produit en croix, règle de trois, tableau, proportionnalité",
-    "dest":["4DC", "3DC"],
+    "dest":["7BD", "7BB"],
     "type":"text",
     "vars":{"a":"1_50_2_^&", "b":"d0.2_3_1_^1"},
     "options":[{

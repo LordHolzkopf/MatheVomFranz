@@ -1,5 +1,6 @@
 import { utils, _ } from "./utils.js";
 import scratchblocks from "../libs/scratchblocks/scratchblocks.min.es.js";
+import scratchblocksDe from "../libs/scratchblocks/de.js";
 import {
   Chart,
   downloadSVG,
@@ -9,7 +10,11 @@ import {
 import MMmath from "./math.js";
 import JXG from "../libs/JSXGraph1.11.1/jsxgraphcore.esm.js";
 
+// Deutsch : langue d'affichage des blocs.
+// Français : reste chargé pour lire les scripts des activités encore écrits
+// en français ; ils sont traduits en allemand avant le rendu.
 scratchblocks.loadLanguages({
+  de: scratchblocksDe,
   fr: {
     commands: {
       MOTION_MOVESTEPS: "avancer de %1 pas",
@@ -909,7 +914,7 @@ export default class Figure {
             } catch (e) {
               // on arrête si la formule est invalide
               console.error(
-                "Erreur de création de fonction depuis la formule :",
+                "Fehler beim Erzeugen der Funktion aus der Formel:",
                 e,
               );
               return;
@@ -1225,11 +1230,17 @@ export default class Figure {
       const code = this.content.join("\n");
       const doc = scratchblocks.parse(code, {
         style: "scratch3",
-        languages: ["fr"],
+        languages: ["de", "fr"],
       });
+      try {
+        // blocs reconnus (allemand ou français) affichés en allemand
+        doc.translate(scratchblocks.allLanguages.de);
+      } catch (error) {
+        utils.debug("Figure scratch", error);
+      }
       const svg = scratchblocks.render(doc, {
         style: "scratch3",
-        languages: ["fr"],
+        languages: ["de", "fr"],
       });
       // calcul de la largeur et de la hauteur de l'image à partir des données du viewbox
       const width = Number(svg.getAttribute("viewBox").split(" ")[2]);

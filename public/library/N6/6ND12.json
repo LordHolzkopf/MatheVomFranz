@@ -2,7 +2,7 @@
     "title":"Calculs avec parenthèses",
     "description":"parenthèses, priorités opératoires, enchaînement, expression numérique",
     "ID":"6ND12",
-    "dest":["6ND", "5NC"],
+    "dest":["5CA"],
     "options":[{
         "name":"Produit par une somme",
         "vars":{"a":"1_10", "b":"2_12", "c":"1_${13-:b}"},

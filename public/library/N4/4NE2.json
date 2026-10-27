@@ -2,7 +2,7 @@
     "title":"Réduire une expression du premier degré",
     "description":"réduire, simplifier, calcul littéral, termes semblables, degré 1",
     "ID":"4NE2",
-    "dest":["4NE","3ND","2N3"],
+    "dest":["7DB"],
     "keys":["+","-","a","b","c","x","y","z"],
     "valueType":"expressionSimplifiee",
     "consts":{"lettres":["a","b","c","x","y","z"]},

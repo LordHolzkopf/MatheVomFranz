@@ -1,5 +1,5 @@
-import activity from './mods/activity.js'
-import MM from './mods/MM.js'
+// MatheVomFranz : la classe dérivée de MM.js porte la méthode display()
+import MM, { Activity as activity } from './mods/MM.js'
 import utils from './mods/utils.js'
 import library from './mods/library.js'
 
@@ -52,12 +52,12 @@ const options = {
     }
 }
 let initialJson = {
-    "title":"Titre de l’activité",
+    "title":"Titel der Aufgabe",
     "type":"latex",
     "dest":["chap1","chap2"],
     "options":[
         {
-            "name":"Multiplications",
+            "name":"Multiplikationen",
             "vars":{
                 "a":"2_10",
                 "b":"2_10"
@@ -65,7 +65,7 @@ let initialJson = {
             "question":"${:a}\\times${:b}",
             "answer":":question=\\color{red}{${:a*:b}}"
         },{
-            "name":"Divisions",
+            "name":"Divisionen",
             "vars":{
                 "a":"2_10",
                 "b":"2_10"
@@ -126,7 +126,7 @@ document.getElementById('actIDImport').oninput = async (evt) => {
             act.display('sample',MM)
         }
         catch (err) {
-            document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+            document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
         }
     }
 }
@@ -140,7 +140,7 @@ document.getElementById('randomBtn').onclick = async()=>{
     MM.editedActivity = act
     act.display('sample',MM)
     } catch (err){
-            document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+            document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
     }
 }
 document.getElementById('openFileInput').onchange = (event) => {
@@ -158,7 +158,7 @@ document.getElementById('openFileInput').onchange = (event) => {
                 MM.editedActivity = act
                 act.display('sample',MM)
             }catch(err){
-                document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+                document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
             }
         } catch (error) {
             utils.debug("Error parsing JSON: ", error);
@@ -172,6 +172,6 @@ setTimeout(()=>{
         MM.editedActivity = act
         act.display('sample',MM)
     } catch (err){
-        document.getElementById('activityTitle').innerHTML = "<span class='red'>Erreur dans le code</span>"+err
+        document.getElementById('activityTitle').innerHTML = "<span class='red'>Fehler im Code: </span>"+err
     }
 },1000)

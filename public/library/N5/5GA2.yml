@@ -3,11 +3,7 @@ description: Identifier le solide représenté parmi cube, pavé droit, cylindre
 type: text
 ID: 5GA2
 repeat: 2
-dest:
-  - 6GB
-  - 5GA
-  - 4GA
-  - 3GA
+dest: [5EA]
 consts:
   figuresOpt1Cube:
       - <svg width="9em" height="9em" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg"><line x1="15.0" y1="95.0" x2="55.0" y2="95.0" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="55.0" y1="95.0" x2="55.0" y2="55.0" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="55.0" y1="55.0" x2="15.0" y2="55.0" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="15.0" y1="55.0" x2="15.0" y2="95.0" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="55.0" y1="95.0" x2="74.8" y2="75.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="55.0" y1="55.0" x2="74.8" y2="35.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="15.0" y1="55.0" x2="34.8" y2="35.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="74.8" y1="75.2" x2="74.8" y2="35.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="74.8" y1="35.2" x2="34.8" y2="35.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-linecap="round"/><line x1="15.0" y1="95.0" x2="34.8" y2="75.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/><line x1="34.8" y1="75.2" x2="74.8" y2="75.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/><line x1="34.8" y1="75.2" x2="34.8" y2="35.2" stroke="rgb(0, 114, 178)" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg>

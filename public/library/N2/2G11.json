@@ -3,7 +3,7 @@
     "description":"Utilisation des coordonnées de l'origine et de l'extrémité pour calculer les coordonnées.",
     "type":"latex",
     "ID":"2G11",
-    "dest":["2G1"],
+    "dest":["EEB"],
     "textSize":"medium",
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"points":"ABCDEFGHKLMNPQRST"},

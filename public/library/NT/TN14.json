@@ -3,9 +3,7 @@
   "title": "Formule explicite d'une suite géométrique",
   "description": "suite géométrique, forme explicite, terme général, raison",
   "ID": "",
-  "dest": [
-    "TN1"
-  ],
+  "dest":["WEB"],
   "vars": {
     "a": "-5_5_^0,1"
   },

@@ -5,7 +5,7 @@
     "ID":"7MC2",
     "description":"Conversions par interprétation de reste.",
     "keys":["hr","mn","sc","_","jr","sm","an","scl"],
-    "dest":["6MB", "5MA", "4MA", "3MA"],
+    "dest":["5AE", "5AF"],
     "params":{
         "zero":{"groupe":"Ne pas tirer","label":"0","defaut":false,"exclut":{"a":"0","s":"0","j":"0","m":"0","h":"0"}}
     },

@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"HPL1",
     "description":"Donner le logarithme d'un nombre dans une base donnée.",
-    "dest":["HPL"],
+    "dest":["10DC"],
     "consts":{"lettres":["a","b","c","d","u","v","t","x","y","z"]},
     "keys":["/"],
     "consigne":"Donner l'entier ou la fraction ?",

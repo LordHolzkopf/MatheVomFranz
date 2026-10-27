@@ -4,7 +4,7 @@
     "speech":1,
     "type":"text",
     "description":"Vocabulaire et comptage : prisme droit, faces, sommets, arêtes, bases, solide. Non adapté au mode interactif (online/duel).",
-    "dest":["6GB","5GA","4GA","3GA"],
+    "dest":["5EA", "9CC"],
     "consts":{"polygones":[
         [3,"triangle"],
         [4,"quadrilatère"],

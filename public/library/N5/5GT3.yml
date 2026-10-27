@@ -1,8 +1,5 @@
 title: Reconnaitre une transformation du plan (2)
-dest:
-  - 5GT
-  - 4GT
-  - 3GT
+dest: [6DB, 5BC]
 type: text
 repeat: 3
 textSize: medium

@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LN3",
     "description":"18 questions sur la proportionnalité entre grandeurs : coefficient, tableau, méthodes, applications. Non adapté au mode interactif (online/duel).",
-    "dest":["5LN", "4LN"],
+    "dest":["7BB", "7BD", "5DE"],
     "options":[{
         "name":"Notion de grandeur",
         "question": [

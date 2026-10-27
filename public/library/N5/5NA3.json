@@ -4,7 +4,7 @@
     "ID":"5NA3",
     "description":"Donner le plus petit ou le plus grand de deux nombres.",
     "textSize":"medium",
-    "dest":["5NA", "4NA", "3NA"],
+    "dest":["7AA"],
     "consts":{"voc":["petit","grand"]},
     "options":[{
         "name":"Nombres de signes contraires",

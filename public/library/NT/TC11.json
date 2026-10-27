@@ -4,7 +4,7 @@
     "ID":"TC11",
     "description":"Conjugué, module, carré, inverse",
     "keys":["+","-","/","i","_","_","_","_"],
-    "dest":["TC1"],
+    "dest":["WAD"],
     "options":[{
         "name":"Conjugué d'un complexe",
         "vars":{"ip":"0_2", "rp":"-10_10" ,"a":"${:ip>0?:rp:0}", "b":"-10_10_^${:a}"},

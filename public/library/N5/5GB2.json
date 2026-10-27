@@ -1,6 +1,6 @@
 {
     "ID":"5GB2",
-    "dest":["5GB","4GB","3GB","2G2"],
+    "dest":["7EB"],
     "title":"Mesure d'un 3e angle, cas particuliers.",
     "description":"Déterminer la mesure d'un angle en degré dans un triangle particulier",
     "repeat":true,

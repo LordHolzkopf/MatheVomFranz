@@ -3,7 +3,7 @@
     "title":"Reconnaitre des axes de symétrie",
     "description":"identifier si une figure possède un ou plusieurs axes.",
     "keys":"numerique",
-    "dest":["6GC"],
+    "dest":["5BC"],
     "repeat":5,
     "type":"text",
     "consts":{

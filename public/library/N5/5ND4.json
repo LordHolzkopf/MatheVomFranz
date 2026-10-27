@@ -4,7 +4,7 @@
     "ID":"5ND4",
     "textSize":"medium",
     "description":"PGCD de deux nombres",
-    "dest":["5ND", "4ND", "3NC", "2N2"],
+    "dest":["5CD", "5FB", "6AB"],
     "options":[{
         "name":"Nombres inférieurs à 36",
         "vars":{"a":"2_6","b":"2_5", "c":"2_6_^${:b}","n":"${:a*:b}", "d":"${:a*:c}"}

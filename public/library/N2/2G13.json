@@ -3,7 +3,7 @@
     "description":"Calculer les coordonnées d'un produit d'un vecteur par un nombre.",
     "type":"text",
     "ID":"2G13",
-    "dest":["2G1"],
+    "dest":["EEC"],
     "textSize":"medium",
     "keys":["(",";","-","_","_","_","_","_"],
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},

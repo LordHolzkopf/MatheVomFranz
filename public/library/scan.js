@@ -93,8 +93,9 @@ for (const dossier of dossiers){
     structure.activitiesNumber++;
     for(let i in json.dest){
       let codechap = json.dest[i];
-      let destLevel = codechap.match(/(^\d+|T|G|K|H)/i)[0];
-      let themecode = codechap.match(/^(\d+|T|G|K|H)[A-Z]/i)[0];
+      // MatheVomFranz : stufe = nombre (5–10) ou lettre (E = EF, Q = Q1/Q2, W = Weitere)
+      let destLevel = codechap.match(/^(\d+|[A-Z])/i)[0];
+      let themecode = codechap.match(/^(\d+|[A-Z])[A-Z]/i)[0];
       if(structure[destLevel] !== undefined){
         structure[destLevel].activitiesNumber++;
         structure[destLevel].themes[themecode].chapitres[codechap].e.push(ID);
@@ -108,14 +109,14 @@ for(const niveau in structure){
     for (const chap in structure[niveau].themes[them].chapitres){
       if(structure[niveau].themes[them].chapitres[chap].e.length)
         structure[niveau].themes[them].chapitres[chap].e.sort((a,b)=>{
-          return activities[a].t.localeCompare(activities[b].t, 'fr', { usage: 'sort'})
+          return activities[a].t.localeCompare(activities[b].t, 'de', { usage: 'sort'})
         })
     }
   }
 }
 // création d'un fichier html qui contient toutes les références aux exercices avec chacun un lien vers index.html?u=ID de l'exercice
 fs.writeFileSync("../liste-des-exercices.html",
-  "<!DOCTYPE html><html lang='fr'><head><meta charset='utf-8'><title>Liste des exercices</title></head><body><h1>Liste des activités MathsMentales</h1><ol>"+
+  "<!DOCTYPE html><html lang='de'><head><meta charset='utf-8'><title>Liste aller Aufgaben – MatheVomFranz</title></head><body><h1>Liste aller Aufgaben von MatheVomFranz</h1><ol>"+
   Object.keys(listOfActivities).map(
     id => `<li><a href='index.html?u=${id}'>${listOfActivities[id].title}</a></li>`
   ).join("")+

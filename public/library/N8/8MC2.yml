@@ -1,6 +1,5 @@
 title: Placer les aiguilles d'une horloge
-dest:
-  - 6MB
+dest: [WDA]
 type: text
 description: "Placer les aiguilles d'une horloge : heures, minutes, quart d'heure, lire l'heure. Non adapté au mode interactif (online/duel)."
 consts:

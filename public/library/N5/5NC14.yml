@@ -1,9 +1,6 @@
 title: Somme de relatifs (décimaux)
 description: "relatifs, addition, somme algébrique, décimaux, négatifs, opposé"
-dest:
-  - 5NC
-  - 4NC
-  - 3NB
+dest: [7AB]
 options:
   - name: Deux termes avec parenthèses
     vars:

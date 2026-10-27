@@ -63,8 +63,9 @@ function surligner(titre, termes) {
 // lecture de la bibliotheque
 const library = {
   ordre: {
-    "grille-college": ["6", "5", "4", "3"],
-    "grille-lycee": ["2", "G", "K", "T", "H"],
+    "grille-college": ["5", "6", "7", "8", "9", "10"],
+    "grille-lycee": ["E", "Q"],
+    "grille-weitere": ["W"],
   },
   /**
    * Ouvre un fichier de la library
@@ -75,7 +76,7 @@ const library = {
     // en fournissant ?u=id de l'activité.
     let source = "";
     let url = activitesURL[activityId];
-    let regexp = /^(\d{1,2}|T|G|K|H)/; // le fichier commence par un nombre ou un T pour la terminale
+    let regexp = /^(\d{1,2}|[A-Z])/; // le fichier commence par un nombre ou un T pour la terminale
     let level = regexp.exec(activityId)[0];
     if (url === undefined) {
       url = "N" + level + "/" + activityId + ".json";
@@ -112,7 +113,7 @@ const library = {
    */
   loadJSON: async function (activityId, version) {
     let source = "";
-    let regexp = /^(\d{1,2}|T|G|K|H)/; // le fichier commence par un nombre ou un T pour la terminale
+    let regexp = /^(\d{1,2}|[A-Z])/; // le fichier commence par un nombre ou un T pour la terminale
     let level = regexp.exec(activityId)[0];
     let url = activitesURL[activityId];
     if (url === undefined) {
@@ -151,7 +152,7 @@ const library = {
    */
   import: async function (activityId, version) {
     let source = "";
-    let regexp = /^(\d{1,2}|T|G|K|H)/; // le fichier commence par un nombre ou un T pour la terminale
+    let regexp = /^(\d{1,2}|[A-Z])/; // le fichier commence par un nombre ou un T pour la terminale
     let level = regexp.exec(activityId)[0];
     let url = activitesURL[activityId];
     if (url === undefined) {
@@ -201,10 +202,10 @@ const library = {
       console.log("Pas de bibliothèque");
       return false;
     }
-    let niveau = { nom: "Recherche", themes: {} };
+    let niveau = { nom: "Suche", themes: {} };
     // Cas d'un code correspondant à MMv1
     if (_.isObject(level)) {
-      niveau.nom = "Cette activité a été répartie en plusieurs";
+      niveau.nom = "Diese Aufgabe wurde auf mehrere aufgeteilt";
       // on cherche les titres
       for (let exo in level) {
         let found = false; // le titre n'est pas encore trouvé
@@ -236,9 +237,9 @@ const library = {
         }
       }
       niveau.themes[0] = {
-        nom: "Cliquer pour ouvrir une activité",
+        nom: "Zum Öffnen auf eine Aufgabe klicken",
         chapitres: {
-          MM1: { n: "Cliquer sur Rechercher pour revenir ici", e: level },
+          MM1: { n: "Über „Suchen“ kommen Sie hierher zurück", e: level },
         },
       };
       // cas d'une recherche textuelle
@@ -318,19 +319,19 @@ const library = {
     // la balise, car utils.deploy et le CSS s'y réfèrent.
     if (!base && !_.isObject(level))
       html =
-        "<h2 id='rch1' class='rch-niveau pointer moins'>Résultat de la recherche</h2>";
+        "<h2 id='rch1' class='rch-niveau pointer moins'>Suchergebnisse</h2>";
     else if (!_.isObject(level)) {
       html =
-        "<h2 id='rch1' class='rch-niveau pointer moins'>Niveau " +
+        "<h2 id='rch1' class='rch-niveau pointer moins'>" +
         niveau["nom"] +
         " (" +
         niveau["activitiesNumber"] +
-        " act.)</h2>";
+        " Aufg.)</h2>";
       // on vide le champ de recherche
       document.getElementById("searchinput").value = "";
     } else
       html =
-        "<h2 class='rch-niveau'>Cette activité MathsMentales v1 a été répartie en plusieurs activités</h2>";
+        "<h2 class='rch-niveau'>Diese Aufgabe aus MathsMentales v1 wurde auf mehrere Aufgaben aufgeteilt</h2>";
     //if(base && !_.isObject(level)) // on change l'url level est un niveau de la bibliothèque
     //MM.setHistory(niveau["nom"],"n="+level);
     // Affichage et mise en forme des données.
@@ -390,7 +391,7 @@ const library = {
                 id +
                 "</div><span class='link' data-link='" +
                 id +
-                "' title='Cliquer pour copier le lien\ndans le presse papier'>" +
+                "' title='Klicken, um den Link\nin die Zwischenablage zu kopieren'>" +
                 svg +
                 "</span></li>";
             } else {
@@ -409,7 +410,7 @@ const library = {
                 title +
                 "<div class='tooltiptext'>" +
                 id +
-                "</div><span class='link' title='Cliquer pour copier le lien\ndans le presse papier' data-link='" +
+                "</div><span class='link' title='Klicken, um den Link\nin die Zwischenablage zu kopieren' data-link='" +
                 id +
                 "'>" +
                 svg +
@@ -417,7 +418,7 @@ const library = {
             }
           }
         } else {
-          htmlc += "<li>Pas encore d'exercice</li>";
+          htmlc += "<li>Noch keine Aufgaben</li>";
         }
         htmlc += "</ul>";
         if (chapitre) {

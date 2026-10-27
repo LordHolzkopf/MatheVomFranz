@@ -38,7 +38,7 @@ function katexRender(latex) {
   try {
     return katex.renderToString(latex, KATEX_OPTIONS);
   } catch (err) {
-    console.log("Probleme de rendu des expressions mathématiques", latex);
+    console.log("Problem beim Darstellen der Formel", latex);
     return escapeHTML(latex);
   }
 }
@@ -97,38 +97,19 @@ function escapeAttr(str) {
   return escapeHTML(str).replace(/"/g, "&quot;");
 }
 
-if (
-  window.location.host == "mathsmentales.forge.apps.education.fr" ||
-  window.location.host.indexOf("127.0.0.1") === 0
-) {
-  MathfieldElement.fontsDirectory = "/src/js/libs/katex/fonts";
-} else {
-  MathfieldElement.fontsDirectory = "../css/katex/fonts";
-}
+// MatheVomFranz : chemin calculé depuis l'adresse de la page, valable en
+// local, sur un serveur et dans un sous-dossier (GitHub Pages).
+MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
 MathfieldElement.soundsDirectory = null;
 // Some traductions
-const moisFR = [
-  "Janvier",
-  "Février",
-  "Mars",
-  "Avril",
-  "Mai",
-  "Juin",
-  "Juillet",
-  "Août",
-  "Septembre",
-  "Octobre",
-  "Novembre",
-  "Décembre",
-];
-const joursFR = [
-  "Dimanche",
-  "Lundi",
-  "Mardi",
-  "Mercredi",
-  "Jeudi",
-  "Vendredi",
-  "Samedi",
+const joursDE = [
+  "Sonntag",
+  "Montag",
+  "Dienstag",
+  "Mittwoch",
+  "Donnerstag",
+  "Freitag",
+  "Samstag",
 ];
 const colors = {
   aliceblue: "#f0f8ff",
@@ -281,7 +262,7 @@ class CustomSVG extends HTMLElement {
   }
   connectedCallback() {
     if (this.getAttribute("src") === "") {
-      console.log("src vide");
+      console.log("src leer");
       return;
     }
     fetch(this.getAttribute("src"))
@@ -639,7 +620,7 @@ export const utils = {
     const icon = utils.create("span", {
       className: "edit-icon noprint",
       innerHTML: "✏️",
-      title: "Modifier ce titre",
+      title: "Titel bearbeiten",
     });
     icon.onclick = (evt) => {
       evt.stopPropagation();
@@ -686,7 +667,7 @@ export const utils = {
         }, 3000);
       })
       .catch((err) => {
-        console.log("erreur de copie dans le presse papier");
+        console.log("Fehler beim Kopieren in die Zwischenablage");
       });
   },
   pageWidth() {
@@ -964,28 +945,26 @@ export const utils = {
   },
   /**
    * Donne la date du moment
-   * @returns date en français avec jour, heure etc
+   * @returns date en allemand avec jour, heure etc. (ex. « Dienstag, 27.10.2026 – 14:05:03 »)
    */
   getDate() {
-    let ladate = new Date(),
-      lheure = ladate.getHours(),
-      lesminutes = ladate.getMinutes(),
-      lessecondes = ladate.getSeconds(),
-      ladateComplete =
-        joursFR[ladate.getDay()] +
-        " " +
-        ladate.getDate() +
-        " " +
-        moisFR[ladate.getMonth()] +
-        " " +
-        ladate.getFullYear() +
-        " - " +
-        (lheure < 10 ? "0" + lheure : lheure) +
-        ":" +
-        (lesminutes < 10 ? "0" + lesminutes : lesminutes) +
-        ":" +
-        (lessecondes < 10 ? "0" + lessecondes : lessecondes);
-    return ladateComplete;
+    const deux = (n) => (n < 10 ? "0" + n : String(n));
+    const ladate = new Date();
+    return (
+      joursDE[ladate.getDay()] +
+      ", " +
+      deux(ladate.getDate()) +
+      "." +
+      deux(ladate.getMonth() + 1) +
+      "." +
+      ladate.getFullYear() +
+      " – " +
+      deux(ladate.getHours()) +
+      ":" +
+      deux(ladate.getMinutes()) +
+      ":" +
+      deux(ladate.getSeconds())
+    );
   },
   /**
    * Transform 10:05 string to seconds string, return number
@@ -1088,14 +1067,14 @@ export const utils = {
       dest.appendChild(
         utils.create("label", {
           for: "ceinttitlecol" + qty,
-          innerHTML: "Colonne " + qty + " : ",
+          innerHTML: "Spalte " + qty + ": ",
         }),
       );
       dest.appendChild(
         utils.create("input", {
           type: "text",
           id: "ceinttitlecol" + qty,
-          placeholder: "Texte, ou rien",
+          placeholder: "Text oder leer",
         }),
       );
     } else if (champs.length > qty) {

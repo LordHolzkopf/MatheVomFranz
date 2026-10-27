@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <style>
@@ -9,7 +9,7 @@
                 margin: 0.8cm;
             }
         </style>
-        <title>Interrogation MathsMentales</title>
+        <title>Testblatt – MatheVomFranz</title>
         <link rel="stylesheet" href="css/exam.css" type="text/css" />
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
@@ -23,67 +23,67 @@
         <div class="noprint" style="text-align: center">
             <button
                 onclick="window.print()"
-                title="Imprimer ou enregistrer en pdf"
+                title="Drucken oder als PDF speichern"
                 style="width: 70pt; height: 18pt"
             >
-                🖨️ Imprimer
+                🖨️ Drucken
             </button>
             <button
                 id="pageOrientation"
-                title="Change l'orientation de la page"
+                title="Seitenausrichtung ändern"
             >
-                paysage
+                Querformat
             </button>
-            (mettre les marges à zéro)
+            (Ränder auf null stellen)
         </div>
         <div id="creator-container">
             <section id="creator-menu" class="noprint">
                 <span class="radios-oui-non">
-                    Encart réponse :
+                    Antwortfeld:
                     <input type="radio" name="encart" value="oui" id="encart-oui" checked />
-                    <label for="encart-oui">oui</label>
+                    <label for="encart-oui">ja</label>
                     <input type="radio" name="encart" value="non" id="encart-non" />
-                    <label for="encart-non">non</label>
+                    <label for="encart-non">nein</label>
                 </span>
-                | Énoncés :
+                | Blätter:
                 <input
                     type="number"
                     min="1"
                     id="nbFiches"
                     size="3"
-                    title="Nombre de fiches à générer"
+                    title="Anzahl der Blätter"
                 />
                 <button
                     id="fichesSeparation"
-                    title="Regrouper ou Séparer les fiches d’interro"
+                    title="Testblätter getrennt oder fortlaufend drucken"
                 >
-                    Séparer
+                    Trennen
                 </button>
                 <span class="radios-oui-non">
-                    Fusionner questions :
+                    Fragen mischen:
                     <input type="radio" name="fusion" value="oui" id="fusion-oui" />
-                    <label for="fusion-oui">oui</label>
+                    <label for="fusion-oui">ja</label>
                     <input type="radio" name="fusion" value="non" id="fusion-non" checked />
-                    <label for="fusion-non">non</label>
+                    <label for="fusion-non">nein</label>
                 </span>
                 |
                 <span class="radios-oui-non">
-                    Corrigé :
+                    Lösungen:
                     <input type="radio" name="corrige" value="oui" id="corrige-oui" checked />
-                    <label for="corrige-oui">oui</label>
+                    <label for="corrige-oui">ja</label>
                     <input type="radio" name="corrige" value="non" id="corrige-non" />
-                    <label for="corrige-non">non</label>
+                    <label for="corrige-non">nein</label>
                 </span>
                 <span id="btpCorrigePlace" class="hidden">
                     <span class="radios-oui-non">
-                    Saut de page :
+                    Seitenumbruch:
                     <input type="radio" name="sautpage" value="oui" id="sautpage-oui" />
-                    <label for="sautpage-oui">oui</label>
+                    <label for="sautpage-oui">ja</label>
                     <input type="radio" name="sautpage" value="non" id="sautpage-non" checked />
-                    <label for="sautpage-non">non</label>
+                    <label for="sautpage-non">nein</label>
                 </span>
                 </span>
-                | Police : <span id="fontSize"></span>
+                | Schrift: <span id="fontSize"></span>
             </section>
             <section id="tab-accueil" class="noprint"></section>
             <section id="creator-content"></section>

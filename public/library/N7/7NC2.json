@@ -3,7 +3,7 @@
     "description":"double, doubler, décimaux, fois 2",
     "ID":"7NC2",
     "keys":"numerique",
-    "dest":["6NC"],
+    "dest":["6EE", "6CB"],
     "type":"text",
     "options":[{
         "name":"Nombres à deux chiffres",

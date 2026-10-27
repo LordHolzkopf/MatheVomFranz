@@ -1,9 +1,7 @@
 {
   "title": "Calculs avec ln",
   "description": "logarithme népérien, ln, propriétés algébriques, somme, différence",
-  "dest": [
-    "HPL"
-  ],
+  "dest":["QCC", "QCF"],
   "keys":["+","-","/","ln","x","y","ln","^"],
   "consigne": "Simplifier",
   "options": [

@@ -4,7 +4,7 @@
     "ID":"2N12",
     "description":"Résoudre les équations de la forme $$|x-a|=b$$",
     "keys":["_","{",";","vide"],
-    "dest":["2N1"],
+    "dest":["WBA", "7AA"],
     "options":[{
         "name":"Equations de la forme $$|x|=b$$",
         "vars":{"b":"1_20"},

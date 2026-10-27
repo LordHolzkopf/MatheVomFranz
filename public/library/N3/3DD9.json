@@ -1,6 +1,6 @@
 {
     "ID":"3DD9",
-    "dest":["3DD","2F2","Ko4"],
+    "dest":["8BE", "9BA"],
     "title":"Calcul d'antécédent par une fonction affine",
     "description":"Calculer l'antécédent d'un nombre par une fonction affine en utilisant son expression algébrique.",
     "type":"text",

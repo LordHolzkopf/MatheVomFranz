@@ -4,7 +4,7 @@
     "ID":"7NE2",
     "keys":"numerique",
     "speech":1,
-    "dest":[ "6NE"],
+    "dest":["6ED", "5AC"],
     "vars":{"a":[9,99,999], "b":"1_${:a}", "zerosRestants":"0_3"},
         "options":[{
         "name":"Diviser un entier par 10",

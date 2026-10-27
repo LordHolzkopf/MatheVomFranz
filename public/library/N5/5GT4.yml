@@ -7,9 +7,7 @@ textSize: medium
 # questions : les réponses « on ne peut pas savoir » sont identiques d’un tirage
 # à l’autre, une déduplication stricte bloquerait le tirage.
 repeat: true
-dest:
-  - 5GT
-  - 5MB
+dest: [5BC, 6DB]
 consigne: Utiliser uniquement les informations portées sur la figure, sans mesurer.
 consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés

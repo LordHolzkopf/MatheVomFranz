@@ -3,7 +3,7 @@
     "ID":"6NB8",
     "speech":1,
     "description":"Deux fractions sont données, dire si elles sont égales ou non.",
-    "dest":["6NB","5NA","4NA","3NA"],
+    "dest":["5FB", "6AB"],
     "options":[{
         "name":"Différence possible sur le numérateur",
         "vars":{

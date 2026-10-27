@@ -3,7 +3,7 @@
     "speech":1,
     "keys":["_","_","_","_","_","_","_","_"],
     "description":"Multiplication de nombres à 1, 2 ou 3 chiffres significatifs par 0,1, 0,01, 0,001",
-    "dest":["6NE", "5NC", "4NC", "3NB"],
+    "dest":["6ED"],
     "params":{
         "fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["a","b"]},
         "p0":{"groupe":"Ne pas tirer","label":"exposant 0 (nombre entre 1 et 10)","defaut":false,"exclut":{"p":"0"}}

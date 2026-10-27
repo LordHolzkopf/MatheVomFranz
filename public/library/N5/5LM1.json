@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LM1",
     "description":"11 questions sur les aires et périmètres : définitions, formules, carré, rectangle, triangle, disque, cercle, surface. Non adapté au mode interactif (online/duel).",
-    "dest":["5LM","4LM"],
+    "dest":["5DB", "5DC", "8DA"],
     "options":[
         {
             "name":"Définitions",

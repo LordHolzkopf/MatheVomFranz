@@ -1,6 +1,6 @@
 {
     "ID":"6MC7",
-    "dest":["6MC"],
+    "dest":["5DA", "5DD"],
     "type":"text",
     "repeat":2,
     "title":"Comparer les aires de deux figures",

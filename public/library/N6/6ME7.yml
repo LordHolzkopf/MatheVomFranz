@@ -1,10 +1,6 @@
 title: Reconnaître la nature d'un triangle à partir de la mesure de ses angles
 description: "nature d'un triangle, angles, isocèle, équilatéral, rectangle, somme des angles 180°"
-dest:
-  - 6ME
-  - 5GB
-  - 4GB
-  - 3GB
+dest: [7EB, 5BD]
 type: text
 # l'équilatéral n'a qu'une seule mesure possible (60-60-60, seule
 # l'illustration varie) : sans repeat, la déduplication stricte sur les 5

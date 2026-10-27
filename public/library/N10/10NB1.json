@@ -4,7 +4,7 @@
     "speech":1,
     "ID":"10NB1",
     "description":"Écriture en chiffres des nombres inférieurs à 1000",
-    "dest":["6NA"],
+    "dest":["5AA"],
     "options":[{
         "name":"Écriture en chiffres des nombres de 1 à 9",
         "vars":{"n":"0_10"}

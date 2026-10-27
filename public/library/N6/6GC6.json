@@ -7,7 +7,7 @@
     "ID":"6GC6",
     "description":"Différencier les lignes géométriques de base : droite, segment, demi-droite, notations. Options « Dessiner » non adaptées au mode interactif (online/duel).",
     "keys":["droite","segment","demi-droite","[","("],
-    "dest":["6GC"],
+    "dest":["5BA"],
     "consts":{"points":"ABCDEFGHJKLMNPRST"},
     "options": [
         {

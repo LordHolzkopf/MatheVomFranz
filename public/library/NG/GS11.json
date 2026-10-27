@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"GS11",
     "description":"arbre de probabilités-événement contraire",
-    "dest":["2D2","GS1"],
+    "dest":["9FC", "10AC", "QHC"],
     "options":[
         {
         "name":"Arbre à 2 branches par niveau (2 niveaux)",

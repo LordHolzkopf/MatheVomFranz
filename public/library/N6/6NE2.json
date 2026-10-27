@@ -3,7 +3,7 @@
     "description":"multiplier par 0,1, 0,01 ou 0,001, diviser par 10, 100 ou 1000, décimal",
     "ID":"6NE2",
     "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["m"]}},
-    "dest":["6NE", "5NC", "4NC", "3NB"],
+    "dest":["6ED"],
     "vars":{"a":[1,9,99,999,9999], "b":"1_4", "c0":"d0_${:a}_${:b}_^0", "m":"1_999", "q":"-3_1", "c":"${:fige ? MMmath.round(:m*Math.pow(10,:q),4) : :c0}"},
         "options":[{
         "name":"Multiplier un décimal par 0,1",

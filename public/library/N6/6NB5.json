@@ -4,7 +4,7 @@
     "speech":1,
     "description":"Écrire une fraction égale avec numérateur et dénominateurs les plus petits possibles",
     "keys":["_","_","/","_","_","_","_","_"],
-    "dest":["6NB","5NA","4NA","3NA"],
+    "dest":["5FB", "6AB"],
     "consigne":"Simplifier le plus possible",
     "valueType":"fractionIrreductible",
     "options":[{

@@ -2,7 +2,7 @@
     "title":"Sens des préfixes",
     "description":"préfixes, kilo, hecto, déca, déci, centi, milli, multiple, sous-multiple",
     "ID":"8MA2",
-    "dest":["6MA"],
+    "dest":["5AE"],
     "keys":["GD","pt","_",";","_","_","_","_"],
     "type":"text",
     "valueType":"liste",

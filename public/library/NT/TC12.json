@@ -4,7 +4,7 @@
     "ID":"TC12",
     "description":"Somme, produit, quotient",
     "keys":["+","-","/","i","_","_","_","_"],
-    "dest":["TC1"],
+    "dest":["WAD"],
     "options":[{
         "name":"Somme de deux complexes",
         "vars":{"a":"-20_20_2","b":"-20_20_2_^${:a}","pr":"${:a[0]+:a[1]}","pi":"${:b[0]+:b[1]}"},

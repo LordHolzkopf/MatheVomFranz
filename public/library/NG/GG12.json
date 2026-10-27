@@ -5,7 +5,7 @@
     "type":"text",
     "valueType":"listeOrdonnee",
     "keys":["+","-","x²",";","x","y","z","="],
-    "dest":["GG1","TC3"],
+    "dest":["QFD"],
     "vars":{
         "a":"-10_10",
         "b":"-10_10",

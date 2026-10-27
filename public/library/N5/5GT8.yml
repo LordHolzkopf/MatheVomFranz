@@ -3,8 +3,7 @@ description: "symétrie centrale, symétrique, demi-tour, visualiser, centre"
 ID: 5GT8
 type: text
 textSize: medium
-dest:
-  - 5GT
+dest: [5BC]
 consts:
   # ─── déplacements utilisables de A vers B, classés du plus court au plus
   # long. Les 8 premiers avancent d’une case (les seuls du palier facile) ; les

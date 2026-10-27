@@ -3,8 +3,7 @@ description: "symétrie centrale, symétrique, point mal placé, erreur, centre"
 ID: 5GT11
 type: text
 textSize: medium
-dest:
-  - 5GT
+dest: [5BC, 6DB]
 consts:
   lettres: ["A", "B", "C"]
 options:

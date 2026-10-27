@@ -1,9 +1,7 @@
 {
   "title": "Lire le codage d'une figure",
   "ID": "6GC15",
-  "dest": [
-    "6GC"
-  ],
+  "dest":["5BD", "5BA"],
   "type": "text",
   "textSize": "small",
   "repeat": 2,

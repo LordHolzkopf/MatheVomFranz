@@ -2,7 +2,7 @@
     "ID":"6NB10",
     "title": "Lire une fraction supérieure à 1 sur un axe",
     "description": "fraction, droite graduée, abscisse, repérer, lire, fraction supérieure à 1",
-    "dest": ["6NB", "5DB", "4DB", "3DB"],
+    "dest":["5FE", "6AE"],
     "type":"latex",
     "keys":["/"],
     "consigne":"Donner l’abscisse du point A sous forme de fraction",

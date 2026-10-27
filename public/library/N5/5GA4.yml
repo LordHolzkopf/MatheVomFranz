@@ -3,10 +3,7 @@ description: Identifier cube, pavé droit, cylindre, cône, prisme droit à base
 type: text
 ID: 5GA4
 repeat: 2
-dest:
-  - 5GA
-  - 4GA
-  - 3GA
+dest: [5EA]
 consts:
   photosCubePave:
     - ["cube-rubiks.webp", "un cube"]

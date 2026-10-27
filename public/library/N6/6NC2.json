@@ -4,7 +4,7 @@
     "speech":1,
     "textSize":"medium",
     "type":"text",
-    "dest":["6NC", "5NA", "4NA", "3NA"],
+    "dest":["6BB"],
     "options":[
         {
           "name":"À l'unité",

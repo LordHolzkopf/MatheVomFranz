@@ -6,7 +6,7 @@
     "textSize":"medium",
     "keys":["pi","/","√","-","_","_","_","_"],
     "description":"Valeurs exactes de certains angles en radians",
-    "dest":["GA4"],
+    "dest":["10FA", "EAD"],
     "consts":{"angles":[0,"\\dfrac{\\pi}{6}","\\dfrac{\\pi}{4}","\\dfrac{\\pi}{3}","\\dfrac{\\pi}{2}","\\dfrac{2\\pi}{3}","\\dfrac{3\\pi}{4}","\\dfrac{5\\pi}{6}","\\pi","\\dfrac{7\\pi}{6}","\\dfrac{5\\pi}{4}","\\dfrac{4\\pi}{3}","\\dfrac{3\\pi}{2}","\\dfrac{5\\pi}{3}","\\dfrac{7\\pi}{4}","\\dfrac{11\\pi}{6}"],
         "angles2":[0,"\\dfrac{\\pi}{6}","\\dfrac{\\pi}{4}","\\dfrac{\\pi}{3}","\\dfrac{\\pi}{2}","\\dfrac{2\\pi}{3}","\\dfrac{3\\pi}{4}","\\dfrac{5\\pi}{6}","\\pi","-\\dfrac{5\\pi}{6}","-\\dfrac{3\\pi}{4}","-\\dfrac{2\\pi}{3}","-\\dfrac{\\pi}{2}","-\\dfrac{\\pi}{3}","-\\dfrac{\\pi}{4}","-\\dfrac{\\pi}{6}"],
         "sin":[0,"\\dfrac{1}{2}","\\dfrac{\\sqrt2}{2}","\\dfrac{\\sqrt3}{2}",1,"\\dfrac{\\sqrt3}{2}","\\dfrac{\\sqrt2}{2}","\\dfrac{1}{2}",0,"-\\dfrac{1}{2}","-\\dfrac{\\sqrt2}{2}","-\\dfrac{\\sqrt3}{2}",-1,"-\\dfrac{\\sqrt3}{2}","-\\dfrac{\\sqrt2}{2}","-\\dfrac{1}{2}"],

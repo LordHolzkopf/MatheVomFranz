@@ -1,7 +1,7 @@
 {
     "title": "Fractions de quantités",
     "ID": "4NC8",
-    "dest": ["4NC", "3NB", "2N2"],
+    "dest":["5FF", "6AF", "6EB"],
     "consigne":"Calculer",
     "description": "Calculs de produits avec des fractions",
     "keys": ["_","_","/","_","_","_","_","_"],

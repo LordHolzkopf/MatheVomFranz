@@ -1,6 +1,6 @@
 {
     "ID":"6DA5",
-    "dest":["6DA"],
+    "dest":["5AG", "6FA"],
     "title":"Compléter et lire un tableau de données",
     "description":"Tableau de données : lire, compléter, totaux, valeurs intermédiaires, effectifs. Non adapté au mode interactif (online/duel).",
     "type":"text",

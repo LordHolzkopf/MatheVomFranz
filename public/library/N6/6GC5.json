@@ -1,7 +1,7 @@
 {
     "title": "Inégalité triangulaire",
     "ID":"6GC5",
-    "dest":["6GC","5GB", "4GB", "3GB"],
+    "dest":["7EC", "5BA"],
     "type":"text",
     "textSize":"small",
     "description":"Inégalité triangulaire : longueurs, existence d'un triangle, appartenance au segment, comparer. Non adapté au mode interactif (online/duel).",

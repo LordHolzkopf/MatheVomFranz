@@ -4,7 +4,7 @@
     "speech":1,
     "description":"Multiplication de nombres tirés au hasard par 10, 100, 1000 ou à 3 chiffres significatifs",
     "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["m", "decs"]}},
-    "dest":[ "6NE", "5NC", "4NC", "3NB"],
+    "dest":["6ED"],
     "keys":"numerique",
     "vars":{"a":[1,9,99,999,9999], "b":"1_3"},
     "consigne":"Calculer",

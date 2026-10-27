@@ -1,6 +1,5 @@
 title: Tables de multiplication classiques (sans 0 et 1)
-dest: # chapitres où sera intégrée l'activité
-  - 6ND
+dest: [WAB, 5AC]
 description: Connaitre les tables de multiplications de 2 à 12, sous plusieurs formes
 type: latex # pas obligatoire, c'est la valeur par défaut
 params: # cases à cocher : valeurs du 2e facteur à ne pas tirer

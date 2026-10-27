@@ -1,5 +1,5 @@
 {
-    "dest":["GL1"],
+    "dest":["WEB"],
     "title":"Trouver le n<sup>e</sup> terme d’une suite",
     "description":"terme général, nᵉ terme, suite, récurrence, formule explicite",
     "type":"text",

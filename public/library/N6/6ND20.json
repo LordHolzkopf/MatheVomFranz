@@ -1,7 +1,7 @@
 {
     "title":"Enchaînements d'opérations",
     "description":"parenthèses, priorités opératoires, enchaînement, expression numérique",
-    "dest":["6ND", "5NC"],
+    "dest":["5CA"],
     "options":[{
         "name":"Deux opérations (+, -, ×) avec parenthèses (6e)",
         "vars":{"a":"2_10",

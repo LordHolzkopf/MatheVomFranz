@@ -1,6 +1,6 @@
 {
     "ID":"6MC5",
-    "dest":["6MC"],
+    "dest":["5AE", "6BE"],
     "title":"Conversions d’unités à partir d’une autre",
     "description":"conversions, unités, longueur, masse, contenance, tonne, quintal, kg",
     "type":"latex",

@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"4GB9",
     "description":"Calculer une longueur grâce au théorème de Thalès",
-    "dest":["4GB","3GB","2G2"],
+    "dest":["10CC"],
     "vars":{
         "l":"0_18_5_^&",
         "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}",

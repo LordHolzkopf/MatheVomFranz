@@ -4,7 +4,7 @@
     "type":"text",
     "textSize":"medium",
     "ID":"5DC1",
-    "dest":["5DC", "4DC","3DC", "2N1"],
+    "dest":["7CB", "7CD"],
     "options":[{
         "name":"Augmenter/réduire de 5 ou 50 %",
         "vars":{"nb":"2_20","qte":"${:nb*12}","pourcent":[5,50]}

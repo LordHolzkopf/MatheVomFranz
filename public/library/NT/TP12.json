@@ -2,9 +2,7 @@
   "title": "Dénombrement urne",
   "description": "dénombrement, urne, combinaisons, k-uplets, arrangements, tirages",
   "type": "text",
-  "dest": [
-    "TP1"
-  ],
+  "dest":["9FB", "10AB", "QIB"],
   "options": [
     {
       "name": "combinaison",

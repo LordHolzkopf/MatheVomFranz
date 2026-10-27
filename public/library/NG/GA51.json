@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"GA51",
     "description":"discriminant, delta, second degré, trinôme, Δ = b² − 4ac",
-    "dest":["GA5"],
+    "dest":["10BD"],
     "textSize":"medium",
     "keys":["x","x²","+","-","_","_","_","_"],
     "vars":{"a":"-10_10_^0", "b":"-10_10_^0", "c":"-10_10_^0","delta":"${MMmath.round(:b*:b-4*:a*:c,2)}"},

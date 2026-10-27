@@ -3,7 +3,7 @@
     "ID":"5NC12",
     "description":"Opérations nécessitant des étapes de calcul dont les résultats sont entiers.",
     "consigne":"Calculer.",
-    "dest":["5NC", "4NC", "3NB"],
+    "dest":["5CA"],
     "options":[{
         "name":"Addition au numérateur",
         "vars":{

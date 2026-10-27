@@ -3,7 +3,7 @@
     "description":"carré, puissance 2, carrés parfaits, au carré",
     "ID":"6ND13",
     "canrepeat":true,
-    "dest":["6ND", "5NC", "4NC", "3NB"],
+    "dest":["5CC", "9AA"],
     "params":{
         "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"a":"1"}},
         "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"a":"2"}},

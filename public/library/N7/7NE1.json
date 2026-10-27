@@ -5,7 +5,7 @@
     "ID":"7NE1",
     "speech":1,
     "description":"Ajouter deux décimaux qui se marient bien et un nombre entier",
-    "dest":["6NE"],
+    "dest":["6CC", "6CB"],
     "options":[{
         "name":"Dixièmes, unité supérieure et entier",
         "vars":{"a":"d3_20_1","b":"${MMmath.round(Math.ceil(:a)-:a,1)}","c":"3_50"}

@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"GS14",
     "description":"Calculer une probabilité totale",
-    "dest":["2D2","GS1"],
+    "dest":["9FC", "10AC", "QHC"],
     "options":[
         {
         "name":"Arbre à 2 niveaux",

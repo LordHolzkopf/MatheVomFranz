@@ -13,17 +13,17 @@ import Sortable from "./libs/sortable/sortable.core.esm.js";
 const BROUILLON_KEY = "parkour-editeur-brouillon";
 
 const REGLES_LABELS = {
-  delaiDeblocageH: "Délai avant l'étape suivante (heures)",
-  verrouEchecH: "Verrou après échecs répétés (heures)",
-  tentativesAvantVerrou: "Échecs consécutifs avant verrou",
-  seuilReussite: "Bonnes réponses pour réussir une étape",
-  nbQuestions: "Questions par étape",
+  delaiDeblocageH: "Wartezeit bis zur nächsten Etappe (Stunden)",
+  verrouEchecH: "Sperre nach wiederholtem Scheitern (Stunden)",
+  tentativesAvantVerrou: "Fehlversuche in Folge bis zur Sperre",
+  seuilReussite: "Richtige Antworten zum Bestehen einer Etappe",
+  nbQuestions: "Fragen pro Etappe",
 };
 
 const SUPPORTS = [
-  { value: "arbre", label: "🌳 Arbre" },
-  { value: "toit", label: "🏠 Toit" },
-  { value: "barre", label: "🤸 Barre" },
+  { value: "arbre", label: "🌳 Baum" },
+  { value: "toit", label: "🏠 Dach" },
+  { value: "barre", label: "🤸 Stange" },
 ];
 
 const MM_VERSION = utils.getVersion();
@@ -36,9 +36,9 @@ let etapesSortable = null;
 
 function nouveauParcours() {
   return normalize({
-    id: "mon-parcours",
-    titre: "Mon parcours",
-    themes: [{ id: "nombres", label: "Nombres et calculs" }],
+    id: "mein-parkour",
+    titre: "Mein Parkour",
+    themes: [{ id: "nombres", label: "Zahlen und Rechnen" }],
     etapes: [],
   });
 }
@@ -84,19 +84,20 @@ function champTexte(labelText, value, onChange) {
 function renderEntete() {
   const zone = document.getElementById("pe-entete");
   zone.innerHTML = "";
-  zone.appendChild(utils.create("h2", { textContent: "Le parcours" }));
+  zone.appendChild(utils.create("h2", { textContent: "Der Parkour" }));
 
   // référence gardée pour mettre à jour l'identifiant sans re-rendre le champ
   // titre pendant la frappe (renderEntete() y ferait perdre le focus)
   let inputIdentifiant;
 
   zone.appendChild(
-    champTexte("Titre affiché aux élèves", def.titre, (value) => {
+    champTexte("Titel für die Lernenden", def.titre, (value) => {
       const ancienSlug = slugify(def.titre);
       def.titre = value;
       // tant que le prof n'a pas fixé l'identifiant à la main, il suit le titre
-      if (def.id === ancienSlug || def.id === "mon-parcours") {
-        def.id = slugify(value) || "mon-parcours";
+      // "mon-parcours" : identifiant par défaut des brouillons créés avant la traduction
+      if (def.id === ancienSlug || def.id === "mein-parkour" || def.id === "mon-parcours") {
+        def.id = slugify(value) || "mein-parkour";
         if (inputIdentifiant) inputIdentifiant.value = def.id;
       }
       sauverBrouillon();
@@ -105,7 +106,7 @@ function renderEntete() {
   );
 
   const champIdentifiant = champTexte(
-    "Identifiant du parcours",
+    "ID des Parkours",
     def.id,
     (value) => {
       def.id = slugify(value);
@@ -120,14 +121,14 @@ function renderEntete() {
     utils.create("p", {
       className: "pe-aide pe-avertissement",
       textContent:
-        "L'identifiant est la clé de progression des élèves : le modifier après diffusion remet leur progression à zéro.",
+        "Unter dieser ID wird der Fortschritt der Lernenden gespeichert. Wenn Sie sie nach dem Verteilen ändern, beginnen alle wieder bei null.",
     }),
   );
 
   const actions = utils.create("div", { className: "pe-champ" });
-  const btnNouveau = utils.create("button", { textContent: "Nouveau parcours" });
+  const btnNouveau = utils.create("button", { textContent: "Neuer Parkour" });
   btnNouveau.onclick = () => {
-    if (!window.confirm("Abandonner le parcours en cours d'édition ?")) return;
+    if (!window.confirm("Den Parkour, den Sie gerade bearbeiten, verwerfen?")) return;
     def = nouveauParcours();
     sauverBrouillon();
     render();
@@ -147,21 +148,21 @@ function renderEntete() {
       sauverBrouillon();
       render();
     } catch {
-      window.alert("Ce fichier n'est pas un parcours lisible.");
+      window.alert("Diese Datei enthält keinen lesbaren Parkour.");
     }
     inputFichier.value = "";
   };
 
   const btnImportFichier = utils.create("button", {
-    textContent: "Importer un fichier",
+    textContent: "Datei importieren",
   });
   btnImportFichier.onclick = () => inputFichier.click();
 
   const btnImportLien = utils.create("button", {
-    textContent: "Importer un lien",
+    textContent: "Link importieren",
   });
   btnImportLien.onclick = () => {
-    const saisi = window.prompt("Coller le lien élève d'un parcours :");
+    const saisi = window.prompt("Fügen Sie den Schüler-Link eines Parkours ein:");
     if (!saisi) return;
     try {
       // on accepte aussi bien le lien complet que le seul code
@@ -170,7 +171,7 @@ function renderEntete() {
       sauverBrouillon();
       render();
     } catch (err) {
-      window.alert("Import impossible : " + err.message);
+      window.alert("Import nicht möglich: " + err.message);
     }
   };
 
@@ -183,12 +184,12 @@ function renderEntete() {
 function renderThemes() {
   const zone = document.getElementById("pe-themes");
   zone.innerHTML = "";
-  zone.appendChild(utils.create("h2", { textContent: "Thèmes" }));
+  zone.appendChild(utils.create("h2", { textContent: "Themen" }));
   zone.appendChild(
     utils.create("p", {
       className: "pe-aide",
       textContent:
-        "Chaque thème donne une barre d'étoiles sur l'accueil du jeu.",
+        "Jedes Thema bekommt auf der Startseite des Spiels eine eigene Sternenleiste.",
     }),
   );
 
@@ -201,12 +202,12 @@ function renderThemes() {
       renderPied();
     };
     ligne.appendChild(input);
-    const btnSuppr = utils.create("button", { textContent: "Supprimer" });
+    const btnSuppr = utils.create("button", { textContent: "Löschen" });
     btnSuppr.onclick = () => {
       const utilise = def.etapes.filter((etape) => etape.theme === theme.id);
       if (utilise.length > 0) {
         window.alert(
-          "Thème utilisé par : " +
+          "Thema wird verwendet von: " +
             utilise.map((etape) => etape.titre || etape.id).join(", "),
         );
         return;
@@ -219,18 +220,18 @@ function renderThemes() {
     zone.appendChild(ligne);
   });
 
-  const btnAjout = utils.create("button", { textContent: "Ajouter un thème" });
+  const btnAjout = utils.create("button", { textContent: "Thema hinzufügen" });
   btnAjout.onclick = () => {
     const idsExistants = new Set(def.themes.map((theme) => theme.id));
     // le numéro suit la longueur de la liste, qui redescend après une
     // suppression : on incrémente donc jusqu'à un slug réellement libre pour
     // ne jamais faire coïncider deux thèmes sur le même id
     let n = def.themes.length + 1;
-    let label = "Nouveau thème " + n;
+    let label = "Neues Thema " + n;
     let id = slugify(label);
     while (idsExistants.has(id)) {
       n += 1;
-      label = "Nouveau thème " + n;
+      label = "Neues Thema " + n;
       id = slugify(label);
     }
     def.themes.push({ id, label });
@@ -245,13 +246,13 @@ function renderRegles() {
   zone.innerHTML = "";
   const details = utils.create("details");
   details.appendChild(
-    utils.create("summary", { textContent: "Règles du jeu (avancé)" }),
+    utils.create("summary", { textContent: "Spielregeln (für Fortgeschrittene)" }),
   );
   details.appendChild(
     utils.create("p", {
       className: "pe-aide",
       textContent:
-        "Laisser tel quel pour le comportement habituel. Mettre 0 heure de délai pour un parcours jouable en une seule séance.",
+        "Für das übliche Verhalten unverändert lassen. Mit 0 Stunden Wartezeit lässt sich der Parkour in einem Durchgang spielen.",
     }),
   );
   for (const key of Object.keys(DEFAULT_REGLES)) {
@@ -315,7 +316,7 @@ function renderPied() {
 
   if (rapport.erreurs.length === 0 && rapport.avertissements.length === 0) {
     zone.appendChild(
-      utils.create("p", { className: "pe-ok", textContent: "Parcours prêt." }),
+      utils.create("p", { className: "pe-ok", textContent: "Parkour ist fertig." }),
     );
   } else {
     const liste = utils.create("ul");
@@ -339,30 +340,30 @@ function renderPied() {
   const bloquant = rapport.erreurs.length > 0;
 
   const btnFichier = utils.create("button", {
-    textContent: "Télécharger le fichier .json",
+    textContent: ".json-Datei herunterladen",
     disabled: bloquant,
   });
   btnFichier.onclick = () => {
     telecharger(
-      (def.id || "parcours") + ".json",
+      (def.id || "parkour") + ".json",
       JSON.stringify(parcoursPublie(), null, 2),
     );
   };
 
   const btnLien = utils.create("button", {
-    textContent: "Copier le lien élève",
+    textContent: "Schüler-Link kopieren",
     disabled: bloquant,
   });
   btnLien.onclick = async () => {
     const lien = lienEleve();
     try {
       await navigator.clipboard.writeText(lien);
-      btnLien.textContent = "Lien copié !";
+      btnLien.textContent = "Link kopiert!";
       setTimeout(() => {
-        btnLien.textContent = "Copier le lien élève";
+        btnLien.textContent = "Schüler-Link kopieren";
       }, 2000);
     } catch {
-      window.prompt("Copie manuelle du lien :", lien);
+      window.prompt("Link zum Kopieren:", lien);
     }
   };
 
@@ -384,7 +385,7 @@ function panierFromUrl(lien) {
   try {
     url = new URL(String(lien).trim());
   } catch {
-    throw new Error("Ce n'est pas une adresse valide.");
+    throw new Error("Das ist keine gültige Adresse.");
   }
   let vars;
   try {
@@ -394,16 +395,16 @@ function panierFromUrl(lien) {
     // de laisser fuiter « URI malformed ».
     vars = utils.getUrlVars(url);
   } catch {
-    throw new Error("Ce lien contient un encodage invalide, impossible à lire.");
+    throw new Error("Dieser Link ist fehlerhaft kodiert und kann nicht gelesen werden.");
   }
   const paniers = vars && vars.c ? Object.values(vars.c) : [];
   if (paniers.length === 0) {
     throw new Error(
-      "Ce lien ne contient aucun panier d'activités. Utilise le lien de partage d'un diaporama.",
+      "Dieser Link enthält keinen Aufgabenkorb. Verwenden Sie den Link zum Teilen einer Diashow.",
     );
   }
   if (!paniers[0].a || Object.keys(paniers[0].a).length === 0) {
-    throw new Error("Le panier de ce lien ne contient aucune activité.");
+    throw new Error("Der Korb in diesem Link enthält keine Aufgaben.");
   }
   return paniers[0];
 }
@@ -422,13 +423,13 @@ async function verifierPanier(panier) {
   const chargees = activities.filter((a) => a !== undefined);
   if (chargees.length === 0) {
     throw new Error(
-      "Aucune activité n'a pu être chargée : identifiants inconnus ou connexion coupée.",
+      "Es konnte keine Aufgabe geladen werden: unbekannte Aufgaben-IDs oder keine Internetverbindung.",
     );
   }
   const attendues = Object.keys(panier.a).length;
   if (chargees.length < attendues) {
     throw new Error(
-      chargees.length + " activité(s) chargée(s) sur " + attendues + " attendue(s).",
+      chargees.length + " von " + attendues + " Aufgabe(n) geladen.",
     );
   }
   return {
@@ -444,7 +445,7 @@ function nouvelleEtape() {
     // jamais réutiliser celui d'une étape existante (clé de progression élève)
     id: "",
     theme: def.themes.length > 0 ? def.themes[0].id : "",
-    titre: "Étape " + numero,
+    titre: "Etappe " + numero,
     support: SUPPORTS[(numero - 1) % SUPPORTS.length].value,
     panier: {},
     // lien conservé pour ré-affichage ; retiré à l'export
@@ -460,7 +461,7 @@ function carteEtape(etape, index) {
   entete.appendChild(
     utils.create("span", {
       className: "pe-poignee",
-      title: "Glisser pour réordonner",
+      title: "Zum Verschieben ziehen",
       textContent: "⠿",
     }),
   );
@@ -511,7 +512,7 @@ function carteEtape(etape, index) {
   const inputLien = utils.create("input", {
     type: "text",
     value: etape.lien || "",
-    placeholder: "Coller ici le lien de partage MathsMentales",
+    placeholder: "Link zum Teilen aus MatheVomFranz hier einfügen",
   });
   inputLien.oninput = () => {
     etape.lien = inputLien.value;
@@ -522,14 +523,14 @@ function carteEtape(etape, index) {
   const resume = utils.create("div", { className: "pe-resume" });
   const nbDeclare = countQuestions(etape.panier);
   if (nbDeclare > 0) {
-    resume.textContent = nbDeclare + " questions annoncées par le panier.";
+    resume.textContent = "Laut Korb " + nbDeclare + " Fragen.";
   }
 
-  const btnVerifier = utils.create("button", { textContent: "Vérifier" });
+  const btnVerifier = utils.create("button", { textContent: "Prüfen" });
   btnVerifier.onclick = async () => {
     btnVerifier.disabled = true;
     resume.className = "pe-resume";
-    resume.textContent = "Chargement des activités…";
+    resume.textContent = "Aufgaben werden geladen …";
     try {
       const panier = panierFromUrl(inputLien.value);
       const infos = await verifierPanier(panier);
@@ -542,8 +543,8 @@ function carteEtape(etape, index) {
         infos.titres.join(" · ") +
         " — " +
         infos.nbQuestions +
-        " questions disponibles" +
-        (manque ? " pour " + def.regles.nbQuestions + " demandées." : ".");
+        " Fragen verfügbar" +
+        (manque ? ", " + def.regles.nbQuestions + " verlangt." : ".");
       sauverBrouillon();
       renderPied();
     } catch (err) {
@@ -558,16 +559,16 @@ function carteEtape(etape, index) {
   carte.appendChild(resume);
 
   const actions = utils.create("div", { className: "pe-etape-actions" });
-  const btnTester = utils.create("button", { textContent: "Tester" });
+  const btnTester = utils.create("button", { textContent: "Testen" });
   btnTester.onclick = () => {
     if (countQuestions(etape.panier) === 0) {
-      window.alert("Vérifie d'abord le lien de cette étape.");
+      window.alert("Prüfen Sie zuerst den Link dieser Etappe.");
       return;
     }
     // parcours jetable : id horodaté (progression isolée) et déblocage immédiat
     const essai = normalize({
       id: "parkour-test-" + Date.now(),
-      titre: "Test : " + (etape.titre || "étape"),
+      titre: "Test: " + (etape.titre || "Etappe"),
       regles: { ...def.regles, delaiDeblocageH: 0 },
       themes: def.themes,
       etapes: [{ ...etape, lien: undefined }],
@@ -576,19 +577,19 @@ function carteEtape(etape, index) {
     window.open(base.href + "?d=" + encode(essai), "_blank");
   };
   actions.appendChild(btnTester);
-  const btnDupliquer = utils.create("button", { textContent: "Dupliquer" });
+  const btnDupliquer = utils.create("button", { textContent: "Duplizieren" });
   btnDupliquer.onclick = () => {
     const copie = JSON.parse(JSON.stringify(etape));
     copie.id = "";
-    copie.titre = (etape.titre || "Étape") + " (copie)";
+    copie.titre = (etape.titre || "Etappe") + " (Kopie)";
     def.etapes.splice(index + 1, 0, copie);
     def = normalize(def);
     sauverBrouillon();
     render();
   };
-  const btnSupprimer = utils.create("button", { textContent: "Supprimer" });
+  const btnSupprimer = utils.create("button", { textContent: "Löschen" });
   btnSupprimer.onclick = () => {
-    if (!window.confirm("Supprimer « " + (etape.titre || etape.id) + " » ?")) {
+    if (!window.confirm("„" + (etape.titre || etape.id) + "“ löschen?")) {
       return;
     }
     def.etapes.splice(index, 1);
@@ -605,12 +606,12 @@ function carteEtape(etape, index) {
 function renderEtapes() {
   const zone = document.getElementById("pe-etapes");
   zone.innerHTML = "";
-  zone.appendChild(utils.create("h2", { textContent: "Étapes" }));
+  zone.appendChild(utils.create("h2", { textContent: "Etappen" }));
   zone.appendChild(
     utils.create("p", {
       className: "pe-aide",
       textContent:
-        "L'ordre des étapes définit les prérequis : une étape ne s'ouvre qu'après la précédente.",
+        "Die Reihenfolge legt die Voraussetzungen fest: Eine Etappe öffnet sich erst nach der vorherigen.",
     }),
   );
 
@@ -642,7 +643,7 @@ function renderEtapes() {
     });
   }
 
-  const btnAjout = utils.create("button", { textContent: "Ajouter une étape" });
+  const btnAjout = utils.create("button", { textContent: "Etappe hinzufügen" });
   btnAjout.onclick = () => {
     def.etapes.push(nouvelleEtape());
     def = normalize(def);

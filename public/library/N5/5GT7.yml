@@ -7,10 +7,7 @@ textSize: medium
 # réponses possibles : la déduplication stricte n’en laisserait passer que trois.
 # repeat:3 tolère la répétition, mais pas trois fois de suite la même réponse.
 repeat: 3
-dest:
-  - 5GT
-  - 4GT
-  - 3GT
+dest: [6DB, 5BC]
 consts:
   # énoncé et énoncé court, selon qu’il s’agit d’une frise ou d’un pavage
   enonce:

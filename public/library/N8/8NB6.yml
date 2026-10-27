@@ -1,6 +1,6 @@
 title: Fraction d'une figure au découpage piégeux
 description: Rectangle, carré ou disque dont certaines parts ne sont pas égales ; il faut imaginer le découpage en parts égales pour trouver la fraction colorée.
-dest: [ 6NB]
+dest: [5FA, 6AA]
 type: text
 keys: ["_", "/", "_", "_", "_", "_", "_", "_"]
 consigne: Quelle fraction de la figure est colorée ?

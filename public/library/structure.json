@@ -1,421 +1,593 @@
 {
-    "6":{
-        "nom":"6e",
-        "themes":{
-            "6N":{
-                "nom":"Nombres et calculs",
-                "chapitres":{
-                    "6NA":"Utiliser et représenter les grands nombres entiers",
-                    "6NB":"Utiliser et représenter des fractions simples",
-                    "6NC":"Utiliser et représenter les nombres décimaux",
-                    "6ND":"Calculer avec des nombres entiers",
-                    "6NE":"Calculer avec des nombres décimaux",
-                    "6NF":"Résoudre des problèmes avec des calculs",
-                    "6NN":"Faits numériques"
-                }
-            },
-            "6D":{
-                "nom":"Organisation et gestion de données, probabilités",
-                "chapitres":{
-                    "6DA":"Gestion de données et probabilités"
-                }
-            },
-            "6M":{
-                "nom": "Grandeurs et mesures",
-                "chapitres":{
-                    "6MA":"Longueurs, masses",
-                    "6MB":"Temps, durées",
-                    "6MC":"Aires",
-                    "6MD":"Contenances et volumes",
-                    "6ME":"Angles",
-                    "6MF":"Résoudre des problèmes"
-                }
-            },
-            "6G":{
-                "nom": "Espace et géométrie",
-                "chapitres":{
-                    "6GA":"Se repérer et se déplacer dans l'espace",
-                    "6GB":"Reconnaitre, nommer, décrire, etc. des solides",
-                    "6GC":"Reconnaitre, nommer, décrire, etc. des figures planes",
-                    "6GD":"Utiliser quelques relations géométriques"
-                }
-            },
-            "6L":{
-                "nom":"Leçons",
-                "chapitres":{
-                    "6LN":"Nombres et calculs",
-                    "6LM":"Grandeurs et mesures",
-                    "6LG":"Espace et Géométrie",
-                    "6LD":"Organisation et gestion de données"
-                }
-            }
-        }
-    },
-    "5":{
-        "nom": "5e",
-        "themes":{
-            "5N":{
-                "nom":"Nombres et calculs",
-                "chapitres":{
-                    "5NA":"Connaissance des nombres",
-                    "5NB":"Comparaison des nombres",
-                    "5NC":"Calculer avec les nombres",
-                    "5ND":"Notion de divisibilité et nombres premiers",
-                    "5NE":"Utiliser le calcul littéral"
-                }
-            },
-            "5D":{
-                "nom":"Organisation et gestion de données, fonctions",
-                "chapitres":{
-                    "5DA":"Interpréter, représenter et traiter des données",
-                    "5DB":"Notions de probabilités",
-                    "5DC":"Problèmes de proportionnalité",
-                    "5DD":"Notion de fonction"
-                }
-            },
-            "5M":{
-                "nom":"Grandeurs et mesures",
-                "chapitres":{
-                    "5MA":"Calculs de grandeurs",
-                    "5MB":"Effet des transformations"
-                }
-            },
-            "5G":{
-                "nom":"Espace et géométrie",
-                "chapitres":{
-                    "5GA":"Représenter l'espace",
-                    "5GB":"Notions de géométrie pour démontrer",
-                    "5GT":"Transformations",
-                    "5GR": "Se repérer sur une droite, dans le plan"
-                }
-            },
-            "5A":{
-                "nom":"Algorithmique et programmation",
-                "chapitres":{
-                    "5AA":"Ecrire, mettre au point, exécuter un programme"
-                }
-            },
-            "5L":{
-                "nom":"Leçons",
-                "chapitres":{
-                    "5LN":"Nombres et calculs",
-                    "5LM":"Grandeurs et mesures",
-                    "5LG":"Espace et Géométrie",
-                    "5LD":"Organisation et gestion de données"
-                }
-            }
-        }
-    },
-    "4":{
-        "nom":"4e",
-        "themes":{
-            "4N":{
-                "nom":"Nombres et calculs",
-                "chapitres":{
-                    "4NA":"Connaissance des nombres",
-                    "4NB":"Comparaison des nombres",
-                    "4NC":"Calculer avec les nombres",
-                    "4ND":"Notion de divisibilité et nombres premiers",
-                    "4NE":"Utiliser le calcul littéral"
-                }
-            },
-            "4D":{
-                "nom":"Organisation et gestion de données, fonctions",
-                "chapitres":{
-                    "4DA":"Interpréter, représenter et traiter des données",
-                    "4DB":"Notions de probabilités",
-                    "4DC":"Problèmes de proportionnalité",
-                    "4DD":"Notion de fonction"
-                }
-            },
-            "4M":{
-                "nom":"Grandeurs et mesures",
-                "chapitres":{
-                    "4MA":"Calculs de grandeurs",
-                    "4MB":"Effet des transformations"
-                }
-            },
-            "4G":{
-                "nom":"Espace et géométrie",
-                "chapitres":{
-                    "4GA":"Représenter l'espace",
-                    "4GB":"Notions de géométrie pour démontrer",
-                    "4GT":"Transformations",
-                    "4GR": "Repérage sur une droite et dans le plan"
-                }
-            },
-            "4A":{
-                "nom":"Algorithmique et programmation",
-                "chapitres":{
-                    "4AA":"Ecrire, mettre au point, exécuter un programme"
-                }
-            },
-            "4L":{
-                "nom":"Leçons",
-                "chapitres":{
-                    "4LN":"Nombres et calculs",
-                    "4LM":"Grandeurs et mesures",
-                    "4LG":"Espace et Géométrie",
-                    "4LD":"Organisation et gestion de données"
-                }
-            }
-        }
-    },
-    "3":{
-        "nom":"3e",
-        "themes":{
-            "3N":{
-                "nom":"Nombres et calculs",
-                "chapitres":{
-                    "3NA":"Connaissance des nombres",
-                    "3NB":"Calculer avec les nombres",
-                    "3NC":"Notion de divisibilité et nombres premiers",
-                    "3ND":"Utiliser le calcul littéral"
-                }
-            },
-            "3D":{
-                "nom":"Organisation et gestion de données, fonctions",
-                "chapitres":{
-                    "3DA":"Interpréter, représenter et traiter des données",
-                    "3DB":"Notions de probabilités",
-                    "3DC":"Problèmes de proportionnalité",
-                    "3DD":"Notion de fonction"
-                }
-            },
-            "3M":{
-                "nom":"Grandeurs et mesures",
-                "chapitres":{
-                    "3MA":"Calculs de grandeurs",
-                    "3MB":"Effet des transformations"
-                }
-            },
-            "3G":{
-                "nom":"Espace et géométrie",
-                "chapitres":{
-                    "3GA":"Représenter l'espace",
-                    "3GB":"Notions de géométrie pour démontrer",
-                    "3GR": "Repérage sur une droite et dans le plan",
-                    "3GT":"Transformations"
-                }
-            },
-            "3A":{
-                "nom":"Algorithmique et programmation",
-                "chapitres":{
-                    "3AA":"Ecrire, mettre au point, exécuter un programme"
-                }
-            },
-            "3L":{
-                "nom":"Leçons",
-                "chapitres":{
-                    "3LN":"Nombres et calculs",
-                    "3LM":"Grandeurs et mesures",
-                    "3LG":"Espace et Géométrie",
-                    "3LD":"Organisation et gestion de données"
-                }
-            }
-        }
-    },
-    "2":{
-        "nom":"2nde",
-        "themes":{
-            "2N":{
-                "nom":"Nombres et calculs",
-                "chapitres":{
-                    "2N1":"Manipuler les nombres réels",
-                    "2N2":"Utiliser les notions de multiple, diviseur et de nombre premier",
-                    "2N3":"Utiliser le calcul littéral"
-                }
-            },
-            "2D":{
-                "nom":"Statistiques et probabilités",
-                "chapitres":{
-                    "2D1":"Utiliser l’information chiffrée et statistique descriptive",
-                    "2D2":"Modéliser le hasard, calculer des probabilités",
-                    "2D3":"Échantillonnage"
-                }
-            },
-            "2G":{
-                "nom":"Géométrie",
-                "chapitres":{
-                    "2G1":"Manipuler les vecteurs du plan",
-                    "2G2":"Résoudre des problèmes de géométrie",
-                    "2G3":"Représenter et caractériser les droites du plan"
-                }
-            },
-            "2F":{
-                "nom":"Fonctions",
-                "chapitres":{
-                    "2F1":"Répertoire de fonctions de référence",
-                    "2F2":"Représenter algébriquement et graphiquement les fonctions",
-                    "2F3":"Etudier les variations et les extremums d'une fonction"
-                }
-            },
-            "2A":{
-                "nom":"Algorithmique et programmation",
-                "chapitres":{
-                    "2A1":"Utiliser les variables et les instructions élémentaires",
-                    "2A2":"Notion de fonction"
-                }
-            }
-        }
-    },
-    "G":{
-        "nom":"1re Gén",
-        "themes":{
-            "GL":{
-                "nom":"Algèbre",
-                "chapitres":{
-                    "GL1":"Suites, modèles discrets",
-                    "GL2":"Équations, fonctions polynomes du second degré"
-                }
-            },
-            "GA":{
-                "nom":"Analyse",
-                "chapitres":{
-                    "GA1":"Dérivation",
-                    "GA2":"Variations et courbes",
-                    "GA3":"Exponentielle",
-                    "GA4":"Fonctions trigonométriques",
-					"GA5":"Second degré"
-                }
-            },
-            "GG":{
-                "nom":"Géométrie",
-                "chapitres":{
-                    "GG1":"Calcul vectoriel et produit scalaire",
-                    "GG2":"Géométrie repérée"
-                }
-            },
-            "GS":{
-                "nom":"Probabilités et statistiques",
-                "chapitres":{
-                    "GS1": "Probabilités conditionnelles et indépendance",
-                    "GS2":"Variables aléatoires réelles"
-                }
-            },
-            "GP":{
-                "nom":"Algorithmique et programmation",
-                "chapitres":{
-                    "GP1":"Contenu"
-                }
-            },
-            "GE":{
-                "nom":"Vocabulaire ensembliste et logique",
-                "chapitres":{
-                    "GE1":"Contenu"
-                }
-            }
-        }
-    },
-    "K": {
-        "nom":"1/T Tech",
+    "5": {
+        "nom": "Klasse 5",
         "themes": {
-            "KL":{
-            "nom":"Algèbre",
-            "chapitres":{
-                "KL1":"Suites, modèles discrets",
-                "KL2":"Équations, fonctions polynomes du second degré"
+            "5A": {
+                "nom": "I Zahlen und Größen",
+                "chapitres": {
+                    "5AA": "Zahlen darstellen, ordnen und runden",
+                    "5AB": "Große Zahlen",
+                    "5AC": "Kopfrechnen mit den Grundrechenarten",
+                    "5AD": "Rechenterme aufstellen und beschreiben",
+                    "5AE": "Größen schätzen und umrechnen",
+                    "5AF": "Mit Größen rechnen",
+                    "5AG": "Daten erheben und darstellen"
                 }
             },
-            "KA":{
-            "nom":"Analyse",
-            "chapitres":{
-                "KA1":"Dérivation",
-                "KA2":"Variations et courbes",
-                "KA5":"Second degré"
+            "5B": {
+                "nom": "II Symmetrie",
+                "chapitres": {
+                    "5BA": "Senkrechte und parallele Geraden, Abstände",
+                    "5BB": "Koordinatensystem",
+                    "5BC": "Achsen- und Punktsymmetrie",
+                    "5BD": "Besondere Dreiecke und Vierecke"
                 }
             },
-            "Ko":{
-            "nom":"Automatismes",
-            "chapitres":{
-                "Ko1":"Calculs numériques",
-                "Ko2":"Calcul littéral",
-                "Ko3":"Calcul de probabilité",
-                "Ko4":"Fonctions"
-            }
-        },
-        "KS":{
-            "nom":"Probabilités et statistiques",
-            "chapitres":{
-                "KS1":"Tableaux de probabilités et probabilités conditionnelles",
-                "KS2":"Variables aléatoires réelles",
-                "KS3":"Arbres de probabilités"
-            }
-        }
-    }},
-    "T":{
-        "nom":"Tale",
-        "themes":{
-            "TC":{
-                "nom":"Nombres complexes",
-                "chapitres":{
-                    "TC1":"Point de vue algébrique",
-                    "TC2":"Point de vue géométrique",
-                    "TC3":"Trigonométrie",
-                    "TC4":"Equations polynomiales"
+            "5C": {
+                "nom": "III Rechnen",
+                "chapitres": {
+                    "5CA": "Terme und Rechengesetze",
+                    "5CB": "Vorteilhaft rechnen",
+                    "5CC": "Potenzen",
+                    "5CD": "Teilbarkeit und Teilbarkeitsregeln",
+                    "5CE": "Primzahlen und Primfaktorzerlegung",
+                    "5CF": "Schriftliches Rechnen",
+                    "5CG": "Sachaufgaben"
                 }
             },
-            "TA":{
-                "nom":"Arithmétique",
-                "chapitres":{
-                    "TA1":"Contenu"
+            "5D": {
+                "nom": "IV Flächen",
+                "chapitres": {
+                    "5DA": "Flächeninhalte vergleichen, Flächeneinheiten",
+                    "5DB": "Rechteck und rechtwinkliges Dreieck",
+                    "5DC": "Umfang",
+                    "5DD": "Zerlegen und Ergänzen",
+                    "5DE": "Maßstab"
                 }
             },
-            "TM":{
-                "nom":"Graphes et matrices",
-                "chapitres":{
-                    "TMG":"Graphes",
-                    "TMM":"Matrices"
+            "5E": {
+                "nom": "V Körper",
+                "chapitres": {
+                    "5EA": "Grundkörper erkennen",
+                    "5EB": "Netze und Schrägbilder",
+                    "5EC": "Volumeneinheiten",
+                    "5ED": "Volumen und Oberfläche von Quader und Würfel"
                 }
             },
-            "TG":{
-                "nom":"Albègre et géométrie",
-                "chapitres":{
-                    "TGC":"Combinatoire et dénombrement",
-                    "TGV":"Manipuler les vecteurs, droites et plans",
-                    "TGO":"Orthogonalité et distances",
-                    "TGR":"Représentations paramétriques et équations cartésiennes"
-                }
-            },
-            "TN":{
-                "nom":"Analyse",
-                "chapitres":{
-                    "TN1":"Suites",
-                    "TN2":"Limites",
-                    "TN3":"Dérivation",
-                    "TN4":"Continuité",
-                    "TN5":"Fonction logarithme",
-                    "TN6":"Fonctions sinus et cosinus",
-                    "TN7":"Primitives, équations différentielles",
-                    "TN8":"Calcul intégral"
-                }
-            },
-            "TP":{
-                "nom":"Probabilités",
-                "chapitres":{
-                    "TP1":"Épreuves indépendantes, Bernouilli",
-                    "TP2":"Sommes de variables aléatoires",
-                    "TP3":"Concentration, loi des grands nombres"
+            "5F": {
+                "nom": "VI Brüche – das Ganze und seine Teile (wahlweise Kl. 5 oder 6)",
+                "chapitres": {
+                    "5FA": "Brüche als Anteile",
+                    "5FB": "Kürzen und Erweitern",
+                    "5FC": "Brüche vergleichen",
+                    "5FD": "Prozente als Anteile",
+                    "5FE": "Brüche am Zahlenstrahl",
+                    "5FF": "Anteil, Bruchteil und Ganzes berechnen"
                 }
             }
         }
     },
-    "H":{
-        "nom":"Hors Prog.",
-        "themes":{
-            "HN":{
-                "nom":"Analyse",
-                "chapitres":{
-                    "HN1":"Suites",
-                    "HN2":"Limites",
-                    "HN3":"Dérivation"
+    "6": {
+        "nom": "Klasse 6",
+        "themes": {
+            "6A": {
+                "nom": "I Brüche – das Ganze und seine Teile (wahlweise Kl. 5 oder 6)",
+                "chapitres": {
+                    "6AA": "Brüche als Anteile",
+                    "6AB": "Kürzen und Erweitern",
+                    "6AC": "Brüche vergleichen",
+                    "6AD": "Prozente als Anteile",
+                    "6AE": "Brüche am Zahlenstrahl",
+                    "6AF": "Anteil, Bruchteil und Ganzes berechnen"
                 }
             },
-            "HP":{
-                "nom":"Puissances",
-                "chapitres":{
-                    "HPF":"Puissances",
-                    "HPL":"Logarithmes"
+            "6B": {
+                "nom": "II Brüche in Dezimalschreibweise",
+                "chapitres": {
+                    "6BA": "Dezimalzahlen und Stellenwerte",
+                    "6BB": "Dezimalzahlen vergleichen und runden",
+                    "6BC": "Bruch, Dezimalzahl und Prozent",
+                    "6BD": "Periodische Dezimalzahlen",
+                    "6BE": "Größen in Dezimalschreibweise"
+                }
+            },
+            "6C": {
+                "nom": "III Zahlen addieren und subtrahieren",
+                "chapitres": {
+                    "6CA": "Brüche addieren und subtrahieren",
+                    "6CB": "Dezimalzahlen addieren und subtrahieren",
+                    "6CC": "Geschickt rechnen, Überschlag und Probe"
+                }
+            },
+            "6D": {
+                "nom": "IV Muster und Figuren",
+                "chapitres": {
+                    "6DA": "Koordinatensystem mit vier Quadranten",
+                    "6DB": "Verschieben, Drehen, Spiegeln",
+                    "6DC": "Kreis und Kreisfiguren",
+                    "6DD": "Winkel benennen, schätzen und messen"
+                }
+            },
+            "6E": {
+                "nom": "V Zahlen multiplizieren und dividieren",
+                "chapitres": {
+                    "6EA": "Brüche vervielfachen und teilen",
+                    "6EB": "Brüche multiplizieren",
+                    "6EC": "Durch Brüche dividieren",
+                    "6ED": "Kommaverschiebung",
+                    "6EE": "Dezimalzahlen multiplizieren",
+                    "6EF": "Dezimalzahlen dividieren",
+                    "6EG": "Rechengesetze und vorteilhaftes Rechnen"
+                }
+            },
+            "6F": {
+                "nom": "VI Daten",
+                "chapitres": {
+                    "6FA": "Absolute und relative Häufigkeit",
+                    "6FB": "Diagramme",
+                    "6FC": "Mittelwert, Median und Spannweite",
+                    "6FD": "Quartile und Boxplot"
+                }
+            },
+            "6G": {
+                "nom": "VII Beziehungen zwischen Zahlen",
+                "chapitres": {
+                    "6GA": "Muster und Zahlenfolgen",
+                    "6GB": "Abhängigkeiten beschreiben",
+                    "6GC": "Dreisatz",
+                    "6GD": "Ganze Zahlen"
+                }
+            }
+        }
+    },
+    "7": {
+        "nom": "Klasse 7",
+        "themes": {
+            "7A": {
+                "nom": "I Rechnen mit rationalen Zahlen",
+                "chapitres": {
+                    "7AA": "Rationale Zahlen ordnen",
+                    "7AB": "Addieren und subtrahieren",
+                    "7AC": "Multiplizieren und dividieren",
+                    "7AD": "Vorzeichenregeln und Rechengesetze"
+                }
+            },
+            "7B": {
+                "nom": "II Zuordnungen",
+                "chapitres": {
+                    "7BA": "Zuordnungen darstellen",
+                    "7BB": "Proportionale Zuordnungen",
+                    "7BC": "Antiproportionale Zuordnungen",
+                    "7BD": "Dreisatz"
+                }
+            },
+            "7C": {
+                "nom": "III Prozent- und Zinsrechnung",
+                "chapitres": {
+                    "7CA": "Grundwert, Prozentwert, Prozentsatz",
+                    "7CB": "Prozente im Alltag",
+                    "7CC": "Zinsen",
+                    "7CD": "Prozentuale Änderungen und Wachstumsfaktor"
+                }
+            },
+            "7D": {
+                "nom": "IV Terme und Gleichungen",
+                "chapitres": {
+                    "7DA": "Terme aufstellen",
+                    "7DB": "Terme vereinfachen",
+                    "7DC": "Ausmultiplizieren und Ausklammern",
+                    "7DD": "Lineare Gleichungen lösen",
+                    "7DE": "Ungleichungen",
+                    "7DF": "Bruchterme und Bruchgleichungen",
+                    "7DG": "Probleme mit Gleichungen lösen"
+                }
+            },
+            "7E": {
+                "nom": "V Konstruieren und Argumentieren",
+                "chapitres": {
+                    "7EA": "Winkel an Geraden",
+                    "7EB": "Winkelsummen",
+                    "7EC": "Dreiecke konstruieren",
+                    "7ED": "Kongruenz"
+                }
+            },
+            "7F": {
+                "nom": "VI Wahrscheinlichkeit (wahlweise Kl. 7 oder 8)",
+                "chapitres": {
+                    "7FA": "Wahrscheinlichkeit und relative Häufigkeit",
+                    "7FB": "Laplace-Experimente",
+                    "7FC": "Mehrstufige Zufallsexperimente, Pfadregel",
+                    "7FD": "Simulation"
+                }
+            }
+        }
+    },
+    "8": {
+        "nom": "Klasse 8",
+        "themes": {
+            "8A": {
+                "nom": "I Daten und Wahrscheinlichkeit (wahlweise Kl. 7 oder 8)",
+                "chapitres": {
+                    "8AA": "Wahrscheinlichkeit und relative Häufigkeit",
+                    "8AB": "Laplace-Experimente",
+                    "8AC": "Mehrstufige Zufallsexperimente, Pfadregel",
+                    "8AD": "Simulation"
+                }
+            },
+            "8B": {
+                "nom": "II Lineare Funktionen",
+                "chapitres": {
+                    "8BA": "Funktionsbegriff",
+                    "8BB": "Proportionale Funktionen",
+                    "8BC": "Steigung und y-Achsenabschnitt",
+                    "8BD": "Funktionsgleichung bestimmen",
+                    "8BE": "Nullstellen und Schnittpunkte"
+                }
+            },
+            "8C": {
+                "nom": "III Terme mit mehreren Variablen",
+                "chapitres": {
+                    "8CA": "Terme aufstellen und umformen",
+                    "8CB": "Summen multiplizieren",
+                    "8CC": "Binomische Formeln"
+                }
+            },
+            "8D": {
+                "nom": "IV Flächen",
+                "chapitres": {
+                    "8DA": "Parallelogramm",
+                    "8DB": "Dreieck",
+                    "8DC": "Zusammengesetzte Figuren"
+                }
+            },
+            "8E": {
+                "nom": "V Lineare Gleichungssysteme",
+                "chapitres": {
+                    "8EA": "Lineare Gleichungen mit zwei Variablen",
+                    "8EB": "Lösen durch Gleichsetzen, Einsetzen, Addieren",
+                    "8EC": "Lösungsmengen deuten",
+                    "8ED": "Sachprobleme"
+                }
+            },
+            "8F": {
+                "nom": "VI Kreise und Dreiecke",
+                "chapitres": {
+                    "8FA": "Satz des Thales",
+                    "8FB": "Mittelsenkrechte und Umkreis",
+                    "8FC": "Winkelhalbierende und Inkreis",
+                    "8FD": "Seitenhalbierende und Schwerpunkt"
+                }
+            }
+        }
+    },
+    "9": {
+        "nom": "Klasse 9",
+        "themes": {
+            "9A": {
+                "nom": "I Reelle Zahlen",
+                "chapitres": {
+                    "9AA": "Quadratwurzeln",
+                    "9AB": "Irrationale Zahlen",
+                    "9AC": "Rechnen mit Wurzeln"
+                }
+            },
+            "9B": {
+                "nom": "II Quadratische Funktionen",
+                "chapitres": {
+                    "9BA": "Wiederholung: lineare Funktionen",
+                    "9BB": "Normalparabel und f(x) = ax²",
+                    "9BC": "Scheitelpunktform",
+                    "9BD": "Quadratische Ergänzung",
+                    "9BE": "Funktionsgleichungen aufstellen"
+                }
+            },
+            "9C": {
+                "nom": "III Kreise, Prismen und Zylinder",
+                "chapitres": {
+                    "9CA": "Kreisumfang und Kreisfläche",
+                    "9CB": "Kreisteile",
+                    "9CC": "Prisma",
+                    "9CD": "Zylinder"
+                }
+            },
+            "9D": {
+                "nom": "IV Potenzen und Potenzgesetze",
+                "chapitres": {
+                    "9DA": "Potenzen mit ganzzahligen Exponenten",
+                    "9DB": "Zehnerpotenzen",
+                    "9DC": "Potenzgesetze",
+                    "9DD": "Wurzeln als Potenzen"
+                }
+            },
+            "9E": {
+                "nom": "V Der Satz des Pythagoras und Körper",
+                "chapitres": {
+                    "9EA": "Satz des Pythagoras",
+                    "9EB": "Pythagoras in Figuren und Körpern",
+                    "9EC": "Pyramide und Kegel",
+                    "9ED": "Kugel"
+                }
+            },
+            "9F": {
+                "nom": "VI Daten und Wahrscheinlichkeit (wahlweise Kl. 9 oder 10)",
+                "chapitres": {
+                    "9FA": "Statistische Erhebungen",
+                    "9FB": "Kombinatorisches Abzählen",
+                    "9FC": "Vierfeldertafel und Baumdiagramm",
+                    "9FD": "Bedingte Wahrscheinlichkeit und Unabhängigkeit"
+                }
+            }
+        }
+    },
+    "10": {
+        "nom": "Klasse 10",
+        "themes": {
+            "10A": {
+                "nom": "I Daten und Wahrscheinlichkeit (wahlweise Kl. 9 oder 10)",
+                "chapitres": {
+                    "10AA": "Statistische Erhebungen",
+                    "10AB": "Kombinatorisches Abzählen",
+                    "10AC": "Vierfeldertafel und Baumdiagramm",
+                    "10AD": "Bedingte Wahrscheinlichkeit und Unabhängigkeit"
+                }
+            },
+            "10B": {
+                "nom": "II Quadratische Funktionen und Gleichungen",
+                "chapitres": {
+                    "10BA": "Darstellungsformen quadratischer Funktionen",
+                    "10BB": "Einfache quadratische Gleichungen",
+                    "10BC": "Linearfaktorzerlegung",
+                    "10BD": "Lösungsformel",
+                    "10BE": "Nullstellen und Anwendungen"
+                }
+            },
+            "10C": {
+                "nom": "III Ähnlichkeit",
+                "chapitres": {
+                    "10CA": "Zentrische Streckung",
+                    "10CB": "Ähnliche Figuren",
+                    "10CC": "Strahlensätze"
+                }
+            },
+            "10D": {
+                "nom": "IV Exponentialfunktionen",
+                "chapitres": {
+                    "10DA": "Exponentielles Wachstum und Abnahme",
+                    "10DB": "Exponentialfunktionen",
+                    "10DC": "Logarithmus und Exponentialgleichungen",
+                    "10DD": "Wachstumsmodelle vergleichen"
+                }
+            },
+            "10E": {
+                "nom": "V Trigonometrie",
+                "chapitres": {
+                    "10EA": "Sinus, Kosinus, Tangens",
+                    "10EB": "Berechnungen im rechtwinkligen Dreieck",
+                    "10EC": "Kosinussatz und Sinussatz"
+                }
+            },
+            "10F": {
+                "nom": "VI Trigonometrische Funktionen",
+                "chapitres": {
+                    "10FA": "Sinus und Kosinus am Einheitskreis",
+                    "10FB": "Sinusfunktion und ihre Parameter",
+                    "10FC": "Periodische Vorgänge"
+                }
+            }
+        }
+    },
+    "E": {
+        "nom": "EF",
+        "themes": {
+            "EA": {
+                "nom": "I Funktionen – Neues und Bekanntes",
+                "chapitres": {
+                    "EAA": "Funktionsbegriff, lineare und quadratische Funktionen",
+                    "EAB": "Potenzfunktionen",
+                    "EAC": "Transformationen von Funktionen",
+                    "EAD": "Trigonometrische Funktionen"
+                }
+            },
+            "EB": {
+                "nom": "II Ganzrationale Funktionen",
+                "chapitres": {
+                    "EBA": "Grad, Koeffizienten, Globalverlauf",
+                    "EBB": "Symmetrie",
+                    "EBC": "Nullstellen"
+                }
+            },
+            "EC": {
+                "nom": "III Ableitung",
+                "chapitres": {
+                    "ECA": "Mittlere und lokale Änderungsrate",
+                    "ECB": "Tangente und Ableitung an einer Stelle",
+                    "ECC": "Ableitungsfunktion, grafisches Ableiten",
+                    "ECD": "Ableitungsregeln"
+                }
+            },
+            "ED": {
+                "nom": "IV Untersuchung von Funktionen",
+                "chapitres": {
+                    "EDA": "Monotonie",
+                    "EDB": "Extrempunkte",
+                    "EDC": "Krümmung und Wendepunkte",
+                    "EDD": "Funktionen im Sachzusammenhang"
+                }
+            },
+            "EE": {
+                "nom": "V Vektoren",
+                "chapitres": {
+                    "EEA": "Punkte im räumlichen Koordinatensystem",
+                    "EEB": "Vektoren, Betrag und Abstand",
+                    "EEC": "Rechnen mit Vektoren"
+                }
+            },
+            "EF": {
+                "nom": "VI Geraden im Raum",
+                "chapitres": {
+                    "EFA": "Parameterform von Geraden",
+                    "EFB": "Lagebeziehungen von Geraden",
+                    "EFC": "Bewegungen modellieren"
+                }
+            }
+        }
+    },
+    "Q": {
+        "nom": "Q1/Q2",
+        "themes": {
+            "QA": {
+                "nom": "I Fortsetzung der Differenzialrechnung",
+                "chapitres": {
+                    "QAA": "Funktionsuntersuchung (Wiederholung)",
+                    "QAB": "Extremwertprobleme",
+                    "QAC": "Funktionen aus Bedingungen bestimmen",
+                    "QAD": "Funktionenscharen",
+                    "QAE": "Wurzelfunktion und rationale Exponenten",
+                    "QAF": "Substitution"
+                }
+            },
+            "QB": {
+                "nom": "II Integralrechnung",
+                "chapitres": {
+                    "QBA": "Rekonstruktion aus Änderungsraten",
+                    "QBB": "Bestimmtes Integral und Integralfunktion",
+                    "QBC": "Hauptsatz und Stammfunktionen",
+                    "QBD": "Flächeninhalte",
+                    "QBE": "Uneigentliche Integrale (nur LK)",
+                    "QBF": "Rotationskörper (nur LK)"
+                }
+            },
+            "QC": {
+                "nom": "III Exponentialfunktionen",
+                "chapitres": {
+                    "QCA": "Exponentialfunktionen (Wiederholung)",
+                    "QCB": "Natürliche Exponentialfunktion",
+                    "QCC": "Natürlicher Logarithmus und Exponentialgleichungen",
+                    "QCD": "Wachstum und Zerfall",
+                    "QCE": "Beliebige Exponentialfunktionen ableiten (nur LK)",
+                    "QCF": "Logarithmusfunktion (nur LK)"
+                }
+            },
+            "QD": {
+                "nom": "IV Weitere Funktionen",
+                "chapitres": {
+                    "QDA": "Ableitung von Sinus und Kosinus",
+                    "QDB": "Verkettung und Produktregel",
+                    "QDC": "Kettenregel",
+                    "QDD": "Zusammengesetzte Funktionen untersuchen"
+                }
+            },
+            "QE": {
+                "nom": "V Vektoren, Geraden und Winkel",
+                "chapitres": {
+                    "QEA": "Geraden und Lagebeziehungen (Wiederholung)",
+                    "QEB": "Skalarprodukt und Orthogonalität",
+                    "QEC": "Winkel zwischen Vektoren und Geraden"
+                }
+            },
+            "QF": {
+                "nom": "VI Ebenen",
+                "chapitres": {
+                    "QFA": "Gauß-Algorithmus",
+                    "QFB": "Lösungsmengen von LGS (nur LK)",
+                    "QFC": "Ebenen in Parameterform",
+                    "QFD": "Koordinatenform und Normalenvektor",
+                    "QFE": "Schnittpunkte und Schnittwinkel",
+                    "QFF": "Spiegelung und Symmetrie"
+                }
+            },
+            "QG": {
+                "nom": "VII Lagebeziehungen und Abstände (nur LK)",
+                "chapitres": {
+                    "QGA": "Lagebeziehungen von Geraden und Ebenen",
+                    "QGB": "Abstände",
+                    "QGC": "Anwendungen"
+                }
+            },
+            "QH": {
+                "nom": "VIII Daten und Wahrscheinlichkeit",
+                "chapitres": {
+                    "QHA": "Wahrscheinlichkeit, Urnenmodelle, Gegenereignis",
+                    "QHB": "Ereignisverknüpfungen",
+                    "QHC": "Baumdiagramm und Vierfeldertafel",
+                    "QHD": "Bedingte Wahrscheinlichkeit und Unabhängigkeit",
+                    "QHE": "Lage- und Streumaße",
+                    "QHF": "Zufallsgrößen, Erwartungswert, Standardabweichung"
+                }
+            },
+            "QI": {
+                "nom": "IX Binomialverteilung",
+                "chapitres": {
+                    "QIA": "Bernoulli-Ketten und Binomialverteilung",
+                    "QIB": "Binomialkoeffizienten (nur LK)",
+                    "QIC": "Erwartungswert, Histogramme, kumulierte Wahrscheinlichkeiten",
+                    "QID": "Probleme mit der Binomialverteilung lösen"
+                }
+            },
+            "QJ": {
+                "nom": "X Prognose- und Konfidenzintervalle, Normalverteilung (nur LK)",
+                "chapitres": {
+                    "QJA": "Sigma-Regeln",
+                    "QJB": "Prognoseintervalle",
+                    "QJC": "Konfidenzintervalle",
+                    "QJD": "Normalverteilung"
+                }
+            }
+        }
+    },
+    "W": {
+        "nom": "Weitere Aufgaben",
+        "themes": {
+            "WA": {
+                "nom": "Zahlen und Rechnen",
+                "chapitres": {
+                    "WAA": "Natürliche Zahlen und Stellenwerte",
+                    "WAB": "Kopfrechnen und Rechentricks",
+                    "WAC": "Brüche, Dezimalzahlen, Prozente",
+                    "WAD": "Sonstiges"
+                }
+            },
+            "WB": {
+                "nom": "Algebra",
+                "chapitres": {
+                    "WBA": "Terme und Gleichungen",
+                    "WBB": "Sonstiges"
+                }
+            },
+            "WC": {
+                "nom": "Geometrie",
+                "chapitres": {
+                    "WCA": "Ebene Figuren und Konstruktionen",
+                    "WCB": "Körper und Raum",
+                    "WCC": "Sonstiges"
+                }
+            },
+            "WD": {
+                "nom": "Größen",
+                "chapitres": {
+                    "WDA": "Zeit, Geld, Längen, Gewichte",
+                    "WDB": "Sonstiges"
+                }
+            },
+            "WE": {
+                "nom": "Funktionen und Analysis",
+                "chapitres": {
+                    "WEA": "Funktionen",
+                    "WEB": "Sonstiges"
+                }
+            },
+            "WF": {
+                "nom": "Daten und Zufall",
+                "chapitres": {
+                    "WFA": "Statistik",
+                    "WFB": "Wahrscheinlichkeit"
+                }
+            },
+            "WG": {
+                "nom": "Logik, Algorithmen und Programmieren",
+                "chapitres": {
+                    "WGA": "Logik und Rätsel",
+                    "WGB": "Algorithmen und Programmieren"
                 }
             }
         }

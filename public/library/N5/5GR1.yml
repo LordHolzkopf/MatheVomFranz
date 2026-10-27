@@ -1,8 +1,5 @@
 title: Repérage dans le plan avec les relatifs
-dest:
-  - 5GR
-  - 4GR
-  - 3GR
+dest: [6DA]
 type: text
 textSize: medium
 description: "Lire les coordonnées d'un point, placer un point : abscisse, ordonnée, repère, relatifs. Option « Placer un point » non adaptée au mode interactif (online/duel)."

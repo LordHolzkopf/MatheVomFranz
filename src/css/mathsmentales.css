@@ -1526,7 +1526,7 @@ input[name="paramtype"]:focus-visible + .type-usage-tuile {
     margin-left: calc(-100% / 2 + 50px);
 }
 #divparams .tooltip .tooltiptext::before {
-    content: "Réponse attendue";
+    content: "Erwartete Antwort";
     font-size: x-small;
     position: absolute;
     display: block;
@@ -1694,7 +1694,7 @@ aside > button {
     text-decoration: underline;
 }
 #tab-chercher li.new::after {
-    content: "new";
+    content: "neu";
     color: red;
     transform: rotate(-15deg) translateY(-0.3em);
     display: inline-block;
@@ -2041,7 +2041,7 @@ h3.sg-title {
 /* Info-bulle listant les types d'usage qui tiennent compte du réglage :
    affichée sous le bouton au survol, sans jamais recouvrir les réglages. */
 #cartscontainer .totaux .has-choice[data-usage]::after {
-    content: "Pris en compte pour : " attr(data-usage);
+    content: "Gilt für: " attr(data-usage);
     position: absolute;
     top: 100%;
     left: 50%;

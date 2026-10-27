@@ -4,7 +4,7 @@
     "ID":"5MA1",
     "description":"Périmètre et aire en fonction de x : expression littérale, calcul littéral, figures usuelles. Non adapté au mode interactif (online/duel).",
     "textSize":"small",
-    "dest":[ "5MA", "4MA", "3MA"],
+    "dest":["7DA"],
     "options":[{
         "name":"Périmètre en fonction de $$x$$",
         "vars":{"a":"2_6","sor":"0_1","b":"${:sor==0?8:(:a+1)+'_11'}", "px":"0_1"},

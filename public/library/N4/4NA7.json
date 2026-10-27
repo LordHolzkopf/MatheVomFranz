@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"4NA7",
     "consigne":"Calculer",
-    "dest":["4NA", "3NA", "2N1"],
+    "dest":["5CC", "9DA"],
     "options":[{
         "name":"Entre 0 et 10",
         "vars":{"p":"0_10"}

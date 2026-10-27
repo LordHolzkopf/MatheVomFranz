@@ -2,7 +2,7 @@
     "title":"Reconnaître un nombre premier",
     "description":"nombre premier, diviseurs, divisibilité",
     "ID":"5ND5",
-    "dest":["5ND", "4ND", "3NC"],
+    "dest":["5CE"],
     "keys":["_","_","V","F","_","_","_","_"],
     "textSize":"medium",
     "type":"text",

@@ -1,6 +1,6 @@
 {
     "ID":"2G31",
-    "dest":["2G3","GG2"],
+    "dest":["8BD", "9BA", "EAA"],
     "type":"text",
     "title":"Pente d'une droite",
     "description":"Trouver la pente d'une droite connaissant les coordonnées de deux de ses points.",

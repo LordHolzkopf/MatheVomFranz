@@ -3,7 +3,7 @@
     "title":"Cercles tangents ou sécants et distances",
     "description":"cercles tangents, sécants, rayon, distance entre centres",
     "type":"text",
-    "dest":["6GD","5GB"],
+    "dest":["6DC"],
     "consts":{"lettres":"ABCDEFGHJKLMNPQRSTUVW"},
     "options":[
         {

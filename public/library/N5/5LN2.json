@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LN2",
     "description":"16 questions sur les nombres relatifs : notion, positif, négatif, repérage, droite graduée, somme, différence. Non adapté au mode interactif (online/duel).",
-    "dest":["5LN", "4LN"],
+    "dest":["6GD", "7AA", "7AB"],
     "options":[{
         "name":"Notion de nombre relatifs",
         "question": [

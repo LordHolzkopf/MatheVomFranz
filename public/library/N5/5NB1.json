@@ -6,7 +6,7 @@
     "description":"Trouver le nombre entier qui précède et le nombre qui suit une fraction.",
     "speech":1,
     "textSize":"medium",
-    "dest":["5NB","6NB"],
+    "dest":["5FE", "6AE"],
     "keys":["_","_",";","_","_","_","_","_"],
     "options":[{
         "name":"Fractions dont le numérateur est inférieur à 5 fois le dénominateur",

@@ -3,7 +3,7 @@
     "description":"Donner l'écriture décimale d'une puissance, attention aux parenthèses !",
     "type":"latex",
     "ID":"4NA6",
-    "dest":["4NA", "3NA"],
+    "dest":["7AD", "5CC"],
     "options":[{
         "name":"Nombres positifs",
         "vars":{"a":"0_10","p":"2_${:a<6||:a==10?3:2}","calc":"${:a+'^'+:p}"}

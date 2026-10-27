@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"Ko41",
     "description":"Dresser le tableau de signe d'une fonction affine : signe de ax+b, positif, négatif, zéro. Non adapté au mode interactif (online/duel).",
-    "dest":["2G3","Ko4"],
+    "dest":["8BE"],
     "name":"Dresser un tableau de signes",
     "vars":{"a":"-9_9_^0","b":"0_10","choix":"1_3"},
     "question": "Compléter le tableau de signe de $$f(x)=${:a}x+${:b}$$<br><table class='inline-table'><tr><td>$$ x $$ </td><td> ... </tr><tr><td>$$ :a x+:b $$</td><td> ... 0 ... </td></tr></table>",

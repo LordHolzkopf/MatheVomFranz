@@ -6,7 +6,7 @@
     "speech":1,
     "keys":["/"],
     "textSize":"medium",
-    "dest":["6NB","5NA","4NA","3NA"],
+    "dest":["6BC"],
     "options":[{
         "name":"Fractions simples",
         "vars":{"den":"2_5_^3", "num":"0_10"},

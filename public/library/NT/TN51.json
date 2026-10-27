@@ -1,9 +1,7 @@
 {
   "title": "logarithme népérien d'exponentielle et ses puissances",
   "description": "ln, exp, logarithme népérien, exponentielle, simplifier",
-  "dest": [
-    "TN5"
-  ],
+  "dest":["QCC"],
   "keys":["_","/","_","_","_","_","_","_"],
   "consigne": "Calculer",
   "options": [

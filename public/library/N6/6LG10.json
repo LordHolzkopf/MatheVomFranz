@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"6LG10",
     "description":"Questions sur la symétrie axiale : axe, symétrique, définition, propriétés, médiatrice. Non adapté au mode interactif (online/duel).",
-    "dest":["6LG"],
+    "dest":["5BC", "6DB"],
     "options":[
         {
             "name":"Définition",

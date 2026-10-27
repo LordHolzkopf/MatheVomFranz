@@ -5,7 +5,7 @@
     "description":"Place du chiffre 9 : rang, chiffre des, numération, décimaux, partie décimale. Non adapté au mode interactif (online/duel).",
     "textSize":"medium",
     "ID":"6NC8",
-    "dest":[ "6NC", "5NA", "4NA","3NA"],
+    "dest":["6BA", "5AB"],
     "consts":{"u":["centaines", "dizaines", "unités","dixièmes","centièmes","millièmes"],
         "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités","dixièmes","centièmes","millièmes","dix-millièmes"],
         "w":["centaines de million", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités","dixièmes","centièmes","millièmes","dix-millièmes","cent-millièmes","millionièmes"]

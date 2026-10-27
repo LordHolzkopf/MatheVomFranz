@@ -1,11 +1,7 @@
 {
   "title": "Norme d’un vecteur",
   "description": "norme, longueur d'un vecteur, distance, coordonnées",
-  "dest": [
-    "GG1",
-    "2G1",
-    "TGO"
-  ],
+  "dest":["EEB"],
   "type": "text",
   "consts": {
     "letters": "abcdeuvw"

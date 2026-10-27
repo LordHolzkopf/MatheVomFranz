@@ -25,7 +25,7 @@ document.getElementById("creator-menu").onclick = (evt)=>{
         zoom.minus();
     } else if(evt.target.id === "fichesSeparation"){
         parameters.separation = !parameters.separation;
-        document.getElementById(evt.target.id).innerText = parameters.separation ? "Regrouper" : "Séparer";
+        document.getElementById(evt.target.id).innerText = parameters.separation ? "Zusammenfassen" : "Trennen";
         refresh();
     } else if(evt.target.name === "encart"){
         parameters.encartReponse = evt.target.value === "oui";
@@ -102,7 +102,7 @@ function makePage(){
         if(qty>0)
             content.appendChild(utils.create("footer",{className:"footer-end"+((parameters.separation || (parameters.corrige && parameters.sautPage)) ? " break" : "")}));
         // set elements :
-        const aleaCode = utils.create("div",{className:"floatright",innerHTML:"p."+(qty+1)})
+        const aleaCode = utils.create("div",{className:"floatright",innerHTML:"S. "+(qty+1)})
         content.appendChild(aleaCode);
         // get the titlesheet
         const sheetTitle = parameters.titreFiche;
@@ -110,14 +110,14 @@ function makePage(){
         const header = utils.makeEditableTitle("header", parameters.titresEdites["fiche"+qty] ?? sheetTitle, {id:"titreFiche"+qty});
         header.dataset.key = "fiche"+qty;
         content.appendChild(header);
-        const div1 = utils.create("div",{className:"studenName",innerHTML:"Nom, prénom, classe :"});
+        const div1 = utils.create("div",{className:"studenName",innerHTML:"Name, Vorname, Klasse:"});
         content.appendChild(div1);
-        const div2 = utils.create("div",{className:"remarques",innerHTML:"Remarques :"});
+        const div2 = utils.create("div",{className:"remarques",innerHTML:"Bemerkungen:"});
         content.appendChild(div2);
         // get the exercice title
         let exTitle = parameters.titreExercices;
         const correctionContent = utils.create("div",{className:"correction"});
-        const titleCorrection = utils.create("header", {className:"clearfix",innerHTML:"Correction"});
+        const titleCorrection = utils.create("header", {className:"clearfix",innerHTML:"Lösungen"});
         correctionContent.appendChild(titleCorrection);
         const divclear = utils.create("div",{className: "clearfix"});
         let activitiesArray = []
@@ -141,20 +141,20 @@ function makePage(){
                 content.appendChild(sectionEnonce);
                 sectionCorrection = utils.create("section",{id:"sectionCorrige"+qty+"-"+i})
                 correctionContent.appendChild(sectionCorrection);
-                input = `<input id="inputheight${qty}-${i}" class="noprint fright" value="30" title="Taille réponse" type="number" size="3" min="10" max="200" data-target="${qty}-${i}">`;
+                input = `<input id="inputheight${qty}-${i}" class="noprint fright" value="30" title="Höhe des Antwortfelds" type="number" size="3" min="10" max="200" data-target="${qty}-${i}">`;
                 sectionEnonce.innerHTML += input;
-                input = `<input id="nbcols${qty}-${i}" class="noprint fright" value="2" title="Nb de colonnes" type="number" size="2" min="1" max="6" data-target="${qty}-${i}">`;
+                input = `<input id="nbcols${qty}-${i}" class="noprint fright" value="2" title="Anzahl Spalten" type="number" size="2" min="1" max="6" data-target="${qty}-${i}">`;
                 sectionEnonce.innerHTML += input;
                 if(!parameters.cart.ordered){
-                    activityTitle = exTitle+" :"
+                    activityTitle = exTitle.trim()+":"
                 } else {
-                    activityTitle = exTitle+(actIndex+1)+" : "+activity.title
+                    activityTitle = exTitle+(actIndex+1)+": "+activity.title
                 }
                 h3 = utils.makeEditableTitle("h3", parameters.titresEdites["exo"+qty+"-"+i] ?? activityTitle, {className:"exercice-title"});
                 h3.dataset.key = "exo"+qty+"-"+i;
                 h3.id = "titreExo"+qty+"-"+i;
                 if(parameters.cart.ordered && i>0){
-                    const suppr = utils.create("span",{className:"delete-icon noprint",innerHTML:"🗑️",title:"Supprimer ce titre et fusionner avec l'exercice précédent"});
+                    const suppr = utils.create("span",{className:"delete-icon noprint",innerHTML:"🗑️",title:"Titel löschen und mit der vorigen Aufgabe zusammenführen"});
                     const section = sectionEnonce;
                     suppr.onclick = (evt)=>{
                         evt.stopPropagation();
@@ -260,7 +260,7 @@ function mergeWithPrevious(section){
 // renumérote les titres restants au format "<Exercice n°>N : ..." et
 // recopie les titres dans le corrigé
 function renumberExercises(qty){
-    const prefix = parameters.titreExercices || "Exercice n°";
+    const prefix = parameters.titreExercices || "Aufgabe ";
     const re = new RegExp("^"+prefix.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\d+");
     let n = 1;
     content.querySelectorAll('[id^="section'+qty+'-"] > h3').forEach(h3=>{
@@ -304,9 +304,9 @@ function checkURL(urlString){
     if (window.opener === null) {
         const $destination = document.body;
         const buttonEdit = utils.create('button', {
-            innerHTML: '🖋️ Éditer',
+            innerHTML: '🖋️ Bearbeiten',
             className: 'noprint abstopright',
-            title:'Éditer les activités de la feuille' });
+            title:'Aufgaben des Blatts bearbeiten' });
         buttonEdit.onclick = () => {
             let url = window.location.href.replace('exam.html', 'index.html') + '&edit&type=exam';
             // add alea key
@@ -330,7 +330,7 @@ function checkURL(urlString){
         parameters.tailleTexte=Number(vars.s);
         parameters.nb=Number(vars.n);
         parameters.positionCorrection=vars.cor||'end';
-        parameters.titreFiche=decodeURI(vars.t);
+        parameters.titreFiche=vars.t?decodeURI(vars.t):"Testblatt";
         parameters.titreExercices=decodeURI(vars.ex).trim()+" ".replace("📣","");
         parameters.enoncesSepares=vars.es||0;
         parameters.corrigeSepare=vars.cs||0;
@@ -359,7 +359,7 @@ function checkURL(urlString){
             {
                 id:"messageerreur",
                 className:"message",
-                innerHTML:"Impossible de charger le panier :(<br>"+err
+                innerHTML:"Der Korb konnte nicht geladen werden :(<br>"+err
             });
             document.getElementById("tab-accueil").appendChild(alert);
         });

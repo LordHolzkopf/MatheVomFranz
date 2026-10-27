@@ -3,7 +3,7 @@
     "title":"Conversions entre m², dm² et cm²",
     "description":"Penser à 1 m² = 100 dm² ou que 1 cm² est cent fois plus petit que 1 dm²",
     "type":"text",
-    "dest":["6MC"],
+    "dest":["5DA", "6BE"],
     "consts":{"units":["m","dm","cm"]},
     "options":[
         {

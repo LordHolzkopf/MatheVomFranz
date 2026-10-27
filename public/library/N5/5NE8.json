@@ -4,7 +4,7 @@
     "ID":"5NE8",
     "textSize":"small",
     "description":"Un programme de calcul étant proposé, il est demandé une expression algébrique correspondante.",
-    "dest":["5NE","4NE", "3ND"],
+    "dest":["7DA"],
     "consts":{
         "phrases":{
             "moins":[["Lui enlever", "Lui soustraire", "Lui retrancher", "Lui ôter"],

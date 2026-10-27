@@ -2,7 +2,7 @@
     "title":"Éléments du cercle",
     "description": "Reconnaissance visuelle des éléments du cercle",
     "ID": "8GC1",
-    "dest": [ "6GC"],
+    "dest":["6DC"],
     "type": "text",
     "consts": {
         "figure": 

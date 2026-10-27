@@ -2,19 +2,19 @@ import utils from "./utils.js";
 export {sound as default};
 const sound = {
     list : [
-        ["/sounds/BELLHand_Sonnette de velo 2 (ID 0275)_LS.mp3","Sonette"],
-        ["/sounds/COMCam_Un declenchement d appareil photo (ID 0307)_LS.mp3","Reflex"],
-        ["/sounds/COMCell_E mail envoye (ID 1312)_LS.mp3","Email"],
-        ["/sounds/COMTran_Bip aerospatial 1 (ID 2380)_LS.mp3","Bip"],
+        ["/sounds/BELLHand_Sonnette de velo 2 (ID 0275)_LS.mp3","Klingel"],
+        ["/sounds/COMCam_Un declenchement d appareil photo (ID 0307)_LS.mp3","Kamera"],
+        ["/sounds/COMCell_E mail envoye (ID 1312)_LS.mp3","E-Mail"],
+        ["/sounds/COMTran_Bip aerospatial 1 (ID 2380)_LS.mp3","Piep"],
         ["/sounds/MUSCPerc_Cartoon agogo 2 (ID 2262)_LS.mp3","Agogo"],
-        ["/sounds/ROBTVox_Notification lasomarie 4 (ID 2062)_LS.mp3","Notif"],
-        ["/sounds/SWSH_Epee qui coupe (ID 0127)_LS.mp3","Couper"],
-        ["/sounds/SWSH_Epee qui fend l air (ID 0128)_LS.mp3","Fendre"],
-        ["/sounds/SWSH_Whoosh 3 (ID 1795)_LS.mp3","whoosh"],
-        ["/sounds/TOONHorn_Klaxon poire double 1 (ID 1830)_LS.mp3","Pouet"],
-        ["/sounds/VEHHorn_Klaxon de voiture recente 4 (ID 0260)_LS.mp3","Klaxon"],
-        ["/sounds/WATRSplsh_Plouf petit 6 (ID 1534)_LS.mp3","Plouf"],
-        ["/sounds/Anas_platyrhynchos_-_Mallard_-_XC62258.mp3","Coincoin"]
+        ["/sounds/ROBTVox_Notification lasomarie 4 (ID 2062)_LS.mp3","Hinweis"],
+        ["/sounds/SWSH_Epee qui coupe (ID 0127)_LS.mp3","Schnitt"],
+        ["/sounds/SWSH_Epee qui fend l air (ID 0128)_LS.mp3","Zisch"],
+        ["/sounds/SWSH_Whoosh 3 (ID 1795)_LS.mp3","Wusch"],
+        ["/sounds/TOONHorn_Klaxon poire double 1 (ID 1830)_LS.mp3","Tröte"],
+        ["/sounds/VEHHorn_Klaxon de voiture recente 4 (ID 0260)_LS.mp3","Hupe"],
+        ["/sounds/WATRSplsh_Plouf petit 6 (ID 1534)_LS.mp3","Platsch"],
+        ["/sounds/Anas_platyrhynchos_-_Mallard_-_XC62258.mp3","Quak"]
     ],
     selected:null,
     player:null,

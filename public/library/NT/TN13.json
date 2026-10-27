@@ -3,9 +3,7 @@
   "title": "Somme des termes d'une suite arithmétique ou géométrique",
   "description": "somme des termes, suite arithmétique, suite géométrique, raison",
   "ID": "TN13",
-  "dest": [
-    "TN1"
-  ],
+  "dest":["WEB"],
   "options": [
     {
       "name": "suite arithmétique",

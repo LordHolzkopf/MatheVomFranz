@@ -5,7 +5,7 @@
     "ID":"8ND2",
     "speech":1,
     "keys":"numerique",
-    "dest":["6ND"],
+    "dest":["5AC", "5CB"],
     "options":[{
         "name":"Ajouter 8",
         "vars":{"a":"8","b":"11_1000"}

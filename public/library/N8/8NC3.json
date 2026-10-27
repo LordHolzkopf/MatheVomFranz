@@ -3,7 +3,7 @@
     "title":"Ajouter un nombre inférieur à 10 d'unités, dizaines, ... sans passage de dizaine",
     "description":"centaines, milliers, dixièmes, centièmes ou millièmes sans retenue",
     "keys":"numerique",
-    "dest":["6NC"],
+    "dest":["6CB", "6BA", "5AC"],
     "type":"text",
     "options":[{
         "name":"Ajouter des milliers (CM2)",

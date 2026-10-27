@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"4NE5",
     "textSize":"medium",
-    "dest":["4NE","3ND","2N3"],
+    "dest":["7DC"],
     "consts":{"lettres":["a","b","x", "y"]},
     "keys":["(","x²","+","-","a","b","x","y"],
     "consigne":"Factoriser au maximum",

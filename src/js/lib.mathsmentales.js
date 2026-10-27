@@ -12,22 +12,6 @@ import Picker from "./libs/vanilla-picker/vanilla-picker.esm.js";
 
 window.onload = function () {
   MM.version = utils.getVersion();
-  // detection de l'hébergement sur la forge
-  if (window.location.host == "mathsmentales.forge.apps.education.fr") {
-    const accueil = document.getElementById("accueillogo");
-    if (accueil)
-      accueil.innerHTML = `<i class="sprite sprite-logocm160x132 logoMM"></i>
-            <h1>Automatismes et calcul mental à données aléatoires</h1>
-            <p>
-                Ceci est la version de <span class="red">test de MathsMentales</span>, dont le code source est accessible sur la <a href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr">Forge des communs numériques.</a>
-            </p>
-            <p>
-                Préferez utiliser la version stable sur <a href="https://mathsmentales.net">https://mathsmentales.net</a>
-            </p>
-            <p>
-                Merci de signaler les <b>bugs</b> sous forme de <b>ticket</b> sur <a href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr/-/issues">le dépot mathsmentales</a> .
-            </p>`;
-  }
   // detect if touching interface
   let listener = function (evt) {
     // the user touched the screen!
@@ -146,14 +130,15 @@ window.onload = function () {
       .forEach((entree) => {
         const typeInfo = TYPES[entree.type] || TYPES.inconnu;
         const libelleType = `${typeInfo.emoji} ${typeInfo.libelle}`;
-        const dateEntree = new Date(entree.modifie).toLocaleDateString("fr-FR", {
-          day: "numeric",
-          month: "short",
+        const dateEntree = new Date(entree.modifie).toLocaleDateString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
         });
         const bouton = utils.create("button", {
           type: "button",
           className: "btn-plain",
-          title: "Rouvrir cette sélection dans Paramétrer",
+          title: "Diese Auswahl unter „Einstellen“ wieder öffnen",
           textContent: `${libelleType} (${dateEntree}) ${entree.titre}`,
         });
         bouton.onclick = () => MM.checkURL(entree.url, false, true);
@@ -187,7 +172,7 @@ window.onload = function () {
     openMenuButton.setAttribute("aria-expanded", ouvert);
     openMenuButton.setAttribute(
       "aria-label",
-      ouvert ? "Masquer le menu" : "Afficher le menu",
+      ouvert ? "Menü ausblenden" : "Menü einblenden",
     );
   };
   // fermeture de tous les sous-menus de niveaux
@@ -224,7 +209,7 @@ window.onload = function () {
       MM.cocherNiveauRecherche(bouton.dataset.niv);
       library.displayContent(bouton.dataset.niv, true);
       MM.setHistory(
-        "MathsMentales niveau " + bouton.innerHTML,
+        "MatheVomFranz – Stufe " + bouton.innerHTML,
         "n=" + bouton.dataset.niv,
       );
       fermerSousMenus();
@@ -244,7 +229,7 @@ window.onload = function () {
     if (evt.key === "Enter") {
       if (!MM.loadActivity(evt.target.value)) {
         document.getElementById("activityOptions").innerHTML =
-          "<br>Activité <b>" + evt.target.value + "</b> non trouvée";
+          "<br>Aufgabe <b>" + evt.target.value + "</b> nicht gefunden";
       }
     }
   };
@@ -443,7 +428,7 @@ window.onload = function () {
       // création d'un bouton de génération car obligation d'interagir avec le navigateur pour générer
       let button = utils.create("button", {
         innerHTML: "🎶",
-        title: "Cliquer pour détecter les langues disponibles",
+        title: "Klicken, um die verfügbaren Sprachen zu erkennen",
       });
       button.onclick = (evt) => {
         MM.speech.generateSelectOptions(select);
@@ -627,14 +612,14 @@ window.onload = function () {
   };
   document.getElementById("dominosDoublons").onclick = (evt) => {
     let text = document.getElementById("dominosDoublonsText");
-    if (evt.target.checked) text.innerHTML = "Oui";
-    else text.innerHTML = "Non";
+    if (evt.target.checked) text.innerHTML = "Ja";
+    else text.innerHTML = "Nein";
   };
   document.getElementById("dominosDoublons").checked = true;
   document.getElementById("WGDoublons").onclick = (evt) => {
     let text = document.getElementById("WGDoublonsText");
-    if (evt.target.checked) text.innerHTML = "Oui";
-    else text.innerHTML = "Non";
+    if (evt.target.checked) text.innerHTML = "Ja";
+    else text.innerHTML = "Nein";
   };
   document.getElementById("btngenerateDominos").onclick = () => {
     MM.createDominos();
@@ -716,7 +701,7 @@ window.onload = function () {
       MM.zooms[evt.target.dataset.zoom].plus();
     } else if (evt.target.dataset.what === "out") {
       MM.zooms[evt.target.dataset.zoom].minus();
-    } else if (evt.target.innerHTML === "Figure") {
+    } else if (evt.target.innerHTML === "Figur") {
       MM.memory[evt.target.dataset.id].toggle();
     }
   };
@@ -768,11 +753,9 @@ window.onload = function () {
     if (searchString.length > 0 && searchString.length < 3) {
       const manque = 3 - searchString.length;
       document.getElementById("resultat-chercher").innerHTML =
-        "<p>Encore " +
+        "<p>Noch " +
         manque +
-        " caractère" +
-        (manque > 1 ? "s" : "") +
-        " : la recherche démarre à 3.</p>";
+        " Zeichen – die Suche beginnt ab 3 Zeichen.</p>";
       return;
     }
     minuteurRecherche = setTimeout(() => {
@@ -786,7 +769,7 @@ window.onload = function () {
       }
       if (searchString.length > 2) {
         MM.setHistory(
-          "MathsMentales recherche :" + searchString,
+          "MatheVomFranz – Suche: " + searchString,
           "search=" + searchString + "&f=" + filters,
         );
       }

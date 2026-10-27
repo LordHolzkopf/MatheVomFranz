@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"4NE4",
     "textSize":"medium",
-    "dest":["4NE","3ND","2N3"],
+    "dest":["7DC", "8CB"],
     "consts":{"lettres":["a","b","t","x", "y"]},
     "keys":["x²","+","-","a","b","t","x","y"],
     "valueType":"expressionSimplifiee",

@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"4NA3",
     "keys":["-","+","*",";","_","_","_","_"],
-    "dest":["4NA","3NA","2N1"],
+    "dest":["9AA", "9AB"],
     "options":[{
         "name":"Racines de nombres inférieurs à 100",
         "vars":{"n":"2_99_^4,9,16,25,36,49,64,81",

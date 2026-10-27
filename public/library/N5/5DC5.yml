@@ -1,10 +1,7 @@
 title: Reconnaitre graphiquement une situation de proportionnalité
 description: >
   droite ou points alignés passant par l’origine du repère.
-dest:
-  - 5DC
-  - 4DC
-  - 3DC
+dest: [7BB, 8BB]
 type: text
 textSize: medium
 repeat: 2

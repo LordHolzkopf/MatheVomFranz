@@ -1,6 +1,6 @@
 {
     "ID":"6ME5",
-    "dest":["6ME"],
+    "dest":["6DD", "7EA"],
     "title":"Calculer des mesures d’angles avec angles droits, plats, opposés par le sommet.",
     "description":"Déterminer si des angles sont complémentaires ou supplémentaires.",
     "type":"text",

@@ -2,7 +2,7 @@
     "title":"Appartient ou n'appartient pas",
     "description":"appartient, n'appartient pas, point, droite, segment, demi-droite, symboles ∈ et ∉",
     "ID":"6GC4",
-    "dest":["6GC", "5GB", "4GB", "3GB"],
+    "dest":["5BA"],
     "type":"text",
     "keys":["V", "F","_",";","_","_","_"],
     "valueType":"listeOrdonnee",

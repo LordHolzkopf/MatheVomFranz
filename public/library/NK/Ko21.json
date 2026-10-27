@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"Ko21",
     "textSize":"medium",
-    "dest":["4NE","3ND","2N3","Ko2"],
+    "dest":["8CB"],
     "consts":{"lettres":["a","b","t","x","y"]},
     "keys":["x²","+","-","a","b","t","x","y"],
     "valueType":"expressionSimplifiee",

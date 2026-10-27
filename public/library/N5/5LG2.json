@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LG2",
     "description":"12 questions sur les solides : vocabulaire, patron, face, arête, sommet, prisme, pyramide, cylindre, cône, boule, formules de volumes. Non adapté au mode interactif (online/duel).",
-    "dest":["5LG", "4LG"],
+    "dest":["5EA", "5ED"],
     "consts":{"prismes":[
         "<svg width=\"12.5em\" height=\"10em\" viewBox=\"0 0 66.1 52.9\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#04a\"><path d=\"M34.677 48.995l-21.094.048-6.572-20.06 17.04-12.43L41.142 28.93z\" fill=\"none\" opacity=\".992\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\".70755\"/><g fill=\"#04a\" fill-opacity=\".996\" stroke-opacity=\".996\"><g stroke-width=\".865\"><path d=\"M41.1 28.9l16.3-13.7M24 16.6L40.3 2.9M6.97 29l16.3-13.7\"/></g><path d=\"M34.6 49l16.3-13.7\" stroke-width=\".765\"/><path d=\"M13.5 49l16.3-13.7\" stroke-dasharray=\"2.295 .765\" stroke-width=\".765\"/></g><path d=\"M50.9 35.3l6.46-20.1-17.1-12.3-17 12.4\" fill=\"none\" stroke-opacity=\".996\" stroke-width=\".765\"/><path d=\"M23.2 15.3l6.56 20 21.1-.048\" fill=\"none\" stroke-dasharray=\"2.295 2.295\" stroke-opacity=\".996\" stroke-width=\".765\"/></g></svg>"
     ],"pavesDroits":[

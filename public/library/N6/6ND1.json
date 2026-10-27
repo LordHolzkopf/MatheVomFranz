@@ -5,7 +5,7 @@
     "textSize":"medium",
     "speech":1,
     "ID":"6ND1",
-    "dest":["6ND"],
+    "dest":["WAB"],
     "vars":{"a":"0_20_2", "c":"${:a[0]+:a[1]}"},
     "options":[{
         "name":"Somme",

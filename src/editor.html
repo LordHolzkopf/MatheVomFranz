@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
     <head>
         <meta charset="utf-8" />
+        <title>Aufgaben-Editor – MatheVomFranz</title>
         <link rel="stylesheet" href="css/editor.css" />
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
@@ -11,7 +12,7 @@
     </head>
     <body>
         <head>
-            <h1>Éditeur d'activité pour MathsMentales.</h1>
+            <h1>Aufgaben-Editor für MatheVomFranz</h1>
         </head>
         <section id="affichage">
             <div id="display">
@@ -26,29 +27,29 @@
                 <div id="errors"></div>
             </div>
             <div id="ide">
-                <button id="testBtn" title="Affiche l'activité">
-                    Visualiser
+                <button id="testBtn" title="Zeigt die Aufgabe an">
+                    Anzeigen
                 </button>
                 <button
                     id="saveBtn"
-                    title="Charge le fichier json sur l'ordinateur"
+                    title="Speichert die JSON-Datei auf dem Computer"
                 >
-                    Télécharger
+                    Herunterladen
                 </button>
-                <button title="Charge une activité au hasard" id="randomBtn">
-                    Au hasard
+                <button title="Lädt eine zufällige Aufgabe" id="randomBtn">
+                    Zufällig
                 </button>
                 <input
                     type="text"
-                    placeholder="ID d'activité"
+                    placeholder="Aufgaben-ID"
                     id="actIDImport"
                     size="8"
-                    title="Importe une activité existante par son ID"
+                    title="Importiert eine vorhandene Aufgabe über ihre ID"
                 />
                 <input
                     type="file"
                     id="openFileInput"
-                    title="Importe un fichier json dans l'éditeur"
+                    title="Importiert eine JSON-Datei in den Editor"
                 />
             </div>
         </section>

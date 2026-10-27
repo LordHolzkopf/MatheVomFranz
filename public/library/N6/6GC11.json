@@ -3,7 +3,7 @@
     "title":"Nature d'un triangle à partir d'un schéma à main levée (avec sommets)",
     "description":"nature d'un triangle, isocèle, équilatéral, rectangle, codage, schéma",
     "type":"text",
-    "dest":["6GC","5GB"],
+    "dest":["5BD"],
     "keys":["qcq","iso","equi","rect","rec&iso"],
     "consigne":"Quelle est la nature du triangle ?",
     "consts":{

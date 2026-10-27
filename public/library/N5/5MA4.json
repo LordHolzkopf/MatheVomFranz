@@ -4,7 +4,7 @@
     "ID":"5MA4",
     "description":"Calculer le volume exact d'un cylindre, d'un cône, d'une boule.",
     "textSize":"small",
-    "dest":[ "4MA", "3MA"],
+    "dest":["9CD", "9EC", "9ED"],
     "keys":["/","pi","cm","x³","_","_","_","_"],
     "options":[{
         "name":"Volume d'un cylindre à partir du rayon",

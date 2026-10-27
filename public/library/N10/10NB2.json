@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"10NB2",
     "description":"Écriture en lettres des nombres inférieurs à 1000",
-    "dest":["6NA"],
+    "dest":["5AA"],
     "options":[{
         "name":"Écriture en lettres des nombres de 1 à 9",
         "vars":{"n":"0_10"}

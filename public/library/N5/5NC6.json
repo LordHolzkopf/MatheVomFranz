@@ -2,11 +2,7 @@
     "title": "Quotient de relatifs",
     "description": "relatifs, quotient, division, règle des signes, négatifs",
     "ID": "5NC6",
-    "dest": [
-        "5NC",
-        "4NC",
-        "3NB"
-    ],
+    "dest":["7AC"],
     "consigne":"Calculer.",
     "options": [
         {

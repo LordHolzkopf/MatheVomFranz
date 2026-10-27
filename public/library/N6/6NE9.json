@@ -4,7 +4,7 @@
     "ID":"6NE9",
     "repeat":"true",
     "params":{"fige":{"label":"Garder les mêmes chiffres non nuls","defaut":false,"fige":["n0"]}},
-    "dest":["6NE","5NC","4NC","3NB"],
+    "dest":["6ED"],
     "options":[{
         "name":"Entier à 1 chiffre",
         "vars":{"n0":"1_9","z":"0_2","n":"${:fige ? :n0*Math.pow(10,:z) : :n0}"}

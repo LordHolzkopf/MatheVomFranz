@@ -398,7 +398,7 @@ custom-svg.corrige svg .correction,
     }
 
     #creator-container::before {
-        content: "Imprimer ou exporter en pdf avec des marges !";
+        content: "Mit Seitenrändern drucken oder als PDF exportieren!";
         color: rgb(198, 4, 4) !important;
         font-size: 0.8rem;
         text-align: center;

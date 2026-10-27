@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LG3",
     "description":"Questions sur les triangles : définitions, propriétés, somme des angles, inégalité triangulaire, droites remarquables. Non adapté au mode interactif (online/duel).",
-    "dest":["5LG", "4LG"],
+    "dest":["5BD", "7EB", "8FB"],
     "consts":{"lettres":["A","B","C","D","E","F","J","K","L","M","N","P","R","S","T"]},
     "options":[{
         "name":"Définitions",

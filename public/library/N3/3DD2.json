@@ -3,7 +3,7 @@
     "description":"Différencier image et antécédent dans les écritures de fonctions",
     "type":"text",
     "ID":"3DD2",
-    "dest":["3DD","2F1"],
+    "dest":["8BA"],
     "textSize":"medium",
     "vars":{"a":"-30_30", "b":"-30_30_^${:a}"},
     "options":[{

@@ -7,10 +7,7 @@ textSize: medium
 # énoncé revienne, mais pas dans les cinq dernières questions. Sans lui, la
 # déduplication stricte bloquerait le tirage sur les options les plus étroites.
 repeat: true
-dest:
-  - 5GT
-  - 4GT
-  - 3GT
+dest: [5BC]
 consts:
   # lettres des points. Ni I ni O (confusion avec 1 et 0, et O nomme le centre de
   # symétrie), ni X, Y, Z (réservés aux axes et aux inconnues).

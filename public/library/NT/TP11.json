@@ -4,10 +4,7 @@
     "description": "Calculer le coefficient binomial pour des valeurs simples.",
     "type": "text",
     "repeat": true,
-    "dest": [
-        "GG1",
-        "TC3"
-    ],
+    "dest":["QIB", "QIA"],
     "options": [
         {
             "name": "Calculs triviaux",

@@ -16,13 +16,12 @@ import {
   interpreteStatut,
 } from "./historiqueNuageDef.js";
 
-// Adresse complète (pas un chemin relatif) : le proxy est déployé à la main
-// sur www.mathsmentales.net, pas produit par le build de src/ — un chemin
-// relatif ne fonctionnerait que si le front était lui-même servi depuis ce
-// domaine, ce qui n'est pas le cas de
-// https://mathsmentales.forge.apps.education.fr (GitLab Pages, aucun PHP).
-const PROXY_URL = "https://www.mathsmentales.net/proxy/nextcloud.php";
-const DOSSIER = "MathsMentales";
+// MatheVomFranz : proxy sur notre propre serveur (public/proxy/nextcloud.php),
+// jamais celui de mathsmentales.net – les identifiants cloud des utilisateurs
+// ne doivent pas transiter par un serveur tiers. Sans hébergement PHP, la
+// synchronisation échoue proprement (statut d'erreur affiché).
+const PROXY_URL = "proxy/nextcloud.php";
+const DOSSIER = "MatheVomFranz";
 const FICHIER = DOSSIER + "/historique.json";
 const FICHIER_TEMOIN = DOSSIER + "/.mm-test";
 
@@ -188,7 +187,7 @@ const historiqueNuage = {
    */
   async synchroniser() {
     const config = this.chargerConfig();
-    if (config === null) return { ok: false, erreurs: ["Aucune synchronisation configurée."] };
+    if (config === null) return { ok: false, erreurs: ["Es ist keine Synchronisierung eingerichtet."] };
     const acces = construireAcces(config, this.chargerMotDePasse());
 
     const dossier = await this.creerDossier(acces, DOSSIER);
@@ -249,10 +248,10 @@ const historiqueNuage = {
     if (!this.nonSynchronise()) return;
     const zone = historique.section && historique.section.querySelector("#hist-annonce");
     if (!zone) return;
-    zone.textContent = "Des changements locaux ne sont pas encore synchronisés · ";
+    zone.textContent = "Lokale Änderungen sind noch nicht synchronisiert · ";
     const bouton = document.createElement("button");
     bouton.type = "button";
-    bouton.textContent = "Synchroniser";
+    bouton.textContent = "Synchronisieren";
     bouton.addEventListener("click", () => this.synchroniserEtRafraichir());
     zone.appendChild(bouton);
     zone.className = "hist-annonce hist-annonce-visible";
@@ -265,7 +264,7 @@ const historiqueNuage = {
    */
   async supprimerSauvegarde() {
     const config = this.chargerConfig();
-    if (config === null) return { ok: false, erreurs: ["Aucune synchronisation configurée."] };
+    if (config === null) return { ok: false, erreurs: ["Es ist keine Synchronisierung eingerichtet."] };
     const acces = construireAcces(config, this.chargerMotDePasse());
     const resultat = await this.supprimerFichier(acces, FICHIER);
     if (resultat.ok || resultat.code === "absent") return { ok: true };
@@ -282,40 +281,39 @@ const historiqueNuage = {
     const boite = document.createElement("div");
     boite.className = "hist-nuage-boite";
     boite.innerHTML = `
-      <button type="button" id="hist-nuage-fermer" class="hist-nuage-fermer" aria-label="Fermer">✕</button>
-      <h3>Synchronisation nuage</h3>
+      <button type="button" id="hist-nuage-fermer" class="hist-nuage-fermer" aria-label="Schließen">✕</button>
+      <h3>Cloud-Synchronisierung</h3>
       <p class="hist-nuage-aide">
-        Lien de partage protégé par mot de passe (Nextcloud, apps.education.fr…),
-        ou racine d’un compte WebDAV (kDrive, Synology, Infomaniak…).
+        Passwortgeschützter Freigabelink (Nextcloud …)
+        oder Stammverzeichnis eines WebDAV-Kontos (kDrive, Synology, Infomaniak …).
       </p>
       <label class="hist-nuage-champ">
         Adresse
         <input type="url" id="hist-nuage-adresse" placeholder="https://…" value="">
       </label>
       <label class="hist-nuage-champ hidden" id="hist-nuage-champ-identifiant">
-        Identifiant
+        Benutzername
         <input type="text" id="hist-nuage-identifiant" value="">
       </label>
       <label class="hist-nuage-champ">
-        Mot de passe
+        Passwort
         <input type="password" id="hist-nuage-mdp" value="">
       </label>
       <label class="hist-nuage-case">
         <input type="checkbox" id="hist-nuage-retenir" ${this.motDePasseRetenu() ? "checked" : ""}>
-        Retenir sur cet appareil
+        Auf diesem Gerät merken
       </label>
       <p class="hist-nuage-avertissement">
-        Sur un poste partagé (salle des profs), laissez cette case décochée :
-        le mot de passe serait sinon utilisable et lisible par la prochaine personne
-        utilisant ce navigateur.
+        Lassen Sie das Häkchen an einem gemeinsam genutzten Rechner (Lehrerzimmer) weg:
+        Sonst könnte die nächste Person, die diesen Browser nutzt, das Passwort lesen und verwenden.
       </p>
       <div class="hist-nuage-actions">
-        <button type="button" id="hist-nuage-tester">Tester la connexion</button>
-        <button type="button" id="hist-nuage-enregistrer">Enregistrer</button>
-        <button type="button" id="hist-nuage-oublier">Oublier cette configuration</button>
+        <button type="button" id="hist-nuage-tester">Verbindung testen</button>
+        <button type="button" id="hist-nuage-enregistrer">Speichern</button>
+        <button type="button" id="hist-nuage-oublier">Einrichtung entfernen</button>
       </div>
       <div class="hist-nuage-actions">
-        <button type="button" id="hist-nuage-supprimer-distant" class="hist-danger">🗑️ Supprimer la sauvegarde distante</button>
+        <button type="button" id="hist-nuage-supprimer-distant" class="hist-danger">🗑️ Sicherung in der Cloud löschen</button>
       </div>
       <p id="hist-nuage-statut" class="hist-nuage-statut" role="status" aria-live="polite"></p>`;
     fond.appendChild(boite);
@@ -357,26 +355,26 @@ const historiqueNuage = {
     boite.querySelector("#hist-nuage-tester").addEventListener("click", async () => {
       const saisie = litFormulaire();
       if (saisie === null) {
-        statut.textContent = "Adresse invalide : une adresse https, avec /s/<jeton> pour un partage.";
+        statut.textContent = "Ungültige Adresse: Nötig ist eine https-Adresse, bei einer Freigabe mit /s/<Token>.";
         return;
       }
-      statut.textContent = "Test en cours…";
+      statut.textContent = "Verbindung wird getestet …";
       const resultat = await this.testerConnexion(construireAcces(saisie.config, saisie.motDePasse));
       statut.textContent = resultat.ok
-        ? "Connexion réussie" + (resultat.inscriptible ? "." : ", mais en lecture seule : le dépôt a échoué.")
+        ? "Verbindung erfolgreich" + (resultat.inscriptible ? "." : ", aber nur mit Lesezugriff: Das Speichern ist fehlgeschlagen.")
         : resultat.message;
     });
 
     boite.querySelector("#hist-nuage-enregistrer").addEventListener("click", () => {
       const saisie = litFormulaire();
       if (saisie === null) {
-        statut.textContent = "Adresse invalide : une adresse https, avec /s/<jeton> pour un partage.";
+        statut.textContent = "Ungültige Adresse: Nötig ist eine https-Adresse, bei einer Freigabe mit /s/<Token>.";
         return;
       }
       this.sauverConfig(saisie.config);
       this.sauverMotDePasse(saisie.motDePasse, saisie.retenir);
       fond.parentNode.removeChild(fond);
-      historique.signaler("Synchronisation configurée.");
+      historique.signaler("Synchronisierung eingerichtet.");
     });
 
     const fermer = () => fond.parentNode.removeChild(fond);
@@ -388,7 +386,7 @@ const historiqueNuage = {
     boite.querySelector("#hist-nuage-oublier").addEventListener("click", () => {
       this.effacerConfig();
       fermer();
-      historique.signaler("Configuration nuage oubliée.");
+      historique.signaler("Cloud-Einrichtung entfernt.");
     });
 
     boite.querySelector("#hist-nuage-supprimer-distant").addEventListener("click", async () => {
@@ -398,16 +396,16 @@ const historiqueNuage = {
       // l'historique » dans historique.js.
       if (
         !window.confirm(
-          "Supprimer la sauvegarde distante ?\n\nLes autres appareils synchronisés avec cette adresse perdront cette copie de l’historique au prochain contact. Votre historique local n’est pas touché.",
+          "Sicherung in der Cloud löschen?\n\nAndere Geräte, die mit dieser Adresse synchronisieren, verlieren diese Kopie des Verlaufs beim nächsten Abgleich. Ihr lokaler Verlauf bleibt erhalten.",
         )
       ) {
         return;
       }
-      statut.textContent = "Suppression en cours…";
+      statut.textContent = "Wird gelöscht …";
       const resultat = await this.supprimerSauvegarde();
       statut.textContent = resultat.ok
-        ? "Sauvegarde distante supprimée."
-        : "Échec de la suppression : " + resultat.erreurs.join(" ");
+        ? "Sicherung in der Cloud gelöscht."
+        : "Löschen fehlgeschlagen: " + resultat.erreurs.join(" ");
     });
   },
 
@@ -417,12 +415,12 @@ const historiqueNuage = {
       this.ouvrirConfig();
       return;
     }
-    historique.signaler("Synchronisation en cours…");
+    historique.signaler("Wird synchronisiert …");
     const resultat = await this.synchroniser();
     historique.signaler(
       resultat.ok
-        ? "Synchronisation réussie" + (resultat.ajoutees > 0 ? " · " + resultat.ajoutees + " entrée(s) reçue(s)." : ".")
-        : "Échec de la synchronisation : " + resultat.erreurs.join(" "),
+        ? "Synchronisierung erfolgreich" + (resultat.ajoutees > 0 ? " · " + resultat.ajoutees + (resultat.ajoutees === 1 ? " Eintrag empfangen." : " Einträge empfangen.") : ".")
+        : "Synchronisierung fehlgeschlagen: " + resultat.erreurs.join(" "),
     );
     historique.rendre();
   },

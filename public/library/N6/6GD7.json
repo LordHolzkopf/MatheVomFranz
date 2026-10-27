@@ -3,7 +3,7 @@
     "title":"Distances et inégalités",
     "description":"distance, inégalité triangulaire, point, segment, droite",
     "type":"text",
-    "dest":["6GD","5GB"],
+    "dest":["7EC", "5BA"],
     "keys":["_","_","<",">"],
     "consts":{
         "lettres":"ABCDEFGHJKLMNPQRSTUVW"

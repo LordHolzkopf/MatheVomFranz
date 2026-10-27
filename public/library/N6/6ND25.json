@@ -4,7 +4,7 @@
     "speech":1,
     "description":"Différencier le vocabulaire double, carré, triple, cube.",
     "textSize":"medium",
-    "dest":["6ND", "5NC", "4NC", "3NC"],
+    "dest":["5CC"],
     "consts":{
         "vocab":["double", "carré", "triple", "cube"],
         "coef":[2,2,3,3]

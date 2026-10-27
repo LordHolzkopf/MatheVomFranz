@@ -8,7 +8,7 @@ import analyseReponse from "./mods/analysereponse.js";
 import Figure from "./mods/figure.js";
 import { MathfieldElement } from "./libs/mathlive/mathlive.mjs.js";
 
-MathfieldElement.fontsDirectory = "../css/katex/fonts";
+MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
 MathfieldElement.soundsDirectory = null;
 
 const MM = {};
@@ -24,17 +24,24 @@ let figureInstances = {};
 let currentMathfield = null;
 
 const STATUS_LABELS = {
-  [STATUS.LOCKED_PREREQ]: "Verrouillée",
-  [STATUS.LOCKED_TIMER]: "Bientôt disponible",
-  [STATUS.LOCKED_FAIL]: "Réessaie plus tard",
-  [STATUS.AVAILABLE]: "Disponible",
-  [STATUS.PASSED]: "Réussie",
+  [STATUS.LOCKED_PREREQ]: "Gesperrt",
+  [STATUS.LOCKED_TIMER]: "Bald verfügbar",
+  [STATUS.LOCKED_FAIL]: "Versuch es später noch einmal",
+  [STATUS.AVAILABLE]: "Verfügbar",
+  [STATUS.PASSED]: "Geschafft",
 };
 
 const SUPPORT_ICONS = {
   arbre: "🌳",
   toit: "🏠",
   barre: "🤸",
+};
+
+// noms affichés en infobulle (les clés restent celles du format de parcours)
+const SUPPORT_NAMES = {
+  arbre: "Baum",
+  toit: "Dach",
+  barre: "Stange",
 };
 
 function firstReachableUnfinishedEtape() {
@@ -52,7 +59,7 @@ function renderThemes() {
     const div = utils.create("div", { className: "parkour-theme" });
     const label = utils.create("span", {
       className: "parkour-theme-label",
-      textContent: theme.label + " : " + stars.passed + " / " + stars.total,
+      textContent: theme.label + ": " + stars.passed + " / " + stars.total,
     });
     // barre d'étoiles qui se remplit au fur et à mesure des étapes réussies
     const bar = utils.create("span", {
@@ -101,7 +108,7 @@ function renderChemin() {
       titre.appendChild(
         utils.create("span", {
           className: "parkour-etape-support",
-          title: etape.support,
+          title: SUPPORT_NAMES[etape.support] || etape.support,
           textContent: support,
         }),
       );
@@ -114,11 +121,20 @@ function renderChemin() {
     // échéance de déverrouillage / de nouvel essai
     const deadline = etapeDeadline(etape, status);
     if (deadline !== null) {
-      const quand = new Date(deadline).toLocaleString("fr-FR");
+      const date = new Date(deadline);
+      const quand =
+        date.toLocaleDateString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        }) +
+        " um " +
+        date.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" }) +
+        " Uhr";
       const intro =
         status === STATUS.LOCKED_FAIL
-          ? "Nouvel essai possible le "
-          : "Disponible le ";
+          ? "Neuer Versuch möglich am "
+          : "Verfügbar am ";
       card.appendChild(
         utils.create("span", {
           className: "parkour-etape-deadline",
@@ -134,7 +150,7 @@ function renderChemin() {
         utils.create("span", {
           className: "parkour-etape-best",
           textContent:
-            "Meilleur score : " + bestScore + "/" + parkourState.maxScore(),
+            "Beste Punktzahl: " + bestScore + "/" + parkourState.maxScore(),
         }),
       );
     }
@@ -158,16 +174,16 @@ function renderAccueil() {
   renderChemin();
 
   const actions = utils.create("div", { id: "parkour-accueil-actions" });
-  const btnCommencer = utils.create("button", { innerHTML: "Commencer" });
+  const btnCommencer = utils.create("button", { innerHTML: "Starten" });
   btnCommencer.onclick = () => startEtape(parkourDef.etapes[0]);
-  const btnContinuer = utils.create("button", { innerHTML: "Continuer" });
+  const btnContinuer = utils.create("button", { innerHTML: "Weiter" });
   btnContinuer.onclick = () => {
     const etape = firstReachableUnfinishedEtape();
     if (etape) startEtape(etape);
   };
-  const btnReset = utils.create("button", { innerHTML: "Réinitialiser" });
+  const btnReset = utils.create("button", { innerHTML: "Zurücksetzen" });
   btnReset.onclick = () => {
-    if (window.confirm("Effacer toute la progression sur ce parcours ?")) {
+    if (window.confirm("Deinen gesamten Fortschritt in diesem Parkour löschen?")) {
       parkourState.reset();
       renderAccueil();
     }
@@ -178,28 +194,28 @@ function renderAccueil() {
   document.getElementById("parkour-accueil").appendChild(actions);
 
   const saveZone = utils.create("div", { id: "parkour-savecode" });
-  const btnCopy = utils.create("button", { innerHTML: "Copier mon code de sauvegarde" });
+  const btnCopy = utils.create("button", { innerHTML: "Meinen Speichercode kopieren" });
   btnCopy.onclick = async () => {
     const code = parkourState.exportCode();
     try {
       await navigator.clipboard.writeText(code);
-      window.alert("Code copié dans le presse-papier.");
+      window.alert("Code in die Zwischenablage kopiert.");
     } catch {
-      window.prompt("Copie manuelle du code :", code);
+      window.prompt("Kopiere den Code von Hand:", code);
     }
   };
   const restoreInput = utils.create("input", {
     type: "text",
-    placeholder: "Coller un code de sauvegarde",
+    placeholder: "Speichercode einfügen",
   });
-  const btnRestore = utils.create("button", { innerHTML: "Restaurer" });
+  const btnRestore = utils.create("button", { innerHTML: "Wiederherstellen" });
   btnRestore.onclick = () => {
     try {
       parkourState.importCode(restoreInput.value.trim());
-      window.alert("Progression restaurée.");
+      window.alert("Fortschritt wiederhergestellt.");
       renderAccueil();
     } catch (err) {
-      window.alert("Échec de la restauration : " + err.message);
+      window.alert("Wiederherstellen fehlgeschlagen: " + err.message);
     }
   };
   saveZone.appendChild(btnCopy);
@@ -218,7 +234,7 @@ async function startEtape(etape) {
   await panierCart.import(etape.panier, false, MM.version);
   if (!panierCart.activities || panierCart.activities.length === 0) {
     window.alert(
-      "Impossible de charger les exercices de cette étape. Vérifie ta connexion puis réessaie.",
+      "Die Aufgaben dieser Etappe konnten nicht geladen werden. Prüfe deine Internetverbindung und versuch es noch einmal.",
     );
     return;
   }
@@ -237,7 +253,7 @@ async function startEtape(etape) {
   });
   if (actArray.length === 0) {
     window.alert(
-      "Impossible de préparer les questions de cette étape. Vérifie ta connexion puis réessaie.",
+      "Die Fragen dieser Etappe konnten nicht vorbereitet werden. Prüfe deine Internetverbindung und versuch es noch einmal.",
     );
     return;
   }
@@ -324,7 +340,7 @@ function renderQuestion() {
   const { activity, questionIndex } = currentActivityAndQuestion();
 
   document.getElementById("parkour-progressquestion").innerHTML =
-    "Question " + (index + 1) + " / " + actArray.length;
+    "Frage " + (index + 1) + " / " + actArray.length;
 
   const zone = document.getElementById("parkour-question");
   // MathLive mémorise dans une variable statique le champ qui a le focus. Si on
@@ -418,14 +434,14 @@ function corrigeHtml(corrige) {
       "</span>";
     if (!item.ok) {
       html +=
-        '<span class="parkour-corrige-user">Ta réponse : ' +
+        '<span class="parkour-corrige-user">Deine Antwort: ' +
         (item.userAnswer === ""
-          ? "<em>(vide)</em>"
+          ? "<em>(leer)</em>"
           : '<span class="math">$' + item.userAnswer + "$</span>") +
         "</span>";
     }
     html +=
-      '<span class="parkour-corrige-answer">Réponse : ' +
+      '<span class="parkour-corrige-answer">Richtige Antwort: ' +
       item.answer +
       "</span></li>";
   }
@@ -445,18 +461,18 @@ function endEtape() {
   document.getElementById("parkour-fin").classList.remove("hidden");
   document.getElementById("parkour-fin-content").innerHTML =
     "<h2>" +
-    (result.passed ? "Étape réussie !" : "Étape à retravailler") +
+    (result.passed ? "Etappe geschafft!" : "Diese Etappe musst du noch üben") +
     "</h2><p>" +
     correctCount +
     " / " +
     parkourState.regles.nbQuestions +
-    " bonnes réponses — score : " +
+    " richtige Antworten – Punkte: " +
     result.score +
     " / " +
     parkourState.maxScore() +
-    "</p><h3>Corrigé</h3>" +
+    "</p><h3>Lösungen</h3>" +
     corrigeHtml(corrige) +
-    "<button id=\"btn-retour-accueil\">Retour au parcours</button>";
+    "<button id=\"btn-retour-accueil\">Zurück zum Parkour</button>";
   utils.mathRender("serif", ["#parkour-fin-content"]);
   document.getElementById("btn-retour-accueil").onclick = () => {
     document.getElementById("parkour-fin").classList.add("hidden");
@@ -476,7 +492,7 @@ async function loadParcours() {
   const url = params.get("parcours") || source + "parkour/demo-6e.json";
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("Impossible de charger le parcours : " + url);
+    throw new Error("Der Parkour konnte nicht geladen werden: " + url);
   }
   return normalizeParcours(await response.json());
 }
@@ -489,7 +505,7 @@ async function init() {
     const container = document.getElementById("parkour-accueil");
     container.innerHTML = "";
     const p = utils.create("p", {
-      textContent: "Erreur de chargement du parcours : " + err.message,
+      textContent: "Fehler beim Laden des Parkours: " + err.message,
     });
     container.appendChild(p);
     return;

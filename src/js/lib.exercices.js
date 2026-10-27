@@ -22,13 +22,13 @@ document.getElementById("creator-menu").onclick = (evt) => {
   } else if (evt.target.id === "fichesSeparation") {
     if (separationFiches) {
       separationFiches = false;
-      document.getElementById(evt.target.id).innerText = "Feuilles séparées";
+      document.getElementById(evt.target.id).innerText = "Getrennte Seiten";
       document.querySelectorAll("footer").forEach((elt) => {
         elt.className = "";
       });
     } else {
       separationFiches = true;
-      document.getElementById(evt.target.id).innerText = "Sans saut de page";
+      document.getElementById(evt.target.id).innerText = "Ohne Seitenumbruch";
       document.querySelectorAll("footer").forEach((elt) => {
         elt.className = "break";
       });
@@ -99,7 +99,7 @@ function mergeWithPrevious(titre) {
 }
 // renumérote les titres restant au format "<Exercice n°>N : ..."
 function renumberExercises(qty) {
-  const prefix = parameters.titreExercices || "Exercice n°";
+  const prefix = parameters.titreExercices || "Aufgabe ";
   let n = 1;
   document
     .querySelectorAll(`#creator-content .enonce [id^="titreExo${qty}-"]`)
@@ -176,7 +176,7 @@ function makePage() {
     });
     $enonceContent.appendChild(aleaCode);
     // get the titlesheet
-    let sheetTitle = parameters.titreFiche || "Fiche d'exercices";
+    let sheetTitle = parameters.titreFiche || "Übungsblatt";
     // set the titlesheet
     let header = utils.makeEditableTitle(
       "header",
@@ -188,7 +188,7 @@ function makePage() {
     let exTitle =
       parameters.titreExercices !== ""
         ? parameters.titreExercices
-        : "Exercice n°";
+        : "Aufgabe ";
     // get the position of the correction
     let correctionContent = utils.create("div", {
       className: "correction",
@@ -197,7 +197,7 @@ function makePage() {
     if (["end", "separe"].includes(parameters.positionCorrection)) {
       let titleCorrection = utils.create("header", {
         className: "clearfix",
-        innerHTML: "Correction des exercices",
+        innerHTML: "Lösungen",
       });
       correctionContent.appendChild(titleCorrection);
     }
@@ -218,14 +218,14 @@ function makePage() {
       if (parameters.exocols[i] === undefined) {
         parameters.exocols[i] = 2;
       }
-      let input = `<input id="nbcols${qty}-${i}" data-dest="exo${i}" class="noprint fright" value="${parameters.exocols[i]}" title="Nb de colonnes" type="number" size="2" min="1" max="6">`;
+      let input = `<input id="nbcols${qty}-${i}" data-dest="exo${i}" class="noprint fright" value="${parameters.exocols[i]}" title="Anzahl Spalten" type="number" size="2" min="1" max="6">`;
       sectionEnonce.innerHTML += input;
       let h3 = utils.makeEditableTitle(
         "h3",
         parameters.titresEdites["titreExo" + qty + "-" + i] ??
           exTitle +
             (i + 1) +
-            " : " +
+            ": " +
             (activity.consigne == "" ? activity.title : activity.consigne),
         {
           className: "exercice-title",
@@ -236,7 +236,7 @@ function makePage() {
         const suppr = utils.create("span", {
           className: "delete-icon noprint",
           innerHTML: "🗑️",
-          title: "Supprimer ce titre et fusionner avec l'exercice précédent",
+          title: "Titel löschen und mit der vorigen Aufgabe zusammenführen",
         });
         suppr.onclick = (evt) => {
           evt.stopPropagation();
@@ -303,7 +303,7 @@ function makePage() {
       if (["each", "acote"].includes(parameters.positionCorrection)) {
         let hr = utils.create("div", {
           className: "titreCorrection pointer",
-          innerHTML: "Correction",
+          innerHTML: "Lösung",
           id: "idCorrige" + qty + "-" + i,
         });
         sectionCorrection.appendChild(hr);
@@ -386,9 +386,9 @@ function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.querySelector(".noprint");
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Éditer",
+      innerHTML: "🖋️ Bearbeiten",
       className: "noprint abstopright",
-      title: "Éditer les activités de la feuille",
+      title: "Aufgaben des Blatts bearbeiten",
     });
     buttonEdit.onclick = () => {
       console.log("plouf");
@@ -427,7 +427,7 @@ function checkURL(urlString) {
       );
       if (radio) radio.checked = true;
     }
-    parameters.titreFiche = decodeURI(vars.t);
+    parameters.titreFiche = vars.t ? decodeURI(vars.t) : "Übungsblatt";
     parameters.titreExercices =
       decodeURI(vars.ex).trim() + " ".replace("📣", "");
     parameters.enoncesSepares = vars.es || 0;
@@ -464,7 +464,7 @@ function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("tab-accueil").appendChild(alert);
       });

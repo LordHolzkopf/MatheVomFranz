@@ -1,8 +1,5 @@
 title: Repérage dans le plan avec des positifs
-dest:
-  - 5GR
-  - 4GR
-  - 3GR
+dest: [5BB]
 type: text
 textSize: medium
 description: "Abscisse, ordonnée, coordonnées d'un point, placer un point, repère. Option « Placer un point » non adaptée au mode interactif (online/duel)."

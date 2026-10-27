@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"GA13",
     "description":"Trouver la dérivée des fonctions polynomes à partir de $$(uv)'=u'v+uv'$$",
-    "dest":["GA1"],
+    "dest":["QDB", "QAE"],
     "textSize":"medium",
     "keys":["_","x²","+","-","x","y","z","t"],
     "consts":{"lettres":["x","y","z","t"]},

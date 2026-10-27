@@ -3,7 +3,7 @@
     "description":"Trouver l'opposé d'une expression algébrique entre parenthèses.",
     "type":"latex",
     "ID":"3ND3",
-    "dest":["3ND","2N3"],
+    "dest":["7DC", "7DB"],
     "valueType":"expressionSimplifiee",
     "textSize":"medium",
     "keys":["-","+","a","b","c","x","y","z"],

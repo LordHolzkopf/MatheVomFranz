@@ -3,7 +3,7 @@
     "description":"Déterminer si deux vecteurs sont colinéaires ou non.",
     "type":"latex",
     "ID":"2G15",
-    "dest":["2G1"],
+    "dest":["EEC"],
     "textSize":"medium",
     "keys":["o","n","_","_","_","_","_","_"],
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},

@@ -1,7 +1,6 @@
 title: Connaissance des fractions simples
 description: valeur décimale de 1/2, 1/4, 3/4 et équivalences
-dest:
-  - 6NB
+dest: [6BC]
 type: text
 options:
   - name: Valeur décimale

@@ -3,7 +3,7 @@
     "ID":"8NE1",
     "speech":1,
     "description":"Somme d'un nombre décimal avec un nombre de dixièmes, un petit décimal, un décimal quelconque",
-    "dest":[ "6NE"],
+    "dest":["6CB"],
     "keys":"numerique",
     "options":[{
         "name":"Ajouter un entier",

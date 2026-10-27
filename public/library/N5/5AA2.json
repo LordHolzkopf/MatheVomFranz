@@ -3,7 +3,7 @@
     "title":"Comprendre le si ... alors ... sinon",
     "description":"scratch comparer des nombres",
     "type":"text",
-    "dest":["5AA", "4AA", "3AA"],
+    "dest":["WGB"],
     "repeat":2,
     "consts":{"objets":[
         "pomme","poire","ballon","vélo","trotinette","carte","table","chaise","stylo"

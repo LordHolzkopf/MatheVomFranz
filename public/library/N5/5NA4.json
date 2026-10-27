@@ -4,7 +4,7 @@
     "ID":"5NA4",
     "description":"Utiliser les symboles <, > ou =.",
     "textSize":"medium",
-    "dest":["5NA", "4NA", "3NA"],
+    "dest":["7AA"],
     "consts":{"voc":["petit","grand"]},
     "keys":["_","_","<",">","_","_","_","_"],
     "options":[{

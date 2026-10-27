@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"GA16",
     "description":"Trouver la dérivée de fonctions composées avec une fonction trigonometrique, en utilisant $$g(\\sin(x))'=\\cos(x)g'(\\sin(x))$$",
-    "dest":["GA1"],
+    "dest":["QDC", "QDA"],
     "textSize":"medium",
     "keys":["x²","/","+","-","x","y","z","t"],
     "consts":{"lettres":["x","y","z","t"]},

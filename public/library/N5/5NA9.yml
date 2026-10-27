@@ -1,9 +1,6 @@
 title: Comparer des entiers relatifs
 description: "comparer, ranger, relatifs, négatifs, positifs, plus petit, plus grand, <, >"
-dest:
-  - 5NA
-  - 4NA
-  - 3NA
+dest: [6GD, 7AA]
 type: text
 repeat: 2
 keys: ["_", "_", "<", ">", "=", "_", "_", "_"]

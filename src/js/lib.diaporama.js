@@ -16,7 +16,7 @@ import draw from "./mods/draw.js";
 import Figure from "./mods/figure.js";
 import analyseReponse from "./mods/analysereponse.js";
 
-MathfieldElement.fontsDirectory = "../css/katex/fonts";
+MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
 MathfieldElement.soundsDirectory = null;
 /* sauvegarde des résultats pour éviter la triche */
 let contentResultats = "";
@@ -77,7 +77,7 @@ const diaporama = {
         id: "messageinfo",
         className: "message",
         innerHTML:
-          "Chargement de l'activité MathsMentales.<br>Merci pour la visite.",
+          "Die Diashow wird geladen …<br>Schön, dass du da bist.",
       });
       document.getElementById("tab-accueil").appendChild(alert);
       // le seed d'aléatorisation est fourni et on n'est pas en mode online
@@ -91,7 +91,7 @@ const diaporama = {
         // cas d'un truc online : message à valider !
         start = false;
         alert.innerHTML += "<br><br>";
-        let button = utils.create("button", { innerHTML: "Commencer !" });
+        let button = utils.create("button", { innerHTML: "Los geht’s!" });
         button.onclick = () => {
           diaporama.closeMessage("messageinfo");
           diaporama.checkLoadedCarts(true, sameData);
@@ -154,13 +154,13 @@ const diaporama = {
           const info = utils.create("div", {
             className: "info",
             innerHTML:
-              "Le diaporama est à présent une entité indépendante de l’éditeur. Vous pouvez cependant y revenir en suivant le lien ci-dessous.",
+              "Die Diashow läuft jetzt unabhängig von der Aufgabenauswahl. Über den Link unten kommen Sie zu den Einstellungen zurück.",
           });
           paramsContent.appendChild(info);
           const list = utils.create("ul");
           // put a link to param-content html
           const link = utils.create("li", { className: "pointer underline" });
-          link.innerText = "Éditer les paramètres de ce diaporama.";
+          link.innerText = "Einstellungen dieser Diashow bearbeiten";
           link.onclick = () => {
             let url =
               window.location.href.replace("diaporama.html", "index.html") +
@@ -192,7 +192,7 @@ const diaporama = {
           let alert = utils.create("div", {
             id: "messageerreur",
             className: "message",
-            innerHTML: "Impossible de charger les paniers :(<br>" + err,
+            innerHTML: "Die Körbe konnten nicht geladen werden :(<br>" + err,
           });
           document.getElementById("tab-accueil").appendChild(alert);
           // on fermet le message d'alerte après 3 secondes
@@ -207,7 +207,7 @@ const diaporama = {
       let alert = utils.create("div", {
         className: "message",
         innerHTML:
-          "Ceci est le nouveau MathsMentales, les anciennes adresses ne sont malheureusement plus compatibles.<hr class='center w50'>Vous allez être redirigé vers l'ancienne version de MathsMentales dans 6 s. <a href='javascript:utils.goToOldVersion();'>Go !</a>",
+          "Diese Adresse stammt aus einer alten Version von MathsMentales und funktioniert hier leider nicht.<hr class='center w50'>In 6 s wirst du zur alten Version von MathsMentales weitergeleitet. <a href='javascript:utils.goToOldVersion();'>Sofort weiter</a>",
       });
       document.getElementById("tab-accueil").appendChild(alert);
       setTimeout(utils.goToOldVersion, 6000);
@@ -241,11 +241,11 @@ const diaporama = {
       if (start || window.opener !== null) diaporama.start(sameData);
       else {
         const tabaccueil = document.getElementById("tab-accueil");
-        let message = `Tu as suivi un lien d'activité préconfigurée MathsMentales.<br>Clique ci-dessous pour démarrer.<br><br><button class="button--primary" id="btn-message-start"> Démarrer le diaporama </button>`;
+        let message = `Du hast einen Link zu einer fertigen Diashow geöffnet.<br>Klicke unten, um zu starten.<br><br><button class="button--primary" id="btn-message-start"> Diashow starten </button>`;
         if (diaporama.carts.length === 1 && sound.selected === null)
-          message += `<br><br><button class="button--info" id="btn-message-sound">Avec du son (cliquer pour choisir)</button>`;
+          message += `<br><br><button class="button--info" id="btn-message-sound">Mit Ton (klicken zum Auswählen)</button>`;
         if (diaporama.onlineState !== "yes")
-          message += `<br><br> ou <button class="button--success" id="btn-message-interact"> Commencer (interactif)</button>`;
+          message += `<br><br> oder <button class="button--success" id="btn-message-interact"> Starten und selbst antworten</button>`;
         let alert = utils.create("div", {
           id: "messageinfo",
           className: "message",
@@ -275,7 +275,7 @@ const diaporama = {
       let messageinfo = document.getElementById("messageinfo");
       if (messageinfo !== null) {
         messageinfo.innerHTML +=
-          "<br><br>Le chargement n'est pas encore terminé. Patience...";
+          "<br><br>Wird noch geladen. Einen Moment bitte …";
       }
     }
   },
@@ -504,7 +504,7 @@ const diaporama = {
               slideId +
               "-" +
               indiceSlide +
-              '">Figure</button>';
+              '">Figur</button>';
             diaporama.figs[slideId + "-" + indiceSlide] = new Figure(
               utils.clone(activity.figures[j]),
               "c" + slideId + "-" + indiceSlide,
@@ -757,9 +757,9 @@ const diaporama = {
       } else div.className = "slider-34";
       let nextActivity = "";
       if (diaporama.carts[assocSliderActivity[i]].activities.length > 1) {
-        nextActivity = `<button title="Activité suivante du panier" data-actid="0" id="ButtonNextAct${i}"><i  class="sprite sprite-slider-next"></i></button>`;
+        nextActivity = `<button title="Nächste Aufgabe im Korb" data-actid="0" id="ButtonNextAct${i}"><i  class="sprite sprite-slider-next"></i></button>`;
       }
-      div.innerHTML = `Exemple `;
+      div.innerHTML = `Beispiel `;
       diaporama.zooms["zsample" + i] = new Zoom(
         "zsample" + i,
         "#sampleSlide" + i,
@@ -770,11 +770,11 @@ const diaporama = {
       );
       div.appendChild(diaporama.zooms["zsample" + i].createCursor());
       div.innerHTML += `<div class="slider-nav">
-            <button title="Annoter l'exemple" id="btn-sample-annotate${i}"><i class="sprite sprite-iconfinder_pencil_1055013"></i></button>
-            <button title="Montrer la réponse" id="btn-sample-showanswer${i}"><i class="sprite sprite-slider-solution"></i></button>
-            <button title="Autre exemple" id="btn-newsample${i}"><i class="sprite sprite-newsample"></i></button>
+            <button title="Beispiel annotieren" id="btn-sample-annotate${i}"><i class="sprite sprite-iconfinder_pencil_1055013"></i></button>
+            <button title="Antwort zeigen" id="btn-sample-showanswer${i}"><i class="sprite sprite-slider-solution"></i></button>
+            <button title="Anderes Beispiel" id="btn-newsample${i}"><i class="sprite sprite-newsample"></i></button>
             ${nextActivity}
-            <button title="Démarrer le diaporama" id="btn-sample-start${i}"><i class="sprite sprite-fusee"></i></button>
+            <button title="Diashow starten" id="btn-sample-start${i}"><i class="sprite sprite-fusee"></i></button>
             </div>`;
       let divContent = utils.create("div", {
         className: "slide",
@@ -887,11 +887,11 @@ const diaporama = {
       /*if(nb>1 && diaporama.faceToFace==="y" && i===0)div.className += " return";
       else if(nb>2 && diaporama.faceToFace==="y" && i===1)div.className +=" return";*/
       let innerH = `<div class="slider-head"><div class="slider-nav">
-            <button title="Arrêter le diaporama" id="btn-timer-end${i}"><i class="sprite sprite-slider-stop"></i></button>`;
+            <button title="Diashow beenden" id="btn-timer-end${i}"><i class="sprite sprite-slider-stop"></i></button>`;
       if (diaporama.onlineState === "no") {
         // créer les boutons de pause et montrer réponse si on n'est pas en mode online
-        innerH += `<button title="Mettre le diapo en pause", id="btn-timer-pause${i}"><i class="sprite sprite-slider-pause"></i></button>
-                <button title="Montrer la réponse" id="btn-show-answer${i}"><i class="sprite sprite-slider-solution"></i></button>`;
+        innerH += `<button title="Diashow pausieren", id="btn-timer-pause${i}"><i class="sprite sprite-slider-pause"></i></button>
+                <button title="Antwort zeigen" id="btn-show-answer${i}"><i class="sprite sprite-slider-solution"></i></button>`;
       }
       diaporama.zooms["zs" + i] = new Zoom(
         "zs" + i,
@@ -901,7 +901,7 @@ const diaporama = {
         facteurZoom,
       );
       let zoom = diaporama.zooms["zs" + i].createCursor();
-      innerH += `<button title="Passer la diapo" id="btn-next-slide${i}"><i class="sprite sprite-slider-next"></i></button>
+      innerH += `<button title="Folie überspringen" id="btn-next-slide${i}"><i class="sprite sprite-slider-next"></i></button>
             </div>
             <div class="slider-title"></div>
             <div class="slider-chrono"><progress class="progress is-link is-large" value="0" max="100"></progress></div></div>
@@ -948,11 +948,11 @@ const diaporama = {
       // on affiche un message de fin qui attend une validation
       let message = "";
       if (whatToDo === "correction") {
-        message = `L'activité MathsMentales est terminée.<br>Pour consulter les résultats, cliquer sur le bouton ci-dessous.<br><br>
-            <button id="btn-messagefin-close"> Voir le corrigé </button>`;
+        message = `Die Diashow ist zu Ende.<br>Klicke unten, um deine Ergebnisse zu sehen.<br><br>
+            <button id="btn-messagefin-close"> Lösungen ansehen </button>`;
       } else {
-        message = `L'activité MathsMentales est terminée.<br>La correction n'est pas disponible, mais vous pouvez consulter les énoncés.<br><br>
-        <button id="btn-messagefin-close"> Fermer ce message </button>`;
+        message = `Die Diashow ist zu Ende.<br>Die Lösungen gibt es hier nicht, aber du kannst dir die Aufgaben noch einmal ansehen.<br><br>
+        <button id="btn-messagefin-close"> Schließen </button>`;
       }
       let alert = utils.create("div", {
         id: "messagefin",
@@ -1249,7 +1249,7 @@ const diaporama = {
     let sliderMessage = document.querySelectorAll("#slider" + id + " .slide")[
       nth
     ];
-    sliderMessage.innerHTML = "<span>Fin du diaporama</span>";
+    sliderMessage.innerHTML = "<span>Ende der Diashow</span>";
     //utils.removeClass(sliderMessage,"hidden");
   },
   endSliders: function () {
@@ -1280,13 +1280,13 @@ const diaporama = {
             let score = 0;
             let targetId = Number(diaporama.carts[cartId].target[slider]);
             let ol = document.createElement("ol");
-            ol.innerHTML = "<b>Réponses pour " + String(targetId) + "</b>";
+            ol.innerHTML = "<b>Antworten für Bildschirm " + String(targetId) + "</b>";
             ol.innerHTML +=
               " (" +
               MMmath.round(diaporama.times[targetId - 1] / 1000, 2) +
-              " s. / " +
+              " s / " +
               diaporama.totaltimes[targetId - 1] +
-              " s. prévues.)";
+              " s vorgesehen)";
             let ia = 0;
             // pour un target, on a l'ordre des activités et des réponses.
             for (
@@ -1369,7 +1369,7 @@ const diaporama = {
             div.appendChild(ol);
             let section = document.createElement("section");
             section.className = "score";
-            section.innerHTML = "<b>Score :</b> " + score + "/" + ia;
+            section.innerHTML = "<b>Punkte:</b> " + score + "/" + ia;
             div.appendChild(section);
             //envoi d'un message au site qui a intégré MM :
             if (diaporama.embededIn) {
@@ -1600,7 +1600,7 @@ window.onload = () => {
   document
     .getElementById("corrige-content")
     .addEventListener("click", (evt) => {
-      if (evt.target.innerHTML === "Figure") {
+      if (evt.target.innerHTML === "Figur") {
         diaporama.memory[evt.target.dataset.id].toggle();
         saveContent();
       }

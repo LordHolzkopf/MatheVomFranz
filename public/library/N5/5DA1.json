@@ -1,7 +1,7 @@
 {
     "title":"Données les plus/moins représentées",
     "type":"text",
-    "dest":["5DA", "4DA", "3DA"],
+    "dest":["5AG", "6FB"],
     "description":"Observer et trouver la donnée la plus ou la moins représentée : diagramme en barres, diagramme circulaire, effectif, statistiques. Non adapté au mode interactif (online/duel).",
     "ID":"5DA1",
     "textSize":"small",

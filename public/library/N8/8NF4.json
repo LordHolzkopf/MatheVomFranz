@@ -1,7 +1,5 @@
 {
-    "dest": [
-        "6NE"
-    ],
+    "dest":["6EE", "6EF"],
     "keys":"numerique",
     "title": "Résoudre des problèmes multiplicatifs avec des décimaux",
     "description": "problèmes, énoncés, multiplication, division, décimaux, modélisation",

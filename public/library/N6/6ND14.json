@@ -4,7 +4,7 @@
     "type":"text",
     "ID":"6ND14",
     "textSize":"small",
-    "dest":["6ND", "5NA", "4NA", "3NA"],
+    "dest":["5CD"],
     "params":{
         "soi":{"label":"Proposer parfois le nombre lui-même","defaut":true}
     },

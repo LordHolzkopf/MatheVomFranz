@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"GS12",
     "description":"Lire une probabilité (conditionnelle)",
-    "dest":["2D2","GS1","Ko3"],
+    "dest":["9FD", "10AD", "QHD"],
     "options":[
         {
         "name":"Arbre à 2 branches par niveau (2 niveaux)",

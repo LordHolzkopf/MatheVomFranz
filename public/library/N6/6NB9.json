@@ -2,7 +2,7 @@
     "ID":"6NB9",
     "title": "Exprimer une proportion",
     "description": "proportion, fraction, part, fraction d'une figure, partage",
-    "dest": ["6NB", "5DB", "4DB", "3DB"],
+    "dest":["5FA", "6AA"],
     "type":"text",
     "keys":["_","/","_","_","_","_","_","_"],
     "options":[

@@ -433,7 +433,7 @@ custom-svg.corrige svg .correction,
 
     footer.break::before,
     .pagebreak::before {
-        content: "--> saut de page <--";
+        content: "--> Seitenumbruch <--";
         color: rgb(18, 150, 47);
         font-size: 0.8rem;
         text-align: end;
@@ -453,7 +453,7 @@ custom-svg.corrige svg .correction,
     }
 
     #creator-container::before {
-        content: "\ CC-BY-NC © 2022 MathsMentales.net";
+        content: "\ Erstellt mit MatheVomFranz · nach MathsMentales von Sébastien Cogez";
         color: darkblue !important;
         font-size: 0.8rem;
         border-bottom: 1pt solid black;

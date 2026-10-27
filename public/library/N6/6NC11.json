@@ -2,7 +2,7 @@
     "title":"Soustraction de décimaux",
     "description":"soustraction, différence, décimaux, retenue",
     "ID":"6NC11",
-    "dest":["6NC","5NC","4NC","3NB"],
+    "dest":["6CB"],
     "consigne":"Calculer",
     "speech":1,
     "options":[{

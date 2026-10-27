@@ -3,7 +3,7 @@
     "title":"Dessiner un schéma de triangle à main levée connaissant des longueurs",
     "description":"Schéma à main levée, construire, dessiner un triangle connaissant ses longueurs : quelconque, isocèle, équilatéral. Non adapté au mode interactif (online/duel).",
     "type":"text",
-    "dest":["6GC","5GB"],
+    "dest":["5BD", "7EC"],
     "consts":{
         "schemas":{
             "quelconques":[

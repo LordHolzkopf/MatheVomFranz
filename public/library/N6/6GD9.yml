@@ -7,9 +7,7 @@ textSize: medium
 # énoncé revienne, mais pas dans les cinq dernières questions. Sans lui, la
 # déduplication stricte bloquerait le tirage sur les options les plus étroites.
 repeat: true
-dest:
-  - 6GD
-  - 5GT
+dest: [5BC, 6DB]
 consts:
   # lettres des points. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues).

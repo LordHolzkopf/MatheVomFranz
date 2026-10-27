@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Cartes Flash MathsMentales</title>
+        <title>Karteikarten – MatheVomFranz</title>
         <style>
             /*MMentales*/
             @page {
@@ -21,27 +21,27 @@
     </head>
     <body size="A4">
         <section id="creator-menu">
-            <button onclick="window.print()">Imprimer</button> pour imprimer ou
-            faire un pdf.
+            <button onclick="window.print()">Drucken</button> – auf Papier oder
+            als PDF.
             <button
                 id="btnPageOrientation"
-                title="Change l'orientation de la page"
+                title="Seitenausrichtung ändern"
             >
-                paysage
+                Querformat
             </button>
-            <button id="btnRectoVerso" title="Change le type d'impression">
-                Recto
+            <button id="btnRectoVerso" title="Druckart ändern">
+                Einseitig
             </button>
             <br />
-            Taille texte : <span id="fontSize"></span> Fond de Q :
-            <input type="color" id="inputCoinColor" title="Couleur du coin Q" />
-            Texte
+            Schriftgröße: <span id="fontSize"></span> Hintergrund Q:
+            <input type="color" id="inputCoinColor" title="Farbe der Q-Ecke" />
+            Text
             <input
                 type="text"
                 id="identifiant"
                 size="15"
-                title="Entrée pour valider"
-                placeholder="Multiplications..."
+                title="Mit Enter bestätigen"
+                placeholder="Einmaleins …"
             />
             <button id="btnValidateText">
                 <svg
@@ -59,34 +59,34 @@
             <input
                 type="color"
                 id="inputDecoColor"
-                title="Couleur du texte décoratif"
+                title="Farbe des Zusatztexts"
             />
-            | Bord du verso
+            | Rand der Rückseite
             <input
                 type="color"
                 id="inputcolorborder"
-                title="Couleur de la bordure des réponses"
+                title="Randfarbe der Antwortkarten"
             /><br />
-            Numéroter :
+            Nummerieren:
             <input
                 type="radio"
                 id="radioNo"
                 name="num"
                 value="no"
                 checked
-            /><label for="radioQ">non</label>
+            /><label for="radioNo">nein</label>
             <input type="radio" id="radioQ" name="num" value="Q" /><label
                 for="radioQ"
-                >avec Q</label
+                >mit Q</label
             >
             <input type="radio" id="radioText" name="num" value="text" /><label
                 for="radioText"
-                >avec le texte</label
+                >mit dem Text</label
             >
-            | Taille de la carte : L<input
+            | Kartengröße: B<input
                 id="inputwidth"
                 value="55"
-                title="Taille cartes"
+                title="Kartengröße"
                 type="number"
                 size="4"
                 min="30"
@@ -95,14 +95,14 @@
             mm H<input
                 id="inputheight"
                 value="55"
-                title="Taille cartes"
+                title="Kartengröße"
                 type="number"
                 size="3"
                 min="30"
                 max="180"
             />
             mm<br />
-            Réponse :
+            Antwort:
             <input
                 type="radio"
                 name="anstype"
@@ -110,14 +110,14 @@
                 value="normal"
                 checked
             />
-            <label for="radioAnsTypeNorm">Normale</label>
+            <label for="radioAnsTypeNorm">normal</label>
             <input
                 type="radio"
                 name="anstype"
                 id="radioAnsTypeShort"
                 value="value"
             />
-            <label for="radioAnsTypeShort">Courte</label>
+            <label for="radioAnsTypeShort">kurz</label>
         </section>
         <div id="creator-container">
             <section id="creator-content"></section>

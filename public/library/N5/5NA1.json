@@ -3,7 +3,7 @@
     "description":"Traduire une situation par un nombre relatif : positif, négatif, température, altitude, gain, perte. La réponse positive peut être précédée d'un signe +, ou pas.",
     "ID":"5NA1",
     "type":"text",
-    "dest":["5NA","4NA","3NA"],
+    "dest":["6GD"],
     "consts":{"datas": {"-1":["# ans avant J.C.", "#e sous-sol", "#°C en dessous de zéro", "une perte de # €", "une profondeur de # m", "une dépense de # €"],
         "1":["# ans après J.C.", "#e étage", "#°C au dessus de zéro", "un gain de # points", "une altitude de # m", "une recette de # €"]}},
     "vars":{"n":"2_20","s":"-1_1_^0", "p":"0_5", "n2":"${(:p==0)?:n*23:(:p==4)?:n*50::n}"},

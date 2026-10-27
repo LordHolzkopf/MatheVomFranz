@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="de">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lecteur Marp avec Audio</title>
+        <title>Marp-Player mit Ton</title>
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <style>
             body {
@@ -90,9 +90,9 @@
                 <!-- Le contenu des diapositives sera inséré ici par JavaScript -->
             </div>
             <div class="navigation">
-                <button id="prevBtn">Précédent</button>
+                <button id="prevBtn">Zurück</button>
                 <span id="slideCounter">1 / 1</span>
-                <button id="nextBtn">Suivant</button>
+                <button id="nextBtn">Weiter</button>
             </div>
         </div>
         <script src="js/libs/katex/katex.min.js"></script>
@@ -174,7 +174,7 @@
             function updateSlide() {
                 if (slides.length === 0) {
                     slideElement.innerHTML =
-                        "<p>Chargement des diapositives...</p>";
+                        "<p>Folien werden geladen …</p>";
                     return;
                 }
 
@@ -244,12 +244,12 @@
                                 error,
                             );
                             slideElement.innerHTML =
-                                "<p>Erreur lors du chargement du fichier Marp.</p>";
+                                "<p>Fehler beim Laden der Marp-Datei.</p>";
                         });
                 });
             } else {
                 slideElement.innerHTML =
-                    "<p>Veuillez fournir une URL de fichier Marp en paramètre (ex: ?url=votre_url_ici).</p>";
+                    "<p>Bitte geben Sie die URL einer Marp-Datei als Parameter an (z. B. ?url=ihre_url).</p>";
             }
 
             prevBtn.addEventListener("click", () => {

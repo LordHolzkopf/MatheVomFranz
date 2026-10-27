@@ -3,7 +3,7 @@
     "description":"réduire, simplifier, calcul littéral, termes semblables",
     "type":"latex",
     "ID":"4NE1",
-    "dest":["4NE","3ND","2N3"],
+    "dest":["7DB", "8CA"],
     "consts":{"lettres":["a","b","c","x","y"]},
     "keys":["+","-","x²","a","b","c","x","y"],
     "valueType":"expressionSimplifiee",

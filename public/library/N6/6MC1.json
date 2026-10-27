@@ -6,7 +6,7 @@
     "description":"Aire, surface, formules : carré, rectangle, triangle, disque, π, pi. Non adapté au mode interactif (online/duel).",
     "textSize":"small",
     "keys":["pi","mm","cm","dm","mt", "dam", "hm", "km","x²"],
-    "dest":["6MC", "5MA", "4MA", "3MA"],
+    "dest":["5DB", "8DB", "9CA"],
     "consts":{
         "unites":["mm","cm","dm","m", "dam", "hm", "km"],
         "uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}

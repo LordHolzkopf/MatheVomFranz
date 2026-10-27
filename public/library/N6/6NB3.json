@@ -4,7 +4,7 @@
     "description":"Comparer des fractions, avec 1 ou entre elles. Utiliser <, > ou =",
     "speech":1,
     "keys":["<",">","="],
-    "dest":["6NB","5NA","4NA","3NA"],
+    "dest":["5FC", "6AC"],
     "options":[{
         "name":"Comparer à 1",
         "vars":{

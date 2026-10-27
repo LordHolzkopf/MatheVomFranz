@@ -126,7 +126,7 @@ test("validate n'a rien à signaler sur un parcours correct", () => {
 test("validate signale un parcours sans étape", () => {
   const rapport = validate({ id: "x", titre: "x", themes: [], etapes: [] });
   assert.equal(rapport.erreurs.length, 1);
-  assert.match(rapport.erreurs[0], /aucune étape/);
+  assert.match(rapport.erreurs[0], /keine Etappe/);
 });
 
 test("validate signale un thème inconnu", () => {
@@ -134,7 +134,7 @@ test("validate signale un thème inconnu", () => {
   source.etapes[0].theme = "inexistant";
   const rapport = validate(source);
   assert.equal(rapport.erreurs.length, 1);
-  assert.match(rapport.erreurs[0], /thème/i);
+  assert.match(rapport.erreurs[0], /Thema/i);
 });
 
 test("validate signale un panier vide", () => {
@@ -142,7 +142,7 @@ test("validate signale un panier vide", () => {
   source.etapes[0].panier = {};
   const rapport = validate(source);
   assert.equal(rapport.erreurs.length, 1);
-  assert.match(rapport.erreurs[0], /panier/i);
+  assert.match(rapport.erreurs[0], /Korb/i);
 });
 
 test("validate signale un id d'étape en double", () => {
@@ -150,7 +150,7 @@ test("validate signale un id d'étape en double", () => {
   source.etapes.push({ ...source.etapes[0], titre: "Doublon" });
   const rapport = validate(source);
   assert.equal(rapport.erreurs.length, 1);
-  assert.match(rapport.erreurs[0], /double/i);
+  assert.match(rapport.erreurs[0], /doppelt/i);
 });
 
 test("validate avertit d'un panier trop petit sans bloquer", () => {
@@ -172,7 +172,7 @@ test("validate bloque un panier plus petit que le seuil de réussite", () => {
   const rapport = validate(source);
   assert.equal(rapport.erreurs.length, 1);
   assert.match(rapport.erreurs[0], /4/);
-  assert.match(rapport.erreurs[0], /seuil|réussir/i);
+  assert.match(rapport.erreurs[0], /Bestehen/i);
   assert.deepEqual(rapport.avertissements, []);
 });
 
@@ -190,7 +190,7 @@ test("validate signale un seuilReussite déclaré supérieur à nbQuestions", ()
   source.regles = { nbQuestions: 5, seuilReussite: 8 };
   const rapport = validate(source);
   assert.equal(
-    rapport.erreurs.filter((e) => /seuil de réussite/i.test(e)).length,
+    rapport.erreurs.filter((e) => /Mindestzahl richtiger Antworten/i.test(e)).length,
     1,
   );
 });
@@ -200,7 +200,7 @@ test("validate ne signale rien quand seuilReussite déclaré est égal à nbQues
   source.regles = { nbQuestions: 10, seuilReussite: 10 };
   const rapport = validate(source);
   assert.equal(
-    rapport.erreurs.filter((e) => /seuil de réussite/i.test(e)).length,
+    rapport.erreurs.filter((e) => /Mindestzahl richtiger Antworten/i.test(e)).length,
     0,
   );
 });
@@ -210,7 +210,7 @@ test("validate signale des ids de thème en double", () => {
   source.themes.push({ id: "nombres", label: "Nombres bis" });
   const rapport = validate(source);
   assert.equal(
-    rapport.erreurs.filter((e) => /thème en double/i.test(e)).length,
+    rapport.erreurs.filter((e) => /Themen-ID doppelt/i.test(e)).length,
     1,
   );
 });
@@ -243,8 +243,8 @@ test("encode/decode préservent accents et apostrophes", () => {
 });
 
 test("decode rejette une chaîne qui n'est pas un parcours", () => {
-  assert.throws(() => decode("n'importe quoi"), /invalide/);
-  assert.throws(() => decode(btoa("{\"a\":1}")), /invalide/);
+  assert.throws(() => decode("n'importe quoi"), /ungültig/);
+  assert.throws(() => decode(btoa("{\"a\":1}")), /ungültig/);
 });
 
 test("decode normalise le parcours reçu", () => {

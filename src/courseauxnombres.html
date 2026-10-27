@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <style>
@@ -9,7 +9,7 @@
                 margin: 0.8cm;
             }
         </style>
-        <title>Course aux nombres avec MathsMentales</title>
+        <title>Zahlenrennen – MatheVomFranz</title>
         <link
             rel="stylesheet"
             href="css/courseauxnombres.css"
@@ -32,52 +32,52 @@
             "
             class="noprint"
             style="position: absolute; left: 0; top: 0"
-            title="Afficher le menu"
+            title="Menü anzeigen"
         >
-            🛠 Mise en page
+            🛠 Seitenlayout
         </button>
         <button
             onclick="window.print()"
             class="noprint"
             style="position: absolute; left: 110px; top: 0"
-            title="Imprimer ou enregistrer en pdf"
+            title="Drucken oder als PDF speichern"
         >
-            🖨️ Imprimer
+            🖨️ Drucken
         </button>
         <div id="creator-container">
             <section id="creator-menu" class="noprint hidden">
                 <button
                     id="pageOrientation"
-                    title="Change l'orientation de la page"
+                    title="Seitenausrichtung ändern"
                 >
-                    paysage
+                    Querformat
                 </button>
-                | Énoncés :
+                | Blätter:
                 <input type="number" min="1" id="nbFiches" size="3" />
-                | Entête :
-                <button id="btnedit" title="Modifier l'entête des courses">
-                    éditer
+                | Kopfbereich:
+                <button id="btnedit" title="Kopfbereich des ersten Blatts bearbeiten">
+                    bearbeiten
                 </button>
                 <button
                     id="btncopy"
-                    title="Copier les modifications dans toutes les courses"
+                    title="Änderungen auf alle Blätter übertragen"
                 >
-                    copier
+                    übertragen
                 </button>
                 |
                 <button
-                    title="Mélanger les lignes de questions"
+                    title="Reihenfolge der Fragen mischen"
                     id="btnshuffle"
                 >
-                    Mélanger
+                    Mischen
                 </button>
                 <button
                     id="btneditcontent"
-                    title="Modifier le contenu d'une course"
+                    title="Inhalt der Tabellen bearbeiten"
                 >
-                    Éditer
+                    Inhalt bearbeiten
                 </button>
-                | Police :
+                | Schrift:
             </section>
             <section id="tab-accueil" class="noprint"></section>
             <section id="creator-content"></section>

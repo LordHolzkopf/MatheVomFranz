@@ -1,7 +1,7 @@
 {
   "title": "Reconnaitre le centre de symétrie d'une figure",
   "description": "identifier si une figure possède un centre de symétrie.",
-  "dest": ["5GT"],
+  "dest":["5BC"],
   "repeat": 2,
   "type": "text",
   "keys":["o","n","_","_","_","_","_","_"],

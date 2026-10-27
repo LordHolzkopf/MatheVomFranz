@@ -7,9 +7,7 @@ type: text
 # qu’une seule. La variété vient de l’historique des variables : ij parcourt
 # les 8 jeux de noms avant d’en réutiliser un.
 repeat: 1
-dest:
-  - 6GD
-  - 5GB
+dest: [5BA]
 consts:
   p1: Si deux droites sont parallèles à une même droite, alors elles sont parallèles entre elles.
   p2: Si deux droites sont perpendiculaires à une même droite, alors elles sont parallèles entre elles.

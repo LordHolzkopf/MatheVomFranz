@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Générateur de carte parkour</title>
+<title>Parkour-Kartengenerator</title>
 <style>
   :root{
     --asphalt-dark:#2b2b33;
@@ -119,32 +119,32 @@
 </head>
 <body>
 
-<h1>Générateur de carte parkour</h1>
+<h1>Parkour-Kartengenerator</h1>
 
 <div class="panel">
   <div class="row">
-    <label>Nombre d'étapes</label>
+    <label>Anzahl Etappen</label>
     <input type="range" id="steps" min="3" max="20" value="8">
     <span class="val" id="stepsVal">8</span>
   </div>
   <div class="row">
-    <label>Ambiance</label>
+    <label>Stimmung</label>
     <select id="mood">
-      <option value="dusk" selected>Crépuscule urbain</option>
-      <option value="day">Ciel de jour</option>
-      <option value="night">Nuit néon</option>
+      <option value="dusk" selected>Abenddämmerung in der Stadt</option>
+      <option value="day">Taghimmel</option>
+      <option value="night">Neonnacht</option>
     </select>
   </div>
   <div class="row">
-    <label>Sens du tracé</label>
+    <label>Richtung des Wegs</label>
     <select id="dir">
-      <option value="up" selected>Bas → Haut (départ en bas)</option>
-      <option value="down">Haut → Bas (départ en haut)</option>
+      <option value="up" selected>Unten → oben (Start unten)</option>
+      <option value="down">Oben → unten (Start oben)</option>
     </select>
   </div>
   <div class="buttons">
-    <button class="btn-secondary" id="regen">Nouveau tracé</button>
-    <button class="btn-primary" id="download">Télécharger le SVG</button>
+    <button class="btn-secondary" id="regen">Neuer Weg</button>
+    <button class="btn-primary" id="download">SVG herunterladen</button>
   </div>
 </div>
 
@@ -296,8 +296,8 @@ function buildMap(steps, moodKey, dir){
   ${decor}
   ${badges}
 
-  <text x="${startLabel.x}" y="${startLabel.y + (startLabel.y > endLabel.y ? 46 : -34)}" text-anchor="middle" font-size="13" font-weight="700" fill="#5fbf6a" font-family="Arial,sans-serif">DEPART</text>
-  <text x="${endLabel.x}" y="${endLabel.y + (endLabel.y > startLabel.y ? 46 : -34)}" text-anchor="middle" font-size="13" font-weight="700" fill="#f2924f" font-family="Arial,sans-serif">ARRIVEE</text>
+  <text x="${startLabel.x}" y="${startLabel.y + (startLabel.y > endLabel.y ? 46 : -34)}" text-anchor="middle" font-size="13" font-weight="700" fill="#5fbf6a" font-family="Arial,sans-serif">START</text>
+  <text x="${endLabel.x}" y="${endLabel.y + (endLabel.y > startLabel.y ? 46 : -34)}" text-anchor="middle" font-size="13" font-weight="700" fill="#f2924f" font-family="Arial,sans-serif">ZIEL</text>
 </svg>`;
 
   return svg;
@@ -353,7 +353,7 @@ document.getElementById('download').addEventListener('click', ()=>{
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `carte-parkour-${document.getElementById('steps').value}-etapes.svg`;
+  a.download = `parkour-karte-${document.getElementById('steps').value}-etappen.svg`;
   a.click();
   URL.revokeObjectURL(url);
 });

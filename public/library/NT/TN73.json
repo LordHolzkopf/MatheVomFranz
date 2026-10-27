@@ -2,7 +2,7 @@
     "ID":"TN73",
     "title":"Primitives avec les fonctions trigonométriques",
     "description":"primitive, intégration, cosinus, sinus, trigonométrie",
-    "dest":["TN7"],
+    "dest":["QBC", "QDA"],
     "type":"text",
     "options":[{
         "name":"Primitive de $$f'(x)\\cos(f(x))$$",

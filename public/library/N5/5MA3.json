@@ -4,7 +4,7 @@
     "ID":"5MA3",
     "description":"Calculer le volume d'une pyramide à base carrée, rectangulaire ou triangulaire.",
     "textSize":"small",
-    "dest":[ "4MA", "3MA"],
+    "dest":["9EC"],
     "keys":["cm","x³","pi","_","_","_","_","_"],
     "options":[{
         "name":"Volume de pyramide à base carrée",

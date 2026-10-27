@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"4MA1",
     "description":"Passer d'une unité à une autre",
-    "dest":["4MA","3MA"],
+    "dest":["WDB"],
     "consts":{
         "duree":[["h","s",3600], ["min","s",60], ["h","min",60]],
         "prefixes":["k","h","da","","d","c","m"],

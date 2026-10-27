@@ -2,7 +2,7 @@
     "title":"Ordre de grandeur d'une opération",
     "description":"Trouver un ordre de grandeur d'une somme (addition), une différence (soustraction), un produit (multiplication)",
     "speech":1,
-    "dest":["6NC"],
+    "dest":["6CC", "5CF"],
     "options":[{
         "name":"Ordre de grandeur d'une somme",
         "vars":{"a":[10,100,1000,10000],

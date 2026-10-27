@@ -5,7 +5,7 @@
     "ID":"6NA4",
     "keys":["/"],
     "description":"Lecture abscisse sur droite graduée",
-    "dest":["5NA","4NA","3NA","2N1"],
+    "dest":["5AA", "5FE", "6AE"],
     "consts":{
         "b":"${MMmath.round(:a+5*:pas,1)}","b2":"${MMmath.round(:a+10*:pas,1)}","b5":"${MMmath.fractionSimplifiee(:a1+5*:nbr[:choix],:b3)}",
         "nbr":[1,2,3,5,10],

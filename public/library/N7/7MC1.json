@@ -5,7 +5,7 @@
     "ID":"7MC1",
     "keys":["hr","_","_","_"],
     "description":"Donner la réponse en indiquant l'heure au format 9h05",
-    "dest":[ "6MB"],
+    "dest":["5AF"],
     "options":[{
         "name":"Après, en retard en min",
         "vars":{"a":"10_59", "b":"0_23", "c":"0_11", "d":"${:c*5}"},

@@ -4,7 +4,7 @@
     "ID":"5NE9",
     "textSize":"small",
     "description":"Un programme de calcul étant proposé, il est demandé de l'appliquer à un nombre donné.",
-    "dest":["5NE","4NE", "3ND"],
+    "dest":["5AD", "7DA"],
     "consts":{
         "phrases":{
             "moins":[["Lui enlever", "Lui soustraire", "Lui retrancher", "Lui ôter"],

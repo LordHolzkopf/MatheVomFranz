@@ -1,9 +1,7 @@
 {
     "title": "Trouver le n<sup>e</sup> terme d’une suite",
     "description": "terme général, nᵉ terme, suite, récurrence, formule explicite",
-    "dest": [
-        "HN1"
-    ],
+    "dest":["6GA", "WEB"],
     "type": "text",
     "options": [
         {

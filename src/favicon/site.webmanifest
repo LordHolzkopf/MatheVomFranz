@@ -1,7 +1,7 @@
 {
-  "name": "MathsMentales",
-  "short_name": "MM",
-  "description": "Automatismes et calcul mental en Mathématiques",
+  "name": "MatheVomFranz",
+  "short_name": "MvF",
+  "description": "Kopfrechnen und Automatisieren in Mathematik",
   "start_url": ".",
   "icons": [
     {
@@ -17,7 +17,7 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#1f4fa3",
+  "background_color": "#fdfcf6",
   "display": "standalone"
 }

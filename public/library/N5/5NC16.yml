@@ -1,7 +1,5 @@
 title: Fraction quotient
-dest:
-  - 5NC
-  - 4NC
+dest: [5FA, 6AA]
 description: >
   Produit à trou, multiplication
 options:

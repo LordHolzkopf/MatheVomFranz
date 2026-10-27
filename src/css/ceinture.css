@@ -587,7 +587,7 @@ input:checked + .slider:before {
     }
 
     footer.break::before {
-        content: "--> saut de page <--";
+        content: "--> Seitenumbruch <--";
         color: rgb(18, 150, 47);
         font-size: 0.8rem;
         text-align: end;

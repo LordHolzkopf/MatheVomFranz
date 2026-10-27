@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Ceinture MathsMentales</title>
+        <title>Kopfrechen-Gürtel – MatheVomFranz</title>
         <link rel="stylesheet" href="css/ceinture.css" type="text/css" />
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
@@ -21,22 +21,22 @@
             "
             class="noprint"
             style="position: absolute; left: 0; top: 0"
-            title="Afficher le menu"
+            title="Menü anzeigen"
         >
-            🛠 Mise en page
+            🛠 Seitenlayout
         </button>
         <button
             onclick="window.print()"
             class="noprint"
             style="position: absolute; left: 110px; top: 0"
-            title="Imprimer ou enregistrer en pdf"
+            title="Drucken oder als PDF speichern"
         >
-            🖨️ Imprimer
+            🖨️ Drucken
         </button>
         <div id="creator-container">
             <section id="creator-menu" class="noprint hidden">
-                <h3>Paramètres</h3>
-                <b>Orientation</b>
+                <h3>Einstellungen</h3>
+                <b>Ausrichtung</b>
                 <img
                     class="v-align"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAdhAAAHYQGVw7i2AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAIJJREFUSInt1SsSwkAQRdHDR8A68GF/FAKBQFEo9pE1sAEcVQhWEYnAYJtMMsH1lVNv3u1q0/yZWfDe4lHwf44d3kPFh4LM+pu7YPlrgrEs0OGKY9RVI4AGWzyxn1rQ4YwXblFXuLtC7n2B2hX1koIUpCAFKZiC6B5scBrYtaqcZRwfgYINOdNRm9gAAAAASUVORK5CYII="
@@ -49,28 +49,28 @@
                     class="v-align"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAdhAAAHYQGVw7i2AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAKdJREFUSInt1DEOAUEUh/GftcVGoRO9TqdVStxELVFqXMEVNE7iBBoKpdoVWM2sTKhkR4Tsl0ymeMn/y7yZNzR8m1bYx5jjXDOvhzUOz4IJrtjVFKzQxQZHyCJRWTMc2lhihmEsSEU/hJ+wQJGHQibNCaoWlSjQyaNiCsElrEde6jt4oRG8JfgI8Rz8fot+UxBP8hSDhNkjbKvX0xF+v4TcsE+c+Y/cAaQbHKfk6nlNAAAAAElFTkSuQmCC"
                 />
-                <b>Texte</b>
+                <b>Text</b>
                 <small>A</small><span class="bigger">A</span>
                 <input
                     id="fsize"
                     value="10"
-                    title="Taille énoncé toutes colonnes"
+                    title="Schriftgröße der Aufgaben in allen Spalten"
                     type="number"
                     size="5"
                     min="8"
                     max="16"
                     step="0.5"
                 />
-                pt <b>Nombre de grilles</b>
+                pt <b>Anzahl Gürtel</b>
                 <input type="number" min="1" id="nbFiches" size="3" /><br />
-                <b>Hauteur de ligne</b>
+                <b>Zeilenhöhe</b>
                 <input
                     type="checkbox"
                     value="true"
                     id="btnAutoSetLineHeight"
                     checked="checked"
                 />
-                auto ou
+                automatisch oder
                 <input
                     type="number"
                     min="4"
@@ -80,17 +80,17 @@
                     size="3"
                 />mm
                 <br />
-                <b>Corrigé</b> À la fin
+                <b>Lösungen</b> am Ende
                 <label class="switch">
                     <input type="checkbox" id="toggleCorriges" />
                     <span class="slider round"></span>
                 </label>
-                Après chaque ceinture
+                nach jedem Gürtel
                 <input
                     type="checkbox"
                     id="corrigeAuDos"
-                    title="Pour placer les corrections au verso des énoncés, en position retournée pour un usage efficace"
-                />Corrigés au verso, retourné,
+                    title="Lösungen auf die Rückseite der Aufgaben drucken, auf dem Kopf stehend – praktisch zum Kontrollieren"
+                />Lösungen auf der Rückseite, gedreht,
                 <input
                     type="number"
                     min="2"
@@ -98,26 +98,26 @@
                     value="4"
                     id="corrigeAuDosValue"
                 />
-                sujets par page.
+                Gürtel pro Seite.
                 <br />
-                <b>Photocopies simplifiée</b>
-                Une ceinture dupliquée par page
+                <b>Einfacher kopieren</b>
+                Ein Gürtel mehrfach pro Seite
                 <label class="switch">
                     <input
                         type="checkbox"
                         id="copiesByPage"
-                        title="Permet d'imprimer plusieurs grilles identiques sur une même page, pratique avec un massicot"
+                        title="Druckt mehrere gleiche Gürtel auf eine Seite – praktisch mit einer Schneidemaschine"
                     />
                     <span class="slider round"></span>
                 </label>
                 <br />
-                <strong>Champ Réponse</strong>
+                <strong>Antwortfeld</strong>
                 <select id="setAnswerAllPos">
-                    <option value="row">à côté</option>
-                    <option value="column">dessous</option>
+                    <option value="row">daneben</option>
+                    <option value="column">darunter</option>
                 </select>
-                Couleur
-                <input type="color" id="colorpicker" value="#ECECEC" /> Cadre
+                Farbe
+                <input type="color" id="colorpicker" value="#ECECEC" /> Rahmen
                 <input type="checkbox" value="true" id="btnChangeBorder" />
                 <input
                     type="color"
@@ -125,7 +125,7 @@
                     id="colorpicker2"
                     size="8"
                 />
-                Largeur min
+                Mindestbreite
                 <input
                     type="number"
                     id="ansWidths"
@@ -135,22 +135,22 @@
                     size="3"
                     step="5"
                 />
-                % <span>Hauteur : </span
+                % <span>Höhe: </span
                 ><input
                     id="inputheight"
                     value="8"
-                    title="Hauteur en mm"
+                    title="Höhe in mm"
                     type="number"
                     size="3"
                     min="2"
                     max="30"
                 />mm
                 <br />
-                <b>Figures</b> : <button id="btndisplayfig">Toutes on</button>
+                <b>Abbildungen</b>: <button id="btndisplayfig">Alle an</button>
                 <div class="modele-ceinture">
                     <div class="ceinture-header evaluation">
                         <div class="border-black ceinture-titre">
-                            <label for="colorpickertitle">Fond : </label>
+                            <label for="colorpickertitle">Hintergrund: </label>
                             <input
                                 type="color"
                                 id="colorpickertitle"
@@ -158,23 +158,23 @@
                             />
                         </div>
                         <div class="border-black">
-                            NOM :<br />
-                            Classe :
+                            Name:<br />
+                            Klasse:
                         </div>
                         <div class="border-black evaluation">
-                            □ Validée<br />
-                            □ non Validée
+                            □ bestanden<br />
+                            □ nicht bestanden
                         </div>
                         <div class="border-black is-relative">
                             <button
                                 id="btndisplayeval"
-                                title="Montrer/cacher l'espace de validation"
+                                title="Bewertungsfeld ein-/ausblenden"
                                 data-eval="1"
                             >
                                 <img src="img/closebutton32.png" width="10" />
                             </button>
-                            Clé : xxxxxxx<br />
-                            grille 1
+                            Startwert: xxxxxxx<br />
+                            Nr. 1
                         </div>
                     </div>
                     <div
@@ -184,7 +184,7 @@
                     ></div>
                 </div>
                 <div class="center">
-                    Espace inter ceintures :
+                    Abstand zwischen den Gürteln:
                     <input
                         type="number"
                         name="spacerInput"

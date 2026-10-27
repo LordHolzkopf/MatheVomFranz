@@ -1,6 +1,6 @@
 {
     "title": "Fraction (inférieure ou égale à 1) d’unité",
-    "dest": [ "6NB"],
+    "dest":["5FA", "6AA"],
     "type":"text",
     "keys":["_","/","_","_","_","_","_","_"],
     "consigne":"Quelle fraction de l’objet est colorée ?",

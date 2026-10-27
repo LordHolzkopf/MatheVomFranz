@@ -128,7 +128,7 @@ test("interpreteStatut : 404 veut dire absent, en lecture comme en écriture", (
 test("interpreteStatut : 403 avec refus signé instance-not-allowed a un message dédié", () => {
   const resultat = interpreteStatut(403, '{"source":"proxy","code":"instance-not-allowed","error":"x"}');
   assert.equal(resultat.code, "refuse");
-  assert.match(resultat.message, /autorisé/);
+  assert.match(resultat.message, /nicht freigegeben/);
 });
 
 test("interpreteStatut : 403 sans refus signé reste un refus générique", () => {

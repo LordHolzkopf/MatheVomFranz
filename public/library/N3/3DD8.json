@@ -1,6 +1,6 @@
 {
     "ID":"3DD8",
-    "dest":["3DD","2F2","Ko4"],
+    "dest":["8BA", "9BA"],
     "title":"Calcul d'image par une fonction affine",
     "description":"Calculer l'image d'un nombre par une fonction affine en utilisant son expression algébrique.",
     "type":"text",

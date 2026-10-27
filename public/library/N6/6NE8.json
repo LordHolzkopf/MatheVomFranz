@@ -2,7 +2,7 @@
     "title":"Division par 75, 7,5 ou 0,75",
     "description":"diviser, calcul réfléchi, quotient, astuce",
     "ID":"6NE8",
-    "dest":["6NE","5NC","4NC","3NB"],
+    "dest":["6EF", "6EG"],
     "options":[{
         "name":"Diviser par 75",
         "vars":{"n":"2_50","a":"${3*:n}","b":75}

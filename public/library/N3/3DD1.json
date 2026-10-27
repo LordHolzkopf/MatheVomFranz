@@ -1,6 +1,6 @@
 {
     "ID":"3DD1",
-    "dest":["3DD","2F2"],
+    "dest":["8BC", "9BA"],
     "title":"Lire l'ordonnée à l'origine",
     "description":"Lire l'ordonnée à l'origine d'une fonction affine sur sa représentation graphique.",
     "type":"text",

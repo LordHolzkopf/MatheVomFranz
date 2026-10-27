@@ -3,7 +3,7 @@
     "title":"Comprendre des commandes de tracé",
     "type":"text",
     "description":"scratch polygones",
-    "dest":["5AA","4AA","3AA"],
+    "dest":["WGB"],
     "repeat":3,
     "options":[{
         "name":"Reconnaitre un polygone avec jusqu'à 6 côtés",

@@ -1,9 +1,6 @@
 title: Déterminer si des points sont alignés à l’aide des angles
 description: Adjacents, supplémentaires
-dest:
-  - 5GB
-  - 4GB
-  - 3GB
+dest: [7EA]
 type: text
 repeat: 2
 consts:

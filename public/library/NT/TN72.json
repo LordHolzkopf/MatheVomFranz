@@ -2,7 +2,7 @@
     "ID":"TN72",
     "title":"Primitives avec les fonctions logarithme népérien et exponentielle",
     "description":"primitive, intégration, exponentielle, logarithme, ln, exp",
-    "dest":["TN7"],
+    "dest":["QBC", "QCB"],
     "type":"text",
     "options":[
         {

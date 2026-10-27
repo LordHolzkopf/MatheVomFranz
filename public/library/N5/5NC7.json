@@ -7,7 +7,7 @@
     "keys":["/"],
     "textSize":"medium",
     "consigne":"Calculer.",
-    "dest":["6NB", "5NC", "4NC", "3NB", "2N2","Ko1"],
+    "dest":["6CA", "7AB"],
     "params":{
         "d7":{"groupe":"Ne pas tirer","label":"dénominateur 7","defaut":false,"exclut":{"den":"7","den1":"7","dens":"7"}},
         "d9":{"groupe":"Ne pas tirer","label":"dénominateur 9","defaut":false,"exclut":{"den":"9","den1":"9","dens":"9"}},

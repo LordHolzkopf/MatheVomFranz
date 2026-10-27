@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LG1",
     "description":"15 questions sur les symétries axiale et centrale : axe, centre, symétrique, définitions, propriétés. Non adapté au mode interactif (online/duel).",
-    "dest":["5LG", "4LG"],
+    "dest":["5BC"],
     "options":[{
         "name":"Symétrie axiale",
         "question": [

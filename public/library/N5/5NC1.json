@@ -3,7 +3,7 @@
     "description":"relatifs, addition, somme algébrique, négatifs, opposé",
     "ID":"5NC1",
     "textSize":"medium",
-    "dest":["5NC","4NC","3NB"],
+    "dest":["7AB"],
     "consigne":"Calculer.",
     "params":{
         "pm1":{"groupe":"Ne pas tirer","label":"-1 et 1","defaut":false,"exclut":{"n":"1,-1","n1":"1,-1","n2":"1,-1","n3":"1,-1","n4":"1,-1","n5":"1,-1"}}

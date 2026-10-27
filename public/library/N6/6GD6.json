@@ -3,7 +3,7 @@
     "title":"Reconnaitre une médiatrice",
     "description":"médiatrice, équidistant, milieu, perpendiculaire, codage",
     "type":"text",
-    "dest":["6GD","5GB"],
+    "dest":["8FB", "5BC"],
     "consts":{"lettres":"ABCDEFGHJKLMNPQRSTUVW"},
     "options":[
         {

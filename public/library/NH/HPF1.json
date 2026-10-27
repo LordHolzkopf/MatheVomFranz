@@ -4,7 +4,7 @@
     "ID":"HP1",
     "keys":["/"],
     "description":"Donner une fraction correspondant à la puissance négative",
-    "dest":["HPF"],
+    "dest":["9DA", "9DB"],
     "consts":{"lettres":["a","b","c","d","u","v","t","x","y","z"]},
     "consigne":"Donner une fraction égale à la puissance",
     "options":[{

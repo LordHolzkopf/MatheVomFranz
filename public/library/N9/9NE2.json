@@ -5,7 +5,7 @@
     "ID":"9NE2",
     "keys":["_",";","_","_","_","_","_","_","_"],
     "description":"nombres qui se marient bien, compléments, somme astucieuse, regrouper, calcul réfléchi",
-    "dest":[ "6ND"],
+    "dest":["5CB"],
     "options":[{
         "name":"Unités",
         "vars":{"nb1":"1_9","nb2":"${10-:nb1}", "c":"1_9_^${:nb1},${:nb2}", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}

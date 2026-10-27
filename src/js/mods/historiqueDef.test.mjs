@@ -134,7 +134,7 @@ test("cree prend le titre du premier panier par défaut", () => {
 
 test("cree retombe sur le libellé du type si aucun panier n'a de titre", () => {
   const e = cree({ type: "exam", url: "u", paniers: [], maintenant: T0 });
-  assert.equal(e.titre, "Interrogation");
+  assert.equal(e.titre, "Testblatt");
 });
 
 test("cree respecte un titre explicite", () => {
@@ -388,7 +388,7 @@ test("groupeParDate sépare épinglés, aujourd'hui, semaine et mois", () => {
   const groupes = groupeParDate(liste, T0);
   assert.deepEqual(groupes.map((g) => g.cle), ["epingles", "aujourdhui", "semaine", "2026-05"]);
   assert.equal(groupes[0].entrees[0].titre, "épinglée");
-  assert.equal(groupes[3].libelle, "mai 2026");
+  assert.equal(groupes[3].libelle, "Mai 2026");
 });
 
 test("groupeParDate ne produit aucun groupe vide", () => {
@@ -545,7 +545,7 @@ test("valideImport écarte une entrée d'url data: (fichier réduit à zéro ent
     entrees: [{ url: "data:text/html,<script>alert(1)</script>" }],
   });
   assert.equal(resultat.ok, false);
-  assert.ok(resultat.erreurs.some((e) => e.indexOf("non autorisée") > -1));
+  assert.ok(resultat.erreurs.some((e) => e.indexOf("nicht erlaubt") > -1));
 });
 
 test("valideImport accepte une url relative légitime produite par l'application", () => {
@@ -635,7 +635,7 @@ test("groupeParDate franchit l'année : décembre précédent obtient sa propre 
   const decembre = entree({ modifie: Date.UTC(2025, 11, 15, 10, 0, 0) });
   const groupes = groupeParDate([decembre], reference);
   assert.deepEqual(groupes.map((g) => g.cle), ["2025-12"]);
-  assert.equal(groupes[0].libelle, "décembre 2025");
+  assert.equal(groupes[0].libelle, "Dezember 2025");
 });
 
 test("corrigeURLsDiaporama réécrit index.html en diaporama.html pour un diaporama", () => {

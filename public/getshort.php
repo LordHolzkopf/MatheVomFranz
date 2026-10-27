@@ -1,21 +1,24 @@
 <?php
-
 /**
- * script qui envoie l'url longue au raccourcisseur d'url
+ * Raccourcisseur d'URL – MatheVomFranz
+ *
+ * Standardmäßig AUS: MatheVomFranz schickt keine Links an Dienste Dritter.
+ * Wer einen eigenen Kurz-URL-Dienst betreibt, trägt dessen Adresse in der
+ * Umgebungsvariablen MVF_SHORTENER_URL ein (POST-Feld "url", Antwort: die
+ * kurze https-Adresse als Klartext).
  */
-$api_url =  'https://bref.jeduque.net/MathsMentalesShortener.php';
-
-// Init the CURL session
+header('Content-Type: text/plain; charset=utf-8');
+$api_url = getenv('MVF_SHORTENER_URL');
+if (!$api_url || !isset($_GET['url'])) {
+    echo 'disabled';
+    exit;
+}
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $api_url);
-curl_setopt($ch, CURLOPT_HEADER, 0);            // No header in the result
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return, do not echo result
-curl_setopt($ch, CURLOPT_POST, 1);              // This is a POST request
-curl_setopt($ch, CURLOPT_POSTFIELDS, array(     // Data to POST
-        'url' => $_GET['url'],
-    ));
-// Fetch and return content
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, array('url' => $_GET['url']));
 $data = curl_exec($ch);
 curl_close($ch);
-// Do something with the result. Here, we echo the long URL
 echo $data;

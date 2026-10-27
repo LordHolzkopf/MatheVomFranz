@@ -1,7 +1,7 @@
 {
     "title":"Additions et soustractions de relatifs (notation parenthèses)",
     "description":"relatifs, addition, soustraction, somme algébrique, négatifs, opposé",
-    "dest":["5NC","4NC"],
+    "dest":["7AB"],
     "consigne":"Calculer",
     "consts":{
         "signes":["+","-"]

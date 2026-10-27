@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"HPF2",
     "description":"Donner une fraction correspondant à la puissance de type 1/n",
-    "dest":["HPF"],
+    "dest":["9DD", "QAE"],
     "keys":["/"],
     "consigne":"Donner sous forme d'entier ou de fraction",
     "options":[{

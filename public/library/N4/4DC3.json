@@ -2,7 +2,7 @@
     "title":"Compléter un calcul de pourcentage",
     "description":"Retrouver le résultat, le pourcentage ou la quantité totale manquant dans un calcul de pourcentage, sous forme usuelle ou fractionnaire.",
     "ID":"4DC3",
-    "dest":["4DC","3DC"],
+    "dest":["7CA", "5FD", "6AD"],
     "vars":{
         "p":[1,5,10,20,25,30,40,50,75,100],
         "b":"1_25",

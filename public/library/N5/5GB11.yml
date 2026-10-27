@@ -6,9 +6,7 @@ description: "Une figure principale est partagée en polygones à côtés commun
 ID: 5GB11
 type: text
 textSize: medium
-dest:
-  - 5GB
-  - 4GB
+dest: [5BD]
 consigne: La figure principale est partagée en polygones qui ont des côtés communs. Nommer le polygone demandé par ses sommets, dans l'ordre où ils se suivent.
 consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés

@@ -43,7 +43,7 @@ document.getElementById("nbCartes").oninput = (evt)=>{
         parameters.nb = Number(evt.target.value);
         setNumberOfCards();
         refresh();    
-    } else {alert("Plusieurs activités,\nopération impossible.")}
+    } else {alert("Das geht nur, wenn der Korb genau eine Aufgabe enthält.")}
 }
 function changeFond(evt) {
     var input = evt.target;
@@ -101,9 +101,9 @@ function melanger(){
 function noDoublon(){
     parameters.doublons = !parameters.doublons;
     if(!parameters.doublons){
-        document.getElementById("btnnodoublon").innerHTML = "Doublons"
+        document.getElementById("btnnodoublon").innerHTML = "Doppelte zulassen"
     } else 
-        document.getElementById("btnnodoublon").innerHTML = "No Doublons"
+        document.getElementById("btnnodoublon").innerHTML = "Doppelte entfernen"
     refresh();
     console.log(parameters)
 }
@@ -118,15 +118,15 @@ function makePage(){
     content.innerHTML = "";
     MM.memory = {};
     setNumberOfCards();
-    let aleaCode = utils.create("div",{className:"floatright",innerHTML:"Clé : "+parameters.alea});
+    let aleaCode = utils.create("div",{className:"floatright",innerHTML:"Startwert: "+parameters.alea});
     content.appendChild(aleaCode);
     let sectionCartes = utils.create("section",{className:"jaiquia-section"});
     let nbOfCards=0;
     common.generateQuestions(parameters);
     let span = document.getElementById("infoErrorDouble")
     if(parameters.errorDouble){
-        span.innerHTML = "Impossible de supprimer les doublons"
-        span.title = "Les choix d'activité ne permettent pas de générer un ensemble de cartes sans doublon. Diminuer le nombre de questions ou modifier le choix d'activités."
+        span.innerHTML = "Doppelte lassen sich nicht vermeiden"
+        span.title = "Mit den gewählten Aufgaben lassen sich keine Karten ohne Doppelte erzeugen. Verringern Sie die Anzahl der Fragen oder wählen Sie andere Aufgaben."
     } else {span.innerHTML = "";span.title="";}
 
     for (let i = 0; i < parameters.cart.activities.length; i++) {
@@ -207,9 +207,9 @@ function checkURL(urlString){
     if (window.opener === null) {
         const $destination = document.body;
         const buttonEdit = utils.create('button', {
-            innerHTML: '🖋️ Éditer',
+            innerHTML: '🖋️ Bearbeiten',
             className: 'noprint abstopright',
-            title:'Éditer les activités des cartes' });
+            title:'Aufgaben der Karten bearbeiten' });
         buttonEdit.onclick = () => {
             let url = window.location.href.replace('jaiquia.html', 'index.html') + '&edit&type=whogots';
             // add alea key
@@ -234,10 +234,10 @@ function checkURL(urlString){
         document.getElementById("nbCartes").value = parameters.nb
         parameters.titreFiche=decodeURI(vars.t);
         console.log(vars.aff)
-        parameters.affirmation = vars.aff ? decodeURI(vars.aff) : 'J\'ai...'
-        parameters.question = vars.quest ? decodeURI(vars.quest) : 'Qui a ?'
+        parameters.affirmation = vars.aff ? decodeURI(vars.aff) : 'Ich habe …'
+        parameters.question = vars.quest ? decodeURI(vars.quest) : 'Wer hat …?'
         parameters.doublons = vars.d === "true" ? true : false;
-        if(!parameters.doublons)document.getElementById("btnnodoublon").innerHTML = "Doublons"
+        if(!parameters.doublons)document.getElementById("btnnodoublon").innerHTML = "Doppelte zulassen"
         // Affectation de la valeur au nombre de feuilles
         zoom = new Zoom("changeFontSize","#thehtml",true,"pt",parameters.tailleTexte);
         document.getElementById("creator-menu").appendChild(zoom.createCursor());
@@ -253,7 +253,7 @@ function checkURL(urlString){
             {
                 id:"messageerreur",
                 className:"message",
-                innerHTML:"Impossible de charger le panier :(<br>"+err
+                innerHTML:"Der Korb konnte nicht geladen werden :(<br>"+err
             });
             document.getElementById("tab-accueil").appendChild(alert);
         });

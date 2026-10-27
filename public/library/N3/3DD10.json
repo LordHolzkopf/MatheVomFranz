@@ -1,6 +1,6 @@
 {
     "ID":"3DD10",
-    "dest":["3DD","2F2"],
+    "dest":["8BB", "9BA"],
     "title":"Différencier fonction affine, linéaire par son expression algébrique",
     "description":"Reconnaitre une fonction linéaire d'une fonction affine non linéaire.",
     "type":"text",

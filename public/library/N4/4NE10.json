@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"4NE10",
     "description":"Traduire par une expression littérale : double, triple, moitié, prédécesseur, successeur, carré d'un nombre noté n.",
-    "dest":["4NE","3ND","2N3"],
+    "dest":["7DA"],
     "keys":["+","-","x²","/","_","_","_","_"],
     "consts":{
         "multNoms":["double","triple","quadruple"],

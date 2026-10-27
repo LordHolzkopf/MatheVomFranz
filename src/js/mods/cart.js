@@ -11,7 +11,7 @@ export default class cart {
     this.target = [id]; // Indicates where to display the cart.
     this.nbq = 0;
     this.time = 0;
-    this.title = "Diapo " + (id + 1);
+    this.title = "Folie " + (id + 1);
     this.loaded = false;
     this.progress = "normal"; // type of progress : 'normal', 'thenanswer', 'withanswer'
     this.showAnswerTime = 10;
@@ -92,7 +92,7 @@ export default class cart {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger tous les exercices :(<br>" + err,
+          innerHTML: "Nicht alle Aufgaben konnten geladen werden :(<br>" + err,
         });
         const destmessage = document.getElementById("tab-accueil");
         if (destmessage !== null) destmessage.appendChild(alert);

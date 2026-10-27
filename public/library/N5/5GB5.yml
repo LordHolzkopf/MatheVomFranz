@@ -1,9 +1,6 @@
 title: Relation entre deux angles formés par des droites coupées par une sécante
 description: Adjacents, supplémentaires, opposés par le sommet, correspondants, alternes-internes
-dest:
-  - 5GB
-  - 4GB
-  - 3GB
+dest: [7EA]
 type: text
 keys:
   - o

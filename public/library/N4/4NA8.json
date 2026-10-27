@@ -8,7 +8,7 @@
         "puissances":[3, 3, 2, 2,1,1, -1,-1,-2, -2, -3,-3,6, 6, 9,9,12, 12,-6, -6,-9, -9, -12,-12]
     },
     "keys":["^","_","-","_"],
-    "dest":["4NA", "3NA"],
+    "dest":["9DB"],
     "params":{
         "giga":{"groupe":"Ne pas tirer","label":"Giga","defaut":false,"exclut":{"c":"14,15"}},
         "tera":{"groupe":"Ne pas tirer","label":"Téra","defaut":false,"exclut":{"c":"16,17"}},

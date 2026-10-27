@@ -3,7 +3,7 @@
     "description":"Scratch, Estimer le résultat d'un script comportant deux 'avancer'",
     "ID":"5AA1",
     "type":"text",
-    "dest":["5AA","4AA", "3AA"],
+    "dest":["WGB"],
     "speech":1,
     "options":[
         {

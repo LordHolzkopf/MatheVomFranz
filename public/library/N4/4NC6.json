@@ -1,7 +1,7 @@
 {
     "title":"Enchainements d'opérations avec des carrés",
     "ID":"4NC6",
-    "dest":["4NC","3NB"],
+    "dest":["7AD", "5CA"],
     "description":"Enchainement d'opérations avec des carrés comportant des sommes ou des différences. Carrés des nombres jusqu'à 20.",
     "consigne":"Calculer",
     "options":[{

@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"5NE3",
     "textSize":"medium",
-    "dest":["5NE", "4NE", "3ND","2N3"],
+    "dest":["7DA"],
     "consts":{"lettres":["u","v","t","x", "y", "z"]},
     "vars":{"l":"0_5","x":"${:lettres[:l]}"},
     "options":[{

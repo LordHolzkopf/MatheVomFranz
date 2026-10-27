@@ -3,7 +3,7 @@
     "description":"réduire un produit, simplifier une expression, calcul littéral",
     "type":"latex",
     "ID":"5NE2",
-    "dest":["5NE","4NE","3ND","2N3"],
+    "dest":["7DB"],
     "consts":{"lettres":["a","b","c","x","y","z"]},
     "valueType":"expressionSimplifiee",
     "consigne":"Réduire",

@@ -5,7 +5,7 @@
     "textSize":"small",
     "type":"text",
     "keys":["_","_","_","€"],
-    "dest":["6NF","5NC","4NC","3NB"],
+    "dest":["5AF", "6CB"],
     "consts":{"billets":[5,10,20,50,100],"pieces":[1,2,5,10,20,50]},
     "options":[{
         "name":"En euros, sur un billet",

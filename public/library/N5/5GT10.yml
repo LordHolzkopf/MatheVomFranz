@@ -3,8 +3,7 @@ description: "symétrie centrale, centre de symétrie, retrouver le centre, mili
 ID: 5GT10
 type: text
 textSize: medium
-dest:
-  - 5GT
+dest: [5BC, 6DB]
 consts:
   pool: "ABCDE"
 options:

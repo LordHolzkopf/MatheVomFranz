@@ -24,13 +24,13 @@ document.getElementById("creator-menu").onclick = (evt) => {
   } else if (evt.target.id === "fichesSeparation") {
     if (separationFiches) {
       separationFiches = false;
-      document.getElementById(evt.target.id).innerText = "Séparer";
+      document.getElementById(evt.target.id).innerText = "Trennen";
       document.querySelectorAll("footer").forEach((elt) => {
         elt.className = "";
       });
     } else {
       separationFiches = true;
-      document.getElementById(evt.target.id).innerText = "Regrouper";
+      document.getElementById(evt.target.id).innerText = "Zusammenfassen";
       document.querySelectorAll("footer").forEach((elt) => {
         elt.className = "break";
       });
@@ -76,12 +76,12 @@ function pagebreak() {
     for (let i = 0; i < cor.length; i++) {
       cor[i].classList.add("pagebreak");
     }
-    btn.innerText = "même feuille";
+    btn.innerText = "gleiches Blatt";
   } else {
     for (let i = 0; i < cor.length; i++) {
       cor[i].classList.remove("pagebreak");
     }
-    btn.innerText = "à part";
+    btn.innerText = "eigenes Blatt";
   }
 }
 function makePage() {
@@ -92,7 +92,7 @@ function makePage() {
   // set elements :
   let aleaCode = utils.create("div", {
     className: "floatright",
-    innerHTML: "Clé : " + common.seed,
+    innerHTML: "Startwert: " + common.seed,
   });
   content.appendChild(aleaCode);
   MM.memory = {};
@@ -104,7 +104,7 @@ function makePage() {
       content.appendChild(utils.create("footer", { className: "break" }));
     // get the titlesheet
     let sheetTitle =
-      (parameters.titreFiche || "Course aux nombres") + " " + (qty + 1);
+      (parameters.titreFiche || "Zahlenrennen") + " " + (qty + 1);
     // set the titlesheet
     let header = utils.create("header", { innerHTML: sheetTitle });
     content.appendChild(header);
@@ -112,38 +112,38 @@ function makePage() {
     intro.appendChild(
       utils.create("div", {
         className: "classe fright",
-        innerHTML: "Classe : ________",
+        innerHTML: "Klasse: ________",
       }),
     );
     intro.appendChild(
       utils.create("div", {
         className: "nom",
-        innerHTML: "NOM : ______________________",
+        innerHTML: "Name: ______________________",
       }),
     );
     intro.appendChild(
       utils.create("div", {
         className: "prenom",
-        innerHTML: "Prénom : ___________________",
+        innerHTML: "Vorname: ___________________",
       }),
     );
     intro.appendChild(
       utils.create("div", {
         className: "duree",
-        innerHTML: "Durée : <b>" + parameters.time + " min</b>",
+        innerHTML: "Dauer: <b>" + parameters.time + " min</b>",
       }),
     );
     intro.appendChild(
       utils.create("div", {
         className: "info",
         innerHTML:
-          "<i>L'usage de la calculatrice ou de brouillon est interdit.<br>Seule la réponse doit être écrite.</i>",
+          "<i>Taschenrechner und Schmierpapier sind nicht erlaubt.<br>Schreib nur die Antwort auf.</i>",
       }),
     );
     // get the col's titles
-    let colTitle1 = parameters.titreColonne1 || "Énoncé";
-    let colTitle2 = parameters.titreColonne2 || "Réponse";
-    let colTitle3 = parameters.titreColonne3 || "Jury";
+    let colTitle1 = parameters.titreColonne1 || "Aufgabe";
+    let colTitle2 = parameters.titreColonne2 || "Antwort";
+    let colTitle3 = parameters.titreColonne3 || "Bewertung";
     // Creation of grids
     let tableenonce = utils.create("table", {
       id: "tableE" + qty,
@@ -154,11 +154,11 @@ function makePage() {
     let theadc = utils.create("thead");
     let tre = utils.create("tr");
     let trc = utils.create("tr");
-    tre.appendChild(utils.create("th", { innerHTML: "n°" }));
+    tre.appendChild(utils.create("th", { innerHTML: "Nr." }));
     tre.appendChild(utils.create("th", { innerHTML: colTitle1 }));
     tre.appendChild(utils.create("th", { innerHTML: colTitle2 }));
     tre.appendChild(utils.create("th", { innerHTML: colTitle3 }));
-    trc.appendChild(utils.create("th", { innerHTML: "n°" }));
+    trc.appendChild(utils.create("th", { innerHTML: "Nr." }));
     trc.appendChild(utils.create("th", { innerHTML: colTitle1 }));
     trc.appendChild(utils.create("th", { innerHTML: colTitle2 }));
     theade.appendChild(tre);
@@ -260,7 +260,7 @@ function makePage() {
     intro.appendChild(
       utils.create("div", {
         className: "info",
-        innerHTML: "L'épreuve comporte <b>" + (compteur - 1) + " questions</b>",
+        innerHTML: "Das Rennen hat <b>" + (compteur - 1) + " Fragen</b>.",
       }),
     );
     content.appendChild(intro);
@@ -274,7 +274,7 @@ function makePage() {
     });
     let titleCorrection = utils.create("header", {
       className: "clearfix",
-      innerHTML: "Correction de la course n°" + (qty + 1),
+      innerHTML: "Lösung zu Zahlenrennen Nr. " + (qty + 1),
     });
     correctionContent.appendChild(titleCorrection);
     correctionContent.appendChild(tablecorrection);
@@ -399,9 +399,9 @@ function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.body;
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Éditer",
+      innerHTML: "🖋️ Bearbeiten",
       className: "noprint abstopright",
-      title: "Éditer les activités de la course aux nombres",
+      title: "Aufgaben des Zahlenrennens bearbeiten",
     });
     buttonEdit.onclick = () => {
       let url =
@@ -427,10 +427,10 @@ function checkURL(urlString) {
     parameters.tailleTexte = 10.5;
     parameters.nb = Number(vars.n);
     parameters.positionCorrection = vars.cor || "end";
-    parameters.titreFiche = decodeURI(vars.t);
-    parameters.titreColonne1 = decodeURI(vars.t1).trim();
-    parameters.titreColonne2 = decodeURI(vars.t2).trim();
-    parameters.titreColonne3 = decodeURI(vars.t3).trim();
+    parameters.titreFiche = vars.t ? decodeURI(vars.t) : "Zahlenrennen";
+    parameters.titreColonne1 = vars.t1 ? decodeURI(vars.t1).trim() : "Aufgabe";
+    parameters.titreColonne2 = vars.t2 ? decodeURI(vars.t2).trim() : "Antwort";
+    parameters.titreColonne3 = vars.t3 ? decodeURI(vars.t3).trim() : "Bewertung";
     parameters.time = vars.tm || "7";
     // Affectation de la valeur au nombre de feuilles
     document.getElementById("nbFiches").value = parameters.nb;
@@ -456,7 +456,7 @@ function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("tab-accueil").appendChild(alert);
       });

@@ -3,7 +3,7 @@
     "title":"Produit scalaire",
     "description":"Le produit scalaire est une opération entre deux vecteurs qui renvoie un nombre réel.",
     "type":"text",
-    "dest":["GG1","TC3"],
+    "dest":["QEB"],
     "options":[
         {
             "name":"Dimension 2, avec entiers",

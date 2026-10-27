@@ -1,9 +1,6 @@
 title: Déterminer si des droites sont parallèles
 description: Usage des angles supplémentaires, opposés par le sommet, correspondants, alternes-internes
-dest:
-  - 5GB
-  - 4GB
-  - 3GB
+dest: [7EA]
 type: text
 repeat: 2
 consts:

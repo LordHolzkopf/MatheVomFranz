@@ -4,7 +4,7 @@
     "textSize":"small",
     "ID":"4GB10",
     "description":"Vérifier si des quotients sont égaux ou qu'il y a une proportion entre les triangles",
-    "dest":["4GB","3GB","2G2"],
+    "dest":["10CC"],
     "vars":{
         "l":"0_18_5_^&",
         "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}",

@@ -1,9 +1,6 @@
 title: Relation entre deux angles formés par des droites concourantes
 description: Adjacents, supplémentaires, opposés par le sommet
-dest:
-  - 5GB
-  - 4GB
-  - 3GB
+dest: [7EA]
 type: text
 repeat: 2
 consts:

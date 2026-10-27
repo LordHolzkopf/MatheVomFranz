@@ -140,6 +140,14 @@ let matchedTotal = 0; // global matched count for color cycling
 // ---- INIT ----
 async function init() {
   await checkURL();
+  // MatheVomFranz : page ouverte sans panier (lien incomplet)
+  if (!parameters.cart) {
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      '<p class="message">Dieser Link enthält keine Aufgaben. Bitte stellen Sie das Spiel auf der <a href="index.html">Startseite</a> zusammen.</p>',
+    );
+    return;
+  }
   buidData();
   // buildLevelBar();
   loadTable("panier1");
@@ -152,7 +160,7 @@ function buildLevelBar() {
   Object.keys(DATA).forEach((t) => {
     const btn = document.createElement("button");
     btn.className = "level-btn" + (t == currentTable ? " active" : "");
-    btn.textContent = `Table de ${t}`;
+    btn.textContent = `${t}er-Reihe`;
     btn.onclick = () => loadTable(Number(t));
     bar.appendChild(btn);
   });
@@ -356,7 +364,7 @@ function onCardClick(card, id) {
           showDefeat();
         }, 500);
       } else {
-        showToast("❌ Essaie encore !", "bad");
+        showToast("❌ Versuch es noch einmal!", "bad");
         setTimeout(() => {
           prev.classList.remove("error-flash");
           card.classList.remove("error-flash");
@@ -477,11 +485,11 @@ function showVictory() {
   launchConfetti();
   const banner = document.getElementById("resultBanner");
   document.getElementById("resultEmoji").textContent = "🎉";
-  document.getElementById("resultTitle").textContent = "Bravo !";
+  document.getElementById("resultTitle").textContent = "Super!";
   document.getElementById("resultTitle").className = "result-title win";
   document.getElementById("resultSub").textContent =
-    `Table de ${currentTable} complétée avec ${hearts} ❤️ restant${hearts > 1 ? "s" : ""} !`;
-  document.getElementById("nextBtn").textContent = "Rejouer →";
+    `Alle Paare gefunden – du hast noch ${hearts} ❤️ übrig!`;
+  document.getElementById("nextBtn").textContent = "Noch mal spielen →";
   document.getElementById("nextBtn").onclick = () => loadTable(currentTable);
   banner.classList.add("show");
 }
@@ -489,11 +497,11 @@ function showVictory() {
 function showDefeat() {
   const banner = document.getElementById("resultBanner");
   document.getElementById("resultEmoji").textContent = "💔";
-  document.getElementById("resultTitle").textContent = "Pas de chance !";
+  document.getElementById("resultTitle").textContent = "Schade!";
   document.getElementById("resultTitle").className = "result-title lose";
   document.getElementById("resultSub").textContent =
-    "Tu peux réessayer, tu vas y arriver !";
-  document.getElementById("nextBtn").textContent = "Réessayer 💪";
+    "Versuch es noch einmal – du schaffst das!";
+  document.getElementById("nextBtn").textContent = "Noch einmal 💪";
   document.getElementById("nextBtn").onclick = () => loadTable(currentTable);
   banner.classList.add("show");
 }
@@ -559,13 +567,13 @@ async function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.body;
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Éditer",
+      innerHTML: "🖋️ Bearbeiten",
       className: "noprint abstopright",
-      title: "Éditer les activités des cartes",
+      title: "Aufgaben bearbeiten",
     });
     buttonEdit.onclick = () => {
       let url =
-        window.location.href.replace("mathch.html", "index.html") +
+        window.location.href.replace("match.html", "index.html") +
         "&edit&type=match";
       // add alea key
       url = url.replace(/,a=[\d\w]*,/, ",a=" + parameters.alea + ",");
@@ -600,7 +608,7 @@ async function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("tab-accueil").appendChild(alert);
       });

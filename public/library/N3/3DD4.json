@@ -1,6 +1,6 @@
 {
     "ID":"3DD4",
-    "dest":["3DD","2F2"],
+    "dest":["8BC", "9BA"],
     "title":"Déterminer le coefficient d'une fonction affine",
     "description":"Utiliser la méthode graphique pour déterminer le coefficient d'une fonction affine.",
     "type":"text",

@@ -1,9 +1,7 @@
 {
   "title": "Calculs avec logarithmes de base 10, 5, 2",
   "description": "logarithme, log, propriétés algébriques, somme, différence",
-  "dest": [
-    "HPL"
-  ],
+  "dest":["10DC", "QCC"],
   "keys":["/","lgn"],
   "consigne": "Simplifier",
   "options": [

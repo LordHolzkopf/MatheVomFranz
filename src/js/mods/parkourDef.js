@@ -131,16 +131,16 @@ export function validate(def) {
   const avertissements = [];
 
   if (etapes.length === 0) {
-    erreurs.push("Le parcours ne contient aucune étape.");
+    erreurs.push("Der Parkour enthält keine Etappe.");
   }
 
   if (rawRegles.seuilReussite > rawRegles.nbQuestions) {
     erreurs.push(
-      "Seuil de réussite (" +
+      "Mindestzahl richtiger Antworten (" +
         rawRegles.seuilReussite +
-        ") supérieur au nombre de questions par étape (" +
+        ") größer als die Zahl der Fragen pro Etappe (" +
         rawRegles.nbQuestions +
-        ") : l'étape serait impossible à réussir.",
+        "): Die Etappe wäre nicht zu schaffen.",
     );
   }
 
@@ -152,7 +152,7 @@ export function validate(def) {
     if (!theme.id) continue;
     if (themeIdsVus.has(theme.id)) {
       erreurs.push(
-        'Identifiant de thème en double : "' + theme.id + '".',
+        "Themen-ID doppelt vergeben: „" + theme.id + "“.",
       );
     }
     themeIdsVus.add(theme.id);
@@ -160,40 +160,40 @@ export function validate(def) {
 
   etapes.forEach((etape, index) => {
     const nom =
-      "Étape " + (index + 1) + " (" + (etape.titre || "sans titre") + ")";
+      "Etappe " + (index + 1) + " (" + (etape.titre || "ohne Titel") + ")";
     if (etape.id) {
       if (idsVus.has(etape.id)) {
-        erreurs.push(nom + " : identifiant en double (" + etape.id + ").");
+        erreurs.push(nom + ": ID doppelt vergeben (" + etape.id + ").");
       }
       idsVus.add(etape.id);
     }
     if (!etape.theme || !themeIds.has(etape.theme)) {
-      erreurs.push(nom + " : thème inconnu (" + (etape.theme || "aucun") + ").");
+      erreurs.push(nom + ": unbekanntes Thema (" + (etape.theme || "keines") + ").");
     } else {
       themesUtilises.add(etape.theme);
     }
     const nb = countQuestions(etape.panier);
     if (nb === 0) {
-      erreurs.push(nom + " : panier vide, aucune activité.");
+      erreurs.push(nom + ": Der Korb ist leer.");
     } else if (nb < regles.seuilReussite) {
       // moins de questions que le seuil de réussite : l'étape est injouable,
       // ce n'est plus un simple avertissement
       erreurs.push(
         nom +
-          " : " +
+          ": nur " +
           nb +
-          " questions disponibles, moins que les " +
+          " Fragen verfügbar, zum Bestehen sind aber " +
           regles.seuilReussite +
-          " requises pour réussir l'étape.",
+          " richtige Antworten nötig.",
       );
     } else if (nb < regles.nbQuestions) {
       avertissements.push(
         nom +
-          " : " +
+          ": " +
           nb +
-          " questions disponibles pour " +
+          " Fragen verfügbar, " +
           regles.nbQuestions +
-          " demandées.",
+          " verlangt.",
       );
     }
   });
@@ -201,7 +201,7 @@ export function validate(def) {
   for (const theme of themes) {
     if (!themesUtilises.has(theme.id)) {
       avertissements.push(
-        'Le thème "' + (theme.label || theme.id) + '" n\'a aucune étape.',
+        "Das Thema „" + (theme.label || theme.id) + "“ hat keine Etappe.",
       );
     }
   }
@@ -235,10 +235,10 @@ export function decode(str) {
   try {
     parsed = JSON.parse(decodeURIComponent(escape(atob(base64))));
   } catch {
-    throw new Error("lien de parcours invalide");
+    throw new Error("ungültiger Parkour-Link");
   }
   if (!parsed || !Array.isArray(parsed.etapes)) {
-    throw new Error("lien de parcours invalide");
+    throw new Error("ungültiger Parkour-Link");
   }
   return normalize(parsed);
 }

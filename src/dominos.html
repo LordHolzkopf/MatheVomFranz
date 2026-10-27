@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" id="thehtml">
+<html lang="de" id="thehtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <style>
@@ -9,11 +9,10 @@
                 margin: 0.8cm;
             }
         </style>
-        <title>Dominos générés par MathsMentales</title>
+        <title>Dominos – MatheVomFranz</title>
         <link rel="stylesheet" href="css/dominos.css" type="text/css" />
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
-        <script src="js/libs/chartjs/Chart.bundle.min.js" defer></script>
         <script
             type="module"
             src="js/lib.dominos.js?v=2.0.34"
@@ -36,12 +35,12 @@
                 height: 18pt;
             "
         >
-            🛠 Mise en page
+            🛠 Seitenlayout
         </button>
         <button
             onclick="window.print()"
             class="noprint"
-            title="Imprimer ou enregistrer en pdf"
+            title="Drucken oder als PDF speichern"
             style="
                 position: absolute;
                 left: 92pt;
@@ -50,38 +49,38 @@
                 height: 18pt;
             "
         >
-            🖨️ Imprimer
+            🖨️ Drucken
         </button>
         <div id="creator-container">
             <section id="creator-menu" class="noprint hidden">
                 <button
                     id="pageOrientation"
-                    title="Change l'orientation de la page"
+                    title="Seitenausrichtung ändern"
                 >
-                    paysage
+                    Querformat
                 </button>
-                | Dominos :
+                | Dominos:
                 <input
                     type="number"
                     id="nbDominos"
                     value="28"
-                    title="Nombre de dominos à générer\nSi 1 seule activité"
+                    title="Anzahl der Dominos (nur wenn der Korb genau eine Aufgabe enthält)"
                     size="3"
                     min="2"
                     max="180"
                 />
-                <button id="btnnodoublon" title="Supprime les doublons">
-                    No doublon
+                <button id="btnnodoublon" title="Doppelte Dominos entfernen oder zulassen">
+                    Doppelte entfernen
                 </button>
-                <button id="btnshuffle">Mélanger</button>
+                <button id="btnshuffle">Mischen</button>
                 <button
                     id="btneditcontent"
-                    title="Modifier le contenu des dominos"
+                    title="Inhalt der Dominos bearbeiten"
                 >
-                    Éditer le contenu
+                    Inhalt bearbeiten
                 </button>
                 <span id="infoErrorDouble"></span>
-                <br />Mise en forme :
+                <br />Gestaltung:
                 <!--<button id="btnedit" title="Remplacer la barre par un titre">Éditer</button> -->
                 <input
                     type="file"
@@ -90,32 +89,32 @@
                     accept="image/x-png,image/gif,image/jpeg"
                 />
                 <label for="file">
-                    <span class="glow-on-hover">Image</span>
+                    <span class="glow-on-hover">Bild</span>
                 </label>
-                <button id="deleteImg" title="Supprime l'image de fond">
+                <button id="deleteImg" title="Hintergrundbild entfernen">
                     X
                 </button>
-                Largeur :
+                Breite:
                 <input
                     id="inputwidth"
                     value="60"
-                    title="Largeur domino"
+                    title="Breite eines Dominos"
                     type="number"
                     size="3"
                     min="60"
                     max="180"
                 />
-                Hauteur :
+                Höhe:
                 <input
                     id="inputheight"
                     value="25"
-                    title="Hauteur domino"
+                    title="Höhe eines Dominos"
                     type="number"
                     size="3"
                     min="25"
                     max="180"
                 />
-                | Police :
+                | Schrift:
             </section>
             <section id="tab-accueil" class="noprint"></section>
             <section id="creator-content"></section>

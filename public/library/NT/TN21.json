@@ -3,7 +3,7 @@
   "title": "Limite de suites de références",
   "description": "limite, suites de référence, convergence, divergence, puissance, racine",
   "type": "text",
-  "dest": ["TN2"],
+  "dest":["WEB"],
  "options": [
     {
       "name": "Suite de type a·n^b",

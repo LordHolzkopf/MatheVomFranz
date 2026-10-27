@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5DC3",
     "description":"Calcul de données dans un tableau de proportionnalité",
-    "dest":["5DC","4DC","3DC", "2N1"],
+    "dest":["7BB", "6GC", "7BD"],
     "consts":{"prime":[2,3,5,7,11]},
     "consigne":"Quelle est la valeur manquante dans ce tableau de proportionnalité ?",
     "options":[{

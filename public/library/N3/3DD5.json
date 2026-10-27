@@ -1,6 +1,6 @@
 {
     "ID":"3DD5",
-    "dest":["3DD","2N1"],
+    "dest":["7CD", "8BB"],
     "title":"Lien entre coefficient de fonction linéaire et pourcentage",
     "description":"Relier le pourcentage d'augmentation ou de réduction au coefficient d'une fonction linéaire.",
     "type":"text",

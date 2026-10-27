@@ -3,7 +3,7 @@
     "type":"text",
     "ID":"5LN1",
     "description":"16 questions sur priorités opératoires, notation quotient, distributivité, nom des opérations : somme, différence, produit, quotient. Non adapté au mode interactif (online/duel).",
-    "dest":["5LN","4LN"],
+    "dest":["5CA"],
     "options":[
         {
             "name":"Priorités",

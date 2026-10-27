@@ -1,7 +1,7 @@
 import utils from './utils.js'
 
 export default class speech {
-    constructor(lang='fr-FR'){
+    constructor(lang='de-DE'){
         this.exists = this.test();
         this.lang = lang;
         this.text = "";
@@ -25,7 +25,7 @@ export default class speech {
         this.initialize()
         this.voices.forEach((val,i)=>{
             let name = val.name.toLowerCase()
-            if(name.indexOf("french")>-1 || val.lang.indexOf("fr")>-1){
+            if(name.indexOf("german")>-1 || name.indexOf("deutsch")>-1 || val.lang.toLowerCase().indexOf("de")===0){
                 let option = utils.create("option",{innerHTML:val.name,value:i})
                 selectDOMObj.appendChild(option)
             }
@@ -42,6 +42,7 @@ export default class speech {
         }
         let msg = new SpeechSynthesisUtterance()
         msg.voice = this.voice
+        msg.lang = this.lang
         msg.text = this.text
         if(speechSynthesis.speaking && stop){
             if(this.timeout){
@@ -64,8 +65,8 @@ export default class speech {
         this.voice = this.voices[id];
     }
     setText(text){
-        this.text = text.replace("-"," moins ")
-        this.text = this.text.replace(")/(",")sur(")
+        this.text = text.replace("-"," minus ")
+        this.text = this.text.replace(")/(",")durch(")
     }
     stop(){
         if(speechSynthesis.speaking){

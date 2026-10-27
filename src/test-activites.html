@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="fr">
+<html lang="de">
     <head>
         <meta charset="UTF-8" />
-        <title>Test Activities</title>
+        <title>Aufgaben-Test</title>
         <link rel="stylesheet" href="js/libs/katex/katex.min.css" />
         <link rel="stylesheet" href="css/mm-katex.css" />
         <script type="module">
@@ -37,7 +37,7 @@
             async function testActivity(activityID) {
                 const activityName = activityID;
                 const logStream = document.createElement("div");
-                logStream.textContent = `Testing activity: ${activityName}`;
+                logStream.textContent = `Teste Aufgabe: ${activityName}`;
                 document.body.appendChild(logStream);
                 try {
                     // Charger les données de l'activité
@@ -66,14 +66,14 @@
                     }
                     if (katexErrors.length > 0) {
                         throw new Error(
-                            `Erreur de rendu KaTeX : ${katexErrors.join(" | ")}`,
+                            `KaTeX-Darstellungsfehler: ${katexErrors.join(" | ")}`,
                         );
                     }
-                    logStream.textContent = `[SUCCESS] ${activityName}: No errors detected.`;
+                    logStream.textContent = `[OK] ${activityName}: keine Fehler gefunden.`;
                     logStream.style.color = "green";
                 } catch (error) {
                     console.log(activityName, error);
-                    logStream.textContent = `[ERROR] ${activityName}: ${error.message}`;
+                    logStream.textContent = `[FEHLER] ${activityName}: ${error.message}`;
                     logStream.style.color = "red";
                 }
             }
@@ -85,12 +85,12 @@
                 }
                 if (filesToTest.length === 0) {
                     console.log(
-                        "No JSON or YAML activities found in the directory.",
+                        "Keine JSON- oder YAML-Aufgaben gefunden.",
                     );
                     return;
                 }
 
-                console.log(`Found ${filesToTest.length} activities to test.`);
+                console.log(`${filesToTest.length} Aufgaben zu testen.`);
 
                 // Tester les activités en parallèle
                 await Promise.all(

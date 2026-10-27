@@ -3,9 +3,7 @@
   "title": "Formule explicite d'une suite arithmétique",
   "description": "suite arithmétique, forme explicite, terme général, raison, premier terme",
   "ID": "TN12",
-  "dest": [
-    "TN1"
-  ],
+  "dest":["WEB"],
   "vars": {
     "a": "-5_5_^0,1"
   },

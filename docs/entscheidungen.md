@@ -1,0 +1,76 @@
+# Entscheidungsprotokoll
+
+Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar war, jeweils mit Begründung. Alles lässt sich später ändern. Ältere Entscheidungen, die Franz selbst getroffen hat, stehen zur Orientierung oben.
+
+## Von Franz vorgegeben (27.10.2026)
+
+- Fork von MathsMentales statt Neuentwicklung; danach eigener Weg, keine Synchronisation mit dem Original.
+- Alle Spielformen bleiben erhalten.
+- Aufgaben: französische Generatoren übersetzen und den Kapiteln des Lambacher Schweizer zuordnen, Lücken mit neuen Generatoren füllen. Unpassendes kommt übersetzt in einen eigenen Bereich, Grundschule entfällt.
+- Alle Jahrgänge von Klasse 5 bis Q2 von Anfang an.
+- Hosting noch offen: statisch lauffähig bauen, PHP-Funktionen als optionaler Zusatz.
+- Öffentliche Seite (Impressum und Datenschutz nötig, kein Tracking).
+- Design: Karopapier-Look.
+- Navigation: Kapitel wie im Buch (Nummer und Titel), Gliederung Klasse → Kapitel → Themenblöcke.
+- Direkt auf `main` committen.
+- Anrede: „Sie“ für Lehrkräfte, „du“ auf Schüler-Bildschirmen.
+- Diaporama heißt „Diashow“, Ceintures heißen „Kopfrechen-Gürtel“.
+- Untertitel der Startseite: „Mathematik von und mit Franz. Angepasst an den beeindruckenden Gymnasial-Lehrplan von NRW. – Sie wohnen nicht in NRW? Erwägen Sie einen Umzug!“
+
+## Eigene Entscheidungen
+
+### Schritt 1 – Fork und Aufräumen
+
+- **Grundschul-Aufgaben:** Gelöscht wurden nur Aufgaben, die *ausschließlich* für CP–CM2 gedacht waren (56). Aufgaben, die auch in der 6e genutzt werden (104), bleiben; nur ihre Grundschul-Zuordnung ist entfernt. Die 6e entspricht etwa unserer Klasse 5/6.
+- **Duell-Grafiken:** Die Freepik-Bilder des Originals sind nur für den Autor lizenziert und wurden nicht übernommen. Ersatz sind eigene, einfache Figuren mit Mathe-Symbolen.
+- **„Neu“-Markierung:** Sie richtet sich nach dem Git-Datum, an dem eine Aufgabe hinzukam. Alles aus dem Import gilt nicht als neu.
+- **Französische Automatismen- und Brevet-Seiten:** ersatzlos entfernt. Ein deutsches Gegenstück (z. B. „Basiswissen je Jahrgang“) wäre später möglich.
+
+### Schritt 2 – Deutsche Oberfläche
+
+- Ein Glossar (`docs/glossar.md`) legt alle Begriffe fest; die Übersetzung erledigen mehrere Subagenten parallel, je einer für eine Gruppe von Spielformen bzw. Modulen.
+- „Panier“ heißt „Korb“, „activité“ heißt „Aufgabe“, „Historique“ heißt „Verlauf“, „Téléchargements“ heißt „Materialien“.
+- Duell-Modi: Bestwert / Wer übrig bleibt / Roulette / Wer schneller ist / Gemeinsam.
+- Code-Kommentare bleiben französisch; übersetzt wird nur, was Nutzer sehen. Grund: weniger Risiko, und der Aufwand steht in keinem Verhältnis zum Nutzen.
+- Zahlenformatierung von Rechenwerten bleibt unverändert, damit die Antwortprüfung nicht bricht.
+- **Rechtsseiten:** Die französischen „Mentions légales“ und die Nutzungsbedingungen (CGU, zugeschnitten auf den Betreiber und die Académie de Paris) sind ersatzlos entfernt. Neu: `impressum.html` und `datenschutz.html` mit gelb markierten Platzhältern für Name, Anschrift, E-Mail und Hosting-Anbieter. **Bitte vor dem Veröffentlichen ausfüllen und rechtlich prüfen lassen**; ich bin kein Jurist.
+- **Über-Seite:** neu geschrieben statt übersetzt, mit ausführlicher Würdigung von MathsMentales und allen Mitwirkenden.
+- **Externe Dienste des Originals:** Kurz-URLs (bref.jeduque.net), der Proxy für den Cloud-Verlauf (mathsmentales.net) und Pixel-Art (pixelart.mathsmentales.net) laufen über Server des Original-Autors. Unsere Seite soll keine Nutzerdaten an Dritte schicken. Kurz-URLs und Cloud-Proxy werden auf eigene, standardmäßig abgeschaltete PHP-Skripte umgestellt (siehe dort); Pixel-Art bleibt als Verweis auf den externen Dienst bestehen und ist in der Datenschutzerklärung erwähnt.
+
+- **Begriffe, die die Übersetzer festgelegt haben** (über das Glossar hinaus): „Format“ für die Art der Ausgabe; „Etappe“ im Parkour; „Anheften“ im Verlauf; „Ablenker“ beim Puzzle; „Einseitig/Beidseitig“ bei Karteikarten; „Bewertung“ statt „Jury“ im Zahlenrennen; Korb-Spalten „Dauer / Fragen / Ziel / Folge / Lösung / Auswahl“ mit „sortiert/zufällig“.
+- **Bildschirmtastatur:** QWERTZ statt AZERTY. Tasten, die französische Wörter einfügen (oui/non, VRAI/FAUX, aigu …), bleiben vorerst, weil die Aufgaben diese Antworten erwarten; sie werden mit den Aufgaben in Schritt 5 umgestellt.
+- **Scratch-Blöcke** werden deutsch angezeigt; französische Skripte in Aufgaben werden weiter erkannt und übersetzt angezeigt.
+- **Druckblätter** tragen unten „Erstellt mit MatheVomFranz · nach MathsMentales von Sébastien Cogez“ statt des Lizenzhinweises „CC-BY-NC © MathsMentales.net“ des Originals. Grund: Das Projekt steht unter Apache 2.0; ein CC-BY-NC-Vermerk auf erzeugten Blättern passt nicht, die Würdigung bleibt aber sichtbar.
+- **Unbenutzte Serverskripte** `push.php` und `setlistcode.php` entfernt: Die Oberfläche ruft sie nicht auf, und sie schrieben ungeprüfte Eingaben als Dateien auf den Server.
+- **Weiterleitungen auf die alte MathsMentales-Version** (für Links aus MathsMentales v1) ersetzt durch einen Hinweis auf die Suche.
+
+### Fehler aus dem Original, nebenbei behoben
+
+- Aufgaben-Editoren (JSON und YAML): Vorschau warf „act.display is not a function“.
+- Parkour-Editor, Diashow, Duell, Parkour: Mathe-Schriften für Eingabefelder wurden unter einem falschen Pfad gesucht.
+- Dominos und „Ich hab – wer hat?“ luden eine nicht vorhandene Diagramm-Bibliothek.
+- Zuordnen: Fehler ohne Aufgaben im Link; „Bearbeiten“-Knopf führte wegen Tippfehler nicht zurück.
+- Gürtel mit nur einem Exemplar: Fehler beim Seitenumbruch.
+- Dominos: Schalter „Doppelte“ wirkte verkehrt herum.
+- Übungsblatt, Testblatt, Zahlenrennen, Gürtel: fehlende Titel erschienen als „false“/„undefined“.
+- Merkblatt: Absturz, wenn eine Seite überläuft.
+- Karteikarten: Beschriftung „nein“ war dem falschen Knopf zugeordnet.
+- Link-Fenster: Fehler beim schnellen Schließen; Meldung bei fehlendem Kurz-Link kam nie an (Tippfehler `innertext`).
+
+### Schritt 3 – Design (Karopapier)
+
+- Eigene Datei `src/css/mvf-theme.css`, die nach den Stylesheets des Originals geladen wird. Farben als Variablen: Papier `#fdfcf6`, Füllerblau `#1f4fa3`, roter Heftrand `#d6453d`, Tafelgrün `#2e5240` für die Oberstufe, Rot für „Weitere Aufgaben“.
+- Rechenkästchen als Hintergrund (20 px), Überschriften in der Handschrift „Patrick Hand“ (SIL OFL, lokal eingebunden – keine Google Fonts, damit keine Daten an Dritte gehen), Fließtext in Nunito.
+- Stufen-Kacheln als leicht schräg liegende Karteikarten.
+- **Neues Logo:** Karo-Kärtchen mit rotem Rand und handschriftlichem „MvF“; Favicon mit „F“. Das MathsMentales-Logo wurde ersetzt, weil es die Marke des Originals ist.
+- Spielbildschirme (Duell, Gürtel, Zuordnen …) behalten vorerst ihr eigenes, kräftiges Aussehen; das Karopapier passt dort nicht überall und könnte die Lesbarkeit am Beamer verschlechtern.
+- Kein Dunkelmodus: Viele Spielformen haben fest eingebaute Farben; ein Dunkelmodus nur für die Startseite wäre inkonsequent.
+
+### Schritt 4 – Gliederung nach NRW-Lehrplan
+
+- **Codes:** Stufe (`5`–`10`, `E` = EF, `Q` = Q1/Q2, `W` = Weitere Aufgaben) + Kapitelbuchstabe (A = I, B = II, …) + Themenblockbuchstabe. Beispiel `7DA` = Klasse 7, Kapitel IV, erster Themenblock. So bleibt der vorhandene Code fast unverändert.
+- **Kapitel** heißen wie im Buch, mit römischer Nummer. **Themenblöcke** sind meine knappe Zusammenfassung der Stichpunkte aus dem Stoffverteilungsplan (248 Themenblöcke in 60 Kapiteln).
+- **Q1/Q2** ist eine Stufe für GK und LK; LK-Inhalte tragen „(nur LK)“ im Namen. Kapitelreihenfolge nach dem LK/GK-Band (I–X), damit die LK-Kapitel an der richtigen Stelle stehen.
+- **Wahlkapitel** (Brüche 5/6, Wahrscheinlichkeit 7/8, Daten und Wahrscheinlichkeit 9/10) stehen in beiden Jahrgängen mit identischen Themenblöcken; Aufgaben werden immer beiden zugeordnet.
+- **Aufgaben-IDs bleiben** (z. B. „6NC1“), obwohl sie französische Stufen enthalten: So bleiben gespeicherte Links und Verläufe gültig. Die Einordnung steckt allein in den `dest`-Codes.
+- Die Zuordnung der 413 Aufgaben erledigen vier Subagenten; sie liefern nur Tabellen, die ich zentral anwende.

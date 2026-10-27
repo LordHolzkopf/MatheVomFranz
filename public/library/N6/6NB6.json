@@ -3,7 +3,7 @@
     "ID":"6NB6",
     "speech":1,
     "description":"Compléter une fraction en donnant le nombre manquant",
-    "dest":["6NB","5NA","4NA","3NA"],
+    "dest":["5FB", "6AB"],
     "options":[{
         "name":"Trouver le numérateur, tables jusqu'à 10",
         "vars":{"num":"2_10", "coeff":"2_9", "den":"2_10_^${:num}"},

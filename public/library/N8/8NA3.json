@@ -4,7 +4,7 @@
     "speech":1,
     "type":"text",
     "description":"Somme d'un nombre entier avec des unités, dizaines, centaines...",
-    "dest":[ "6NA"],
+    "dest":["5AA", "5AB", "5AC"],
     "keys":"numerique",
     "options":[{
             "name":"Ajouter des unité",

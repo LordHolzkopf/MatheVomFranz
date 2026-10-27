@@ -3,7 +3,7 @@
     "title":"Comprendre la répétition",
     "type":"text",
     "description":"scratch boucle répéter",
-    "dest":["5AA","4AA","3AA"],
+    "dest":["WGB"],
     "consts":{
         "sens":["turnright", "turnleft"]
     },

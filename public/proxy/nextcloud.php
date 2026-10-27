@@ -117,29 +117,29 @@ function containsControlCharacter(string $value): bool
 function buildAccountUrl(string $baseUrl, string $path): string
 {
     if (containsControlCharacter($baseUrl)) {
-        fail(400, 'control-character-not-allowed', 'Caractère de contrôle non autorisé.');
+        fail(400, 'control-character-not-allowed', 'Steuerzeichen nicht erlaubt.');
     }
     $parts = parse_url($baseUrl);
     if ($parts === false || ($parts['scheme'] ?? '') !== 'https' || !isset($parts['host']) || $parts['host'] === '') {
-        fail(400, 'invalid-base-url', 'Adresse WebDAV invalide.');
+        fail(400, 'invalid-base-url', 'Ungültige WebDAV-Adresse.');
     }
     if (isset($parts['port']) && $parts['port'] !== 443) {
-        fail(403, 'port-not-allowed', 'Seul le port 443 est autorisé.');
+        fail(403, 'port-not-allowed', 'Nur Port 443 ist erlaubt.');
     }
     if (!isAllowedHost($parts['host'])) {
-        fail(403, 'instance-not-allowed', "Cet hébergeur n'est pas autorisé par ce proxy.");
+        fail(403, 'instance-not-allowed', 'Dieser Anbieter ist für diesen Proxy nicht freigegeben.');
     }
     $segments = array_filter(explode('/', $path), static fn ($s) => $s !== '' && $s !== '.');
     foreach ($segments as $segment) {
         if (containsControlCharacter($segment)) {
-            fail(400, 'control-character-not-allowed', 'Caractère de contrôle non autorisé.');
+            fail(400, 'control-character-not-allowed', 'Steuerzeichen nicht erlaubt.');
         }
         $decoded = rawurldecode($segment);
         if (strpos($decoded, '\\') !== false) {
-            fail(400, 'invalid-path', 'Chemin de fichier invalide.');
+            fail(400, 'invalid-path', 'Ungültiger Dateipfad.');
         }
         if ($decoded === '..') {
-            fail(400, 'invalid-path', 'Chemin de fichier invalide.');
+            fail(400, 'invalid-path', 'Ungültiger Dateipfad.');
         }
     }
     $encodedPath = implode('/', array_map('rawurlencode', $segments));
@@ -210,21 +210,21 @@ if ($requestMethod === 'OPTIONS') {
 // bloque les déclenchements involontaires.
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origin !== '' && !in_array($origin, ALLOWED_ORIGINS, true)) {
-    fail(403, 'origin_not_allowed', 'Origine non autorisée.');
+    fail(403, 'origin_not_allowed', 'Herkunft nicht erlaubt.');
 }
 
 if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === '') {
-    fail(403, 'missing_marker_header', 'En-tête X-Requested-With requis.');
+    fail(403, 'missing_marker_header', 'Header X-Requested-With erforderlich.');
 }
 
 if ($requestMethod !== 'POST') {
-    fail(405, 'http_method_not_allowed', 'Méthode non autorisée (POST attendu).');
+    fail(405, 'http_method_not_allowed', 'Methode nicht erlaubt (POST erwartet).');
 }
 
 $rawBody = file_get_contents('php://input');
 $params = json_decode((string) $rawBody, true);
 if (!is_array($params)) {
-    fail(400, 'invalid_json', 'Corps JSON invalide.');
+    fail(400, 'invalid_json', 'Ungültiger JSON-Inhalt.');
 }
 
 $davMethod = strtoupper((string) ($params['method'] ?? ''));
@@ -233,11 +233,11 @@ $path = (string) ($params['path'] ?? '');
 $content = (string) ($params['content'] ?? '');
 
 if (!in_array($davMethod, ALLOWED_METHODS, true)) {
-    fail(400, 'dav_method_not_allowed', 'Méthode WebDAV non autorisée.');
+    fail(400, 'dav_method_not_allowed', 'WebDAV-Methode nicht erlaubt.');
 }
 
 if ($davMethod === 'PUT' && strlen($content) > MAX_UPLOAD_BYTES) {
-    fail(413, 'upload_too_large', 'Fichier trop volumineux (2 Mo maximum).');
+    fail(413, 'upload_too_large', 'Datei zu groß (maximal 2 MB).');
 }
 
 if ($mode === 'account') {
@@ -245,7 +245,7 @@ if ($mode === 'account') {
     $username = (string) ($params['username'] ?? '');
     $password = (string) ($params['password'] ?? '');
     if ($username === '') {
-        fail(400, 'missing-username', 'Identifiant manquant.');
+        fail(400, 'missing-username', 'Benutzername fehlt.');
     }
     $targetUrl = buildAccountUrl($baseUrl, $path);
     $authUser = $username;
@@ -256,15 +256,15 @@ if ($mode === 'account') {
     $password = (string) ($params['password'] ?? '');
 
     if ($instance === '') {
-        fail(400, 'invalid_instance', 'Instance manquante.');
+        fail(400, 'invalid_instance', 'Instanz fehlt.');
     }
 
     if (!isAllowedHost($instance)) {
-        fail(403, 'instance-not-allowed', "Cette instance n'est pas autorisée par ce proxy.");
+        fail(403, 'instance-not-allowed', 'Diese Instanz ist für diesen Proxy nicht freigegeben.');
     }
 
     if ($token === '' || preg_match('/^[A-Za-z0-9]+$/', $token) !== 1) {
-        fail(400, 'invalid_token', 'Jeton de partage invalide.');
+        fail(400, 'invalid_token', 'Ungültiges Freigabe-Token.');
     }
 
     $segments = array_filter(explode('/', $path), static fn ($s) => $s !== '' && $s !== '.' && $s !== '..');
@@ -324,11 +324,11 @@ $context = stream_context_create($contextOptions);
 $body = @file_get_contents($targetUrl, false, $context, 0, MAX_RESPONSE_BYTES);
 
 if ($body === false) {
-    fail(502, 'upstream_unreachable', 'Le partage est injoignable.');
+    fail(502, 'upstream_unreachable', 'Die Freigabe ist nicht erreichbar.');
 }
 
 if (strlen($body) >= MAX_RESPONSE_BYTES) {
-    fail(502, 'upstream_too_large', 'Réponse du partage trop volumineuse.');
+    fail(502, 'upstream_too_large', 'Antwort der Freigabe ist zu groß.');
 }
 
 $upstreamStatus = 502;

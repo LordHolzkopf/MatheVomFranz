@@ -5,7 +5,7 @@
     "speech":1,
     "keys":"numerique",
     "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["a", "b"]}},
-    "dest":[ "6NE", "5NC", "4NC", "3NB"],
+    "dest":["6ED"],
     "options":[{
         "name":"Dixièmes à 1 chiffre par 10",
         "vars":{"a":"1_9","c":"${MMmath.round(:a*Math.pow(10,-1),3)}"},

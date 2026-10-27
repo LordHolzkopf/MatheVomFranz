@@ -50,7 +50,7 @@ class Activity extends activity {
     const consigne = document.getElementById("activityConsigne");
     consigne.innerHTML = "";
     if (this.consigne) {
-      const b = utils.create("b", { innerHTML: "Consigne Générale : " });
+      const b = utils.create("b", { innerHTML: "Allgemeiner Arbeitsauftrag: " });
       consigne.appendChild(b);
       const bloc = utils.create("blockquote", {
         className: "consigneText",
@@ -70,7 +70,7 @@ class Activity extends activity {
         // les paramètres consécutifs de même groupe partagent un intitulé
         if (this.params[nom].groupe && this.params[nom].groupe !== groupe) {
           bloc.appendChild(
-            utils.create("b", { innerHTML: this.params[nom].groupe + " : " }),
+            utils.create("b", { innerHTML: this.params[nom].groupe + ": " }),
           );
         }
         groupe = this.params[nom].groupe || "";
@@ -110,7 +110,7 @@ class Activity extends activity {
       });
       //input.setAttribute("onclick","MM.editedActivity.setOption('all',this.checked)");
       examples.appendChild(input);
-      label.appendChild(document.createTextNode(" Tout (dé)sélectionner"));
+      label.appendChild(document.createTextNode(" Alle an-/abwählen"));
       examples.appendChild(label);
       examples.appendChild(hr);
       let optionsLen = 0;
@@ -132,7 +132,7 @@ class Activity extends activity {
         });
         p.appendChild(input);
         const label = utils.create("label", { htmlFor: "o" + i });
-        label.innerHTML = " " + this.options[i]["name"] + " :";
+        label.innerHTML = " " + this.options[i]["name"] + ":";
         p.appendChild(label);
         let ul = document.createElement("ul");
         if (Array.isArray(this.questions[0])) {
@@ -354,7 +354,7 @@ class Activity extends activity {
           });
           const label = utils.create("label", {
             htmlFor: `checkAllOptions${i}`,
-            innerHTML: ` Options ${i + 1} `,
+            innerHTML: ` Jeweils Nr. ${i + 1} `,
           });
           div.appendChild(chckbutton);
           div.appendChild(label);
@@ -599,10 +599,10 @@ class CartClass extends cart {
       "#cart" + this.id + " div[data-ordered]",
     );
     if (this.ordered) {
-      spanOrder.innerHTML = "ordonné";
+      spanOrder.innerHTML = "sortiert";
       spanOrder.dataset["ordered"] = "true";
     } else {
-      spanOrder.innerHTML = "mélangé";
+      spanOrder.innerHTML = "zufällig";
       spanOrder.dataset["ordered"] = "false";
     }
     for (let i = 0, l = this.activities.length; i < l; i++) {
@@ -611,17 +611,17 @@ class CartClass extends cart {
       li.innerHTML =
         "<div class='cart-content-item'><div class='pointer actID' data-actid='" +
         i +
-        "' title=\"Editer l'activité\">" +
+        "' title='Aufgabe bearbeiten'>" +
         activity.id +
         "</div>" +
         (MM.carts.length > 1
           ? "<i class='sprite sprite-iconfinder_copy movecopybutton pointer' data-actidmovecopy='" +
             i +
-            "' title='Déplacer / copier vers un autre panier'></i>"
+            "' title='In einen anderen Korb verschieben/kopieren'></i>"
           : "") +
         "<i class='sprite sprite-removefromcart removefromcartbutton pointer' data-actidtoremove='" +
         i +
-        "' title='Enlever du panier'></i><div>" +
+        "' title='Aus dem Korb entfernen'></i><div>" +
         (activity.audioRead == true
           ? activity.title
           : activity.title.replace("📣 ", "")) +
@@ -630,14 +630,14 @@ class CartClass extends cart {
         i +
         "' min='0' max='120' step='1' value='" +
         activity.tempo +
-        "' aria-label=\"Durée d'affichage en secondes\" " +
-        'title="Durée d\'affichage par question, en secondes (0 : manuel)"></span>' +
+        "' aria-label=\"Anzeigedauer in Sekunden\" " +
+        'title="Anzeigedauer pro Frage in Sekunden (0: manuell weiter)"></span>' +
         "<span class='cart-reglage'><input type='number' class='cart-nbq' " +
         "data-nbqact='" +
         i +
         "' min='1' max='20' step='1' value='" +
         activity.nbq +
-        "' aria-label='Nombre de questions' title='Nombre de questions'></span>";
+        "' aria-label='Anzahl der Fragen' title='Anzahl der Fragen'></span>";
       if (this.editedActivityId === i) {
         li.className = "active";
       }
@@ -675,15 +675,15 @@ class CartClass extends cart {
    */
   changeOrder(objImage) {
     if (objImage.dataset["ordered"] === "true") {
-      objImage.innerHTML = "mélangé";
+      objImage.innerHTML = "zufällig";
       //objImage.src = "img/iconfinder_windy_1054934.png";
-      objImage.title = "Affichage mélangé des questions";
+      objImage.title = "Fragen in zufälliger Reihenfolge";
       objImage.dataset["ordered"] = "false";
       this.ordered = false;
     } else {
-      objImage.innerHTML = "ordonné";
+      objImage.innerHTML = "sortiert";
       //objImage.src = "img/iconfinder_stack_1054970.png";
-      objImage.title = "Affichage dans l'ordre des activités";
+      objImage.title = "Fragen in der Reihenfolge der Aufgaben";
       objImage.dataset["ordered"] = "true";
       this.ordered = true;
     }
@@ -702,7 +702,7 @@ class CartClass extends cart {
       input.min = 2;
       input.max = 120;
       input.value = String(this.showAnswerTime);
-      input.title = "Durée d'affichage\nde la correction\naprès la question";
+      input.title = "Anzeigedauer\nder Lösung\nnach der Frage";
       input.oninput = (evt) => {
         this.showAnswerTime = evt.target.value;
       };
@@ -711,7 +711,7 @@ class CartClass extends cart {
       };
       container.appendChild(input);
       const unit = document.createElement("span");
-      unit.innerText = "s.";
+      unit.innerText = "s";
       container.appendChild(unit);
       const closeButton = document.createElement("button");
       closeButton.innerText = "×";
@@ -727,13 +727,13 @@ class CartClass extends cart {
       type === "withanswer"
     ) {
       objHTML.dataset["progress"] = "withanswer";
-      objHTML.innerText = "avec";
-      objHTML.title = "Le corrigé est affiché\navec la question";
+      objHTML.innerText = "mit";
+      objHTML.title = "Die Lösung wird\nmit der Frage angezeigt";
       this.progress = "withanswer";
     } else {
       objHTML.dataset["progress"] = "normal";
-      objHTML.innerText = "sans";
-      objHTML.title = "Le corrigé n'est pas affiché";
+      objHTML.innerText = "ohne";
+      objHTML.title = "Die Lösung wird nicht angezeigt";
       this.progress = "normal";
     }
   }
@@ -762,7 +762,7 @@ class CartClass extends cart {
     );
     document.getElementById("answer-chrono-range").value = String(value);
     this.showAnswerTime = Number(value);
-    answerChronoDisplayValue.innerText = String(value) + " s.";
+    answerChronoDisplayValue.innerText = String(value) + " s";
   }
   /**
    *
@@ -799,7 +799,7 @@ class CartClass extends cart {
     if (this.randomDraw) {
       objHTML.dataset["randomdraw"] = "some";
       objHTML.title =
-        "Tirage aléatoire de questions (cliquer pour revenir à toutes les questions)";
+        "Zufällige Auswahl von Fragen (klicken, um wieder alle Fragen zu nehmen)";
       const container = document.createElement("div");
       container.className = "numberInputContainer";
       const input = document.createElement("input");
@@ -808,7 +808,7 @@ class CartClass extends cart {
       input.min = 1;
       input.max = Math.max(1, this.nbq - 1);
       input.value = String(this.randomCount || 1);
-      input.title = "Nombre de questions à tirer au sort";
+      input.title = "Anzahl der zufällig gezogenen Fragen";
       input.oninput = (evt) => {
         this.setRandomCount(evt.target.value);
       };
@@ -820,12 +820,12 @@ class CartClass extends cart {
     } else {
       objHTML.dataset["randomdraw"] = "all";
       objHTML.title =
-        "Toutes les questions du panier (cliquer pour tirer un nombre au hasard)";
-      objHTML.innerText = "toutes";
+        "Alle Fragen des Korbs (klicken, um eine zufällige Auswahl zu ziehen)";
+      objHTML.innerText = "alle";
     }
   }
 }
-export { MM as default };
+export { MM as default, Activity };
 const toast = document.getElementById("toast");
 const MM = {
   version: 7, // à mettre à jour à chaque upload pour régler les pb de cache
@@ -1011,19 +1011,19 @@ const MM = {
     // Le message est reconstruit et non masqué : les deux conteneurs sont
     // réécrits à chaque génération, un paragraphe statique n'y survivrait pas.
     [
-      ["enonce-content", "les énoncés"],
-      ["corrige-content", "les corrigés"],
+      ["enonce-content", "die Aufgaben"],
+      ["corrige-content", "die Lösungen"],
     ].forEach(([id, quoi]) => {
       const zone = document.getElementById(id);
       if (zone === null || zone.querySelector(".onglet-vide") !== null) return;
       const message = utils.create("p", {
         className: "onglet-vide",
         innerHTML:
-          "Ici s’affichent " + quoi + ", une fois des activités au panier. ",
+          "Hier erscheinen " + quoi + ", sobald etwas im Korb liegt. ",
       });
       const bouton = utils.create("button", {
         type: "button",
-        innerHTML: "Chercher une activité",
+        innerHTML: "Aufgabe suchen",
       });
       bouton.onclick = () => {
         MM.showTab("tab-chercher");
@@ -1064,106 +1064,106 @@ const MM = {
   // boutons d'origine auxquels la barre d'actions délègue.
   typesUsage: {
     paramsdiapo: {
-      nom: "Diaporama",
-      libelle: "Lancer",
+      nom: "Diashow",
+      libelle: "Starten",
       principal: "btnstart",
       adresse: "btnadresse",
       historique: "btncopytohistoric",
     },
     paramsflashcards: {
-      nom: "Cartes flash",
-      libelle: "Lancer",
+      nom: "Karteikarten",
+      libelle: "Starten",
       principal: "btngenerateFC",
       adresse: "btn-flash-adresse",
       historique: "btn-flash-copytohistoric",
     },
     paramsfichememo: {
-      nom: "Fiche mémorisation",
-      libelle: "Lancer",
+      nom: "Merkblatt",
+      libelle: "Starten",
       principal: "btngenerateFM",
       adresse: "btn-memo-adresse",
       historique: "btn-memo-copytohistoric",
     },
     paramsexos: {
-      nom: "Feuille d’exercices",
-      libelle: "Générer",
+      nom: "Übungsblatt",
+      libelle: "Erzeugen",
       principal: "btngeneratesheet",
       adresse: "btn-ex-adresse",
       historique: "btn-ex-copytohistoric",
     },
     paramsinterro: {
-      nom: "Feuille d’interro",
-      libelle: "Générer",
+      nom: "Testblatt",
+      libelle: "Erzeugen",
       principal: "btngenerateexams",
       adresse: "btn-exam-adresse",
       historique: "btn-exam-copytohistoric",
     },
     paramsceinture: {
-      nom: "Ceintures de CM",
-      libelle: "Générer",
+      nom: "Kopfrechen-Gürtel",
+      libelle: "Erzeugen",
       principal: "btngenerateceinture",
       adresse: "btn-ceinture-adresse",
       historique: "btn-ceinture-copytohistoric",
     },
     paramscourse: {
-      nom: "Course aux nombres",
-      libelle: "Générer",
+      nom: "Zahlenrennen",
+      libelle: "Erzeugen",
       principal: "btngenerateCAN",
       adresse: "btn-can-adresse",
       historique: "btn-can-copytohistoric",
     },
     paramsdocLOOO: {
-      nom: "Document LibreOffice",
-      libelle: "Générer",
+      nom: "LibreOffice-Dokument",
+      libelle: "Erzeugen",
       principal: "btngeneratedoc",
       adresse: "btn-doc-adresse",
       historique: "btn-doc-copytohistoric",
     },
     paramswhogots: {
-      nom: "J’ai/qui a ?",
-      libelle: "Générer",
+      nom: "Ich hab – wer hat?",
+      libelle: "Erzeugen",
       principal: "btngenerateWG",
       adresse: "btn-wg-adresse",
       historique: "btn-wg-copytohistoric",
     },
     paramsdominos: {
       nom: "Dominos",
-      libelle: "Générer",
+      libelle: "Erzeugen",
       principal: "btngenerateDominos",
       adresse: "btn-dominos-adresse",
       historique: "btn-dominos-copytohistoric",
     },
     paramspuzzle: {
       nom: "Puzzles",
-      libelle: "Générer",
+      libelle: "Erzeugen",
       principal: "btngeneratePuzzle",
       adresse: "btn-puzzle-adresse",
       historique: "btn-puzzle-copytohistoric",
     },
     paramswall: {
-      nom: "Panneau 💻",
-      libelle: "Lancer",
+      nom: "Aufgabenwand 💻",
+      libelle: "Starten",
       principal: "btngenerateWall",
       adresse: "btn-wall-adresse",
       historique: "btn-wall-copytohistoric",
     },
     // pas d'adresse ni d'historique : les données passent par postMessage
     paramspixelart: {
-      nom: "Pixel Art 💻",
-      libelle: "Ouvrir",
+      nom: "Pixel-Art 💻",
+      libelle: "Öffnen",
       principal: "btngeneratePixelArt",
       historique: "btn-pixelart-copytohistoric",
     },
     paramsassocs: {
-      nom: "Associations 💻",
-      libelle: "Lancer",
+      nom: "Zuordnen 💻",
+      libelle: "Starten",
       principal: "btngenerateAssoc",
       adresse: "btn-assoc-adresse",
       historique: "btn-assoc-copytohistoric",
     },
     paramsduel: {
-      nom: "Duel 💻",
-      libelle: "Lancer",
+      nom: "Duell 💻",
+      libelle: "Starten",
       principal: "btn-duel-start",
       adresse: "btn-duel-adresse",
       historique: "btn-duel-copytohistoric",
@@ -1217,9 +1217,9 @@ const MM = {
       // copyURLtoHistory écrit son retour dans le bouton d'origine, caché.
       let bouton = document.getElementById("barre-action-historique");
       clearTimeout(MM.timerRetourHistorique);
-      bouton.textContent = "📁 Copié ✅";
+      bouton.textContent = "📁 Kopiert ✅";
       MM.timerRetourHistorique = setTimeout(() => {
-        bouton.textContent = "→ Historique";
+        bouton.textContent = "→ Verlauf";
       }, 3300);
     }
     if (role === "adresse") {
@@ -1261,11 +1261,11 @@ const MM = {
     const lesDeux = utils.getRadioChecked("radiodoc") === "both";
     afficher(document.getElementById("docpres-page"), lesDeux);
     document.querySelector('label[for="radiodocSuite"]').textContent = lesDeux
-      ? "Questions puis réponses"
+      ? "Fragen, dann Antworten"
       : "Liste";
     document.querySelector('label[for="radiodocTableau"]').textContent = lesDeux
-      ? "Questions | réponses"
-      : "Dans un tableau";
+      ? "Fragen | Antworten"
+      : "Als Tabelle";
     // le choix masqué ne doit pas rester actif
     if (!lesDeux && utils.getRadioChecked("radiodocpres") === "page") {
       utils.checkRadio("radiodocpres", "suite");
@@ -1362,8 +1362,8 @@ const MM = {
       let el = document.getElementById(id);
       if (el)
         document.getElementById(id + "Text").innerHTML = el.checked
-          ? "Oui"
-          : "Non";
+          ? "Ja"
+          : "Nein";
     });
     MM.setAssocsChrono();
     if (champs.assocTime !== undefined)
@@ -1489,7 +1489,7 @@ const MM = {
   },
   setTempo: function (value) {
     document.getElementById("tempo-slider").value = value;
-    document.getElementById("tempo-value").innerHTML = value + " s.";
+    document.getElementById("tempo-value").innerHTML = value + " s";
   },
   setNbq: function (value) {
     document.getElementById("nbq-slider").value = value;
@@ -1497,8 +1497,8 @@ const MM = {
   },
   changeTempoValue: function (value) {
     if (Number(value) < 2)
-      document.getElementById("tempo-value").innerHTML = "manuel";
-    else document.getElementById("tempo-value").innerHTML = value + " s.";
+      document.getElementById("tempo-value").innerHTML = "manuell";
+    else document.getElementById("tempo-value").innerHTML = value + " s";
     if (MM.editedActivity) MM.editedActivity.Tempo = value;
     if (MM.carts[MM.selectedCart].editedActivityId > -1) {
       const champ = document.querySelector(
@@ -1644,7 +1644,7 @@ const MM = {
   restoreCartsInterface: function () {
     let cartsMenu = document.getElementById("cartsMenu");
     cartsMenu.innerHTML = `<button class="tabs-menu-link is-active" value="1" id="button-cart1"><i class="sprite sprite-cart1"></i></button>
-        <button id="addcart" title="Ajouter un panier"><i class="sprite sprite-cartadd"></i></button>`;
+        <button id="addcart" title="Korb hinzufügen"><i class="sprite sprite-cartadd"></i></button>`;
     for (let i = 1; i < this.carts.length; i++) {
       let btnnb = i + 1;
       let button = utils.create("button", {
@@ -1665,7 +1665,7 @@ const MM = {
     if (!forced)
       if (
         !window.confirm(
-          "Vous êtes sur le point de supprimer ce panier.\nConfirmez-vous ?",
+          "Diesen Korb wirklich löschen?",
         )
       ) {
         return false;
@@ -1726,7 +1726,7 @@ const MM = {
   emptyCart(index) {
     if (
       window.confirm(
-        "Vous êtes sur le point de vider ce panier.\nConfirmez-vous ?",
+        "Diesen Korb wirklich leeren?",
       )
     ) {
       MM.carts[index - 1].activities = [];
@@ -1770,11 +1770,11 @@ const MM = {
     if (autres.length === 0) return;
     const menu = utils.create("div", { className: "menu-deplacer-copier" });
     for (const i of autres) {
-      const titre = MM.carts[i].title || "Panier " + (i + 1);
+      const titre = MM.carts[i].title || "Korb " + (i + 1);
       menu.appendChild(
         utils.create("button", {
           type: "button",
-          textContent: "↪ Déplacer dans « " + titre + " »",
+          textContent: "↪ In „" + titre + "“ verschieben",
           onclick: () => {
             MM.deplacerActiviteVersPanier(actIndex, i);
             MM.fermerMenuDeplacerCopier();
@@ -1784,7 +1784,7 @@ const MM = {
       menu.appendChild(
         utils.create("button", {
           type: "button",
-          textContent: "⧉ Copier dans « " + titre + " »",
+          textContent: "⧉ In „" + titre + "“ kopieren",
           onclick: () => {
             MM.copierActiviteVersPanier(actIndex, i);
             MM.fermerMenuDeplacerCopier();
@@ -1824,14 +1824,14 @@ const MM = {
     cible.addActivity(source.activities[actIndex], source.activities[actIndex].nbq, MM.carts);
     source.removeActivity(actIndex);
     MM.populateQuestionsAndAnswers();
-    toaster("Activité déplacée vers « " + (cible.title || "Panier " + (versIndex + 1)) + " »");
+    toaster("Aufgabe in „" + (cible.title || "Korb " + (versIndex + 1)) + "“ verschoben");
   },
   copierActiviteVersPanier(actIndex, versIndex) {
     const source = MM.carts[MM.selectedCart];
     const cible = MM.carts[versIndex];
     cible.addActivity(source.activities[actIndex], source.activities[actIndex].nbq, MM.carts);
     MM.populateQuestionsAndAnswers();
-    toaster("Activité copiée vers « " + (cible.title || "Panier " + (versIndex + 1)) + " »");
+    toaster("Aufgabe in „" + (cible.title || "Korb " + (versIndex + 1)) + "“ kopiert");
   },
   refreshQuestionsAndAnswers() {
     MM.showQuestions();
@@ -2013,7 +2013,7 @@ const MM = {
               slideNumber +
               "-" +
               indiceSlide +
-              '">Figure</button>';
+              '">Figur</button>';
             MM.memory["e" + slideNumber + "-" + indiceSlide] = new Figure(
               utils.clone(activity.figures[j]),
               "en" + slideNumber + "-" + indiceSlide,
@@ -2087,7 +2087,7 @@ const MM = {
     document.getElementById("loading").style.display = "flex";
     // prévoir un truc qui montre que ça mouline
     let title =
-      document.getElementById("docTitle").value || "document MathsMentales";
+      document.getElementById("docTitle").value || "MatheVomFranz-Dokument";
     MM.copyURLtoHistory("docLOOO");
     // export : on laisse le temps aux formules et aux figures d'être rendues
     setTimeout(async () => {
@@ -2096,7 +2096,7 @@ const MM = {
       } catch (err) {
         console.error("Export LibreOffice impossible :", err);
         alert(
-          "L’export LibreOffice a échoué : " +
+          "Der LibreOffice-Export ist fehlgeschlagen: " +
             (err && err.message ? err.message : err),
         );
       } finally {
@@ -2234,23 +2234,23 @@ const MM = {
     if (nbq < nbqc) {
       // si pas assez de questions dans le panier, alerter et s'arrêter
       alert(
-        "Pas assez de questions dans le panier pour alimenter la ceinture\nde " +
+        "Im Korb sind nicht genug Fragen für den Gürtel\nmit " +
           document.getElementById("ceintcolsval").value +
-          "×" +
+          " × " +
           document.getElementById("ceintrowsval").value +
-          "=" +
+          " = " +
           nbqc +
-          " emplacements",
+          " Feldern.",
       );
       return;
     } else if (nbq > nbqc) {
       if (
         !confirm(
-          "Vous allez créé une ceinture de " +
+          "Der Gürtel hat " +
             nbqc +
-            " emplacements\nalors que vous avez créé un panier de" +
+            " Felder,\nder Korb enthält aber " +
             nbq +
-            "questions.\nToutes ne seront donc pas imprimées. Continuer ?",
+            " Fragen.\nNicht alle Fragen werden gedruckt. Fortfahren?",
         )
       ) {
         return;
@@ -2314,14 +2314,14 @@ const MM = {
         "disp=" +
         utils.getRadioChecked("flashcarddispo") +
         ",t=" +
-        (document.getElementById("FCtitle").value || "Cartes Flash") +
+        (document.getElementById("FCtitle").value || "Karteikarten") +
         this.export();
     } else if (type === "fichememo") {
       urlparams +=
         "disp=" +
         utils.getRadioChecked("fichememodispo") +
         ",t=" +
-        (document.getElementById("FMtitle").value || "Fiche Mémorisation") +
+        (document.getElementById("FMtitle").value || "Merkblatt") +
         this.export();
     } else if (type === "ceinture") {
       let chaine = "",
@@ -2525,7 +2525,7 @@ const MM = {
         document.getElementById("addToCart").className = "";
         document.getElementById("removeFromCart").className = "hidden";
         obj.display("sample", MM);
-        MM.setHistory("Exercice", "u=" + id);
+        MM.setHistory("Aufgabe", "u=" + id);
         MM.refreshQuestionsAndAnswers();
       })
       .catch((e) => {
@@ -2609,17 +2609,15 @@ const MM = {
           // celle-ci ayant disparu, on affiche l'activité explicitement.
           obj.display("sample", MM);
           MM.showQuestions();
-          MM.setHistory("Exercice", "u=" + id);
+          MM.setHistory("Aufgabe", "u=" + id);
         });
       } else {
         let alert = utils.create("div", {
           className: "message",
           innerHTML:
-            "Cette activité n'a pas de correspondance dans cette nouvelle version de MathsMentales.<hr class='center w50'>Vous allez être redirigé vers l'ancienne version dans 10s. <a>Go !</a>",
+            "Diese Aufgabe gibt es in MatheVomFranz nicht. Über die Suche finden Sie ähnliche Aufgaben.",
         });
-        alert.onclick = utils.goToOldVersion();
         document.getElementById("tab-accueil").appendChild(alert);
-        setTimeout(utils.goToOldVersion, 10000);
       }
     } else if (vars.c !== undefined) {
       // présence de carts MM v2 à lancer ou éditer
@@ -2717,7 +2715,7 @@ const MM = {
             coltitles.appendChild(
               utils.create("label", {
                 for: "ceinttitlecol" + (i + 1),
-                innerHTML: "Colonne " + (i + 1) + " :",
+                innerHTML: "Spalte " + (i + 1) + ":",
               }),
             );
             coltitles.appendChild(
@@ -2782,8 +2780,8 @@ const MM = {
           document.getElementById("dominosDoublons").checked =
             vars.d === "true";
           const text = document.getElementById("dominosDoublonsText");
-          if (vars.d === "true") text.innerHTML = "Oui";
-          else text.innerHTML = "Non";
+          if (vars.d === "true") text.innerHTML = "Ja";
+          else text.innerHTML = "Nein";
         } else if (typeParams === "paramsduel") {
           utils.selectOption("duelbackgroundselect", vars.bg);
           utils.checkRadio("dueltype", vars.ty);
@@ -2831,7 +2829,7 @@ const MM = {
           document.getElementById("cardsNb").innerHTML = vars.n ? vars.n : "";
           document.getElementById("WGDoublons").checked = vars.d === "true";
           document.getElementById("WGDoublonsText").innerHTML =
-            vars.d === "true" ? "Oui" : "Non";
+            vars.d === "true" ? "Ja" : "Nein";
           document.getElementById("WGaffirmation").value = vars.aff
             ? decodeURIComponent(vars.aff)
             : "";
@@ -2890,7 +2888,7 @@ const MM = {
           let alert = utils.create("div", {
             id: "messageerreur",
             className: "message",
-            innerHTML: "Impossible de charger les paniers :(<br>" + err,
+            innerHTML: "Die Körbe konnten nicht geladen werden :(<br>" + err,
           });
           document.getElementById("tab-accueil").appendChild(alert);
           // on fermet le message d'alerte après 3 secondes
@@ -2905,10 +2903,9 @@ const MM = {
       let alert = utils.create("div", {
         className: "message",
         innerHTML:
-          "Ceci est le nouveau MathsMentales, les anciennes adresses ne sont malheureusement plus compatibles.<hr class='center w50'>Vous allez être redirigé vers l'ancienne version de MathsMentales dans 6 s. <a href='javascript:utils.goToOldVersion();'>Go !</a>",
+          "Adressen aus der alten Version von MathsMentales funktionieren hier leider nicht. Über die Suche finden Sie ähnliche Aufgaben.",
       });
       document.getElementById("tab-accueil").appendChild(alert);
-      setTimeout(utils.goToOldVersion, 6000);
     }
   },
   // open an modal and
@@ -2919,12 +2916,12 @@ const MM = {
       id: "urlCopy",
       className: "message",
       style: "padding:1.5rem",
-      innerHTML: `<div>Adresse longue <span id="longcopied" class='red'>Copié !</span></div>
+      innerHTML: `<div>Langer Link <span id="longcopied" class='red'>Kopiert!</span></div>
                 <textarea readonly="true" id="bigurl" cols="38" rows="6" onfocus=""></textarea><br>
-                <button id="btn-urlshorter">Raccourcir l'url</button><br>
-                <div>Adresse encodée <span id="encodedcopied" class='red hidden'>Copié !</span></div>
+                <button id="btn-urlshorter">Link kürzen</button><br>
+                <div>Codierter Link <span id="encodedcopied" class='red hidden'>Kopiert!</span></div>
                 <textarea readonly="true" id="encodedurl" cols="38" rows="6" onfocus=""></textarea><br>
-                <button id="btn-urlshorter-encode">Raccourcir l'url encodée</button><br>
+                <button id="btn-urlshorter-encode">Codierten Link kürzen</button><br>
                 <input readonly="true" type="url" id="shorturl" size="38">
                 <div id="shortQRdiv"></div>
                 `,
@@ -2964,7 +2961,7 @@ const MM = {
       input2.setSelectionRange(0, 99999);
       document.getElementById("encodedcopied").classList.remove("hidden");
       setTimeout(() => {
-        document.getElementById("encodedcopied").classList.add("hidden");
+        document.getElementById("encodedcopied")?.classList.add("hidden");
       }, 2000);
     };
     input.onclick = async () => {
@@ -2973,7 +2970,7 @@ const MM = {
       input.setSelectionRange(0, 99999);
       document.getElementById("longcopied").classList.remove("hidden");
       setTimeout(() => {
-        document.getElementById("longcopied").classList.add("hidden");
+        document.getElementById("longcopied")?.classList.add("hidden");
       }, 2000);
     };
     //if(document.getElementById("aleaInURL").checked)params.a = MM.seed;
@@ -2984,7 +2981,7 @@ const MM = {
     input.select();
     input.setSelectionRange(0, 99999);
     setTimeout(() => {
-      document.getElementById("longcopied").classList.add("hidden");
+      document.getElementById("longcopied")?.classList.add("hidden");
     }, 2000);
     //document.execCommand("copy");
     //input.className ="hidden";
@@ -3034,7 +3031,7 @@ const MM = {
       className: "lds-ellipsis",
       innerHTML: "<div></div><div></div><div></div><div></div>",
     });
-    const div2 = utils.create("div", { innerHTML: "Génération en cours" });
+    const div2 = utils.create("div", { innerHTML: "Wird erzeugt …" });
     alert.appendChild(div);
     alert.appendChild(div2);
     const shorter = new XMLHttpRequest();
@@ -3046,17 +3043,18 @@ const MM = {
         if (shorturl.indexOf("https:") !== 0) {
           alert.appendChild(
             utils.create("h2", {
-              innertext: "Problème de récupération de l'url courte",
+              innerText:
+                "Kurz-Links sind auf diesem Server nicht eingerichtet. Bitte den langen Link verwenden.",
             }),
           );
           return;
         }
         alert.appendChild(
-          utils.create("h2", { innerText: "QRcode de l'exercice" }),
+          utils.create("h2", { innerText: "QR-Code der Aufgabe" }),
         );
         const qrdest = utils.create("div", {
           id: "qrious",
-          title: "Clic droit pour copier l'image",
+          title: "Rechtsklick, um das Bild zu kopieren",
         });
         alert.appendChild(qrdest);
         let inputShortUrl = document.getElementById("shorturl");
@@ -3070,7 +3068,7 @@ const MM = {
           width: 200,
           height: 200,
           type: "canvas",
-          image: "img/android-icon-72x72.png",
+          image: "favicon/web-app-manifest-192x192.png",
           imageOptions: { margin: 2 },
           padding: 12,
         });
@@ -3143,7 +3141,7 @@ const MM = {
       const elt = utils.create("button", {
         type: "button",
         className: "tuile btn-plain",
-        title: "Cliquer pour afficher toutes les activités du niveau",
+        title: "Alle Aufgaben dieser Stufe anzeigen",
       });
       // span et non h3 : un titre placé dans un bouton perd sa sémantique de titre
       const titre = utils.create("span", {
@@ -3152,10 +3150,10 @@ const MM = {
       });
       elt.appendChild(titre);
       const nba = utils.create("span", {
-        innerHTML: obj.activitiesNumber + " activités",
+        innerHTML: obj.activitiesNumber + " Aufgaben",
       });
       elt.onclick = () => {
-        MM.setHistory("MathsMentales niveau " + obj.nom, "n=" + id);
+        MM.setHistory("MatheVomFranz – Stufe " + obj.nom, "n=" + id);
         MM.cocherNiveauRecherche(id);
         library.displayContent(id, true);
       };
@@ -3165,7 +3163,7 @@ const MM = {
         elt.appendChild(
           utils.create("span", {
             className: "tuile-neuves",
-            innerHTML: neuves + (neuves > 1 ? " nouvelles" : " nouvelle"),
+            innerHTML: neuves + " neu",
           }),
         );
       }
@@ -3222,7 +3220,7 @@ const MM = {
         input.onclick = () => {
           library.displayContent(document.getElementById("searchinput").value);
           MM.setHistory(
-            "MathsMentales filtre : " + ordre[o][i],
+            "MatheVomFranz – Filter: " + ordre[o][i],
             "search=" +
               document.getElementById("searchinput").value +
               "&f=" +
@@ -3561,13 +3559,13 @@ const MM = {
   async loadFromServer(url) {
     try {
       const res = await fetch(url);
-      if (!res.ok) throw new Error("Impossible de charger " + url);
+      if (!res.ok) throw new Error("Konnte nicht geladen werden: " + url);
       const text = await res.text();
       await processContent(text);
     } catch (err) {
       console.error(err);
       alert(
-        "Erreur lors du chargement du fichier. Essayez le bouton « Charger ».",
+        "Die Datei konnte nicht geladen werden. Versuchen Sie es über die Schaltfläche „Laden“.",
       );
     }
   },
@@ -3592,7 +3590,7 @@ const MM = {
     MM.showTab(document.querySelector("[numero='#tab-parameters']"));
     MM.editActivity(0);
     MM.populateQuestionsAndAnswers();
-    toaster("Paniers ajoutés à la sélection");
+    toaster("Körbe zur Auswahl hinzugefügt");
   },
   /**
    * Ajoute au panier courant (celui sélectionné dans tab-parameters) toutes
@@ -3618,7 +3616,7 @@ const MM = {
     MM.editActivity(selectedCart.activities.length - 1);
     selectedCart.display();
     MM.populateQuestionsAndAnswers();
-    toaster("Activités ajoutées au panier en cours");
+    toaster("Aufgaben zum aktuellen Korb hinzugefügt");
   },
 };
 
@@ -3660,7 +3658,7 @@ async function handleLink(activities) {
   }
   MM.editActivity(selectedCart.activities.length - 1);
   selectedCart.display();
-  toaster("Activités copiées dans le panier en cours");
+  toaster("Aufgaben in den aktuellen Korb kopiert");
   MM.populateQuestionsAndAnswers();
 }
 

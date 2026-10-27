@@ -2134,7 +2134,7 @@ function buildMetaXML(title) {
                       xmlns:dc="http://purl.org/dc/elements/1.1/"
                       xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" office:version="1.3">
   <office:meta>
-    <meta:generator>MathsMentales</meta:generator>
+    <meta:generator>MatheVomFranz</meta:generator>
     <dc:title>${esc(title)}</dc:title>
     <meta:creation-date>${new Date().toISOString()}</meta:creation-date>
   </office:meta>
@@ -2208,7 +2208,7 @@ function buildMacro() {
 
     oDoc.CurrentController.getFrame().ContainerWindow.setVisible(False)
     oDoc.CurrentController.getFrame().ContainerWindow.setVisible(True)
-    MsgBox "Rafraîchissement terminé : " &amp; nCount &amp; " objet(s) parcouru(s).", 64, "MathsMentales"
+    MsgBox "Aktualisierung abgeschlossen: " &amp; nCount &amp; " Objekt(e) durchlaufen.", 64, "MatheVomFranz"
 End Sub
 
 Sub RefreshOneObject(oElement As Object)
@@ -2330,7 +2330,7 @@ function buildDocument(
   const mediaType = impress ? ODP_MEDIA : ODT_MEDIA;
   // la macro de rafraîchissement reste sans effet sous Impress : inutile de
   // l'y embarquer, et d'y faire ouvrir un document porteur de macros
-  packCommonParts(zip, mediaType, ctx, title || "document", !impress);
+  packCommonParts(zip, mediaType, ctx, title || "Dokument", !impress);
   return { zip, mediaType, extension: impress ? ".odp" : ".odt" };
 }
 
@@ -2348,7 +2348,7 @@ async function buildAndDownload(kind, title, sections, options) {
     compression: "DEFLATE",
     compressionOptions: { level: 6 },
   });
-  download(blob, (title || "document") + extension);
+  download(blob, (title || "Dokument") + extension);
   return blob;
 }
 
@@ -2455,7 +2455,7 @@ const TABLE_QR_STYLES = `
     </style:style>`;
 
 /** En-têtes du tableau questions/réponses */
-const QR_ENTETES = { enonce: "Question", corrige: "Réponse" };
+const QR_ENTETES = { enonce: "Frage", corrige: "Antwort" };
 
 /**
  * Rend une section sous forme de tableau : une ligne par question, les
@@ -2485,7 +2485,7 @@ function tableauQR(section, ctx, options) {
   xml +=
     '<table:table-header-rows><table:table-row table:style-name="MMRowQR">';
   if (numerote)
-    xml += cellule('<text:p text:style-name="MMEntete">n°</text:p>');
+    xml += cellule('<text:p text:style-name="MMEntete">Nr.</text:p>');
   for (const colonne of colonnes) {
     xml += cellule(
       `<text:p text:style-name="MMEntete">${esc(QR_ENTETES[colonne])}</text:p>`,
@@ -2515,7 +2515,7 @@ function tableauQR(section, ctx, options) {
 /** content.xml d'un document Writer */
 function buildTextContentXML(sections, ctx, options) {
   let body = `<text:p text:style-name="MMAvertissement">${esc(
-    "⚠ Rafraîchir les formules mathématiques : CTRL + MAJ + G, ou Outils > Macros > Exécuter la macro > Standard > Module1 > RefreshAllMathFormulas",
+    "⚠ Formeln aktualisieren: Strg + Umschalt + G oder Extras > Makros > Makro ausführen > Standard > Module1 > RefreshAllMathFormulas",
   )}</text:p><text:p/>`;
 
   const numerote = options.numbered !== false;
@@ -2560,7 +2560,11 @@ function buildTextContentXML(sections, ctx, options) {
   };
   /** Titre de la série de corrigés d'un panier */
   const titreCorrection = (section) =>
-    options.questions ? "Correction " + section.title : section.title;
+    options.questions
+      ? section.title
+        ? "Lösungen – " + section.title
+        : "Lösungen"
+      : section.title;
 
   const layout = options.layout || "suite";
   if (layout === "tableau") {
@@ -2774,16 +2778,16 @@ function buildPresentationContentXML(sections, ctx, options) {
       const base = section.title ? section.title + " — " : "";
       if (options.questions && item.enonce) {
         index += 1;
-        pages += slideXML(index, `${base}Question ${number}`, item.enonce, ctx);
+        pages += slideXML(index, `${base}Frage ${number}`, item.enonce, ctx);
       }
       if (options.answers && item.corrige) {
         index += 1;
-        pages += slideXML(index, `${base}Réponse ${number}`, item.corrige, ctx);
+        pages += slideXML(index, `${base}Antwort ${number}`, item.corrige, ctx);
       }
     });
   }
   if (!pages) {
-    pages = slideXML(1, "MathsMentales", null, ctx);
+    pages = slideXML(1, "MatheVomFranz", null, ctx);
   }
   return `<?xml version="1.0" encoding="UTF-8"?>
 <office:document-content ${CONTENT_NS}>

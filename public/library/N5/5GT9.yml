@@ -3,8 +3,7 @@ description: "symétrie centrale, quadrillage, déplacement, demi-tour, symétri
 ID: 5GT9
 type: text
 textSize: medium
-dest:
-  - 5GT
+dest: [5BC]
 consigne: "Répondre par un nombre de cases suivi d’une lettre (D, G, H ou B), pour chaque direction utile."
 options:
   - name: Facile — petits déplacements, trajet A→B tracé

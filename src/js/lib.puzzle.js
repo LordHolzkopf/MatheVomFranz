@@ -205,7 +205,7 @@ function makePage(){
     }
     $info.innerHTML = ''
     if(nbOfQuestions < nbOfPairs[type]) {
-        $info.innerHTML = 'Pas assez de questions sélectionnées. Je complète selon le même ratio'
+        $info.innerHTML = 'Zu wenige Fragen ausgewählt. Die fehlenden werden im gleichen Verhältnis ergänzt.'
         const manque = nbOfPairs[type] - nbOfQuestions
         for (let actid = 0; actid < nbOfActivities; actid++){
             parameters.cart.activities[actid].nbq = Math.ceil(nbQuestionsOfActivities[actid] + manque/total*nbQuestionsOfActivities[actid])
@@ -216,10 +216,10 @@ function makePage(){
     MM.memory = {};
     common.generateQuestions(parameters);
     // set elements :
-    let aleaCode = utils.create("div",{innerHTML:"Clé : "+common.seed});
+    let aleaCode = utils.create("div",{innerHTML:"Startwert: "+common.seed});
     $info.appendChild(aleaCode);
     // get the titlesheet
-    let sheetTitle = parameters.titreFiche||"Puzzle MathsMentales";
+    let sheetTitle = parameters.titreFiche||"Puzzle MatheVomFranz";
     // set the titlesheet
     let header = utils.create("header",{innerHTML:sheetTitle});
     $info.appendChild(header);
@@ -420,9 +420,9 @@ function checkURL(urlString){
     if (window.opener === null) {
         const $destination = document.body;
         const buttonEdit = utils.create('button', {
-            innerHTML: '🖋️ Éditer',
+            innerHTML: '🖋️ Bearbeiten',
             className: 'noprint abstopright',
-            title:'Éditer les activités du puzzle' });
+            title:'Aufgaben des Puzzles bearbeiten' });
         buttonEdit.onclick = () => {
             let url = window.location.href.replace('puzzle.html', 'index.html') + '&edit&type=puzzle';
             // add alea key
@@ -450,7 +450,7 @@ function checkURL(urlString){
             {
                 id:"messageerreur",
                 className:"message",
-                innerHTML:"Impossible de charger le panier :(<br>"+err
+                innerHTML:"Der Korb konnte nicht geladen werden :(<br>"+err
             });
             $info.appendChild(alert);
             console.warn(err)

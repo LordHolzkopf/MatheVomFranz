@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"2N11",
     "description":"Simplifier une écriture impliquant des racines carrées",
-    "dest":["2N1"],
+    "dest":["9AA", "9AC"],
     "options":[{
         "name":"Racines de carrés parfaits",
         "vars":{"a":"1_10"},

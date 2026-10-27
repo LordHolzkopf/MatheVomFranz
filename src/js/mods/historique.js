@@ -211,7 +211,7 @@ const historique = {
     } catch (err) {
       console.error("Historique non enregistré", err);
       this.signaler(
-        "L’historique n’a pas pu être enregistré : l’espace de stockage du navigateur est plein. Supprimez des entrées anciennes pour libérer de la place.",
+        "Der Verlauf konnte nicht gespeichert werden: Der Browserspeicher ist voll. Löschen Sie ältere Einträge, um Platz zu schaffen.",
       );
       return false;
     }
@@ -344,7 +344,7 @@ const historique = {
       try {
         resultat = valideImport(JSON.parse(texte));
       } catch (err) {
-        return { ok: false, ajoutees: 0, erreurs: ["Ce fichier n’est pas un historique lisible."] };
+        return { ok: false, ajoutees: 0, erreurs: ["Diese Datei ist kein lesbarer Verlauf."] };
       }
     } else {
       // Ancien export .html : même parseur inerte que la migration, sans
@@ -353,7 +353,7 @@ const historique = {
       resultat = {
         ok: entrees.length > 0,
         entrees,
-        erreurs: entrees.length > 0 ? [] : ["Aucune entrée trouvée dans ce fichier."],
+        erreurs: entrees.length > 0 ? [] : ["In dieser Datei wurde kein Eintrag gefunden."],
       };
     }
     if (!resultat.ok) return { ok: false, ajoutees: 0, erreurs: resultat.erreurs };
@@ -425,35 +425,35 @@ const historique = {
     const entete = utils.create("header", { className: "hist-entete" });
     entete.innerHTML = `
       <div class="hist-titre">
-        <span>Historique des paniers</span>
+        <span>Verlauf der Aufgabenkörbe</span>
         <span id="hist-compte" class="hist-compte"></span>
       </div>
       <div class="hist-outils">
         <label class="hist-recherche">
           <span aria-hidden="true">🔎</span>
-          <input type="search" id="hist-input-recherche" placeholder="Rechercher…"
-                 aria-label="Rechercher dans l’historique">
+          <input type="search" id="hist-input-recherche" placeholder="Suchen …"
+                 aria-label="Im Verlauf suchen">
         </label>
-        <select id="hist-filtre-type" aria-label="Filtrer par type"></select>
-        <button type="button" id="hist-btn-selection" title="Sélectionner plusieurs éléments">☑ Sélectionner</button>
+        <select id="hist-filtre-type" aria-label="Nach Art filtern"></select>
+        <button type="button" id="hist-btn-selection" title="Mehrere Einträge auswählen">☑ Auswählen</button>
         <details class="hist-menu">
-          <summary title="Autres actions">⋯</summary>
+          <summary title="Weitere Aktionen">⋯</summary>
           <div class="hist-menu-contenu">
-            <button type="button" id="hist-btn-export">💾 Exporter (JSON)</button>
-            <button type="button" id="hist-btn-import">📂 Importer…</button>
+            <button type="button" id="hist-btn-export">💾 Exportieren (JSON)</button>
+            <button type="button" id="hist-btn-import">📂 Importieren …</button>
             <hr>
-            <button type="button" id="hist-btn-nuage-config">☁️ Configurer la synchronisation</button>
-            <button type="button" id="hist-btn-nuage-sync">🔄 Synchroniser maintenant</button>
+            <button type="button" id="hist-btn-nuage-config">☁️ Synchronisierung einrichten</button>
+            <button type="button" id="hist-btn-nuage-sync">🔄 Jetzt synchronisieren</button>
             <hr>
-            <button type="button" id="hist-btn-nettoyer" class="hist-danger">🧹 Nettoyer les entrées anciennes</button>
-            <button type="button" id="hist-btn-vider" class="hist-danger">💥 Vider l’historique</button>
+            <button type="button" id="hist-btn-nettoyer" class="hist-danger">🧹 Alte Einträge aufräumen</button>
+            <button type="button" id="hist-btn-vider" class="hist-danger">💥 Verlauf leeren</button>
           </div>
         </details>
         <input type="file" id="hist-input-import" accept=".json,.html,application/json,text/html" class="hidden">
       </div>
       <div id="hist-actions-selection" class="hidden">
-        Pour la sélection :
-        <button type="button" id="hist-btn-suppr-selection">Supprimer</button>
+        Auswahl:
+        <button type="button" id="hist-btn-suppr-selection">Löschen</button>
       </div>
       <div id="hist-avertissement" class="hidden"></div>`;
     return entete;
@@ -494,14 +494,14 @@ const historique = {
       // filet.
       const candidates = this.anciennes();
       if (candidates.length === 0) {
-        this.signaler("Aucune entrée à nettoyer.");
+        this.signaler("Keine alten Einträge zum Aufräumen.");
         return;
       }
       this.supprimerAvecAnnulation(candidates.map((entree) => entree.id));
     });
     s.querySelector("#hist-btn-vider").addEventListener("click", () => {
       // Seule action assez massive pour mériter un vrai point d'arrêt.
-      if (!window.confirm("Confirmez-vous la suppression de tout l’historique ?")) return;
+      if (!window.confirm("Wollen Sie wirklich den gesamten Verlauf löschen?")) return;
       this.vider();
       this.rendre();
     });
@@ -518,7 +518,7 @@ const historique = {
     this.rendreFiltreTypes(toutes);
     const visibles = filtre(toutes, { recherche: this.recherche, types: this.typesActifs });
     s.querySelector("#hist-compte").textContent =
-      toutes.length === 0 ? "" : toutes.length + (toutes.length > 1 ? " entrées" : " entrée");
+      toutes.length === 0 ? "" : toutes.length + (toutes.length > 1 ? " Einträge" : " Eintrag");
     this.rendreAvertissement();
     const liste = s.querySelector("#hist-liste");
     liste.innerHTML = "";
@@ -552,7 +552,7 @@ const historique = {
     if (!filtrageActif) return;
     const visibles = filtre(actives(this.entrees), { recherche: this.recherche, types: this.typesActifs });
     zone.textContent =
-      visibles.length + (visibles.length > 1 ? " résultats trouvés." : " résultat trouvé.");
+      visibles.length + " Treffer gefunden.";
   },
 
   /** Le menu ne propose que les types réellement présents dans l'historique. */
@@ -561,7 +561,7 @@ const historique = {
     const presents = [...new Set(entrees.map((entree) => entree.type))];
     const choix = this.typesActifs[0] || "";
     select.innerHTML = "";
-    select.appendChild(utils.create("option", { value: "", textContent: "Tous les types" }));
+    select.appendChild(utils.create("option", { value: "", textContent: "Alle Arten" }));
     for (const code of presents) {
       select.appendChild(
         utils.create("option", {
@@ -587,8 +587,8 @@ const historique = {
       return;
     }
     zone.className = "hist-avertissement";
-    zone.textContent = vieilles.length + " entrée(s) de plus de 6 mois · ";
-    const bouton = utils.create("button", { type: "button", textContent: "Nettoyer" });
+    zone.textContent = vieilles.length + (vieilles.length === 1 ? " Eintrag ist" : " Einträge sind") + " älter als 6 Monate · ";
+    const bouton = utils.create("button", { type: "button", textContent: "Aufräumen" });
     // Même mécanisme d'annulation que le bouton du menu ⋯ et qu'une
     // suppression manuelle : voir supprimerAvecAnnulation.
     bouton.addEventListener("click", () => this.supprimerAvecAnnulation(vieilles.map((entree) => entree.id)));
@@ -598,15 +598,15 @@ const historique = {
   construireVide(historiqueVide) {
     const div = utils.create("div", { className: "hist-vide" });
     if (historiqueVide) {
-      div.innerHTML = `<p>Votre historique est vide.</p>
-        <p>Les boutons <b>« → Historique »</b> des onglets Paramétrer, Énoncés et Corrigés y rangent
-        l’adresse de ce que vous venez de préparer, pour la retrouver plus tard.</p>`;
+      div.innerHTML = `<p>Ihr Verlauf ist leer.</p>
+        <p>Die Schaltflächen <b>„→ Verlauf“</b> in den Reitern Einstellen, Aufgaben und Lösungen legen hier
+        die Adresse dessen ab, was Sie gerade vorbereitet haben – so finden Sie es später wieder.</p>`;
       return div;
     }
     div.appendChild(
-      utils.create("p", { textContent: "Aucun résultat pour « " + this.recherche + " »." }),
+      utils.create("p", { textContent: "Keine Treffer für „" + this.recherche + "“." }),
     );
-    const bouton = utils.create("button", { type: "button", textContent: "Effacer la recherche" });
+    const bouton = utils.create("button", { type: "button", textContent: "Suche zurücksetzen" });
     bouton.addEventListener("click", () => {
       this.recherche = "";
       this.typesActifs = [];
@@ -627,7 +627,7 @@ const historique = {
     if (this.selectionActive) {
       const case_ = utils.create("input", { type: "checkbox", className: "hist-case" });
       case_.dataset.id = entree.id;
-      case_.setAttribute("aria-label", "Sélectionner " + entree.titre);
+      case_.setAttribute("aria-label", entree.titre + " auswählen");
       ligne.appendChild(case_);
     }
     ligne.appendChild(
@@ -637,7 +637,7 @@ const historique = {
       className: "hist-titre-entree",
       textContent: entree.titre,
       contentEditable: "true",
-      title: "Cliquer pour renommer",
+      title: "Zum Umbenennen anklicken",
     });
     // Branché à la construction, pas au clic : un champ atteint au clavier
     // (Tab) doit valider sa saisie tout autant qu'un champ atteint à la
@@ -648,14 +648,21 @@ const historique = {
       utils.create("time", {
         className: "hist-date",
         textContent: this.dateRelative(entree.modifie),
-        title: new Date(entree.modifie).toLocaleString("fr-FR"),
+        title:
+          new Date(entree.modifie).toLocaleString("de-DE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          }) + " Uhr",
       }),
     );
     li.appendChild(ligne);
 
     const meta = [];
-    if (nombres.activites > 0) meta.push(nombres.activites + " activité" + (nombres.activites > 1 ? "s" : ""));
-    if (nombres.questions > 0) meta.push(nombres.questions + " questions");
+    if (nombres.activites > 0) meta.push(nombres.activites + (nombres.activites > 1 ? " Aufgaben" : " Aufgabe"));
+    if (nombres.questions > 0) meta.push(nombres.questions + (nombres.questions > 1 ? " Fragen" : " Frage"));
     meta.push(type.libelle);
     li.appendChild(utils.create("div", { className: "hist-meta", textContent: meta.join(" · ") }));
 
@@ -666,7 +673,7 @@ const historique = {
 
   construireDetail(entree) {
     const details = utils.create("details", { className: "hist-detail" });
-    details.appendChild(utils.create("summary", { textContent: "Détail des paniers" }));
+    details.appendChild(utils.create("summary", { textContent: "Inhalt der Körbe" }));
     const conteneur = utils.create("div", { className: "hist-paniers" });
     for (const panier of entree.paniers) {
       const bloc = utils.create("div", { className: "hist-panier" });
@@ -687,23 +694,23 @@ const historique = {
     // Vrais liens : on doit pouvoir les ouvrir dans un nouvel onglet et copier
     // l'adresse au clic droit. Les seules actions qui ne sont pas des boutons.
     zone.appendChild(
-      utils.create("a", { href: entree.url, className: "hist-lien", textContent: "🎯 Ouvrir" }),
+      utils.create("a", { href: entree.url, className: "hist-lien", textContent: "🎯 Öffnen" }),
     );
     if (entree.urlSansGraine !== "") {
       zone.appendChild(
         utils.create("a", {
           href: entree.urlSansGraine,
           className: "hist-lien",
-          textContent: "🎲 Autres données",
+          textContent: "🎲 Neue Zufallswerte",
         }),
       );
     }
     const actions = [
-      ["editer", "🛠", "Modifier dans Paramétrer"],
-      ["panier", "♻️", "Ajouter comme panier"],
-      ["panierCourant", "➕", "Ajouter au panier courant"],
-      ["epingler", entree.epingle ? "📌" : "📍", entree.epingle ? "Désépingler" : "Épingler"],
-      ["supprimer", "❌", "Supprimer"],
+      ["editer", "🛠", "In „Einstellen“ bearbeiten"],
+      ["panier", "♻️", "Als neuen Korb hinzufügen"],
+      ["panierCourant", "➕", "Zum aktuellen Korb hinzufügen"],
+      ["epingler", entree.epingle ? "📌" : "📍", entree.epingle ? "Lösen" : "Anheften"],
+      ["supprimer", "❌", "Löschen"],
     ];
     for (const [action, icone, libelle] of actions) {
       const bouton = utils.create("button", {
@@ -713,7 +720,7 @@ const historique = {
         title: libelle,
       });
       bouton.dataset.action = action;
-      bouton.setAttribute("aria-label", libelle + " : " + entree.titre);
+      bouton.setAttribute("aria-label", libelle + ": " + entree.titre);
       zone.appendChild(bouton);
     }
     return zone;
@@ -829,10 +836,10 @@ const historique = {
     const carte = champ.closest(".hist-carte");
     if (carte === null) return;
     const case_ = carte.querySelector(".hist-case");
-    if (case_ !== null) case_.setAttribute("aria-label", "Sélectionner " + entree.titre);
+    if (case_ !== null) case_.setAttribute("aria-label", entree.titre + " auswählen");
     carte.querySelectorAll("[data-action]").forEach((bouton) => {
       const libelle = bouton.getAttribute("title") || "";
-      bouton.setAttribute("aria-label", libelle + " : " + entree.titre);
+      bouton.setAttribute("aria-label", libelle + ": " + entree.titre);
     });
   },
 
@@ -852,8 +859,8 @@ const historique = {
     this.lotSuppression = (this.lotSuppression || []).concat(retirees);
     const lot = this.lotSuppression;
     const zone = this.section.querySelector("#hist-annonce");
-    zone.textContent = lot.length + " entrée(s) supprimée(s) · ";
-    const bouton = utils.create("button", { type: "button", textContent: "Annuler" });
+    zone.textContent = lot.length + (lot.length === 1 ? " Eintrag gelöscht · " : " Einträge gelöscht · ");
+    const bouton = utils.create("button", { type: "button", textContent: "Rückgängig" });
     bouton.addEventListener("click", () => {
       this.restaurer(lot);
       this.lotSuppression = null;
@@ -916,16 +923,16 @@ const historique = {
   dateRelative(quand) {
     const ecart = Date.now() - quand;
     const heure = 3600 * 1000;
-    if (ecart < heure) return "il y a " + Math.max(1, Math.round(ecart / 60000)) + " min";
-    if (ecart < 24 * heure) return "il y a " + Math.round(ecart / heure) + " h";
-    if (ecart < 48 * heure) return "hier " + new Date(quand).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-    return new Date(quand).toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
+    if (ecart < heure) return "vor " + Math.max(1, Math.round(ecart / 60000)) + " Min.";
+    if (ecart < 24 * heure) return "vor " + Math.round(ecart / heure) + " Std.";
+    if (ecart < 48 * heure) return "gestern, " + new Date(quand).toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" }) + " Uhr";
+    return new Date(quand).toLocaleDateString("de-DE", { day: "numeric", month: "short" });
   },
 
   telecharger() {
     const blob = new Blob([this.exporterJSON()], { type: "application/json;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const a = utils.create("a", { href: url, download: "mathsmentales-historique.json" });
+    const a = utils.create("a", { href: url, download: "mathevomfranz-verlauf.json" });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -938,13 +945,13 @@ const historique = {
     const lecteur = new FileReader();
     lecteur.onload = (fin) => {
       const remplacer = window.confirm(
-        "Remplacer entièrement votre historique par ce fichier ?\n\n" +
-          "OK : remplacer.\nAnnuler : fusionner avec l’historique existant (recommandé).",
+        "Ihren Verlauf vollständig durch diese Datei ersetzen?\n\n" +
+          "OK: ersetzen.\nAbbrechen: mit dem vorhandenen Verlauf zusammenführen (empfohlen).",
       );
       const resultat = this.importerJSON(fin.target.result, remplacer ? "remplacement" : "fusion");
       this.signaler(
         resultat.ok
-          ? resultat.ajoutees + " entrée(s) importée(s)." + (resultat.erreurs.length > 0 ? " " + resultat.erreurs.join(" ") : "")
+          ? resultat.ajoutees + (resultat.ajoutees === 1 ? " Eintrag importiert." : " Einträge importiert.") + (resultat.erreurs.length > 0 ? " " + resultat.erreurs.join(" ") : "")
           : resultat.erreurs.join(" "),
       );
       this.rendre();
@@ -963,9 +970,9 @@ const historique = {
       setTimeout(() => toast.classList.remove("show"), 3000);
     }
     if (bouton === null) return;
-    bouton.innerHTML = bouton.innerHTML.replace("Historique", "📁 Copié ✅");
+    bouton.innerHTML = bouton.innerHTML.replace(/Historique|Verlauf/, "📁 Kopiert ✅");
     setTimeout(() => {
-      bouton.innerHTML = bouton.innerHTML.replace("📁 Copié ✅", "Historique");
+      bouton.innerHTML = bouton.innerHTML.replace("📁 Kopiert ✅", "Verlauf");
     }, 3000);
   },
 };

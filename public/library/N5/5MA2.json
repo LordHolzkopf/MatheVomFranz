@@ -4,7 +4,7 @@
     "ID":"5MA2",
     "description":"Calculer le volume d'un cube, d'un pavé droit, d'un prisme droit.",
     "textSize":"small",
-    "dest":[ "6MD", "5MA", "4MA", "3MA"],
+    "dest":["5ED", "9CC"],
     "keys":["cm","x³","_","_","_","_","_","_"],
     "options":[{
         "name":"Volume du cube",

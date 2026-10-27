@@ -1,6 +1,6 @@
 title: Arrondir un nombre décimal 2
 description: choix possible du nombre de chiffres affichés
-dest: ["6NC", "5NA", "4NA", "3NA"]
+dest: [6BB]
 consigne: Arrondir le nombre
 options:
   - name: À l’unité

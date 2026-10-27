@@ -3,7 +3,7 @@
     "description":"racine carrée, carrés parfaits, √, carré",
     "type":"latex",
     "ID":"4NA4",
-    "dest":["4NA","3NA","2N1"],
+    "dest":["9AA"],
     "params":{
         "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"racine":"1","entier":"1"}},
         "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"racine":"2","entier":"2"}},

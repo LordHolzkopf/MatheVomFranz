@@ -21,11 +21,11 @@ document.getElementById("creator-menu").onclick = (evt)=>{
         zoom.minus();
     } else if(evt.target.id === "btneditcontent"){
         if (editionMode) {
-            evt.target.innerHTML = 'Éditer le contenu'
+            evt.target.innerHTML = 'Inhalt bearbeiten'
             document.querySelectorAll(".dominos-carte > article > div").forEach(el=>{el.contentEditable = false;})
             editionMode = false
         } else {
-            evt.target.innerHTML = 'Ne plus éditer'
+            evt.target.innerHTML = 'Bearbeiten beenden'
             document.querySelectorAll(".dominos-carte > article > div").forEach(el=>{el.contentEditable = true;})
             editionMode = true
         }
@@ -51,7 +51,7 @@ document.getElementById("nbDominos").oninput = (evt)=>{
         parameters.nb = Number(evt.target.value);
         setNumberOfDominos();
         refresh();    
-    } else {alert("Plusieurs activités,\nopération impossible.")}
+    } else {alert("Das geht nur, wenn der Korb genau eine Aufgabe enthält.")}
 }
 function changeFond(evt) {
     var input = evt.target;
@@ -109,9 +109,9 @@ function melanger(){
 function noDoublon(){
     parameters.doublons = !parameters.doublons;
     if(!parameters.doublons){
-        document.getElementById("btnnodoublon").innerHTML = "Doublons"
+        document.getElementById("btnnodoublon").innerHTML = "Doppelte zulassen"
     } else 
-        document.getElementById("btnnodoublon").innerHTML = "No Doublons"
+        document.getElementById("btnnodoublon").innerHTML = "Doppelte entfernen"
     refresh();
     console.log(parameters)
 }
@@ -128,9 +128,9 @@ function makePage(){
     if (window.opener === null) {
         const $destination = document.body;
         const buttonEdit = utils.create('button', {
-            innerHTML: '🖋️ Éditer',
+            innerHTML: '🖋️ Bearbeiten',
             className: 'noprint abstopright',
-            title:'Éditer les activités des dominos' });
+            title:'Aufgaben der Dominos bearbeiten' });
         buttonEdit.onclick = () => {
             let url = window.location.href.replace('dominos.html', 'index.html') + '&edit&type=dominos';
             // add alea key
@@ -143,15 +143,15 @@ function makePage(){
     content.innerHTML = "";
     MM.memory = {};
     setNumberOfDominos();
-    let aleaCode = utils.create("div",{className:"floatright",innerHTML:"Clé : "+parameters.alea});
+    let aleaCode = utils.create("div",{className:"floatright",innerHTML:"Startwert: "+parameters.alea});
     content.appendChild(aleaCode);
     let sectionCartes = utils.create("section",{className:"dominos-section"});
     let nbOfCards=0;
     common.generateQuestions(parameters);
     let span = document.getElementById("infoErrorDouble")
     if(parameters.errorDouble){
-        span.innerHTML = "Impossible de supprimer les doublons"
-        span.title = "Les choix d'activité ne permettent pas de générer un ensemble de dominos sans doublon. Diminuer le nombre de questions ou modifier le choix d'activités."
+        span.innerHTML = "Doppelte lassen sich nicht vermeiden"
+        span.title = "Mit den gewählten Aufgaben lassen sich keine Dominos ohne Doppelte erzeugen. Verringern Sie die Anzahl der Fragen oder wählen Sie andere Aufgaben."
     } else {span.innerHTML = "";span.title="";}
 
     for (let i = 0; i < parameters.cart.activities.length; i++) {
@@ -242,8 +242,8 @@ function checkURL(urlString){
         parameters.nb=Number(vars.n);
         document.getElementById("nbDominos").value = parameters.nb
         parameters.titreFiche=decodeURI(vars.t);
-        parameters.doublons = vars.d === undefined ? true : false;
-        if(!parameters.doublons)document.getElementById("btnnodoublon").innerHTML = "Doublons"
+        parameters.doublons = vars.d === "true";
+        if(!parameters.doublons)document.getElementById("btnnodoublon").innerHTML = "Doppelte zulassen"
         // Affectation de la valeur au nombre de feuilles
         document.getElementById("nbDominos").value = parameters.nb;
         zoom = new Zoom("changeFontSize","#thehtml",true,"pt",parameters.tailleTexte);
@@ -260,7 +260,7 @@ function checkURL(urlString){
             {
                 id:"messageerreur",
                 className:"message",
-                innerHTML:"Impossible de charger le panier :(<br>"+err
+                innerHTML:"Der Korb konnte nicht geladen werden :(<br>"+err
             });
             document.getElementById("tab-accueil").appendChild(alert);
         });

@@ -4,7 +4,7 @@
     "type":"text",
     "ID":"4DC2",
     "textSize":"small",
-    "dest":["4DC","3DC","2D1"],
+    "dest":["7CD"],
     "keys":["_","+","-","%","_","_","_","_"],
     "options":[{
         "name":"2 augmentations identiques",

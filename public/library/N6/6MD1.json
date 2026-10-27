@@ -1,6 +1,6 @@
 {
     "ID":"6MD1",
-    "dest":["6MD"],
+    "dest":["5EC"],
     "type":"text",
     "title":"Volume par comptage de cubes",
     "description":"Dénombrer les cubes dans un assemblage",

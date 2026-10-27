@@ -4,8 +4,7 @@ ID: 6NC13
 type: text
 speech: 1
 keys: ["<", ">", "=", "_"]
-dest:
-  - 6NC
+dest: [6BB, 5AA]
 options:
   - name: Entiers pas même nombre de chiffres
     vars:

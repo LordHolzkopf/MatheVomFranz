@@ -172,12 +172,12 @@ test("importCode rejects a code from a different parcours", () => {
   const source = new ParkourState({ ...makeParcours(), id: "other-parcours" });
   const code = source.exportCode();
   const target = new ParkourState(makeParcours());
-  assert.throws(() => target.importCode(code), /autre parcours/);
+  assert.throws(() => target.importCode(code), /anderen Parkour/);
 });
 
 test("importCode rejects garbage input", () => {
   const target = new ParkourState(makeParcours());
-  assert.throws(() => target.importCode("not-base64-json"), /invalide/);
+  assert.throws(() => target.importCode("not-base64-json"), /ungültig/);
 });
 
 test("les règles par défaut s'appliquent quand le parcours n'en définit pas", () => {

@@ -8,7 +8,7 @@ import Figure from "./mods/figure.js";
 const MM = {};
 MM.version = utils.getVersion();
 const content = document.getElementById("creator-content");
-const pageOrientations = ["portrait", "paysage"];
+const pageOrientations = ["Hochformat", "Querformat"];
 let pageHeight = 275; // cm
 let pageFormat = 0; // portrait
 let answersBorderColor = "#d0d0d0";
@@ -47,10 +47,10 @@ document.getElementById("btnRectoVerso").onclick = (evt) => {
   const btn = evt.target;
   if (parameters.disposition === "both") {
     parameters.disposition = "separated";
-    btn.innerText = "Recto/Verso";
+    btn.innerText = "Beidseitig";
   } else {
     parameters.disposition = "both";
-    btn.innerText = "Recto";
+    btn.innerText = "Einseitig";
   }
   refresh();
 };
@@ -432,9 +432,9 @@ function checkURL(urlString) {
   if (window.opener === null) {
     const $destination = document.getElementById("creator-menu");
     const buttonEdit = utils.create("button", {
-      innerHTML: "🖋️ Éditer",
+      innerHTML: "🖋️ Bearbeiten",
       className: "noprint fright",
-      title: "Éditer les activités des cartes",
+      title: "Aufgaben der Karteikarten bearbeiten",
     });
     buttonEdit.onclick = () => {
       let url =
@@ -460,7 +460,7 @@ function checkURL(urlString) {
     parameters.answerType = utils.getRadioChecked("anstype");
     parameters.disposition = vars.disp || "both"; //'both' or 'separated'
     document.getElementById("btnRectoVerso").innerText =
-      parameters.disposition === "both" ? "Recto" : "Recto/Verso";
+      parameters.disposition === "both" ? "Einseitig" : "Beidseitig";
     zoom = new Zoom(
       "changeFontSize",
       "#creator-content",
@@ -489,7 +489,7 @@ function checkURL(urlString) {
         let alert = utils.create("div", {
           id: "messageerreur",
           className: "message",
-          innerHTML: "Impossible de charger le panier :(<br>" + err,
+          innerHTML: "Der Korb konnte nicht geladen werden :(<br>" + err,
         });
         document.getElementById("creator-container").appendChild(alert);
       });

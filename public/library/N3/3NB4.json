@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"3NB4",
     "textSize":"medium",
-    "dest":["3NB","2N1"],
+    "dest":["9DC"],
     "keys":["(","-","^","_","_","_","_","_"],
     "consigne":"Mettre sous la forme $$a^b$$",
     "options":[{

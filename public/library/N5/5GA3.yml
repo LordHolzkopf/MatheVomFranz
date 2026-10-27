@@ -3,8 +3,7 @@ description: "Reconnaitre ou dessiner la vue de face, arrière, de gauche, de dr
 type: text
 ID: 5GA3
 repeat: 2
-dest:
-  - 5GA
+dest: [5EB]
 consts:
   mots: ["face", "arrière", "droite", "gauche", "dessus", "dessous"]
   prose: ["de face", "arrière", "de droite", "de gauche", "de dessus", "de dessous"]

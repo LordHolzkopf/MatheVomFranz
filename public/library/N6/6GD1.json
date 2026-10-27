@@ -5,7 +5,7 @@
     "speech":1,
     "textSize":"medium",
     "ID":"6GD1",
-    "dest":["6GD", "5MA", "4MA", "3MA"],
+    "dest":["5DB", "9AA"],
     "consts":{"uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}},
     "vars":{"a":"1_10",
         "b":"${:a*:a}",

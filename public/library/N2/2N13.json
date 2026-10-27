@@ -4,9 +4,7 @@
   "type": "latex",
   "auteur":"Sandrine GOURDIN",
   "textSize": "medium",
-  "dest": [
-    "3NB","2N1"
-  ],
+  "dest":["6EG", "7AD"],
   "consigne": "Calculer, puis réduire au maximum si possible",
   "valueType":"fractionIrreductible",
   "options": [

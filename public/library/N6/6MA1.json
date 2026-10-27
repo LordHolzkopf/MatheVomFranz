@@ -6,7 +6,7 @@
     "speech":1,
     "textSize":"small",
     "keys":["pi","mm","cm","dm","mt","dam","hm","km"],
-    "dest":["6MA", "5MA", "4MA", "3MA"],
+    "dest":["5DC", "9CA"],
     "consts":{"unites":["mm","cm","dm","m", "dam", "hm", "km"],
     "uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"},
     "figures":[[

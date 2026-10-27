@@ -4,7 +4,7 @@
     "description": "Donner le nom d'un angle avec trois lettres.",
     "ID": "6GC2",
     "keys": ["alphabetique", ["ang","t","u","v","w","x","y","z","'"]],
-    "dest": ["6GC", "5GB", "4GB", "3GB"],
+    "dest":["6DD"],
     "options":[
         {
             "name":"À l'aide de trois points",

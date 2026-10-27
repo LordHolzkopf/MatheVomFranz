@@ -3,7 +3,7 @@
     "type":"latex",
     "ID":"5NE4",
     "description":"Tester si une égalité est vraie pour une valeur donnée : substituer, remplacer x, vrai ou faux, équation.",
-    "dest":["5NE","4NE","3ND","2N3"],
+    "dest":["7DD", "7DA"],
     "textSize":"medium",
     "keys":["V","F"],
     "consigne":"Vérifier l’égalité",

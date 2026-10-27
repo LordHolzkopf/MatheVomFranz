@@ -1,0 +1,276 @@
+/* MatheVomFranz – Karopapier-Design
+   Wird nach den Stylesheets des Originals eingebunden und überschreibt sie.
+   Farben und Maße als Variablen, damit sich das Design zentral anpassen lässt. */
+
+@font-face {
+    font-family: "Patrick Hand";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url("./fonts/patrick-hand-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 1000;
+    src: url("./fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+    /* Papier und Raster */
+    --mvf-papier: #fdfcf6;
+    --mvf-karo: 20px;
+    --mvf-karo-linie: rgba(64, 110, 175, 0.16);
+    --mvf-karo-linie-stark: rgba(64, 110, 175, 0.24);
+    /* Schrift und Tinte */
+    --mvf-text: #23262d;
+    --mvf-bleistift: #5f6672;
+    --mvf-tinte: #1f4fa3;
+    --mvf-tinte-dunkel: #163a7a;
+    --mvf-tinte-hell: #e7eefb;
+    /* Akzente */
+    --mvf-rand: #d6453d;           /* roter Heftrand */
+    --mvf-marker: #fff27a;         /* Textmarker */
+    --mvf-marker-gruen: #c9f2c0;
+    --mvf-tafel: #2e5240;          /* Tafelgrün */
+    --mvf-karte: #ffffff;
+    --mvf-schatten: 0 1px 2px rgba(30, 40, 60, 0.12), 0 3px 10px rgba(30, 40, 60, 0.08);
+    --mvf-radius: 6px;
+    /* Schriften */
+    --mvf-schrift: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mvf-hand: "Patrick Hand", "Comic Neue", "Segoe Print", cursive;
+}
+
+/* Karopapier mit Rechenkästchen; jedes fünfte Kästchen etwas kräftiger wäre
+   zu unruhig – das Raster bleibt gleichmäßig wie im Schulheft. */
+html,
+body {
+    background-color: var(--mvf-papier);
+}
+body {
+    background-image:
+        linear-gradient(var(--mvf-karo-linie) 1px, transparent 1px),
+        linear-gradient(90deg, var(--mvf-karo-linie) 1px, transparent 1px);
+    background-size: var(--mvf-karo) var(--mvf-karo);
+    background-position: -1px -1px;
+    color: var(--mvf-text);
+    font-family: var(--mvf-schrift);
+}
+
+a {
+    color: var(--mvf-tinte);
+}
+a:hover,
+a:focus {
+    color: var(--mvf-tinte-dunkel);
+}
+
+/* Überschriften in Handschrift, wie mit dem Füller ins Heft geschrieben */
+.mvf-hand,
+.sg-title {
+    font-family: var(--mvf-hand);
+    color: var(--mvf-tinte);
+    letter-spacing: 0.01em;
+}
+
+/* „mit dem Lineal unterstrichen“ */
+.mvf-unterstrichen {
+    background-image: linear-gradient(var(--mvf-tinte), var(--mvf-tinte));
+    background-size: 100% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+}
+
+/* Textmarker-Hervorhebung */
+.mvf-marker {
+    background: linear-gradient(transparent 55%, var(--mvf-marker) 55%, var(--mvf-marker) 92%, transparent 92%);
+}
+
+/* Karteikarte: weißes Blatt mit leichtem Schatten */
+.mvf-karte {
+    background: var(--mvf-karte);
+    border: 1px solid rgba(30, 40, 60, 0.12);
+    border-radius: var(--mvf-radius);
+    box-shadow: var(--mvf-schatten);
+}
+
+/* Fußzeile mit Würdigung */
+.mvf-fuss {
+    font-size: 1.5rem;
+    color: var(--mvf-bleistift);
+    text-align: center;
+    padding: 1.5rem 1rem 2rem;
+}
+
+/* ───────────── Startseite und Konfigurator (index.html) ───────────── */
+
+/* Kopfzeile: weißer Papierstreifen mit Tintenlinie */
+#app-container > header {
+    background: var(--mvf-karte);
+    border-bottom: 2px solid var(--mvf-tinte);
+    box-shadow: 0 2px 6px rgba(30, 40, 60, 0.08);
+}
+.mvf-logo-klein {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin: 6px 4px 0;
+    background: url("../img/mvf-icon.svg") center / contain no-repeat;
+}
+.tabs-menu-link {
+    font-weight: 600;
+    color: var(--mvf-text);
+}
+.tabs-menu-link[aria-selected="true"],
+.tabs-menu-link.active {
+    color: var(--mvf-tinte);
+    border-bottom-color: var(--mvf-tinte) !important;
+}
+.tabs-menu-link:focus-visible {
+    outline-color: var(--mvf-tinte);
+}
+header nav .color-inverse * {
+    background-color: transparent;
+    color: var(--mvf-tinte);
+}
+header nav .menu > li > button {
+    font-family: var(--mvf-hand);
+    font-size: 2rem;
+    padding: 0 1.2rem;
+}
+header nav .menu li ul {
+    background: var(--mvf-karte);
+    border: 1px solid rgba(31, 79, 163, 0.3);
+    box-shadow: var(--mvf-schatten);
+}
+header nav .menu li ul li > button {
+    color: var(--mvf-text);
+    font-size: 1.6rem;
+}
+.menu li ul li:hover,
+.menu li ul li:hover > button,
+.menu li ul li > button:hover,
+.menu li ul li > button:focus-visible {
+    background-color: var(--mvf-tinte-hell);
+    color: var(--mvf-tinte-dunkel);
+}
+.menu li button:hover,
+.menu li button:focus-visible {
+    color: var(--mvf-tinte-dunkel);
+}
+
+/* Begrüßung */
+.accueillogo .mvf-logo {
+    float: left;
+    width: 132px;
+    height: 132px;
+    margin: 0 1.25rem 0.5rem 0;
+    transform: rotate(-3deg);
+    filter: drop-shadow(0 3px 6px rgba(30, 40, 60, 0.18));
+}
+.accueillogo h1.mvf-titel {
+    font-family: var(--mvf-hand);
+    font-weight: 400;
+    font-size: 4.6rem;
+    line-height: 1.05;
+    color: var(--mvf-tinte);
+    margin: 0.2rem 0 0.4rem;
+}
+.accueillogo .untertitel {
+    font-family: var(--mvf-hand);
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--mvf-bleistift);
+    margin: 0 0 0.8rem;
+}
+.formats li {
+    background: var(--mvf-karte);
+    border: 1px solid rgba(31, 79, 163, 0.35);
+    color: var(--mvf-tinte-dunkel);
+}
+
+/* Abschnittsüberschriften: Handschrift in Tinte, Linien als Bleistiftstriche */
+h2.sg-title,
+h3.sg-title {
+    color: var(--mvf-tinte);
+}
+h2.sg-title {
+    font-size: 2.8rem;
+    font-weight: 400;
+    background: rgba(253, 252, 246, 0.92);
+}
+h2.sg-title::before,
+h2.sg-title::after {
+    border-bottom: 2px dashed rgba(95, 102, 114, 0.45);
+}
+
+/* Stufen-Kacheln als Karteikarten, leicht schräg aufs Heft gelegt */
+.grille .tuile {
+    background: var(--mvf-karte);
+    border: 1px solid rgba(30, 40, 60, 0.14);
+    border-top: 6px solid var(--mvf-tinte);
+    border-radius: 4px;
+    box-shadow: var(--mvf-schatten);
+    color: var(--mvf-text);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.grille .tuile:nth-child(3n + 1) { transform: rotate(-0.8deg); }
+.grille .tuile:nth-child(3n + 2) { transform: rotate(0.6deg); }
+.grille .tuile:nth-child(3n) { transform: rotate(-0.3deg); }
+.grille .tuile:hover,
+.grille .tuile:focus-visible {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 0 6px 16px rgba(30, 40, 60, 0.18);
+}
+.grille .tuile .tuile-titre {
+    font-family: var(--mvf-hand);
+    font-weight: 400;
+    font-size: 3.4rem;
+    line-height: 1.1;
+    color: var(--mvf-tinte);
+}
+.grille.lycee .tuile {
+    border-top-color: var(--mvf-tafel);
+}
+.grille.lycee .tuile .tuile-titre {
+    color: var(--mvf-tafel);
+}
+.grille.weitere .tuile {
+    border-top-color: var(--mvf-rand);
+}
+.grille.weitere .tuile .tuile-titre {
+    color: var(--mvf-rand);
+}
+
+/* Suche */
+.accueil-recherche input[type="search"],
+#searchinput {
+    border: 2px solid rgba(31, 79, 163, 0.4);
+    border-radius: var(--mvf-radius);
+    background: var(--mvf-karte);
+}
+.accueil-recherche input[type="search"]:focus,
+#searchinput:focus {
+    border-color: var(--mvf-tinte);
+    outline: 3px solid var(--mvf-tinte-hell);
+}
+
+/* Hinweis auf das Original und Fußleiste */
+.hinweis-original {
+    font-size: 1.5rem;
+    color: var(--mvf-bleistift);
+    margin: 2rem auto 1rem;
+    max-width: 60rem;
+}
+#footer-menu {
+    background: var(--mvf-karte);
+    border-top: 2px solid var(--mvf-tinte);
+}
+
+@media print {
+    body {
+        background: #fff !important;
+    }
+}

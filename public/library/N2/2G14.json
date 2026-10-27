@@ -3,7 +3,7 @@
     "description":"Calculer le déterminant de deux vecteurs.",
     "type":"latex",
     "ID":"2G14",
-    "dest":["2G1"],
+    "dest":["WCC"],
     "textSize":"medium",
     "consts":{"vecteurs":["u", "v", "w", "u'", "v'", "w'"]},
     "options":[{

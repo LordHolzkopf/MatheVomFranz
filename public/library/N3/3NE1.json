@@ -3,9 +3,7 @@
   "description": "équation, quotient, fraction, résoudre, inconnue au dénominateur",
   "type": "latex",
   "keys":["_","/","_","_","_","_","_","_"],
-  "dest": [
-    "3ND","4NE"
-  ],
+  "dest":["7DF", "7DD"],
   "auteur":"Dominique PORRONE",
   "consigne": "Résoudre",
   "options": [

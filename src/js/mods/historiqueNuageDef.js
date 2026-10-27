@@ -86,15 +86,15 @@ export function interpreteStatut(statut, texte, { ecriture = false } = {}) {
   if (statut >= 200 && statut < 300) return { ok: true };
   if (statut === 401) {
     return ecriture
-      ? { ok: false, code: "authentification", message: "Mot de passe refusé." }
-      : { ok: false, code: "absent", message: "Introuvable." };
+      ? { ok: false, code: "authentification", message: "Passwort abgelehnt." }
+      : { ok: false, code: "absent", message: "Nicht gefunden." };
   }
-  if (statut === 404) return { ok: false, code: "absent", message: "Introuvable." };
+  if (statut === 404) return { ok: false, code: "absent", message: "Nicht gefunden." };
   if (statut === 403) {
     const code = refusDuProxy(texte);
     return code === "instance-not-allowed"
-      ? { ok: false, code: "refuse", message: "Cet hébergeur n'est pas autorisé par le proxy." }
-      : { ok: false, code: "refuse", message: "Accès refusé." };
+      ? { ok: false, code: "refuse", message: "Dieser Anbieter ist für den Proxy nicht freigegeben." }
+      : { ok: false, code: "refuse", message: "Zugriff verweigert." };
   }
-  return { ok: false, code: "reseau", message: "La synchronisation a échoué (réseau)." };
+  return { ok: false, code: "reseau", message: "Synchronisierung fehlgeschlagen (Netzwerk)." };
 }

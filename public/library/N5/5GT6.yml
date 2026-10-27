@@ -6,10 +6,7 @@ textSize: medium
 # l’énoncé ne change qu’à travers les lettres tirées : repeat:true tolère qu’un
 # énoncé revienne, mais pas dans les cinq dernières questions.
 repeat: true
-dest:
-  - 5GT
-  - 4GT
-  - 3GT
+dest: [5BC]
 consts:
   # lettres des points. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues).

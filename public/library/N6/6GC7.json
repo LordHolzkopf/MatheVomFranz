@@ -3,7 +3,7 @@
     "title":"Tracer un schéma de triangle à main levée (sans donnée numérique)",
     "description":"Schéma à main levée, construire, dessiner un triangle isocèle, équilatéral, rectangle. Non adapté au mode interactif (online/duel).",
     "type":"text",
-    "dest":["6GC","5GB"],
+    "dest":["5BD"],
     "consts":{
         "schemas":{
             "isoceles":[

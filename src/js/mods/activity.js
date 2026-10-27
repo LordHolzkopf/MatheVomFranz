@@ -971,7 +971,7 @@ export default class activity {
       this.contient(this.values, valeur);
     // pas de répétition autorisée : la question doit être inédite
     if (dejaVue && !this.repeat) {
-      return "Pas assez de données pour éviter les répétitions";
+      return "Nicht genug Zufallswerte, um Wiederholungen zu vermeiden";
     }
     if (typeof this.repeat === "number") {
       // données binaires (VRAI/FAUX...) : on tolère la répétition mais pas
@@ -981,14 +981,14 @@ export default class activity {
       for (const valeurVue of dernieres) {
         if (this.contient([valeurVue], valeur)) compte++;
       }
-      return compte >= 2 ? "To many loops" : false;
+      return compte >= 2 ? "Zu viele Wiederholungen hintereinander" : false;
     }
     if (this.repeat) {
       // on évite quand même la répétition dans les 5 dernières : il existe des
       // activités aux questions identiques mais aux réponses différentes
       return this.contient(this.questions.slice(-5), question) &&
         this.contient(this.values.slice(-5), valeur)
-        ? "Pas assez de données pour éviter les répétitions"
+        ? "Nicht genug Zufallswerte, um Wiederholungen zu vermeiden"
         : false;
     }
     return false;

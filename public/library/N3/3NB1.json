@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"3NB1",
     "textSize":"medium",
-    "dest":["3NB","2N1"],
+    "dest":["9DC", "9DB"],
     "keys":["_","-","^","10n","_","_","_","_"],
     "consigne":"Mettre sous la forme $$10^n$$",
     "options":[{

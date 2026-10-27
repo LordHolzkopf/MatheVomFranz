@@ -4,7 +4,7 @@
     "description":"diviser par 4 ou 8, moitié de la moitié, calcul réfléchi",
     "type":"text",
     "keys":"numerique",
-    "dest":["6ND"],
+    "dest":["5AC", "5CB"],
     "options":[
         {
             "name":"Diviser par 4 en utilisant les tables",

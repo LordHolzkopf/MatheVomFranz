@@ -96,3 +96,5 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 - **Koordinatenpaare:** Die Antwortprüfung erkennt (3|4), (3;4) und (3, 4) als gleichwertig; die Tastatur hat eine „|“-Taste. Die Aufgaben-Dateien können ihr altes Antwortformat behalten.
 - **Tastatur:** neue Taste „Rechteck“; der Doppelzentner heißt „dt“ wie in Deutschland üblich.
 - **Varianten außerhalb des Kernlehrplans** (z. B. Quotientenregel, Tangensfunktion) bleiben erhalten, tragen aber den Zusatz „(nicht im Kernlehrplan NRW)“ bzw. „(nur LK)“ im Variantennamen. Lehrkräfte können sie in den Einstellungen abwählen.
+- **Antwortprüfung, Dezimalkomma:** Mit der echten Tastatur getippte Kommas („0,5“, „0{,}5“ aus dem Formelfeld) werden wie Dezimalpunkte gewertet – außer in Koordinatenpaaren und Listen, wo das Komma Werte trennen kann. Vorher galten deutsche Eingaben mit Komma als falsch.
+- **Behobene Engine-Fehler:** Prüfmodus „vollständig gekürzter Bruch“ verglich den Wert nicht (jeder gekürzte Bruch galt als richtig); Diashow mit Beispiel-Einstieg verlor die aufgabenspezifischen Tastaturen.

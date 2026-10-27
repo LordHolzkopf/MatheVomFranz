@@ -154,6 +154,11 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
       userAnswer = userAnswer.replace(/>/g, "\\gt").replace(/</g, "\\lt");
       // si l'utilisateur a entré un texte \text{...}, on l'enleve
       userAnswer = userAnswer.replace(/\\text\{([^}]*)\}/g, "$1");
+      // MatheVomFranz : virgule décimale tapée au clavier (0,5 ou 0{,}5) → point,
+      // sauf pour les couples et listes où la virgule peut séparer des valeurs
+      userAnswer = userAnswer.replace(/(\d)\{,\}(\d)/g, "$1.$2");
+      if (!/[;|()]/.test(userAnswer) && (userAnswer.match(/,/g) || []).length === 1)
+        userAnswer = userAnswer.replace(/(\d),(\d)/, "$1.$2");
   }
   // console.log(goodAnswer, userAnswer);
     if (valueType !== false) {
@@ -199,7 +204,14 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
         if (fractionNonSimplifiee(userAnswer)) {
           // fraction numériquement correcte mais non réduite : refusée (ex. simplification de fraction)
           return false;
-        } else return true;
+        }
+        // MatheVomFranz : la fraction réduite doit aussi avoir la bonne valeur
+        if (String(userAnswer).toLowerCase() == String(goodAnswer).toLowerCase()) return true;
+        try {
+          return ce.parse(String(goodAnswer)).isSame(ce.parse(String(userAnswer)));
+        } catch (error) {
+          return false;
+        }
       } else if (valueType === "racineSimplifiee") {
         if (racineNonSimplifiee(userAnswer)) {
           // valeur correcte mais racine non simplifiée ou calcul non effectué : refusée

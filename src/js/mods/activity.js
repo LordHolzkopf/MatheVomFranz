@@ -1050,8 +1050,26 @@ export default class activity {
   generate(n = this.nbq, opt, patt, sample) {
     let loopProtect = 0;
     const maxLoop = 100;
+    // MatheVomFranz : l'aperçu (sample) ne doit pas effacer la série déjà
+    // générée – sinon le diaporama lancé avec un exemple perd les claviers
+    // propres à chaque question.
+    const serie = sample
+      ? {
+          questions: this.questions,
+          consignes: this.consignes,
+          shortQuestions: this.shortQuestions,
+          answers: this.answers,
+          values: this.values,
+          figures: this.figures,
+          figuresCorrection: this.figuresCorrection,
+          audios: this.audios,
+          keyBoards: this.keyBoards,
+        }
+      : null;
     // vidage des tableaux pour éviter les traces
     this.initialize();
+    if (serie)
+      for (const cle in serie) if (serie[cle] !== undefined) this[cle] = serie[cle];
     // données pour éviter une répétition acharnée des variables entières
     this.intVarsHistoric = {};
     this.arraysHistoric = {};

@@ -199,8 +199,8 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
           return false
         }
       } else if (valueType === "listeOrdonnee") {
-        let arrayUser = String(userAnswer).split(";");
-        let arrayExpected = String(goodAnswer).split(";");
+        let arrayUser = String(userAnswer).split(";").map(value => value.trim());
+        let arrayExpected = String(goodAnswer).split(";").map(value => value.trim());
         // comparons les contenus en transformant en une chaine
         if (arrayUser.toString() === arrayExpected.toString()) {
           return true

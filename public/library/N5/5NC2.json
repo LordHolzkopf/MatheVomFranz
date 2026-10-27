@@ -1,26 +1,26 @@
 {
-    "title":"Soustraction de relatifs",
-    "description":"relatifs, soustraction, différence, négatifs, opposé",
+    "title":"Ganze Zahlen subtrahieren",
+    "description":"ganze Zahlen, negative Zahlen, subtrahieren, Subtraktion, Differenz, Klammern, Vorzeichen, Gegenzahl addieren",
     "ID":"5NC2",
     "dest":["7AB"],
-    "consigne":"Calculer.",
+    "consigne":"Berechne.",
     "params":{
-        "pm1":{"groupe":"Ne pas tirer","label":"-1 et 1","defaut":false,"exclut":{"n":"1,-1","n2":"1,-1"}}
+        "pm1":{"groupe":"Nicht abfragen","label":"-1 und 1","defaut":false,"exclut":{"n":"1,-1","n2":"1,-1"}}
     },
     "options":[{
-        "name":"Nombres entre -10 et 10",
+        "name":"Zahlen von −10 bis 10",
         "vars":{"n":"-10_10_2_^0"},
         "question": "(${(:n[0]>0)?'+'+:n[0]::n[0]})-(${(:n[1]>0)?'+'+:n[1]::n[1]})",
         "answer":":question=\\color{red}{${:n[0]-:n[1]}}",
         "value":"${:n[0]-:n[1]}"
     },{
-        "name":"Nombres entre -20 et 20",
+        "name":"Zahlen von −20 bis 20",
         "vars":{"n":"-20_20_2_^0"},
         "question": "(${(:n[0]>0)?'+'+:n[0]::n[0]})-(${(:n[1]>0)?'+'+:n[1]::n[1]})",
         "answer":":question=\\color{red}{${:n[0]-:n[1]}}",
         "value":"${:n[0]-:n[1]}"
     },{
-        "name":"Notation mixte avec parenthèses sur le 2e terme si négatif",
+        "name":"Gemischte Schreibweise, Klammer nur um negative zweite Zahl",
         "vars":{"n":"-10_10_^0","n2":"${:n>0?'-10_-1':'-10_10_^0'}"},
         "question": ":n-${:n2<0?'('+:n2+')'::n2}",
         "answer":":question=\\color{red}{${:n-:n2}}",

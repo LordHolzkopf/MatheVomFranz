@@ -1,7 +1,7 @@
 {
     "ID": "6GD7",
-    "title":"Distances et inégalités",
-    "description":"distance, inégalité triangulaire, point, segment, droite",
+    "title":"Summen von Streckenlängen vergleichen",
+    "description":"Abstände, Streckenlängen vergleichen, Dreiecksungleichung, Punkt auf Strecke, Punkt auf Gerade, kleiner, größer, gleich",
     "type":"text",
     "dest":["7EC", "5BA"],
     "keys":["_","_","<",">"],
@@ -31,42 +31,42 @@
             "yD":"${:ordonneOrigine+:penteAB*:xD}"
         },
     "options":[{
-        "name":"Point n’appartenant pas à la droite",
+        "name":"Punkt nicht auf der Geraden",
         "consts":{
             "sommesExt":[
-                ["${:A+:E}+${:E+:C}","${:A+:E}+${:E+:D}","${:A+:E}+${:E+:B}","${:C+:E}+${:E+:D}","${:C+:E}+${:E+:B}","${:D+:E}+${:E+:B}"],
-                ["${:A+:F}+${:F+:C}","${:A+:F}+${:F+:D}","${:A+:F}+${:F+:B}","${:C+:F}+${:F+:D}","${:C+:F}+${:F+:B}","${:D+:F}+${:F+:B}"]],
-            "seulesExt":["${:A+:C}","${:A+:D}","${:A+:B}","${:C+:D}","${:C+:B}","${:D+:B}"]
+                ["\\overline{${:A+:E}}+\\overline{${:E+:C}}","\\overline{${:A+:E}}+\\overline{${:E+:D}}","\\overline{${:A+:E}}+\\overline{${:E+:B}}","\\overline{${:C+:E}}+\\overline{${:E+:D}}","\\overline{${:C+:E}}+\\overline{${:E+:B}}","\\overline{${:D+:E}}+\\overline{${:E+:B}}"],
+                ["\\overline{${:A+:F}}+\\overline{${:F+:C}}","\\overline{${:A+:F}}+\\overline{${:F+:D}}","\\overline{${:A+:F}}+\\overline{${:F+:B}}","\\overline{${:C+:F}}+\\overline{${:F+:D}}","\\overline{${:C+:F}}+\\overline{${:F+:B}}","\\overline{${:D+:F}}+\\overline{${:F+:B}}"]],
+            "seulesExt":["\\overline{${:A+:C}}","\\overline{${:A+:D}}","\\overline{${:A+:B}}","\\overline{${:C+:D}}","\\overline{${:C+:B}}","\\overline{${:D+:B}}"]
         },
         "vars":{
             "choixP":"0_1",
             "somme":"0_${:sommesExt[:choixP].length-1}"
         },
-        "question":"Comparer $$${:sommesExt[:choixP][:somme]}$$ et $$${:seulesExt[:somme]}$$.",
+        "question":"Vergleiche $$${:sommesExt[:choixP][:somme]}$$ und $$${:seulesExt[:somme]}$$.",
         "answer":"$$${:sommesExt[:choixP][:somme]} \\color{red}{>} ${:seulesExt[:somme]}$$",
         "value":">"
         },{
-            "name":"Point appartenant au segment",
+            "name":"Punkt auf der Strecke",
             "consts":{
-                "sommes":["${:A+:C}+${:C+:D}","${:A+:C}+${:C+:B}","${:A+:D}+${:D+:B}","${:C+:D}+${:D+:B}"],
-                "seules":["${:A+:D}","${:A+:B}","${:A+:B}","${:C+:B}"]
+                "sommes":["\\overline{${:A+:C}}+\\overline{${:C+:D}}","\\overline{${:A+:C}}+\\overline{${:C+:B}}","\\overline{${:A+:D}}+\\overline{${:D+:B}}","\\overline{${:C+:D}}+\\overline{${:D+:B}}"],
+                "seules":["\\overline{${:A+:D}}","\\overline{${:A+:B}}","\\overline{${:A+:B}}","\\overline{${:C+:B}}"]
             },
             "vars":{
                  "somme":"0_${:sommes.length-1}"
             },
-            "question":"Comparer $$${:sommes[:somme]}$$ et $$${:seules[:somme]}$$.",
+            "question":"Vergleiche $$${:sommes[:somme]}$$ und $$${:seules[:somme]}$$.",
             "answer":"$$${:sommes[:somme]} \\color{red}{=} ${:seules[:somme]}$$",
             "value":"="
         },{
-            "name":"Point appartenant à la droite mais pas au segment",
+            "name":"Punkt auf der Geraden, aber nicht auf der Strecke",
             "consts":{
-                "sommes":["${:C+:A}+${:A+:D}","${:C+:A}+${:A+:B}","${:D+:A}+${:A+:B}","${:D+:C}+${:C+:B}","${:A+:D}+${:D+:C}","${:A+:B}+${:B+:C}","${:A+:B}+${:B+:D}","${:C+:B}+${:B+:D}"],
-                "seules":["${:C+:D}","${:C+:B}","${:D+:B}","${:D+:B}","${:A+:C}","${:A+:C}","${:A+:D}","${:C+:D}"]
+                "sommes":["\\overline{${:C+:A}}+\\overline{${:A+:D}}","\\overline{${:C+:A}}+\\overline{${:A+:B}}","\\overline{${:D+:A}}+\\overline{${:A+:B}}","\\overline{${:D+:C}}+\\overline{${:C+:B}}","\\overline{${:A+:D}}+\\overline{${:D+:C}}","\\overline{${:A+:B}}+\\overline{${:B+:C}}","\\overline{${:A+:B}}+\\overline{${:B+:D}}","\\overline{${:C+:B}}+\\overline{${:B+:D}}"],
+                "seules":["\\overline{${:C+:D}}","\\overline{${:C+:B}}","\\overline{${:D+:B}}","\\overline{${:D+:B}}","\\overline{${:A+:C}}","\\overline{${:A+:C}}","\\overline{${:A+:D}}","\\overline{${:C+:D}}"]
             },
             "vars":{
                  "somme":"0_${:sommes.length-1}"
             },
-            "question":"Comparer $$${:sommes[:somme]}$$ et $$${:seules[:somme]}$$.",
+            "question":"Vergleiche $$${:sommes[:somme]}$$ und $$${:seules[:somme]}$$.",
             "answer":"$$${:sommes[:somme]} \\color{red}{>} ${:seules[:somme]}$$",
             "value":">"
         }

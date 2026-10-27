@@ -1,16 +1,16 @@
 {
-    "title":"Augmenter ou réduire en pourcentage",
-    "description":"pourcentage, augmentation, réduction, coefficient multiplicateur",
+    "title":"Wert nach prozentualer Erhöhung oder Verminderung berechnen",
+    "description":"Prozent, Erhöhung, Verminderung, Rabatt, Preiserhöhung, vermehrter Grundwert, verminderter Grundwert, Wachstumsfaktor, prozentuale Änderung",
     "type":"text",
     "textSize":"medium",
     "ID":"Ko13",
     "dest":["7CD", "7CB"],
     "options":[{
-        "name":"Augmentation/réduction en pourcentage",
+        "name":"Erhöhung oder Verminderung um 10 %, 20 %, 30 %, 40 % oder 50 %",
         "vars":{"nb":"2_200","qte":"${:nb*10}","pourcent":[10,20,30,40,50]}
     }
     ],
-    "question": ["Après une augmentation de ${:pourcent} %, le nombre  ${:qte} devient ? ", "Après une réduction de ${:pourcent} %, le nombre  ${:qte} devient ?"],
-    "answer":["${:qte} + ${:pourcent}% de ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1+:pourcent/100),2)}$$</span>","${:qte} - ${:pourcent}% de ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1-:pourcent/100),2)}$$</span>"],
+    "question": ["Die Zahl ${:qte} wird um ${:pourcent} % erhöht. Welche Zahl erhältst du?", "Die Zahl ${:qte} wird um ${:pourcent} % vermindert. Welche Zahl erhältst du?"],
+    "answer":["${:qte} + ${:pourcent} % von ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1+:pourcent/100),2)}$$</span>","${:qte} − ${:pourcent} % von ${:qte} = <span class='red'>$$${MMmath.round(:qte*(1-:pourcent/100),2)}$$</span>"],
     "value":["${MMmath.round(:qte*(1+:pourcent/100),2)}","${MMmath.round(:qte*(1-:pourcent/100),2)}"]
 }

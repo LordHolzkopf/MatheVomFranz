@@ -1,6 +1,6 @@
 {
-    "title":"Distance entre deux points",
-    "description":"distance entre deux points, droite graduée, relatifs, abscisse",
+    "title":"Abstand zweier Punkte auf der Zahlengeraden",
+    "description":"Abstand zweier Punkte, Entfernung, Zahlengerade, Zahlenstrahl, negative Zahlen, ganze Zahlen, Koordinate, Differenz",
     "ID":"5NC3",
     "type":"text",
     "textSize":"medium",
@@ -10,8 +10,8 @@
     "answer":"$$${:max}-${(:min<0)?'('+:min+')'::min}=\\color{red}{${:max-:min}}$$",
     "value":"${:max-:min}",
     "options":[{
-        "name":"Distance entre 2 points, avec graphique",
-        "question": "Quelle est la distance entre ${:pts[:noms[0]]} et ${:pts[:noms[1]]} ?",
+        "name":"Abstand zweier Punkte, mit Zahlengerade",
+        "question": "Wie groß ist der Abstand zwischen ${:pts[:noms[0]]} und ${:pts[:noms[1]]}?",
         "figure":{
             "type":"graph",
             "axis":false,
@@ -25,8 +25,8 @@
             ]
         }
     },{
-        "name":"Distance entre 2 points",
-        "question":"Quelle est la distance entre ${:pts[:noms[0]]}(${:n[0]}) et ${:pts[:noms[1]]}(${:n[1]}) ?"
+        "name":"Abstand zweier Punkte, nur Koordinaten",
+        "question":"Wie groß ist der Abstand zwischen den Punkten $$${:pts[:noms[0]]}(${:n[0]})$$ und $$${:pts[:noms[1]]}(${:n[1]})$$ auf der Zahlengeraden?"
         }
     ]
 }

@@ -1,51 +1,51 @@
 {
-    "title":"Addition de relatifs (entiers)",
-    "description":"relatifs, addition, somme algébrique, négatifs, opposé",
+    "title":"Ganze Zahlen addieren",
+    "description":"ganze Zahlen, negative Zahlen, addieren, Addition, Summe, Vorzeichen, Klammern, Rechenzeichen, Gegenzahl",
     "ID":"5NC1",
     "textSize":"medium",
     "dest":["7AB"],
-    "consigne":"Calculer.",
+    "consigne":"Berechne.",
     "params":{
-        "pm1":{"groupe":"Ne pas tirer","label":"-1 et 1","defaut":false,"exclut":{"n":"1,-1","n1":"1,-1","n2":"1,-1","n3":"1,-1","n4":"1,-1","n5":"1,-1"}}
+        "pm1":{"groupe":"Nicht abfragen","label":"-1 und 1","defaut":false,"exclut":{"n":"1,-1","n1":"1,-1","n2":"1,-1","n3":"1,-1","n4":"1,-1","n5":"1,-1"}}
     },
     "options":[{
-        "name":"Notation avec parenthèses",
+        "name":"Schreibweise mit Klammern",
         "vars":{"n1":"-20_20_^0","n2":"${:n1>0?'-20_-1':'-20_20_^0'}"},
         "question": "(${MMmath.signedNumber(:n1)})+(${MMmath.signedNumber(:n2)})",
         "answer":":question=\\color{red}{${:n1+:n2}}",
         "value":"${:n1+:n2}"
     },{
-        "name":"Notation sans parenthèses",
+        "name":"Schreibweise ohne Klammern",
         "vars":{"n1":"-20_20_^0","n2":"${:n1>0?'-20_-1':'-20_20_^0'}"},
         "question":"${MMmath.signedNumber(:n1)}${MMmath.signedNumber(:n2)}",
         "answer":":question=\\color{red}{${:n1+:n2}}",
         "value":"${:n1+:n2}"
     },{
-        "name":"Somme algébrique de 3 termes",
+        "name":"3 Zahlen ohne Klammern",
         "vars":{"n1":"-20_20_^0","n2":"-20_20_^0","n3":"${:n1>0&&:n2>0?'-20_-1':'-20_20_^0'}"},
         "question":":n1 ${MMmath.signedNumber(:n2)}${MMmath.signedNumber(:n3)}",
         "answer":":question=\\color{red}{${:n1+:n2+:n3}}",
         "value":"${:n1+:n2+:n3}"
     },{
-        "name":"Somme algébrique de 4 termes",
+        "name":"4 Zahlen ohne Klammern",
         "vars":{"n1":"-20_20_^0","n2":"-20_20_^0","n3":"-20_20_^0","n4":"${:n1>0&&:n2>0&&:n3>0?'-20_-1':'-20_20_^0'}"},
         "question":":n1${MMmath.signedNumber(:n2)}${MMmath.signedNumber(:n3)}${MMmath.signedNumber(:n4)}",
         "answer":":question=\\color{red}{${:n1+:n2+:n3+:n4}}",
         "value":"${:n1+:n2+:n3+:n4}"
     },{
-        "name":"Somme algébrique de 5 termes",
+        "name":"5 Zahlen ohne Klammern",
         "vars":{"n1":"-20_20_^0","n2":"-20_20_^0","n3":"-20_20_^0","n4":"-20_20_^0","n5":"${:n1>0&&:n2>0&&:n3>0&&:n4>0?'-20_-1':'-20_20_^0'}"},
         "question":":n1${MMmath.signedNumber(:n2)}${MMmath.signedNumber(:n3)}${MMmath.signedNumber(:n4)}${MMmath.signedNumber(:n5)}",
         "answer":":question=\\color{red}{${:n1+:n2+:n3+:n4+:n5}}",
         "value":"${:n1+:n2+:n3+:n4+:n5}"
     },{
-        "name":"Notation mixte avec parenthèses autour des négatifs",
+        "name":"Gemischte Schreibweise, negative Zahlen in Klammern",
         "vars":{"n":"-20_20_^0","n2":"${:n>0?'-20_-1':'-20_20_^0'}"},
         "question": "${:n<0?'('+:n+')'::n}+${:n2<0?'('+:n2+')'::n2}",
         "answer":":question=\\color{red}{${:n+:n2}}",
         "value":"${:n+:n2}"
     },{
-        "name":"Notation mixte avec parenthèses sur le 2e terme si négatif",
+        "name":"Gemischte Schreibweise, Klammer nur um negative zweite Zahl",
         "vars":{"n":"-20_20_^0","n2":"${:n>0?'-20_-1':'-20_20_^0'}"},
         "question": "${:n}+${:n2<0?'('+:n2+')'::n2}",
         "answer":":question=\\color{red}{${:n+:n2}}",

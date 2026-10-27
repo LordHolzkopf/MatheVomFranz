@@ -1,12 +1,12 @@
 {
-    "title": "Quotient de relatifs",
-    "description": "relatifs, quotient, division, règle des signes, négatifs",
+    "title": "Ganze Zahlen dividieren",
+    "description": "ganze Zahlen, negative Zahlen, dividieren, Division, Quotient, Vorzeichenregeln, Bruch, teilen, Vorzeichen",
     "ID": "5NC6",
     "dest":["7AC"],
-    "consigne":"Calculer.",
+    "consigne":"Berechne.",
     "options": [
         {
-            "name": "Numérateur négatif uniquement",
+            "name": "Nur die erste Zahl (Zähler) negativ",
             "vars": {
                 "a": "1_10",
                 "s": -1,
@@ -16,7 +16,7 @@
             }
         },
         {
-            "name": "Dénominateur relatif uniquement",
+            "name": "Nur die zweite Zahl (Nenner) negativ",
             "vars": {
                 "a": "1_10",
                 "e": "1_10",
@@ -27,7 +27,7 @@
             }
         },
         {
-            "name": "Numérateur et dénominateur négatifs",
+            "name": "Beide Zahlen negativ",
             "vars": {
                 "r": "1_10",
                 "d": "-10_-1",
@@ -35,7 +35,7 @@
             }
         },
         {
-            "name": "Numérateur et dénominateur positifs",
+            "name": "Beide Zahlen positiv",
             "vars": {
                 "r": "1_10",
                 "d": "1_10",

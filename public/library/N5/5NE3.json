@@ -1,6 +1,6 @@
 {
-    "title":"Calculer une expression",
-    "description":"calculer une expression, substituer, remplacer x, valeur numérique, calcul littéral",
+    "title":"Termwert berechnen",
+    "description":"Termwert berechnen, Einsetzen, Wert eines Terms, Variable ersetzen, x einsetzen, negative Zahlen einsetzen, Term mit Quadrat, Hoch drei",
     "type":"latex",
     "ID":"5NE3",
     "textSize":"medium",
@@ -8,45 +8,45 @@
     "consts":{"lettres":["u","v","t","x", "y", "z"]},
     "vars":{"l":"0_5","x":"${:lettres[:l]}"},
     "options":[{
-        "name":"Forme a + bx, x positif",
+        "name":"Term ax + b, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"0_5","exp":"${MMmath.calc(:a+'*'+:x+'+('+:b+')')}", "ans":"${:a*:v+:b}"}
     },{
-        "name":"Forme a + bx, x négatif",
+        "name":"Term ax + b, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"-5_-1","exp":"${MMmath.calc(:a+'*'+:x+'+('+:b+')')}", "ans":"${:a*:v+:b}"}
     },{
-        "name":"Forme a + bx², x positif",
+        "name":"Term ax² + b, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"0_3","exp":"${MMmath.calc(:a+'*'+:x+'^2+('+:b+')')}", "ans":"${:a*:v*:v+:b}"}
     },{
-        "name":"Forme a + bx², x négatif",
+        "name":"Term ax² + b, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"-3_-1","exp":"${MMmath.calc(:a+'*'+:x+'^2+('+:b+')')}", "ans":"${:a*:v*:v+:b}"}
     },{
-        "name":"Forme a + bx + cx², x positif",
+        "name":"Term ax² + bx + c, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "c":"-10_10", "v":"0_3","exp":"${MMmath.calc(:a+'*'+:x+'^2+('+:b+')*'+:x+'+('+:c+')')}", "ans":"${:a*:v*:v+:b*:v+:c}"}
     },{
-        "name":"Forme a + bx + cx², x négatif",
+        "name":"Term ax² + bx + c, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "c":"-10_10", "v":"-3_-1","exp":"${MMmath.calc(:a+'*'+:x+'^2+('+:b+')*'+:x+'+('+:c+')')}", "ans":"${:a*:v*:v+:b*:v+:c}"}
     },{
-        "name":"Forme a + bx³, x positif",
+        "name":"Term ax³ + b, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"0_3","exp":"${MMmath.calc(:a+'*'+:x+'^3+('+:b+')')}", "ans":"${:a*:v*:v*:v+:b}"}
     },{
-        "name":"Forme a + bx³, x négatif",
+        "name":"Term ax³ + b, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"-3_-1","exp":"${MMmath.calc(:a+'*'+:x+'^3+('+:b+')')}", "ans":"${:a*:v*:v*:v+:b}"}
     },{
-        "name":"Forme (x + a)×b, x positif",
+        "name":"Term (x + a) · b, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10_^0", "v":"0_5","exp":"(${MMmath.calc(:a+'+'+:x)})\\times${:b>0?:b:'('+:b+')'}", "ans":"${(:a+:v)*:b}"}
     },{
-        "name":"Forme (x + a)×b, x négatif",
+        "name":"Term (x + a) · b, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10", "v":"-5_-1","exp":"(${MMmath.calc(:a+'+'+:x)})\\times${:b>0?:b:'('+:b+')'}", "ans":"${(:a+:v)*:b}"}
     },{
-        "name":"Forme (a + bx)×c, x positif",
+        "name":"Term (ax + b) · c, x ≥ 0",
         "vars":{"a":"-10_10_^0","b":"-10_10","c":"-10_10", "v":"0_4","exp":"(${MMmath.calc(:a+'*'+:x+'+('+:b+')')})\\times${:c>0?:c:'('+:c+')'}", "ans":"${(:a*:v+:b)*:c}"}
     },{
-        "name":"Forme (a + bx)×c, x négatif",
+        "name":"Term (ax + b) · c, x < 0",
         "vars":{"a":"-10_10_^0","b":"-10_10","c":"-10_10", "v":"-4_-1","exp":"(${MMmath.calc(:a+'*'+:x+'+('+:b+')')})\\times${:c>0?:c:'('+:c+')'}", "ans":"${(:a*:v+:b)*:c}"}
     }
     ],
-    "question":"\\begin{gathered} \\text{Calculer }${:exp} \\\\ \\text{ pour } ${:x}=${:v}\\end{gathered}",
-    "shortq":"\\begin{gathered} ${:exp} \\\\ \\text{ pour } ${:x}=${:v}\\end{gathered}",
-    "answer":"\\text{Pour }${:x}=${:v}\\quad ${:exp}=\\color{red}{${:ans}}",
+    "question":"\\begin{gathered} \\text{Berechne den Wert von }${:exp} \\\\ \\text{für } ${:x}=${:v}\\end{gathered}",
+    "shortq":"\\begin{gathered} ${:exp} \\\\ \\text{für } ${:x}=${:v}\\end{gathered}",
+    "answer":"\\text{Für }${:x}=${:v}:\\quad ${:exp}=\\color{red}{${:ans}}",
     "value":"${:ans}"
 }

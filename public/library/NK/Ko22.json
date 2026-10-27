@@ -1,6 +1,6 @@
 {
-    "title":"Résoudre une équation du premier degré",
-    "description":"équation, premier degré, résoudre",
+    "title":"Lineare Gleichungen der Form ax + b = cx + d lösen",
+    "description":"lineare Gleichung lösen, Äquivalenzumformung, Variable auf beiden Seiten, Lösung, keine Lösung",
     "type":"latex",
     "ID":"Ko22",
     "dest":["7DD"],
@@ -10,9 +10,9 @@
     "options":[{
         "name":"ax + b = cx + d",
         "vars":{"a":"-10_10_^0","b":"-10_10", "c":"-10_10_^0", "d":"-10_10", "l":"0_5","x":"${:lettres[:l]}"},
-        "question": "\\text{Résoudre } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
+        "question": "\\text{Löse } ${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
         "shortq":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)}",
-        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)} \\text{ pour } \\color{red}{${:a-:c==0?'\\text{pas de solution}'::x+'='+MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}}",
-        "value":"${:a-:c==0?'pas de solution':MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}"
+        "answer":"${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}=${MMmath.signIfOne(:c)}${:x}${MMmath.signedNumber(:d)} \\quad \\Rightarrow \\quad \\color{red}{${:a-:c==0?(:b==:d?'\\text{unendlich viele Lösungen}':'\\text{keine Lösung}')::x+'='+MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}}",
+        "value":"${:a-:c==0?(:b==:d?'unendlich viele Lösungen':'keine Lösung'):MMmath.calc('('+:d+'-('+:b+'))/(('+:a+')-('+:c+'))')}"
     }]
 }

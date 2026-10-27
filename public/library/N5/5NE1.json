@@ -1,40 +1,40 @@
 {
-    "title":"Réduire une somme",
-    "description":"réduire, simplifier une expression, calcul littéral, termes semblables",
+    "title":"Summen gleichartiger Terme zusammenfassen",
+    "description":"Terme zusammenfassen, gleichartige Terme, Variablen, Summe vereinfachen, Differenz, Termumformung, ax + bx",
     "type":"latex",
     "ID":"5NE1",
     "textSize":"medium",
     "dest":["7DB"],
     "keys":["+","-","x²","a","b","c","x","y"],
-    "consigne":"Réduire, si possible",
+    "consigne":"Fasse zusammen, falls möglich.",
     "valueType":"expressionSimplifiee",
     "consts":{"lettres":["a","b","c","x","y"]},
     "options":[{
-        "name":"Réduire une somme ax+x",
+        "name":"Summe ax + x",
         "vars":{"l":"0_4","a":"2_9","x":"${:lettres[:l]}"},
         "question": ["${:x}+${:a}${:x}", "${:a}${:x}+${:x}"],
         "answer":":question=\\color{red}{${:a+1}${:x}}",
         "value":"${:a+1}${:x}"
     },{
-        "name":"Réduire une somme ax+bx",
+        "name":"Summe ax + bx",
         "vars":{"l":"0_4","a":"2_9","b":"2_9","x":"${:lettres[:l]}"},
         "question": "${:a}${:x}+${:b}${:x}",
         "answer":":question=\\color{red}{${:a+:b}${:x}}",
         "value":"${:a+:b}${:x}"
     },{
-        "name":"Réduire une différence (niveau 5e)",
+        "name":"Differenz ax − bx mit a ≥ b",
         "vars":{"l":"0_4","a":"2_9","b":"1_${:a}","x":"${:lettres[:l]}"},
         "question": "${:a}${:x}-${(:b>1)?:b:''}${:x}",
         "answer":":question=\\color{red}{${MMmath.calc((:a-:b)+:x)}}",
         "value":"${MMmath.calc((:a-:b)+:x)}"
     },{
-        "name":"Réduire une différence (niveau 4e)",
+        "name":"Differenz ax − bx, Ergebnis auch negativ",
         "vars":{"l":"0_4","a":"1_9","b":"1_9","x":"${:lettres[:l]}"},
         "question": "${(:a>1)?:a:''}${:x}-${(:b>1)?:b:''}${:x}",
         "answer":":question=\\color{red}{${MMmath.calc((:a-:b)+:x)}}",
         "value":"${MMmath.calc((:a-:b)+:x)}"
     },{
-        "name":"Somme irréductible",
+        "name":"Nicht zusammenfassbare Summe",
         "vars":{"l":"0_4","a":"-9_9_^0","b":"-9_9_^0","x":"${:lettres[:l]}"},
         "question": [
             "${MMmath.signIfOne(:a)}${:x}${MMmath.signedNumber(:b)}",
@@ -54,7 +54,7 @@
             "${MMmath.calc('('+:a+'*'+:x+'^2)+('+:b+'*'+:x+')')}"
         ]
     },{
-        "name":"Réduire une différence ax-x",
+        "name":"Differenz ax − x",
         "vars":{"l":"0_4","a":"2_9","x":"${:lettres[:l]}"},
         "question": "${:a}${:x}-${:x}",
         "answer":":question=\\color{red}{${MMmath.calc((:a-1)+:x)}}",

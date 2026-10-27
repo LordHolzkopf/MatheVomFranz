@@ -1,17 +1,17 @@
 {
-    "title":"Additions et soustractions de relatifs (notation parenthèses)",
-    "description":"relatifs, addition, soustraction, somme algébrique, négatifs, opposé",
+    "title":"Ganze Zahlen addieren und subtrahieren (mit Klammern)",
+    "description":"ganze Zahlen, negative Zahlen, addieren, subtrahieren, Addition, Subtraktion, Summe, Differenz, Klammern, Vorzeichen, Gegenzahl",
     "dest":["7AB"],
-    "consigne":"Calculer",
+    "consigne":"Berechne.",
     "consts":{
         "signes":["+","-"]
     },
     "params":{
-        "pm1":{"groupe":"Ne pas tirer","label":"-1 et 1","defaut":false,"exclut":{"nb":"1,-1"}}
+        "pm1":{"groupe":"Nicht abfragen","label":"-1 und 1","defaut":false,"exclut":{"nb":"1,-1"}}
     },
     "options":[
         {
-            "name":"Somme de trois termes",
+            "name":"Summe aus drei Zahlen",
             "vars":{
                 "nb":"-10_10_3_^0"
             },
@@ -19,7 +19,7 @@
             "answer":":question=\\color{red}{${MMmath.calc(:nb[0]+'+('+:nb[1]+')+('+:nb[2]+')')}}",
             "value":"${MMmath.calc(:nb[0]+'+('+:nb[1]+')+('+:nb[2]+')')}"
         },{
-            "name":"Somme de quatre termes",
+            "name":"Summe aus vier Zahlen",
             "vars":{
                 "nb":"-10_10_4_^0"
             },
@@ -27,7 +27,7 @@
             "answer":":question=\\color{red}{${MMmath.calc(:nb[0]+'+('+:nb[1]+')+('+:nb[2]+')+('+:nb[3]+')')}}",
             "value":"${MMmath.calc(:nb[0]+'+('+:nb[1]+')+('+:nb[2]+')+('+:nb[3]+')')}"
         },{
-            "name":"Somme de cinq termes",
+            "name":"Summe aus fünf Zahlen",
             "vars":{
                 "nb":"-10_10_5_^0"
             },
@@ -36,7 +36,7 @@
             "value":"${MMmath.calc(:nb[0]+'+('+:nb[1]+')+('+:nb[2]+')+('+:nb[3]+')+('+:nb[4]+')')}"
         },
         {
-            "name":"+ ou - avec trois termes",
+            "name":"+ oder − mit drei Zahlen",
             "vars":{
                 "nb":"-10_10_3_^0",
                 "opes":"0_1_2",
@@ -47,7 +47,7 @@
             "answer":":question=\\color{red}{${MMmath.calc(:nb[0]+:op1+'('+:nb[1]+')'+:op2+'('+:nb[2]+')')}}",
             "value":"${MMmath.calc(:nb[0]+:op1+'('+:nb[1]+')'+:op2+'('+:nb[2]+')')}"
         },{
-            "name":"+ ou - avec quatre termes",
+            "name":"+ oder − mit vier Zahlen",
             "vars":{
                 "nb":"-10_10_4_^0",
                 "opes":"0_1_3",
@@ -59,7 +59,7 @@
             "answer":":question=\\color{red}{${MMmath.calc(:nb[0]+:op1+'('+:nb[1]+')'+:op2+'('+:nb[2]+')'+:op3+'('+:nb[3]+')')}}",
             "value":"${MMmath.calc(:nb[0]+:op1+'('+:nb[1]+')'+:op2+'('+:nb[2]+')'+:op3+'('+:nb[3]+')')}"
         },{
-            "name":"+ ou - avec cinq termes",
+            "name":"+ oder − mit fünf Zahlen",
             "vars":{
                 "nb":"-10_10_5_^0",
                 "opes":"0_1_4",

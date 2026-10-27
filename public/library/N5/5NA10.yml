@@ -1,11 +1,11 @@
-title: Placer un point d’abscisse donnée sur une droite graduée
-description: "Placer un point sur axe gradué, droite graduée, abscisse relative, repérer. Non adapté au mode interactif (online/duel)."
+title: Punkt mit gegebener Koordinate auf der Zahlengeraden eintragen
+description: "Punkt auf der Zahlengeraden eintragen, markieren, Zahlenstrahl, Koordinate, negative Zahlen, ganze Zahlen, Dezimalzahlen, Zehntel, Hundertstel. Nicht für den interaktiven Modus (online/Duell) geeignet."
 dest: [7AA, 6GD, 6BA]
 type: text
 consts:
   nomspts: "ABCDEFGHJKLMNPQRSTVW"
 options:
-  - name: Placer des entiers successifs
+  - name: Ganze Zahlen, Teilstriche im Abstand 1
     vars:
       absc: "-50_20"
       ptid: "0_${:nomspts.length-1}"
@@ -39,7 +39,7 @@ options:
               label: { anchorX: middle, offset: [0, -12] },
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -76,7 +76,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des entiers entre deux dizaines consécutives
+  - name: Ganze Zahlen zwischen zwei benachbarten Zehnern
     vars:
       dizaine: "-5_1"
       borneinf: ${:dizaine*10}
@@ -116,7 +116,7 @@ options:
               labels: ["${:borneinf}", "${:bornesup}"],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -158,7 +158,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des entiers, écart entre graduations variable
+  - name: Ganze Zahlen, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -221,7 +221,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -282,7 +282,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des décimaux
+  - name: Dezimalzahlen
     vars:
       pas: 0.1
       minmax: "-${Math.floor(50/:pas)}_${Math.floor(20/:pas)}"
@@ -341,7 +341,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -389,7 +389,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des dixièmes entre deux unités consécutives
+  - name: Zehntel zwischen zwei benachbarten ganzen Zahlen
     vars:
       borneinf: "-50_19"
       bornesup: ${:borneinf+1}
@@ -428,7 +428,7 @@ options:
               labels: ["${:borneinf}", "${:bornesup}"],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -470,7 +470,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des décimaux, écart entre graduations variable
+  - name: Dezimalzahlen, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -543,7 +543,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -604,7 +604,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des centièmes
+  - name: Hundertstel
     vars:
       pas: 0.01
       minmax: "-${Math.floor(50/:pas)}_${Math.floor(20/:pas)}"
@@ -662,7 +662,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -710,7 +710,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des centièmes entre deux dixièmes consécutifs
+  - name: Hundertstel zwischen zwei benachbarten Zehnteln
     vars:
       dixieme: "-500_199"
       borneinf: ${MMmath.round(:dixieme/10,1)}
@@ -754,7 +754,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph
@@ -800,7 +800,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Placer des centièmes, écart entre graduations variable
+  - name: Hundertstel, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -873,7 +873,7 @@ options:
                 ],
             },
           ]
-    question: Placer le point :pt d’abscisse :absc.
+    question: Trage den Punkt :pt mit der Koordinate $$:absc$$ auf der Zahlengeraden ein.
     answer: ""
     figureCorrection:
       type: graph

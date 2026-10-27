@@ -1,15 +1,16 @@
-title: Somme de relatifs (décimaux)
-description: "relatifs, addition, somme algébrique, décimaux, négatifs, opposé"
+title: Rationale Zahlen addieren (Dezimalzahlen)
+description: "rationale Zahlen, Dezimalzahlen, negative Zahlen, addieren, Addition, Summe, Vorzeichen, Klammern, Gegenzahl"
 dest: [7AB]
+consigne: Berechne.
 options:
-  - name: Deux termes avec parenthèses
+  - name: Zwei Zahlen mit Klammern
     vars:
       n1: 'd-20_20_1_^0'
       n2: 'd-20_20_1_^0'
     question: (${MMmath.signedNumber(:n1)}) + (${MMmath.signedNumber(:n2)})
     answer: :question = \color{red}{${MMmath.round(:n1+:n2,1)}}
     value: ${MMmath.round(:n1+:n2,1)}
-  - name: Trois termes avec parenthèses
+  - name: Drei Zahlen mit Klammern
     vars:
       n1: 'd-15_15_1_^0'
       n2: 'd-15_15_1_^0'
@@ -17,14 +18,14 @@ options:
     question: (${MMmath.signedNumber(:n1)}) + (${MMmath.signedNumber(:n2)}) + (${MMmath.signedNumber(:n3)})
     answer: :question = \color{red}{${MMmath.round(:n1+:n2+:n3,1)}}
     value: ${MMmath.round(:n1+:n2+:n3,1)}
-  - name: Deux termes sans parenthèses
+  - name: Zwei Zahlen ohne Klammern
     vars:
       n1: 'd-20_20_1_^0'
       n2: 'd-20_20_1_^0'
     question: :n1 ${MMmath.signedNumber(:n2)}
     answer: :question = \color{red}{${MMmath.round(:n1+:n2,1)}}
     value: ${MMmath.round(:n1+:n2,1)}
-  - name: Trois termes sans parenthèses
+  - name: Drei Zahlen ohne Klammern
     vars:
       n1: 'd-15_15_1_^0'
       n2: 'd-15_15_1_^0'
@@ -32,7 +33,7 @@ options:
     question: :n1 ${MMmath.signedNumber(:n2)} ${MMmath.signedNumber(:n3)}
     answer: :question = \color{red}{${MMmath.round(:n1+:n2+:n3,1)}}
     value: ${MMmath.round(:n1+:n2+:n3,1)}
-  - name: Quatre termes sans parenthèses
+  - name: Vier Zahlen ohne Klammern
     vars:
       n1: 'd-10_10_1_^0'
       n2: 'd-10_10_1_^0'

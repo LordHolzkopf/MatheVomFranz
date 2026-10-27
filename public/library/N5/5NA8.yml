@@ -1,11 +1,11 @@
-title: Lire l’abscisse sur une droite graduée
-description: Point sur axe gradué, abscisse relative
+title: Koordinate auf der Zahlengeraden ablesen
+description: Punkt auf der Zahlengeraden, Zahlenstrahl, Koordinate ablesen, negative Zahlen, ganze Zahlen, Dezimalzahlen, Zehntel, Hundertstel
 dest: [7AA, 6GD, 6BA]
 type: text
 consts:
   nomspts: "ABCDEFGHJKLMNPQRSTVW"
 options:
-  - name: Lire des entiers successifs
+  - name: Ganze Zahlen, Teilstriche im Abstand 1
     vars:
       absc: "-50_20"
       ptid: "0_${:nomspts.length-1}"
@@ -49,7 +49,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des entiers entre deux dizaines consécutives
+  - name: Ganze Zahlen zwischen zwei benachbarten Zehnern
     vars:
       dizaine: "-5_1"
       borneinf: ${:dizaine*10}
@@ -99,7 +99,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des entiers, écart entre graduations variable
+  - name: Ganze Zahlen, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -172,7 +172,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des décimaux
+  - name: Dezimalzahlen
     vars:
       pas: 0.1
       minmax: "-${Math.floor(50/:pas)}_${Math.floor(20/:pas)}"
@@ -241,7 +241,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des dixièmes entre deux unités consécutives
+  - name: Zehntel zwischen zwei benachbarten ganzen Zahlen
     vars:
       borneinf: "-50_19"
       bornesup: ${:borneinf+1}
@@ -290,7 +290,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des décimaux, écart entre graduations variable
+  - name: Dezimalzahlen, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -373,7 +373,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des centièmes
+  - name: Hundertstel
     vars:
       pas: 0.01
       minmax: "-${Math.floor(50/:pas)}_${Math.floor(20/:pas)}"
@@ -441,7 +441,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des centièmes entre deux dixièmes consécutifs
+  - name: Hundertstel zwischen zwei benachbarten Zehnteln
     vars:
       dixieme: "-500_199"
       borneinf: ${MMmath.round(:dixieme/10,1)}
@@ -495,7 +495,7 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-  - name: Lire des centièmes, écart entre graduations variable
+  - name: Hundertstel, unterschiedliche Teilstrich-Abstände
     vars:
       nbgrad: [6, 7, 8, 9, 10]
       ecart: ${MMmath.round(22/(:nbgrad+1),3)}
@@ -578,6 +578,6 @@ options:
               label: { offset: [0, 13], anchorX: middle },
             },
           ]
-question: Quelle est l’abscisse du point :pt ?
-answer: L’abscisse du point :pt est $$\color{red}{:absc}$$.
+question: Welche Koordinate hat der Punkt :pt?
+answer: Der Punkt :pt hat die Koordinate $$\color{red}{:absc}$$.
 value: ${:absc}

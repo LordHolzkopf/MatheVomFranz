@@ -1,45 +1,45 @@
 {
     "ID":"Ko11",
     "dest":["7CD", "10DA"],
-    "title":"Lien entre coefficient multiplicateur et pourcentage",
-    "description":"coefficient multiplicateur, pourcentage, évolution, taux, hausse, baisse",
+    "title":"Wachstumsfaktor und prozentuale Änderung",
+    "description":"Wachstumsfaktor, Änderungsfaktor, Abnahmefaktor, prozentuale Änderung, Prozentsatz, Erhöhung, Zunahme, Abnahme, Verminderung, Rabatt, Aufschlag",
     "type":"text",
     "textSize":"medium",
     "keys":["+","-","%","_"],
     "options":[{
-            "name":"Trouver l'augmentation en pourcentage",
+            "name":"Prozentuale Erhöhung zum Faktor angeben",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel pourcentage d'augmentation correspond le CM $$${MMmath.round(1+:a,2)}$$ ?",
+            "question":"Welcher prozentualen Erhöhung entspricht der Wachstumsfaktor $$${MMmath.round(1+:a,2)}$$?",
             "shortq":"$$\\times${MMmath.round(1+:a,2)}$$",
-            "answer":"$$${MMmath.round(1+:a,2)}$$ correspond à $$\\color{red}{+${:p}\\%}$$",
+            "answer":"Der Faktor $$${MMmath.round(1+:a,2)}$$ entspricht $$\\color{red}{+${:p}\\%}$$.",
             "value":["${:p}\\%","+${:p}\\%"]
         },{
-            "name":"Trouver la diminution en pourcentage",
+            "name":"Prozentuale Abnahme zum Faktor angeben",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel pourcentage de réduction correspond le CM $$${MMmath.round(1-:a,2)}$$ ?",
+            "question":"Welcher prozentualen Abnahme entspricht der Änderungsfaktor $$${MMmath.round(1-:a,2)}$$?",
             "shortq":"$$\\times${MMmath.round(1-:a,2)}$$",
-            "answer":"$$${MMmath.round(1-:a,2)}$$ correspond à $$\\color{red}{-${:p}\\%}$$",
+            "answer":"Der Faktor $$${MMmath.round(1-:a,2)}$$ entspricht $$\\color{red}{-${:p}\\%}$$.",
             "value":"-${:p}\\%"
         },{
-            "name":"Trouver l'évolution en pourcentage",
+            "name":"Prozentuale Änderung zum Faktor angeben",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel pourcentage d'évolution correspond le CM $$${MMmath.round(1+:a,2)}$$ ?",
+            "question":"Welcher prozentualen Änderung entspricht der Änderungsfaktor $$${MMmath.round(1+:a,2)}$$?",
             "shortq":"$$\\times${MMmath.round(1+:a,2)}$$",
-            "answer":"$$${MMmath.round(1+:a,2)}$$ correspond à $$\\color{red}{+${:p}\\%}$$",
+            "answer":"Der Faktor $$${MMmath.round(1+:a,2)}$$ entspricht $$\\color{red}{+${:p}\\%}$$.",
             "value":["${:p}\\%","+${:p}\\%"]
         },{
-            "name":"Trouver le coefficient correspondant à l'augmentation",
+            "name":"Wachstumsfaktor zu einer Erhöhung angeben",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel coefficient multiplicateur CM correspond $$+${:p}\\%$$ ?",
+            "question":"Welcher Wachstumsfaktor gehört zu einer Änderung um $$+${:p}\\%$$?",
             "shortq":"$$+${:p}\\%$$",
-            "answer":"$$+${:p}\\%$$ revient à multiplier par $$\\color{red}{${MMmath.round(1+:a,2)}}$$",
+            "answer":"$$+${:p}\\%$$ bedeutet: mit $$\\color{red}{${MMmath.round(1+:a,2)}}$$ multiplizieren.",
             "value":"${MMmath.round(1+:a,2)}"
         },{
-            "name":"Trouver le coefficient correspondant à la réduction",
+            "name":"Änderungsfaktor zu einer Abnahme angeben",
             "vars":{"d":"1_2","a":"d0.01_1_${:d}_^1","p":"${MMmath.round(:a*100)}"},
-            "question":"À quel coefficient multiplicateur CM correspond $$-${:p}\\%$$ ?",
+            "question":"Welcher Änderungsfaktor gehört zu einer Änderung um $$-${:p}\\%$$?",
             "shortq":"$$-${:p}\\%$$",
-            "answer":"$$-${:p}\\%$$ revient à multiplier par $$\\color{red}{${MMmath.round(1-:a,2)}}$$",
+            "answer":"$$-${:p}\\%$$ bedeutet: mit $$\\color{red}{${MMmath.round(1-:a,2)}}$$ multiplizieren.",
             "value":"${MMmath.round(1-:a,2)}"
         }
     ]

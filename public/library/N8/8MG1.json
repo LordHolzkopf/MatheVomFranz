@@ -1,42 +1,42 @@
 {
     "ID": "8MG1",
-    "title":"Identifier une situation de proportionnalité",
-    "description":"proportionnalité, proportionnel, situation, reconnaître",
+    "title":"Proportionale Zuordnungen erkennen",
+    "description":"proportional, proportionale Zuordnung, Proportionalität erkennen, Sachsituation, wahr oder falsch, Dreisatz",
     "dest":["7BB", "6GC"],
     "keys":["_","V","F","_","_","_","_","_"],
     "type":"text",
     "consts":{
         "prenoms":[
-            "Marc","Alice","Pierre","Julie","Camille","Thomas","Léo","Hugo","Nathan","Clara","Louis","Emma","Noah","Chloé","Jules","Ambre","Mathis","Eva","Tom","Zoé","Alexandre","Louise","Arthur","Célia","Paul","Anaïs","Loïc","Camélia","Raphaël","Lilou"
+            "Max","Anna","Paul","Julia","Lena","Tom","Leo","Finn","Noah","Clara","Luis","Emma","Ben","Mia","Jonas","Lea","Elias","Ella","Tim","Zoe","Alexander","Luisa","Felix","Sophie","Moritz","Hannah","Lukas","Marie","Jakob","Lina"
         ],
-        "fruitsaupoids":["pommes", "poires","bananes", "oranges", "clémentines", "mandarines", "cerises", "fraises", "pamplemousses", "amandes", "noisettes", "noix", "abricots", "pêches", "nectarines", "prunes", "framboises", "figues", "mûres", "raisins","groseilles", "coings", "myrtilles", "chataignes", "citrons", "kakis"],
-        "legumesaupoids":["betteraves", "carottes","choux", "choux-fleur", "endives", "oignons","asperges","épinards","panais", "pommes de terre", "petits pois", "artichauts", "blettes","navets", "poivrons","aubergines","haricots verts"],
-        "alunite":["kiwi","laitue","scarole","avocat", "feuile de chêne", "melon"]
+        "fruitsaupoids":["Äpfel", "Birnen","Bananen", "Orangen", "Clementinen", "Mandarinen", "Kirschen", "Erdbeeren", "Grapefruits", "Mandeln", "Haselnüsse", "Walnüsse", "Aprikosen", "Pfirsiche", "Nektarinen", "Pflaumen", "Himbeeren", "Feigen", "Brombeeren", "Weintrauben","Johannisbeeren", "Quitten", "Heidelbeeren", "Esskastanien", "Zitronen", "Kakis"],
+        "legumesaupoids":["Rote Bete", "Karotten","Kohl", "Blumenkohl", "Chicorée", "Zwiebeln","Spargel","Spinat","Pastinaken", "Kartoffeln", "Erbsen", "Artischocken", "Mangold","Steckrüben", "Paprika","Auberginen","grüne Bohnen"],
+        "alunite":["Kiwi","Kopfsalat","Endiviensalat","Avocado", "Eichblattsalat", "Melone"]
     },
     "options":[
         {
-            "name":"Proportionnalité sans nombre",
+            "name":"Aussagen ohne Zahlen",
             "consts":{
                 "vrai":[
-                    "À vitesse constante, la distance est proportionnelle à la durée du déplacement.",
-                    "À allure régulière, la distance parcourue par un marcheur est proportionnelle à la durée du parcours.",
-                    "Un robinet coule à débit constant. Le volume d'eau écoulé est proportionnel au temps.",
-                    "Hors promotion, le prix d'un légume vendu \"au kilo\" est proportionnel à sa masse.",
-                    "Le prix de plusieurs fruits hors promotion vendus à l'unité est proportionnel à la quantité.",
-                    "La longueur d’un cercle est proportionnelle à son rayon.",
-                    "L’énergie consommée par une ampoule est proportionnelle au temps où elle reste allumée.",
-                    "Les quantités d’une recette de cuisine sont proportionnelles au nombre de personnes pour lesquelles elle est préparée."
+                    "Bei gleichbleibender Geschwindigkeit ist die zurückgelegte Strecke proportional zur Fahrzeit.",
+                    "Wer in gleichmäßigem Tempo wandert, legt eine Strecke zurück, die proportional zur Gehzeit ist.",
+                    "Aus einem Wasserhahn fließt gleichmäßig Wasser. Die ausgeflossene Wassermenge ist proportional zur Zeit.",
+                    "Ohne Sonderangebot ist der Preis für Gemüse, das nach Gewicht verkauft wird, proportional zu seiner Masse.",
+                    "Ohne Sonderangebot ist der Preis für Obst, das stückweise verkauft wird, proportional zur Anzahl der Stücke.",
+                    "Der Umfang eines Kreises ist proportional zu seinem Radius.",
+                    "Die Energie, die eine Lampe verbraucht, ist proportional zu der Zeit, in der sie eingeschaltet ist.",
+                    "Die Zutatenmengen eines Kochrezepts sind proportional zur Anzahl der Personen, für die gekocht wird."
                 ],
                 "faux":[
-                    "La taille d'un enfant est proportionnelle à son âge.",
-                    "La quantité de travail de préparation est proportionnelle à la note obtenue à une évaluation.",
-                    "L'âge d'un enfant est proportionnel à celui d'un parent.",
-                    "Le poids d'une personne est proportionnel à son âge.",
-                    "S'il y a des promotions, le prix est proportionnel aux quantités.",
-                    "L'épaisseur des vêtements est proportionnelle à température de l'air.",
-                    "Lors d'un trajet, la distance est proportionnelle à la durée du trajet.",
-                    "Le nombre de points obtenus à un jeu vidéo est proportionnel au temps passé à y jouer.",
-                    "La hauteur d’un arbre est proportionnelle à son âge."
+                    "Die Körpergröße eines Kindes ist proportional zu seinem Alter.",
+                    "Die Punktzahl in einer Klassenarbeit ist proportional zur Lernzeit.",
+                    "Das Alter eines Kindes ist proportional zum Alter seiner Mutter.",
+                    "Das Körpergewicht eines Menschen ist proportional zu seinem Alter.",
+                    "Bei Sonderangeboten wie „3 für 2“ ist der Preis proportional zur gekauften Menge.",
+                    "Die Dicke der Kleidung ist proportional zur Lufttemperatur.",
+                    "Bei einer Autofahrt durch die Stadt ist die zurückgelegte Strecke proportional zur Fahrzeit.",
+                    "Die Punktzahl in einem Videospiel ist proportional zur Spielzeit.",
+                    "Die Höhe eines Baumes ist proportional zu seinem Alter."
                 ]
             },
             "vars":{
@@ -44,28 +44,29 @@
                 "choixvrai":"0_${:vrai.length-1}",
                 "choixfaux":"0_${:faux.length-1}"
             },
-            "question":"<b>Vrai</b> ou <b>Faux</b> ?<br>${:veracite?:vrai[:choixvrai]::faux[:choixfaux]}",
-            "answer":"<span class='red'>${:veracite?'Vrai':'Faux'}</span>"
+            "question":"<b>Wahr</b> oder <b>falsch</b>?<br>${:veracite?:vrai[:choixvrai]::faux[:choixfaux]}",
+            "answer":"<span class='red'>${:veracite?'Wahr':'Falsch'}</span>",
+            "value":"${:veracite?'\\text{wahr}':'\\text{falsch}'}"
         },{
-            "name":"Situations avec nombres",
+            "name":"Sachsituationen mit Zahlen",
             "consts":{
         "vrai":[
-            ["Si les BD sont toutes identiques, une pile de ${:a*:coeff} BD est ${MMmath.NumberToLetter(:coeff)} fois plus lourde qu’une pile de ${:a} BD.","<span class='red'>Vrai</span>, les BD étant identiques, la masse est proportionnelle au nombre de BD."],
-            ["À la boulangerie, la baguette de pain coute ${:prix} cts. Si on demande ${MMmath.NumberToLetter(:coeff)} baguettes, on va payer ${MMmath.twoDecimals(:coeff*:prix/100)} €.","<span class='red'>Vrai</span>, le prix est proportionnel au nombre de baguettes achetées (s’il n’y a pas de promotion)."],
-            ["Si je m’oblige à lire ${:a} pages par jour, je finirai un livre de ${:a*:coeff} pages en ${:coeff} jours.","<span class='red'>Vrai</span>, car la vitesse de lecture est constante."],
-            ["Pour peindre un mur de 5 m², il faut ${:a} pots de peinture. Si le mur est ${MMmath.NumberToLetter(:coeff)} fois plus grand, il faudra alors ${:a*:coeff} pots de peinture.","<span class='red'>Vrai</span>, la quantité de peinture est proportionnelle à la surface à peindre."],
-            ["À vitesse constante, si je parcours ${:a} km en 1h, je parcourrai ${:a*:coeff} km en ${:coeff} h.","<span class='red'>Vrai</span>, car la vitesse est constante."],
-            ["Si je prends ${:coeff} fois plus de feuilles de papier, alors l’épaisseur du paquet de feuilles sera ${:coeff} fois plus grande.", "<span class='red'>Vrai</span>, l’épaisseur est proportionnelle à la quantité de feuilles."],
-            ["Si je prends ${:coeff} fois moins de feuilles de papier, alors l’épaisseur du paquet de feuilles sera ${:coeff} fois plus petite.", "<span class='red'>Vrai</span>, l’épaisseur est proportionnelle à la quantité de feuilles."],
-            ["Si un robinet fournit ${:a} litres par minute, alors en ${:coeff} minutes on aura utilisé ${:coeff*:a} litres si on ne change pas le débit.","<span class='red'>Vrai</span>, car le débit est proportionnel au temps."]
+            ["Alle Comics sind gleich. Dann ist ein Stapel aus ${:a*:coeff} Comics ${MMmath.zahlwort(:coeff)}mal so schwer wie ein Stapel aus ${:a} Comics.","<span class='red'>Wahr</span>, da alle Comics gleich sind, ist die Masse proportional zur Anzahl der Comics."],
+            ["Beim Bäcker kostet ein Brötchen ${:prix} ct. Für ${MMmath.zahlwort(:coeff)} Brötchen bezahlt man ${MMmath.twoDecimals(:coeff*:prix/100)} €.","<span class='red'>Wahr</span>, der Preis ist proportional zur Anzahl der gekauften Brötchen (wenn es kein Sonderangebot gibt)."],
+            ["Ich nehme mir vor, jeden Tag genau ${:a} Seiten zu lesen. Dann bin ich mit einem Buch von ${:a*:coeff} Seiten nach ${:coeff} Tagen fertig.","<span class='red'>Wahr</span>, denn ich lese jeden Tag gleich viele Seiten."],
+            ["Für eine Wand von 5 m² braucht man ${:a} Eimer Farbe. Für eine ${MMmath.zahlwort(:coeff)}mal so große Wand braucht man ${:a*:coeff} Eimer Farbe.","<span class='red'>Wahr</span>, die Farbmenge ist proportional zur Fläche, die gestrichen wird."],
+            ["Ich fahre mit gleichbleibender Geschwindigkeit und lege in 1 h ${:a} km zurück. Dann lege ich in ${:coeff} h ${:a*:coeff} km zurück.","<span class='red'>Wahr</span>, denn die Geschwindigkeit ist konstant."],
+            ["Wenn ich ${:coeff}-mal so viele Blätter Papier nehme, ist der Papierstapel ${:coeff}-mal so dick.", "<span class='red'>Wahr</span>, die Dicke ist proportional zur Anzahl der Blätter."],
+            ["Wenn ich die Anzahl der Blätter Papier durch ${:coeff} teile, wird auch die Dicke des Papierstapels durch ${:coeff} geteilt.", "<span class='red'>Wahr</span>, die Dicke ist proportional zur Anzahl der Blätter."],
+            ["Aus einem Wasserhahn fließen ${:a} Liter pro Minute. Wenn man den Hahn nicht verstellt, sind nach ${:coeff} Minuten ${:coeff*:a} Liter geflossen.","<span class='red'>Wahr</span>, denn die Wassermenge ist proportional zur Zeit."]
         ],
         "faux":[
-            ["À ${:a} ans, on est ${MMmath.NumberToLetter(:coeff)} fois plus petit qu’à ${:a*:coeff} ans.","<span class='red'>Faux</span>, la taille ne dépend pas de l’âge."],
-            ["Si je lis ${:a} pages en un jour, je finirai un livre de ${:a*:coeff} pages en ${:coeff} jours.","<span class='red'>Faux</span>, on ne lit pas le même nombre de pages chaque jour."],
-            ["${:prenoms[:choixPrenom]} fait le tour du lac avec un sac à dos de ${:a} kg en 1h. S'il fait la même randonnée avec un sac à dos de ${:a*:coeff} kg, il va mettre ${:coeff} heures.", "<span class='red'>Faux</span>, la vitesse n’est pas proportionnelle au poids du sac."],
-            ["Manger ${MMmath.NumberToLetter(:coeff)} fois plus de légumes rend ${MMmath.NumberToLetter(:coeff)} fois plus fort.", "<span class='red'>Faux</span>, la force n’est pas proportionnelle à la quantité de légumes mangés."],
-            ["Pour mon anniversaire, j’ai invité ${:a} amis. S’il y avait ${MMmath.NumberToLetter(:coeff)} fois plus d’amis, nous ferions ${:coeff} fois plus de bruit.", "<span class='red'>Faux</span>, le bruit n’est pas proportionnel au nombre de personnes."],
-            ["Un paquet de gâteaux coute habituellement ${MMmath.twoDecimals(:a*:coeff/10)} €. Lors d'une promotion, un magasin propose la vente de ces gâteaux par lot de ${:coeff} paquets. On peut déterminer le prix du lot.","<span class='red'>Faux</span>, dans un lot, il peut y avoir un ou plusieur paquets gratuits. Il peut arriver que le lot soit plus cher que prévu."]
+            ["Mit ${:a*:coeff} Jahren ist man ${MMmath.zahlwort(:coeff)}mal so groß wie mit ${:a} Jahren.","<span class='red'>Falsch</span>, die Körpergröße ist nicht proportional zum Alter."],
+            ["Ich habe heute ${:a} Seiten gelesen. Also bin ich mit einem Buch von ${:a*:coeff} Seiten nach ${:coeff} Tagen fertig.","<span class='red'>Falsch</span>, man liest nicht jeden Tag gleich viele Seiten."],
+            ["${:prenoms[:choixPrenom]} wandert mit einem ${:a} kg schweren Rucksack in 1 h um den See. Mit einem ${:a*:coeff} kg schweren Rucksack braucht ${:prenoms[:choixPrenom]} für dieselbe Wanderung ${:coeff} Stunden.", "<span class='red'>Falsch</span>, die Wanderzeit ist nicht proportional zum Gewicht des Rucksacks."],
+            ["Wer ${MMmath.zahlwort(:coeff)}mal so viel Gemüse isst, wird ${MMmath.zahlwort(:coeff)}mal so stark.", "<span class='red'>Falsch</span>, die Kraft ist nicht proportional zur gegessenen Gemüsemenge."],
+            ["Zu meinem Geburtstag habe ich ${:a+1} Freunde eingeladen. Mit ${MMmath.zahlwort(:coeff)}mal so vielen Freunden wären wir ${:coeff}-mal so laut.", "<span class='red'>Falsch</span>, die Lautstärke ist nicht proportional zur Anzahl der Personen."],
+            ["Eine Packung Kekse kostet normalerweise ${MMmath.twoDecimals(:a*:coeff/10)} €. Bei einer Aktion verkauft ein Geschäft diese Kekse im Paket zu ${:coeff} Packungen. Man kann den Preis des Pakets ausrechnen.","<span class='red'>Falsch</span>, in einem Aktionspaket können eine oder mehrere Packungen gratis sein. Das Paket kann aber auch teurer sein als erwartet."]
         ]},
         "vars":{
             "a":"1_9",
@@ -77,8 +78,9 @@
             "choixvrai":"0_${:vrai.length-1}",
             "choixfaux":"0_${:faux.length-1}"
         },
-            "question":"<b>Vrai</b> ou <b>Faux</b> ?<br>${:veracite?:vrai[:choixvrai][0]::faux[:choixfaux][0]}",
-           "answer":"${:veracite?:vrai[:choixvrai][1]::faux[:choixfaux][1]}"
+            "question":"<b>Wahr</b> oder <b>falsch</b>?<br>${:veracite?:vrai[:choixvrai][0]::faux[:choixfaux][0]}",
+           "answer":"${:veracite?:vrai[:choixvrai][1]::faux[:choixfaux][1]}",
+           "value":"${:veracite?'\\text{wahr}':'\\text{falsch}'}"
         }
     ]
 }

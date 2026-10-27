@@ -1,5 +1,5 @@
-title: Reconnaître la nature d'un triangle à partir de la mesure de ses angles
-description: "nature d'un triangle, angles, isocèle, équilatéral, rectangle, somme des angles 180°"
+title: Dreiecksart an den Winkelgrößen erkennen
+description: "Dreiecksart bestimmen, Winkel, Winkelsumme im Dreieck 180°, gleichschenklig, gleichseitig, rechtwinklig, allgemein, Basiswinkel"
 dest: [7EB, 5BD]
 type: text
 # l'équilatéral n'a qu'une seule mesure possible (60-60-60, seule
@@ -7,18 +7,18 @@ type: text
 # dernières questions bloque son tirage
 repeat: true
 keys: ["qcq", "iso", "equi", "rect"]
-consigne: "Quelle est la nature du triangle $$ABC$$ ?"
+consigne: "Welche Dreiecksart liegt beim Dreieck $$ABC$$ vor?"
 consts:
   # gabarits de question/réponse, indexés par :deux (0 = trois mesures données,
   # 1 = deux mesures données, la troisième se calculant par la somme des
   # angles). Les :varname sont substitués une fois ce gabarit récupéré par
   # ${:quest[:deux]} / ${:rep[:deux]}, quand les vars existent déjà.
   quest:
-    - "Le triangle $$ABC$$ est tel que $$\\widehat{A}=:angleA°$$, $$\\widehat{B}=:angleB°$$ et $$\\widehat{C}=:angleC°$$."
-    - "Le triangle $$ABC$$ est tel que $$\\widehat{:label1}=:value1°$$ et $$\\widehat{:label2}=:value2°$$."
+    - "Im Dreieck $$ABC$$ gilt $$\\alpha=:angleA°$$, $$\\beta=:angleB°$$ und $$\\gamma=:angleC°$$."
+    - "Im Dreieck $$ABC$$ gilt $$:label1=:value1°$$ und $$:label2=:value2°$$."
   rep:
-    - ":raison : le triangle $$ABC$$ est <span class='red'>:natureMot</span>."
-    - "$$\\widehat{A}+\\widehat{B}+\\widehat{C}=180°$$ donc $$\\widehat{:labelHidden}=180°-:autreSum°=\\color{red}{:hiddenValue°}$$.<br>:raison : le triangle $$ABC$$ est <span class='red'>:natureMot</span>."
+    - ":raison, also ist das Dreieck $$ABC$$ <span class='red'>:natureMot</span>."
+    - "$$\\alpha+\\beta+\\gamma=180°$$, also $$:labelHidden=180°-:autreSum°=\\color{red}{:hiddenValue°}$$.<br>:raison, also ist das Dreieck $$ABC$$ <span class='red'>:natureMot</span>."
   # figs[cas][numéro] : cinq tracés à main levée par nature (0 quelconque,
   # 1 rectangle, 2 isocèle, 3 équilatéral), générés par tools/figures-6ME7.mjs.
   # Purement illustratifs pour la forme (non à l'échelle) : les sommets A, B, C
@@ -101,16 +101,16 @@ vars:
   cacheIso: "${:cacheChoix ? (:role+2)%3 : (:role+1)%3}"
   cacheLibre: [0, 1, 2]
   hidden: "${:cas===1?:role:(:cas===2?:cacheIso::cacheLibre)}"
-  label1: "${:hidden===0?'B':'A'}"
+  label1: "${:hidden===0?'\\beta':'\\alpha'}"
   value1: "${:hidden===0?:angleB::angleA}"
-  label2: "${:hidden===2?'B':'C'}"
+  label2: "${:hidden===2?'\\beta':'\\gamma'}"
   value2: "${:hidden===2?:angleB::angleC}"
-  labelHidden: "${:hidden===0?'A':(:hidden===1?'B':'C')}"
+  labelHidden: "${:hidden===0?'\\alpha':(:hidden===1?'\\beta':'\\gamma')}"
   hiddenValue: "${:hidden===0?:angleA:(:hidden===1?:angleB::angleC)}"
   autreSum: "${180-:hiddenValue}"
 
-  natureMot: "${:cas===0?'quelconque':(:cas===1?'rectangle':(:cas===2?'isocèle':'équilatéral'))}"
-  raison: "${:cas===0?'aucun angle ne mesure 90°, aucun n’est répété':(:cas===1?'un angle mesure 90°':(:cas===2?'deux angles mesurent '+:iBase+'°':'les trois angles mesurent 60°'))}"
+  natureMot: "${:cas===0?'allgemein':(:cas===1?'rechtwinklig':(:cas===2?'gleichschenklig':'gleichseitig'))}"
+  raison: "${:cas===0?'Kein Winkel ist 90° groß und keine zwei Winkel sind gleich groß':(:cas===1?'Ein Winkel ist 90° groß':(:cas===2?'Zwei Winkel sind je '+:iBase+'° groß':'Alle drei Winkel sind 60° groß'))}"
 
   # ── mesures écrites sur la figure (options 1 et 2 seulement) : la valeur,
   # ou rien pour celle qui manque quand deux vaut 1 (même angle que celui
@@ -133,23 +133,23 @@ options:
   # avec figure : les mesures sont déjà écrites sur le dessin (marques
   # %AV%/%BV%/%CV%), donc pas besoin de les répéter dans l'énoncé — la
   # consigne seule (« Quelle est la nature du triangle ABC ? ») suffit
-  - name: Trois mesures, avec figure
+  - name: Drei Winkel gegeben, mit Figur
     vars:
       deux: 0
     question: ""
     figure:
       type: svg
       content: "${:fig}"
-  - name: Deux mesures, avec figure
+  - name: Zwei Winkel gegeben, mit Figur
     vars:
       deux: 1
     question: ""
     figure:
       type: svg
       content: "${:fig}"
-  - name: Trois mesures, sans figure
+  - name: Drei Winkel gegeben, ohne Figur
     vars:
       deux: 0
-  - name: Deux mesures, sans figure
+  - name: Zwei Winkel gegeben, ohne Figur
     vars:
       deux: 1

@@ -127,8 +127,10 @@ function koordinatenPaar (str) {
     .replace(/\\left|\\right/g, "")
     .replace(/\\vert|\\mid|\\lvert|\\rvert/g, "|")
     .replace(/\\[,;:!]|~|\s+/g, "");
-  const m = /^\(([^|;,()]+)[|;,]([^|;,()]+)\)$/.exec(s);
-  return m ? "(" + m[1] + "|" + m[2] + ")" : false;
+  // couples (x|y) et triplets (x|y|z) ; un même séparateur partout
+  const m = /^\(([^|;,()]+)([|;,])([^|;,()]+)(?:\2([^|;,()]+))?\)$/.exec(s);
+  if (!m) return false;
+  return "(" + [m[1], m[3], m[4]].filter((x) => x !== undefined).join("|") + ")";
 }
 
 /**

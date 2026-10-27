@@ -26,6 +26,17 @@ import library from "./library.js";
     'value':'value' or [value0, value1, ...] // accepted values for online answers
 }
 */
+/**
+ * MatheVomFranz : conventions d'affichage allemandes, appliquées aux énoncés
+ * et corrigés (jamais aux valeurs attendues) – le signe de division ÷ devient
+ * « : » comme dans les manuels allemands.
+ */
+function deutscheAnzeige(x) {
+  if (typeof x === "string") return x.replace(/\\div(?![a-zA-Z])/g, "\\mathbin{:}");
+  if (Array.isArray(x)) return x.map(deutscheAnzeige);
+  return x;
+}
+
 export default class activity {
   /**
    * Création d'une activité à partir d'un objet javascript ou d'un code d'activité
@@ -1002,12 +1013,16 @@ export default class activity {
     this.sample = {
       question: this.replaceVars(utils.clone(this.cQuestion)),
     };
+    const frageOriginal = this.sample.question;
+    this.sample.question = deutscheAnzeige(frageOriginal);
     if (this.cShortQ) {
       this.sample.shortQuestion = this.replaceVars(utils.clone(this.cShortQ));
     }
-    this.sample.answer = this.replaceQuestionInAnswer(
-      this.replaceVars(utils.clone(this.cAnswer)),
-      this.sample.question,
+    this.sample.answer = deutscheAnzeige(
+      this.replaceQuestionInAnswer(
+        this.replaceVars(utils.clone(this.cAnswer)),
+        frageOriginal,
+      ),
     );
     this.sample.audio = this.replaceQuestionInAnswer(
       this.replaceVars(utils.clone(this.cAudio)),
@@ -1073,15 +1088,16 @@ export default class activity {
       }
 
       if (this.cConsigne) this.consignes[i] = this.cConsigne;
-      this.questions[i] = thequestion;
-      this.shortQuestions[i] = this.replaceQuestionInAnswer(
-        this.replaceVars(theshort),
-        thequestion,
+      this.questions[i] = deutscheAnzeige(thequestion);
+      this.shortQuestions[i] = deutscheAnzeige(
+        this.replaceQuestionInAnswer(this.replaceVars(theshort), thequestion),
       );
       this.audios[i] = theaudio;
-      this.answers[i] = this.replaceQuestionInAnswer(
-        this.replaceVars(utils.clone(this.cAnswer)),
-        thequestion,
+      this.answers[i] = deutscheAnzeige(
+        this.replaceQuestionInAnswer(
+          this.replaceVars(utils.clone(this.cAnswer)),
+          thequestion,
+        ),
       );
       this.values[i] = thevalue;
       const figure = this.buildFigure(this.cFigure);

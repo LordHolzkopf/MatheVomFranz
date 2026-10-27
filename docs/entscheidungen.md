@@ -91,3 +91,5 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 - Neue Aufgaben liegen in `public/library/ND/`, IDs `D` + Themenblock + Nummer (z. B. `D8EA1`), damit sie sich nie mit IDs des Originals überschneiden.
 - Auch schwer „kopfrechentaugliche“ Themen (Rotationskörper, Konfidenzintervalle) bekommen kurze Automatisierungsaufgaben, z. B. Formeln, Sigma-Regeln, einfache Werte.
 - Fünf Subagenten nach Stufen; anschließend prüft ein unabhängiger Agent stichprobenartig die Mathematik.
+- **Divisionszeichen:** In Fragen und Lösungen wird `\div` (÷) zentral in der Engine als Doppelpunkt angezeigt, wie in deutschen Schulbüchern üblich. Die erwarteten Antworten bleiben unverändert, deshalb ändert sich an der Antwortprüfung nichts. Die Aufgaben-Dateien enthalten weiter `\div`.
+- **„Ne pas tirer“** (Einstellung, welche Zufallswerte ausgeschlossen werden) heißt einheitlich „Nicht abfragen“.

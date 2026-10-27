@@ -428,8 +428,9 @@ function checkURL(urlString) {
       if (radio) radio.checked = true;
     }
     parameters.titreFiche = vars.t ? decodeURI(vars.t) : "Übungsblatt";
-    parameters.titreExercices =
-      decodeURI(vars.ex).trim() + " ".replace("📣", "");
+    parameters.titreExercices = vars.ex
+      ? decodeURI(vars.ex).trim() + " ".replace("📣", "")
+      : "Aufgabe ";
     parameters.enoncesSepares = vars.es || 0;
     parameters.corrigeSepare = vars.cs || 0;
     parameters.activitesColonnes = vars.cols || [];

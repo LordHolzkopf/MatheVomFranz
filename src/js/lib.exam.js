@@ -331,7 +331,7 @@ function checkURL(urlString){
         parameters.nb=Number(vars.n);
         parameters.positionCorrection=vars.cor||'end';
         parameters.titreFiche=vars.t?decodeURI(vars.t):"Testblatt";
-        parameters.titreExercices=decodeURI(vars.ex).trim()+" ".replace("📣","");
+        parameters.titreExercices=vars.ex?decodeURI(vars.ex).trim()+" ".replace("📣",""):"Aufgabe ";
         parameters.enoncesSepares=vars.es||0;
         parameters.corrigeSepare=vars.cs||0;
         parameters.activitesColonnes=vars.cols||[];

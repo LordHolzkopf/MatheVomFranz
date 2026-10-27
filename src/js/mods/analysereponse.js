@@ -131,6 +131,24 @@ function koordinatenPaar (str) {
   return m ? "(" + m[1] + "|" + m[2] + ")" : false;
 }
 
+/**
+ * MatheVomFranz : réponse attendue faite de mots (« keine Lösung », « spitz »).
+ * MathLive transforme certains mots tapés au clavier (« keine » → ke\in e,
+ * « spitz » → s\pi tz) : on retire commandes, accolades et espaces avant de
+ * comparer, sans tenir compte de la casse.
+ */
+function wortAntwort (goodAnswer, userAnswer) {
+  if (typeof goodAnswer !== "string" || typeof userAnswer !== "string") return false;
+  if (!/^[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß\s,.-]*$/.test(goodAnswer)) return false;
+  const glatt = (t) =>
+    t
+      .replace(/\\(?:mathrm|text|operatorname)\{([^}]*)\}/g, "$1")
+      .replace(/\\([a-zA-Z]+)/g, "$1")
+      .replace(/[{}\s~]/g, "")
+      .toLowerCase();
+  return glatt(goodAnswer) === glatt(userAnswer);
+}
+
 function analyseReponse (goodAnswer, userAnswer, valueType = false) {
   const paarErwartet = koordinatenPaar(goodAnswer);
   if (valueType === false && paarErwartet) {
@@ -250,6 +268,8 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
           return false;
         }
       }
+    } else if (wortAntwort(goodAnswer, userAnswer)) {
+      return true;
     } else if (String(userAnswer).toLowerCase() == String(goodAnswer).toLowerCase()) {
       // égalité brute de chaines
       return true;

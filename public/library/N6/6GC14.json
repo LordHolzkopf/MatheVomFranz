@@ -1,7 +1,7 @@
 {
     "ID":"6GC14",
-    "title":"Angles et bissectrices",
-    "description":"bissectrice, angle, codage, moitié d'un angle, mesure",
+    "title":"Winkel mit der Winkelhalbierenden berechnen",
+    "description":"Winkelhalbierende, Winkel, halber Winkel, doppelter Winkel, Winkelgröße, Winkel halbieren, Winkel berechnen",
     "dest":["6DD", "8FC"],
     "type":"text",
     "repeat":4,
@@ -12,7 +12,7 @@
     },
     "options":[
         {
-            "name":"Mesure du grand angle",
+            "name":"Größe des ganzen Winkels",
             "vars":{
                 "li":"0_${:lettres.length-1}_2_^&",
                 "A":"${:lettres.charAt(:li[0])}",
@@ -46,11 +46,11 @@
                     ["angle",["${:x}","O","${:B}"],{"orthoType":"sector","radius":2.3,"label":{"visible":false},"fillColor":"transparent","strokeColor":"${:color1}"}]
                 ]
             },
-            "question":"[O${:x}) est la bissectrice de l'angle $$\\widehat{${:A}O${:B}}$$, quelle est la mesure de $$\\widehat{${:A}O${:B}}$$ ?",
-            "answer":"$$\\widehat{${:A}O${:B}}=${2*:ang1}°$$",
+            "question":"Die Halbgerade $$O${:x}$$ ist die Winkelhalbierende des Winkels $$\\sphericalangle ${:A}O${:B}$$. Wie groß ist $$\\sphericalangle ${:A}O${:B}$$?",
+            "answer":"$$\\sphericalangle ${:A}O${:B}=\\color{red}{${2*:ang1}°}$$",
             "value":"${2*:ang1}"
         },{
-            "name":"Mesure de l’autre angle",
+            "name":"Größe des halben Winkels",
             "vars":{
                 "li":"0_${:lettres.length-1}_2_^&",
                 "A":"${:lettres.charAt(:li[0])}",
@@ -84,8 +84,8 @@
                     ["angle",["${:x}","O","${:B}"],{"orthoType":"sector","radius":2.3,"label":{"visible":false},"fillColor":"transparent","strokeColor":"${:color1}"}]
                 ]
             },
-            "question":"[O${:x}) est la bissectrice de l'angle $$\\widehat{${:A}O${:B}}$$, quelle est la mesure de $$\\widehat{${:x}O${:B}}$$ ?",
-            "answer":"$$\\widehat{${:x}O${:B}}=${:ang1}°$$",
+            "question":"Die Halbgerade $$O${:x}$$ ist die Winkelhalbierende des Winkels $$\\sphericalangle ${:A}O${:B}$$. Wie groß ist $$\\sphericalangle ${:x}O${:B}$$?",
+            "answer":"$$\\sphericalangle ${:x}O${:B}=\\color{red}{${:ang1}°}$$",
             "value":"${:ang1}"
         }
     ]

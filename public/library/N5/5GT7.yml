@@ -1,5 +1,5 @@
-title: "Frises et pavages : reconnaitre la transformation qui mène d’un motif à l’autre"
-description: "frise, pavage, transformation, symétrie, translation, rotation, motif"
+title: "Bandornamente und Parkette: Abbildung zwischen zwei Motiven erkennen"
+description: "Bandornament, Parkett, Parkettierung, Muster, Motiv, Abbildung, Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Gleitspiegelung, Symmetrie"
 ID: 5GT7
 type: text
 textSize: medium
@@ -11,19 +11,19 @@ dest: [6DB, 5BC]
 consts:
   # énoncé et énoncé court, selon qu’il s’agit d’une frise ou d’un pavage
   enonce:
-    - "Cette frise est faite d’un motif répété.<br>Quelle transformation permet de passer d’un motif au motif voisin ?<br />(symétrie axiale, symétrie centrale ou autre transformation)"
-    - "Quelle transformation permet de passer du motif $$:numA$$ au motif $$:numB$$ ?<br />(symétrie axiale, symétrie centrale ou autre transformation)"
+    - "Dieses Bandornament besteht aus einem wiederholten Motiv.<br>Durch welche Abbildung geht ein Motiv in das benachbarte über?<br />(Achsenspiegelung, Punktspiegelung oder andere Abbildung)"
+    - "Durch welche Abbildung geht Motiv $$:numA$$ in Motiv $$:numB$$ über?<br />(Achsenspiegelung, Punktspiegelung oder andere Abbildung)"
   court:
-    - "Du motif au motif voisin : quelle transformation ?"
-    - "Du motif $$:numA$$ au motif $$:numB$$ : quelle transformation ?"
-  transf: ["symétrie axiale", "symétrie centrale", "autre transformation"]
+    - "Vom Motiv zum Nachbarmotiv: welche Abbildung?"
+    - "Von Motiv $$:numA$$ zu Motiv $$:numB$$: welche Abbildung?"
+  transf: ["Achsenspiegelung", "Punktspiegelung", "andere Abbildung"]
   # explication, dans le même ordre. Le dernier cas se dédouble : le motif est
   # seulement décalé (translation), ou retourné puis décalé (symétrie glissée).
   pourquoi:
-    - "L’axe est la droite ${:memeLigne?'verticale':'horizontale'} située à mi-chemin entre les deux motifs : chacun est le reflet de l’autre."
-    - "Le centre est le point situé à mi-chemin entre deux points qui se correspondent : un demi-tour amène un motif sur l’autre."
-    - "Les deux motifs sont orientés de la même façon : on passe de l’un à l’autre en le faisant glisser, sans le retourner. C’est une translation."
-    - "Le motif est bien retourné, mais il est aussi décalé le long de l’axe : aucun axe ne convient, le reflet tomberait à côté. C’est une symétrie axiale suivie d’une translation, ce qu’on appelle une symétrie glissée."
+    - "Die Spiegelachse ist die ${:memeLigne?'senkrechte':'waagerechte'} Gerade genau in der Mitte zwischen den beiden Motiven: Die Motive sind Spiegelbilder voneinander."
+    - "Das Zentrum ist der Mittelpunkt zwischen zwei einander entsprechenden Punkten: Eine halbe Drehung (um 180°) bringt das eine Motiv auf das andere."
+    - "Beide Motive sind gleich ausgerichtet: Man kommt vom einen zum anderen, indem man es verschiebt, ohne es umzuklappen. Es ist eine Verschiebung."
+    - "Das Motiv ist zwar umgeklappt, aber zusätzlich entlang der Achse verschoben: Keine Achse passt, das Spiegelbild läge daneben. Es ist eine Achsenspiegelung mit anschließender Verschiebung, eine sogenannte Gleitspiegelung."
   # ── motifs, six sommets dans une case de 2 sur 2. Aucun n'a d'axe de
   # symétrie ni de centre : sinon un motif retourné se confondrait avec un
   # motif seulement décalé, et la question n'aurait plus de réponse unique.
@@ -274,30 +274,30 @@ vars:
   bw: ${(:pav===1?4.3:5.2)+:mrg}
   bh: ${(:pav===1?3.3:1.4)+:mrg}
 options:
-  - name: Frise de motifs séparés
+  - name: Bandornament aus einzelnen Motiven
     vars:
       pav: 0
       fam: 0
-  - name: Pavage de motifs séparés
+  - name: Parkett aus einzelnen Motiven
     vars:
       pav: 1
       fam: 0
-  - name: Frise de tuiles jointives, avec ou sans trou
+  - name: Bandornament aus aneinanderstoßenden Kacheln, mit oder ohne Lücken
     vars:
       pav: 0
       fam: [1, 2]
-  - name: Pavage de tuiles jointives, avec ou sans trou
+  - name: Parkett aus aneinanderstoßenden Kacheln, mit oder ohne Lücken
     vars:
       pav: 1
       fam: [1, 2]
 question: "${:enonce[:pav]}"
 shortq: "${:court[:pav]}"
-answer: "C’est une <span class='red'>${:transf[:rep]}</span> qui permet de passer de l’un à l’autre.<br>${:pourquoi[:expl]}"
+answer: "Es ist eine <span class='red'>${:transf[:rep]}</span>.<br>${:pourquoi[:expl]}"
 value:
   - "${:transf[:rep]}"
-  - "${:rep===0?'symetrie axiale':(:rep===1?'symetrie centrale':'autre')}"
-  - "${:rep===0?'axiale':(:rep===1?'centrale':(:glis?'symétrie glissée':'translation'))}"
-  - "${:rep===0?'axiale':(:rep===1?'centrale':'autre transformation')}"
+  - "${:rep===0?'Achsensymmetrie':(:rep===1?'Punktsymmetrie':'andere')}"
+  - "${:rep===0?'Spiegelung':(:rep===1?'Drehung um 180°':(:glis?'Gleitspiegelung':'Verschiebung'))}"
+  - "${:rep===0?'Geradenspiegelung':(:rep===1?'Halbdrehung':'andere Abbildung')}"
 figure:
   type: graph
   # une case fait 2 unités, soit 80 px : le motif y est franchement lisible, et

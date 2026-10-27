@@ -1,57 +1,57 @@
 {
-    "title":"Arrondir un nombre décimal",
-    "description":"Donner le décimal le plus proche en fonction de la précision demandée.",
+    "title":"Dezimalzahlen runden",
+    "description":"Dezimalzahl auf Einer, Zehntel, Hundertstel oder Tausendstel runden: runden, gerundet, Rundungsstelle, Näherungswert.",
     "speech":1,
     "textSize":"medium",
     "type":"text",
     "dest":["6BB"],
     "options":[
         {
-          "name":"À l'unité",
+          "name":"Auf Einer",
             "vars":{
                 "a":[10,100,1000,10000],
                 "c":"2_5",
                 "b":"d0_${:a}_${:c}_^0"},
-            "question": "Arrondir $$${:b}$$ à l'unité près",
-            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad}$$ à l'unité près",
-            "audio":"Arrondir ${String(:b).replace('.',',')} à l'unité près",
-            "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,0)}}$$ à l'unité près",
+            "question": "Runde $$${:b}$$ auf Einer.",
+            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad}$$ (auf Einer)",
+            "audio":"Runde ${String(:b).replace('.',',')} auf Einer.",
+            "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,0)}}$$ (auf Einer)",
             "value":"${MMmath.round(:b,0)}"
         },
         {
-        "name":"Au dixième",
+        "name":"Auf Zehntel",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"3_5",
             "b":"d0_${:a}_${:c}_^0"},
-            "question": "Arrondir $$${:b}$$ au dixième près",
-            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad}$$ au 10<sup>e</sup> près",
-            "audio":"Arrondir ${String(:b).replace('.',',')} au dixième près",
-        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,1)}}$$ au dixième près",
+            "question": "Runde $$${:b}$$ auf Zehntel.",
+            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad}$$ (auf Zehntel)",
+            "audio":"Runde ${String(:b).replace('.',',')} auf Zehntel.",
+        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,1)}}$$ (auf Zehntel)",
         "value":"${MMmath.round(:b,1)}"
     },
     {
-        "name":"Au centième",
+        "name":"Auf Hundertstel",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"4_8",
             "b":"d0_${:a}_${:c}_^0"},
-            "question": "Arrondir $$${:b}$$ au centième près",
-            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad\\quad}$$ au 100<sup>e</sup> près",
-            "audio":"Arrondir ${String(:b).replace('.',',')} au centième près",
-        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,2)}}$$ au centième près",
+            "question": "Runde $$${:b}$$ auf Hundertstel.",
+            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad\\quad}$$ (auf Hundertstel)",
+            "audio":"Runde ${String(:b).replace('.',',')} auf Hundertstel.",
+        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,2)}}$$ (auf Hundertstel)",
         "value":"${MMmath.round(:b,2)}"
     },
     {
-        "name":"Au millième",
+        "name":"Auf Tausendstel",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"5_10",
             "b":"d0_${:a}_${:c}_^0"},
-            "question": "Arrondir $$${:b}$$ au millième près",
-            "audio":"Arrondir ${String(:b).replace('.',',')} au millième près",
-            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad\\quad\\quad}$$ au 1000<sup>e</sup> près",
-        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,3)}}$$ au millième près",
+            "question": "Runde $$${:b}$$ auf Tausendstel.",
+            "audio":"Runde ${String(:b).replace('.',',')} auf Tausendstel.",
+            "shortq": "$$${:b}\\approx\\colorbox{#ECECEC}{\\quad\\quad\\quad\\quad}$$ (auf Tausendstel)",
+        "answer":"$$${:b}\\approx\\color{red}{${MMmath.round(:b,3)}}$$ (auf Tausendstel)",
         "value":"${MMmath.round(:b,3)}"
     }
     ]

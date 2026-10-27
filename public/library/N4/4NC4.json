@@ -1,28 +1,28 @@
 {
-    "title":"Quotient de fractions",
-    "description":"fractions, quotient, diviser des fractions, inverse, simplifier",
+    "title":"Durch Brüche dividieren",
+    "description":"Brüche, Quotient, Brüche dividieren, durch einen Bruch teilen, Kehrwert, Doppelbruch, kürzen",
     "type":"latex",
     "ID":"4NC4",
     "textSize":"medium",
     "keys":["_","_","-","/","_","_","_","_"],
     "dest":["6EC", "6EA", "7AC"],
-    "consigne":"Donner la fraction irréductible ou l'entier égal.",
+    "consigne":"Gib das Ergebnis als vollständig gekürzten Bruch oder als ganze Zahl an.",
     "valueType":"fractionIrreductible",
     "options":[{
-        "name":"Quotient de fractions positives",
+        "name":"Positive Brüche dividieren",
         "vars":{"num":"1_12_2","den":"2_12_2"}
     },{
-        "name":"Quotient de fractions avec relatifs",
+        "name":"Brüche mit negativen Zahlen dividieren",
         "vars":{"num":"-12_12_2_^0","den":"-12_12_2_^-1,0,1"}
     },{
-        "name":"Diviser par un entier",
+        "name":"Bruch durch eine ganze Zahl dividieren",
         "vars":{"num":"-12_12_^0", "den":"-12_12_^-1,0,1","nb":"-12_12_^0,1"},
         "question":["\\dfrac{${:num}}{${:den}}\\div${(:nb<0)?'('+:nb+')'::nb}=?",
             "\\dfrac{\\dfrac{${:num}}{${:den}}}{${:nb}}=?"],
         "answer":":question|2=\\color{green}{\\dfrac{${:num}}{${:den}}\\times\\dfrac{1}{${:nb}}}=\\color{red}{\\displaystyle${MMmath.calc(:num+'/('+:den+')/('+:nb+')',false)}}",
         "value":"${MMmath.calc(:num+'/('+:den+')/('+:nb+')')}"
     },{
-        "name":"Diviser un entier par une fraction",
+        "name":"Ganze Zahl durch einen Bruch dividieren",
         "vars":{"num":"-12_12_^0", "den":"-12_12_^-1,0,1","nb":"-12_12_^0,1"},
         "question":["${(:nb<0)?'('+:nb+')'::nb}\\div\\dfrac{${:num}}{${:den}}=?",
             "\\dfrac{${:nb}}{\\dfrac{${:num}}{${:den}}}=?"],

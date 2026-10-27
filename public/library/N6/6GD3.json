@@ -1,7 +1,7 @@
 {
     "ID":"6GD3",
-    "title":"Appartenance au cercle",
-    "description":"Déterminer si un point appartient à un cercle donné.",
+    "title":"Liegt der Punkt auf dem Kreis?",
+    "description":"Entscheiden, ob ein Punkt auf einer Kreislinie oder in einer Kreisfläche liegt: Kreis, Mittelpunkt, Radius, Abstand vom Mittelpunkt.",
     "dest":["6DC"],
     "type":"text",
     "fontSize":"small",
@@ -11,35 +11,35 @@
     },
     "options":[
         {
-            "name":"Cercle et rayon",
+            "name":"Kreislinie und Radius",
             "vars":{
                 "R":"2_10",
                 "l":"0_${:lettres.length-1}",
                 "A":"${:lettres[:l]}",
                 "app":[true,false],
                 "dist":"${:app?:R:'1_10_^'+:R}",
-                "rep":"${:app?'Oui':'Non'}",
-                "justif":"${:app?', car O'+:A+' est égal au rayon':', car O'+:A+' est différent du rayon'}"
+                "rep":"${:app?'Ja':'Nein'}",
+                "justif":"${:app?', denn $$\\overline{O'+:A+'}$$ ist so lang wie der Radius.':', denn $$\\overline{O'+:A+'}$$ ist nicht so lang wie der Radius.'}"
             },
-            "question":"$$O${:A}=${:dist}$$.<br>${:A} appartient-il au cercle de centre O et de rayon ${:R} ?",
+            "question":"$$\\overline{O${:A}}=${:dist}$$.<br>Liegt ${:A} auf dem Kreis um O mit dem Radius ${:R}?",
             "answer":"<span class='red'>${:rep}</span>${:justif}",
-            "value":["${:app?'oui':'non'}","${:app?'O':'N'}"]
+            "value":["${:app?'\\text{ja}':'\\text{nein}'}","${:app?'ja':'nein'}"]
         },{
-            "name":"Disque et rayon",
+            "name":"Kreisfläche und Radius",
             "vars":{
                 "R":"2_9",
                 "l":"0_${:lettres.length-1}",
                 "A":"${:lettres[:l]}",
                 "app":[true,false],
                 "dist":"${:app?'1_'+:R:(:R+1)+'_10'}",
-                "rep":"${:app?'Oui':'Non'}",
-                "justif":"${:app?', car O'+:A+' est inférieur ou égal au rayon':', car O'+:A+' est supérieur au rayon'}"
+                "rep":"${:app?'Ja':'Nein'}",
+                "justif":"${:app?', denn $$\\overline{O'+:A+'}$$ ist höchstens so lang wie der Radius.':', denn $$\\overline{O'+:A+'}$$ ist länger als der Radius.'}"
             },
-            "question":"$$O ${:A}=${:dist}$$.<br>${:A} appartient-il au disque de centre O et de rayon ${:R} ?",
+            "question":"$$\\overline{O${:A}}=${:dist}$$.<br>Liegt ${:A} in der Kreisfläche um O mit dem Radius ${:R}?",
             "answer":"<span class='red'>${:rep}</span>${:justif}",
-            "value":["${:app?'oui':'non'}","${:app?'O':'N'}"]
+            "value":["${:app?'\\text{ja}':'\\text{nein}'}","${:app?'ja':'nein'}"]
         },{
-            "name":"Comparaison de longueurs et cercle",
+            "name":"Längen vergleichen – Kreislinie",
             "vars":{
                 "l":"0_${:lettres.length-1}_4_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -48,14 +48,14 @@
                 "D":"${:lettres[:l[3]]}",
                 "lg":"1_10_3_^&",
                 "cx":"0_3_2_^&",
-                "rep":"${:cx[0]==1&&:cx[1]==2?'Oui':'Non'}",
-                "justif":"${:cx[0]==1&&:cx[1]==2?', car $$O'+:B+'=O'+:C+'$$':', car $$O'+:lettres[:l[:cx[0]]]+'\\not = O'+:lettres[:l[:cx[1]]]+'$$'}"
+                "rep":"${:cx[0]*:cx[1]==2?'Ja':'Nein'}",
+                "justif":"${:cx[0]*:cx[1]==2?', denn $$\\overline{O'+:B+'}=\\overline{O'+:C+'}$$.':', denn $$\\overline{O'+:lettres[:l[:cx[0]]]+'}\\not = \\overline{O'+:lettres[:l[:cx[1]]]+'}$$.'}"
             },
-            "question":"On sait que $$O ${:A}=${:lg[0]}$$, $$O ${:B}=${:lg[1]}$$, $$O ${:C}=${:lg[1]}$$ et $$O ${:D}=${:lg[2]}$$.<br>Le point ${:lettres[:l[:cx[0]]]} appartient-il au cercle de centre O passant par ${:lettres[:l[:cx[1]]]} ?",
+            "question":"Es gilt $$\\overline{O${:A}}=${:lg[0]}$$, $$\\overline{O${:B}}=${:lg[1]}$$, $$\\overline{O${:C}}=${:lg[1]}$$ und $$\\overline{O${:D}}=${:lg[2]}$$.<br>Liegt der Punkt ${:lettres[:l[:cx[0]]]} auf dem Kreis um O, der durch ${:lettres[:l[:cx[1]]]} geht?",
             "answer":"<span class='red'>${:rep}</span>${:justif}",
-            "value":["${:cx[0]==1&&:cx[1]==2?'oui':'non'}","${:cx[0]==1&&:cx[1]==2?'O':'N'}"]
+            "value":["${:cx[0]*:cx[1]==2?'\\text{ja}':'\\text{nein}'}","${:cx[0]*:cx[1]==2?'ja':'nein'}"]
         },{
-            "name":"Comparaison de longueurs et disque",
+            "name":"Längen vergleichen – Kreisfläche",
             "vars":{
                 "l":"0_${:lettres.length-1}_4_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -66,12 +66,12 @@
                 "cx":"0_3_2_^&",
                 "lg0":"${:lg[MMmath.round((:cx[0]+0.5)/2,0)]}",
                 "lg1":"${:lg[MMmath.round((:cx[1]+0.5)/2,0)]}",
-                "rep":"${:lg0 <= :lg1?'Oui':'Non'}",
-                "justif":"${:lg0<:lg1?', car $$O'+:lettres[:l[:cx[0]]]+'< O'+:lettres[:l[:cx[1]]]+'$$'::lg0==:lg1?', car $$O'+:lettres[:l[:cx[0]]]+'=O'+:lettres[:l[:cx[1]]]+'$$':', car $$O'+:lettres[:l[:cx[0]]]+'> O'+:lettres[:l[:cx[1]]]+'$$'}"
+                "rep":"${:lg0 <= :lg1?'Ja':'Nein'}",
+                "justif":"${:lg0<:lg1?', denn $$\\overline{O'+:lettres[:l[:cx[0]]]+'}< \\overline{O'+:lettres[:l[:cx[1]]]+'}$$.'::lg0==:lg1?', denn $$\\overline{O'+:lettres[:l[:cx[0]]]+'}=\\overline{O'+:lettres[:l[:cx[1]]]+'}$$.':', denn $$\\overline{O'+:lettres[:l[:cx[0]]]+'}> \\overline{O'+:lettres[:l[:cx[1]]]+'}$$.'}"
             },
-            "question":"On sait que $$O:A=:lg[0]$$, $$O:B=:lg[1]$$, $$O:C=:lg[1]$$ et $$O:D=:lg[2]$$.<br>Le point ${:lettres[:l[:cx[0]]]} appartient-il au disque de centre O passant par ${:lettres[:l[:cx[1]]]} ?",
+            "question":"Es gilt $$\\overline{O:A}=:lg[0]$$, $$\\overline{O:B}=:lg[1]$$, $$\\overline{O:C}=:lg[1]$$ und $$\\overline{O:D}=:lg[2]$$.<br>Liegt der Punkt ${:lettres[:l[:cx[0]]]} in der Kreisfläche um O, deren Rand durch ${:lettres[:l[:cx[1]]]} geht?",
             "answer":"<span class='red'>${:rep}</span>${:justif}",
-            "value":["${:lg0<=:lg1?'oui':'non'}","${:lg0<=:lg[MMmath.round((:cx[1]+0.5)/2,0)]?'O':'N'}"]
+            "value":["${:lg0<=:lg1?'\\text{ja}':'\\text{nein}'}","${:lg0<=:lg[MMmath.round((:cx[1]+0.5)/2,0)]?'ja':'nein'}"]
         }
     ]
 }

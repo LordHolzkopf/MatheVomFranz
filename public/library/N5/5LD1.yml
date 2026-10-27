@@ -1,34 +1,34 @@
-title: 'Leçon : Statistiques'
+title: 'Wissen: Statistik'
 type: text
-description: "10 questions sur le vocabulaire et les formules de Statistiques : effectif, fréquence, moyenne, médiane, étendue, diagrammes. Non adapté au mode interactif (online/duel)."
+description: "10 Wissensfragen zu Begriffen und Formeln der Statistik: Grundgesamtheit, Merkmal, absolute und relative Häufigkeit, Mittelwert, gewichteter Mittelwert, Diagramme, Tabellenkalkulation. Nicht für den interaktiven Modus (online/Duell) geeignet."
 dest: [6FA, 6FC, 6FB]
 options:
-  - name: Vocabulaire
+  - name: Begriffe
     question:
-      - Qu’appelle-t-on <b>population</b> en statistiques ?
-      - Qu’appelle-t-on <b>caractère</b> en statistiques ?
-      - Quels sont les types de caractères ?
-      - Qu’est-ce que l’<b>effectif</b> d’une valeur ?
+      - Was versteht man in der Statistik unter der <b>Grundgesamtheit</b>?
+      - Was versteht man in der Statistik unter einem <b>Merkmal</b>?
+      - Welche Arten von Merkmalen gibt es?
+      - Was ist die <b>absolute Häufigkeit</b> eines Wertes?
     answer:
-      - Une population est un ensemble d’individus étudiés lors d’un sondage.
-      - Le caractère étudié est ce sur quoi pose la question d’une étude statistique.
-      - "Le caractère peut être <b>quantitatif</b> : il prend des valeurs que l’on peut compter (quantité, mesure...), ou <b>qualitatif</b> : il prend des valeurs que l’on ne peut pas compter (couleur, goût ...)"
-      - L’effectif d’une valeur est le <b>nombre</b> d’individus correspondants à cette valeur.
-  - name: Calculs et formules
+      - Die Grundgesamtheit ist die Menge aller Personen oder Dinge, die bei einer Erhebung untersucht werden.
+      - Ein Merkmal ist die Eigenschaft, nach der bei einer statistischen Erhebung gefragt wird (z. B. Alter, Lieblingsfarbe). Die möglichen Werte heißen Merkmalsausprägungen.
+      - "Ein Merkmal kann <b>quantitativ</b> sein: Seine Werte sind Zahlen, die man zählen oder messen kann (Anzahl, Länge …). Oder es ist <b>qualitativ</b>: Seine Werte sind keine Zahlen (Farbe, Geschmack …)."
+      - Die absolute Häufigkeit eines Wertes gibt an, <b>wie oft</b> dieser Wert vorkommt.
+  - name: Berechnungen und Formeln
     question:
-      - Comment se calcule l’<b>effectif total</b> ?
-      - Comment se calcule la <b>fréquence</b> d’une valeur ?
-      - Comment se calcule la <b>moyenne</b> d’une série statistique ?
-      - Comment se calcule la <b>moyenne pondérée</b> d’une série statistique ?
+      - Wie bestimmt man die <b>Gesamtzahl</b> aller Werte?
+      - Wie berechnet man die <b>relative Häufigkeit</b> eines Wertes?
+      - Wie berechnet man den <b>Mittelwert</b> (das arithmetische Mittel) einer Datenreihe?
+      - Wie berechnet man den <b>gewichteten Mittelwert</b> einer Datenreihe?
     answer:
-      - On compte combien il y a de valeurs au total.
-      - La fréquence d’une valeur est le quotient $$\dfrac{\text{effectif de la valeur}}{\text{effectif total}}$$ donné sous forme de fraction, pourcentage ou valeur décimale.
-      - La moyenne d’une série statistique est le quotient de la somme des valeurs par l’effectif total $$\dfrac{v_1+v_2+...}{\text{nombre de valeurs}}$$
-      - La moyenne pondérée est un raccourcis de la moyenne, elle s’obtient en ajoutant les produits des valeurs par leurs effectifs puis en divisant par l’effectif total.<br>$$\dfrac{n_1\times v_1+n_2\times v_2+...}{n_1+n_2+...}$$
-  - name: Représentations
+      - Man zählt, wie viele Werte es insgesamt gibt, oder addiert alle absoluten Häufigkeiten.
+      - Die relative Häufigkeit eines Wertes ist der Quotient $$\dfrac{\text{absolute Häufigkeit des Wertes}}{\text{Gesamtzahl aller Werte}}$$. Man gibt sie als Bruch, als Dezimalzahl oder in Prozent an.
+      - Man addiert alle Werte und dividiert die Summe durch die Anzahl der Werte $$\dfrac{v_1+v_2+...}{\text{Anzahl der Werte}}$$
+      - Der gewichtete Mittelwert ist eine Abkürzung beim Berechnen des Mittelwerts. Man multipliziert jeden Wert mit seiner absoluten Häufigkeit, addiert diese Produkte und dividiert durch die Gesamtzahl der Werte.<br>$$\dfrac{n_1\times v_1+n_2\times v_2+...}{n_1+n_2+...}$$
+  - name: Darstellungen
     question:
-      - Donne différentes représentations d’une étude statistique ?
-      - Quel outil informatique est utile pour étudier des statistiques
+      - Wie kann man die Ergebnisse einer statistischen Erhebung darstellen?
+      - Welches Computerprogramm hilft beim Auswerten statistischer Daten?
     answer:
-      - Une liste de réponses, un tableau de valeurs, un diagramme en barres, un diagramme circulaire ou semi-circulaire.
-      - En informatique, on peut utiliser le <b>tableur-grapheur</b> (LibreOffice Calc par exemple)
+      - Als Urliste, als Strichliste oder Häufigkeitstabelle, als Säulen- oder Balkendiagramm, als Kreis- oder Halbkreisdiagramm.
+      - Eine <b>Tabellenkalkulation</b> (z. B. LibreOffice Calc), mit der man auch Diagramme erstellen kann.

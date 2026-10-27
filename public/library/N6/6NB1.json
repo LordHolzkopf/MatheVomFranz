@@ -1,31 +1,31 @@
 {
-    "title":"Valeur décimale de fraction simple",
+    "title":"Brüche als Dezimalzahl schreiben und umgekehrt",
     "ID":"6NB1",
     "type":"text",
-    "description":"Donner l'écriture décimale d'une fraction, donner une fraction égale à une écriture décimale",
+    "description":"Bruch in eine Dezimalzahl umwandeln, Dezimalzahl als Zehnerbruch schreiben: Dezimalschreibweise, Zehnerbruch, Zehntel, Hundertstel, Tausendstel",
     "speech":1,
     "keys":["/"],
     "textSize":"medium",
     "dest":["6BC"],
     "options":[{
-        "name":"Fractions simples",
+        "name":"Einfache Brüche",
         "vars":{"den":"2_5_^3", "num":"0_10"},
         "value":"${:num/:den}"
     },{
-        "name":"Fractions décimales",
+        "name":"Zehnerbrüche",
         "vars":{"den":[10,100,1000],"puis":"1_4", "num":"0_${Math.pow(10,:puis)}"},
         "value":"${MMmath.round(:num/:den,4)}"
     },{
-        "name":"Trouver la fraction décimale",
+        "name":"Zehnerbruch finden",
         "vars":{"precision":"1_3_2","nb":"d0_${Math.pow(10,:precision[0])}_${:precision[1]}"},
-        "question":"Quelle est la \"plus petite\" fraction décimale égale à $$:nb$$ ?",
-        "audio":"Quelle est la plus petite fraction décimale égale à $$${String(:nb).replace('.',',')}$$ ?",
+        "question":"Schreibe $$:nb$$ als Zehnerbruch mit möglichst kleinem Nenner.",
+        "audio":"Schreibe ${MMmath.zahlwort(:nb)} als Zehnerbruch mit möglichst kleinem Nenner.",
         "answer":"$$${:nb}=\\color{red}{${MMmath.fractionDecimale(:nb)}}$$",
         "value":"${MMmath.fractionDecimale(:nb)}"
     }],
-    "question":"Quelle est l'écriture décimale de $$\\dfrac{:num}{:den}$$ ?",
-    "shortq":"Écriture décimale de $$\\dfrac{:num}{:den}$$ ?",
-    "audio":"Quelle est l'écriture décimale de :num ${MMmath.NumberToFraction(:den)} ?",
+    "question":"Schreibe $$\\dfrac{:num}{:den}$$ als Dezimalzahl.",
+    "shortq":"$$\\dfrac{:num}{:den}$$ als Dezimalzahl?",
+    "audio":"Schreibe ${MMmath.bruchwort(:num,:den)} als Dezimalzahl.",
     "answer":"$$\\dfrac{${:num}}{${:den}}=\\color{red}{${MMmath.round(:num/:den,4)}}$$",
     "value":"${MMmath.round(:num/:den,4)}"
 }

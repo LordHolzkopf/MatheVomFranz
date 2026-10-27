@@ -1,64 +1,64 @@
 {
-    "title":"Décompositions décimales",
+    "title":"Dezimalzahlen zerlegen und zusammensetzen",
     "ID":"6NC1",
     "speech":1,
     "type":"text",
-    "description":"Passer d'une écriture décimale à une décomposition parfois à l'aide de fractions décimales.",
+    "description":"Dezimalzahl in natürliche Zahl und Nachkommateil oder in Zehnerbrüche zerlegen und umgekehrt: Stellenwert, Zehntel, Hundertstel, Tausendstel, Zehnerbruch.",
     "dest":["6BA"],
     "keys":["+","/","_","_"],
     "options":[{
-        "name":"Entier et partie décimale -> décimal",
+        "name":"Natürliche Zahl + Nachkommateil → Dezimalzahl",
         "consts":{"dix":[10,100,1000]},
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_2","d":"0_${:b}","c":"1_${:dix[:d]-1}"},
-        "question": ["Écris sous forme décimale $$:e + ${MMmath.round(:c/:dix[:b],3)}$$",
-            "Écris sous forme décimale $$:e +\\dfrac{${:c}}{${:dix[:b]}}$$"],
-        "audio":["Donne l'écriture décimale de ${:e} plusse ${String(MMmath.round(:c/:dix[:b],3)).replace('.',',')}",
-        "Donne l'écriture décimale de ${:e} plusse ${:c}${MMmath.NumberToFraction(:dix[:b])}"],
+        "question": ["Schreibe als Dezimalzahl: $$:e + ${MMmath.round(:c/:dix[:b],3)}$$",
+            "Schreibe als Dezimalzahl: $$:e +\\dfrac{${:c}}{${:dix[:b]}}$$"],
+        "audio":["Schreibe ${:e} plus ${String(MMmath.round(:c/:dix[:b],3)).replace('.',',')} als Dezimalzahl.",
+        "Schreibe ${:e} plus ${MMmath.bruchwort(:c,:dix[:b])} als Dezimalzahl."],
         "answer":["$$:e + ${MMmath.round(:c/:dix[:b],3)}=\\color{red}{${MMmath.round(:e+:c/:dix[:b],3)}}$$","$$:e +\\dfrac{${:c}}{${:dix[:b]}}=\\color{red}{${MMmath.round(:e+:c/:dix[:b],3)}}$$"],
         "value":"${MMmath.round(:e+:c/:dix[:b],3)}"
     },{
-        "name":"Entier et fractions décimales -> décimal",
+        "name":"Natürliche Zahl + Zehnerbrüche → Dezimalzahl",
         "consts":{"dix":[10,100,1000]},
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_9_3", "c":"0_2_3_^&"},
-        "question":["Écris sous forme décimale $$:e ${:b[:c[0]]!=0?'+'+MMmath.round(:b[:c[0]]/:dix[:c[0]],3):''}${:b[:c[1]]!=0?'+'+MMmath.round(:b[:c[1]]/:dix[:c[1]],3):''}${:b[:c[2]]!=0?'+'+MMmath.round(:b[:c[2]]/:dix[:c[2]],3):''}$$",
-            "Écris sous forme décimale $$:e ${:b[:c[0]]!=0?'+\\dfrac{'+:b[:c[0]]+'}{'+:dix[:c[0]]+'}':''}${:b[:c[1]]!=0?'+\\dfrac{'+:b[:c[1]]+'}{'+:dix[:c[1]]+'}':''}${:b[:c[2]]!=0?'+\\dfrac{'+:b[:c[2]]+'}{'+:dix[:c[2]]+'}':''}$$"],
-        "audio":["Donne l'écriture décimale de ${:e}${:b[:c[0]]!=0?'+'+(String(MMmath.round(:b[:c[0]]/:dix[:c[0]],3)).replace('.',',')):''}${:b[:c[1]]!=0?'+'+(String(MMmath.round(:b[:c[1]]/:dix[:c[1]],3)).replace('.',',')):''}${:b[:c[2]]!=0?'+'+(String(MMmath.round(:b[:c[2]]/:dix[:c[2]],3)).replace('.',',')):''}",
-        "Donne l'écriture décimale de ${:e}${:b[:c[0]]!=0?'plusse '+:b[:c[0]]+' '+MMmath.NumberToFraction(:dix[:c[0]]):''}${:b[:c[1]]!=0?' plusse '+:b[:c[1]]+' '+MMmath.NumberToFraction(:dix[:c[1]]):''}${:b[:c[2]]!=0?' plusse '+:b[:c[2]]+' '+MMmath.NumberToFraction(:dix[:c[2]]):''}"],
+        "question":["Schreibe als Dezimalzahl: $$:e ${:b[:c[0]]!=0?'+'+MMmath.round(:b[:c[0]]/:dix[:c[0]],3):''}${:b[:c[1]]!=0?'+'+MMmath.round(:b[:c[1]]/:dix[:c[1]],3):''}${:b[:c[2]]!=0?'+'+MMmath.round(:b[:c[2]]/:dix[:c[2]],3):''}$$",
+            "Schreibe als Dezimalzahl: $$:e ${:b[:c[0]]!=0?'+\\dfrac{'+:b[:c[0]]+'}{'+:dix[:c[0]]+'}':''}${:b[:c[1]]!=0?'+\\dfrac{'+:b[:c[1]]+'}{'+:dix[:c[1]]+'}':''}${:b[:c[2]]!=0?'+\\dfrac{'+:b[:c[2]]+'}{'+:dix[:c[2]]+'}':''}$$"],
+        "audio":["Schreibe als Dezimalzahl: ${:e}${:b[:c[0]]!=0?' plus '+(String(MMmath.round(:b[:c[0]]/:dix[:c[0]],3)).replace('.',',')):''}${:b[:c[1]]!=0?' plus '+(String(MMmath.round(:b[:c[1]]/:dix[:c[1]],3)).replace('.',',')):''}${:b[:c[2]]!=0?' plus '+(String(MMmath.round(:b[:c[2]]/:dix[:c[2]],3)).replace('.',',')):''}",
+        "Schreibe als Dezimalzahl: ${:e}${:b[:c[0]]!=0?' plus '+MMmath.bruchwort(:b[:c[0]],:dix[:c[0]]):''}${:b[:c[1]]!=0?' plus '+MMmath.bruchwort(:b[:c[1]],:dix[:c[1]]):''}${:b[:c[2]]!=0?' plus '+MMmath.bruchwort(:b[:c[2]],:dix[:c[2]]):''}"],
         "answer": ["$$:e ${:b[:c[0]]!=0?'+'+MMmath.round(:b[:c[0]]/:dix[:c[0]],3):''}${:b[:c[1]]!=0?'+'+MMmath.round(:b[:c[1]]/:dix[:c[1]],3):''}${:b[:c[2]]!=0?'+'+MMmath.round(:b[:c[2]]/:dix[:c[2]],3):''}=\\color{red}{${MMmath.round(:e+:b[0]/10+:b[1]/100+:b[2]/1000,3)}}$$",
           "$$:e ${:b[:c[0]]!=0?'+\\dfrac{'+:b[:c[0]]+'}{'+:dix[:c[0]]+'}':''}${:b[:c[1]]!=0?'+\\dfrac{'+:b[:c[1]]+'}{'+:dix[:c[1]]+'}':''}${:b[:c[2]]!=0?'+\\dfrac{'+:b[:c[2]]+'}{'+:dix[:c[2]]+'}':''}=\\color{red}{${MMmath.round(:e+:b[0]/10+:b[1]/100+:b[2]/1000,3)}}$$"],
         "value":"${MMmath.round(:e+:b[0]/10+:b[1]/100+:b[2]/1000,3)}"
     },
     {
-        "name":"Décimal -> Entier et fraction décimale",
+        "name":"Dezimalzahl → natürliche Zahl + Zehnerbruch",
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_9_3", "c":"${:b[0]*100+:b[1]*10+:b[2]}"},
-        "question": "Écris $$${MMmath.round(:e+:c/1000,3)}$$ sous la forme : entier + fraction décimale.",
-        "audio":"Écris sous la forme d'une somme d'un entier plusse une fraction décimale le nombre ${String(MMmath.round(:e+:c/1000,3)).replace('.',',')}",
+        "question": "Schreibe $$${MMmath.round(:e+:c/1000,3)}$$ als Summe: natürliche Zahl + Zehnerbruch.",
+        "audio":"Schreibe die Zahl ${String(MMmath.round(:e+:c/1000,3)).replace('.',',')} als Summe aus einer natürlichen Zahl und einem Zehnerbruch.",
         "answer":"$$${MMmath.round(:e+:c/1000,3)}=\\color{red}{${:e}+${MMmath.simplifyFracDec(:c,1000)}}$$",
         "value":"${:e}+${MMmath.simplifyFracDec(:c,1000)}"
     },
     {
-        "name":"Décimal -> Entier et partie décimale",
+        "name":"Dezimalzahl → natürliche Zahl + Nachkommateil",
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_9_3", "c":"${:b[0]*100+:b[1]*10+:b[2]}"},
-        "question": "Écris $$${MMmath.round(:e+:c/1000,3)}$$ sous la forme : partie entière + partie décimale.",
-        "audio":"Écris sous la forme d'une somme de la partie entière plusse la partie décimale le nombre ${String(MMmath.round(:e+:c/1000,3)).replace('.',',')}",
+        "question": "Schreibe $$${MMmath.round(:e+:c/1000,3)}$$ als Summe: natürliche Zahl + Nachkommateil.",
+        "audio":"Schreibe die Zahl ${String(MMmath.round(:e+:c/1000,3)).replace('.',',')} als Summe aus einer natürlichen Zahl und dem Nachkommateil.",
         "answer":"$$${MMmath.round(:e+:c/1000,3)}=\\color{red}{${:e}+${MMmath.round(:c/1000,3)}}$$",
         "value":"${:e}+${MMmath.round(:c/1000,3)}"
     },
     {
-        "name":"Décimal -> Entier et fractions décimales",
+        "name":"Dezimalzahl → natürliche Zahl + Zehntel, Hundertstel, Tausendstel",
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_9_2", "c":"1_9"},
-        "question": "Écris $$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}$$ sous la forme : entier + décomp. en fractions décimales.",
-        "audio":"Écris sous la forme d'une somme d'un entier plus des fractions décimales de numérateur inférieur à 10 ( ) le nombre ${String(MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)).replace('.',',')}",
+        "question": "Schreibe $$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}$$ als Summe: natürliche Zahl + Zehntel + Hundertstel + Tausendstel (als Zehnerbrüche).",
+        "audio":"Schreibe die Zahl ${String(MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)).replace('.',',')} als Summe aus einer natürlichen Zahl und Zehnerbrüchen mit einstelligem Zähler.",
         "answer":"$$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}=\\color{red}{${:e}${:b[0]?'+\\dfrac{'+:b[0]+'}{10}':''}${:b[1]?'+\\dfrac{'+:b[1]+'}{100}':''}+\\dfrac{${:c}}{1000}}$$",
-        "value":"${:e}+${:b[0]}/10+${:b[1]}/100+${:c}/1000"
+        "value":"${:e}${:b[0]?'+'+:b[0]+'/10':''}${:b[1]?'+'+:b[1]+'/100':''}+${:c}/1000"
     },
     {
-        "name":"Décimal -> Entier et parties décimales",
+        "name":"Dezimalzahl → natürliche Zahl + Stellenwerte",
         "vars":{"a":[10,100,1000,10000], "e":"1_${:a}", "b":"0_9_2", "c":"1_9"},
-        "question": "Écris $$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}$$ sous la forme : entier + décimaux à 1 chiffre significatif.",
-        "audio":"Écris sous la forme d'une somme d'un entier plusse des décimaux à un seul chiffre significatif ( ) le nombre ${String(MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)).replace('.',',')}",
+        "question": "Schreibe $$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}$$ als Summe: natürliche Zahl + Dezimalzahlen mit nur einer Ziffer ungleich null.",
+        "audio":"Schreibe die Zahl ${String(MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)).replace('.',',')} als Summe aus einer natürlichen Zahl und Dezimalzahlen mit nur einer Ziffer ungleich null.",
         "answer":"$$${MMmath.round(:e+:b[0]/10+:b[1]/100+:c/1000,3)}=\\color{red}{${:e}${:b[0]?'+'+MMmath.round(:b[0]/10,1):''}${:b[1]?'+'+MMmath.round(:b[1]/100,2):''}+${MMmath.round(:c/1000,3)}}$$",
-        "value":"${:e}+${MMmath.round(:b[0]/10,1)}+${MMmath.round(:b[1]/100,2)}+${MMmath.round(:c/1000,3)}"
+        "value":"${:e}${:b[0]?'+'+MMmath.round(:b[0]/10,1):''}${:b[1]?'+'+MMmath.round(:b[1]/100,2):''}+${MMmath.round(:c/1000,3)}"
     }
     ]
 }

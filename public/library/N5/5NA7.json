@@ -1,12 +1,12 @@
 {
-    "title": "Pourcentages et décimaux",
+    "title": "Prozent und Dezimalzahlen umwandeln",
     "ID":"5NA7",
     "dest":["6BC"],
     "type":"text",
-    "description":"Changement d'écriture entre pourcentages et écriture décimale.",
+    "description":"Dezimalzahl in Prozent umwandeln und umgekehrt: Prozentschreibweise, Dezimalschreibweise, Hundertstel, Tausendstel, über 100 %.",
     "options":[
         {
-            "name": "Décimaux à deux chiffres",
+            "name": "Zwei Nachkommastellen",
             "vars":{
                 "u":"1_9",
                 "d":"1_9",
@@ -14,21 +14,21 @@
                 "p":"${:u+:d*10}"
             }
         },{
-            "name":"Décimaux à un chiffre",
+            "name":"Eine Nachkommastelle",
             "vars":{
                 "d":"1_9",
                 "x":"${MMmath.round(:d/10,1)}",
                 "p":"${:d*10}"
             }
         },{
-            "name":"Centièmes",
+            "name":"Hundertstel",
             "vars":{
                 "u":"1_9",
                 "x":"${MMmath.round(:u/100,2)}",
                 "p":"${:u}"
             }
         },{
-            "name":"Millièmes",
+            "name":"Tausendstel",
             "vars":{
                 "dx":"1_9",
                 "u":"1_99",
@@ -36,7 +36,7 @@
                 "p":"${MMmath.round(:u+:dx/10,1)}"
             }
         },{
-            "name":"Pourcentages supérieurs à 1",
+            "name":"Über 100 % (Zahlen größer als 1)",
             "vars":{
                 "c":"1_5",
                 "d":"1_9",
@@ -49,8 +49,8 @@
         }
     ],
     "question":[
-        "Quel pourcentage correspond au nombre décimal $$${:x}$$ ?",
-        "Quel nombre décimal correspond au pourcentage $$${:p}\\%$$ ?"
+        "Schreibe die Dezimalzahl $$${:x}$$ in Prozent.",
+        "Schreibe $$${:p}\\%$$ als Dezimalzahl."
     ],
     "shortq":[
         "$$${:x}=\\colorbox{#ECECEC}{\\quad\\quad}\\%$$",

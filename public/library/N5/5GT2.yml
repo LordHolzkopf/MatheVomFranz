@@ -1,9 +1,9 @@
-title: Reconnaitre une transformation du plan
+title: Abbildungen erkennen (Spiegelung, Drehung, Verschiebung)
 dest: [6DB, 5BC]
 type: text
 repeat: 3
 textSize: medium
-description: "Deux figures étant données, trouver la transformation qui permet de passer de l’une à l’autre parmi symétrie axiale, symétrie centrale, rotation et translation."
+description: "Zu zwei Figuren die Abbildung bestimmen, die die eine auf die andere abbildet: Achsenspiegelung, Punktspiegelung, Drehung oder Verschiebung; Kongruenzabbildungen, Symmetrie."
 consts:
   figures:
     {
@@ -28,29 +28,29 @@ consts:
         ],
       noms:
         [
-          "e des bananes",
-          "e des flèches",
-          "e des flèches",
-          "e des calculatrices",
-          " des appareils photo",
-          " des cadrans",
-          " des marteaux",
-          " des drapeaux",
-          "e des clés",
-          " des nuages",
-          "e des maisons",
-          "e des notes",
-          " des pots de peinture",
-          " des stylos",
-          "e des pièces de puzzle",
-          " des bonhommes",
+          "die eine Banane auf die andere",
+          "der eine Pfeil auf den anderen",
+          "der eine Pfeil auf den anderen",
+          "der eine Taschenrechner auf den anderen",
+          "die eine Kamera auf die andere",
+          "das eine Messgerät auf das andere",
+          "der eine Hammer auf den anderen",
+          "die eine Fahne auf die andere",
+          "der eine Schlüssel auf den anderen",
+          "die eine Wolke auf die andere",
+          "das eine Haus auf das andere",
+          "die eine Note auf die andere",
+          "der eine Farbeimer auf den anderen",
+          "der eine Stift auf den anderen",
+          "das eine Puzzleteil auf das andere",
+          "das eine Männchen auf das andere",
         ],
     }
-  transf5: ["symétrie axiale", "symétrie centrale", "autre transformation"]
-  transf4: ["symétrie axiale", "symétrie centrale", "rotation", "translation"]
+  transf5: ["Achsenspiegelung", "Punktspiegelung", "andere Abbildung"]
+  transf4: ["Achsenspiegelung", "Punktspiegelung", "Drehung", "Verschiebung"]
 vars:
 options:
-  - name: Triangle niveau 5e (symétries ou autre)
+  - name: Dreiecke – Spiegelungen oder andere Abbildung
     vars:
       yA: "-3_0"
       xB: "-3_0"
@@ -63,10 +63,10 @@ options:
       tr: "0_3"
       niv: "5"
       as: ["${Math.PI/2}", "${Math.PI}"]
-    question: Quelle transformation permet de passer de l’un des triangles à l’autre ?<br />(symétrie axiale, symétrie centrale ou autre transformation)
-    answer: C’est une <span class='red'>${:transf5[(:tr<2?:tr:2)]}</span> qui permet de passer de l’un à l’autre.
+    question: Durch welche Abbildung wird das eine Dreieck auf das andere abgebildet?<br />(Achsenspiegelung, Punktspiegelung oder andere Abbildung)
+    answer: Es ist eine <span class='red'>${:transf5[(:tr<2?:tr:2)]}</span>.
     value: ${:transf5[(:tr<2?:tr:2)]}
-  - name: Image niveau 5e (symétries ou autre)
+  - name: Bilder – Spiegelungen oder andere Abbildung
     vars:
       yA: "-4_-1"
       xB: "-3_0"
@@ -79,8 +79,8 @@ options:
       tr: "0_3"
       niv: "5"
       as: ["${Math.PI/2}", "${Math.PI}"]
-    question: Quelle transformation permet de passer de l’un${:figures.noms[:image]} à l’autre ?<br />(symétrie axiale, symétrie centrale ou autre transformation)
-    answer: C’est une <span class='red'>${:transf5[(:tr<2?:tr:2)]}</span> qui permet de passer de l’un à l’autre.
+    question: Durch welche Abbildung wird ${:figures.noms[:image]} abgebildet?<br />(Achsenspiegelung, Punktspiegelung oder andere Abbildung)
+    answer: Es ist eine <span class='red'>${:transf5[(:tr<2?:tr:2)]}</span>.
     value: ${:transf5[(:tr<2?:tr:2)]}
     figure:
       type: graph
@@ -164,7 +164,7 @@ options:
         - [bindTo, ["ref10", "ref3"]]
         - [bindTo, ["ref11", "ref4"]]
 
-  - name: Niveau 4e, 3e (toutes les transformations)
+  - name: Dreiecke – alle Abbildungen
     vars:
       yA: "-3_0"
       xB: "-3_0"
@@ -177,10 +177,10 @@ options:
       tr: "0_3"
       niv: "4"
       as: "${MMmath.aleaFloat(0,3*Math.PI/2,5)-Math.PI/2}"
-    question: Quelle transformation permet de passer de l’un des triangles à l’autre ?<br />(symétrie axiale, symétrie centrale, rotation, translation ou autre transformation)
-    answer: C’est une <span class='red'>${:transf4[:tr]}</span> qui permet de passer de l’un à l’autre.
+    question: Durch welche Abbildung wird das eine Dreieck auf das andere abgebildet?<br />(Achsenspiegelung, Punktspiegelung, Drehung oder Verschiebung)
+    answer: Es ist eine <span class='red'>${:transf4[:tr]}</span>.
     value: ${:transf4[:tr]}
-  - name: Image niveau 4e (symétries ou autre)
+  - name: Bilder – alle Abbildungen
     vars:
       yA: "-4_-1"
       xB: "-3_0"
@@ -193,8 +193,8 @@ options:
       tr: "0_3"
       niv: "5"
       as: ["${Math.PI/2}", "${Math.PI}"]
-    question: Quelle transformation permet de passer de l’un${:figures.noms[:image]} à l’autre ?<br />(symétrie axiale, symétrie centrale ou translation)
-    answer: C’est une <span class='red'>${:transf4[:tr]}</span> qui permet de passer de l’un à l’autre.
+    question: Durch welche Abbildung wird ${:figures.noms[:image]} abgebildet?<br />(Achsenspiegelung, Punktspiegelung, Drehung oder Verschiebung)
+    answer: Es ist eine <span class='red'>${:transf4[:tr]}</span>.
     value: ${:transf4[:tr]}
     figure:
       type: graph

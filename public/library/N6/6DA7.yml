@@ -1,30 +1,30 @@
-title: Lire un diagramme circulaire ou en barres
-description: "diagramme en barres, diagramme circulaire, camembert, lire un graphique, statistiques"
+title: Säulen- und Kreisdiagramme ablesen
+description: "Säulendiagramm, Balkendiagramm, Kreisdiagramm, Diagramm ablesen, Häufigkeit, Umfrage, Daten, Statistik"
 dest: [6FB, 5AG]
 type: text
-consigne: On a fait un sondage auprès d'un groupe de personnes.
+consigne: In einer Gruppe wurde eine Umfrage gemacht.
 consts:
   valeurs:
-    - ["rouge", "bleu", "vert", "jaune"]
-    - ["pommes", "bananes", "oranges", "kiwis"]
-    - ["carottes", "haricots", "tomates", "salades"]
-    - ["pommes de terre", "pâtes", "riz", "semoule"]
-    - ["futsal", "basket", "volley", "badminton"]
+    - ["Rot", "Blau", "Grün", "Gelb"]
+    - ["Äpfel", "Bananen", "Orangen", "Kiwis"]
+    - ["Möhren", "Bohnen", "Tomaten", "Salat"]
+    - ["Kartoffeln", "Nudeln", "Reis", "Couscous"]
+    - ["Hallenfußball", "Basketball", "Volleyball", "Badminton"]
   titres:
-    - "Couleurs préférées"
-    - "Fruits préférés"
-    - "Légumes préférés"
-    - "Accompagnements préférés"
-    - "Sports en salle préférés"
+    - "Lieblingsfarben"
+    - "Lieblingsobst"
+    - "Lieblingsgemüse"
+    - "Lieblingsbeilagen"
+    - "Lieblings-Hallensportarten"
 options:
-  - name: Lire un diagramme en barres
+  - name: Säulendiagramm ablesen
     vars:
       nbvalues: [10, 15, 20, 25, 30, 40, 50]
       v1: "1_${:nbvalues-4}"
       v2: "1_${:nbvalues-3-:v1}"
       v3: "1_${:nbvalues-2-:v1-:v2}"
       v4: "${:nbvalues-:v1-:v2-:v3}"
-      pop: ["d’élèves", "de personnes", "d’enfants", "d’adolescents"]
+      pop: ["Schülerinnen und Schülern", "Personen", "Kindern", "Jugendlichen"]
       cxv: "1_4"
       value: ${:cxv==1?:v1::cxv==2?:v2::cxv==3?:v3::v4}
       cxt: "0_4"
@@ -48,14 +48,14 @@ options:
             colors: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
             showLegend: true,
           }
-  - name: Lire un diagramme circulaire
+  - name: Kreisdiagramm ablesen
     vars:
       nbvalues: [10, 15, 20, 25, 30, 40, 50]
       v1: "1_${:nbvalues-4}"
       v2: "1_${:nbvalues-3-:v1}"
       v3: "1_${:nbvalues-2-:v1-:v2}"
       v4: "${:nbvalues-:v1-:v2-:v3}"
-      pop: ["d’élèves", "de personnes", "d’enfants", "d’adolescents"]
+      pop: ["Schülerinnen und Schülern", "Personen", "Kindern", "Jugendlichen"]
       cxv: "1_4"
       value: ${:cxv==1?:v1::cxv==2?:v2::cxv==3?:v3::v4}
       cxt: "0_4"
@@ -80,7 +80,7 @@ options:
             showLegend: true,
           }
 question: >
-  Combien préfèrent :article :cat ?
+  Wie viele Personen haben „:cat“ gewählt?
 answer: >
-  $$\color{red}{:value}$$${:value==1?' seul':''} préfère${:value>1?'nt':''} :article :cat.
+  $$\color{red}{:value}$$ ${:value==1?'Person hat':'Personen haben'} „:cat“ gewählt.
 value: :value

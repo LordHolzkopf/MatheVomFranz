@@ -1,7 +1,7 @@
 {
     "ID":"6ME2",
-    "description":"Lire la mesure d'un angle à l’aide d’un rapporteur simplifié dont la ligne des zéros est horizontale.",
-    "title":"Lecture du rapporteur simplifié, bien placé horizontalement",
+    "description":"Winkelgröße an einem vereinfachten Winkelmesser ablesen, Nulllinie waagerecht: Winkel messen, Grad, Skala, doppelte Skala.",
+    "title":"Winkel an einem vereinfachten Winkelmesser ablesen",
     "type":"text",
     "dest":["6DD"],
     "keys":["°"],
@@ -13,7 +13,7 @@
     },
     "options":[
         {
-            "name":"Lecture sens direct (multiple de 10°)",
+            "name":"Gegen den Uhrzeigersinn ablesen (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -28,7 +28,7 @@
                 ["foreignobject",["${:rapporteurdirect}",[-8,-0.83]],{"layer":10}]
             ]}
         },{
-            "name":"Lecture sens indirect (multiple de 10°)",
+            "name":"Im Uhrzeigersinn ablesen (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -43,7 +43,7 @@
                     ["foreignobject",["${:rapporteurindirect}",[-8,-0.83]],{"layer":10}]
             ]}
         },{
-            "name":"Lecture sens direct - double graduation (multiple de 10°)",
+            "name":"Gegen den Uhrzeigersinn, doppelte Skala (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -58,7 +58,7 @@
                 ["foreignobject",["${:rapporteur}",[-8,-0.83]],{"layer":10}]
             ]}
         },{
-            "name":"Lecture sens indirect double graduation (multiple de 10°)",
+            "name":"Im Uhrzeigersinn, doppelte Skala (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -74,7 +74,7 @@
             ]}
         },
         {
-            "name":"Lecture sans nombre (multiple de 10°)",
+            "name":"Ohne Zahlen (Vielfache von 10°)",
             "vars":{
                 "dizang0":"1_17",
                 "angle0":"${:dizang0*10}",
@@ -90,10 +90,10 @@
                     ["line",[[0,0],["${Math.cos((:angle0+:angle)/180*Math.PI)}","${Math.sin((:angle0+:angle)/180*Math.PI)}"]],{"straightFirst":false, "strokeWidth":1}],
                     ["foreignobject",["${:rapporteursansnombre}",[-8,-0.83]],{"layer":10}]
             ]},
-            "answer":"En comptant les graduations, on trouve une mesure de ${:angle}°"
+            "answer":"Durch Abzählen der Skalenstriche erhält man <span class='red'>${:angle}°</span>."
         },
         {
-            "name":"Lecture zéro non aligné (multiple de 10°)",
+            "name":"Kein Schenkel auf der Nulllinie (Vielfache von 10°)",
             "vars":{
                 "dizang0":"1_17",
                 "angle0":"${:dizang0*10}",
@@ -109,11 +109,11 @@
                     ["line",[[0,0],["${Math.cos((:angle0+:angle)/180*Math.PI)}","${Math.sin((:angle0+:angle)/180*Math.PI)}"]],{"straightFirst":false, "strokeWidth":1}],
                     ["foreignobject",["${:rapporteur}",[-8,-0.83]],{"layer":10}]
             ]},
-            "answer":"En comptant les graduations, on trouve une mesure de ${:angle}°"
+            "answer":"Durch Abzählen der Skalenstriche erhält man <span class='red'>${:angle}°</span>."
         }
     ],
-    "question":"Quelle est la mesure de l’angle ?",
+    "question":"Wie groß ist der Winkel?",
     "repeat":true,
-    "answer":"L’angle mesure ${:angle}°",
+    "answer":"Der Winkel ist <span class='red'>${:angle}°</span> groß.",
     "value":["${:angle}","${:angle}°"]
 }

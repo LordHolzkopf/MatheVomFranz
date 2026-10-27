@@ -1,6 +1,6 @@
 {
-    "title":"Leçon : Distances : cercle, disque, médiatrice",
-    "description":"Leçon : cercle, disque, médiatrice, rayon, diamètre, centre, distance, définitions, propriétés, inégalités. Non adapté au mode interactif (online/duel).",
+    "title":"Wissen: Abstand, Kreis und Mittelsenkrechte",
+    "description":"Wissensfragen: Abstand zweier Punkte, Kreis, Kreisfläche, Mittelpunkt, Radius, Sehne, Durchmesser, Mittelsenkrechte, Dreiecksungleichung, Schreibweisen für Strecke, Länge und Gerade. Nicht für den interaktiven Modus (online/Duell) geeignet.",
     "dest":["6DC", "8FB"],
     "type":"text",
     "consts":{
@@ -8,41 +8,41 @@
     },
     "options":[
         {
-            "name":"Définitions",
+            "name":"Definitionen",
             "question":[
-                "Qu’appelle-t-on distance entre deux points ?",
-                "Qu’est-ce que le <b>cercle</b> de centre O et de rayon R ?",
-                "Qu’est-ce que le <b>disque</b> de centre O et de rayon R ?",
-                "Qu’est-ce qu’un <b>rayon</b> d’un cercle ?",
-                "Qu’est-ce qu’une <b>corde</b> d’un cercle ?",
-                "Qu’est-ce qu’un <b>diamètre</b> d’un cercle ?",
-                "Qu’est-ce que la <b>médiatrice</b> d’un segment ?"
+                "Was versteht man unter dem <b>Abstand</b> zweier Punkte?",
+                "Was ist der <b>Kreis</b> um den Mittelpunkt O mit dem Radius r?",
+                "Was ist die <b>Kreisfläche</b> um den Mittelpunkt O mit dem Radius r?",
+                "Was ist ein <b>Radius</b> eines Kreises?",
+                "Was ist eine <b>Sehne</b> eines Kreises?",
+                "Was ist ein <b>Durchmesser</b> eines Kreises?",
+                "Was ist die <b>Mittelsenkrechte</b> einer Strecke?"
             ],
             "answer":[
-                "La distance entre deux points est la longueur du segment qui joint ces deux points.",
-                "C’est l’ensemble de tous les points dont la distance au point O est égale à R.",
-                "C’est l’ensemble de tous les points dont la distance au point O est inférieure ou égale à R.",
-                "C’est un segment qui joint un point du cercle au centre du cercle.",
-                "C’est un segment qui joint deux points du cercle.",
-                "C’est une corde qui passe par le cerntre du cercle.",
-                "C’est la droite qui est perpendiculaire au segment en son milieu."
+                "Der Abstand zweier Punkte ist die Länge der Strecke, die die beiden Punkte verbindet.",
+                "Das ist die Menge aller Punkte, die von O den Abstand r haben.",
+                "Das ist die Menge aller Punkte, deren Abstand von O kleiner als r oder gleich r ist.",
+                "Eine Strecke, die den Mittelpunkt mit einem Punkt der Kreislinie verbindet. Auch ihre Länge heißt Radius.",
+                "Eine Strecke, die zwei Punkte der Kreislinie verbindet.",
+                "Eine Sehne, die durch den Mittelpunkt des Kreises geht.",
+                "Die Gerade, die durch den Mittelpunkt der Strecke geht und senkrecht auf ihr steht."
             ]
         },{
-            "name":"Définitions avec données numériques",
+            "name":"Definitionen mit Zahlenwerten",
             "vars":{
                 "R":"1_10",
                 "O":["A","B","C","D","E","O","P","M","T"]
             },
             "question":[
-                "Qu’est-ce que le <b>cercle</b> de centre :O et de rayon :R ?",
-                "Qu’est-ce que le <b>disque</b> de centre :O et de rayon :R ?"
+                "Was ist der <b>Kreis</b> um :O mit dem Radius :R?",
+                "Was ist die <b>Kreisfläche</b> um :O mit dem Radius :R?"
             ],
             "answer":[
-                "C’est l’ensemble de tous les points M tels que $$${:O+'M'} = :R$$.",
-                "C’est l’ensemble de tous les points M tels que $$${:O+'M'} \\leqslant :R$$."
+                "Das ist die Menge aller Punkte Q mit $$\\overline{${:O+'Q'}} = :R$$.",
+                "Das ist die Menge aller Punkte Q mit $$\\overline{${:O+'Q'}} \\leqslant :R$$."
             ]
         },{
-            "name":"Propriétés",
+            "name":"Eigenschaften",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -50,19 +50,19 @@
                 "C":"${:lettres[:l[2]]}"
             },
             "question":[
-                "Que peut-on écrire avec les longueurs quand un point :C n’appartient pas au segment [:A:B] ?",
-                "Que peut-on écrire avec les longueurs quand un point :C appartient au segment [:A:B] ?",
-                "Complète la propriété : Si un point appartient à la médiatrice d’un segment ...",
-                "Complète la propriété : Si un point est équidistant des extrémités d’un segment ..."
+                "Was gilt für die Längen, wenn ein Punkt :C nicht auf der Strecke $$\\overline{:A:B}$$ liegt?",
+                "Was gilt für die Längen, wenn ein Punkt :C auf der Strecke $$\\overline{:A:B}$$ liegt?",
+                "Ergänze den Satz: Wenn ein Punkt auf der Mittelsenkrechten einer Strecke liegt, …",
+                "Ergänze den Satz: Wenn ein Punkt von den beiden Endpunkten einer Strecke gleich weit entfernt ist, …"
             ],
             "answer":[
-                ":A:C + :C:B > :A:B",
-                ":A:C + :C:B = :A:B",
-                "Si un point appartient à la médiatrice d’un segment, alors il est équidistant des extrémités de ce segment",
-                "Si un point est équidistant des extrémités d’un segment, alors il appartient à la médiatrice de ce segment."
+                "$$\\overline{:A:C} + \\overline{:C:B} > \\overline{:A:B}$$ (Dreiecksungleichung)",
+                "$$\\overline{:A:C} + \\overline{:C:B} = \\overline{:A:B}$$",
+                "Wenn ein Punkt auf der Mittelsenkrechten einer Strecke liegt, dann ist er von den beiden Endpunkten der Strecke gleich weit entfernt.",
+                "Wenn ein Punkt von den beiden Endpunkten einer Strecke gleich weit entfernt ist, dann liegt er auf der Mittelsenkrechten dieser Strecke."
             ]
         },{
-            "name": "Ingégalités de longueurs",
+            "name": "Längen vergleichen",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -75,8 +75,8 @@
                 "yM":[0,1],
                 "lor":[-1,1]
             },
-            "question":"Compare :M:A et :M:B.",
-            "answer":"${:posM<0?:M+:A+' < '+:M+:B::posM>0?:M+:A+' > '+:M+:B::M+:A+' = '+:M+:B}",
+            "question":"Vergleiche $$\\overline{:M:A}$$ und $$\\overline{:M:B}$$. Die Gerade m ist die Mittelsenkrechte der Strecke $$\\overline{:A:B}$$.",
+            "answer":"$$\\overline{:M:A}${:posM<0?' < '::posM>0?' > ':' = '}\\overline{:M:B}$$",
             "figure":{
                 "type":"graph",
                 "axis":false,
@@ -90,7 +90,7 @@
                     ["text",["${-:xA/2-0.1}","${:yA+(:yB-:yA)*3/4}","//"]],
                     ["perpendicular",["s","X"],{"strokeColor":"grey", "name":"d"}],
                     ["glider",[0,-5,"d"], {"name":"Y", "visible":false}],
-                    ["text",[0.5,0,"(d)"],{"anchor":"Y"}],
+                    ["text",[0.5,0,"m"],{"anchor":"Y"}],
                     ["angle",["Y","X",":B"], {"radius":0.8,"label":{"visible":false}}],
                     ["circle",[":A","${:posM<0?-:xA-0.5::posM>0?-:xA*2+:lor:4}"], {"name":"C1","visible":false}],
                     ["circle",[":B","${:posM<0?-:xA*2+:lor::posM>0?-:xA-0.5:4}"], {"name":"C2","visible":false}],
@@ -98,7 +98,7 @@
                 ]
             }
         },{
-            "name":"Notations",
+            "name":"Schreibweisen",
             "consts":{
                 "lettres":"ABCDEFGHIJKLMNOPQRSTUV"
             },
@@ -108,14 +108,14 @@
                 "B":"${:lettres[:l[1]]}"
             },
             "question":[
-                "Comment est notée la <b>distance</b> entre deux points :A et :B ?",
-                "Comment est noté un <b>segment</b> d’extrémités :A et :B ?",
-                "Comment est notée une <b>droite</b> passant par des points :A et :B"
+                "Wie bezeichnet man die <b>Länge</b> der Strecke zwischen :A und :B, also den Abstand der beiden Punkte?",
+                "Wie bezeichnet man die <b>Strecke</b> mit den Endpunkten :A und :B?",
+                "Wie bezeichnet man die <b>Gerade</b> durch die Punkte :A und :B?"
             ],
             "answer":[
-                ":A:B<br>(sans crochet, ni parenthèses)",
-                "[:A:B]",
-                "(:A:B)"
+                "$$\\overline{:A:B}$$, zum Beispiel $$\\overline{:A:B}=5\\text{ cm}$$",
+                "$$\\overline{:A:B}$$",
+                "Gerade :A:B (ohne Klammern). Geraden bezeichnet man oft auch mit kleinen Buchstaben, z. B. g oder h."
             ]
         }
     ]

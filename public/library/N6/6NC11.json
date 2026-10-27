@@ -1,12 +1,12 @@
 {
-    "title":"Soustraction de décimaux",
-    "description":"soustraction, différence, décimaux, retenue",
+    "title":"Dezimalzahlen subtrahieren",
+    "description":"Subtraktion, Differenz, Dezimalzahlen subtrahieren, minus, Übertrag, Zehntel, Hundertstel",
     "ID":"6NC11",
     "dest":["6CB"],
-    "consigne":"Calculer",
+    "consigne":"Berechne.",
     "speech":1,
     "options":[{
-        "name":"Dixièmes, sans retenue",
+        "name":"Zehntel, ohne Übertrag",
         "vars":{
             "pea":"0_9",
             "peb":"0_${:pea}",
@@ -16,7 +16,7 @@
             "b":"${:peb+:pdb/10}",
         "c":"${MMmath.round(:a-:b,1)}"}
     }, {
-        "name":"Dixièmes, avec retenue",
+        "name":"Zehntel, mit Übertrag",
         "vars":{
             "pea":"1_9",
             "peb":"0_${:pea-1}",
@@ -26,7 +26,7 @@
             "b":"${:peb+:pdb/10}",
         "c":"${MMmath.round(:a-:b,1)}"}
     },{
-        "name":"centièmes, sans retenue",
+        "name":"Hundertstel, ohne Übertrag",
         "vars":{
             "pea":"0_9",
             "peb":"0_${:pea}",
@@ -38,7 +38,7 @@
             "b":"${MMmath.round(:peb+:dixb/10+:cenb/100,2)}",
         "c":"${MMmath.round(:a-:b,2)}"}
     },{
-        "name":"centièmes, avec retenue sur les dixièmes",
+        "name":"Hundertstel, mit Übertrag bei den Zehnteln",
         "vars":{
             "pea":"1_9",
             "peb":"0_${:pea-1}",
@@ -50,7 +50,7 @@
             "b":"${MMmath.round(:peb+:dixb/10+:cenb/100,2)}",
         "c":"${MMmath.round(:a-:b,2)}"}
     },{
-        "name":"centièmes, avec retenue sur les centièmes",
+        "name":"Hundertstel, mit Übertrag bei den Hundertsteln",
         "vars":{
             "pea":"0_9",
             "peb":"0_${:pea}",
@@ -62,7 +62,7 @@
             "b":"${MMmath.round(:peb+:dixb/10+:cenb/100,2)}",
         "c":"${MMmath.round(:a-:b,2)}"}
     },{
-        "name":"centièmes, avec deux retenues",
+        "name":"Hundertstel, mit zwei Überträgen",
         "vars":{
             "pea":"1_9",
             "peb":"0_${:pea-1}",

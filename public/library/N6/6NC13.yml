@@ -1,12 +1,12 @@
-title: Comparer des nombres (progression)
-description: Des entiers aux décimaux, une option par obstacle. Utiliser l’un des symboles <, > ou =
+title: Zahlen vergleichen (in Stufen)
+description: "Zahlen vergleichen und ordnen, von natürlichen Zahlen bis zu Dezimalzahlen, eine Variante je typischer Schwierigkeit: Stellenwert, Nachkommastellen, Nullen. Antwort mit einem der Zeichen <, > oder =."
 ID: 6NC13
 type: text
 speech: 1
 keys: ["<", ">", "=", "_"]
 dest: [6BB, 5AA]
 options:
-  - name: Entiers pas même nombre de chiffres
+  - name: Natürliche Zahlen mit verschieden vielen Ziffern
     vars:
       n: [1, 2, 3]
       ordre: [0, 1]
@@ -15,7 +15,7 @@ options:
       a: ${:ordre===0?:x::y}
       b: ${:ordre===0?:y::x}
       s: ${MMmath.compare(:a,:b)}
-  - name: Entiers même nombre de chiffres
+  - name: Natürliche Zahlen mit gleich vielen Ziffern
     vars:
       n: [3, 4]
       k: "1_${:n-1}"
@@ -25,7 +25,7 @@ options:
       a: ${:pref*:t+:q[0]}
       b: ${:pref*:t+:q[1]}
       s: ${MMmath.compare(:a,:b)}
-  - name: Grands entiers
+  - name: Große natürliche Zahlen
     vars:
       n: [5, 6, 7]
       k: "1_${:n-1}"
@@ -35,7 +35,7 @@ options:
       a: ${:pref*:t+:q[0]}
       b: ${:pref*:t+:q[1]}
       s: ${MMmath.compare(:a,:b)}
-  - name: Décimaux, parties entières différentes
+  - name: Dezimalzahlen mit verschiedenen Zahlen vor dem Komma
     vars:
       e: "1_99_2_^&"
       nda: [1, 2, 3]
@@ -47,7 +47,7 @@ options:
       a: ${MMmath.round(:e[0]+((:ua%Math.pow(10,:nda-1))*10+:ha)/Math.pow(10,:nda),:nda)}
       b: ${MMmath.round(:e[1]+((:ub%Math.pow(10,:ndb-1))*10+:hb)/Math.pow(10,:ndb),:ndb)}
       s: ${MMmath.compare(:a,:b)}
-  - name: Même partie entière, autant de décimales
+  - name: Gleiche Zahl vor dem Komma, gleich viele Nachkommastellen
     vars:
       e: "1_99"
       nd: [1, 2, 3]
@@ -58,7 +58,7 @@ options:
       a: ${MMmath.round(:e+((:ua%Math.pow(10,:nd-1))*10+:ha)/Math.pow(10,:nd),:nd)}
       b: ${MMmath.round(:e+((:ub%Math.pow(10,:nd-1))*10+:hb)/Math.pow(10,:nd),:nd)}
       s: ${MMmath.compare(:a,:b)}
-  - name: Même partie entière, pas autant de décimales
+  - name: Gleiche Zahl vor dem Komma, verschieden viele Nachkommastellen
     vars:
       e: "1_99"
       nd: "1_3_2_^&"
@@ -69,7 +69,7 @@ options:
       a: ${MMmath.round(:e+((:ua%Math.pow(10,:nd[0]-1))*10+:ha)/Math.pow(10,:nd[0]),:nd[0])}
       b: ${MMmath.round(:e+((:ub%Math.pow(10,:nd[1]-1))*10+:hb)/Math.pow(10,:nd[1]),:nd[1])}
       s: ${MMmath.compare(:a,:b)}
-  - name: Zéros après la virgule
+  - name: Nullen nach dem Komma
     vars:
       e: "1_99"
       h1: "1_9"
@@ -81,7 +81,7 @@ options:
       a: ${:ordre===0?:x::y}
       b: ${:ordre===0?:y::x}
       s: ${MMmath.compare(:a,:b)}
-  - name: Un entier et un décimal
+  - name: Eine natürliche Zahl und eine Dezimalzahl
     vars:
       e: "2_99"
       d: "1_99"
@@ -92,7 +92,7 @@ options:
       a: ${:ordre===0?:x::y}
       b: ${:ordre===0?:y::x}
       s: ${MMmath.compare(:a,:b)}
-  - name: Autour de l’unité supérieure
+  - name: Rund um die nächste natürliche Zahl
     vars:
       e: "1_98"
       d: "1_99_2_^&"
@@ -103,7 +103,7 @@ options:
       a: ${MMmath.round(:e+1+:sx*:d[0]/1000,3)}
       b: ${MMmath.round(:e+1+:sy*:d[1]/1000,3)}
       s: ${MMmath.compare(:a,:b)}
-  - name: Égalités et zéros inutiles
+  - name: Gleichheit und überflüssige Nullen
     vars:
       e: "1_30"
       forme: [0, 1]
@@ -122,9 +122,9 @@ options:
       a: ${:ordre===0?:x::ydisp}
       b: ${:ordre===0?:ydisp::x}
       s: ${:ordre===0?MMmath.compare(:x,:y):MMmath.compare(:y,:x)}
-    audio: "Compare ${:ordre===0?:xaudio::yaudio} ( ) et ( ) ${:ordre===0?:yaudio::xaudio}"
+    audio: "Vergleiche ${:ordre===0?:xaudio::yaudio} ( ) und ( ) ${:ordre===0?:yaudio::xaudio}"
     value: ["${:s}"]
-  - name: Écritures différentes d’un même nombre
+  - name: Verschiedene Schreibweisen derselben Zahl
     vars:
       e: "1_20"
       nd: [1, 2]
@@ -135,16 +135,16 @@ options:
       a: ${MMmath.round(:e+(:f+:ecart)/:p,:nd)}
       nb: ${MMmath.round(:e+:f/:p,:nd)}
       total: ${:e*:p+:f}
-      unite: "${:nd===1?'dixièmes':'centièmes'}"
+      unite: "${:nd===1?'Zehntel':'Hundertstel'}"
       bfrac: '${:e}+\frac{${:f}}{${:p}}'
       bsum: "${:e}+${String(MMmath.round(:f/:p,:nd)).replace('.',',')}"
       btxt: '${:total}\text{ ${:unite}}'
       b: ${:forme===0?:bfrac:(:forme===1?:bsum::btxt)}
-      baudio: "${:forme===0?:e+' plus '+:f+' sur '+:p:(:forme===1?:e+' plus '+String(MMmath.round(:f/:p,:nd)).replace('.',','):String(:total)+' '+:unite)}"
+      baudio: "${:forme===0?:e+' plus '+MMmath.bruchwort(:f,:p):(:forme===1?:e+' plus '+String(MMmath.round(:f/:p,:nd)).replace('.',','):String(:total)+' '+:unite)}"
       s: ${MMmath.compare(:a,:nb)}
-    audio: "Compare ${String(:a).replace('.',',')} ( ) et ( ) ${:baudio}"
+    audio: "Vergleiche ${String(:a).replace('.',',')} ( ) und ( ) ${:baudio}"
     value: ["${:s}"]
-  - name: Comparer à 0,5 ou à 1
+  - name: Mit 0,5 oder 1 vergleichen
     vars:
       repere: [0.5, 1]
       nd: [1, 2, 3]
@@ -156,8 +156,8 @@ options:
       a: ${:ordre===0?:x::repere}
       b: ${:ordre===0?:repere::x}
       s: ${MMmath.compare(:a,:b)}
-question: Compare $$${:a}$$ et $$${:b}$$
+question: Vergleiche $$${:a}$$ und $$${:b}$$.
 shortq: $$ ${:a} ~\colorbox{#ECECEC}{\quad}~ ${:b}$$
-audio: "Compare ${String(:a).replace('.',',')} ( ) et ( ) ${String(:b).replace('.',',')}"
+audio: "Vergleiche ${String(:a).replace('.',',')} ( ) und ( ) ${String(:b).replace('.',',')}"
 answer: $$${:a}\color{red}{${:s}}${:b}$$
 value: ["${:a}${:s}${:b}", "${:s}"]

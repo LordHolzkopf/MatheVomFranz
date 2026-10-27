@@ -1,14 +1,14 @@
-title: Comparer des entiers relatifs
-description: "comparer, ranger, relatifs, négatifs, positifs, plus petit, plus grand, <, >"
+title: Ganze Zahlen vergleichen
+description: "vergleichen, ordnen, ganze Zahlen, negative Zahlen, positive Zahlen, kleiner, größer, Betrag, Gegenzahl, Abstand von null, <, >"
 dest: [6GD, 7AA]
 type: text
 repeat: 2
-keys: ["_", "_", "<", ">", "=", "_", "_", "_"]
+keys: ["V", "F", "<", ">", "=", "_", "_", "_"]
 consts:
-  voc: ["petit", "grand"]
-  dist: ["proche", "éloigné"]
+  voc: ["kleinste", "größte"]
+  dist: ["näher an null", "weiter von null entfernt"]
 options:
-  - name: Signes contraires
+  - name: Verschiedene Vorzeichen
     vars:
       siga: [-1, 1]
       sigb: "${:siga*(-1)}"
@@ -16,24 +16,24 @@ options:
       vab: "1_20"
       a: "${:siga*(:vaa)}"
       b: "${:sigb*(:vab)}"
-    question: Comparer les nombres $$:a$$ et $$:b$$.
+    question: Vergleiche die Zahlen $$:a$$ und $$:b$$.
     answer: $$:a\color{red}{${:a<:b?'<':'>'}}:b$$
     value:
       - ${:a<:b?'<':'>'}
       - ${:a<:b?'\lt':'\gt'}
-  - name: Signes identiques
+  - name: Gleiche Vorzeichen
     vars:
       siga: [-1, 1]
       vaa: "1_20"
       vab: "1_20"
       a: "${:siga*(:vaa)}"
       b: "${:siga*(:vab)}"
-    question: Comparer les nombres $$:a$$ et $$:b$$.
+    question: Vergleiche die Zahlen $$:a$$ und $$:b$$.
     answer: $$:a\color{red}{${:a<:b?'<'::a==:b?'=':'>'}}:b$$
     value:
       - ${:a<:b?'<'::a==:b?'=':'>'}
       - ${:a<:b?'\lt'::a==:b?'=':'\gt'}
-  - name: Comparer à zéro
+  - name: Mit null vergleichen
     vars:
       siga: [-1, 1]
       vaa: "1_20"
@@ -41,34 +41,34 @@ options:
       cote: [0, 1]
       a: "${:cote?0::n}"
       b: "${:cote?:n:0}"
-    question: Comparer les nombres $$:a$$ et $$:b$$.
+    question: Vergleiche die Zahlen $$:a$$ und $$:b$$.
     answer: $$:a\color{red}{${:a<:b?'<':'>'}}:b$$
     value:
       - ${:a<:b?'<':'>'}
       - ${:a<:b?'\lt':'\gt'}
-  - name: Nombres négatifs
+  - name: Negative Zahlen
     vars:
       vaa: "1_20"
       vab: "1_20"
       a: "${-:vaa}"
       b: "${-:vab}"
-    question: Comparer les nombres $$:a$$ et $$:b$$.
+    question: Vergleiche die Zahlen $$:a$$ und $$:b$$.
     answer: $$:a\color{red}{${:a<:b?'<'::a==:b?'=':'>'}}:b$$
     value:
       - ${:a<:b?'<'::a==:b?'=':'>'}
       - ${:a<:b?'\lt'::a==:b?'=':'\gt'}
-  - name: Nombres opposés
+  - name: Gegenzahlen
     vars:
       siga: [-1, 1]
       vaa: "1_20"
       a: "${:siga*(:vaa)}"
       b: "${-:siga*(:vaa)}"
-    question: Comparer les nombres $$:a$$ et $$:b$$.
+    question: Vergleiche die Zahlen $$:a$$ und $$:b$$.
     answer: $$:a\color{red}{${:a<:b?'<':'>'}}:b$$
     value:
       - ${:a<:b?'<':'>'}
       - ${:a<:b?'\lt':'\gt'}
-  - name: Écritures à simplifier
+  - name: Schreibweise erst vereinfachen
     vars:
       s1a: [-1, 1]
       s2a: [-1, 1]
@@ -80,12 +80,12 @@ options:
       b: "${:s1b*:s2b*:vab}"
       eca: "${(:s1a<0?'-':'+')+'('+(:s2a<0?'-':'+')+:vaa+')'}"
       ecb: "${(:s1b<0?'-':'+')+'('+(:s2b<0?'-':'+')+:vab+')'}"
-    question: Comparer les nombres $$:eca$$ et $$:ecb$$.
-    answer: $$:eca\color{red}{${:a<:b?'<'::a==:b?'=':'>'}}:ecb$$ car $$:eca=:a$$ et $$:ecb=:b$$.
+    question: Vergleiche die Zahlen $$:eca$$ und $$:ecb$$.
+    answer: $$:eca\color{red}{${:a<:b?'<'::a==:b?'=':'>'}}:ecb$$, denn $$:eca=:a$$ und $$:ecb=:b$$.
     value:
       - ${:a<:b?'<'::a==:b?'=':'>'}
       - ${:a<:b?'\lt'::a==:b?'=':'\gt'}
-  - name: "Vrai ou faux"
+  - name: "Wahr oder falsch"
     vars:
       siga: [-1, 1]
       sigb: [-1, 1]
@@ -96,10 +96,12 @@ options:
       sens: [0, 1]
       symb: "${:sens?'>':'<'}"
       juste: "${:sens?:a>:b::a<:b}"
-    question: Cette affirmation est-elle vraie ? $$:a :symb :b$$
-    answer: L’affirmation $$:a :symb :b$$ est <b>${:juste?'VRAIE':'FAUSSE'}</b>.
-    value: ${:juste?'VRAI':'FAUX'}
-  - name: Comparer des distances à zéro
+    question: Ist diese Aussage wahr oder falsch? $$:a :symb :b$$
+    answer: Die Aussage $$:a :symb :b$$ ist <b class='red'>${:juste?'wahr':'falsch'}</b>.
+    value:
+      - ${:juste?'\text{wahr}':'\text{falsch}'}
+      - ${:juste?'wahr':'falsch'}
+  - name: Abstand von null vergleichen (Betrag)
     vars:
       siga: [-1, 1]
       sigb: [-1, 1]
@@ -108,15 +110,15 @@ options:
       a: "${:siga*(:vaa)}"
       b: "${:sigb*(:vab)}"
       cv: "0_1"
-    question: Lequel des nombres $$:a$$ et $$:b$$ est le plus ${:dist[:cv]} de zéro ?
-    answer: Le plus ${:dist[:cv]} de zéro est $$\color{red}{${(:cv?:vaa>:vab::vaa<:vab)?:a::b}}$$.
+    question: Welche der Zahlen $$:a$$ und $$:b$$ liegt ${:dist[:cv]}?
+    answer: $$\color{red}{${(:cv?:vaa>:vab::vaa<:vab)?:a::b}}$$ liegt ${:dist[:cv]}.
     value: ${(:cv?:vaa>:vab::vaa<:vab)?:a::b}
-  - name: Le plus petit/grand de trois
+  - name: Kleinste/größte von drei Zahlen
     vars:
       a: "-20_20"
       b: "-20_20_^${:a}"
       c: "-20_20_^${:a},${:b}"
       cv: "0_1"
-    question: Quel est le plus ${:voc[:cv]} des nombres $$:a$$, $$:b$$ et $$:c$$ ?
-    answer: Le plus ${:voc[:cv]} des nombres $$:a$$, $$:b$$ et $$:c$$ est $$\color{red}{${:cv?Math.max(:a,:b,:c):Math.min(:a,:b,:c)}}$$.
+    question: Welche der Zahlen $$:a$$, $$:b$$ und $$:c$$ ist die ${:voc[:cv]}?
+    answer: Die ${:voc[:cv]} der Zahlen $$:a$$, $$:b$$ und $$:c$$ ist $$\color{red}{${:cv?Math.max(:a,:b,:c):Math.min(:a,:b,:c)}}$$.
     value: ${:cv?Math.max(:a,:b,:c):Math.min(:a,:b,:c)}

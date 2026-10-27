@@ -1,15 +1,15 @@
 {
-  "title": "Calculs mêlés de fractions",
-  "description": "fractions, priorités, calcul fractionnaire, parenthèses",
+  "title": "Mit Brüchen gemischt rechnen",
+  "description": "Brüche, Bruchrechnung, Punkt vor Strich, Vorrangregeln, Klammern, gemischte Aufgaben, Rechengesetze",
   "type": "latex",
   "auteur":"Sandrine GOURDIN",
   "textSize": "medium",
   "dest":["6EG", "7AD"],
-  "consigne": "Calculer, puis réduire au maximum si possible",
+  "consigne": "Berechne und kürze das Ergebnis so weit wie möglich.",
   "valueType":"fractionIrreductible",
   "options": [
     {
-      "name": "Addition et multiplication",
+      "name": "Addition und Multiplikation",
       "vars": {
         "nums": "1_5_3_^0",
         "dens": "2_8_2_^&,${:nums}"
@@ -19,7 +19,7 @@
       "value": "${MMmath.calc('(' + :nums[0]+')/(' + :dens[0] + ') + ((' + :nums[1] + ')/(' + :dens[0] + '))*(' + :nums[2] + ')/(' + :dens[1] + ')')}"
     },
    {
-      "name": "avec des parenthèses",
+      "name": "Mit Klammern (auch negative Brüche)",
       "vars": {
         "nums": "-5_5_3_^0",
         "dens": "2_8_2_^&,${:nums}",

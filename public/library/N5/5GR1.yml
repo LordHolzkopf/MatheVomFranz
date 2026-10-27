@@ -1,10 +1,10 @@
-title: Repérage dans le plan avec les relatifs
+title: Punkte im Koordinatensystem mit vier Quadranten ablesen und eintragen
 dest: [6DA]
 type: text
 textSize: medium
-description: "Lire les coordonnées d'un point, placer un point : abscisse, ordonnée, repère, relatifs. Option « Placer un point » non adaptée au mode interactif (online/duel)."
+description: "Koordinaten eines Punktes ablesen, Punkt eintragen: x-Koordinate, y-Koordinate, Koordinatensystem, vier Quadranten, negative Zahlen. Die Variante „Punkt eintragen“ ist für den interaktiven Modus (online/Duell) nicht geeignet."
 options:
-  - name: Lire les coordonnées
+  - name: Koordinaten ablesen
     vars:
       sX: [-1, 1]
       sY: [-1, 1]
@@ -28,15 +28,15 @@ options:
           - [:x, :y]
           - { face: "x", size: 9, strokeWidth: 3, label: { fontsize: 24 } }
     question:
-      - Quelle est l’abscisse de A ?
-      - Quelle est l’ordonnée de A ?
-      - Quelles sont les coordonnées du point A ?
+      - Gib die x-Koordinate von A an.
+      - Gib die y-Koordinate von A an.
+      - Gib die Koordinaten des Punktes A an.
     answer:
-      - L’abscisse de A est <span class='red'>:x</span>.
-      - L’ordonnée de A est <span class='red'>:y</span>.
-      - Les coordonnées du point A sont <span class='red'>( :x ; :y )</span>.
+      - Die x-Koordinate von A ist <span class='red'>:x</span>.
+      - Die y-Koordinate von A ist <span class='red'>:y</span>.
+      - Der Punkt hat die Koordinaten <span class='red'>A(:x|:y)</span>.
     value: (:x, :y)
-  - name: Placer un point
+  - name: Punkt eintragen
     vars:
       sX: [-1, 1]
       sY: [-1, 1]
@@ -56,7 +56,7 @@ options:
         - - axis
           - [[0, 0], [0, 1]]
           - { ticks: { label: { fontsize: 24, anchorx: "right", anchory: "middle", offset: [-6, 0] } } }
-    question: Placer le point de coordonnées ( :x ; :y )
+    question: Trage den Punkt A(:x|:y) in das Koordinatensystem ein.
     answer: ""
     figureCorrection:
       type: graph

@@ -1,14 +1,14 @@
 {
-    "title":"Encadrer un décimal (6e)",
+    "title":"Dezimalzahlen eingrenzen (einfache Zahlen)",
     "type":"text",
-    "description":"Donner les deux nombres encadrant, le plus petit d'abord, séparés par un point-virgule",
+    "description":"Die beiden Nachbarzahlen angeben, zwischen denen eine Dezimalzahl liegt: eingrenzen, Nachbarzahlen, Zehntel, Hundertstel, Tausendstel, Zehner, Hunderter. Antwort: die kleinere Zahl zuerst, getrennt durch ein Semikolon.",
     "speech":1,
     "keys":["_","_","_",";"],
     "ID":"6NC10",
     "dest":["6BB"],
     "options":[
     {
-        "name":"Encadrer au dixième près",
+        "name":"Auf Zehntel eingrenzen",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"2_3",
@@ -17,13 +17,13 @@
             "mil":"${:c==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:dix+:cent/100+:mil/1000,3)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux décimaux, au dixième près",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux décimaux, au dixième près",
-        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,1)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,1)}}$$ au dixième",
+        "question": "Zwischen welchen beiden benachbarten Zahlen mit einer Nachkommastelle liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden benachbarten Zahlen mit einer Nachkommastelle liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,1)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,1)}}$$ (auf Zehntel)",
         "value":"${MMmath.valeurParDefaut(:b,1)};${MMmath.valeurParExces(:b,1)}"
     },
     {
-        "name":"Encadrer au centième près",
+        "name":"Auf Hundertstel eingrenzen",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"3_4",
@@ -32,13 +32,13 @@
             "dixmil":"${:mil==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:cent+:mil/1000+:dixmil/10000,4)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux décimaux, au centième près",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux décimaux, au centième près",
-        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,2)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,2)}}$$ au centième",
+        "question": "Zwischen welchen beiden benachbarten Zahlen mit zwei Nachkommastellen liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden benachbarten Zahlen mit zwei Nachkommastellen liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,2)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,2)}}$$ (auf Hundertstel)",
         "value":"${MMmath.valeurParDefaut(:b,2)};${MMmath.valeurParExces(:b,2)}"
     },
     {
-        "name":"Encadrer au millième près",
+        "name":"Auf Tausendstel eingrenzen",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"4",
@@ -47,12 +47,12 @@
             "centmil":"${:dixmil==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:mil+:dixmil/10000+:centmil/100000,5)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux décimaux, au millième près",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux décimaux, au millième près",
-        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,3)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,3)}}$$ au millième",
+        "question": "Zwischen welchen beiden benachbarten Zahlen mit drei Nachkommastellen liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden benachbarten Zahlen mit drei Nachkommastellen liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,3)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,3)}}$$ (auf Tausendstel)",
         "value":"${MMmath.valeurParDefaut(:b,3)};${MMmath.valeurParExces(:b,3)}"
     },{
-        "name":"Entre deux entiers consécutifs",
+        "name":"Zwischen zwei aufeinanderfolgenden natürlichen Zahlen",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"1_3",
@@ -62,13 +62,13 @@
             "mil":"${:c<3?0::dix+:cent==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:u+:dix/10+:cent/100+:mil/1000,4)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux entiers consécutifs",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux entiers consécutifs",
-        "answer":"$$\\color{red}{${Math.floor(:b)}} \\lt ${:b} \\lt \\color{red}{${Math.ceil(:b)}}$$ à l'unité",
+        "question": "Zwischen welchen beiden aufeinanderfolgenden natürlichen Zahlen liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden aufeinanderfolgenden natürlichen Zahlen liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${Math.floor(:b)}} \\lt ${:b} \\lt \\color{red}{${Math.ceil(:b)}}$$ (auf Einer)",
         "value":"${Math.floor(:b)};${Math.ceil(:b)}"
     },
     {
-        "name":"Encadrer à la dizaine près",
+        "name":"Zwischen zwei benachbarten Zehnerzahlen",
         "vars":{
             "a":[10,100,1000,10000],
             "c":"0_3",
@@ -79,13 +79,13 @@
             "mil":"${:c<3?0::dix+:cent+:u==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:d+:u+:dix/10+:cent/100+:mil/1000,4)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux dizaines consécutives",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux dizaines consécutives",
-        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,-1)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,-1)}}$$ à la dizaine",
+        "question": "Zwischen welchen beiden benachbarten Zehnerzahlen liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden benachbarten Zehnerzahlen liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,-1)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,-1)}}$$ (auf Zehner)",
         "value":"${MMmath.valeurParDefaut(:b,-1)};${MMmath.valeurParExces(:b,-1)}"
     },
     {
-        "name":"Encadrer à la centaine près",
+        "name":"Zwischen zwei benachbarten Hunderterzahlen",
         "vars":{
             "a":[100,1000,10000,100000],
             "c":"-1_3",
@@ -97,9 +97,9 @@
             "mil":"${:c<3?0::dix+:cent+:u+:d==0?'1_9':'0_9'}",
             "b":"${MMmath.round(:ct+:d+:u+:dix/10+:cent/100+:mil/1000,4)}"
         },
-        "question": "Encadrer $$${:b}$$ par deux centaines consécutives",
-        "audio": "Encadrer ${MMmath.NumberToLetter(:b)} par deux centaines consécutives",
-        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,-2)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,-2)}}$$ à la centaine",
+        "question": "Zwischen welchen beiden benachbarten Hunderterzahlen liegt $$${:b}$$?",
+        "audio": "Zwischen welchen beiden benachbarten Hunderterzahlen liegt ${MMmath.zahlwort(:b)}?",
+        "answer":"$$\\color{red}{${MMmath.valeurParDefaut(:b,-2)}} \\lt ${:b} \\lt \\color{red}{${MMmath.valeurParExces(:b,-2)}}$$ (auf Hunderter)",
         "value":"${MMmath.valeurParDefaut(:b,-2)};${MMmath.valeurParExces(:b,-2)}"
     }
     ]

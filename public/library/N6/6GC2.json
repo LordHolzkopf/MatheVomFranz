@@ -1,13 +1,13 @@
 {
-    "title": "Nommer un angle",
+    "title": "Winkel benennen",
     "type": "text",
-    "description": "Donner le nom d'un angle avec trois lettres.",
+    "description": "Einen Winkel mit drei Buchstaben benennen: Scheitelpunkt, Schenkel, Winkelbezeichnung, Winkelzeichen.",
     "ID": "6GC2",
     "keys": ["alphabetique", ["ang","t","u","v","w","x","y","z","'"]],
     "dest":["6DD"],
     "options":[
         {
-            "name":"À l'aide de trois points",
+            "name":"Mit drei Punkten",
             "consts": {
                 "points": "ABCDEFGHIJKLMNOPRST",
                 "figures": [
@@ -30,8 +30,8 @@
                 "type": "svg",
                 "content": "${:figures[:fig]}"
             },
-            "question":"Donner un nom à l'angle marqué",
-            "answer":"L’angle marqué peut s'appeler $$\\color{red}{\\widehat{${:B}${:A}${:C}}}$$ ou $$\\color{red}{\\widehat{${:C}${:A}${:B}}}$$.",
+            "question":"Gib einen Namen für den markierten Winkel an.",
+            "answer":"Der markierte Winkel heißt $$\\color{red}{\\sphericalangle ${:B}${:A}${:C}}$$ oder $$\\color{red}{\\sphericalangle ${:C}${:A}${:B}}$$.",
             "value":[
                 "${:B}${:A}${:C}",
                 "${:C}${:A}${:B}",
@@ -39,7 +39,7 @@
                 "\\widehat{${:C}${:A}${:B}}"
             ]
         },{
-            "name": "À l'aide du sommet et de directions",
+            "name": "Mit dem Scheitel und den Namen der Schenkel",
             "consts":{
                 "points":"ABCDEFGHIJKLMNOPRST",
                 "directions":"tuvwxyz",
@@ -64,8 +64,8 @@
                 "type": "svg",
                 "content": "${:figures[:fig]}"
             },
-            "question":"Donner un nom à l'angle marqué",
-            "answer":"L’angle marqué peut s'appeler $$\\color{red}{\\widehat{${:x}${:A}${:y}}}$$ ou $$\\color{red}{\\widehat{${:y}${:A}${:x}}}$$.",
+            "question":"Gib einen Namen für den markierten Winkel an.",
+            "answer":"Der markierte Winkel heißt $$\\color{red}{\\sphericalangle ${:x}${:A}${:y}}$$ oder $$\\color{red}{\\sphericalangle ${:y}${:A}${:x}}$$.",
             "value":[
                 "${:x}${:A}${:y}",
                 "${:y}${:A}${:x}",
@@ -73,7 +73,7 @@
                 "\\widehat{${:y}${:A}${:x}}"
             ]
         },{
-            "name":"Angles simples formés par deux droites",
+            "name":"Einfache Winkel an zwei sich schneidenden Geraden",
             "consts":{
                 "points":"ABCDEFGHIJKLMNOPRST",
                 "directions":"tuvwxyz",
@@ -104,8 +104,8 @@
                 "type": "svg",
                 "content": "${:figures[:fig]}"
             },
-            "question":"Donner un nom à l'angle marqué",
-            "answer":"L’angle marqué peut s'appeler $$\\color{red}{${:ans1}}$$ ou $$\\color{red}{${:ans2}}$$.",
+            "question":"Gib einen Namen für den markierten Winkel an.",
+            "answer":"Der markierte Winkel heißt $$\\color{red}{${:ans1.replace('\\widehat{','\\sphericalangle ').replace('}','')}}$$ oder $$\\color{red}{${:ans2.replace('\\widehat{','\\sphericalangle ').replace('}','')}}$$.",
             "value":[
               "\\widehat{:ans1}",
               "\\widehat{:ans2}",
@@ -113,7 +113,7 @@
                 ":ans2"
             ]
         }, {
-            "name": "Angles formés par deux demi-droites",
+            "name": "Winkel zwischen Halbgeraden",
             "consts":{
                 "points":"ABCDEFGHIJKLMNOPRST",
                 "directions":"tuvwxyz"
@@ -160,8 +160,8 @@
                         ["angle", ["${:line1==0?:A::B}", "${:O}", "${:line2==1?:B::C}"],{"radius":2,"label":{"visible":false}}]
                     ]
             },
-            "question":"Donner un nom à l'angle marqué.",
-            "answer":"L’angle marqué peut s'appeler $$\\color{red}{\\widehat{${:ans1}}}$$ ou $$\\color{red}{\\widehat{${:ans2}}}$$.",
+            "question":"Gib einen Namen für den markierten Winkel an.",
+            "answer":"Der markierte Winkel heißt $$\\color{red}{\\sphericalangle ${:ans1}}$$ oder $$\\color{red}{\\sphericalangle ${:ans2}}$$.",
             "value":[
                 "\\widehat{:ans1}",
                 "\\widehat{:ans2}",
@@ -169,13 +169,13 @@
                 ":ans2"
             ]
         }, {
-            "name":"Angles simples formés par deux droites",
+            "name":"Winkel an zwei Geraden – alle möglichen Namen",
             "consts":{
                 "points":"ABCDEFGHIJKLMNOPRST",
                 "directions":"tuvwxyz",
                 "figures":[
                     "<svg width='10em' height='10em' viewBox='0 0 42.333 42.333' xmlns='http://www.w3.org/2000/svg' class='svg4'><style>.svg4 text{fill:#1a1a1a;font-size:4px;font-family:Arial;text-align:center}.svg4 .i{font-family:KaTeX_Math;font-style:italic}</style><g stroke-width='.265'><path d='M14.64 28.418a2.6 2.6 0 01-1.94-.568l1.642-2.015z' fill='#7f2aff' stroke='#7f2aff' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis11}'/><path d='M16.032 23.707a2.6 2.6 0 01.876 2.765 2.6 2.6 0 01-2.23 1.855l-.265-2.586z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis10}'/><path d='M12.465 27.642a2.6 2.6 0 01-.72-2.788 2.6 2.6 0 012.291-1.743l.165 2.595z' fill='#f06' stroke='#f06' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis9}'/><path d='M14.156 22.941a2.6 2.6 0 011.958.621l-1.701 1.967z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis8}'/><path d='M29.208 11.513a2.6 2.6 0 01-1.534 2.258 2.6 2.6 0 01-2.706-.358l1.643-2.015z' fill='#00aad4' stroke='#00aad4' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis7}'/><path d='M24.77 13.287a2.6 2.6 0 01-.864-2.017l2.599.08z' fill='#3737c8' stroke='#3737c8' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis6}'/><path d='M28.301 9.27a2.6 2.6 0 01.98 2.123l-2.6-.09z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis5}'/><path d='M23.896 11.076a2.6 2.6 0 011.577-2.258 2.6 2.6 0 012.72.425l-1.7 1.966z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis4}'/><path d='M12.647 7.961a2.6 2.6 0 012.028.695 2.6 2.6 0 01.816 1.983l-2.598-.09z' fill='#93ac93' stroke='#93ac93' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis3}'/><path d='M10.213 10.416a2.6 2.6 0 012.327-2.453l.27 2.586z' fill='#c87137' stroke='#c87137' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis2}'/><path d='M13.014 13.214a2.6 2.6 0 01-1.983-.72 2.6 2.6 0 01-.796-1.955l2.599.081z' fill='#95f' stroke='#95f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis1}'/><path d='M15.484 10.783a2.6 2.6 0 01-2.313 2.375l-.278-2.585z' fill='#00f' stroke='#00f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis0}' /><path d='M2.933 10.034L39.601 12M11.967 1.667l3.633 36.6M34.368 2.067l-29.001 34.2' fill='none' stroke='#000'/><g text-anchor='middle'><text x='14.667' y='9.5'>${:A}</text><text x='25.467' y='10.334'>${:B}</text><text x='16.6' y='27.834'>${:C}</text><text x='14.067' y='4.267' class='i'>${:x}</text><text x='18' y='38.268' class='i'>${:x1}</text><text style='text-align:end' x='32.318' y='3.4' text-anchor='end' class='i'>${:y1}</text><text style='text-align:end' x='6.347' y='34.534' text-anchor='end' class='i'>${:y}</text><text x='38.068' y='15' class='i'>${:z1}</text><text x='4.067' y='12.867' class='i'>${:z}</text></g></svg>",
-                    "<svg width='10em' height='10zm' viewBox='0 0 42.333 42.333' xmlns='http://www.w3.org/2000/svg' class='svg4'><style>.svg4 text{fill:#1a1a1a;font-size:4px;font-family:Arial;text-align:center}.svg4 .i{font-family:KaTeX_Math;font-style:italic}</style><g stroke-width='.265'><path d='M12.634 35.811c-.701.017-1.52-.368-2.069-1.036l2.006-1.563z' fill='#7f2aff' stroke='#7f2aff' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis11}'/><path d='M14.806 31.299c.664.782.86 1.664.482 2.65a2.6 2.6 0 01-2.375 1.667l-.052-2.6z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis10}'/><path d='M10.517 34.693c-.646-.787-.806-1.739-.395-2.702a2.6 2.6 0 012.407-1.58l-.016 2.6z' fill='#f06' stroke='#f06' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis9}'/><path d='M12.87 30.085c.713-.015 1.625.311 2.126.996l-2.073 1.604z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis8}'/><path d='M32.29 20.384a2.6 2.6 0 01-2.125 1.714 2.6 2.6 0 01-2.485-1.13l2.158-1.45z' fill='#00aad4' stroke='#00aad4' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis7}'/><path d='M27.587 21.014c-.42-.642-.714-1.672-.495-2.407l2.492.743z' fill='#3737c8' stroke='#3737c8' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis6}'/><path d='M32.21 17.68c.496.658.58 1.747.347 2.537l-2.424-.974z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis5}'/><path d='M27.197 18.4a2.6 2.6 0 012.126-1.752 2.6 2.6 0 012.506 1.14l-2.166 1.437z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis4}'/><path d='M12.386 10.62a2.6 2.6 0 011.949.892c.49.565.703 1.537.58 2.561l-2.541-.854z' fill='#93ac93' stroke='#93ac93' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis3}'/><path d='M9.648 12.348c.164-.984 1.13-1.866 2.41-1.876l.02 2.6z' fill='#c87137' stroke='#c87137' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis2}'/><path d='M12.191 16.017a2.6 2.6 0 01-1.944-.819c-.504-.536-.816-1.684-.414-2.64l2.308.859z' fill='#95f' stroke='#95f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis1}'/><path d='M14.864 14.218c-.35 1.17-1.19 1.844-2.438 1.857l-.026-2.6z' fill='#00f' stroke='#00f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis0}'/><path d='M2.933 10.034l35.937 12.55M11.967 1.666l.899 36.6m27.678-27.408L6.098 38.27' fill='none' stroke='#000'/><g font-family='Arial' text-anchor='middle' font-size='3.44'><text x='16.152' y='12.941'>${:A}</text><text x='30.158' y='25'>${:B}</text><text x='10' y='32'>${:C}</text><text x='14.067' y='4.267' class='i'>${:x}</text><text x='16.275' y='38.881' class='i'>${:x1}</text><text style='text-align:end' x='41.793' y='10' text-anchor='end' class='i'>${:y1}</text><text style='text-align:end' x='6' y='37' text-anchor='end' class='i'>${:y}</text><text x='37.102' y='20.083' class='i'>${:z1}</text><text x='4.067' y='13.8' class='i'>${:z}</text></g></g></svg>"
+                    "<svg width='10em' height='10em' viewBox='0 0 42.333 42.333' xmlns='http://www.w3.org/2000/svg' class='svg4'><style>.svg4 text{fill:#1a1a1a;font-size:4px;font-family:Arial;text-align:center}.svg4 .i{font-family:KaTeX_Math;font-style:italic}</style><g stroke-width='.265'><path d='M12.634 35.811c-.701.017-1.52-.368-2.069-1.036l2.006-1.563z' fill='#7f2aff' stroke='#7f2aff' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis11}'/><path d='M14.806 31.299c.664.782.86 1.664.482 2.65a2.6 2.6 0 01-2.375 1.667l-.052-2.6z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis10}'/><path d='M10.517 34.693c-.646-.787-.806-1.739-.395-2.702a2.6 2.6 0 012.407-1.58l-.016 2.6z' fill='#f06' stroke='#f06' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis9}'/><path d='M12.87 30.085c.713-.015 1.625.311 2.126.996l-2.073 1.604z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis8}'/><path d='M32.29 20.384a2.6 2.6 0 01-2.125 1.714 2.6 2.6 0 01-2.485-1.13l2.158-1.45z' fill='#00aad4' stroke='#00aad4' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis7}'/><path d='M27.587 21.014c-.42-.642-.714-1.672-.495-2.407l2.492.743z' fill='#3737c8' stroke='#3737c8' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis6}'/><path d='M32.21 17.68c.496.658.58 1.747.347 2.537l-2.424-.974z' fill='#0f0' stroke='#0f0' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis5}'/><path d='M27.197 18.4a2.6 2.6 0 012.126-1.752 2.6 2.6 0 012.506 1.14l-2.166 1.437z' fill='#ff7f2a' stroke='#ff7f2a' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis4}'/><path d='M12.386 10.62a2.6 2.6 0 011.949.892c.49.565.703 1.537.58 2.561l-2.541-.854z' fill='#93ac93' stroke='#93ac93' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis3}'/><path d='M9.648 12.348c.164-.984 1.13-1.866 2.41-1.876l.02 2.6z' fill='#c87137' stroke='#c87137' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis2}'/><path d='M12.191 16.017a2.6 2.6 0 01-1.944-.819c-.504-.536-.816-1.684-.414-2.64l2.308.859z' fill='#95f' stroke='#95f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis1}'/><path d='M14.864 14.218c-.35 1.17-1.19 1.844-2.438 1.857l-.026-2.6z' fill='#00f' stroke='#00f' stroke-linecap='round' stroke-linejoin='round' visibility='${:vis0}'/><path d='M2.933 10.034l35.937 12.55M11.967 1.666l.899 36.6m27.678-27.408L6.098 38.27' fill='none' stroke='#000'/><g font-family='Arial' text-anchor='middle' font-size='3.44'><text x='16.152' y='12.941'>${:A}</text><text x='30.158' y='25'>${:B}</text><text x='10' y='32'>${:C}</text><text x='14.067' y='4.267' class='i'>${:x}</text><text x='16.275' y='38.881' class='i'>${:x1}</text><text style='text-align:end' x='41.793' y='10' text-anchor='end' class='i'>${:y1}</text><text style='text-align:end' x='6' y='37' text-anchor='end' class='i'>${:y}</text><text x='37.102' y='20.083' class='i'>${:z1}</text><text x='4.067' y='13.8' class='i'>${:z}</text></g></g></svg>"
                 ],
                 "answers":[
                     [
@@ -289,9 +289,26 @@
                 "type": "svg",
                 "content": "${:figures[:fig]}"
             },
-            "question":"Donner un nom à l'angle marqué",
-            "answer":"L’angle marqué peut s'appeler $$\\color{red}{\\widehat{${:ans.split(',').join('}, \\widehat{')}}}$$.",
-            "value":"\\widehat{${:ans.split(',').join('} \\widehat{')}}"
+            "question":"Gib einen Namen für den markierten Winkel an.",
+            "answer":"Der markierte Winkel kann so heißen: $$\\color{red}{\\sphericalangle ${:ans.split(',').join(', \\sphericalangle ')}}$$.",
+            "value":[
+                "${:ans.split(',')[0]||:ans.split(',')[0]}",
+                "${:ans.split(',')[1]||:ans.split(',')[0]}",
+                "${:ans.split(',')[2]||:ans.split(',')[0]}",
+                "${:ans.split(',')[3]||:ans.split(',')[0]}",
+                "${:ans.split(',')[4]||:ans.split(',')[0]}",
+                "${:ans.split(',')[5]||:ans.split(',')[0]}",
+                "${:ans.split(',')[6]||:ans.split(',')[0]}",
+                "${:ans.split(',')[7]||:ans.split(',')[0]}",
+                "\\widehat{${:ans.split(',')[0]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[1]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[2]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[3]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[4]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[5]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[6]||:ans.split(',')[0]}}",
+                "\\widehat{${:ans.split(',')[7]||:ans.split(',')[0]}}"
+            ]
         }
     ]
 }

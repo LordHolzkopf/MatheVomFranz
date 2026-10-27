@@ -1,13 +1,13 @@
 {
-    "title":"Traduire une phrase par un relatif",
-    "description":"Traduire une situation par un nombre relatif : positif, négatif, température, altitude, gain, perte. La réponse positive peut être précédée d'un signe +, ou pas.",
+    "title":"Situationen durch positive und negative Zahlen beschreiben",
+    "description":"Eine Alltagssituation durch eine positive oder negative Zahl beschreiben: ganze Zahlen, Temperatur, Höhe, Tiefe, Gewinn, Verlust, Stockwerk, Jahreszahl. Positive Antworten dürfen mit oder ohne Pluszeichen eingegeben werden.",
     "ID":"5NA1",
     "type":"text",
     "dest":["6GD"],
-    "consts":{"datas": {"-1":["# ans avant J.C.", "#e sous-sol", "#°C en dessous de zéro", "une perte de # €", "une profondeur de # m", "une dépense de # €"],
-        "1":["# ans après J.C.", "#e étage", "#°C au dessus de zéro", "un gain de # points", "une altitude de # m", "une recette de # €"]}},
+    "consts":{"datas": {"-1":["das Jahr # v. Chr.", "das #. Untergeschoss", "# °C unter null", "ein Verlust von # €", "eine Tiefe von # m", "eine Ausgabe von # €"],
+        "1":["das Jahr # n. Chr.", "das #. Obergeschoss", "# °C über null", "ein Gewinn von # Punkten", "eine Höhe von # m über dem Meeresspiegel", "eine Einnahme von # €"]}},
     "vars":{"n":"2_20","s":"-1_1_^0", "p":"0_5", "n2":"${(:p==0)?:n*23:(:p==4)?:n*50::n}"},
-    "question": "Traduis par un nombre relatif :<br><b>${:datas[:s][:p].replace('#',:n2)}</b>",
-    "answer":"${:datas[:s][:p].replace('#',:n2)} peut se traduire par <span class='red'>${(:s>0)?'+'+:n2*:s::n2*:s}</span>",
+    "question": "Beschreibe mit einer positiven oder negativen Zahl:<br><b>${:datas[:s][:p].replace('#',:n2)}</b>",
+    "answer":"„${:datas[:s][:p].replace('#',:n2)}“ entspricht der Zahl <span class='red'>${(:s>0)?'+'+:n2*:s::n2*:s}</span>",
     "value":["${(:s>0)?'+'+:n2*:s::n2*:s}","${:n2*:s}"]
 }

@@ -1,13 +1,13 @@
 {
     "ID": "6GD5",
-    "title":"Cercles tangents ou sécants et distances",
-    "description":"cercles tangents, sécants, rayon, distance entre centres",
+    "title":"Sich berührende und schneidende Kreise: Längen bestimmen",
+    "description":"Kreise, die sich berühren oder schneiden, Radius, Abstand der Mittelpunkte, Streckenlänge, Berührpunkt, Schnittpunkt",
     "type":"text",
     "dest":["6DC"],
     "consts":{"lettres":"ABCDEFGHJKLMNPQRSTUVW"},
     "options":[
         {
-            "name": "Cercles tangents",
+            "name": "Kreise berühren sich",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -16,8 +16,8 @@
                 "s":"4_8",
                 "s1":"2_${:s-2}",
                 "s2":"${:s-:s1}",
-                "qp":", ${:A+:B}=?",
-                "ap":", ${:A+:B}=${MMmath.round(:s)}"
+                "qp":", $$\\overline{${:A+:B}}=?$$",
+                "ap":", $$\\overline{${:A+:B}}=\\color{red}{${MMmath.round(:s)}}$$"
            },
            "figure":{
                 "type":"graph",
@@ -38,7 +38,7 @@
                 ]
            }
         },{
-            "name": "Cercles sécants",
+            "name": "Kreise schneiden sich",
             "vars":{
                 "l":"0_${:lettres.length-1}_4_^&",
                 "A":"${:lettres[:l[0]]}",
@@ -48,8 +48,8 @@
                 "s":"4_8",
                 "s1":"3_${:s-1}",
                 "s2":"${:s-:s1+1}_7",
-                "qp":", ${:D+:B}=?, ${:A+:D}=?",
-                "ap":", ${:D+:B}=${:s2}, ${:A+:D}=${:s1}"
+                "qp":", $$\\overline{${:D+:B}}=?$$, $$\\overline{${:A+:D}}=?$$",
+                "ap":", $$\\overline{${:D+:B}}=\\color{red}{${:s2}}$$, $$\\overline{${:A+:D}}=\\color{red}{${:s1}}$$"
            },
            "figure":{
                 "type":"graph",
@@ -72,6 +72,7 @@
            }
         }
     ],
-    "question":"${:A+:C}=?, ${:B+:C}=?${:qp}",
-    "answer":"${:A+:C}=${MMmath.round(:s1,1)}, ${:B+:C}=${MMmath.round(:s2,1)}${:ap}"
+    "consigne":"Bestimme die Streckenlängen.",
+    "question":"$$\\overline{${:A+:C}}=?$$, $$\\overline{${:B+:C}}=?$$${:qp}",
+    "answer":"$$\\overline{${:A+:C}}=\\color{red}{${MMmath.round(:s1,1)}}$$, $$\\overline{${:B+:C}}=\\color{red}{${MMmath.round(:s2,1)}}$$${:ap}"
 }

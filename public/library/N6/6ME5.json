@@ -1,8 +1,8 @@
 {
     "ID":"6ME5",
     "dest":["6DD", "7EA"],
-    "title":"Calculer des mesures d’angles avec angles droits, plats, opposés par le sommet.",
-    "description":"Déterminer si des angles sont complémentaires ou supplémentaires.",
+    "title":"Winkel am rechten und gestreckten Winkel berechnen",
+    "description":"Winkel berechnen, die sich zu einem rechten Winkel (90°) oder gestreckten Winkel (180°) ergänzen; prüfen, ob ein Winkel ein rechter oder gestreckter Winkel ist; Nebenwinkel, Winkelsumme.",
     "type":"text",
     "keys":["o","n","°","_","_","_","_","_"],
     "consts":{
@@ -11,7 +11,7 @@
     },
     "options":[
         {
-            "name":"Angle droit ou pas ?",
+            "name":"Rechter Winkel oder nicht?",
             "vars":{
                 "l":"0_${:points.length-1}_4_^&",
                 "O":"${:points[:l[0]]}",
@@ -37,11 +37,11 @@
                     ["angle", ["${:B}","${:O}","${:C}"], {"radius":2,"name":"${:ac-:ab}°","fillColor":"blue","strokeColor":"blue","label":{"strokeColor":"blue"}}]
                 ]
             },
-            "question":"Sur ce schéma, $$\\widehat{${:A+:O+:B}}=${:ab}°$$ et $$\\widehat{${:B+:O+:C}}=${:ac-:ab}°$$. L‘angle $$\\widehat{${:A+:O+:C}}$$ est-il droit ?",
-            "answer":"$$${:ab}°+${:ac-:ab}°=${:ac}°$$ donc $$\\widehat{${:A+:O+:C}}$$ <span class='red'>${:ac==90?'est':'n’est pas'} un angle droit</span>.",
-            "value":["${:ac==90?'oui':'non'}","${:ac==90?'O':'N'}"]
+            "question":"In dieser Skizze ist $$\\sphericalangle ${:A+:O+:B}=${:ab}°$$ und $$\\sphericalangle ${:B+:O+:C}=${:ac-:ab}°$$. Ist $$\\sphericalangle ${:A+:O+:C}$$ ein rechter Winkel?",
+            "answer":"$$${:ab}°+${:ac-:ab}°=${:ac}°$$, also ist $$\\sphericalangle ${:A+:O+:C}$$ <span class='red'>${:ac==90?'ein':'kein'} rechter Winkel</span>.",
+            "value":["${:ac==90?'\\text{ja}':'\\text{nein}'}","${:ac==90?'ja':'nein'}"]
         },{
-            "name":"Angles complémentaires",
+            "name":"Zwei Winkel ergänzen sich zu 90°",
             "vars":{
                 "l":"0_${:points.length-1}_4_^&",
                 "O":"${:points[:l[0]]}",
@@ -67,11 +67,11 @@
                     ["angle", ["${:B}","${:O}","${:C}"], {"radius":2,"name":"${90-:ab}°","fillColor":"blue","strokeColor":"blue","withLabel":"${:AOB?0:1}","label":{"strokeColor":"blue"}}]
                 ]
             },
-            "question":"Sur ce schéma, l‘angle $$\\widehat{${:A+:O+:C}}$$ est droit et $$\\widehat{${:AOB?:A+:O+:B::B+:O+:C}}=${:AOB?:ab:90-:ab}°$$. Quelle est la mesure de $$\\widehat{${:AOB?:B+:O+:C::A+:O+:B}}$$ ?",
-            "answer":"$$\\widehat{${:AOB?:B+:O+:C::A+:O+:B}}=90°-${:AOB?:ab:90-:ab}°=\\color{red}{${:AOB?90-:ab::ab}°}$$.",
+            "question":"In dieser Skizze ist $$\\sphericalangle ${:A+:O+:C}$$ ein rechter Winkel und $$\\sphericalangle ${:AOB?:A+:O+:B::B+:O+:C}=${:AOB?:ab:90-:ab}°$$. Wie groß ist $$\\sphericalangle ${:AOB?:B+:O+:C::A+:O+:B}$$?",
+            "answer":"$$\\sphericalangle ${:AOB?:B+:O+:C::A+:O+:B}=90°-${:AOB?:ab:90-:ab}°=\\color{red}{${:AOB?90-:ab::ab}°}$$.",
             "value":["${:AOB?90-:ab::ab}","${:AOB?90-:ab::ab}°"]
         },{
-            "name":"Angle complétant un angle droit",
+            "name":"Rechter Winkel als Teil eines größeren Winkels",
             "vars":{
                 "l":"0_${:points.length-1}_4_^&",
                 "O":"${:points[:l[0]]}",
@@ -98,11 +98,11 @@
                     ["angle", ["${:B}","${:O}","${:C}"], {"radius":2.5,"name":"${:ab}°","fillColor":"blue","strokeColor":"blue","withLabel":"${:AOC?0:1}","label":{"strokeColor":"blue"}}]
                 ]
             },
-            "question":"Sur ce schéma, l‘angle $$\\widehat{${:A+:O+:B}}$$ est droit et $$\\widehat{${:AOC?:A+:O+:C::B+:O+:C}}=${:AOC?90+:ab::ab}°$$. Quelle est la mesure de $$\\widehat{${:AOC?:B+:O+:C::A+:O+:C}}$$ ?",
-            "answer":"$$\\widehat{${:AOC?:B+:O+:C::A+:O+:C}}=${:AOC?(:ab+90)+'°-90°':'90°+'+:ab+'°'}=\\color{red}{${:AOC?:ab:90+:ab}°}$$.",
+            "question":"In dieser Skizze ist $$\\sphericalangle ${:A+:O+:B}$$ ein rechter Winkel und $$\\sphericalangle ${:AOC?:A+:O+:C::B+:O+:C}=${:AOC?90+:ab::ab}°$$. Wie groß ist $$\\sphericalangle ${:AOC?:B+:O+:C::A+:O+:C}$$?",
+            "answer":"$$\\sphericalangle ${:AOC?:B+:O+:C::A+:O+:C}=${:AOC?(:ab+90)+'°-90°':'90°+'+:ab+'°'}=\\color{red}{${:AOC?:ab:90+:ab}°}$$.",
             "value":["${:AOC?:ab:90+:ab}","${:AOC?:ab:90+:ab}°"]
         },{
-            "name":"Angle plat ou pas ?",
+            "name":"Gestreckter Winkel oder nicht?",
             "vars":{
                 "l":"0_${:points.length-1}_4_^&",
                 "O":"${:points[0]}",
@@ -128,11 +128,11 @@
                     ["angle", ["${:B}","${:O}","${:C}"], {"orthoType":"sector","radius":2,"name":"${:ac-:ab}°","fillColor":"blue","strokeColor":"blue","label":{"strokeColor":"blue","anchorX":"auto","anchorY":"auto"}}]
                 ]
             },
-            "question":"Sur ce schéma, $$\\widehat{${:A+:O+:B}}=${:ab}°$$ et $$\\widehat{${:B+:O+:C}}=${:ac-:ab}°$$. L‘angle $$\\widehat{${:A+:O+:C}}$$ est-il plat ?",
-            "answer":"$$${:ab}°+${:ac-:ab}°=${:ac}°$$ donc $$\\widehat{${:A+:O+:C}}$$ <span class='red'>${:ac==180?'est':'n’est pas'} un angle plat</span>.",
-            "value":["${:ac==90?'oui':'non'}","${:ac==90?'O':'N'}"]
+            "question":"In dieser Skizze ist $$\\sphericalangle ${:A+:O+:B}=${:ab}°$$ und $$\\sphericalangle ${:B+:O+:C}=${:ac-:ab}°$$. Ist $$\\sphericalangle ${:A+:O+:C}$$ ein gestreckter Winkel?",
+            "answer":"$$${:ab}°+${:ac-:ab}°=${:ac}°$$, also ist $$\\sphericalangle ${:A+:O+:C}$$ <span class='red'>${:ac==180?'ein':'kein'} gestreckter Winkel</span>.",
+            "value":["${:ac==180?'\\text{ja}':'\\text{nein}'}","${:ac==180?'ja':'nein'}"]
         },{
-            "name":"Avec un angle plat",
+            "name":"Zwei Winkel ergänzen sich zu 180° (Nebenwinkel)",
             "vars":{
                 "l":"0_${:points.length-1}_4_^&",
                 "O":"${:points[0]}",
@@ -159,8 +159,8 @@
                     ["angle", ["${:B}","${:O}","${:C}"], {"orthoType":"sector","radius":2,"name":"${:ac-:ab}°","fillColor":"blue","strokeColor":"blue","withLabel":"${:AOB?0:1}","label":{"autoposition":true,"offset":[0,0],"strokeColor":"blue"}}]
                 ]
             },
-            "question":"Sur ce schéma, l‘angle $$\\widehat{${:A+:O+:C}}$$ est plat et $$\\widehat{${:AOB?:A+:O+:B::B+:O+:C}}=${:AOB?:ab:180-:ab}°$$. Quelle est la mesure de $$\\widehat{${:AOB?:B+:O+:C::A+:O+:B}}$$?",
-            "answer":"$$\\widehat{${:AOB?:B+:O+:C::A+:O+:B}}=180°-${:AOB?:ab:180-:ab}°=\\color{red}{${:AOB?180-:ab::ab}°}$$.",
+            "question":"In dieser Skizze ist $$\\sphericalangle ${:A+:O+:C}$$ ein gestreckter Winkel und $$\\sphericalangle ${:AOB?:A+:O+:B::B+:O+:C}=${:AOB?:ab:180-:ab}°$$. Wie groß ist $$\\sphericalangle ${:AOB?:B+:O+:C::A+:O+:B}$$?",
+            "answer":"$$\\sphericalangle ${:AOB?:B+:O+:C::A+:O+:B}=180°-${:AOB?:ab:180-:ab}°=\\color{red}{${:AOB?180-:ab::ab}°}$$.",
             "value":["${:AOB?180-:ab::ab}","${:AOB?180-:ab::ab}°"]
         }
     ]

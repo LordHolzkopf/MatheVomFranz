@@ -1,17 +1,17 @@
 {
     "ID":"6ME6",
     "dest":["6DD"],
-    "title":"Calcul d’angles dans des situations multiplicatives",
-    "description":"angle droit, angle plat, partager un angle, calcul d'angles, degrés",
+    "title":"Rechte und gestreckte Winkel in gleiche Teile teilen",
+    "description":"rechter Winkel, gestreckter Winkel, Winkel teilen, gleich große Winkel, Winkel berechnen, Grad",
     "type":"text",
     "keys":["_","_","°","_","_","_","_","_"],
     "consts":{
         "phi":"${Math.PI/180}",
-        "colors":[["oranges","orange"],["bleus","blue"],["violets","purple"],["verts","green"],["rouges","red"],["turquoise","turquoise"]]
+        "colors":[["orangen","orange"],["blauen","blue"],["violetten","purple"],["grünen","green"],["roten","red"],["türkisen","turquoise"]]
     },
     "options":[
         {
-            "name":"Division de l’angle droit",
+            "name":"Rechten Winkel teilen",
             "vars":{
                 "aa":"-10_100",
                 "div":"2_6",
@@ -32,10 +32,10 @@
                     ["angle", ["A","O","B"], {"radius":1,"withLabel":false,"strokeColor":"black","fillColor":"black"}]
                 ]
             },
-            "question":"Tous les angles ${:couleur} sont égaux. Quelle est la mesure de l’un d’entre eux ?",
-            "answer":"L’angle droit est partagé en ${:div} parties égales. $$90\\degree\\div${:div}=\\color{red}{${90/:div}\\degree}$$"
+            "question":"Alle ${:couleur} Winkel sind gleich groß. Wie groß ist einer von ihnen?",
+            "answer":"Der rechte Winkel ist in ${:div} gleich große Teile geteilt. $$90\\degree\\div${:div}=\\color{red}{${90/:div}\\degree}$$"
     },{
-            "name":"Division de l’angle plat",
+            "name":"Gestreckten Winkel teilen",
             "vars":{
                 "aa":"-10_10",
                 "div":"2_10_^7,8",
@@ -53,13 +53,13 @@
                     ["line", ["O","A"], {"straightFirst":false}],
                     ["line", ["O","B"], {"straightFirst":false}],
                     ["divideAngle","O",{"divisions":"${:div}","angle":180,"angleInit":"${:aa}","rayon":4,"color":"${:color}","opacity":0.7}],
-                    ["text", [0,-1,"angle plat"], {"anchorX":"middle"}]
+                    ["text", [0,-1,"gestreckter Winkel"], {"anchorX":"middle"}]
                 ]
             },
-            "question":"Tous les angles ${:couleur} sont égaux. Quelle est la mesure de l’un d’entre eux ?",
-            "answer":"L’angle plat est partagé en ${:div} parties égales. $$180°\\div${:div}=\\color{red}{${180/:div}°}$$"
+            "question":"Alle ${:couleur} Winkel sind gleich groß. Wie groß ist einer von ihnen?",
+            "answer":"Der gestreckte Winkel ist in ${:div} gleich große Teile geteilt. $$180°\\div${:div}=\\color{red}{${180/:div}°}$$"
     },{
-            "name":"Sous-Division de l’angle droit",
+            "name":"Rechter Winkel – mehrere Teile zusammen",
             "vars":{
                 "aa":"-10_100",
                 "div":"3_6",
@@ -87,10 +87,10 @@
                     ["angle", ["A","O","B"], {"radius":1,"withLabel":false,"strokeColor":"black","fillColor":"black"}]
                 ]
             },
-            "question":"Tous les angles ${:couleur} sont égaux. Quelle est la mesure de l’angle ${:couleur2.slice(0,-1)} ?",
-            "answer":"L’angle droit est partagé en ${:div} parties égales. $$90°\\div${:div}\\times${:mul}=\\color{red}{${90*:mul/:div}°}$$"
+            "question":"Alle ${:couleur} Winkel sind gleich groß. Wie groß ist der ${:couleur2.slice(0,-1)} Winkel?",
+            "answer":"Der rechte Winkel ist in ${:div} gleich große Teile geteilt. $$90°\\div${:div}\\times${:mul}=\\color{red}{${90*:mul/:div}°}$$"
     },{
-            "name":"Sous-Division de l’angle plat",
+            "name":"Gestreckter Winkel – mehrere Teile zusammen",
             "vars":{
                 "aa":"-10_10",
                 "div":"3_10_^8,7",
@@ -115,10 +115,10 @@
                     ["line", ["O","B"], {"straightFirst":false}],
                     ["divideAngle","O",{"divisions":"${:div}","angle":180,"angleInit":"${:aa}","rayon":4,"color":"${:color}","opacity":0.7}],
                     ["angle",["C","O","D"],{"radius":2.5,"orthoType":"sector","withLabel":false,"strokeColor":"black","fillColor":"${:color2}","opacity":0.9}],
-                    ["text", [0,-1,"angle plat"], {"anchorX":"middle"}]
+                    ["text", [0,-1,"gestreckter Winkel"], {"anchorX":"middle"}]
                 ]
             },
-            "question":"Tous les angles ${:couleur} sont égaux. Quelle est la mesure de l’angle ${:couleur2.slice(0,-1)} ?",
-            "answer":"L’angle droit est partagé en ${:div} parties égales. $$180°\\div${:div}\\times${:mul}=\\color{red}{${180*:mul/:div}°}$$"
+            "question":"Alle ${:couleur} Winkel sind gleich groß. Wie groß ist der ${:couleur2.slice(0,-1)} Winkel?",
+            "answer":"Der gestreckte Winkel ist in ${:div} gleich große Teile geteilt. $$180°\\div${:div}\\times${:mul}=\\color{red}{${180*:mul/:div}°}$$"
     }]
 }

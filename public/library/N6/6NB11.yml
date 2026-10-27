@@ -1,19 +1,19 @@
-title: Connaissance des fractions simples
-description: valeur décimale de 1/2, 1/4, 3/4 et équivalences
+title: Einfache Brüche als Dezimalzahl kennen
+description: Dezimalwert von 1/2, 1/4, 3/4, Halbe, Viertel, Dreiviertel, Brüche und Dezimalzahlen, Beziehungen zu 1
 dest: [6BC]
 type: text
 options:
-  - name: Valeur décimale
+  - name: Dezimalwert
     consts:
       fractions: [[1, 2], [1, 4], [3, 4], [3, 2], [4, 2], [5, 2]]
       valeurs: [0.5, 0.25, 0.75, 1.5, 2, 2.5]
     vars:
       cxf: "0_${:fractions.length-1}"
       fraction: \dfrac{${:fractions[:cxf][0]}}{${:fractions[:cxf][1]}}
-    question: Quelle est l’écriture décimale de $$:fraction$$ ?
+    question: Schreibe $$:fraction$$ als Dezimalzahl.
     answer: $$:fraction=\color{red}{${:valeurs[:cxf]}}$$
     value: "${:valeurs[:cxf]}"
-  - name: Relations entre les fractions et 1
+  - name: Beziehungen zwischen Brüchen und 1
     consts:
       operations:
         [
@@ -28,6 +28,6 @@ options:
     vars:
       cxo: "0_${:operations.length-1}"
       operation: ${:operations[:cxo]}
-    question: $$:operation=...$$ ?
+    question: Berechne $$:operation$$.
     answer: $$:operation=\color{red}{${:valeurs[:cxo]}}$$
     value: "${:valeurs[:cxo]}"

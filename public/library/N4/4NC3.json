@@ -1,18 +1,18 @@
 {
-    "title":"Produit de fractions",
-    "description":"fractions, produit, multiplier des fractions, simplifier",
+    "title":"Brüche multiplizieren",
+    "description":"Brüche, Produkt, Brüche multiplizieren, Bruchrechnung, kürzen, mal",
     "type":"latex",
     "ID":"4NC3",
     "textSize":"medium",
     "keys":["_","_","-","/","_","_","_","_"],
     "dest":["6EB", "7AC"],
-    "consigne":"Donner la fraction irréductible ou l'entier égal.",
+    "consigne":"Gib das Ergebnis als vollständig gekürzten Bruch oder als ganze Zahl an.",
     "valueType":"fractionIrreductible",
     "options":[{
-        "name":"Produit de fractions positives",
+        "name":"Positive Brüche multiplizieren",
         "vars":{"num":"1_12_2","den":"2_12_2"}
     },{
-        "name":"Produit de fractions avec relatifs",
+        "name":"Brüche mit negativen Zahlen multiplizieren",
         "vars":{"num":"-12_12_2","den":"-12_12_2_^-1,0,1"}
     }
     ],

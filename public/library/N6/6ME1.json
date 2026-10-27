@@ -1,7 +1,7 @@
 {
     "ID":"6ME1",
-    "description":"Lire la mesure d'un angle à l’aide d’un rapporteur dont la ligne des zéros est horizontale.",
-    "title":"Lecture du rapporteur bien placé, horizontalement",
+    "description":"Winkelgröße am Winkelmesser (Geodreieck) ablesen, Nulllinie waagerecht: Winkel messen, Grad, Skala, im und gegen den Uhrzeigersinn.",
+    "title":"Winkel am Winkelmesser ablesen (waagerecht angelegt)",
     "type":"text",
     "dest":["6DD"],
     "keys":["°"],
@@ -11,7 +11,7 @@
     },
     "options":[
         {
-            "name":"Lecture sens direct (multiple de 10°)",
+            "name":"Gegen den Uhrzeigersinn ablesen (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -26,7 +26,7 @@
                 ["foreignobject",["${:rapporteur}",[-8,-0.83]],{"layer":10}]
             ]}
         },{
-            "name":"Lecture sens indirect (multiple de 10°)",
+            "name":"Im Uhrzeigersinn ablesen (Vielfache von 10°)",
             "vars":{
                 "dizang":"1_18",
                 "angle":"${:dizang*10}"
@@ -42,7 +42,7 @@
             ]}
         },
         {
-            "name":"Lecture zéro non aligné (multiple de 10°)",
+            "name":"Kein Schenkel auf der Nulllinie (Vielfache von 10°)",
             "vars":{
                 "dizang0":"1_17",
                 "angle0":"${:dizang0*10}",
@@ -60,7 +60,7 @@
             ]}
         },
         {
-            "name":"Lecture sens direct",
+            "name":"Gegen den Uhrzeigersinn ablesen",
             "vars":{
                 "angle":"5_180"
             },
@@ -74,7 +74,7 @@
                 ["foreignobject",["${:rapporteur}",[-8,-0.83]],{"layer":10}]
             ]}
         },{
-            "name":"Lecture sens indirect",
+            "name":"Im Uhrzeigersinn ablesen",
             "vars":{
                 "angle":"5_180"
             },
@@ -89,7 +89,7 @@
             ]}
         },
         {
-            "name":"Lecture sur rapporteur sans nombre",
+            "name":"Winkelmesser ohne Zahlen",
             "vars":{
                 "angle0":"5_170",
                 "angle":"5_${180-:angle0}"
@@ -103,10 +103,10 @@
                     ["line",[[0,0],["${Math.cos((:angle0+:angle)/180*Math.PI)}","${Math.sin((:angle0+:angle)/180*Math.PI)}"]],{"straightFirst":false, "strokeWidth":1}],
                     ["foreignobject",["${:rapporteursansnombre}",[-8,-0.83]],{"layer":10}]
             ]},
-            "answer":"En comptant les graduations, on trouve une mesure de ${:angle}°"
+            "answer":"Durch Abzählen der Skalenstriche erhält man <span class='red'>${:angle}°</span>."
         },
         {
-            "name":"Lecture zéro non aligné",
+            "name":"Kein Schenkel auf der Nulllinie",
             "vars":{
                 "angle0":"5_170",
                 "angle":"5_${180-:angle0}"
@@ -120,10 +120,10 @@
                     ["line",[[0,0],["${Math.cos((:angle0+:angle)/180*Math.PI)}","${Math.sin((:angle0+:angle)/180*Math.PI)}"]],{"straightFirst":false, "strokeWidth":1}],
                     ["foreignobject",["${:rapporteur}",[-8,-0.83]],{"layer":10}]
             ]},
-            "answer":"En comptant les graduations, on trouve une mesure de ${:angle}°"
+            "answer":"Durch Abzählen der Skalenstriche erhält man <span class='red'>${:angle}°</span>."
         }
     ],
-    "question":"Quelle est la mesure de l’angle ?",
-    "answer":"L’angle mesure ${:angle}°",
+    "question":"Wie groß ist der Winkel?",
+    "answer":"Der Winkel ist <span class='red'>${:angle}°</span> groß.",
     "value":["${:angle}","${:angle}°"]
 }

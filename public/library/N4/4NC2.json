@@ -1,22 +1,22 @@
 {
-    "title":"Diviser un décimal par 0,1, 0,01, 0,001",
-    "description":"diviser par 0,1, 0,01 ou 0,001, multiplier par 10, 100 ou 1000",
+    "title":"Dezimalzahlen durch 0,1, 0,01 und 0,001 dividieren",
+    "description":"Dezimalzahl, dividieren durch 0,1, 0,01, 0,001, multiplizieren mit 10, 100, 1000, Kommaverschiebung, Komma verschieben",
     "ID":"4NC2",
-    "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["m"]}},
+    "params":{"fige":{"label":"Dieselbe Ziffernfolge beibehalten","defaut":false,"fige":["m"]}},
     "dest":["6ED", "6EF"],
     "vars":{"a":[1,9,99,999,9999], "b":"1_4", "c0":"d0_${:a}_${:b}_^0", "m":"1_999", "q":"-3_1", "c":"${:fige ? MMmath.round(:m*Math.pow(10,:q),4) : :c0}"},
         "options":[{
-        "name":"Diviser un décimal par 0,1",
+        "name":"Dezimalzahl durch 0,1 dividieren",
         "question": "${:c}\\div 0.1",
         "answer":":question=\\color{red}{${MMmath.round(:c*10,3)}}",
         "value":"${MMmath.round(:c*10,3)}"
     },{
-        "name":"Diviser un décimal par 0,01",
+        "name":"Dezimalzahl durch 0,01 dividieren",
         "question": "${:c}\\div 0.01",
         "answer":":question=\\color{red}{${MMmath.round(:c*100,3)}}",
         "value":"${MMmath.round(:c*100,3)}"
     },{
-        "name":"Diviser un décimal par 0,001",
+        "name":"Dezimalzahl durch 0,001 dividieren",
         "question": "${:c}\\div 0.001",
         "answer":":question=\\color{red}{${MMmath.round(:c*1000,3)}}",
         "value":"${MMmath.round(:c*1000,3)}"

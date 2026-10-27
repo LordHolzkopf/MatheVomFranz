@@ -1,15 +1,15 @@
 {
-    "title":"Relations entre 1, 1/10, 1/100 et 1/1000",
+    "title":"Beziehungen zwischen 1, 1/10, 1/100 und 1/1000",
     "ID":"6NC14",
     "type":"text",
-    "description":"Relier les fractions décimales usuelles (1, un dixième, un centième, un millième)",
+    "description":"Eins, ein Zehntel, ein Hundertstel und ein Tausendstel in Beziehung setzen: mal 10, durch 10, mal 100, durch 1000, Zehnerbrüche, Stellenwerte, Kommaverschiebung",
     "speech":1,
-    "consts":{"mots":["un","un dixième","un centième","un millième"]},
+    "consts":{"mots":["eins","ein Zehntel","ein Hundertstel","ein Tausendstel"]},
     "dest":["6BA", "6ED"],
-    "consigne":"Compléter",
+    "consigne":"Ergänze.",
     "options":[
       {
-          "name":"Trouver le résultat, ×10 (cas simple)",
+          "name":"Ergebnis finden, mal 10 (einfach)",
           "vars":{
               "kj":"0_2",
               "ki":"${:kj+1}",
@@ -22,12 +22,12 @@
           },
           "question":"$$${:ui} ${:op} ${:mult} = ~...$$",
           "shortq":"$$${:ui} ${:op} ${:mult} = \\colorbox{#ECECEC}{\\quad}$$",
-          "audio":"${:mots[:ki]} ${:diff>0?'multiplié':'divisé'} par ${:mult} égale combien ?",
+          "audio":"Wie viel ist ${:mots[:ki]} ${:diff>0?'mal':'geteilt durch'} ${:mult}?",
           "answer":"$$${:ui} ${:op} ${:mult} = \\color{red}{${:uj}}$$",
           "value":"${:ujdec}"
       },
       {
-          "name":"Trouver le résultat, ×100 ou 1000",
+          "name":"Ergebnis finden, mal 100 oder 1000",
           "vars":{
               "kj":"0_2",
               "ki":"${:kj+2}_3",
@@ -40,12 +40,12 @@
           },
           "question":"$$${:ui} ${:op} ${:mult} = ~...$$",
           "shortq":"$$${:ui} ${:op} ${:mult} = \\colorbox{#ECECEC}{\\quad}$$",
-          "audio":"${:mots[:ki]} ${:diff>0?'multiplié':'divisé'} par ${:mult} égale combien ?",
+          "audio":"Wie viel ist ${:mots[:ki]} ${:diff>0?'mal':'geteilt durch'} ${:mult}?",
           "answer":"$$${:ui} ${:op} ${:mult} = \\color{red}{${:uj}}$$",
           "value":"${:ujdec}"
       },
       {
-          "name":"Trouver le résultat, ÷10 (cas simple)",
+          "name":"Ergebnis finden, durch 10 (einfach)",
           "vars":{
               "ki":"0_2",
               "kj":"${:ki+1}",
@@ -58,12 +58,12 @@
           },
           "question":"$$${:ui} ${:op} ${:mult} = ~...$$",
           "shortq":"$$${:ui} ${:op} ${:mult} = \\colorbox{#ECECEC}{\\quad}$$",
-          "audio":"${:mots[:ki]} ${:diff>0?'multiplié':'divisé'} par ${:mult} égale combien ?",
+          "audio":"Wie viel ist ${:mots[:ki]} ${:diff>0?'mal':'geteilt durch'} ${:mult}?",
           "answer":"$$${:ui} ${:op} ${:mult} = \\color{red}{${:uj}}$$",
           "value":"${:ujdec}"
       },
       {
-          "name":"Trouver le résultat, ÷100 ou 1000",
+          "name":"Ergebnis finden, durch 100 oder 1000",
           "vars":{
               "ki":"0_2",
               "kj":"${:ki+2}_3",
@@ -76,12 +76,12 @@
           },
           "question":"$$${:ui} ${:op} ${:mult} = ~...$$",
           "shortq":"$$${:ui} ${:op} ${:mult} = \\colorbox{#ECECEC}{\\quad}$$",
-          "audio":"${:mots[:ki]} ${:diff>0?'multiplié':'divisé'} par ${:mult} égale combien ?",
+          "audio":"Wie viel ist ${:mots[:ki]} ${:diff>0?'mal':'geteilt durch'} ${:mult}?",
           "answer":"$$${:ui} ${:op} ${:mult} = \\color{red}{${:uj}}$$",
           "value":"${:ujdec}"
       },
     {
-        "name":"Multiplier par 10 (cas simple, croissant)",
+        "name":"Faktor finden, mal 10 (einfach)",
         "vars":{
             "kj":"0_2",
             "ki":"${:kj+1}",
@@ -93,7 +93,7 @@
         }
     },
     {
-        "name":"Multiplier par 100 ou 1000 (croissant)",
+        "name":"Faktor finden, mal 100 oder 1000",
         "vars":{
             "kj":"0_2",
             "ki":"${:kj+2}_3",
@@ -105,7 +105,7 @@
         }
     },
     {
-        "name":"Diviser par 10 (cas simple, décroissant)",
+        "name":"Divisor finden, durch 10 (einfach)",
         "vars":{
             "ki":"0_2",
             "kj":"${:ki+1}",
@@ -117,7 +117,7 @@
         }
     },
     {
-        "name":"Diviser par 100 ou 1000 (décroissant)",
+        "name":"Divisor finden, durch 100 oder 1000",
         "vars":{
             "ki":"0_2",
             "kj":"${:ki+2}_3",
@@ -131,7 +131,7 @@
     ],
     "question":"$$${:ui} ${:op} ~...~ = ~${:uj}$$",
     "shortq":"$$${:ui} ${:op} \\colorbox{#ECECEC}{\\quad} = ${:uj}$$",
-    "audio":"${:mots[:ki]} ${:diff>0?'multiplié':'divisé'} par combien égale ${:mots[:kj]} ?",
+    "audio":"${:diff>0?'Mit':'Durch'} welche Zahl muss man ${:mots[:ki]} ${:diff>0?'multiplizieren':'dividieren'}, um ${:mots[:kj]} zu erhalten?",
     "answer":"$$${:ui} ${:op} \\color{red}{${:mult}} = ${:uj}$$",
     "value":"${:mult}"
 }

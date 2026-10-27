@@ -74,3 +74,20 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 - **Wahlkapitel** (Brüche 5/6, Wahrscheinlichkeit 7/8, Daten und Wahrscheinlichkeit 9/10) stehen in beiden Jahrgängen mit identischen Themenblöcken; Aufgaben werden immer beiden zugeordnet.
 - **Aufgaben-IDs bleiben** (z. B. „6NC1“), obwohl sie französische Stufen enthalten: So bleiben gespeicherte Links und Verläufe gültig. Die Einordnung steckt allein in den `dest`-Codes.
 - Die Zuordnung der 413 Aufgaben erledigen vier Subagenten; sie liefern nur Tabellen, die ich zentral anwende.
+
+### Schritt 5 – Aufgaben übersetzen
+
+- Elf Pakete zu je 25–45 Aufgaben, nach Klassen gebündelt; je Paket ein Subagent mit gemeinsamer Anleitung (Glossar, Fallstricke wie „Thalès“ = Strahlensätze, „affine“ = linear).
+- **Sicherung der Mathematik:** Das Prüfwerkzeug `tools/aufgabencheck.mjs` erzeugt jede Variante mit festem Zufalls-Startwert und vergleicht die erwarteten Antworten mit dem Stand vor der Übersetzung. Abweichungen sind nur erlaubt, wenn die Antwort selbst Text ist (z. B. „oui“ → „ja“) oder ein Fehler des Originals behoben wurde – jeweils mit Begründung im Bericht.
+- Fragen und Arbeitsaufträge in **du-Form**, Titel als Tätigkeit („Brüche kürzen“).
+- Deutsche Schreibweisen: P(x|y), $\overline{AB}$ für Strecken, „Gerade AB“; französische Klassenangaben in Variantennamen entfernt.
+- **Einheiten bleiben**, auch ungebräuchliche (hm, dam, dag, Doppelzentner): Sie umzustellen würde die Werte ändern. Kandidaten zum Überarbeiten stehen in den Berichten.
+- Neue deutsche Sprachhelfer in `math.js` (Zahlwörter, Bruchwörter, Rechensätze, Uhrzeiten); die französischen bleiben vorerst für Altdaten.
+- TN14 gelöscht (exakte Kopie von TN11). Weitere Fast-Dubletten bleiben vorerst; sie stören nicht.
+
+### Schritt 6 – Neue Generatoren
+
+- Für jeden der 78 leeren Themenblöcke mindestens ein neuer Generator mit 3–6 Varianten, zugeschnitten auf Kopfrechnen (20–60 Sekunden, eindeutige Antwort, „glatte“ Zahlen).
+- Neue Aufgaben liegen in `public/library/ND/`, IDs `D` + Themenblock + Nummer (z. B. `D8EA1`), damit sie sich nie mit IDs des Originals überschneiden.
+- Auch schwer „kopfrechentaugliche“ Themen (Rotationskörper, Konfidenzintervalle) bekommen kurze Automatisierungsaufgaben, z. B. Formeln, Sigma-Regeln, einfache Werte.
+- Fünf Subagenten nach Stufen; anschließend prüft ein unabhängiger Agent stichprobenartig die Mathematik.

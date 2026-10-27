@@ -4,7 +4,7 @@
 
 MatheVomFranz erzeugt Kopfrechen- und Automatisierungsübungen mit Zufallswerten: als Diashow, Karteikarten, Übungs- und Testblätter, Duell, Kopfrechen-Gürtel, Dominos, „Ich hab – wer hat?“, Parkour und mehr. Die Aufgaben sind nach dem Gymnasial-Lehrplan NRW (G9) geordnet, orientiert am Stoffverteilungsplan des Lambacher Schweizer.
 
-> **Status:** im Aufbau. Oberfläche, Design und Gliederung nach NRW-Lehrplan sind fertig; die Aufgabentexte werden gerade ins Deutsche übertragen. Entscheidungen und offene Punkte stehen in [`docs/entscheidungen.md`](docs/entscheidungen.md).
+> **Status:** 490 Aufgaben für Klasse 5 bis Q1/Q2, Oberfläche und Aufgaben auf Deutsch. Vor dem Veröffentlichen müssen Impressum und Datenschutz ausgefüllt werden; offene Punkte stehen am Ende von [`docs/entscheidungen.md`](docs/entscheidungen.md).
 
 ## Basiert auf MathsMentales
 
@@ -39,7 +39,8 @@ node tools/pagecheck.cjs http://localhost:8800/index.html   # meldet JS-Fehler u
 | Pfad | Inhalt |
 |---|---|
 | `src/` | HTML-Seiten, JavaScript-Module (`src/js`), CSS, Bilder |
-| `public/library/N*/` | Aufgaben-Generatoren als JSON oder YAML |
+| `public/library/N*/` | Aufgaben-Generatoren als JSON oder YAML; `ND/` enthält die neuen deutschen Generatoren (IDs `D…`) |
+| `tools/aufgabencheck.mjs` | erzeugt Fragen je Variante, prüft erwartete Antworten und meldet französische Reste |
 | `public/library/structure.json` | Gliederung: Klasse → Kapitel (wie im Lambacher Schweizer) → Themenblock |
 | `docs/glossar.md` | verbindliche Begriffe und Schreibweisen |
 | `docs/entscheidungen.md` | Entscheidungsprotokoll |

@@ -102,3 +102,26 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 - **Tippen im Formelfeld:** Die Standard-Kürzel des Formelfelds (MathLive) zerlegten beim Tippen deutsche Wörter („in“ → ∈, „pi“ → π, „ch“ → cosh, „or“ → ∨; aus „windschief“ wurde „w∈ds χ ef“). Alle Formelfelder verwenden jetzt nur noch reine Symbol-Kürzel (>=, <=, !=, +-, oo für ∞, sqrt). π und andere Zeichen gibt es über die Bildschirmtastatur; ein getipptes „pi“ wird als π gewertet, wenn π erwartet wird.
 - **Terme mit „y =“ / „f(x) =“:** Tippt jemand „y = 2x+3“, obwohl nur der Term „2x+3“ erwartet wird, gilt das als richtig.
 - **„|“ auf der Tastatur:** Ein getippter senkrechter Strich verwirrte das Formelfeld (es erwartet Betragsstriche). Er wird jetzt direkt als Zeichen eingefügt, damit Punkte wie P(4|−3|4) eingegeben werden können.
+
+## Stand am Ende der Nacht (28.10.2026)
+
+- 490 Aufgaben: 412 übersetzte aus MathsMentales und 78 neue deutsche Generatoren. Jeder Themenblock von Klasse 5 bis Q1/Q2 hat mindestens eine Aufgabe.
+- Alle neuen Generatoren hat ein zweiter, unabhängiger Agent gegengeprüft (zusammen über 38 000 nachgerechnete Fragen; keine mathematischen Fehler, aber zahlreiche Korrekturen an Sprache, Darstellung, Sachwerten und Eingabeformen).
+- Bei der Übersetzung wurden rund 90 Fehler des Originals behoben (fehlende oder falsche erwartete Antworten, falsche Lösungswege, HTML-Fehler).
+
+## Offene Punkte für Franz
+
+**Vor dem Veröffentlichen**
+1. Impressum und Datenschutzerklärung ausfüllen (gelb markierte Platzhalter) und rechtlich prüfen lassen.
+2. Hosting entscheiden. Für GitHub Pages reicht ein Workflow, der `npx gulp` ausführt und `src/` und `public/` zusammenführt (wie im Original). Kurz-Links (`public/getshort.php`) und Cloud-Verlauf (`public/proxy/`) funktionieren nur mit PHP-Hosting und sind standardmäßig aus.
+3. Die Vorschaubild-Angabe (`og:image`) in `src/index.html` auf die endgültige Adresse umstellen.
+
+**Inhaltlich (nach Bedarf)**
+- Verteilung: Klasse 5–7 sind sehr gut bestückt (Erbe des französischen Collège), Klasse 8–10 und die Oberstufe haben meist ein bis drei Aufgaben je Themenblock. Hier lohnen weitere Generatoren am meisten.
+- Fast-Dubletten, die man zusammenlegen könnte: 6NE11/8NE5, 6NE12/6NE2, 8NE2/8NE4/8NE6, 8NE7/8NE11, 5GT2/5GT3, 6NC3/6NC10, 5NC9/5NC10, 5NE3/5NE10, 8GC2/8GC3, 6ND6/6ND27.
+- Französische Bilder: Verkehrszeichen in 5GT1 und 8GC5, Halbkreis-Winkelmesser statt Geodreieck in 6ME1–6ME4.
+- 5NA6 („ganze Zahl minus Bruch“) und Ko41 (Vorzeichentabelle) sind in NRW unüblich – streichen oder umbauen.
+- Varianten außerhalb des Kernlehrplans (Quotientenregel, Tangens) sind gekennzeichnet; ggf. löschen.
+- Duell-Figuren und -Hintergründe sind Platzhalter (eigene einfache Grafiken).
+- Spielbildschirme (Duell, Gürtel, Dominos …) haben noch das Aussehen des Originals, nur die Startseite und die Infoseiten sind im Karopapier-Look.
+- `twoDecimals` zeigt Geldbeträge in Formeln mit Leerzeichen nach dem Komma („16, 67“).

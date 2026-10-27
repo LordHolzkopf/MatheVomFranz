@@ -1370,4 +1370,145 @@ const MMmath = {
         .replace("soixantièmes", "soissantièmes");
     return numberToLetter;
   },
+  /* ───────────────────── Deutsche Sprachhelfer (MatheVomFranz) ─────────────────────
+     Gegenstücke zu den französischen Funktionen oben, für die übersetzten Aufgaben. */
+
+  /**
+   * Zahlwort einer Zahl auf Deutsch, z. B. 2021 → „zweitausendeinundzwanzig“,
+   * 3,05 → „drei Komma null fünf“, 2 000 000 → „zwei Millionen“.
+   * @param {Number|String} nombre
+   * @returns {String}
+   */
+  zahlwort(nombre) {
+    const einer = ["null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun",
+      "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"];
+    const zehner = ["", "", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"];
+    // ende = true: die Zahl steht am Wortende („eins“), sonst „ein“ (einhundert, eintausend)
+    const unter100 = (n, ende) => {
+      if (n === 1) return ende ? "eins" : "ein";
+      if (n < 20) return einer[n];
+      const e = n % 10, z = Math.floor(n / 10);
+      return (e ? (e === 1 ? "ein" : einer[e]) + "und" : "") + zehner[z];
+    };
+    const unter1000 = (n, ende) => {
+      const h = Math.floor(n / 100), r = n % 100;
+      return (h ? (h === 1 ? "ein" : einer[h]) + "hundert" : "") + (r ? unter100(r, ende) : "");
+    };
+    const unterMillion = (n, ende) => {
+      const t = Math.floor(n / 1000), r = n % 1000;
+      return (t ? unter1000(t, false) + "tausend" : "") + (r ? unter1000(r, ende) : "");
+    };
+    const gross = (n, einzahl, mehrzahl) =>
+      n === 1 ? "eine " + einzahl : unter1000(n, false) + " " + mehrzahl;
+    const ganz = (n) => {
+      if (n === 0) return "null";
+      const teile = [];
+      const mrd = Math.floor(n / 1e9), mio = Math.floor((n % 1e9) / 1e6), rest = n % 1e6;
+      if (mrd) teile.push(gross(mrd, "Milliarde", "Milliarden"));
+      if (mio) teile.push(gross(mio, "Million", "Millionen"));
+      if (rest) teile.push(unterMillion(rest, true));
+      return teile.join(" ");
+    };
+    let txt = String(nombre).replace(/\s/g, "").replace(",", ".");
+    let vorzeichen = "";
+    if (txt.startsWith("-")) {
+      vorzeichen = "minus ";
+      txt = txt.slice(1);
+    }
+    const [g, d] = txt.split(".");
+    let wort = vorzeichen + ganz(Number(g || 0));
+    if (d) wort += " Komma " + d.split("").map((c) => einer[Number(c)]).join(" ");
+    return wort;
+  },
+  /**
+   * Bruch in Worten, z. B. (3, 4) → „drei Viertel“, (1, 2) → „ein Halb“,
+   * (7, 100) → „sieben Hundertstel“.
+   * @param {Number} z Zähler
+   * @param {Number} n Nenner
+   * @returns {String}
+   */
+  bruchwort(z, n) {
+    z = Number(z);
+    n = Number(n);
+    const zaehler = z === 1 ? "ein" : MMmath.zahlwort(z);
+    if (n === 2) return zaehler + (z === 1 ? " Halb" : " Halbe");
+    const besonders = { 3: "Drittel", 7: "Siebtel", 8: "Achtel" };
+    let nenner = besonders[n];
+    if (!nenner) {
+      const w = MMmath.zahlwort(n);
+      nenner = (n < 20 ? w + "tel" : w + "stel")
+        .replace(/^eins/, "ein")
+        .replace(/^einhundert/, "hundert")
+        .replace(/^eintausend/, "tausend");
+      nenner = nenner.charAt(0).toUpperCase() + nenner.slice(1);
+    }
+    return zaehler + " " + nenner;
+  },
+  /**
+   * Deutsches Gegenstück zu phrase() für option "p": beschreibt eine Rechnung
+   * in Worten, z. B. „die Summe von 3 und dem Produkt von 4 und 5“.
+   * Für die Optionen "a" (LaTeX) und "v" (ASCII) wird phrase() verwendet.
+   * @param {Array} operandes drei Zahlen (die dritte nur bei zwei Operationen)
+   * @param {Array} operations ein oder zwei Zeichen aus +, -, *, /, q
+   * @param {String} option "p", "a" oder "v"
+   * @param {Boolean} ordre wie bei phrase(): die erste Operation ist das erste Argument der zweiten
+   */
+  satz(operandes, operations, option, ordre) {
+    if (option !== "p") return MMmath.phrase(operandes, operations, option, ordre);
+    const woerter = {
+      "+": ["die Summe", "der Summe"],
+      "-": ["die Differenz", "der Differenz"],
+      "*": ["das Produkt", "dem Produkt"],
+      "/": ["der Quotient", "dem Quotienten"],
+      q: ["der Quotient", "dem Quotienten"],
+    };
+    // fall: 0 = Nominativ, 1 = Dativ; außen „aus“, innen „von“:
+    // „die Summe aus dem Produkt von 3 und 4 und 5“
+    const teil = (op, x, y, fall, praep) => woerter[op][fall] + " " + praep + " " + x + " und " + y;
+    const [a, b, c] = operandes;
+    if (operations.length === 1) return teil(operations[0], a, b, 0, "von");
+    const innen = teil(operations[0], a, b, 1, "von");
+    return ordre ? teil(operations[1], innen, c, 0, "aus") : teil(operations[1], c, innen, 0, "aus");
+  },
+  /**
+   * Teilbarkeit auf Deutsch.
+   * @param {Int} nb
+   * @param {Int} par
+   * @param {String} type "w": „ist teilbar“ / „ist nicht teilbar“, "yn": „ja“ / „nein“
+   */
+  teilbar(nb, par, type) {
+    const antworten = { w: ["ist teilbar", "ist nicht teilbar"], yn: ["ja", "nein"] };
+    return Number(nb) % Number(par) === 0 ? antworten[type][0] : antworten[type][1];
+  },
+  /**
+   * Uhrzeit aus Stunden, Minuten, Sekunden (dürfen über 60 liegen oder negativ sein).
+   * @returns {String} z. B. „5:09 Uhr“, mit Sekunden „11:07:03 Uhr“
+   */
+  uhrzeit(h, m, s) {
+    const d = new Date(2010, 1, 1, Number(h), Number(m), Number(s || 0));
+    const zz = (n) => (n < 10 ? "0" + n : "" + n);
+    return d.getHours() + ":" + zz(d.getMinutes()) + (s !== undefined ? ":" + zz(d.getSeconds()) : "") + " Uhr";
+  },
+  /**
+   * Zeitdauer, z. B. „2 h 5 min“ oder „1 h 0 min 30 s“.
+   */
+  dauer(h, m, s) {
+    let gesamt = Number(h) * 3600 + Number(m || 0) * 60 + Number(s || 0);
+    const std = Math.floor(gesamt / 3600);
+    gesamt %= 3600;
+    const min = Math.floor(gesamt / 60), sek = gesamt % 60;
+    return (std ? std + " h " : "") + min + " min" + (s !== undefined ? " " + sek + " s" : "");
+  },
+  /**
+   * Geldscheine in Worten, z. B. „2 Scheine zu 5 €, 1 Schein zu 20 €“.
+   * @param {Array} billets Indizes der Scheine wie bei listeBillets()
+   */
+  listeScheine(billets) {
+    const werte = [5, 10, 20, 50, 100];
+    const anzahl = {};
+    billets.forEach((i) => (anzahl[werte[i]] = (anzahl[werte[i]] || 0) + 1));
+    return Object.keys(anzahl)
+      .map((w) => anzahl[w] + (anzahl[w] === 1 ? " Schein" : " Scheine") + " zu " + w + " €")
+      .join(", ");
+  },
 };

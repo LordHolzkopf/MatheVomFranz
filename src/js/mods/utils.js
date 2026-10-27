@@ -99,7 +99,12 @@ function escapeAttr(str) {
 
 // MatheVomFranz : chemin calculé depuis l'adresse de la page, valable en
 // local, sur un serveur et dans un sous-dossier (GitHub Pages).
-MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
+try {
+  MathfieldElement.fontsDirectory = new URL("js/libs/katex/fonts", document.baseURI).href;
+} catch (e) {
+  // hors navigateur (outils de test) : pas d'adresse de page
+  MathfieldElement.fontsDirectory = "js/libs/katex/fonts";
+}
 MathfieldElement.soundsDirectory = null;
 // Some traductions
 const joursDE = [

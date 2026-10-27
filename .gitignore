@@ -54,6 +54,6 @@ tinyweb-1-94
 
 # harnais de non-régression (arbre de travail + instantané de référence)
 tools/.tmp
-tools/*.json
-tools/*.mjs
+tools/snapshot.json
+
 

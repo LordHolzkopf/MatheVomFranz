@@ -1,5 +1,5 @@
-title: "Symétrie centrale : repérer le point mal placé"
-description: "symétrie centrale, symétrique, point mal placé, erreur, centre"
+title: "Punktspiegelung: falsch gespiegelten Punkt finden"
+description: "Punktspiegelung, Punktsymmetrie, Bildpunkt, Fehler finden, falscher Punkt, Symmetriezentrum, Mittelpunkt"
 ID: 5GT11
 type: text
 textSize: medium
@@ -7,13 +7,13 @@ dest: [5BC, 6DB]
 consts:
   lettres: ["A", "B", "C"]
 options:
-  - name: Facile — figures séparées, décalage franc
+  - name: Leicht – getrennte Figuren, deutliche Abweichung
     vars:
       tier: 0
-  - name: Moyen — figures entrecroisées, décalage franc
+  - name: Mittel – Figuren überschneiden sich, deutliche Abweichung
     vars:
       tier: 1
-  - name: Difficile — croisement variable, décalage discret
+  - name: Schwer – wechselnde Überschneidung, kleine Abweichung
     vars:
       tier: 2
 vars:
@@ -178,9 +178,9 @@ vars:
   olx: ${MMmath.round(:dd1>=:dd2?:oc1x::oc2x,3)}
   oly: ${MMmath.round(:dd1>=:dd2?:oc1y::oc2y,3)}
   lettreFausse: ${:lettres[:wrongIdx]}
-question: "Le triangle ABC devrait être le symétrique de l'autre triangle par rapport à O.<br>Quel sommet pose problème ?"
-shortq: "quel sommet de l’image est mal placé ?"
-answer: "Le point mal placé est <span class='red'>:lettreFausse</span>.<br>Pour chaque sommet correct, O est bien le milieu entre le sommet et son image. Ce n’est pas le cas pour :lettreFausse : le segment qui le relie à son sommet d’origine ne passe pas par O, ou O n’en est pas le milieu."
+question: "Das Dreieck ABC soll das Bild des anderen Dreiecks bei der Punktspiegelung an O sein.<br>Welche Ecke ist falsch?"
+shortq: "Welche Ecke des Bildes ist falsch?"
+answer: "Falsch liegt der Punkt <span class='red'>:lettreFausse</span>.<br>Bei jeder richtigen Ecke ist O der Mittelpunkt der Strecke zwischen der Ecke und ihrem Bildpunkt. Bei :lettreFausse ist das nicht so: Die Strecke zur ursprünglichen Ecke geht nicht durch O, oder O ist nicht ihr Mittelpunkt."
 value: ":lettreFausse"
 figure:
   type: graph

@@ -1,5 +1,5 @@
-title: "Symétrie centrale : retrouver le centre parmi plusieurs points"
-description: "symétrie centrale, centre de symétrie, retrouver le centre, milieu"
+title: "Punktspiegelung: Symmetriezentrum unter mehreren Punkten finden"
+description: "Punktspiegelung, Punktsymmetrie, Symmetriezentrum finden, Mittelpunkt, Bildfigur, Vieleck und Bild"
 ID: 5GT10
 type: text
 textSize: medium
@@ -7,15 +7,15 @@ dest: [5BC, 6DB]
 consts:
   pool: "ABCDE"
 options:
-  - name: Facile — figures qui ne se croisent pas
+  - name: Leicht – Figuren überschneiden sich nicht
     vars:
       tier: 0
       letIdx: "0_2_3_^&"
-  - name: Moyen — figures entrecroisées
+  - name: Mittel – Figuren überschneiden sich
     vars:
       tier: 1
       letIdx: "0_3_4_^&"
-  - name: Difficile — croisement variable, deux alignements de points
+  - name: Schwer – wechselnde Überschneidung, Punkte auf zwei Geraden
     vars:
       tier: 2
       letIdx: "0_4_5_^&"
@@ -200,9 +200,9 @@ vars:
   letL2a: ${:tier===2?:pool[:letIdx[3]]:""}
   letL2b: ${:tier===2?:pool[:letIdx[4]]:""}
   lettres: "${:letO}, ${:letL1a}, ${:letL1b}${:tier===1?', '+:letL1c:''}${:tier===2?', '+:letL2a+', '+:letL2b:''}"
-question: "Voici un polygone et son image par une symétrie centrale.<br>Quel est le centre de symétrie ?"
-shortq: "quel point est le centre de symétrie ?"
-answer: "Le centre de symétrie est le point <span class='red'>:letO</span>.<br>C’est l’unique point qui est à la fois le milieu de chaque sommet et de son image."
+question: "Hier siehst du ein Vieleck und sein Bild bei einer Punktspiegelung.<br>Welcher Punkt ist das Symmetriezentrum?"
+shortq: "Welcher Punkt ist das Symmetriezentrum?"
+answer: "Das Symmetriezentrum ist der Punkt <span class='red'>:letO</span>.<br>Nur dieser Punkt ist zugleich der Mittelpunkt jeder Strecke von einer Ecke zu ihrem Bildpunkt."
 value: ":letO"
 figure:
   type: graph

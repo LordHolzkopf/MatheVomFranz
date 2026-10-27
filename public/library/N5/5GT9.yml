@@ -1,16 +1,16 @@
-title: "Symétrie centrale sur quadrillage : décrire un déplacement"
-description: "symétrie centrale, quadrillage, déplacement, demi-tour, symétrique"
+title: "Punktspiegelung auf Karopapier: Weg beschreiben"
+description: "Punktspiegelung, Punktsymmetrie, Karopapier, Kästchen zählen, Bildpunkt, Symmetriezentrum, halbe Drehung, Weg beschreiben"
 ID: 5GT9
 type: text
 textSize: medium
 dest: [5BC]
-consigne: "Répondre par un nombre de cases suivi d’une lettre (D, G, H ou B), pour chaque direction utile."
+consigne: "Antworte für jede nötige Richtung mit einer Anzahl von Kästchen und einem Buchstaben: R (rechts), L (links), O (oben) oder U (unten), z. B. „2R 3U“."
 options:
-  - name: Facile — petits déplacements, trajet A→B tracé
+  - name: Leicht – kurze Wege, Strecke A→B eingezeichnet
     vars:
       maxmag: 3
       guide: 1
-  - name: Moyen — déplacements plus longs, sans repère
+  - name: Mittel – längere Wege, ohne Hilfslinie
     vars:
       maxmag: 4
       guide: 0
@@ -57,15 +57,15 @@ vars:
   psize: ${Math.round(Math.max(10,0.16*:pas*30))}
   lfont: ${Math.round(Math.max(24,0.48*:pas*30))}
   # ─── lettres et distances de la réponse, dans l’ordre horizontal puis
-  # vertical, comme dans l’exemple "2D 3B"
-  letH: ${:dx>0?'D':'G'}
-  letV: ${:dy>0?'H':'B'}
-  motH: ${:dx>0?'Droite':'Gauche'}
-  motV: ${:dy>0?'Haut':'Bas'}
+  # vertical, comme dans l’exemple "2R 3U"
+  letH: ${:dx>0?'R':'L'}
+  letV: ${:dy>0?'O':'U'}
+  motH: ${:dx>0?'nach rechts':'nach links'}
+  motV: ${:dy>0?'nach oben':'nach unten'}
   rep: "${:adx}${:letH} ${:ady}${:letV}"
-question: "Décris, par un nombre de cases et une direction (D, G, H ou B), le déplacement qui va du point B au symétrique du point A par rapport à B."
-shortq: "déplacement de B au symétrique de A ?"
-answer: "Le déplacement cherché est <span class='red'>:rep</span> (:motH puis :motV).<br>B est le milieu du segment reliant A à son symétrique : le déplacement de B vers ce symétrique est donc le même que celui de A vers B, à poursuivre d’autant au-delà de B."
+question: "A wird am Punkt B gespiegelt. Beschreibe mit Kästchenzahl und Richtung (R, L, O oder U) den Weg vom Punkt B zum Bildpunkt von A."
+shortq: "Weg von B zum Bildpunkt von A?"
+answer: "Der gesuchte Weg ist <span class='red'>:rep</span> (:motH, dann :motV).<br>B ist der Mittelpunkt der Strecke von A zu seinem Bildpunkt: Von B zum Bildpunkt geht es also genauso weit und in dieselbe Richtung wie von A nach B."
 value: ":rep"
 figure:
   type: graph

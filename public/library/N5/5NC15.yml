@@ -1,6 +1,6 @@
 dest: [5AC]
-title: Trouver un nombre manquant dans une opération avec des entiers
-description: opération à trou, équation
+title: Fehlende Zahl in einer Rechenaufgabe bestimmen
+description: Platzhalteraufgabe, Lückenaufgabe, fehlende Zahl, Umkehraufgabe, Gleichung, Addition, Subtraktion, Multiplikation, Division
 options:
   - name: Addition
     vars:
@@ -21,7 +21,7 @@ options:
       - :n1
       - :n2
       - :n1
-  - name: Soustraction
+  - name: Subtraktion
     vars:
       n1: "1_20"
       n2: "1_20"
@@ -37,9 +37,9 @@ options:
       - x = :t - :n2 = \color{red}{:n1}
       - x = :n1 + :n2 = \color{red}{:t}
     value:
-      - :n2
+      - :n1
       - :t
-      - :n2
+      - :n1
       - :t
   - name: Multiplication
     vars:
@@ -53,8 +53,8 @@ options:
     answer:
       - :n1 \times \color{red}{:n2} = ${:n1*:n2}
       - \color{red}{:n1} \times :n2 = ${:n1*:n2}
-      - x = ${:n1*:n2} / :n1 = \color{red}{:n2}
-      - x = ${:n1*:n2} / :n2 = \color{red}{:n1}
+      - x = ${:n1*:n2} \div :n1 = \color{red}{:n2}
+      - x = ${:n1*:n2} \div :n2 = \color{red}{:n1}
     value:
       - :n2
       - :n1

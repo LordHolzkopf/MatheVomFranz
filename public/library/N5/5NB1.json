@@ -1,22 +1,22 @@
 {
-    "title":"Encadrer une fraction entre deux entiers consécutifs",
+    "title":"Bruch zwischen zwei natürlichen Zahlen einordnen",
     "ID":"5NB1",
     "type":"text",
     "valueType":"liste",
-    "description":"Trouver le nombre entier qui précède et le nombre qui suit une fraction.",
+    "description":"Zwischen welchen natürlichen Zahlen liegt ein Bruch? Nachbarzahlen, Vorgänger und Nachfolger, Bruch am Zahlenstrahl, Brüche einordnen, unechte Brüche",
     "speech":1,
     "textSize":"medium",
     "dest":["5FE", "6AE"],
     "keys":["_","_",";","_","_","_","_","_"],
     "options":[{
-        "name":"Fractions dont le numérateur est inférieur à 5 fois le dénominateur",
+        "name":"Zähler kleiner als das 5-Fache des Nenners",
         "vars":{"den":"2_10", "coeff":"0_4", "delta":"1_${:den-1}", "num":"${:den*:coeff+:delta}", "inf":"${Math.floor(:num/:den)}", "sup":"${Math.ceil(:num/:den)}"}
     },{
-        "name":"Fractions dont le numérateur est supérieur à 5 fois le dénominateur",
+        "name":"Zähler größer als das 5-Fache des Nenners",
         "vars":{"den":"2_10", "coeff":"5_10", "delta":"1_${:den-1}", "num":"${:den*:coeff+:delta}", "inf":"${Math.floor(:num/:den)}", "sup":"${Math.ceil(:num/:den)}"}
     }],
     "value":"${:inf};${:sup}",
-    "question":"Encadrer entre deux entiers consécutifs $$\\dfrac{${:num}}{${:den}}$$",
-    "audio":"Encadrer entre deux entiers consécutifs la fraction ${:num} ${MMmath.NumberToFraction(:den)}",
+    "question":"Zwischen welchen zwei aufeinanderfolgenden natürlichen Zahlen liegt $$\\dfrac{${:num}}{${:den}}$$?",
+    "audio":"Zwischen welchen zwei aufeinanderfolgenden natürlichen Zahlen liegt ${MMmath.bruchwort(:num,:den)}?",
     "answer":"$$\\color{red}{${:inf}} \\lt \\dfrac{${:num}}{${:den}} \\lt \\color{red}{${:sup}}$$"
 }

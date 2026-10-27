@@ -1,18 +1,18 @@
 {
-    "title":"Puissances de 2",
-    "description":"Connaissance des valeurs décimales puissances de 2",
+    "title":"Zweierpotenzen",
+    "description":"Zweierpotenzen kennen, Potenzen mit Basis 2, Potenz berechnen, Exponent, negative Exponenten, Hochzahl",
     "type":"latex",
     "ID":"4NA7",
-    "consigne":"Calculer",
+    "consigne":"Berechne.",
     "dest":["5CC", "9DA"],
     "options":[{
-        "name":"Entre 0 et 10",
+        "name":"Exponent von 0 bis 10",
         "vars":{"p":"0_10"}
     },{
-        "name":"De 11 à 16",
+        "name":"Exponent von 10 bis 16",
         "vars":{"p":"10_16"}
     },{
-        "name":"De -1 à -4",
+        "name":"Exponent von −4 bis −1",
         "vars":{"p":"-4_-1"}
     }
     ],

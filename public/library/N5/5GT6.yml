@@ -1,5 +1,5 @@
-title: "Symétrie centrale sur un maillage : symétrique d’un point, d’un segment, d’un triangle"
-description: "symétrie centrale, symétrique, quadrillage, maillage, point, segment, triangle"
+title: "Punktspiegelung auf Gitterpapier: Punkt, Strecke, Dreieck spiegeln"
+description: "Punktspiegelung, Bildpunkt, Bildstrecke, Bilddreieck, Karopapier, Dreiecksgitter, Punktgitter, Kästchen zählen, Punktsymmetrie"
 ID: 5GT6
 type: text
 textSize: medium
@@ -49,17 +49,17 @@ consts:
     - [5, 3, 9, 8, 6, 7, 0, 2, 4, 1]
   # [0] point, [1] segment, [2] triangle
   quest:
-    - "Quel est le symétrique du point $$:La$$ par rapport au point $$:Lo$$ ?"
-    - "Quel est le symétrique du segment $$[:La:Lb]$$ par rapport au point $$:Lo$$ ?"
-    - "Quel est le symétrique du triangle $$:La:Lb:Lc$$ par rapport au point $$:Lo$$ ?"
+    - "Welcher Punkt ist das Bild des Punktes $$:La$$ bei der Punktspiegelung an $$:Lo$$?"
+    - "Welche Strecke ist das Bild der Strecke $$\\overline{:La:Lb}$$ bei der Punktspiegelung an $$:Lo$$?"
+    - "Welches Dreieck ist das Bild des Dreiecks $$:La:Lb:Lc$$ bei der Punktspiegelung an $$:Lo$$?"
   courte:
-    - "symétrique de $$:La$$ par rapport à $$:Lo$$ ?"
-    - "symétrique de $$[:La:Lb]$$ par rapport à $$:Lo$$ ?"
-    - "symétrique de $$:La:Lb:Lc$$ par rapport à $$:Lo$$ ?"
+    - "Bild von $$:La$$ bei Spiegelung an $$:Lo$$?"
+    - "Bild von $$\\overline{:La:Lb}$$ bei Spiegelung an $$:Lo$$?"
+    - "Bild von $$:La:Lb:Lc$$ bei Spiegelung an $$:Lo$$?"
   rep:
-    - "Le symétrique du point $$:La$$ est le point <span class='red'>$$:Ld$$</span>.<br>$$:Lo$$ est le milieu du segment $$[:La:Ld]$$ : on repart de $$:Lo$$ en reportant le déplacement qui va de $$:La$$ à $$:Lo$$."
-    - "Le symétrique du segment $$[:La:Lb]$$ est le segment <span class='red'>$$[:Ld:Le]$$</span>.<br>Le symétrique de $$:La$$ est $$:Ld$$, celui de $$:Lb$$ est $$:Le$$ : chaque fois, $$:Lo$$ est le milieu. La symétrie centrale conserve les longueurs : $$:La:Lb=:Ld:Le$$."
-    - "Le symétrique du triangle $$:La:Lb:Lc$$ est le triangle <span class='red'>$$:Ld:Le:Lf$$</span>.<br>Le symétrique de $$:La$$ est $$:Ld$$, celui de $$:Lb$$ est $$:Le$$ et celui de $$:Lc$$ est $$:Lf$$ : chaque fois, $$:Lo$$ est le milieu. Les deux triangles sont superposables."
+    - "Das Bild des Punktes $$:La$$ ist der Punkt <span class='red'>$$:Ld$$</span>.<br>$$:Lo$$ ist der Mittelpunkt der Strecke $$\\overline{:La:Ld}$$: Man geht von $$:Lo$$ aus genauso weiter, wie man von $$:La$$ nach $$:Lo$$ gegangen ist."
+    - "Das Bild der Strecke $$\\overline{:La:Lb}$$ ist die Strecke <span class='red'>$$\\overline{:Ld:Le}$$</span>.<br>Das Bild von $$:La$$ ist $$:Ld$$, das Bild von $$:Lb$$ ist $$:Le$$; $$:Lo$$ ist jeweils der Mittelpunkt. Die Punktspiegelung erhält Längen: $$\\overline{:La:Lb}=\\overline{:Ld:Le}$$."
+    - "Das Bild des Dreiecks $$:La:Lb:Lc$$ ist das Dreieck <span class='red'>$$:Ld:Le:Lf$$</span>.<br>Das Bild von $$:La$$ ist $$:Ld$$, das von $$:Lb$$ ist $$:Le$$ und das von $$:Lc$$ ist $$:Lf$$; $$:Lo$$ ist jeweils der Mittelpunkt. Die beiden Dreiecke sind deckungsgleich."
 vars:
   # ─── maillage : 0 quadrillage, 1 maillage triangulaire, 2 maillage pointé.
   # ─── question : 0 point, 1 segment, 2 triangle. Les deux sont fixés par
@@ -160,39 +160,39 @@ vars:
   bw: ${:mesh===1?5.3:3.8}
   bh: ${:mesh===1?3.4:3.8}
 options:
-  - name: Symétrique d’un point, sur un quadrillage
+  - name: Bild eines Punktes auf Karopapier
     vars:
       mesh: 0
       k: 0
-  - name: Symétrique d’un point, sur un maillage triangulaire
+  - name: Bild eines Punktes auf einem Dreiecksgitter
     vars:
       mesh: 1
       k: 0
-  - name: Symétrique d’un point, sur un maillage pointé
+  - name: Bild eines Punktes auf einem Punktgitter
     vars:
       mesh: 2
       k: 0
-  - name: Symétrique d’un segment, sur un quadrillage
+  - name: Bild einer Strecke auf Karopapier
     vars:
       mesh: 0
       k: 1
-  - name: Symétrique d’un segment, sur un maillage triangulaire
+  - name: Bild einer Strecke auf einem Dreiecksgitter
     vars:
       mesh: 1
       k: 1
-  - name: Symétrique d’un segment, sur un maillage pointé
+  - name: Bild einer Strecke auf einem Punktgitter
     vars:
       mesh: 2
       k: 1
-  - name: Symétrique d’un triangle, sur un quadrillage
+  - name: Bild eines Dreiecks auf Karopapier
     vars:
       mesh: 0
       k: 2
-  - name: Symétrique d’un triangle, sur un maillage triangulaire
+  - name: Bild eines Dreiecks auf einem Dreiecksgitter
     vars:
       mesh: 1
       k: 2
-  - name: Symétrique d’un triangle, sur un maillage pointé
+  - name: Bild eines Dreiecks auf einem Punktgitter
     vars:
       mesh: 2
       k: 2

@@ -1,11 +1,11 @@
 {
-    "title":"Enchaînements d'opérations en écriture fractionnaire",
+    "title":"Terme mit Bruchstrich berechnen",
     "ID":"5NC12",
-    "description":"Opérations nécessitant des étapes de calcul dont les résultats sont entiers.",
-    "consigne":"Calculer.",
+    "description":"Bruchstrich als Geteiltzeichen: erst Zähler und Nenner ausrechnen, dann dividieren. Rechenreihenfolge, Terme berechnen, ganzzahlige Ergebnisse",
+    "consigne":"Berechne.",
     "dest":["5CA"],
     "options":[{
-        "name":"Addition au numérateur",
+        "name":"Addition im Zähler",
         "vars":{
             "resultat":"2_10",
             "denom":"2_10",
@@ -17,7 +17,7 @@
         "answer":":question|2=\\color{green}{\\dfrac{${:produit}}{${:denom}}}=\\color{red}{${:resultat}}",
         "value":"${:resultat}"
     },{
-        "name":"Soustraction au numérateur",
+        "name":"Subtraktion im Zähler",
         "vars":{
             "resultat":"2_10",
             "denom":"2_10",
@@ -29,7 +29,7 @@
         "answer":":question|2=\\color{green}{\\dfrac{${:produit}}{${:denom}}}=\\color{red}{${:resultat}}",
         "value":"${:resultat}"
     },{
-        "name":"Multiplication au numérateur",
+        "name":"Multiplikation im Zähler",
         "vars":{
             "resultat":"2_10",
             "denom":"2_10",
@@ -41,7 +41,7 @@
         "answer":":question|2=\\color{green}{\\dfrac{${:produit}}{${:denom}}}=\\color{red}{${:resultat}}",
         "value":"${:resultat}"
     },{
-        "name":"Opérations au numérateur et au dénominateur (1)",
+        "name":"Rechnungen in Zähler und Nenner (1: Addition)",
         "vars":{
             "resultat":"2_10",
             "denom":"1_10",
@@ -55,7 +55,7 @@
         "answer":":question|2=\\color{green}{\\dfrac{${:produit}}{${:denterme1+:denterme2}}}=\\color{red}{${:resultat}}",
         "value":"${:resultat}"
     },{
-        "name":"Opérations au numérateur et au dénominateur (2)",
+        "name":"Rechnungen in Zähler und Nenner (2: Subtraktion)",
         "vars":{
             "resultat":"2_10",
             "denom":"1_10",
@@ -69,7 +69,7 @@
         "answer":":question|2=\\color{green}{\\dfrac{${:produit}}{${:denterme1+:denterme2}}}=\\color{red}{${:resultat}}",
         "value":"${:resultat}"
     },{
-        "name":"Opérations au numérateur et au dénominateur (3)",
+        "name":"Rechnungen in Zähler und Nenner (3: Multiplikation)",
         "vars":{
             "resultat":"2_10",
             "denom":"1_10",

@@ -1,19 +1,19 @@
 {
-    "title":"Décomposition de fraction en entier - fraction inférieure à 1",
+    "title":"Bruch als ganze Zahl minus Bruch schreiben",
     "ID":"5NA6",
     "speech":1,
     "keys":["_","_","/","+"],
-    "description":"Écrire une fraction en utilisant une décomposition.",
+    "description":"Unechten Bruch zerlegen: ganze Zahl minus echter Bruch, z. B. 17/5 = 4 − 3/5, Bruch zerlegen, Bruch und ganze Zahl",
     "dest":["5FA", "6AA"],
     "question":"\\dfrac{${:num}}{${:den}}~=~ ... - \\dfrac{...}{...}",
-    "audio":"Décomposer ${:num} ${MMmath.NumberToFraction(:den)} en un entier moins une fraction plus petite que 1.",
+    "audio":"Zerlege ${MMmath.bruchwort(:num,:den)} in eine ganze Zahl minus einen Bruch, der kleiner als 1 ist.",
     "options":[{
-        "name":"Dénominateur entre 2 et 11",
+        "name":"Nenner von 2 bis 11",
         "vars":{"den":"2_11", "num":"12_${:den*10}","entier":"${Math.ceil(:num/:den)}", "reste":"${:entier*:den-:num}"},
         "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${:entier}${(:reste>0)?'-\\dfrac{'+:reste+'}{'+:den+'}':''}}",
         "value":"${(:entier>0)?:entier:''}${(:reste>0)?'-'+:reste+'/'+:den:''}"
     },{
-        "name":"Dénominateur entre 12 et 17",
+        "name":"Nenner von 12 bis 17",
         "vars":{"den":"12_17", "num":"12_100","entier":"${Math.ceil(:num/:den)}", "reste":"${:entier*:den-:num}"},
         "answer":"\\dfrac{${:num}}{${:den}} = \\color{red}{${(:entier>0)?:entier:''}${(:entier>0 && :reste>0)?'-':''}${(:reste>0)?'\\dfrac{'+:reste+'}{'+:den+'}':''}}",
         "value":"${(:entier>0)?:entier:''}${(:entier>0 && :reste>0)?'-':''}${(:reste>0)?:reste+'/'+:den:''}"

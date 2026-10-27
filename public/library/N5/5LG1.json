@@ -1,51 +1,53 @@
 {
-    "title":"Leçon : symétries",
+    "title":"Wissen: Achsen- und Punktsymmetrie",
     "type":"text",
     "ID":"5LG1",
-    "description":"15 questions sur les symétries axiale et centrale : axe, centre, symétrique, définitions, propriétés. Non adapté au mode interactif (online/duel).",
+    "description":"15 Wissensfragen zur Achsenspiegelung und Punktspiegelung: Symmetrieachse, Symmetriezentrum, achsensymmetrisch, punktsymmetrisch, Definitionen, Eigenschaften. Nicht für den Online- und Duell-Modus geeignet.",
     "dest":["5BC"],
-    "options":[{
-        "name":"Symétrie axiale",
-        "question": [
-            "Quand est-ce que deux figures sont symétriques par rapport à une droite ?",
-            "Que conserve la symétrie axiale entre une figure et son symétrique ?",
-            "Que ne conserve pas la symétrie axiale ?",
-            "Quel mouvement est associé à la symétrie axiale ?",
-            "Deux points sont symétriques par rapport à une droite (d). Qu’est-ce que (d) pour ces deux points ?",
-            "Qu’appelle-t-on axe de symétrie d’une figure ?"
-    ],
-        "answer":[
-            "Lorsqu’en <b>pliant</b> le long de la droite, les deux figures se <b>superposent</b>.",
-            "La symétrie axiale conserve <b>l’alignement, les longueurs, les angles, les formes, les périmètres et les aires</b>.",
-            "La symétrie axiale inverse le <b>sens de la figure</b>. Le sens n’est donc pas conservé.",
-            "Le mouvement associé à la symétrie axiale est <b>le pliage</b>.",
-            "(d) est la <b>médiatrice</b> du segment qui joint ces deux points.",
-            "C’est une <b>droite</b> pour laquelle la figure et son symétrique par rapport à elle sont confondus."
-    ]
-    },{
-        "name":"Symétrie centrale",
-        "question":[
-            "Quand est-ce que deux figures sont symétriques par rapport à un point ?",
-            "Quel mouvement est associé à la symétrie centrale ?",
-            "Que dire quand deux points sont symétriques par rapport à un point O ?",
-            "Comment sont les symétriques de points alignés par rapport à un point O ?",
-            "Que dire du symétrique d’un segment par rapport à un point O ?",
-            "Que dire du symétrique d’un cercle par rapport à un point O ?",
-            "Que dire du symétrique d’un angle par une symétrie centrale ?",
-            "Que dire de deux figures symétriques par une symétrie centrale ?",
-            "Qu’appelle-t-on centre de symétrie d’une figure ?"
-        ],
-        "answer":[
-            "Lorsqu’en effectuant un <b>demi-tour</b> autour du point, les figures se <b>superposent</b>.",
-            "Le mouvement associé à la symétrie centrale est <b>le demi-tour</b>.",
-            "On peut dire que O est le <b>milieu du segment</b> qui joint ces deux points.",
-            "Les symétriques sont <b>alignés</b> également, sur une <b>droite parallèle</b>.",
-            "Le symétrique d’un segment par une symétrie centrale est un segment de <b>même longueur</b>. Les droites supportant les deux segments sont <b>parallèles</b>.",
-            "Le symétrique d’un cercle par une symétrie centrale est un <b>cercle de même rayon</b>, dont le centre est le symétrique du centre.",
-            "Le symétrique d’un angle par une symétrie centrale est un <b>angle de même mesure</b>",
-            "Deux figures symétriques par une symétrie centrale ont la <b>même forme</b> donc le même périmètre et la même aire.",
-            "C’est un <b>point</b> pour lequel la figure et son symétrique par rapport à lui sont confondus."
-        ]
-    }
+    "options":[
+        {
+            "name":"Achsensymmetrie",
+            "question":[
+                "Wann liegen zwei Figuren achsensymmetrisch zueinander?",
+                "Was bleibt bei einer Achsenspiegelung erhalten?",
+                "Was bleibt bei einer Achsenspiegelung nicht erhalten?",
+                "Welche Bewegung gehört zur Achsenspiegelung?",
+                "Zwei Punkte P und P’ liegen achsensymmetrisch zur Geraden g. Was ist g für die Strecke $$\\overline{PP'}$$?",
+                "Was ist eine Symmetrieachse einer Figur?"
+            ],
+            "answer":[
+                "Wenn sie beim <b>Falten</b> entlang der Geraden genau <b>aufeinanderpassen</b>.",
+                "Die Achsenspiegelung erhält <b>Geraden, Längen, Winkelgrößen, die Form, den Umfang und den Flächeninhalt</b>.",
+                "Der <b>Umlaufsinn</b> der Figur kehrt sich um (aus „links herum“ wird „rechts herum“).",
+                "Das <b>Umklappen</b> (Falten) entlang der Spiegelachse.",
+                "g ist die <b>Mittelsenkrechte</b> der Strecke $$\\overline{PP'}$$: Sie steht senkrecht auf der Strecke und geht durch ihren Mittelpunkt.",
+                "Eine <b>Gerade</b>, an der man die Figur spiegeln kann, sodass das Bild genau auf der Figur selbst liegt."
+            ]
+        },
+        {
+            "name":"Punktsymmetrie",
+            "question":[
+                "Wann liegen zwei Figuren punktsymmetrisch zueinander?",
+                "Welche Bewegung gehört zur Punktspiegelung?",
+                "Zwei Punkte P und P’ liegen punktsymmetrisch zum Punkt Z. Was gilt für Z?",
+                "Was gilt für die Bildpunkte von Punkten, die auf einer Geraden liegen, bei einer Punktspiegelung an Z?",
+                "Was gilt für das Bild einer Strecke bei einer Punktspiegelung?",
+                "Was gilt für das Bild eines Kreises bei einer Punktspiegelung?",
+                "Was gilt für das Bild eines Winkels bei einer Punktspiegelung?",
+                "Was gilt für zwei Figuren, die punktsymmetrisch zueinander liegen?",
+                "Was ist ein Symmetriezentrum einer Figur?"
+            ],
+            "answer":[
+                "Wenn sie bei einer <b>halben Drehung</b> (Drehung um 180°) um den Punkt genau <b>aufeinanderpassen</b>.",
+                "Die <b>halbe Drehung</b>, also die Drehung um 180° um das Symmetriezentrum.",
+                "Z ist der <b>Mittelpunkt der Strecke</b> $$\\overline{PP'}$$.",
+                "Die Bildpunkte liegen ebenfalls <b>auf einer Geraden</b>, und diese ist <b>parallel</b> zur ersten Geraden.",
+                "Das Bild einer Strecke ist eine <b>gleich lange</b> Strecke. Die beiden Strecken sind <b>parallel</b> zueinander.",
+                "Das Bild eines Kreises ist ein <b>Kreis mit gleichem Radius</b>. Sein Mittelpunkt ist der Bildpunkt des ursprünglichen Mittelpunkts.",
+                "Das Bild eines Winkels ist ein <b>gleich großer Winkel</b>.",
+                "Sie sind <b>deckungsgleich</b>: Sie haben dieselbe Form und Größe, also auch denselben Umfang und denselben Flächeninhalt.",
+                "Ein <b>Punkt</b>, an dem man die Figur spiegeln kann, sodass das Bild genau auf der Figur selbst liegt."
+            ]
+        }
     ]
 }

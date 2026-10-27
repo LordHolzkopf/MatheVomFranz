@@ -1,11 +1,13 @@
 {
-  "title": "Reconnaitre le centre de symétrie d'une figure",
-  "description": "identifier si une figure possède un centre de symétrie.",
+  "title": "Punktsymmetrische Figuren erkennen",
+  "description": "Ist die Figur punktsymmetrisch? Symmetriezentrum erkennen, Punktsymmetrie, Verkehrszeichen, Symbole, Buchstaben, Ziffern, Flaggen, Vierecke, Dreiecke",
   "dest":["5BC"],
   "repeat": 2,
   "type": "text",
   "keys":["o","n","_","_","_","_","_","_"],
   "consts": {
+    "schilder": {"autoroute": "Autobahn", "Cédez le passage à droite": "Kreuzung mit Vorfahrt von rechts", "chaussee retrecie": "Verengte Fahrbahn", "Impasse": "Sackgasse", "Intersection avec route non prioritaire": "Vorfahrt an der nächsten Kreuzung", "point de vue": "Aussichtspunkt", "ralentisseur de type dos dane": "Bodenschwelle", "route à accès réglementé": "Kraftfahrstraße", "sens unique": "Einbahnstraße", "virage droite": "Rechtskurve", "arret et stationnement interdit": "Absolutes Halteverbot", "Fin de toutes interdictions signalisées": "Ende aller Streckenverbote", "fin du caractere prioritaire": "Ende der Vorfahrtstraße", "route a caractere prioritaire": "Vorfahrtstraße", "stationnement interdit": "Eingeschränktes Halteverbot", "sens interdit": "Verbot der Einfahrt", "poste de secours": "Erste Hilfe", "circulation interdite": "Verbot für Fahrzeuge aller Art", "acces interdit aux cyclomoteurs": "Verbot für Mofas", "acces interdit aux pietons": "Verbot für Fußgänger", "acces interdit aux vehicules marchands": "Verbot für Lastkraftwagen", "auberge de jeunesse": "Jugendherberge", "Cédez le passage aux véhicules venant en sens inverse": "Dem Gegenverkehr Vorrang gewähren", "cedez le passage": "Vorfahrt gewähren", "chaussee retrecie par la droite": "Rechts verengte Fahrbahn", "circulation dans les deux sens": "Gegenverkehr", "contourrnement droite": "Rechts vorbei", "fin interdiction de depasser": "Ende des Überholverbots", "interdiction tourner à gauche": "Verbot des Linksabbiegens", "Stop": "Stopp"},
+    "laender": {"ad.andorre": "von Andorra", "ba.bosnie herzegovine": "von Bosnien und Herzegowina", "by.bielorussie": "von Belarus", "cy.chypre": "von Zypern", "es.espagne": "von Spanien", "gb-nir.irlande du nord": "von Nordirland", "gb-wls.pays de galles": "von Wales", "gr.grece": "von Griechenland", "hr.croatie": "von Kroatien", "li.lichtenstein": "von Liechtenstein", "md.moldavie": "der Republik Moldau", "me.montenegro": "von Montenegro", "mt.malte": "von Malta", "pt.portugal": "von Portugal", "rs.serbie": "von Serbien", "si.slovenie": "von Slowenien", "sk.slovaquie": "der Slowakei", "sm.saint-marin": "von San Marino", "al.albanie": "von Albanien", "pl.pologne": "von Polen", "ro.roumanie": "von Rumänien", "ru.russie": "von Russland", "se.suede": "von Schweden", "ua.ukraine": "der Ukraine", "be.belgique": "von Belgien", "bg.bulgarie": "von Bulgarien", "cz.republique tcheque": "von Tschechien", "de.allemagne": "von Deutschland", "dk.danemark": "von Dänemark", "ee.estonie": "von Estland", "fi.finlande": "von Finnland", "fr.france": "von Frankreich", "ie.irlande": "von Irland", "is.islande": "von Island", "it.italie": "von Italien", "lt.lituanie": "von Litauen", "lu.luxembourg": "von Luxemburg", "mc.monaco": "von Monaco", "nl.pays bas": "der Niederlande", "no.norvege": "von Norwegen", "ch.suisse": "der Schweiz", "at.autriche": "von Österreich", "gb-eng.angleterre": "von England", "gb-sct.ecosse": "von Schottland", "lv.lettonie": "von Lettland", "mk.macedoine du nord": "von Nordmazedonien", "gb.royaume-uni": "des Vereinigten Königreichs"},
     "drapeaux": [
       [
         ["ad.andorre", "d’"],
@@ -79,7 +81,7 @@
       ["stationnement interdit", 2],
       ["sens interdit", 2],
       ["poste de secours", 4],
-      ["circulation interdite", "une infinité d’"]
+      ["circulation interdite", "unendlich viele"]
     ],
     "panneauxSansAxe": [
       "acces interdit aux cyclomoteurs",
@@ -209,20 +211,20 @@
       ]
     ],
     "figuresClassiquesCodees": [
-      ["carré", 4, ["Carre1", "Carre2", "Carre3", "Carre4"]],
+      ["Das Quadrat", 4, ["Carre1", "Carre2", "Carre3", "Carre4"]],
       [
-        "rectangle",
+        "Das Rechteck",
         2,
         ["rectangle1", "rectangle2", "rectangle3", "rectangle4"]
       ],
-      ["losange", 2, ["Losange1", "Losange2", "Losange3", "Losange4"]],
+      ["Die Raute", 2, ["Losange1", "Losange2", "Losange3", "Losange4"]],
       [
-        "parallélogramme",
+        "Das Parallelogramm",
         0,
         ["Parallelogramme1", "Parallelogramme2", "Parallelogramme3"]
       ],
       [
-        "triangle isocèle",
+        "Das gleichschenklige Dreieck",
         1,
         [
           "Triangleisocele1",
@@ -232,7 +234,7 @@
         ]
       ],
       [
-        "triangle équilatéral",
+        "Das gleichseitige Dreieck",
         3,
         ["Triangleequilateral1", "Triangleequilateral2", "Triangleequilateral3"]
       ]
@@ -323,12 +325,12 @@
   },
   "options": [
     {
-      "name": "Panneaux de signalisation",
+      "name": "Verkehrszeichen",
       "vars": {
         "centre": [true, false],
         "axe":"${!:centre?'0_1':0}",
         "numero": "0_${:centre?:panneauxAvecCentre.length-1::axe?:panneauxAvecAxes.length-1::panneauxSansAxe.length-1}",
-        "nom":"${:centre?:panneauxAvecCentre[:numero][0]::axe?:panneauxAvecAxes[:numero][0]::panneauxSansAxe[:numero]}",
+        "nom":"${:schilder[:centre?:panneauxAvecCentre[:numero][0]::axe?:panneauxAvecAxes[:numero][0]::panneauxSansAxe[:numero]]}",
         "fichier": "library/illustrations/signalisation/${:centre?:panneauxAvecCentre[:numero][0]::axe?:panneauxAvecAxes[:numero][0]::panneauxSansAxe[:numero]}${:centre?'-ctr':''}.svg"
       },
       "figure": {
@@ -339,11 +341,11 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "question": "Le panneau \":nom\" possède-t-il un centre de symétrie ?",
-      "answer": "La figure <span class='red'>${:centre?'possède un centre</span> '+(:panneauxAvecCentre[:numero][1]>0?' et '+:panneauxAvecCentre[:numero][1]+' axe'+(:panneauxAvecCentre[:numero][1]>1?'s':''):''):'ne possède pas de centre</span>'+(:axe?', mais '+:panneauxAvecAxes[:numero][1]+' axe'+(:panneauxAvecAxes[:numero][1]>1?'s':''):'')} de symétrie."
+      "question": "Ist das Verkehrszeichen „:nom“ punktsymmetrisch?",
+      "answer": "Das Verkehrszeichen <span class='red'>${:centre?'ist punktsymmetrisch</span>'+(:panneauxAvecCentre[:numero][1]>0?' und hat '+(:panneauxAvecCentre[:numero][1]>1?:panneauxAvecCentre[:numero][1]+' Symmetrieachsen':'eine Symmetrieachse'):(typeof :panneauxAvecCentre[:numero][1]==='string'?' und hat '+:panneauxAvecCentre[:numero][1]+' Symmetrieachsen':'')):'ist nicht punktsymmetrisch</span>'+(:axe?', hat aber '+(:panneauxAvecAxes[:numero][1]>1?:panneauxAvecAxes[:numero][1]+' Symmetrieachsen':'eine Symmetrieachse'):'')}."
     },
     {
-      "name": "Meteor Icons",
+      "name": "Symbole (Meteor Icons)",
       "vars": {
         "centre": [true, false],
         "axes": [true, false],
@@ -359,11 +361,11 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "question":"Cette icone possède-t-elle un centre de symétrie ?",
-      "answer": "Cette icone <span class='red'>${:numero==0?'possède un centre</span> '+(:icons[0][:illustration][1]>0?' et '+:icons[0][:illustration][1]+' axe'+(:icons[0][:illustration][1]>1?'s':''):''):'ne possède pas de centre</span>'+(:axes?', mais '+:icons[1][:illustration][1]+' axe'+(:icons[1][:illustration][1]>1?'s':''):'')} de symétrie."
+      "question":"Ist dieses Symbol punktsymmetrisch?",
+      "answer": "Dieses Symbol <span class='red'>${:numero==0?'ist punktsymmetrisch</span>'+(:icons[0][:illustration][1]>0?' und hat '+(:icons[0][:illustration][1]>1?:icons[0][:illustration][1]+' Symmetrieachsen':'eine Symmetrieachse'):''):'ist nicht punktsymmetrisch</span>'+(:axes?', hat aber '+(:icons[1][:illustration][1]>1?:icons[1][:illustration][1]+' Symmetrieachsen':'eine Symmetrieachse'):'')}."
     },
     {
-      "name": "Figures géométriques codées",
+      "name": "Geometrische Figuren",
       "vars": {
         "centre":[true, false],
         "numero": "${:centre?'0_3':'4_5'}",
@@ -378,10 +380,10 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "answer": "Le <b>${:figuresClassiquesCodees[:numero][0]}</b> <span class='red'>${:centre?'possède un centre ':'ne possède pas de centre'}</span>${:numero<3?' et '+:figuresClassiquesCodees[:numero][1]+' axe'+(:figuresClassiquesCodees[:numero][1]>1?'s':'')::numero>3?', mais '+:figuresClassiquesCodees[:numero][1]+' axe'+(:figuresClassiquesCodees[:numero][1]>1?'s':''):''} de symétrie."
+      "answer": "<b>${:figuresClassiquesCodees[:numero][0]}</b> <span class='red'>${:centre?'ist punktsymmetrisch':'ist nicht punktsymmetrisch'}</span>${:numero<3?' und hat '+(:figuresClassiquesCodees[:numero][1]>1?:figuresClassiquesCodees[:numero][1]+' Symmetrieachsen':'eine Symmetrieachse')::numero>3?', hat aber '+(:figuresClassiquesCodees[:numero][1]>1?:figuresClassiquesCodees[:numero][1]+' Symmetrieachsen':'eine Symmetrieachse'):''}."
     },
     {
-      "name": "Lettres majuscules",
+      "name": "Großbuchstaben",
       "vars": {
         "centre": [true, false],
         "axe": [true, false],
@@ -398,11 +400,11 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "question":"Cette lettre possède-t-elle un centre de symétrie ?",
-      "answer": "Ce <b>${:nomfichier}</b> <span class='red'>${:numero==0?'possède un centre</span>'+(:lettres[0][:illustration][1]>0?' et '+:lettres[0][:illustration][1]+' axe'+(:lettres[0][:illustration][1]>1?'s':''):''):'ne possède pas de centre</span>'}${:axe&&!:centre?', mais un axe':''} de symétrie."
+      "question":"Ist dieser Buchstabe punktsymmetrisch?",
+      "answer": "Das <b>${:nomfichier}</b> <span class='red'>${:numero==0?'ist punktsymmetrisch</span>'+(:lettres[0][:illustration][1]>0?' und hat '+(:lettres[0][:illustration][1]>1?:lettres[0][:illustration][1]+' Symmetrieachsen':'eine Symmetrieachse'):''):'ist nicht punktsymmetrisch</span>'}${:axe&&!:centre?', hat aber eine Symmetrieachse':''}."
     },
     {
-      "name": "Nombres en écriture digitale",
+      "name": "Zahlen in Digitalschrift",
       "vars": {
         "centre": [true, false],
         "axe": [true, false],
@@ -418,16 +420,16 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "answer": "Cette écriture de <b>${:nombres[:numero][:illustration][0]}</b> <span class='red'>${:centre?'possède un centre':'ne possède pas de centre'}</span>${:nombres[:numero][:illustration][1]>0?(:centre?' et ':', mais ')+:nombres[:numero][:illustration][1]+' axe'+(:nombres[:numero][:illustration][1]>1?'s':''):''} de symétrie."
+      "answer": "Die Zahl <b>${:nombres[:numero][:illustration][0]}</b> in Digitalschrift <span class='red'>${:centre?'ist punktsymmetrisch':'ist nicht punktsymmetrisch'}</span>${:nombres[:numero][:illustration][1]>0?(:centre?' und hat ':', hat aber ')+(:nombres[:numero][:illustration][1]>1?:nombres[:numero][:illustration][1]+' Symmetrieachsen':'eine Symmetrieachse'):''}."
     },
     {
-      "name": "Drapeaux européens",
+      "name": "Flaggen europäischer Länder",
       "vars": {
         "centre": [true, false],
         "illustration": "0_${:drapeaux[:centre?1:0].length-1}",
         "axes": "${:drapeaux[:centre?1:0][:illustration][2]!==undefined?:drapeaux[:centre?1:0][:illustration][2]:0}",
         "fichier": "library/illustrations/drapeaux/${:drapeaux[:centre?1:0][:illustration][0]}${:centre?'-ctr':''}.svg",
-        "pays": "${:drapeaux[:centre?1:0][:illustration][1]+(:drapeaux[:centre?1:0][:illustration][0].charAt(:drapeaux[:centre?1:0][:illustration][0].indexOf('.')+1).toUpperCase())+:drapeaux[:centre?1:0][:illustration][0].substring(:drapeaux[:centre?1:0][:illustration][0].indexOf('.')+2)}",
+        "pays": "${:laender[:drapeaux[:centre?1:0][:illustration][0]]}",
         "nombre": "${:centre?:drapeaux[1][:illustration][2]:0}"
       },
       "figure": {
@@ -438,10 +440,10 @@
         "type": "svg",
         "content": "<custom-svg src='${:fichier}' class='corrige'></custom-svg>"
       },
-      "question": "Le drapeau ${:pays} possède-t-il un centre de symétrie ?",
-      "answer": "Le drapeau ${:pays} <span class='red'>${:centre?'possède un centre':'ne possède pas de centre'} de symétrie</span>${:axes>0?((:centre?' et ':', mais ')+:axes+' axe'+(:axes>1?'s':'')+' de symétrie'):''}."
+      "question": "Ist die Flagge ${:pays} punktsymmetrisch?",
+      "answer": "Die Flagge ${:pays} <span class='red'>${:centre?'ist punktsymmetrisch':'ist nicht punktsymmetrisch'}</span>${:axes>0?((:centre?' und hat ':', hat aber ')+(:axes>1?:axes+' Symmetrieachsen':'eine Symmetrieachse')):''}."
     }
   ],
-  "question": "Cette figure possède-t-elle un centre de symétrie ?",
-  "value":"${:centre?'oui':'non'}"
+  "question": "Ist diese Figur punktsymmetrisch?",
+  "value":"${:centre?'ja':'nein'}"
 }

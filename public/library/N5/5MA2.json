@@ -1,21 +1,21 @@
 {
-    "title":"Volumes de prismes simples",
+    "title":"Volumen von Würfel, Quader und Prisma",
     "type":"text",
     "ID":"5MA2",
-    "description":"Calculer le volume d'un cube, d'un pavé droit, d'un prisme droit.",
+    "description":"Volumen berechnen: Würfel, Quader, dreiseitiges Prisma, Rauminhalt, Kubikzentimeter, cm³, Volumenformel",
     "textSize":"small",
     "dest":["5ED", "9CC"],
     "keys":["cm","x³","_","_","_","_","_","_"],
     "options":[{
-        "name":"Volume du cube",
+        "name":"Volumen eines Würfels",
         "vars":{"a":"1_5","v":"${:a*:a*:a}"},
         "figure":{"type":"svg", "content":"<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 79.375 47.625\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20.173 13.2l9.571-9.17v0M45.075 13.2l9.57-9.17v0M45.075 38.102l9.57-9.17v0\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\"/><path d=\"M29.744 4.03h24.902v24.902\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M54.646 28.932H29.744V4.031\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"2.117 2.117\"/><path d=\"M20.173 38.102l9.571-9.17v0\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\" stroke-dasharray=\"2.117 2.117\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\" stroke-linejoin=\"bevel\" d=\"M20.173 13.201h24.901v24.901H20.173z\"/><text style=\"line-height:1.25;;text-align:center\" x=\"33.194\" y=\"43.604\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"33.194\" y=\"43.604\">${:a} cm</tspan></text></svg>"},
-        "shortq":"Volume du cube d'arête ${:a} cm ?",
-        "question": "Quel est le volume d'un cube d'arête ${:a} cm ?",
-        "answer":"Volume d'un cube d'arête ${:a} cm<br>$$V=a\\times a\\times a=\\color{red}{${:v}~cm^3}$$",
+        "shortq":"Volumen eines Würfels mit der Kantenlänge ${:a} cm?",
+        "question": "Wie groß ist das Volumen eines Würfels mit der Kantenlänge ${:a} cm?",
+        "answer":"Volumen eines Würfels mit der Kantenlänge ${:a} cm:<br>$$V=a\\cdot a\\cdot a=\\color{red}{${:v}~\\text{cm}^3}$$",
         "value":["${:v}", "${:v}cm^3"]
     },{
-        "name":"Volume du pavé droit",
+        "name":"Volumen eines Quaders",
         "consts":{"figures":[
             "<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 79.375 47.625\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke-width=\".448\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\"><path d=\"M20.173 13.2l9.571-9.17v0M45.075 13.2l9.57-9.17v0M45.075 38.102l9.57-9.17v0\" transform=\"matrix(1.3959 0 0 1 -12.264 -.23)\"/><path d=\"M29.744 4.03h24.902v24.902\" stroke-linejoin=\"round\" transform=\"matrix(1.3959 0 0 1 -12.264 -.23)\"/><path d=\"M54.646 28.932H29.744V4.031\" stroke-linejoin=\"round\" stroke-dasharray=\"1.792 1.792\" transform=\"matrix(1.3959 0 0 1 -12.264 -.23)\"/><path d=\"M20.173 38.102l9.571-9.17v0\" stroke-dasharray=\"1.792 1.792\" transform=\"matrix(1.3959 0 0 1 -12.264 -.23)\"/><path stroke-linejoin=\"bevel\" d=\"M20.173 13.201h24.901v24.901H20.173z\" transform=\"matrix(1.3959 0 0 1 -12.264 -.23)\"/></g><text style=\"line-height:1.25;text-align:center\" x=\"33.194\" y=\"43.604\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"33.194\" y=\"43.604\">${:a} cm</tspan></text><text style=\"line-height:1.25;text-align:center\" x=\"7.376\" y=\"24.261\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"7.376\" y=\"24.261\">${:h} cm</tspan></text><text style=\"line-height:1.25;text-align:center\" x=\"67.007\" y=\"36.039\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"67.007\" y=\"36.039\">${:b} cm</tspan></text></svg>",
             "<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 79.375 47.625\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke-width=\".528\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\"><path d=\"M20.173 13.2l9.571-9.17v0M45.075 13.2l9.57-9.17v0M45.075 38.102l9.57-9.17v0\" transform=\"matrix(.88902 0 0 1.13037 4.878 -1.958)\"/><path d=\"M29.744 4.03h24.902v24.902\" stroke-linejoin=\"round\" transform=\"matrix(.88902 0 0 1.13037 4.878 -1.958)\"/><path d=\"M54.646 28.932H29.744V4.031\" stroke-linejoin=\"round\" stroke-dasharray=\"2.111 2.111\" transform=\"matrix(.88902 0 0 1.13037 4.878 -1.958)\"/><path d=\"M20.173 38.102l9.571-9.17v0\" stroke-dasharray=\"2.111 2.111\" transform=\"matrix(.88902 0 0 1.13037 4.878 -1.958)\"/><path stroke-linejoin=\"bevel\" d=\"M20.173 13.201h24.901v24.901H20.173z\" transform=\"matrix(.88902 0 0 1.13037 4.878 -1.958)\"/></g><text style=\"line-height:1.25;text-align:center\" x=\"35.945\" y=\"45.896\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"35.945\" y=\"45.896\">${:a} cm</tspan></text><text style=\"line-height:1.25;text-align:center\" x=\"15.084\" y=\"26.955\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"15.084\" y=\"26.955\">${:h} cm</tspan></text><text style=\"line-height:1.25;text-align:center\" x=\"58.296\" y=\"37.672\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" text-anchor=\"middle\" stroke-width=\".265\"><tspan style=\"text-align:center\" x=\"58.296\" y=\"37.672\">${:b} cm</tspan></text></svg>",
@@ -23,12 +23,12 @@
         ]},
         "vars":{"a":"1_5","b":"1_5_^${:a}","h":"1_5","v":"${:a*:b*:h}","f":"0_2"},
         "figure":{"type":"svg", "content":"${:figures[:f]}"},
-        "shortq":"Volume d'un pavé d'arêtes ${:a}, ${:b}, ${:h} cm ?",
-        "question": "Quel est le volume d'un pavé d'arêtes ${:a}, ${:b} et de hauteur ${:h} cm ?",
-        "answer":"Volume d'un pavé ${:a}×${:b}×${:h} cm<br>$$V=a\\times b\\times h=\\color{red}{${:v}~cm^3}$$",
+        "shortq":"Volumen eines Quaders mit den Kanten ${:a} cm, ${:b} cm, ${:h} cm?",
+        "question": "Wie groß ist das Volumen eines Quaders mit der Länge ${:a} cm, der Breite ${:b} cm und der Höhe ${:h} cm?",
+        "answer":"Volumen eines Quaders mit den Kanten ${:a} cm, ${:b} cm und ${:h} cm:<br>$$V=a\\cdot b\\cdot c=\\color{red}{${:v}~\\text{cm}^3}$$",
         "value":["${:v}", "${:v}cm^3"]
     },{
-        "name":"Volume de prismes à base triangulaire",
+        "name":"Volumen eines dreiseitigen Prismas",
         "consts":{"figures":[
             "<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 79.375 47.625\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke-width=\".265\"><path d=\"M28.717 5.456l16.662 7.777-32.99 6.04z\" fill=\"#c8beb7\" stroke=\"#000\" stroke-linejoin=\"round\"/><text style=\"line-height:1.25;-inkscape-font-specification:Arial\" x=\"42.83\" y=\"9.209\" transform=\"rotate(29.426)\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" fill=\"#4d4d4d\"><tspan x=\"42.83\" y=\"9.209\">${:h} cm</tspan></text><path d=\"M28.717 29.798l16.662 7.777-32.99 6.04z\" fill=\"#e3dedb\" stroke=\"#000\" stroke-linejoin=\"round\" stroke-dasharray=\"1.058 1.058\"/><path d=\"M12.389 43.614l32.99-6.04M12.389 19.273v24.341M45.379 13.233v24.342\" fill=\"none\" stroke=\"#000\"/><path d=\"M28.717 5.456v24.342\" fill=\"none\" stroke=\"#000\" stroke-dasharray=\"1.058 .529\"/><text style=\"line-height:1.25;-inkscape-font-specification:Arial\" x=\"-11.592\" y=\"38.928\" transform=\"rotate(-40.925)\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\"><tspan x=\"-11.592\" y=\"38.928\">${:a} cm</tspan></text><text style=\"line-height:1.25;-inkscape-font-specification:Arial\" x=\"48.353\" y=\"26.622\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" fill=\"#4d4d4d\"><tspan x=\"48.353\" y=\"26.622\">${:b} cm</tspan></text><path d=\"M27.267 31.049l1.56.83 1.459-1.328\" fill=\"none\" stroke=\"#000\"/></g></svg>",
             "<svg width=\"15em\" height=\"9em\" viewBox=\"0 0 79.375 47.625\" xmlns=\"http://www.w3.org/2000/svg\"><text style=\"line-height:1.25;\" x=\"22.804\" y=\"53.47\" transform=\"rotate(-18.464)\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" fill=\"#4d4d4d\" stroke-width=\".265\"><tspan x=\"22.804\" y=\"53.47\">${:h} cm</tspan></text><path d=\"M21.68 28.766l32.424 5.712-24.92 6.79z\" fill=\"#e3dedb\" stroke=\"#000\" stroke-width=\".265\" stroke-linejoin=\"round\" stroke-dasharray=\"1.058 1.058\"/><path d=\"M29.183 41.269l24.921-6.79\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\"/><path d=\"M54.104 10.137v24.341M21.68 4.424v24.342M29.183 16.927V41.27\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\"/><text style=\"line-height:1.25;\" x=\"35.954\" y=\"4.527\" transform=\"rotate(55.572)\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" stroke-width=\".265\"><tspan x=\"35.954\" y=\"4.527\">${:a} cm</tspan></text><text style=\"line-height:1.25;\" x=\"56.703\" y=\"24.089\" font-size=\"4.233\" font-family=\"Arial\" letter-spacing=\"0\" word-spacing=\"0\" fill=\"#4d4d4d\" stroke-width=\".265\"><tspan x=\"56.703\" y=\"24.089\">${:b} cm</tspan></text><path d=\"M29.183 41.269L21.68 28.766\" fill=\"none\" stroke=\"#000\" stroke-width=\".529\" stroke-linecap=\"round\"/><path d=\"M21.68 4.424l32.424 5.713-24.92 6.79z\" fill=\"#b3b3b3\" stroke=\"#000\" stroke-width=\".529\" stroke-linejoin=\"round\"/><path d=\"M27.866 38.655l3.682-1.008 1.642 2.557\" fill=\"none\" stroke=\"#000\" stroke-width=\".397\"/></svg>",
@@ -36,9 +36,9 @@
         ]},
         "vars":{"a":"1_5","b":"1_5","h":"1_5","v":"${:a*:b*:h/2}","f":"0_2"},
         "figure":{"type":"svg", "content":"${:figures[:f]}"},
-        "shortq":"Volume ?",
-        "question": "Quel est le volume du prisme droit ?",
-        "answer":"Volume du prisme droit <br>$$V=\\dfrac{a\\times b}2\\times h=\\color{red}{${:v}~cm^3}$$",
+        "shortq":"Volumen?",
+        "question": "Wie groß ist das Volumen des Prismas?",
+        "answer":"Volumen des Prismas (Grundfläche: rechtwinkliges Dreieck):<br>$$V=\\dfrac{a\\cdot b}2\\cdot h=\\color{red}{${:v}~\\text{cm}^3}$$",
         "value":["${:v}", "${:v}cm^3"]
     }]
 }

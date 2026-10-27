@@ -1,5 +1,5 @@
-title: "Symétrie centrale : longueurs et angles conservés"
-description: "symétrie centrale, conservation des longueurs, des angles, des aires, milieu"
+title: "Eigenschaften der Punktspiegelung nutzen"
+description: "Punktspiegelung erhält Längen, Winkelgrößen und Flächeninhalt; Bildfigur, Mittelpunkt einer Seite, Strecke und Winkel im Bild bestimmen, Punktsymmetrie"
 ID: 5GT4
 type: text
 textSize: medium
@@ -8,32 +8,32 @@ textSize: medium
 # à l’autre, une déduplication stricte bloquerait le tirage.
 repeat: true
 dest: [5BC, 6DB]
-consigne: Utiliser uniquement les informations portées sur la figure, sans mesurer.
+consigne: Nutze nur die Angaben in der Zeichnung, miss nicht nach. Lässt sich der Wert nicht bestimmen, antworte „nicht bestimmbar“.
 consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues). O reste le nom du centre de symétrie.
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # [0] angle, [1] longueur, [2] demi-côté à partir du milieu, [3] aire
   quest:
-    - ":figi est le symétrique de :fig par rapport au point O.<br>Combien mesure l’angle $$\\widehat{:angAskNom}$$ ?"
-    - ":figi est le symétrique de :fig par rapport au point O.<br>Quelle est la longueur $$:lgAskNom$$ ?"
-    - ":figi est le symétrique de :fig par rapport au point O, et :lm est le milieu de $$[:msdNom]$$.<br>Quelle est la longueur $$:demiNom$$ ?"
-    - ":figi est le symétrique de :fig par rapport au point O.<br>Quelle est l’aire de :figAsk ?"
+    - "Die Figur :figi ist das Bild der Figur :fig bei der Punktspiegelung an O.<br>Wie groß ist der Winkel $$\\sphericalangle :angAskNom$$?"
+    - "Die Figur :figi ist das Bild der Figur :fig bei der Punktspiegelung an O.<br>Wie lang ist die Strecke $$\\overline{:lgAskNom}$$?"
+    - "Die Figur :figi ist das Bild der Figur :fig bei der Punktspiegelung an O, und :lm ist der Mittelpunkt der Strecke $$\\overline{:msdNom}$$.<br>Wie lang ist die Strecke $$\\overline{:demiNom}$$?"
+    - "Die Figur :figi ist das Bild der Figur :fig bei der Punktspiegelung an O.<br>Wie groß ist der Flächeninhalt von :figAsk?"
   courte:
-    - "$$\\widehat{:angAskNom}=?$$"
-    - "$$:lgAskNom=?$$"
-    - "$$:demiNom=?$$"
-    - "aire de :figAsk = ?"
+    - "$$\\sphericalangle :angAskNom=?$$"
+    - "$$\\overline{:lgAskNom}=?$$"
+    - "$$\\overline{:demiNom}=?$$"
+    - "Flächeninhalt von :figAsk = ?"
   # rep[type de question][0 = donnée absente partout, 1 = donnée présente]
   rep:
-    - - "<span class='red'>On ne peut pas savoir.</span><br>La symétrie centrale conserve les mesures d’angles, donc $$\\widehat{:angAskNom}=\\widehat{:angOthNom}$$, mais cette mesure n’est indiquée sur aucune des deux figures."
-      - "La symétrie centrale conserve les mesures d’angles :<br>$$\\widehat{:angAskNom}=\\widehat{:angOthNom}=\\color{red}{:angAsked°}$$"
-    - - "<span class='red'>On ne peut pas savoir.</span><br>La symétrie centrale conserve les longueurs, donc $$:lgAskNom=:lgOthNom$$, mais cette longueur n’est indiquée sur aucune des deux figures."
-      - "La symétrie centrale conserve les longueurs :<br>$$:lgAskNom=:lgOthNom=\\color{red}{:lgAsked}\\text{ cm}$$"
-    - - "<span class='red'>On ne peut pas savoir.</span><br>:lm est le milieu de $$[:msdNom]$$, donc $$:demiNom=:msdNom\\div 2$$, mais la longueur $$:msdNom$$ n’est indiquée sur aucune des deux figures."
-      - "La symétrie centrale conserve les longueurs, donc $$:msdNom=:msdOthNom=:lgMsd\\text{ cm}$$.<br>:lm est le milieu de $$[:msdNom]$$, donc $$:demiNom=:msdNom\\div 2=\\color{red}{:demi}\\text{ cm}$$"
-    - - "<span class='red'>On ne peut pas savoir.</span><br>La symétrie centrale conserve les aires, donc :figAsk et :figOth ont la même aire, mais celle-ci n’est indiquée sur aucune des deux figures."
-      - "La symétrie centrale conserve les aires : :figAsk et :figOth ont la même aire.<br>L’aire de :figAsk est donc $$\\color{red}{:aire}\\text{ cm}^2$$"
+    - - "<span class='red'>Das kann man nicht wissen.</span><br>Die Punktspiegelung erhält Winkelgrößen, also gilt $$\\sphericalangle :angAskNom=\\sphericalangle :angOthNom$$. Diese Winkelgröße ist aber in keiner der beiden Figuren angegeben."
+      - "Die Punktspiegelung erhält Winkelgrößen:<br>$$\\sphericalangle :angAskNom=\\sphericalangle :angOthNom=\\color{red}{:angAsked°}$$"
+    - - "<span class='red'>Das kann man nicht wissen.</span><br>Die Punktspiegelung erhält Längen, also gilt $$\\overline{:lgAskNom}=\\overline{:lgOthNom}$$. Diese Länge ist aber in keiner der beiden Figuren angegeben."
+      - "Die Punktspiegelung erhält Längen:<br>$$\\overline{:lgAskNom}=\\overline{:lgOthNom}=\\color{red}{:lgAsked}\\text{ cm}$$"
+    - - "<span class='red'>Das kann man nicht wissen.</span><br>:lm ist der Mittelpunkt von $$\\overline{:msdNom}$$, also gilt $$\\overline{:demiNom}=\\overline{:msdNom}\\div 2$$. Die Länge von $$\\overline{:msdNom}$$ ist aber in keiner der beiden Figuren angegeben."
+      - "Die Punktspiegelung erhält Längen, also gilt $$\\overline{:msdNom}=\\overline{:msdOthNom}=:lgMsd\\text{ cm}$$.<br>:lm ist der Mittelpunkt von $$\\overline{:msdNom}$$, also gilt $$\\overline{:demiNom}=\\overline{:msdNom}\\div 2=\\color{red}{:demi}\\text{ cm}$$"
+    - - "<span class='red'>Das kann man nicht wissen.</span><br>Die Punktspiegelung erhält Flächeninhalte, also haben :figAsk und :figOth denselben Flächeninhalt. Er ist aber in keiner der beiden Figuren angegeben."
+      - "Die Punktspiegelung erhält Flächeninhalte: :figAsk und :figOth haben denselben Flächeninhalt.<br>Der Flächeninhalt von :figAsk beträgt also $$\\color{red}{:aire}\\text{ cm}^2$$"
 vars:
   # forme tirée : quadrilatère ou triangle. Les deux sont inscrits dans le même
   # cercle, le triangle réutilisant les trois premiers sommets du quadrilatère :
@@ -122,7 +122,7 @@ vars:
   # obtusangle dont l’arc dépasse le demi-cercle, ce qui retranche justement la
   # part de disque située hors du triangle.
   aire: ${Math.round(:rc*:rc/2*(Math.sin(2*:c1*Math.PI/180)+Math.sin(2*:c2*Math.PI/180)+(:quad?Math.sin(2*:c3*Math.PI/180)+Math.sin(2*:c4*Math.PI/180):Math.sin(2*(:c3+:c4)*Math.PI/180)))*10)/10}
-  aireTxt: "Aire : ${MMmath.nbToFr(:aire)} cm²"
+  aireTxt: "Flächeninhalt: ${MMmath.nbToFr(:aire)} cm²"
   # Les deux figures portent chacune une mesure d’angle et une longueur, à des
   # emplacements différents : iv et isd sur la figure de départ, ivB et isdB sur
   # son image. Aucun élément n’est donc écrit deux fois, et ce qui manque sur une
@@ -350,53 +350,53 @@ vars:
   vBrut: ${:k===0?:angAsked:(:k===1?:lgAsked:(:k===2?:demi::aire))}
   vUnit: ${:k===0?'°':(:k===3?' cm²':' cm')}
 options:
-  - name: Triangle, longueurs
+  - name: Dreieck, Längen
     vars:
       quad: false
       k: 1
-  - name: Triangle, angles
+  - name: Dreieck, Winkel
     vars:
       quad: false
       k: 0
-  - name: Triangle, longueurs et angles
+  - name: Dreieck, Längen und Winkel
     vars:
       quad: false
       k: [0, 1]
-  - name: Quadrilatère, longueurs
+  - name: Viereck, Längen
     vars:
       quad: true
       k: 1
-  - name: Quadrilatère, angles
+  - name: Viereck, Winkel
     vars:
       quad: true
       k: 0
-  - name: Quadrilatère, longueurs et angles
+  - name: Viereck, Längen und Winkel
     vars:
       quad: true
       k: [0, 1]
-  - name: Triangle, milieu d’un côté
+  - name: Dreieck, Mittelpunkt einer Seite
     vars:
       quad: false
       k: 2
-  - name: Quadrilatère, milieu d’un côté
+  - name: Viereck, Mittelpunkt einer Seite
     vars:
       quad: true
       k: 2
-  - name: Milieu d’un côté, triangles et quadrilatères
+  - name: Mittelpunkt einer Seite, Dreiecke und Vierecke
     vars:
       k: 2
-  - name: Aire de la figure symétrique
+  - name: Flächeninhalt der Bildfigur
     vars:
       k: 3
-  - name: Tout mélangé
+  - name: Alles gemischt
 question: "${:quest[:k]}"
 shortq: "${:courte[:k]}"
 answer: "${:rep[:k][:ok?1:0]}"
 value:
-  - "${:ok?:vNum+:vUnit:'on ne peut pas savoir'}"
-  - "${:ok?:vNum:'on ne peut pas le savoir'}"
-  - "${:ok?''+:vBrut:'on ne sait pas'}"
-  - "${:ok?:vNum+:vUnit:'impossible'}"
+  - "${:ok?:vNum+:vUnit:'nicht bestimmbar'}"
+  - "${:ok?:vNum:'kann man nicht wissen'}"
+  - "${:ok?''+:vBrut:'man kann es nicht wissen'}"
+  - "${:ok?:vNum+:vUnit:'unmöglich'}"
 figure:
   type: graph
   # taille nominale du dessin : 10 x scale pixels par unité. C’est elle, et non

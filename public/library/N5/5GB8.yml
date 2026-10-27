@@ -1,6 +1,6 @@
-title: Nature d’un quadrilatère d’après le codage de ses diagonales
+title: Vierecke an ihren Diagonalen erkennen
 description: >
-  Figures à main levée, carré, rectangle, losange, parallélogramme.
+  Viereck anhand der Markierungen an seinen Diagonalen bestimmen (halbieren sich, gleich lang, senkrecht): Quadrat, Rechteck, Raute, Parallelogramm; besondere Vierecke, Freihandskizze.
 ID: 5GB8
 type: text
 textSize: medium
@@ -10,25 +10,26 @@ textSize: medium
 # jamais deux occurrences dedans). La variété vient des lettres et de la figure.
 repeat: 1
 dest: [5BD]
-consigne: Lire le codage de la figure, sans mesurer.
+consigne: Lies die Markierungen in der Skizze ab. Miss nicht nach.
 consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues).
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # cas : 0 = parallélogramme, 1 = rectangle, 2 = losange, 3 = carré
-  natures: [parallélogramme, rectangle, losange, carré]
-  # même liste sans accent : les deux écritures sont acceptées en réponse
-  naturesSansAccent: [parallelogramme, rectangle, losange, carre]
+  natures: [Parallelogramm, Rechteck, Raute, Quadrat]
+  # weitere akzeptierte Schreibweise (früher: même liste sans accent)
+  naturesSansAccent: [Parallelogramm, Rechteck, Rhombus, Quadrat]
+  artikel: [ein, ein, eine, ein]
   lectures:
-    - Ses diagonales se coupent en leur milieu.
-    - Ses diagonales se coupent en leur milieu et ont la même longueur.
-    - Ses diagonales se coupent en leur milieu et sont perpendiculaires.
-    - Ses diagonales se coupent en leur milieu, ont la même longueur et sont perpendiculaires.
+    - Die Diagonalen halbieren sich gegenseitig.
+    - Die Diagonalen halbieren sich gegenseitig und sind gleich lang.
+    - Die Diagonalen halbieren sich gegenseitig und stehen senkrecht aufeinander.
+    - Die Diagonalen halbieren sich gegenseitig, sind gleich lang und stehen senkrecht aufeinander.
   regles:
-    - Si un quadrilatère a ses diagonales de même milieu, alors c’est un parallélogramme.
-    - Si un parallélogramme a ses diagonales de même longueur, alors c’est un rectangle.
-    - Si un parallélogramme a ses diagonales perpendiculaires, alors c’est un losange.
-    - Si un parallélogramme a ses diagonales de même longueur et perpendiculaires, alors c’est un carré.
+    - Wenn sich die Diagonalen eines Vierecks gegenseitig halbieren, dann ist es ein Parallelogramm.
+    - Wenn ein Parallelogramm gleich lange Diagonalen hat, dann ist es ein Rechteck.
+    - Wenn die Diagonalen eines Parallelogramms senkrecht aufeinander stehen, dann ist es eine Raute.
+    - Wenn ein Parallelogramm gleich lange Diagonalen hat, die senkrecht aufeinander stehen, dann ist es ein Quadrat.
   # ─── figures : six tracés par nature, dessinés d’avance plutôt que construits
   # à la volée par JSXGraph. Elles sont produites par tools/figures-5GB8.mjs
   # (Rough.js), qui bâtit chaque quadrilatère sur ses diagonales de même milieu,
@@ -112,6 +113,7 @@ vars:
   cas: 0
   nature: ${:natures[:cas]}
   natureSansAccent: ${:naturesSansAccent[:cas]}
+  art: ${:artikel[:cas]}
   lecture: ${:lectures[:cas]}
   regle: ${:regles[:cas]}
   # ─── lettres des sommets : quatre consécutives de pool, prises au hasard.
@@ -128,23 +130,23 @@ vars:
   # des sommets à la place des marques
   numfig: "0_5"
   fig: ${:figs[:cas][:numfig].replaceAll('%A%',:nA).replaceAll('%B%',:nB).replaceAll('%C%',:nC).replaceAll('%D%',:nD)}
-question: D’après le codage de la figure, quelle est la nature du quadrilatère $$:nom$$ ?
-shortq: nature de $$:nom$$ ?
-answer: $$:nom$$ est un <span class='red'>:nature</span>.<br>:lecture<br><i>:regle</i>
+question: Welches besondere Viereck ist $$:nom$$? Nutze die Markierungen an den Diagonalen.
+shortq: Welches Viereck ist $$:nom$$?
+answer: $$:nom$$ ist :art <span class='red'>:nature</span>.<br>:lecture<br><i>:regle</i>
 value: [":nature", ":natureSansAccent"]
 figure:
   type: svg
   content: ${:fig}
 options:
-  - name: Parallélogramme
+  - name: Parallelogramm
     vars:
       cas: 0
-  - name: Rectangle
+  - name: Rechteck
     vars:
       cas: 1
-  - name: Losange
+  - name: Raute
     vars:
       cas: 2
-  - name: Carré
+  - name: Quadrat
     vars:
       cas: 3

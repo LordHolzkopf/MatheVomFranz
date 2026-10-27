@@ -1,6 +1,6 @@
-title: Nommer un polygone d’après son codage
+title: Vielecke an ihren Markierungen erkennen
 description: >
-  Figures à main levée, quadrilatère, trapèze, parallélogramme, losange, rectangle, carré, triangle rectangle, pentagone.
+  Vieleck anhand der Markierungen in einer Skizze benennen (gleich lange Seiten, rechte Winkel, parallele Seiten): allgemeines Viereck, Trapez, Parallelogramm, Raute, Rechteck, Quadrat, rechtwinkliges Dreieck, Fünfeck; besondere Vierecke, Freihandskizze.
 ID: 5GB10
 type: text
 textSize: medium
@@ -16,29 +16,31 @@ consts:
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # cas : 0 quadrilatère, 1 trapèze, 2 parallélogramme, 3 losange, 4 rectangle,
   # 5 carré, 6 triangle rectangle, 7 pentagone
-  natures: [quadrilatère, trapèze, parallélogramme, losange, rectangle, carré, "triangle rectangle", pentagone]
-  # même liste sans accent : les deux écritures sont acceptées en réponse
-  naturesSansAccent: [quadrilatere, trapeze, parallelogramme, losange, rectangle, carre, "triangle rectangle", pentagone]
+  natures: ["allgemeines Viereck", Trapez, Parallelogramm, Raute, Rechteck, Quadrat, "rechtwinkliges Dreieck", Fünfeck]
+  # weitere akzeptierte Schreibweisen (früher: même liste sans accent)
+  naturesSansAccent: [Viereck, Trapez, Parallelogramm, Rhombus, Rechteck, Quadrat, rechtwinklig, Fuenfeck]
+  # unbestimmter Artikel zu natures
+  artikel: [ein, ein, ein, eine, ein, ein, ein, ein]
   # nombre de sommets de chaque nature
   nls: [4, 4, 4, 4, 4, 4, 3, 5]
   lectures:
-    - Aucun codage particulier n’apparaît sur ses côtés ni sur ses angles.
-    - "La figure porte l’indication ($$:nA$$$$:nB$$)//($$:nC$$$$:nD$$) : ces deux côtés sont parallèles."
-    - "Les côtés opposés portent le même codage deux à deux : :cAB = :cCD et :cBC = :cDA."
-    - Les quatre côtés portent le même codage : ils ont tous la même longueur.
-    - Les quatre angles portent le même codage : ils sont tous droits.
-    - Les quatre angles sont droits et les quatre côtés ont la même longueur.
-    - "L’angle en $$:nA$$ porte le codage de l’angle droit."
-    - "La figure est fermée par cinq côtés : $$:nA$$, $$:nB$$, $$:nC$$, $$:nD$$ et $$:nE$$."
+    - An den Seiten und Winkeln sind keine besonderen Markierungen zu sehen.
+    - "Die Skizze trägt die Angabe $$:nA:nB \\parallel :nC:nD$$: Diese beiden Seiten sind parallel."
+    - "Gegenüberliegende Seiten tragen paarweise dieselbe Markierung (gleich viele Striche): :cAB und :cCD sind gleich lang, ebenso :cBC und :cDA."
+    - "Alle vier Seiten tragen dieselbe Markierung (gleich viele Striche): Sie sind alle gleich lang."
+    - "Alle vier Winkel tragen das Zeichen für den rechten Winkel: Es sind alles rechte Winkel."
+    - Alle vier Winkel sind rechte Winkel, und alle vier Seiten sind gleich lang.
+    - "Der Winkel bei $$:nA$$ trägt das Zeichen für den rechten Winkel."
+    - "Die Figur wird von fünf Seiten begrenzt, ihre Ecken sind $$:nA$$, $$:nB$$, $$:nC$$, $$:nD$$ und $$:nE$$."
   regles:
-    - Un polygone fermé à quatre côtés est un quadrilatère.
-    - Si un quadrilatère a deux côtés parallèles, alors c’est un trapèze.
-    - Si un quadrilatère a ses côtés opposés de la même longueur deux à deux, alors c’est un parallélogramme.
-    - Si un quadrilatère a ses quatre côtés de la même longueur, alors c’est un losange.
-    - Si un quadrilatère a ses quatre angles droits, alors c’est un rectangle.
-    - Si un quadrilatère a ses quatre angles droits et ses quatre côtés de la même longueur, alors c’est un carré.
-    - Un triangle qui a un angle droit est un triangle rectangle.
-    - Un polygone fermé à cinq côtés est un pentagone.
+    - Ein geschlossenes Vieleck mit vier Seiten ist ein Viereck. Hat es keine besonderen Eigenschaften, heißt es allgemeines Viereck.
+    - Ein Viereck mit (mindestens) zwei zueinander parallelen Seiten ist ein Trapez.
+    - Ein Viereck, in dem gegenüberliegende Seiten jeweils gleich lang sind, ist ein Parallelogramm.
+    - Ein Viereck mit vier gleich langen Seiten ist eine Raute.
+    - Ein Viereck mit vier rechten Winkeln ist ein Rechteck.
+    - Ein Viereck mit vier rechten Winkeln und vier gleich langen Seiten ist ein Quadrat.
+    - Ein Dreieck mit einem rechten Winkel ist ein rechtwinkliges Dreieck.
+    - Ein geschlossenes Vieleck mit fünf Seiten ist ein Fünfeck.
   # ─── figures : six tracés par nature, dessinés d’avance plutôt que construits
   # à la volée par JSXGraph, avec tools/figures-5GB10.mjs (Rough.js). Le codage
   # porte sur les côtés et les angles du polygone (traits de longueur égale,
@@ -81,17 +83,17 @@ consts:
     # 1 — trapèze
     -
       # dessiné en trapèze (conforme)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M50.6 113.3 C69 111.8, 93.2 113.9, 147.4 112.7 M148 114.6 C143.9 102.4, 139.3 86.7, 135 73.6 M133.8 71.3 C120.4 69.4, 105.5 71.1, 65.8 69.5 M67.5 71.3 C58.5 87.8, 54.3 101.4, 51.7 110.2' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='38' y='116'>%A%</text><text x='160' y='119'>%B%</text><text x='145' y='66'>%C%</text><text x='56' y='63'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='99' y='132'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M50.6 113.3 C69 111.8, 93.2 113.9, 147.4 112.7 M148 114.6 C143.9 102.4, 139.3 86.7, 135 73.6 M133.8 71.3 C120.4 69.4, 105.5 71.1, 65.8 69.5 M67.5 71.3 C58.5 87.8, 54.3 101.4, 51.7 110.2' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='38' y='116'>%A%</text><text x='160' y='119'>%B%</text><text x='145' y='66'>%C%</text><text x='56' y='63'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='99' y='132'>%A%%B% ∥ %C%%D%</text></g></svg>"
       # dessiné en trapèze (conforme)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M102.5 138.7 C106.4 121.2, 115 105.2, 133.8 57.6 M134.9 56.1 C123.4 57.8, 110.8 60.6, 88.5 65.3 M90.4 64.3 C85.9 78.5, 80.2 90.1, 71.9 105.2 M72 105.8 C80.3 114.8, 88.6 126.4, 103.2 142.5' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='102' y='153'>%A%</text><text x='144' y='50'>%B%</text><text x='86' y='52'>%C%</text><text x='62' y='112'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='136' y='106'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M102.5 138.7 C106.4 121.2, 115 105.2, 133.8 57.6 M134.9 56.1 C123.4 57.8, 110.8 60.6, 88.5 65.3 M90.4 64.3 C85.9 78.5, 80.2 90.1, 71.9 105.2 M72 105.8 C80.3 114.8, 88.6 126.4, 103.2 142.5' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='102' y='153'>%A%</text><text x='144' y='50'>%B%</text><text x='86' y='52'>%C%</text><text x='62' y='112'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='136' y='106'>%A%%B% ∥ %C%%D%</text></g></svg>"
       # dessiné en rectangle (trompeuse)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M107.9 31.1 C91.8 39.3, 82.9 47.8, 44.1 68.2 M45.7 67.8 C53.4 84.2, 65.2 102.8, 92.9 150.2 M93.7 150.6 C108 142.4, 124.5 135.3, 154 115 M156.7 114.4 C138.4 88.9, 120.3 58, 108.4 32.9' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='109' y='20'>%A%</text><text x='33' y='63'>%B%</text><text x='91' y='164'>%C%</text><text x='167' y='121'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='66' y='33'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M107.9 31.1 C91.8 39.3, 82.9 47.8, 44.1 68.2 M45.7 67.8 C53.4 84.2, 65.2 102.8, 92.9 150.2 M93.7 150.6 C108 142.4, 124.5 135.3, 154 115 M156.7 114.4 C138.4 88.9, 120.3 58, 108.4 32.9' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='109' y='20'>%A%</text><text x='33' y='63'>%B%</text><text x='91' y='164'>%C%</text><text x='167' y='121'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='66' y='33'>%A%%B% ∥ %C%%D%</text></g></svg>"
       # dessiné en quadrilatère (trompeuse)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M144.7 87.8 C135 77.8, 122.4 70.2, 93.5 49.2 M91.2 49.8 C81.2 68.3, 69.4 84.1, 54.6 100.2 M58.5 101.8 C79.1 111, 97.5 125, 111.3 133.2 M112.3 135.8 C118.2 123.2, 126.5 111.4, 144.8 87.5' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='156' y='86'>%A%</text><text x='91' y='36'>%B%</text><text x='45' y='104'>%C%</text><text x='116' y='146'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='129' y='52'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M144.7 87.8 C135 77.8, 122.4 70.2, 93.5 49.2 M91.2 49.8 C81.2 68.3, 69.4 84.1, 54.6 100.2 M58.5 101.8 C79.1 111, 97.5 125, 111.3 133.2 M112.3 135.8 C118.2 123.2, 126.5 111.4, 144.8 87.5' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='156' y='86'>%A%</text><text x='91' y='36'>%B%</text><text x='45' y='104'>%C%</text><text x='116' y='146'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='129' y='52'>%A%%B% ∥ %C%%D%</text></g></svg>"
       # dessiné en carré (trompeuse)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M150 65.5 C135.1 61.1, 115.2 56.8, 73.3 44.4 M71.6 41.7 C66.5 64.1, 59.9 88.8, 50.6 118.7 M48.9 117.3 C71.9 127.4, 97.1 131.1, 125.2 140.2 M128.8 141.5 C134.4 119.2, 140.6 95, 149.7 63.2' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='160' y='59'>%A%</text><text x='67' y='32'>%B%</text><text x='40' y='125'>%C%</text><text x='133' y='152'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='116' y='35'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M150 65.5 C135.1 61.1, 115.2 56.8, 73.3 44.4 M71.6 41.7 C66.5 64.1, 59.9 88.8, 50.6 118.7 M48.9 117.3 C71.9 127.4, 97.1 131.1, 125.2 140.2 M128.8 141.5 C134.4 119.2, 140.6 95, 149.7 63.2' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='160' y='59'>%A%</text><text x='67' y='32'>%B%</text><text x='40' y='125'>%C%</text><text x='133' y='152'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='116' y='35'>%A%%B% ∥ %C%%D%</text></g></svg>"
       # dessiné en losange (trompeuse)
-      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M65.7 47.6 C65.5 60.1, 64.2 75.3, 66.2 116.7 M65 119.5 C83.1 122.5, 99.6 129, 137 138 M134 137.9 C134.8 121.8, 134 107.6, 136.8 64.3 M134.4 64.4 C109 56.7, 79.6 49, 65.1 47.8' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='58' y='36'>%A%</text><text x='55' y='126'>%B%</text><text x='142' y='148'>%C%</text><text x='145' y='58'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='47' y='77'>(%A%%B%)//(%C%%D%)</text></g></svg>"
+      - "<svg width='12em' height='11.04em' viewBox='0 0 200 184' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M65.7 47.6 C65.5 60.1, 64.2 75.3, 66.2 116.7 M65 119.5 C83.1 122.5, 99.6 129, 137 138 M134 137.9 C134.8 121.8, 134 107.6, 136.8 64.3 M134.4 64.4 C109 56.7, 79.6 49, 65.1 47.8' stroke='#118ab2' stroke-width='2'/></g><g font-size='14' fill='#118ab2' text-anchor='middle' dominant-baseline='central'><text x='58' y='36'>%A%</text><text x='55' y='126'>%B%</text><text x='142' y='148'>%C%</text><text x='145' y='58'>%D%</text></g><g font-size='12' fill='#7b2cbf' text-anchor='middle' dominant-baseline='central'><text x='47' y='77'>%A%%B% ∥ %C%%D%</text></g></svg>"
     # 2 — parallélogramme
     -
       # dessiné en parallélogramme (conforme)
@@ -169,6 +171,7 @@ vars:
   cas: 0
   nature: ${:natures[:cas]}
   natureSansAccent: ${:naturesSansAccent[:cas]}
+  art: ${:artikel[:cas]}
   lecture: ${:lectures[:cas]}
   regle: ${:regles[:cas]}
   # ─── lettres des sommets : autant que la nature en compte, consécutives dans
@@ -183,49 +186,49 @@ vars:
   nom: ${:nl===3?:nA+:nB+:nC:(:nl===5?:nA+:nB+:nC+:nD+:nE::nA+:nB+:nC+:nD)}
   # ─── noms des côtés opposés, pour les lectures des cas trapèze et
   # parallélogramme : [AB] face à [CD], [BC] face à [DA]
-  cAB: ${'$$['+:nA+:nB+']$$'}
-  cBC: ${'$$['+:nB+:nC+']$$'}
-  cCD: ${'$$['+:nC+:nD+']$$'}
-  cDA: ${'$$['+:nD+:nA+']$$'}
+  cAB: ${'$$\overline{'+:nA+:nB+'}$$'}
+  cBC: ${'$$\overline{'+:nB+:nC+'}$$'}
+  cCD: ${'$$\overline{'+:nC+:nD+'}$$'}
+  cDA: ${'$$\overline{'+:nD+:nA+'}$$'}
   # ─── figure : un des six tracés de la nature tirée, où l’on écrit les
   # lettres des sommets à la place des marques
   numfig: "0_5"
   fig: ${:figs[:cas][:numfig].replaceAll('%A%',:nA).replaceAll('%B%',:nB).replaceAll('%C%',:nC).replaceAll('%D%',:nD).replaceAll('%E%',:nE)}
-question: "D’après le codage de la figure, quelle est la nature de la figure $$:nom$$ ?"
-shortq: "nature de $$:nom$$ ?"
-answer: "$$:nom$$ est un <span class='red'>:nature</span>.<br>:lecture<br><i>:regle</i>"
+question: "Welche besondere Figur ist $$:nom$$? Nutze die Markierungen in der Skizze."
+shortq: "Welche Figur ist $$:nom$$?"
+answer: "$$:nom$$ ist :art <span class='red'>:nature</span>.<br>:lecture<br><i>:regle</i>"
 value: [":nature", ":natureSansAccent"]
 figure:
   type: svg
   content: ${:fig}
 options:
-  - name: Quadrilatère quelconque
+  - name: Allgemeines Viereck
     vars:
       cas: 0
-  - name: Trapèze
+  - name: Trapez
     vars:
       cas: 1
-  - name: Parallélogramme
+  - name: Parallelogramm
     vars:
       cas: 2
-  - name: Losange
+  - name: Raute
     vars:
       cas: 3
-  - name: Rectangle
+  - name: Rechteck
     vars:
       cas: 4
-  - name: Carré
+  - name: Quadrat
     vars:
       cas: 5
-  - name: Triangle rectangle
+  - name: Rechtwinkliges Dreieck
     vars:
       cas: 6
-  - name: Pentagone
+  - name: Fünfeck
     vars:
       cas: 7
-  - name: Quadrilatères particuliers mélangés
+  - name: Besondere Vierecke gemischt
     vars:
       cas: [0, 1, 2, 3, 4, 5]
-  - name: Toutes les figures mélangées
+  - name: Alle Figuren gemischt
     vars:
       cas: [0, 1, 2, 3, 4, 5, 6, 7]

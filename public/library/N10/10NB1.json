@@ -1,30 +1,30 @@
 {
-    "title":"Écrire en chiffres jusqu'à 1000",
+    "title":"Zahlwörter bis 1000 in Ziffern schreiben",
     "type":"text",
     "speech":1,
     "ID":"10NB1",
-    "description":"Écriture en chiffres des nombres inférieurs à 1000",
+    "description":"Zahlwörter in Ziffern schreiben, Zahlen bis 1000, Zahlwort, Ziffernschreibweise, Stellenwert",
     "dest":["5AA"],
     "options":[{
-        "name":"Écriture en chiffres des nombres de 1 à 9",
+        "name":"Zahlen von 0 bis 10",
         "vars":{"n":"0_10"}
     },{
-        "name":"Écriture en chiffres des nombres de 10 à 19",
+        "name":"Zahlen von 10 bis 19",
         "vars":{"n":"10_19"}
     },{
-        "name":"Écriture en chiffres des dizaines",
+        "name":"Zehnerzahlen",
         "vars":{"n0":"1_9","n":"${:n0*10}"}
     },{
-        "name":"Écriture en chiffres des nombres de 21 à 99",
+        "name":"Zahlen von 21 bis 99",
         "vars":{"n":"21_99"}
     },{
-        "name":"Écriture en chiffres des nombres de 100 à 1 000",
+        "name":"Zahlen von 100 bis 1000",
         "vars":{"n":"100_1000"}
     }
     ],
-    "question": "Écris en chiffres le nombre <b>${MMmath.NumberToLetter(:n)}</b>.",
-    "shortq":"<b>${MMmath.NumberToLetter(:n)}</b> en chiffres ?",
-    "audio":"Écris en chiffres le nombre ${MMmath.NumberToLetter(:n)}",
-    "answer":"${MMmath.NumberToLetter(:n)} s'écrit $$\\color{red}{${:n}}$$",
+    "question": "Schreibe die Zahl <b>${MMmath.zahlwort(:n)}</b> in Ziffern.",
+    "shortq":"<b>${MMmath.zahlwort(:n)}</b> in Ziffern?",
+    "audio":"Schreibe die Zahl ${MMmath.zahlwort(:n)} in Ziffern.",
+    "answer":"${MMmath.zahlwort(:n)} schreibt man $$\\color{red}{${:n}}$$",
     "value":"${:n}"
 }

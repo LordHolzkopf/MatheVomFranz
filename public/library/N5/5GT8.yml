@@ -1,5 +1,5 @@
-title: "Symétrie centrale : visualiser l'emplacement du symétrique"
-description: "symétrie centrale, symétrique, demi-tour, visualiser, centre"
+title: "Punktspiegelung: Lage des Bildpunkts abschätzen"
+description: "Punktspiegelung, Bildpunkt abschätzen, halbe Drehung, Symmetriezentrum, Lage vorstellen, nummerierte Felder"
 ID: 5GT8
 type: text
 textSize: medium
@@ -37,7 +37,7 @@ consts:
     - [-2, -2]
 
 options:
-  - name: Facile — 16 zones larges, déplacement d’une case, trajet A→B tracé
+  - name: Leicht – 16 große Felder, Abstand ein Kästchen, Strecke A→B eingezeichnet
     vars:
       vidx: "0_7"
       guide: 1
@@ -91,7 +91,7 @@ options:
       - [point, [":bx", ":by"], { name: "", face: x, size: 11, strokeWidth: 3, strokeColor: "#000000", withLabel: false }]
       - [text, [":alx", ":aly", "A"], { anchorX: middle, anchorY: middle, fontSize: 29, strokeColor: "#000000" }]
       - [text, [":blx", ":bly", "B"], { anchorX: middle, anchorY: middle, fontSize: 29, strokeColor: "#000000" }]
-  - name: Moyen — 25 zones, déplacement d’une ou deux cases
+  - name: Mittel – 25 Felder, Abstand ein oder zwei Kästchen
     vars:
       vidx: "0_23"
       guide: 0
@@ -161,7 +161,7 @@ options:
       - [point, [":bx", ":by"], { name: "", face: x, size: 9, strokeWidth: 3, strokeColor: "#000000", withLabel: false }]
       - [text, [":alx", ":aly", "A"], { anchorX: middle, anchorY: middle, fontSize: 23, strokeColor: "#000000" }]
       - [text, [":blx", ":bly", "B"], { anchorX: middle, anchorY: middle, fontSize: 23, strokeColor: "#000000" }]
-  - name: Difficile — 25 zones en taches irrégulières
+  - name: Schwer – 25 unregelmäßige Felder
     vars:
       vidx: "8_23"
       guide: 0
@@ -274,7 +274,7 @@ vars:
   aly: ${MMmath.round((:nr-0.5-:arow-0.17)*:cell,3)}
   blx: ${MMmath.round((:bcol+0.5+0.19)*:cell,3)}
   bly: ${MMmath.round((:nr-0.5-:brow-0.17)*:cell,3)}
-question: "Sur la figure, A et B sont deux points placés dans des zones numérotées.<br>Dans quelle zone se trouve le symétrique du point A par rapport au point B ?"
-shortq: "symétrique de A par rapport à B : quelle zone ?"
-answer: "Le symétrique de A par rapport à B tombe dans la zone <span class='red'>:zoneT</span>.<br>B est le milieu du segment reliant A à son symétrique : en repartant de B, on prolonge le trajet de A vers B d’autant, dans la même direction."
+question: "Die Punkte A und B liegen in nummerierten Feldern.<br>In welchem Feld liegt der Bildpunkt von A bei der Punktspiegelung an B?"
+shortq: "Bild von A bei Spiegelung an B: welches Feld?"
+answer: "Der Bildpunkt von A liegt im Feld <span class='red'>:zoneT</span>.<br>B ist der Mittelpunkt der Strecke von A zu seinem Bildpunkt: Von B aus geht man genauso weit in dieselbe Richtung weiter wie von A nach B."
 value: ":zoneT"

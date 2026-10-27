@@ -1,8 +1,8 @@
 {
-    "title":"Leçon : solides",
+    "title":"Wissen: Körper",
     "type":"text",
     "ID":"5LG2",
-    "description":"12 questions sur les solides : vocabulaire, patron, face, arête, sommet, prisme, pyramide, cylindre, cône, boule, formules de volumes. Non adapté au mode interactif (online/duel).",
+    "description":"12 Wissensfragen zu Körpern: Fachbegriffe, Netz, Fläche, Kante, Ecke, Quader, Würfel, Prisma, Pyramide, Zylinder, Kegel, Körper erkennen, Volumenformeln. Nicht für den Online- und Duell-Modus geeignet.",
     "dest":["5EA", "5ED"],
     "consts":{"prismes":[
         "<svg width=\"12.5em\" height=\"10em\" viewBox=\"0 0 66.1 52.9\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#04a\"><path d=\"M34.677 48.995l-21.094.048-6.572-20.06 17.04-12.43L41.142 28.93z\" fill=\"none\" opacity=\".992\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\".70755\"/><g fill=\"#04a\" fill-opacity=\".996\" stroke-opacity=\".996\"><g stroke-width=\".865\"><path d=\"M41.1 28.9l16.3-13.7M24 16.6L40.3 2.9M6.97 29l16.3-13.7\"/></g><path d=\"M34.6 49l16.3-13.7\" stroke-width=\".765\"/><path d=\"M13.5 49l16.3-13.7\" stroke-dasharray=\"2.295 .765\" stroke-width=\".765\"/></g><path d=\"M50.9 35.3l6.46-20.1-17.1-12.3-17 12.4\" fill=\"none\" stroke-opacity=\".996\" stroke-width=\".765\"/><path d=\"M23.2 15.3l6.56 20 21.1-.048\" fill=\"none\" stroke-dasharray=\"2.295 2.295\" stroke-opacity=\".996\" stroke-width=\".765\"/></g></svg>"
@@ -17,53 +17,53 @@
         "<svg width=\"12.5em\" height=\"10em\" viewBox=\"0 0 66.1 52.9\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.713 37.085v0L32.952 1.818l23.692 34.721v0\" fill=\"none\" stroke=\"#0044a9\" stroke-width=\"1.111\" stroke-opacity=\".984\"/><path d=\"M8.653 38.842c2.662-16.477 46.167-16.113 48.229.096\" fill=\"none\" stroke=\"#04a\" stroke-width=\"1.323\" stroke-linecap=\"round\" stroke-dasharray=\"2.645 2.645\" stroke-opacity=\".984\"/><path d=\"M8.653 39.034c2.662 16.477 46.167 16.113 48.229-.096\" fill=\"none\" stroke=\"#04a\" stroke-width=\"1.323\" stroke-linecap=\"round\" stroke-opacity=\".984\"/></svg>"
     ]},
     "options":[{
-        "name":"Vocabulaire",
+        "name":"Fachbegriffe",
         "question": [
-            "Qu'est qu'un solide ?",
-            "Qu'est-ce qu'un pavé droit ?",
-            "Qu'est-ce qu'un prisme droit ?",
-            "Qu'est-ce qu'un cylindre ?",
-            "Comment s'appelle la figure plane qui permet de réaliser un solide ?"
+            "Was ist ein Körper?",
+            "Was ist ein Quader?",
+            "Was ist ein gerades Prisma?",
+            "Was ist ein Zylinder?",
+            "Wie heißt die ebene Figur, aus der man einen Körper falten kann?"
     ],
         "answer":[
-            "Un solide est une <b>figure de l'espace</b> délimitée par des faces ou des surfaces",
-            "Un pavé droit est un solide délimité par <b>6 faces rectangulaires</b>.<br>Il comporte 8 sommets et 12 arêtes.<br>On l'appelle aussi le parallélépipède rectangle.",
-            "Un prisme droit est un solide délimité par <b>2 bases polygonales parallèles et identiques</b> et des faces lattérales <b>rectangulaires</b>.",
-            "Un cylindre est une solide délimité par <b>deux disques identiques</b> de même axe et une surface.",
-            "C'est un <b>patron</b>."
+            "Ein Körper ist eine <b>räumliche Figur</b>, die von Flächen begrenzt wird.",
+            "Ein Quader ist ein Körper, der von <b>6 Rechtecken</b> begrenzt wird.<br>Er hat 8 Ecken und 12 Kanten. Gegenüberliegende Flächen sind gleich groß und parallel.",
+            "Ein gerades Prisma ist ein Körper mit <b>zwei deckungsgleichen, parallelen Vielecken</b> als Grund- und Deckfläche und <b>Rechtecken</b> als Seitenflächen.",
+            "Ein Zylinder ist ein Körper mit <b>zwei deckungsgleichen, parallelen Kreisen</b> als Grund- und Deckfläche und einer gekrümmten Mantelfläche.",
+            "Das ist ein <b>Netz</b> des Körpers."
     ]
     },{
-        "name":"Reconnaitre",
+        "name":"Körper erkennen",
         "vars":{"n2":"0_2","n3":"0_1"},
         "question":[
-            "Quel est ce solide ?<br>${:prismes[0]}",
-            "Quel est ce solide ?<br>${:pavesDroits[:n2]}",
-            "Quel est ce solide ?<br>${:pyramides[:n3]}",
-            "Quel est ce solide ?<br>${:cones[0]}"
+            "Welcher Körper ist das?<br>${:prismes[0]}",
+            "Welcher Körper ist das?<br>${:pavesDroits[:n2]}",
+            "Welcher Körper ist das?<br>${:pyramides[:n3]}",
+            "Welcher Körper ist das?<br>${:cones[0]}"
         ],
         "answer":[
-            "Ce solide est un <b>prisme droit</b>.",
-            "Ce solide est un <b>pavé droit</b>.",
-            "Ce solide est une <b>pyramide</b>",
-            "Ce solide est un <b>cône de révolution</b>"
+            "Das ist ein <b>Prisma</b>.",
+            "Das ist ein <b>Quader</b>.",
+            "Das ist eine <b>Pyramide</b>.",
+            "Das ist ein <b>Kegel</b>."
         ]
     },{
-        "name":"Formules de Volumes",
+        "name":"Volumenformeln",
         "question":[
-            "Volume du cube ?",
-            "Volume du pavé droit ?",
-            "Volume prisme droit ?",
-            "Volume de la pyramide ?",
-            "Volume du cylindre ?",
-            "Volume du cône ?"
+            "Wie berechnest du das Volumen eines Würfels?",
+            "Wie berechnest du das Volumen eines Quaders?",
+            "Wie berechnest du das Volumen eines geraden Prismas?",
+            "Wie berechnest du das Volumen einer Pyramide?",
+            "Wie berechnest du das Volumen eines Zylinders?",
+            "Wie berechnest du das Volumen eines Kegels?"
         ],
         "answer":[
-            "V<sub>cube</sub> = côté × côté × côté = c<sup>3</sup>",
-            "V<sub>pavé droit</sub> = longueur × largeur × hauteur = l × L × h",
-            "V<sub>prisme droit</sub> = aire de la base × hauteur",
-            "V<sub>pyramide</sub> = V<sub>prisme droit</sub> ÷ 3 = $$\\dfrac{\\text{aire base}\\times \\text{hauteur}}3$$",
-            "V<sub>cylindre</sub> = aire de la base × hauteur = $$\\pi × R^2 \\times h$$",
-            "V<sub>cône</sub> = V<sub>cylindre</sub> ÷ 3 =  $$\\dfrac{\\pi × R^2 \\times h}3$$"
+            "V<sub>Würfel</sub> = a · a · a = a<sup>3</sup> (a: Kantenlänge)",
+            "V<sub>Quader</sub> = Länge · Breite · Höhe = a · b · c",
+            "V<sub>Prisma</sub> = Grundfläche · Höhe = G · h",
+            "V<sub>Pyramide</sub> = V<sub>Prisma</sub> : 3 = $$\\dfrac{\\text{Grundfläche}\\cdot \\text{Höhe}}3$$",
+            "V<sub>Zylinder</sub> = Grundfläche · Höhe = $$\\pi \\cdot r^2 \\cdot h$$",
+            "V<sub>Kegel</sub> = V<sub>Zylinder</sub> : 3 = $$\\dfrac{\\pi \\cdot r^2 \\cdot h}3$$"
         ]
     }
     ]

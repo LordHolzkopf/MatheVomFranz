@@ -1,50 +1,51 @@
 {
-    "title":"Leçon : Aires et périmètres",
+    "title":"Wissen: Flächeninhalt und Umfang",
     "type":"text",
     "ID":"5LM1",
-    "description":"11 questions sur les aires et périmètres : définitions, formules, carré, rectangle, triangle, disque, cercle, surface. Non adapté au mode interactif (online/duel).",
+    "description":"11 Wissensfragen zu Flächeninhalt und Umfang: Definitionen, Formeln für Quadrat, Rechteck, Dreieck, Parallelogramm und Kreis. Nicht für den Online- und Duell-Modus geeignet.",
     "dest":["5DB", "5DC", "8DA"],
     "options":[
         {
-            "name":"Définitions",
+            "name":"Definitionen",
             "question":[
-                "Qu’est-ce que le périmètre d’une figure ?",
-                "Qu’est-ce que l’aire d’une figure ?"
+                "Was ist der Umfang einer Figur?",
+                "Was ist der Flächeninhalt einer Figur?"
             ],
             "answer":[
-                "Le périmètre est la longueur du contour de la figure.",
-                "L’aire est la mesure de l’intérieur de la figure."
+                "Der Umfang ist die <b>Länge der Randlinie</b> der Figur.",
+                "Der Flächeninhalt gibt an, <b>wie groß die Fläche</b> der Figur ist, z. B. wie viele Einheitsquadrate (1 cm²) hineinpassen."
             ]
         },
         {
-            "name":"Formules de périmètres",
+            "name":"Formeln für den Umfang",
             "question":[
-                "Quelle formule permet de calculer le périmètre d’un carré ?",
-                "Quelle formule permet de calculer le périmètre d’un rectangle ?",
-                "Quelle formule permet de calculer le périmètre d’un triangle ?",
-                "Quelle formule permet de calculer la longueur d’un cercle ?"
+                "Mit welcher Formel berechnest du den Umfang eines Quadrats mit der Seitenlänge a?",
+                "Mit welcher Formel berechnest du den Umfang eines Rechtecks mit den Seitenlängen a und b?",
+                "Mit welcher Formel berechnest du den Umfang eines Dreiecks mit den Seitenlängen a, b und c?",
+                "Mit welcher Formel berechnest du den Umfang eines Kreises?"
             ],
             "answer":[
-                "P = 4 × c",
-                "P = 2 × (L + l)",
-                "P = a + b + c",
-                "P = 2 × π × R = π × D"
+                "u = 4 · a",
+                "u = 2 · a + 2 · b = 2 · (a + b)",
+                "u = a + b + c",
+                "u = 2 · π · r = π · d<br>(r: Radius, d: Durchmesser)"
             ]
-        },{
-            "name":"Formules d’aires",
+        },
+        {
+            "name":"Formeln für den Flächeninhalt",
             "question":[
-                "Quelle formule permet de calculer l’aire d’un carré ?",
-                "Quelle formule permet de calculer l’aire d’un rectangle ?",
-                "Quelle formule permet de calculer l’aire d’un parallélogramme ?",
-                "Quelle formule permet de calculer l’aire d’un triangle ?",
-                "Quelle formule permet de calculer l’aire d’un disque ?"
+                "Mit welcher Formel berechnest du den Flächeninhalt eines Quadrats mit der Seitenlänge a?",
+                "Mit welcher Formel berechnest du den Flächeninhalt eines Rechtecks mit den Seitenlängen a und b?",
+                "Mit welcher Formel berechnest du den Flächeninhalt eines Parallelogramms?",
+                "Mit welcher Formel berechnest du den Flächeninhalt eines Dreiecks?",
+                "Mit welcher Formel berechnest du den Flächeninhalt eines Kreises?"
             ],
             "answer":[
-                "A = c × c",
-                "A = L × l",
-                "A = b × h",
-                "A = (b × h) / 2",
-                "A = π × R²"
+                "A = a · a = a²",
+                "A = a · b",
+                "A = g · h<br>(g: Grundseite, h: zugehörige Höhe)",
+                "A = (g · h) : 2 = ½ · g · h<br>(g: Grundseite, h: zugehörige Höhe)",
+                "A = π · r²<br>(r: Radius)"
             ]
         }
     ]

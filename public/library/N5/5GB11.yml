@@ -1,39 +1,60 @@
-title: Nommer un polygone dans une figure complexe
+title: Teilvielecke in einer zerlegten Figur benennen
 # ───────────────────────────────────────────────────────────────────────────────
 # Une figure complexe est présentée (composée de plusieurs polygones imbriqués),
 # avec des sommets nommmés par des lettres. L'élève doit identifier un polygone parmi ceux de la figure, soit en donnant son nom (la liste de ses sommets dans l'ordre), soit en donnant sa nature (triangle, carré, rectangle, trapèze, parallélogramme, losange, etc.).
-description: "Une figure principale est partagée en polygones à côtés communs ; le codage donne la nature de chacun. Non adapté au mode interactif (online/duel)."
+description: "Eine Figur ist in Vielecke mit gemeinsamen Seiten zerlegt: Teilvieleck mit seinen Eckpunkten benennen oder seine Art an den Markierungen erkennen (Dreieck, Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Fünfeck, Sechseck). Nicht für den Online- und Duell-Modus geeignet."
 ID: 5GB11
 type: text
 textSize: medium
 dest: [5BD]
-consigne: La figure principale est partagée en polygones qui ont des côtés communs. Nommer le polygone demandé par ses sommets, dans l'ordre où ils se suivent.
+consigne: Die große Figur ist in Vielecke mit gemeinsamen Seiten zerlegt. Benenne das gesuchte Vieleck mit seinen Eckpunkten, in der Reihenfolge, in der sie aufeinanderfolgen.
 consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues).
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # même nature sans accent : les deux écritures sont acceptées en réponse
   sansAccent:
-    triangle: triangle
-    triangle rectangle: triangle rectangle
-    carré: carre
-    rectangle: rectangle
-    losange: losange
-    parallélogramme: parallelogramme
-    trapèze: trapeze
-    pentagone: pentagone
-    hexagone: hexagone
+    Dreieck: Dreieck
+    rechtwinkliges Dreieck: rechtwinklig
+    Quadrat: Quadrat
+    Rechteck: Rechteck
+    Raute: Rhombus
+    Parallelogramm: Parallelogramm
+    Trapez: Trapez
+    Fünfeck: Fuenfeck
+    Sechseck: Sechseck
+  # Name mit bestimmtem Artikel (Akkusativ) für die Frage, unbestimmter Artikel für die Antwort
+  nomAkk:
+    Dreieck: das Dreieck
+    rechtwinkliges Dreieck: das rechtwinklige Dreieck
+    Quadrat: das Quadrat
+    Rechteck: das Rechteck
+    Raute: die Raute
+    Parallelogramm: das Parallelogramm
+    Trapez: das Trapez
+    Fünfeck: das Fünfeck
+    Sechseck: das Sechseck
+  artikel:
+    Dreieck: ein
+    rechtwinkliges Dreieck: ein
+    Quadrat: ein
+    Rechteck: ein
+    Raute: eine
+    Parallelogramm: ein
+    Trapez: ein
+    Fünfeck: ein
+    Sechseck: ein
   # comment la nature se lit sur la figure, rappelé dans la correction
   lect:
-    triangle: C'est un polygone à trois côtés.
-    triangle rectangle: C'est un triangle dont un angle est droit, marqué sur la figure.
-    carré: Ses quatre côtés sont marqués de même longueur et ses angles sont droits.
-    rectangle: Ses quatre angles sont droits.
-    losange: Ses quatre côtés sont marqués de même longueur.
-    parallélogramme: Ses côtés opposés sont parallèles, marqués par les chevrons.
-    trapèze: Deux de ses côtés sont parallèles, marqués par les chevrons.
-    pentagone: C'est un polygone à cinq côtés.
-    hexagone: C'est un polygone à six côtés.
+    Dreieck: Es ist ein Vieleck mit drei Seiten.
+    rechtwinkliges Dreieck: Es ist ein Dreieck mit einem rechten Winkel, der in der Figur markiert ist.
+    Quadrat: Seine vier Seiten sind als gleich lang markiert, und seine Winkel sind rechte Winkel.
+    Rechteck: Seine vier Winkel sind rechte Winkel.
+    Raute: Ihre vier Seiten sind als gleich lang markiert.
+    Parallelogramm: Gegenüberliegende Seiten sind parallel, das zeigen die Pfeilmarkierungen.
+    Trapez: Zwei seiner Seiten sind parallel, das zeigen die Pfeilmarkierungen.
+    Fünfeck: Es ist ein Vieleck mit fünf Seiten.
+    Sechseck: Es ist ein Vieleck mit sechs Seiten.
   # ─── figures : dix tracés par option, produits par tools/figures-5GB11.mjs
   # plutôt que construits par JSXGraph. Chaque tracé est une figure principale
   # partagée par un ou plusieurs segments : les polygones ont des côtés communs
@@ -104,47 +125,47 @@ consts:
     # option 0 — 1 ou 2 polygones inclus
     -
       # 0 — rectangle : carré + rectangle
-      - [{ nat: "rectangle", v: [0, 1, 2, 3], clue: "qui contient les sommets %0% et %1%" }, { nat: "carré", v: [0, 4, 5, 3], clue: "de la figure" }, { nat: "rectangle", v: [4, 1, 2, 5], clue: "qui contient le sommet %1% mais pas le sommet %0%" }]
+      - [{ nat: "Rechteck", v: [0, 1, 2, 3], clue: "mit den Ecken %0% und %1%" }, { nat: "Quadrat", v: [0, 4, 5, 3], clue: "in der Figur" }, { nat: "Rechteck", v: [4, 1, 2, 5], clue: "mit der Ecke %1%, aber ohne die Ecke %0%" }]
       # 1 — triangle : triangle rectangle + triangle rectangle
-      - [{ nat: "triangle", v: [0, 1, 2], clue: "qui contient les sommets %1% et %2%" }, { nat: "triangle rectangle", v: [0, 1, 3], clue: "dont un sommet est %1%" }, { nat: "triangle rectangle", v: [0, 3, 2], clue: "dont un sommet est %2%" }]
+      - [{ nat: "Dreieck", v: [0, 1, 2], clue: "mit den Ecken %1% und %2%" }, { nat: "rechtwinkliges Dreieck", v: [0, 1, 3], clue: "mit der Ecke %1%" }, { nat: "rechtwinkliges Dreieck", v: [0, 3, 2], clue: "mit der Ecke %2%" }]
       # 2 — carré : triangle rectangle + triangle rectangle
-      - [{ nat: "carré", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "triangle rectangle", v: [0, 1, 2], clue: "dont un sommet est %1%" }, { nat: "triangle rectangle", v: [0, 2, 3], clue: "dont un sommet est %3%" }]
+      - [{ nat: "Quadrat", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "rechtwinkliges Dreieck", v: [0, 1, 2], clue: "mit der Ecke %1%" }, { nat: "rechtwinkliges Dreieck", v: [0, 2, 3], clue: "mit der Ecke %3%" }]
       # 3 — parallélogramme : triangle + triangle
-      - [{ nat: "parallélogramme", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 3], clue: "dont un sommet est %0%" }, { nat: "triangle", v: [1, 2, 3], clue: "dont un sommet est %2%" }]
+      - [{ nat: "Parallelogramm", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 3], clue: "mit der Ecke %0%" }, { nat: "Dreieck", v: [1, 2, 3], clue: "mit der Ecke %2%" }]
       # 4 — triangle : carré
-      - [{ nat: "triangle", v: [0, 1, 2], clue: "qui contient tous les sommets marqués" }, { nat: "carré", v: [3, 4, 5, 6], clue: "de la figure" }]
+      - [{ nat: "Dreieck", v: [0, 1, 2], clue: "mit allen beschrifteten Ecken" }, { nat: "Quadrat", v: [3, 4, 5, 6], clue: "in der Figur" }]
       # 5 — hexagone : trapèze + trapèze
-      - [{ nat: "hexagone", v: [0, 1, 2, 3, 4, 5], clue: "de la figure" }, { nat: "trapèze", v: [0, 1, 2, 3], clue: "dont un sommet est %1%" }, { nat: "trapèze", v: [0, 3, 4, 5], clue: "dont un sommet est %4%" }]
+      - [{ nat: "Sechseck", v: [0, 1, 2, 3, 4, 5], clue: "in der Figur" }, { nat: "Trapez", v: [0, 1, 2, 3], clue: "mit der Ecke %1%" }, { nat: "Trapez", v: [0, 3, 4, 5], clue: "mit der Ecke %4%" }]
       # 6 — triangle : triangle + trapèze
-      - [{ nat: "triangle", v: [0, 1, 2], clue: "qui contient tous les sommets marqués" }, { nat: "triangle", v: [0, 3, 4], clue: "qui ne contient ni le sommet %1% ni le sommet %2%" }, { nat: "trapèze", v: [3, 1, 2, 4], clue: "de la figure" }]
+      - [{ nat: "Dreieck", v: [0, 1, 2], clue: "mit allen beschrifteten Ecken" }, { nat: "Dreieck", v: [0, 3, 4], clue: "ohne die Ecken %1% und %2%" }, { nat: "Trapez", v: [3, 1, 2, 4], clue: "in der Figur" }]
       # 7 — losange : triangle + triangle
-      - [{ nat: "losange", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 3], clue: "dont un sommet est %0%" }, { nat: "triangle", v: [1, 2, 3], clue: "dont un sommet est %2%" }]
+      - [{ nat: "Raute", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 3], clue: "mit der Ecke %0%" }, { nat: "Dreieck", v: [1, 2, 3], clue: "mit der Ecke %2%" }]
       # 8 — pentagone : triangle + trapèze
-      - [{ nat: "pentagone", v: [0, 1, 2, 3, 4], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 2], clue: "de la figure" }, { nat: "trapèze", v: [0, 2, 3, 4], clue: "de la figure" }]
+      - [{ nat: "Fünfeck", v: [0, 1, 2, 3, 4], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 2], clue: "in der Figur" }, { nat: "Trapez", v: [0, 2, 3, 4], clue: "in der Figur" }]
       # 9 — rectangle : carré + carré
-      - [{ nat: "rectangle", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "carré", v: [0, 4, 5, 3], clue: "dont un sommet est %0%" }, { nat: "carré", v: [4, 1, 2, 5], clue: "dont un sommet est %1%" }]
+      - [{ nat: "Rechteck", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "Quadrat", v: [0, 4, 5, 3], clue: "mit der Ecke %0%" }, { nat: "Quadrat", v: [4, 1, 2, 5], clue: "mit der Ecke %1%" }]
     # option 1 — 2 ou 3 polygones inclus
     -
       # 0 — rectangle : carré + triangle rectangle + triangle rectangle
-      - [{ nat: "rectangle", v: [0, 1, 2, 3], clue: "qui contient les sommets %0% et %1%" }, { nat: "carré", v: [0, 4, 5, 3], clue: "de la figure" }, { nat: "triangle rectangle", v: [4, 1, 2], clue: "dont un sommet est %1%" }, { nat: "triangle rectangle", v: [4, 5, 2], clue: "dont un sommet est %5%" }]
+      - [{ nat: "Rechteck", v: [0, 1, 2, 3], clue: "mit den Ecken %0% und %1%" }, { nat: "Quadrat", v: [0, 4, 5, 3], clue: "in der Figur" }, { nat: "rechtwinkliges Dreieck", v: [4, 1, 2], clue: "mit der Ecke %1%" }, { nat: "rechtwinkliges Dreieck", v: [4, 5, 2], clue: "mit der Ecke %5%" }]
       # 1 — trapèze : rectangle + triangle rectangle + triangle rectangle
-      - [{ nat: "trapèze", v: [0, 1, 2, 3], clue: "qui contient tous les sommets marqués" }, { nat: "rectangle", v: [0, 4, 5, 1], clue: "de la figure" }, { nat: "triangle rectangle", v: [0, 3, 4], clue: "dont un sommet est %3%" }, { nat: "triangle rectangle", v: [1, 5, 2], clue: "dont un sommet est %2%" }]
+      - [{ nat: "Trapez", v: [0, 1, 2, 3], clue: "mit allen beschrifteten Ecken" }, { nat: "Rechteck", v: [0, 4, 5, 1], clue: "in der Figur" }, { nat: "rechtwinkliges Dreieck", v: [0, 3, 4], clue: "mit der Ecke %3%" }, { nat: "rechtwinkliges Dreieck", v: [1, 5, 2], clue: "mit der Ecke %2%" }]
       # 2 — hexagone : trapèze + triangle + triangle
-      - [{ nat: "hexagone", v: [0, 1, 2, 3, 4, 5], clue: "de la figure" }, { nat: "trapèze", v: [5, 2, 3, 4], clue: "de la figure" }, { nat: "triangle", v: [5, 0, 1], clue: "qui contient le sommet %0%" }, { nat: "triangle", v: [5, 1, 2], clue: "qui ne contient pas le sommet %0%" }]
+      - [{ nat: "Sechseck", v: [0, 1, 2, 3, 4, 5], clue: "in der Figur" }, { nat: "Trapez", v: [5, 2, 3, 4], clue: "in der Figur" }, { nat: "Dreieck", v: [5, 0, 1], clue: "mit der Ecke %0%" }, { nat: "Dreieck", v: [5, 1, 2], clue: "ohne die Ecke %0%" }]
       # 3 — rectangle : triangle + triangle rectangle + triangle rectangle
-      - [{ nat: "rectangle", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "triangle", v: [4, 3, 2], clue: "qui contient les sommets %3% et %2%" }, { nat: "triangle rectangle", v: [0, 3, 4], clue: "dont un sommet est %0%" }, { nat: "triangle rectangle", v: [4, 1, 2], clue: "dont un sommet est %1%" }]
+      - [{ nat: "Rechteck", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "Dreieck", v: [4, 3, 2], clue: "mit den Ecken %3% und %2%" }, { nat: "rechtwinkliges Dreieck", v: [0, 3, 4], clue: "mit der Ecke %0%" }, { nat: "rechtwinkliges Dreieck", v: [4, 1, 2], clue: "mit der Ecke %1%" }]
       # 4 — pentagone : triangle + triangle + triangle
-      - [{ nat: "pentagone", v: [0, 1, 2, 3, 4], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 2], clue: "qui contient le sommet %1%" }, { nat: "triangle", v: [0, 2, 3], clue: "qui ne contient ni le sommet %1% ni le sommet %4%" }, { nat: "triangle", v: [0, 3, 4], clue: "qui contient le sommet %4%" }]
+      - [{ nat: "Fünfeck", v: [0, 1, 2, 3, 4], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 2], clue: "mit der Ecke %1%" }, { nat: "Dreieck", v: [0, 2, 3], clue: "ohne die Ecken %1% und %4%" }, { nat: "Dreieck", v: [0, 3, 4], clue: "mit der Ecke %4%" }]
       # 5 — triangle : triangle + trapèze + trapèze
-      - [{ nat: "triangle", v: [0, 1, 2], clue: "qui contient tous les sommets marqués" }, { nat: "triangle", v: [0, 3, 4], clue: "qui ne contient ni le sommet %1% ni le sommet %2%" }, { nat: "trapèze", v: [3, 4, 6, 5], clue: "qui contient les sommets %3% et %4%" }, { nat: "trapèze", v: [5, 6, 2, 1], clue: "qui contient les sommets %1% et %2%" }]
+      - [{ nat: "Dreieck", v: [0, 1, 2], clue: "mit allen beschrifteten Ecken" }, { nat: "Dreieck", v: [0, 3, 4], clue: "ohne die Ecken %1% und %2%" }, { nat: "Trapez", v: [3, 4, 6, 5], clue: "mit den Ecken %3% und %4%" }, { nat: "Trapez", v: [5, 6, 2, 1], clue: "mit den Ecken %1% und %2%" }]
       # 6 — rectangle : carré + rectangle + rectangle
-      - [{ nat: "rectangle", v: [0, 1, 2, 3], clue: "qui contient tous les sommets marqués" }, { nat: "carré", v: [4, 5, 6, 7], clue: "de la figure" }, { nat: "rectangle", v: [0, 4, 7, 3], clue: "dont un sommet est %0%" }, { nat: "rectangle", v: [5, 1, 2, 6], clue: "dont un sommet est %1%" }]
+      - [{ nat: "Rechteck", v: [0, 1, 2, 3], clue: "mit allen beschrifteten Ecken" }, { nat: "Quadrat", v: [4, 5, 6, 7], clue: "in der Figur" }, { nat: "Rechteck", v: [0, 4, 7, 3], clue: "mit der Ecke %0%" }, { nat: "Rechteck", v: [5, 1, 2, 6], clue: "mit der Ecke %1%" }]
       # 7 — trapèze : triangle + triangle
-      - [{ nat: "trapèze", v: [0, 1, 2, 3], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 2], clue: "qui contient le sommet %1%" }, { nat: "triangle", v: [0, 2, 3], clue: "qui contient le sommet %3%" }]
+      - [{ nat: "Trapez", v: [0, 1, 2, 3], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 2], clue: "mit der Ecke %1%" }, { nat: "Dreieck", v: [0, 2, 3], clue: "mit der Ecke %3%" }]
       # 8 — pentagone : triangle + trapèze
-      - [{ nat: "pentagone", v: [0, 1, 2, 3, 4], clue: "de la figure" }, { nat: "triangle", v: [0, 1, 4], clue: "de la figure" }, { nat: "trapèze", v: [4, 1, 2, 3], clue: "de la figure" }]
+      - [{ nat: "Fünfeck", v: [0, 1, 2, 3, 4], clue: "in der Figur" }, { nat: "Dreieck", v: [0, 1, 4], clue: "in der Figur" }, { nat: "Trapez", v: [4, 1, 2, 3], clue: "in der Figur" }]
       # 9 — triangle rectangle : trapèze + triangle rectangle
-      - [{ nat: "triangle rectangle", v: [0, 1, 2], clue: "qui contient le sommet %0%" }, { nat: "trapèze", v: [0, 1, 4, 3], clue: "de la figure" }, { nat: "triangle rectangle", v: [3, 4, 2], clue: "qui ne contient pas le sommet %0%" }]
+      - [{ nat: "rechtwinkliges Dreieck", v: [0, 1, 2], clue: "mit der Ecke %0%" }, { nat: "Trapez", v: [0, 1, 4, 3], clue: "in der Figur" }, { nat: "rechtwinkliges Dreieck", v: [3, 4, 2], clue: "ohne die Ecke %0%" }]
 vars:
   # option 0 : 1 ou 2 figures incluses ; option 1 : 2 ou 3
   opt: 0
@@ -157,7 +178,8 @@ vars:
   tgt: "0_${:npoly-1}"
   tNat: ${:polys[:opt][:numfig][:tgt].nat}
   tNatSA: ${:sansAccent[:tNat]}
-  tNom: ${:tNat==='hexagone'?"l'hexagone":'le '+:tNat}
+  tNom: ${:nomAkk[:tNat]}
+  tArt: ${:artikel[:tNat]}
   tL: ${:polys[:opt][:numfig][:tgt].v.map(function(i){return :pool[:lp+i]}).join('')}
   # désignation qui distingue le polygone quand un autre a la même nature :
   # « de la figure », « dont un sommet est A », « qui contient le sommet B
@@ -167,9 +189,9 @@ vars:
   # ─── le tracé, où l'on écrit les lettres tirées à la place des marques %i% :
   # découpé sur les %, un morceau purement numérique est une marque
   fig: ${:figs[:opt][:numfig].split('%').map(function(t){return t!==''&&t.length<3&&!isNaN(t)?:pool[:lp+Number(t)]:t}).join('')}
-question: "Nomme :tNom :tClue."
-shortq: "nomme :tNom ?"
-answer: "C'est le polygone <span class='red'>$$:tL$$</span>.<br>:lecture"
+question: "Benenne :tNom :tClue."
+shortq: "Benenne :tNom."
+answer: "Das ist das Vieleck <span class='red'>$$:tL$$</span>.<br>:lecture"
 # toutes les façons de nommer le polygone : chaque sommet de départ, dans les
 # deux sens de parcours — douze écritures pour un hexagone, avec répétitions
 # pour les polygones plus petits
@@ -190,25 +212,25 @@ figure:
   type: svg
   content: ${:fig}
 options:
-  - name: Nommer un polygone — 1 ou 2 figures incluses
+  - name: Vieleck benennen – 1 oder 2 Teilfiguren
     vars:
       opt: 0
-  - name: Nommer un polygone — 2 ou 3 figures incluses
+  - name: Vieleck benennen – 2 oder 3 Teilfiguren
     vars:
       opt: 1
-  - name: Nature d'un polygone — 1 ou 2 figures incluses
-    consigne: Donner la nature du polygone d'après son codage, sans mesurer.
+  - name: Art des Vielecks bestimmen – 1 oder 2 Teilfiguren
+    consigne: Bestimme mithilfe der Markierungen, um welches Vieleck es sich handelt. Miss nicht nach.
     vars:
       opt: 0
-    question: "Quelle est la nature du polygone $$:tL$$ ?"
-    shortq: "nature de $$:tL$$ ?"
-    answer: "$$:tL$$ est un <span class='red'>:tNat</span>.<br>:lecture"
+    question: "Um welches Vieleck handelt es sich bei $$:tL$$?"
+    shortq: "Welches Vieleck ist $$:tL$$?"
+    answer: "$$:tL$$ ist :tArt <span class='red'>:tNat</span>.<br>:lecture"
     value: [":tNat", ":tNatSA"]
-  - name: Nature d'un polygone — 2 ou 3 figures incluses
-    consigne: Donner la nature du polygone d'après son codage, sans mesurer.
+  - name: Art des Vielecks bestimmen – 2 oder 3 Teilfiguren
+    consigne: Bestimme mithilfe der Markierungen, um welches Vieleck es sich handelt. Miss nicht nach.
     vars:
       opt: 1
-    question: "Quelle est la nature du polygone $$:tL$$ ?"
-    shortq: "nature de $$:tL$$ ?"
-    answer: "$$:tL$$ est un <span class='red'>:tNat</span>.<br>:lecture"
+    question: "Um welches Vieleck handelt es sich bei $$:tL$$?"
+    shortq: "Welches Vieleck ist $$:tL$$?"
+    answer: "$$:tL$$ ist :tArt <span class='red'>:tNat</span>.<br>:lecture"
     value: [":tNat", ":tNatSA"]

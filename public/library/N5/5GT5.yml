@@ -1,5 +1,5 @@
-title: "Symétrie centrale : trouver le symétrique d’un point, d’un segment, d’un angle"
-description: "symétrie centrale, centre de symétrie, symétrique, point, segment, angle"
+title: "Punktspiegelung: Bild eines Punktes, einer Strecke, eines Winkels"
+description: "Punktspiegelung, Symmetriezentrum, Bildpunkt, Bildstrecke, Bildwinkel, Bildfigur in einer Zeichnung bestimmen, Punktsymmetrie"
 ID: 5GT5
 type: text
 textSize: medium
@@ -14,20 +14,20 @@ consts:
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # [0] point, [1] segment, [2] angle, [3] figure entière
   quest:
-    - "Quel est le symétrique du point $$:eA$$ par rapport au point $$O$$ ?"
-    - "Quel est le symétrique du segment $$[:sA]$$ par rapport au point $$O$$ ?"
-    - "Quel est le symétrique de l’angle $$\\widehat{:aA}$$ par rapport au point $$O$$ ?"
-    - "Quel est le symétrique :dAskPre $$:dAskNom$$ par rapport au point $$O$$ ?"
+    - "Welcher Punkt ist das Bild des Punktes $$:eA$$ bei der Punktspiegelung an $$O$$?"
+    - "Welche Strecke ist das Bild der Strecke $$\\overline{:sA}$$ bei der Punktspiegelung an $$O$$?"
+    - "Welcher Winkel ist das Bild des Winkels $$\\sphericalangle :aA$$ bei der Punktspiegelung an $$O$$?"
+    - "Was ist das Bild :dAskPre $$:dAskNom$$ bei der Punktspiegelung an $$O$$?"
   courte:
-    - "symétrique de $$:eA$$ ?"
-    - "symétrique de $$[:sA]$$ ?"
-    - "symétrique de $$\\widehat{:aA}$$ ?"
-    - "symétrique :dAskPre $$:dAskNom$$ ?"
+    - "Bild von $$:eA$$?"
+    - "Bild von $$\\overline{:sA}$$?"
+    - "Bild von $$\\sphericalangle :aA$$?"
+    - "Bild :dAskPre $$:dAskNom$$?"
   rep:
-    - "Le symétrique du point $$:eA$$ est le point <span class='red'>$$:eB$$</span>.<br>$$O$$ est le milieu du segment $$[:eA:eB]$$ : les points $$:eA$$, $$O$$ et $$:eB$$ sont alignés, et $$O:eA=O:eB$$."
-    - "Le symétrique du segment $$[:sA]$$ est le segment <span class='red'>$$[:sB]$$</span>.<br>Le symétrique de $$:s1A$$ est $$:s1B$$, celui de $$:s2A$$ est $$:s2B$$. La symétrie centrale conserve les longueurs : $$:sA=:sB$$."
-    - "Le symétrique de l’angle $$\\widehat{:aA}$$ est l’angle <span class='red'>$$\\widehat{:aB}$$</span>.<br>Le symétrique de $$:pA$$ est $$:pB$$, celui de $$:e1A$$ est $$:e1B$$ et celui de $$:nA$$ est $$:nB$$. La symétrie centrale conserve les mesures des angles."
-    - "Le symétrique :dAskPre $$:dAskNom$$ est <span class='red'>:dRepPre $$:dRepNom$$</span>.<br>Les deux figures se superposent par un demi-tour autour de $$O$$."
+    - "Das Bild des Punktes $$:eA$$ ist der Punkt <span class='red'>$$:eB$$</span>.<br>$$O$$ ist der Mittelpunkt der Strecke $$\\overline{:eA:eB}$$: Die Punkte $$:eA$$, $$O$$ und $$:eB$$ liegen auf einer Geraden, und $$\\overline{O:eA}=\\overline{O:eB}$$."
+    - "Das Bild der Strecke $$\\overline{:sA}$$ ist die Strecke <span class='red'>$$\\overline{:sB}$$</span>.<br>Das Bild von $$:s1A$$ ist $$:s1B$$, das Bild von $$:s2A$$ ist $$:s2B$$. Die Punktspiegelung erhält Längen: $$\\overline{:sA}=\\overline{:sB}$$."
+    - "Das Bild des Winkels $$\\sphericalangle :aA$$ ist der Winkel <span class='red'>$$\\sphericalangle :aB$$</span>.<br>Das Bild von $$:pA$$ ist $$:pB$$, das von $$:e1A$$ ist $$:e1B$$ und das von $$:nA$$ ist $$:nB$$. Die Punktspiegelung erhält Winkelgrößen."
+    - "Das Bild :dAskPre $$:dAskNom$$ ist <span class='red'>:dRepPre $$:dRepNom$$</span>.<br>Die beiden Figuren lassen sich durch eine halbe Drehung um $$O$$ zur Deckung bringen."
 vars:
   # ─── forme tirée
   # 0 triangle, 1 quadrilatère quelconque, 2 rectangle, 3 carré,
@@ -198,11 +198,11 @@ vars:
   # l’angle s’écrit aussi bien dans l’autre sens
   aBr: ${:nB+:e1B+:pB}
   # ─── désignation de la figure entière
-  nat: ${:forme===0?'triangle':(:forme===1?'quadrilatère':(:forme===2?'rectangle':(:forme===3?'carré':(:forme===4?'trapèze':'cercle'))))}
+  nat: ${:forme===0?'Dreieck':(:forme===1?'Viereck':(:forme===2?'Rechteck':(:forme===3?'Quadrat':(:forme===4?'Trapez':'Kreis'))))}
   figA: ${:face===0?:fig::figi}
   figB: ${:face===0?:figi::fig}
-  dAskPre: ${:circ?'du cercle de centre':'du '+:nat}
-  dRepPre: ${:circ?'le cercle de centre':'le '+:nat}
+  dAskPre: ${:circ?'des Kreises mit dem Mittelpunkt':'des '+:nat+(:forme===4?'es':'s')}
+  dRepPre: ${:circ?'der Kreis mit dem Mittelpunkt':'das '+:nat}
   dAskNom: ${:circ?:cA::figA}
   dRepNom: ${:circ?:cB::figB}
   # ─── position, sur la figure interrogée, de l’élément repassé en rouge.
@@ -232,35 +232,35 @@ vars:
   sq2x: ${:segray?:hx::hnx}
   sq2y: ${:segray?:hy::hny}
 options:
-  - name: Triangles et quadrilatères, symétrique d’un point
+  - name: Dreiecke und Vierecke, Bild eines Punktes
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 0
-  - name: Triangles et quadrilatères, symétrique d’un segment
+  - name: Dreiecke und Vierecke, Bild einer Strecke
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 1
-  - name: Triangles et quadrilatères, symétrique d’un angle
+  - name: Dreiecke und Vierecke, Bild eines Winkels
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 2
-  - name: Cercles, symétrique d’un point
+  - name: Kreise, Bild eines Punktes
     vars:
       forme: 5
       k: 0
-  - name: Cercles, symétrique d’un segment
+  - name: Kreise, Bild einer Strecke
     vars:
       forme: 5
       k: 1
-  - name: Cercles, symétrique d’un angle
+  - name: Kreise, Bild eines Winkels
     vars:
       forme: 5
       k: 2
-  - name: Cercles, questions mélangées
+  - name: Kreise, Fragen gemischt
     vars:
       forme: 5
       k: [0, 1, 2, 3]
-  - name: Symétrique de la figure entière
+  - name: Bild der ganzen Figur
     vars:
       k: 3
 question: "${:quest[:k]}"

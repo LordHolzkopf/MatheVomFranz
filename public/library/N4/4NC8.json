@@ -1,37 +1,37 @@
 {
-    "title": "Fractions de quantités",
+    "title": "Bruchteile von Größen berechnen",
     "ID": "4NC8",
     "dest":["5FF", "6AF", "6EB"],
-    "consigne":"Calculer",
-    "description": "Calculs de produits avec des fractions",
+    "consigne":"Berechne.",
+    "description": "Bruchteil berechnen, Anteil von einer Größe, 3/4 von 20, Bruch mal natürliche Zahl, Bruch von einem Bruch, Brüche multiplizieren",
     "keys": ["_","_","/","_","_","_","_","_"],
     "options": [{
-        "name": "Fraction de quantité multiple du dénominateur",
+        "name": "Bruchteil einer Zahl (Vielfaches des Nenners)",
         "vars": {
             "num":"2_10_^prime",
             "den":"2_11_^${:num}",
             "k":"2_10",
             "qte":"${:k*:den}"
         },
-        "question": ["\\dfrac{${:num}}{${:den}} \\text{ de } ${:qte}",
+        "question": ["\\dfrac{${:num}}{${:den}} \\text{ von } ${:qte}",
             "\\dfrac{${:num}}{${:den}} \\times ${:qte}",
         "${:qte}\\times\\dfrac{${:num}}{${:den}}"],
         "answer":":question = \\color{red}{${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}}",
         "value":"${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}"
 },{
-    "name": "10e, 100e, 1000e de quantité multiple du dénominateur",
+    "name": "Zehntel, Hundertstel, Tausendstel einer Zahl",
     "vars": {
         "num":"2_10",
         "den": [10, 100, 1000],
         "qte":"1_10"
     },
-    "question": ["\\dfrac{${:num}}{${:den}} \\text{ de } ${:qte}",
+    "question": ["\\dfrac{${:num}}{${:den}} \\text{ von } ${:qte}",
         "\\dfrac{${:num}}{${:den}} \\times ${:qte}",
     "${:qte}\\times\\dfrac{${:num}}{${:den}}"],
-    "answer":":question = \\color{green}{${MMmath.round(:num*:qte/:den,2)}}=\\color{red}{${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}}",
-    "value":["${MMmath.round(:num*:qte/:den,2)}","${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}"]
+    "answer":":question = \\color{green}{${MMmath.round(:num*:qte/:den,3)}}=\\color{red}{${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}}",
+    "value":["${MMmath.round(:num*:qte/:den,3)}","${MMmath.calc('\\frac{'+:num+'}{'+:den+'}\\times'+:qte)}"]
 },{
-    "name": "Fraction de fraction",
+    "name": "Bruchteil eines Bruchs",
     "vars": {
         "num1":"1_11",
         "den1":"2_10_^${:num1}",
@@ -39,7 +39,7 @@
         "den2":"2_11_^${:num2}"
     },
     "question":[
-        "\\dfrac{${:num1}}{${:den1}} \\text{ de } \\dfrac{${:num2}}{${:den2}}",
+        "\\dfrac{${:num1}}{${:den1}} \\text{ von } \\dfrac{${:num2}}{${:den2}}",
         "\\dfrac{${:num1}}{${:den1}} \\times \\dfrac{${:num2}}{${:den2}}"
     ],
     "answer":":question = \\color{red}{${MMmath.calc('\\frac{'+:num1+' \\times '+:num2+'}{'+:den1+' \\times '+:den2+'}')}}",

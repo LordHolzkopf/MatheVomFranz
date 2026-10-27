@@ -1,21 +1,21 @@
 {
-    "title":"Données les plus/moins représentées",
+    "title":"Häufigsten und seltensten Wert ablesen",
     "type":"text",
     "dest":["5AG", "6FB"],
-    "description":"Observer et trouver la donnée la plus ou la moins représentée : diagramme en barres, diagramme circulaire, effectif, statistiques. Non adapté au mode interactif (online/duel).",
+    "description":"Diagramm lesen: häufigsten oder seltensten Wert finden, Säulendiagramm, Balkendiagramm, Kreisdiagramm, Häufigkeit, Daten, Statistik. Nicht für den Online- und Duell-Modus geeignet.",
     "ID":"5DA1",
     "textSize":"small",
     "consts":{
-        "b":[["fraises", "bananes", "oranges", "kiwis", "pommes"],
-            ["vélo", "trotinette", "voiture", "bus", "scooter"],
+        "b":[["Erdbeeren", "Bananen", "Orangen", "Kiwis", "Äpfel"],
+            ["Fahrrad", "Tretroller", "Auto", "Bus", "Motorroller"],
             ["2016", "2017", "2018", "2019", "2020"]],
-        "titres":["Fruits préférés","Moyens de transport","Années de naissance"],
-        "c":[["Quelle est la donnée la plus représentée ?", "La donnée la plus représentée est <span class='red'>${:b[:f][:a.indexOf(Math.max(...:a))]}</span>", "${Math.max(...:a)}"],
-        ["Quelle est la donnée la moins représentée ?","La donnée la moins représentée est <span class='red'>${:b[:f][:a.indexOf(Math.min(...:a))]}</span>", "${Math.min(...:a)}"]],
+        "titres":["Lieblingsobst","Verkehrsmittel","Geburtsjahre"],
+        "c":[["Was kommt am häufigsten vor?", "Am häufigsten: <span class='red'>${:b[:f][:a.indexOf(Math.max(...:a))]}</span>", "${:b[:f][:a.indexOf(Math.max(...:a))]}"],
+        ["Was kommt am seltensten vor?","Am seltensten: <span class='red'>${:b[:f][:a.indexOf(Math.min(...:a))]}</span>", "${:b[:f][:a.indexOf(Math.min(...:a))]}"]],
         "m":[["${:a[0]}","${:a[1]}","${:a[2]}","${:a[3]}","${:a[4]}"],["${10*:a[0]}","${10*:a[1]}","${10*:a[2]}","${10*:a[3]}","${10*:a[4]}"]]
     },
     "options":[
-        {"name":"barres",
+        {"name":"Säulendiagramm",
             "vars":{
                 "a":"10_100_5_^&",
                 "n":0,
@@ -26,7 +26,7 @@
             "legend":false
             }
         },
-        {"name":"barres horizontales",
+        {"name":"Balkendiagramm",
         "vars":{
             "a":"10_100_5_^&",
             "n":0,
@@ -37,7 +37,7 @@
             "legend":false
             }
         },
-        {"name":"Diagramme circulaire",
+        {"name":"Kreisdiagramm",
         "vars":{
             "a":"1_9_5_^&",
             "n":1,

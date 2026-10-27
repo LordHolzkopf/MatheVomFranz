@@ -1,15 +1,15 @@
-title: Vues d'un empilement de cubes
-description: "Reconnaitre ou dessiner la vue de face, arrière, de gauche, de droite, de dessus ou de dessous d'un solide formé de cubes empilés, sans aucun cube caché. Options « Dessiner une vue » non adaptées au mode interactif (online/duel)."
+title: Ansichten von Würfelgebäuden
+description: "Ansicht von vorne, hinten, links, rechts, oben oder unten eines Würfelgebäudes (Würfelbau ohne verdeckte Würfel) erkennen oder zeichnen; Vorderansicht, Seitenansicht, Draufsicht, Raumvorstellung. Varianten „Ansicht zeichnen“ nicht für den Online- und Duell-Modus geeignet."
 type: text
 ID: 5GA3
 repeat: 2
 dest: [5EB]
 consts:
-  mots: ["face", "arrière", "droite", "gauche", "dessus", "dessous"]
-  prose: ["de face", "arrière", "de droite", "de gauche", "de dessus", "de dessous"]
+  mots: ["vorne", "hinten", "rechts", "links", "oben", "unten"]
+  prose: ["von vorne", "von hinten", "von rechts", "von links", "von oben", "von unten"]
   viewColor: "#222222"
 consigne: >-
-  Sur le dessin en perspective, La flèche montre la vue de face.
+  Im Schrägbild zeigt der Pfeil die Blickrichtung für die Ansicht von vorne.
 vars:
   h0: "2_4"
   h1: "1_${:h0}"
@@ -49,17 +49,17 @@ vars:
       - "${(function(){var M=[];for(var a=0;a<3;a++){M.push([]);for(var b=0;b<3;b++){M[a].push(:cols[a][2-b]>0?1:0);}}var mA=3,xA=-1,mB=3,xB=-1;for(var a=0;a<3;a++){for(var b=0;b<3;b++){if(M[a][b]){if(a<mA)mA=a;if(a>xA)xA=a;if(b<mB)mB=b;if(b>xB)xB=b;}}}var rows=[];for(var a=mA;a<=xA;a++){var row='';for(var b=mB;b<=xB;b++){row+=M[a][b];}rows.push(row);}return 'G'+(xA-mA+1)+'x'+(xB-mB+1)+':'+rows.join('/');})()}"
   # deux vues différentes peuvent donner exactement la même figure : on accepte alors les deux réponses
   matchs: "${(function(){var o=[];for(var i=0;i<6;i++){if(:vues[i]===:vues[:k]){o.push(:mots[i]);}}return o.join('|');})()}"
-  note: "${(function(){var o=[];for(var i=0;i<6;i++){if(:vues[i]===:vues[:k]&&i!=:k){o.push(:prose[i]);}}if(o.length<1){return '';}return ' Ici, la vue '+o.join(' et la vue ')+' donne la même figure : cette réponse est aussi acceptée.';})()}"
+  note: "${(function(){var o=[];for(var i=0;i<6;i++){if(:vues[i]===:vues[:k]&&i!=:k){o.push(:prose[i]);}}if(o.length<1){return '';}return ' Hier ergibt auch die Ansicht '+o.join(' und die Ansicht ')+' dieselbe Figur: Diese Antwort wird ebenfalls akzeptiert.';})()}"
 options:
   - &reconnaitre
-    name: "Reconnaitre une vue : de face"
+    name: "Ansicht erkennen: von vorne"
     vars:
       k: [0]
     question: |-
-      Quelle vue du solide est dessinée en gris ?
-    shortq: Quelle vue est en gris ?
+      Welche Ansicht des Würfelgebäudes ist grau gezeichnet?
+    shortq: Welche Ansicht ist grau?
     answer: |-
-      C'est la vue <span class="red">${:prose[:k]}</span>.${:note}
+      Das ist die Ansicht <span class="red">${:prose[:k]}</span>.${:note}
     value:
       - "${:mots[:k]}"
       - "${:matchs.split('|')[0]}"
@@ -87,25 +87,25 @@ options:
         - regularpolygon: {"poly":[[3,6],[4,6],4],"options":{"visible":"${(:k<4)?((3<:V3[1])?true:false):false}", "borders":{"strokeColor":"#000000"}, "fillColor":"${:viewColor}", "vertices":{"visible":false}}}
         - regularpolygon: {"poly":[[4,6],[5,6],4],"options":{"visible":"${(:k<4)?((3<:V3[2])?true:false):false}", "borders":{"strokeColor":"#000000"}, "fillColor":"${:viewColor}", "vertices":{"visible":false}}}
   - <<: *reconnaitre
-    name: "Reconnaitre une vue : de dessus"
+    name: "Ansicht erkennen: von oben"
     vars:
       k: [4]
   - <<: *reconnaitre
-    name: "Reconnaitre une vue : de gauche ou de droite"
+    name: "Ansicht erkennen: von links oder rechts"
     vars:
       k: [2,3]
   - <<: *reconnaitre
-    name: "Reconnaitre une vue : arrière ou de dessous"
+    name: "Ansicht erkennen: von hinten oder unten"
     vars:
       k: [1,5]
   - &dessiner
-    name: "Dessiner une vue : de face"
+    name: "Ansicht zeichnen: von vorne"
     vars:
       k: [0]
     question: |-
-      Voici un empilement de cubes.<br>Sur un quadrillage dessine la vue <b>${:prose[:k]}</b>.
-    shortq: "Dessine la vue ${:prose[:k]}"
-    answer: "Voici la vue ${:prose[:k]} attendue :"
+      Hier siehst du ein Würfelgebäude.<br>Zeichne auf Karopapier die Ansicht <b>${:prose[:k]}</b>.
+    shortq: "Zeichne die Ansicht ${:prose[:k]}"
+    answer: "So sieht die Ansicht ${:prose[:k]} aus:"
     figure:
       type: graph3Dcubes
       boundingbox: [-5,8,5,0]
@@ -137,14 +137,14 @@ options:
         - regularpolygon: {"poly":[[3,6],[4,6],4],"options":{"visible":"${(:k<4)?((3<:V3[1])?true:false):false}", "borders":{"strokeColor":"#000000"}, "fillColor":"${:viewColor}", "vertices":{"visible":false}}}
         - regularpolygon: {"poly":[[4,6],[5,6],4],"options":{"visible":"${(:k<4)?((3<:V3[2])?true:false):false}", "borders":{"strokeColor":"#000000"}, "fillColor":"${:viewColor}", "vertices":{"visible":false}}}
   - <<: *dessiner
-    name: "Dessiner une vue : de dessus"
+    name: "Ansicht zeichnen: von oben"
     vars:
       k: [4]
   - <<: *dessiner
-    name: "Dessiner une vue : de gauche ou de droite"
+    name: "Ansicht zeichnen: von links oder rechts"
     vars:
       k: [2,3]
   - <<: *dessiner
-    name: "Dessiner une vue : arrière ou de dessous"
+    name: "Ansicht zeichnen: von hinten oder unten"
     vars:
       k: [1,5]

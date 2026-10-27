@@ -541,24 +541,19 @@
             "WA": {
                 "nom": "Zahlen und Rechnen",
                 "chapitres": {
-                    "WAA": "Natürliche Zahlen und Stellenwerte",
                     "WAB": "Kopfrechnen und Rechentricks",
-                    "WAC": "Brüche, Dezimalzahlen, Prozente",
                     "WAD": "Sonstiges"
                 }
             },
             "WB": {
                 "nom": "Algebra",
                 "chapitres": {
-                    "WBA": "Terme und Gleichungen",
-                    "WBB": "Sonstiges"
+                    "WBA": "Terme und Gleichungen"
                 }
             },
             "WC": {
                 "nom": "Geometrie",
                 "chapitres": {
-                    "WCA": "Ebene Figuren und Konstruktionen",
-                    "WCB": "Körper und Raum",
                     "WCC": "Sonstiges"
                 }
             },
@@ -572,21 +567,12 @@
             "WE": {
                 "nom": "Funktionen und Analysis",
                 "chapitres": {
-                    "WEA": "Funktionen",
                     "WEB": "Sonstiges"
-                }
-            },
-            "WF": {
-                "nom": "Daten und Zufall",
-                "chapitres": {
-                    "WFA": "Statistik",
-                    "WFB": "Wahrscheinlichkeit"
                 }
             },
             "WG": {
                 "nom": "Logik, Algorithmen und Programmieren",
                 "chapitres": {
-                    "WGA": "Logik und Rätsel",
                     "WGB": "Algorithmen und Programmieren"
                 }
             }

@@ -93,3 +93,5 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 - Fünf Subagenten nach Stufen; anschließend prüft ein unabhängiger Agent stichprobenartig die Mathematik.
 - **Divisionszeichen:** In Fragen und Lösungen wird `\div` (÷) zentral in der Engine als Doppelpunkt angezeigt, wie in deutschen Schulbüchern üblich. Die erwarteten Antworten bleiben unverändert, deshalb ändert sich an der Antwortprüfung nichts. Die Aufgaben-Dateien enthalten weiter `\div`.
 - **„Ne pas tirer“** (Einstellung, welche Zufallswerte ausgeschlossen werden) heißt einheitlich „Nicht abfragen“.
+- **Koordinatenpaare:** Die Antwortprüfung erkennt (3|4), (3;4) und (3, 4) als gleichwertig; die Tastatur hat eine „|“-Taste. Die Aufgaben-Dateien können ihr altes Antwortformat behalten.
+- **Tastatur:** neue Taste „Rechteck“; der Doppelzentner heißt „dt“ wie in Deutschland üblich.

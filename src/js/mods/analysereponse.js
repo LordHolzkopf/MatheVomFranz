@@ -116,7 +116,27 @@ function racineNonSimplifiee (userAnswer) {
   return false;
 }
 
+/**
+ * MatheVomFranz : un couple de coordonnées s'écrit (3|4) en Allemagne,
+ * (3 ; 4) ou (3, 4) en France. On ramène les trois écritures à « (a|b) ».
+ * Renvoie false si la chaîne n'est pas un couple.
+ */
+function koordinatenPaar (str) {
+  if (typeof str !== "string") return false;
+  const s = str
+    .replace(/\\left|\\right/g, "")
+    .replace(/\\vert|\\mid|\\lvert|\\rvert/g, "|")
+    .replace(/\\[,;:!]|~|\s+/g, "");
+  const m = /^\(([^|;,()]+)[|;,]([^|;,()]+)\)$/.exec(s);
+  return m ? "(" + m[1] + "|" + m[2] + ")" : false;
+}
+
 function analyseReponse (goodAnswer, userAnswer, valueType = false) {
+  const paarErwartet = koordinatenPaar(goodAnswer);
+  if (valueType === false && paarErwartet) {
+    const paarEingabe = koordinatenPaar(userAnswer);
+    if (paarEingabe) return paarEingabe === paarErwartet;
+  }
   // on utilise dfrac pour l'affichage des fractions
   if (typeof goodAnswer === "string") {
     goodAnswer = goodAnswer.replace('dfrac', 'frac');

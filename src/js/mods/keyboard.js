@@ -116,6 +116,7 @@ const KB_SCALE_STEP = 0.1;
           "paral": ["key colored", "Para", this.insertCmd("\\text{Parallelogramm}"), "Parallelogramm"],
           "losg": ["key colored", "Raute", this.insertCmd("\\text{Raute}"), "Raute"],
           "carr": ["key colored", "Quadr", this.insertCmd("\\text{Quadrat}"), "Quadrat"],
+          "rchk": ["key colored", "Recht", this.insertCmd("\\text{Rechteck}"), "Rechteck"],
             "vec": ["key colored", "→", this.insertCmd("\\vec{#0}"), "Vektor"],
             "o": ["key colored", "Ja", this.insertCmd("\\text{ja}"), "ja"],
             "n": ["key colored", "Nein", this.insertCmd("\\text{nein}"), "nein"],
@@ -144,7 +145,7 @@ const KB_SCALE_STEP = 0.1;
             "kg": ["key colored", "kg", this.insertCmd("\\text{ kg}"), "Kilogramm"],
             "hg": ["key colored", "hg", this.insertCmd("\\text{ hg}"), "Hektogramm"],
             "dag": ["key colored", "dag", this.insertCmd("\\text{ dag}"), "Dekagramm"],
-            "qt": ["key colored", "q", this.insertCmd("\\text{ q}"), "Doppelzentner"],
+            "qt": ["key colored", "dt", this.insertCmd("\\text{ dt}"), "Doppelzentner"],
             "tn": ["key colored", "t", this.insertCmd("\\text{ t}"), "Tonne"],
             "%": ["key colored", "%", this.insertCmd("\\%"), "Prozent"],
             "Ø": ["key colored", "Ø", this.insertCmd("\\empty"), "leere Menge"],
@@ -167,7 +168,7 @@ const KB_SCALE_STEP = 0.1;
             "qdpl": ["key colored", "Vierf", this.insertCmd("\\text{das Vierfache}"), "das Vierfache"],
         };
         // touches à insertion littérale directe (pas de mise en forme LaTeX)
-        for(const ch of ["a","b","c","e","i","t",":",";","u","v","w","x","y","z","€","<",">","=","+","°","'"]){
+        for(const ch of ["a","b","c","e","i","t",":",";","|","u","v","w","x","y","z","€","<",">","=","+","°","'"]){
             this.keyConf[ch] = ["key times colored", ch, this.insertCmd(ch), undefined];
         }
         this.targetField = target;

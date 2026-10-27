@@ -1,0 +1,43 @@
+{
+    "title": "Lösungen linearer Gleichungen mit zwei Variablen bestimmen",
+    "ID": "D8EA1",
+    "description": "lineare Gleichung mit zwei Variablen, Zahlenpaar, Lösung, Probe, einsetzen, nach y auflösen, Lösungsgerade, ax+by=c",
+    "dest": ["8EA"],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Fehlende y-Koordinate ergänzen",
+            "vars": {"a":"-6_6_^0","b":"-5_5_^0","x0":"-5_5","y0":"-6_6","c":"${:a*:x0+:b*:y0}"},
+            "question": "Bestimme $$y$$ so, dass $$(${:x0}|y)$$ eine Lösung der Gleichung $$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$ ist.",
+            "shortq": "$$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$, $$(${:x0}|y)$$",
+            "answer": "$$${:a}\\cdot${MMmath.nP(:x0)}${MMmath.signedNumberButOne(:b)}y=${:c}$$<br>$$${MMmath.signIfOne(:b)}y=${:c-:a*:x0}$$<br>$$y=\\color{red}{${:y0}}$$",
+            "value": "${:y0}"
+        },
+        {
+            "name": "Fehlende x-Koordinate ergänzen",
+            "vars": {"a":"-5_5_^0","b":"-6_6_^0","x0":"-6_6","y0":"-5_5","c":"${:a*:x0+:b*:y0}"},
+            "question": "Bestimme $$x$$ so, dass $$(x|{${:y0}})$$ eine Lösung der Gleichung $$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$ ist.",
+            "shortq": "$$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$, $$(x|{${:y0}})$$",
+            "answer": "$$${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}\\cdot${MMmath.nP(:y0)}=${:c}$$<br>$$${MMmath.signIfOne(:a)}x=${:c-:b*:y0}$$<br>$$x=\\color{red}{${:x0}}$$",
+            "value": "${:x0}"
+        },
+        {
+            "name": "Prüfen, ob ein Zahlenpaar eine Lösung ist",
+            "vars": {"a":"-6_6_^0","b":"-6_6_^0","x0":"-5_5","y0":"-5_5","t":"0_1","e":"-3_3_^0","s":"${:a*:x0+:b*:y0}","c":"${:s+(:t==1?0::e)}"},
+            "question": "Ist $$(${:x0}|{${:y0}})$$ eine Lösung der Gleichung $$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$? Antworte mit ja oder nein.",
+            "shortq": "$$(${:x0}|{${:y0}})$$ Lösung von $$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y=${:c}$$?",
+            "answer": "$$${:a}\\cdot${MMmath.nP(:x0)}${MMmath.signedNumber(:b)}\\cdot${MMmath.nP(:y0)}=${:s}${:t==1?'=':'\\neq'}${:c}$$<br><span class='red'>${:t==1?'Ja':'Nein'}</span>, das Zahlenpaar ist ${:t==1?'eine':'keine'} Lösung.",
+            "value": ["${:t==1?'ja':'nein'}","${:t==1?'ja':'ne\\in'}"]
+        },
+        {
+            "name": "Gleichung nach y auflösen",
+            "vars": {"b":"-4_4_^0","m":"-3_3_^0","n":"-5_5","A":"${-:b*:m}","C":"${:b*:n}"},
+            "question": "Löse die Gleichung $$${MMmath.signIfOne(:A)}x${MMmath.signedNumberButOne(:b)}y=${:C}$$ nach $$y$$ auf.",
+            "shortq": "$$${MMmath.signIfOne(:A)}x${MMmath.signedNumberButOne(:b)}y=${:C}$$",
+            "answer": "${:b==1?'':'$$'+MMmath.signIfOne(:b)+'y='+MMmath.signIfOne(-:A)+'x'+MMmath.signedNumber(:C)+'$$<br>'}$$y=\\color{red}{${MMmath.signIfOne(:m)}x${MMmath.signedNumber(:n)}}$$",
+            "value": ["${MMmath.signIfOne(:m)}x${MMmath.signedNumber(:n)}","y=${MMmath.signIfOne(:m)}x${MMmath.signedNumber(:n)}"]
+        }
+    ],
+    "keys": ["x","y","-","+","o","n"]
+}

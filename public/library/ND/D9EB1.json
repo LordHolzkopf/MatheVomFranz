@@ -1,0 +1,63 @@
+{
+    "title": "Den Satz von Pythagoras in Figuren und Körpern anwenden",
+    "ID": "D9EB1",
+    "description": "Satz von Pythagoras, Pythagoras anwenden, rechtwinkliges Dreieck, Diagonale im Rechteck, Diagonale im Quadrat, Höhe im gleichschenkligen Dreieck, Raumdiagonale im Quader, Raumdiagonale im Würfel, pythagoreische Zahlentripel",
+    "dest": ["9EB"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["_","_","-","+","_","_","x²","√"],
+    "consts": {
+        "T": [[3,4,5],[6,8,10],[9,12,15],[12,16,20],[15,20,25],[5,12,13],[10,24,26],[8,15,17],[7,24,25],[20,21,29],[12,9,15],[4,3,5],[8,6,10],[12,5,13],[15,8,17]],
+        "Q": [[1,2,2,3],[2,4,4,6],[2,3,6,7],[1,4,8,9],[4,4,7,9],[3,6,6,9],[2,6,9,11],[6,6,7,11],[3,4,12,13],[4,8,8,12],[2,10,11,15],[6,10,15,19]]
+    },
+    "options": [
+        {
+            "name": "Diagonale eines Rechtecks",
+            "vars": {"i":"0_14","a":"${:T[:i][0]}","b":"${:T[:i][1]}","d":"${:T[:i][2]}","u":["cm","dm","m","mm"]},
+            "question": "Ein Rechteck hat die Seitenlängen $$${:a}$$ ${:u} und $$${:b}$$ ${:u}. Wie lang ist seine Diagonale (in ${:u})?",
+            "shortq": "Rechteck $$${:a}$$ ${:u} × $$${:b}$$ ${:u}: Diagonale?",
+            "answer": "$$d^2=${:a}^2+${:b}^2=${:a*:a}+${:b*:b}=${:d*:d}$$, also $$d=\\color{red}{${:d}}$$ ${:u}",
+            "value": "${:d}"
+        },
+        {
+            "name": "Seite eines Rechtecks aus der Diagonale",
+            "vars": {"i":"0_14","a":"${:T[:i][0]}","b":"${:T[:i][1]}","d":"${:T[:i][2]}","u":["cm","dm","m","mm"]},
+            "question": "Ein Rechteck ist $$${:a}$$ ${:u} breit, seine Diagonale ist $$${:d}$$ ${:u} lang. Wie lang ist die andere Seite (in ${:u})?",
+            "shortq": "Rechteck: Seite $$${:a}$$ ${:u}, Diagonale $$${:d}$$ ${:u}: andere Seite?",
+            "answer": "$$b^2=${:d}^2-${:a}^2=${:d*:d}-${:a*:a}=${:b*:b}$$, also $$b=\\color{red}{${:b}}$$ ${:u}",
+            "value": "${:b}"
+        },
+        {
+            "name": "Höhe im gleichschenkligen Dreieck",
+            "vars": {"i":"0_14","g":"${:T[:i][0]}","h":"${:T[:i][1]}","s":"${:T[:i][2]}","u":["cm","dm","m","mm"]},
+            "question": "Ein gleichschenkliges Dreieck hat die Basis $$c=${2*:g}$$ ${:u} und die Schenkel $$a=b=${:s}$$ ${:u}. Wie lang ist die Höhe $$h_c$$ (in ${:u})?",
+            "shortq": "gleichschenklig: $$c=${2*:g}$$ ${:u}, $$a=b=${:s}$$ ${:u}: $$h_c=?$$",
+            "answer": "Die Höhe halbiert die Basis: $$h_c^2=${:s}^2-${:g}^2=${:s*:s}-${:g*:g}=${:h*:h}$$, also $$h_c=\\color{red}{${:h}}$$ ${:u}",
+            "value": "${:h}"
+        },
+        {
+            "name": "Raumdiagonale eines Quaders",
+            "vars": {"i":"0_11","a":"${:Q[:i][0]}","b":"${:Q[:i][1]}","c":"${:Q[:i][2]}","d":"${:Q[:i][3]}","u":["cm","dm","m","mm"]},
+            "question": "Ein Quader ist $$${:a}$$ ${:u} lang, $$${:b}$$ ${:u} breit und $$${:c}$$ ${:u} hoch. Wie lang ist seine Raumdiagonale (in ${:u})?",
+            "shortq": "Quader $$${:a}\\times${:b}\\times${:c}$$ (${:u}): Raumdiagonale?",
+            "answer": "$$d^2=${:a}^2+${:b}^2+${:c}^2=${:a*:a}+${:b*:b}+${:c*:c}=${:d*:d}$$, also $$d=\\color{red}{${:d}}$$ ${:u}",
+            "value": "${:d}"
+        },
+        {
+            "name": "Diagonale eines Quadrats (exakt)",
+            "vars": {"a":"2_12","u":["cm","dm","m","mm"]},
+            "question": "Ein Quadrat hat die Seitenlänge $$${:a}$$ ${:u}. Gib die Länge seiner Diagonale exakt an (in ${:u}).",
+            "shortq": "Quadrat, $$a=${:a}$$ ${:u}: Diagonale exakt?",
+            "answer": "$$d^2=${:a}^2+${:a}^2=2\\cdot${:a*:a}$$, also $$d=\\sqrt{2\\cdot${:a*:a}}=\\color{red}{${:a}\\sqrt{2}}$$ ${:u}",
+            "value": "${:a}\\sqrt{2}"
+        },
+        {
+            "name": "Raumdiagonale eines Würfels (exakt)",
+            "vars": {"a":"2_12","u":["cm","dm","m","mm"]},
+            "question": "Ein Würfel hat die Kantenlänge $$${:a}$$ ${:u}. Gib die Länge seiner Raumdiagonale exakt an (in ${:u}).",
+            "shortq": "Würfel, $$a=${:a}$$ ${:u}: Raumdiagonale exakt?",
+            "answer": "$$d^2=${:a}^2+${:a}^2+${:a}^2=3\\cdot${:a*:a}$$, also $$d=\\sqrt{3\\cdot${:a*:a}}=\\color{red}{${:a}\\sqrt{3}}$$ ${:u}",
+            "value": "${:a}\\sqrt{3}"
+        }
+    ]
+}

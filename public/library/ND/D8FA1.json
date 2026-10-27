@@ -1,0 +1,51 @@
+{
+    "title": "Winkel und Strecken mit dem Satz von Thales berechnen",
+    "ID": "D8FA1",
+    "description": "Satz von Thales, Thalessatz, Thaleskreis, rechter Winkel, Durchmesser, Halbkreis, Umkehrung des Satzes von Thales, Winkelsumme im Dreieck, gleichschenkliges Dreieck, Basiswinkel",
+    "dest": ["8FA"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["_","_","-","+","o","n","°","_"],
+    "options": [
+        {
+            "name": "Fehlenden Winkel berechnen",
+            "vars": {"al":"15_75_^45","be":"${90-:al}"},
+            "question": "Der Punkt $$C$$ liegt auf dem Kreis mit Durchmesser $$\\overline{AB}$$. Im Dreieck $$ABC$$ ist $$\\alpha=${:al}^\\circ$$. Wie groß ist $$\\beta$$ (in Grad)?",
+            "shortq": "$$C$$ auf Thaleskreis über $$\\overline{AB}$$, $$\\alpha=${:al}^\\circ$$, $$\\beta=?$$",
+            "answer": "Nach dem Satz von Thales ist $$\\gamma=90^\\circ$$.<br>$$\\beta=180^\\circ-90^\\circ-${:al}^\\circ=\\color{red}{${:be}^\\circ}$$",
+            "value": ["${:be}","${:be}\\degree","${:be}°"]
+        },
+        {
+            "name": "Basiswinkel im Teildreieck MBC",
+            "vars": {"al":"20_70_^45","be":"${90-:al}"},
+            "question": "$$\\overline{AB}$$ ist ein Durchmesser eines Kreises mit Mittelpunkt $$M$$, der Punkt $$C$$ liegt auf dem Kreis. Es ist $$\\alpha=\\angle BAC=${:al}^\\circ$$. Wie groß ist der Winkel $$\\angle MCB$$ (in Grad)?",
+            "shortq": "$$\\overline{AB}$$ Durchmesser, $$M$$ Mittelpunkt, $$\\alpha=${:al}^\\circ$$, $$\\angle MCB=?$$",
+            "answer": "Nach Thales ist $$\\gamma=90^\\circ$$, also $$\\beta=${:be}^\\circ$$.<br>Das Dreieck $$MBC$$ ist gleichschenklig ($$\\overline{MB}=\\overline{MC}=r$$), daher $$\\angle MCB=\\beta=\\color{red}{${:be}^\\circ}$$.",
+            "value": ["${:be}","${:be}\\degree","${:be}°"]
+        },
+        {
+            "name": "Mittelpunktswinkel",
+            "vars": {"al":"11_49"},
+            "question": "$$\\overline{AB}$$ ist ein Durchmesser eines Kreises mit Mittelpunkt $$M$$, der Punkt $$C$$ liegt auf dem Kreis. Es ist $$\\angle BAC=${:al}^\\circ$$. Wie groß ist der Winkel $$\\angle BMC$$ (in Grad)?",
+            "shortq": "$$\\overline{AB}$$ Durchmesser, $$\\angle BAC=${:al}^\\circ$$, $$\\angle BMC=?$$",
+            "answer": "Das Dreieck $$AMC$$ ist gleichschenklig, also $$\\angle ACM=${:al}^\\circ$$ und $$\\angle AMC=${180-2*:al}^\\circ$$.<br>$$\\angle BMC=180^\\circ-${180-2*:al}^\\circ=\\color{red}{${2*:al}^\\circ}$$",
+            "value": ["${2*:al}","${2*:al}\\degree","${2*:al}°"]
+        },
+        {
+            "name": "Thaleskreis: Abstand zum Mittelpunkt",
+            "vars": {"h":"2_25","c":"${2*:h}"},
+            "question": ["Im Dreieck $$ABC$$ ist der Winkel bei $$C$$ ein rechter Winkel und $$\\overline{AB}=${:c}$$ cm. $$M$$ ist der Mittelpunkt von $$\\overline{AB}$$. Wie weit ist $$C$$ von $$M$$ entfernt (in cm)?","Im Dreieck $$ABC$$ ist der Winkel bei $$C$$ ein rechter Winkel. $$M$$ ist der Mittelpunkt von $$\\overline{AB}$$ und $$\\overline{MC}=${:h}$$ cm. Wie lang ist $$\\overline{AB}$$ (in cm)?"],
+            "shortq": ["$$\\gamma=90^\\circ$$, $$\\overline{AB}=${:c}$$ cm, $$\\overline{MC}=?$$","$$\\gamma=90^\\circ$$, $$\\overline{MC}=${:h}$$ cm, $$\\overline{AB}=?$$"],
+            "answer": ["Umkehrung des Satzes von Thales: $$C$$ liegt auf dem Kreis um $$M$$ mit Radius $$\\frac{\\overline{AB}}{2}$$.<br>$$\\overline{MC}=${:c}:2=\\color{red}{${:h}}$$ cm","Umkehrung des Satzes von Thales: $$C$$ liegt auf dem Kreis um $$M$$ durch $$A$$ und $$B$$, also $$\\overline{MA}=\\overline{MB}=\\overline{MC}$$.<br>$$\\overline{AB}=2\\cdot${:h}=\\color{red}{${:c}}$$ cm"],
+            "value": ["${:h}","${:c}"]
+        },
+        {
+            "name": "Prüfen, ob C auf dem Thaleskreis liegt",
+            "vars": {"al":"20_70","t":"0_1","e":"-12_12_^0","be":"${:t==1?90-:al:90-:al+:e}"},
+            "question": "Im Dreieck $$ABC$$ ist $$\\alpha=${:al}^\\circ$$ und $$\\beta=${:be}^\\circ$$. Liegt $$C$$ auf dem Thaleskreis über $$\\overline{AB}$$? Antworte mit ja oder nein.",
+            "shortq": "$$\\alpha=${:al}^\\circ$$, $$\\beta=${:be}^\\circ$$: $$C$$ auf Thaleskreis über $$\\overline{AB}$$?",
+            "answer": "$$\\gamma=180^\\circ-${:al}^\\circ-${:be}^\\circ=${180-:al-:be}^\\circ$$<br>${:t==1?'Der Winkel bei $$C$$ ist ein rechter Winkel: <span class=\"red\">ja</span>.':'Der Winkel bei $$C$$ ist kein rechter Winkel: <span class=\"red\">nein</span>.'}",
+            "value": ["${:t==1?'ja':'nein'}","${:t==1?'ja':'ne\\in'}"]
+        }
+    ]
+}

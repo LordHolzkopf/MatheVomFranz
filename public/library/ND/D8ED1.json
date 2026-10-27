@@ -1,0 +1,50 @@
+{
+    "title": "Sachprobleme mit linearen Gleichungssystemen lösen",
+    "ID": "D8ED1",
+    "description": "lineares Gleichungssystem, LGS, Sachaufgabe, Textaufgabe, modellieren, Zahlenrätsel, Altersrätsel, Eintrittspreise, Münzen, Hühner und Kaninchen, zwei Unbekannte",
+    "dest": ["8ED"],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Hühner und Kaninchen",
+            "vars": {"h":"3_15","k":"2_12","K":"${:h+:k}","B":"${2*:h+4*:k}"},
+            "question": "Auf einem Hof leben Hühner und Kaninchen. Zusammen haben sie $$${:K}$$ Köpfe und $$${:B}$$ Beine. Wie viele Kaninchen sind es?",
+            "shortq": "$$${:K}$$ Köpfe, $$${:B}$$ Beine: Kaninchen?",
+            "answer": "$$h$$ Hühner, $$k$$ Kaninchen: $$h+k=${:K}$$ und $$2h+4k=${:B}$$.<br>Das Doppelte der ersten Gleichung abziehen: $$2k=${:B-2*:K}$$, also $$k=\\color{red}{${:k}}$$ Kaninchen (und $$${:h}$$ Hühner).",
+            "value": "${:k}"
+        },
+        {
+            "name": "Eintrittspreise",
+            "vars": {"pE":"6_10","d":"2_4","pK":"${:pE-:d}","e":"2_7","k":"2_8","N":"${:e+:k}","S":"${:e*:pE+:k*:pK}"},
+            "question": "Eine Gruppe aus $$${:N}$$ Personen bezahlt im Museum zusammen $$${:S}$$ €. Erwachsene zahlen $$${:pE}$$ €, Kinder $$${:pK}$$ €. Wie viele Kinder sind in der Gruppe?",
+            "shortq": "$$${:N}$$ Personen, $$${:S}$$ €; Erwachsene $$${:pE}$$ €, Kinder $$${:pK}$$ €: Kinder?",
+            "answer": "$$e+k=${:N}$$ und $$${:pE}e+${:pK}k=${:S}$$.<br>Wären alle erwachsen: $$${:N}\\cdot${:pE}=${:N*:pE}$$ €, das sind $$${:N*:pE-:S}$$ € zu viel. Jedes Kind spart $$${:d}$$ €: $$k=${:N*:pE-:S}:${:d}=\\color{red}{${:k}}$$ Kinder.",
+            "value": "${:k}"
+        },
+        {
+            "name": "Zahlenrätsel mit Summe und Differenz",
+            "vars": {"y":"3_40","dd":"2_30","x":"${:y+:dd}","s":"${:x+:y}"},
+            "question": "Die Summe zweier Zahlen ist $$${:s}$$, ihre Differenz ist $$${:dd}$$. Wie heißt die größere Zahl?",
+            "shortq": "Summe $$${:s}$$, Differenz $$${:dd}$$: größere Zahl?",
+            "answer": "$$x+y=${:s}$$ und $$x-y=${:dd}$$. Addieren: $$2x=${:s+:dd}$$, also $$x=\\color{red}{${:x}}$$ (und $$y=${:y}$$).",
+            "value": "${:x}"
+        },
+        {
+            "name": "Münzen im Geldbeutel",
+            "vars": {"a":"2_12","b":"2_12","n":"${:a+:b}","B":"${:a+2*:b}"},
+            "question": "In einem Geldbeutel sind nur 1-€-Münzen und 2-€-Münzen, zusammen $$${:n}$$ Münzen im Wert von $$${:B}$$ €. Wie viele 2-€-Münzen sind es?",
+            "shortq": "$$${:n}$$ Münzen (1 € und 2 €), $$${:B}$$ €: 2-€-Münzen?",
+            "answer": "$$e+z=${:n}$$ und $$e+2z=${:B}$$. Subtrahieren: $$z=${:B}-${:n}=\\color{red}{${:b}}$$ (und $$${:a}$$ 1-€-Münzen).",
+            "value": "${:b}"
+        },
+        {
+            "name": "Altersrätsel",
+            "vars": {"t":"4_20","d":"1_10","s":"${2*:t+:d}"},
+            "question": "Lea ist $$${:d}$$ Jahre älter als ihr Bruder Tim. Zusammen sind die beiden $$${:s}$$ Jahre alt. Wie alt ist Tim?",
+            "shortq": "Lea $$${:d}$$ Jahre älter als Tim, zusammen $$${:s}$$ Jahre: Alter von Tim?",
+            "answer": "$$l=t+${:d}$$ und $$l+t=${:s}$$. Einsetzen: $$2t+${:d}=${:s}$$, also $$2t=${:s-:d}$$ und $$t=\\color{red}{${:t}}$$ Jahre (Lea ist $$${:t+:d}$$).",
+            "value": "${:t}"
+        }
+    ]
+}

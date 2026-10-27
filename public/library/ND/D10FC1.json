@@ -1,0 +1,66 @@
+{
+    "title": "Periodische Vorgänge mit Sinusfunktionen beschreiben",
+    "ID": "D10FC1",
+    "description": "periodische Vorgänge, Modellierung, Sinusfunktion, Gezeiten, Ebbe und Flut, Hochwasser, Niedrigwasser, Riesenrad, Umlaufzeit, Temperaturverlauf, Pendel, Schwingung, Periodendauer, Amplitude, Mittellinie",
+    "dest": ["10FC"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["/","*","-","+","(","_","pi","_"],
+    "options": [
+        {
+            "name": "Gezeiten: Amplitude",
+            "vars": {"m":"4_9","a2":"2_7","a":"${:a2/2}","H":"${:m+:a}","N":"${:m-:a}"},
+            "question": "In einem Hafen beträgt der Wasserstand bei Hochwasser $$${:H}$$ m und bei Niedrigwasser $$${:N}$$ m. Der Wasserstand wird durch $$w(t)=a\\sin(b\\,t)+d$$ beschrieben. Bestimme die Amplitude $$a>0$$ (in m).",
+            "shortq": "Hochwasser $$${:H}$$ m, Niedrigwasser $$${:N}$$ m: Amplitude?",
+            "answer": "$$a=\\dfrac{${:H}-${:N}}{2}=\\dfrac{${:H-:N}}{2}=\\color{red}{${:a}}$$ m",
+            "value": ["${:a}","${String(:a).replace('.',',')}"]
+        },
+        {
+            "name": "Gezeiten: mittlerer Wasserstand",
+            "vars": {"m":"4_9","a2":"2_7","a":"${:a2/2}","H":"${:m+:a}","N":"${:m-:a}"},
+            "question": "In einem Hafen beträgt der Wasserstand bei Hochwasser $$${:H}$$ m und bei Niedrigwasser $$${:N}$$ m. Der Wasserstand wird durch $$w(t)=a\\sin(b\\,t)+d$$ beschrieben. Bestimme den Parameter $$d$$ (mittlerer Wasserstand in m).",
+            "shortq": "Hochwasser $$${:H}$$ m, Niedrigwasser $$${:N}$$ m: $$d=?$$",
+            "answer": "$$d=\\dfrac{${:H}+${:N}}{2}=\\dfrac{${:H+:N}}{2}=\\color{red}{${:m}}$$ m",
+            "value": "${:m}"
+        },
+        {
+            "name": "Riesenrad: Amplitude und Mittellinie",
+            "vars": {"D":[20,30,40,50,60,70,80,100,120],"h0":"1_5","a":"${:D/2}","m":"${:h0+:D/2}"},
+            "question": ["Ein Riesenrad hat den Durchmesser $$${:D}$$ m, der tiefste Punkt einer Gondel liegt $$${:h0}$$ m über dem Boden. Die Höhe der Gondel wird durch $$h(t)=a\\sin(b\\,t)+d$$ beschrieben. Bestimme die Amplitude $$a>0$$ (in m).","Ein Riesenrad hat den Durchmesser $$${:D}$$ m, der tiefste Punkt einer Gondel liegt $$${:h0}$$ m über dem Boden. Die Höhe der Gondel wird durch $$h(t)=a\\sin(b\\,t)+d$$ beschrieben. Bestimme den Parameter $$d$$ (in m)."],
+            "shortq": ["Riesenrad: Durchmesser $$${:D}$$ m, tiefster Punkt $$${:h0}$$ m: $$a=?$$","Riesenrad: Durchmesser $$${:D}$$ m, tiefster Punkt $$${:h0}$$ m: $$d=?$$"],
+            "answer": ["Die Amplitude ist der Radius: $$a=${:D}:2=\\color{red}{${:a}}$$ m","$$d$$ ist die Höhe der Radachse: $$d=${:h0}+${:a}=\\color{red}{${:m}}$$ m"],
+            "value": ["${:a}","${:m}"]
+        },
+        {
+            "name": "Faktor b aus der Umlaufzeit",
+            "vars": {
+                "T": [4,5,6,8,9,10,12,15,16,18,20,24,30],
+                "o": [["Eine Gondel eines Riesenrads","Minuten","Höhe"],["Ein Sitz eines Kettenkarussells","Sekunden","Entfernung zu einer Wand"],["Eine Schaufel eines Wasserrads","Sekunden","Höhe"]]
+            },
+            "question": "${:o[0]} braucht für eine Umdrehung $$${:T}$$ ${:o[1]}. Die ${:o[2]} wird durch $$h(t)=a\\sin(b\\,t)+d$$ beschrieben ($$t$$ in ${:o[1]}). Bestimme $$b>0$$.",
+            "shortq": "Umlaufzeit $$${:T}$$ ${:o[1]}: $$b=?$$",
+            "answer": "Die Periodenlänge ist die Umlaufzeit: $$b=\\dfrac{2\\pi}{${:T}}=\\color{red}{${:T%2==0?'\\frac{\\pi}{'+:T/2+'}':'\\frac{2\\pi}{'+:T+'}'}}$$",
+            "value": ["${:T%2==0?'\\frac{\\pi}{'+:T/2+'}':'\\frac{2\\pi}{'+:T+'}'}","\\frac{2\\pi}{${:T}}"]
+        },
+        {
+            "name": "Temperaturverlauf über ein Jahr",
+            "vars": {"a":"5_12","dm":"6_14","c":"3_5"},
+            "question": ["Die mittlere Monatstemperatur (in °C) eines Ortes wird beschrieben durch $$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$ ($$t$$ in Monaten). Wie hoch ist die höchste Monatstemperatur (in °C)?","Die mittlere Monatstemperatur (in °C) eines Ortes wird beschrieben durch $$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$ ($$t$$ in Monaten). Wie hoch ist die niedrigste Monatstemperatur (in °C)?","Die mittlere Monatstemperatur (in °C) eines Ortes wird beschrieben durch $$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$ ($$t$$ in Monaten). Nach wie vielen Monaten wiederholt sich der Verlauf?"],
+            "shortq": ["$$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$: höchster Wert?","$$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$: niedrigster Wert?","$$T(t)=${:a}\\sin\\left(\\frac{\\pi}{6}(t-${:c})\\right)+${:dm}$$: Periodenlänge?"],
+            "answer": ["Höchster Wert: $$${:dm}+${:a}=\\color{red}{${:dm+:a}}$$ °C","Niedrigster Wert: $$${:dm}-${:a}=\\color{red}{${:dm-:a}}$$ °C","Periodenlänge: $$p=\\dfrac{2\\pi}{\\frac{\\pi}{6}}=\\color{red}{12}$$ Monate"],
+            "value": ["${:dm+:a}","${:dm-:a}","12"]
+        },
+        {
+            "name": "Pendel: Periodendauer und Anzahl der Schwingungen",
+            "vars": {
+                "n": [10,12,15,20,30],
+                "T": "${60/:n}",
+                "o": [["Ein Pendel","eines Pendels"],["Eine Schaukel","einer Schaukel"],["Ein Federpendel","eines Federpendels"]]
+            },
+            "question": ["${:o[0]} schwingt in einer Minute $$${:n}$$-mal hin und her. Wie lange dauert eine Schwingung (Periodendauer in Sekunden)?","Eine volle Schwingung ${:o[1]} dauert $$${:T}$$ Sekunden. Wie viele volle Schwingungen sind das in einer Minute?"],
+            "shortq": ["$$${:n}$$ Schwingungen pro Minute: Periodendauer?","Periodendauer $$${:T}$$ s: Schwingungen pro Minute?"],
+            "answer": ["$$T=60\\text{ s}:${:n}=\\color{red}{${:T}}$$ s","$$60\\text{ s}:${:T}\\text{ s}=\\color{red}{${:n}}$$"],
+            "value": ["${:T}","${:n}"]
+        }
+    ]
+}

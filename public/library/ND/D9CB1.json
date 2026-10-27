@@ -1,0 +1,48 @@
+{
+    "title": "Bogenlänge, Kreissektor und Kreisring berechnen",
+    "ID": "D9CB1",
+    "description": "Kreisteile, Kreisausschnitt, Kreissektor, Sektorfläche, Kreisbogen, Bogenlänge, Mittelpunktswinkel, Kreisring, Vielfaches von Pi, exakt mit π",
+    "dest": ["9CB"],
+    "type": "text",
+    "textSize": "medium",
+    "consigne": "Gib das Ergebnis exakt an (als Vielfaches von $$\\pi$$).",
+    "keys": ["/","_","-","+","pi","_","_","_"],
+    "consts": {
+        "ARC": [[30,6],[30,12],[30,18],[45,4],[45,8],[45,12],[45,16],[60,3],[60,6],[60,9],[60,12],[60,15],[60,18],[90,2],[90,6],[90,10],[90,14],[120,3],[120,6],[120,9],[120,12],[120,15],[120,18],[135,4],[135,8],[135,12],[135,16],[150,6],[150,12],[150,18],[180,3],[180,5],[180,7],[180,8],[180,11],[240,3],[240,6],[240,9],[240,12],[240,15],[270,2],[270,4],[270,6],[270,8],[270,10],[270,12],[300,3],[300,6],[300,9],[300,12]],
+        "SEC": [[30,6],[30,12],[45,4],[45,8],[45,12],[60,6],[60,12],[90,2],[90,4],[90,6],[90,8],[90,10],[90,12],[120,3],[120,6],[120,9],[120,12],[135,4],[135,8],[150,6],[180,2],[180,4],[180,6],[180,8],[180,10],[240,3],[240,6],[270,2],[270,4],[270,6],[270,8],[300,6],[315,4],[330,6],[210,6],[225,4],[225,8],[72,5],[72,10],[36,10]]
+    },
+    "options": [
+        {
+            "name": "Bogenlänge berechnen",
+            "vars": {"i":"0_49","al":"${:ARC[:i][0]}","r":"${:ARC[:i][1]}","b":"${:al*:r/180}"},
+            "question": "Ein Kreisbogen hat den Radius $$r=${:r}$$ cm und den Mittelpunktswinkel $$\\alpha=${:al}^\\circ$$. Berechne die Bogenlänge $$b$$ (in cm).",
+            "shortq": "$$r=${:r}$$ cm, $$\\alpha=${:al}^\\circ$$: $$b=?$$",
+            "answer": "$$b=\\dfrac{${:al}^\\circ}{360^\\circ}\\cdot2\\pi\\cdot${:r}=\\color{red}{${MMmath.signIfOne(:b)}\\pi}$$ cm",
+            "value": "${MMmath.signIfOne(:b)}\\pi"
+        },
+        {
+            "name": "Fläche eines Kreissektors berechnen",
+            "vars": {"i":"0_39","al":"${:SEC[:i][0]}","r":"${:SEC[:i][1]}","A":"${:al*:r*:r/360}"},
+            "question": "Ein Kreissektor hat den Radius $$r=${:r}$$ cm und den Mittelpunktswinkel $$\\alpha=${:al}^\\circ$$. Berechne seinen Flächeninhalt (in cm²).",
+            "shortq": "Sektor: $$r=${:r}$$ cm, $$\\alpha=${:al}^\\circ$$: $$A=?$$",
+            "answer": "$$A=\\dfrac{${:al}^\\circ}{360^\\circ}\\cdot\\pi\\cdot${:r}^2=\\dfrac{${:al}}{360}\\cdot${:r*:r}\\pi=\\color{red}{${MMmath.signIfOne(:A)}\\pi}$$ cm²",
+            "value": "${MMmath.signIfOne(:A)}\\pi"
+        },
+        {
+            "name": "Mittelpunktswinkel aus der Bogenlänge",
+            "vars": {"i":"0_49","al":"${:ARC[:i][0]}","r":"${:ARC[:i][1]}","b":"${:al*:r/180}"},
+            "question": "Ein Kreisbogen mit Radius $$r=${:r}$$ cm ist $$b=${MMmath.signIfOne(:b)}\\pi$$ cm lang. Wie groß ist der Mittelpunktswinkel $$\\alpha$$ (in Grad)?",
+            "shortq": "$$r=${:r}$$ cm, $$b=${MMmath.signIfOne(:b)}\\pi$$ cm: $$\\alpha=?$$",
+            "answer": "Der ganze Kreis hat den Umfang $$2\\pi\\cdot${:r}=${2*:r}\\pi$$.<br>$$\\alpha=\\dfrac{${MMmath.signIfOne(:b)}\\pi}{${2*:r}\\pi}\\cdot360^\\circ=\\color{red}{${:al}^\\circ}$$",
+            "value": ["${:al}","${:al}\\degree","${:al}°"]
+        },
+        {
+            "name": "Fläche eines Kreisrings",
+            "vars": {"R":"3_10","r":"1_${:R-1}","A":"${:R*:R-:r*:r}"},
+            "question": "Ein Kreisring hat den Außenradius $$R=${:R}$$ cm und den Innenradius $$r=${:r}$$ cm. Berechne seinen Flächeninhalt (in cm²).",
+            "shortq": "Kreisring: $$R=${:R}$$ cm, $$r=${:r}$$ cm: $$A=?$$",
+            "answer": "$$A=\\pi\\cdot${:R}^2-\\pi\\cdot${:r}^2=${:R*:R}\\pi-${:r*:r}\\pi=\\color{red}{${MMmath.signIfOne(:A)}\\pi}$$ cm²",
+            "value": "${MMmath.signIfOne(:A)}\\pi"
+        }
+    ]
+}

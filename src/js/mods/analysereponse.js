@@ -180,6 +180,10 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
       userAnswer = userAnswer.replace(/>/g, "\\gt").replace(/</g, "\\lt");
       // si l'utilisateur a entré un texte \text{...}, on l'enleve
       userAnswer = userAnswer.replace(/\\text\{([^}]*)\}/g, "$1");
+      // MatheVomFranz : « y = … » ou « f(x) = … » tapé devant un terme alors
+      // que la réponse attendue n'est que le terme
+      if (typeof goodAnswer === "string" && !goodAnswer.includes("="))
+        userAnswer = userAnswer.replace(/^\s*(?:y|[a-z]\s*\\left\(\s*[a-z]\s*\\right\)|[a-z]\s*\(\s*[a-z]\s*\))\s*=\s*/, "");
       // MatheVomFranz : « pi » tapé au clavier (sans raccourci MathLive) → \pi,
       // seulement si la réponse attendue contient π
       if (typeof goodAnswer === "string" && goodAnswer.includes("\\pi"))

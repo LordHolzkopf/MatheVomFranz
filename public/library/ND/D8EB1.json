@@ -1,0 +1,40 @@
+{
+    "title": "Lineare Gleichungssysteme durch Gleichsetzen, Einsetzen und Addieren lösen",
+    "ID": "D8EB1",
+    "description": "lineares Gleichungssystem, LGS, zwei Variablen, Gleichsetzungsverfahren, Einsetzungsverfahren, Additionsverfahren, Lösung bestimmen, Lösungsmenge",
+    "dest": ["8EB"],
+    "type": "text",
+    "textSize": "medium",
+    "consigne": "Löse das Gleichungssystem. Gib die Lösung als Zahlenpaar an (Eingabe: $$x;y$$).",
+    "keys": ["_","_","-","+","_",";","_","_"],
+    "options": [
+        {
+            "name": "Gleichsetzungsverfahren",
+            "vars": {"x0":"-5_5","y0":"-6_6","m":"-4_4_2_^&,0","n1":"${:y0-:m[0]*:x0}","n2":"${:y0-:m[1]*:x0}"},
+            "question": "$$\\begin{aligned} y&=${MMmath.signIfOne(:m[0])}x${MMmath.signedNumber(:n1)}\\\\ y&=${MMmath.signIfOne(:m[1])}x${MMmath.signedNumber(:n2)}\\end{aligned}$$",
+            "answer": ":question<br>Gleichsetzen: $$${MMmath.signIfOne(:m[0])}x${MMmath.signedNumber(:n1)}=${MMmath.signIfOne(:m[1])}x${MMmath.signedNumber(:n2)}$$<br>$$${MMmath.signIfOne(:m[0]-:m[1])}x=${:n2-:n1}${:m[0]-:m[1]==1?'':'\\ \\Rightarrow\\ x='+:x0}$$, also $$y=${:y0}$$<br>$$L=\\{\\color{red}{(${:x0}|{${:y0}})}\\}$$",
+            "value": ["(${:x0}|${:y0})","${:x0};${:y0}","\\left(${:x0}|${:y0}\\right)","\\left(${:x0}\\mid${:y0}\\right)","(${:x0}\\mid${:y0})"]
+        },
+        {
+            "name": "Einsetzungsverfahren",
+            "vars": {"x0":"-5_5","y0":"-6_6","m":"-3_3_^0","n":"${:y0-:m*:x0}","a":"-4_4_^0","b":"-3_3_^0,${-:a/:m}","c":"${:a*:x0+:b*:y0}"},
+            "question": "$$\\begin{aligned} y&=${MMmath.signIfOne(:m)}x${MMmath.signedNumber(:n)}\\\\ ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\end{aligned}$$",
+            "answer": ":question<br>Einsetzen: $$${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}(${MMmath.signIfOne(:m)}x${MMmath.signedNumber(:n)})=${:c}$$<br>$$${MMmath.signIfOne(:a+:b*:m)}x${MMmath.signedNumber(:b*:n)}=${:c}\\ \\Rightarrow\\ x=${:x0}$$, also $$y=${:y0}$$<br>$$L=\\{\\color{red}{(${:x0}|{${:y0}})}\\}$$",
+            "value": ["(${:x0}|${:y0})","${:x0};${:y0}","\\left(${:x0}|${:y0}\\right)","\\left(${:x0}\\mid${:y0}\\right)","(${:x0}\\mid${:y0})"]
+        },
+        {
+            "name": "Additionsverfahren (direkt)",
+            "vars": {"x0":"-5_5","y0":"-5_5","a0":"-4_4_^0","a1":"-4_4_^0,${-:a0}","b":"1_4","c1":"${:a0*:x0+:b*:y0}","c2":"${:a1*:x0-:b*:y0}"},
+            "question": "$$\\begin{aligned} ${MMmath.signIfOne(:a0)}x${MMmath.signedNumberButOne(:b)}y&=${:c1}\\\\ ${MMmath.signIfOne(:a1)}x${MMmath.signedNumberButOne(-:b)}y&=${:c2}\\end{aligned}$$",
+            "answer": ":question<br>Addieren der Gleichungen: $$${MMmath.signIfOne(:a0+:a1)}x=${:c1+:c2}${:a0+:a1==1?'':'\\ \\Rightarrow\\ x='+:x0}$$<br>Einsetzen: $$${:a0}\\cdot${MMmath.nP(:x0)}${MMmath.signedNumberButOne(:b)}y=${:c1}\\ \\Rightarrow\\ y=${:y0}$$<br>$$L=\\{\\color{red}{(${:x0}|{${:y0}})}\\}$$",
+            "value": ["(${:x0}|${:y0})","${:x0};${:y0}","\\left(${:x0}|${:y0}\\right)","\\left(${:x0}\\mid${:y0}\\right)","(${:x0}\\mid${:y0})"]
+        },
+        {
+            "name": "Additionsverfahren mit Vervielfachen",
+            "vars": {"x0":"-4_4","y0":"-4_4","a":"1_3","b":"-3_3_^0","k":"2_3","d":"-3_3_^0,${:k*:a}","c1":"${:a*:x0+:b*:y0}","c2":"${:d*:x0+:k*:b*:y0}"},
+            "question": "$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c1}\\\\ ${MMmath.signIfOne(:d)}x${MMmath.signedNumberButOne(:k*:b)}y&=${:c2}\\end{aligned}$$",
+            "answer": ":question<br>Erste Gleichung mal $$${:k}$$: $$${MMmath.signIfOne(:k*:a)}x${MMmath.signedNumberButOne(:k*:b)}y=${:k*:c1}$$<br>Subtrahieren: $$${MMmath.signIfOne(:k*:a-:d)}x=${:k*:c1-:c2}${:k*:a-:d==1?'':'\\ \\Rightarrow\\ x='+:x0}$$<br>Einsetzen: $$y=${:y0}$$<br>$$L=\\{\\color{red}{(${:x0}|{${:y0}})}\\}$$",
+            "value": ["(${:x0}|${:y0})","${:x0};${:y0}","\\left(${:x0}|${:y0}\\right)","\\left(${:x0}\\mid${:y0}\\right)","(${:x0}\\mid${:y0})"]
+        }
+    ]
+}

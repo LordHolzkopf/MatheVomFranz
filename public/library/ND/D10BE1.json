@@ -1,0 +1,66 @@
+{
+    "title": "Nullstellen quadratischer Funktionen bestimmen und anwenden",
+    "ID": "D10BE1",
+    "description": "quadratische Funktion, Nullstellen, quadratische Gleichung, reinquadratisch, Ausklammern, Satz vom Nullprodukt, pq-Formel, abc-Formel, Satz von Vieta, Anzahl der Nullstellen, Anwendung, Wurf, Rechteck, Flächeninhalt",
+    "dest": ["10BE"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["_","_","-","+","_",";","_","_"],
+    "options": [
+        {
+            "name": "Nullstellen reinquadratischer Funktionen",
+            "vars": {"a":"1_4","k":"1_9","c":"${:a*:k*:k}"},
+            "question": "Bestimme die Nullstellen von $$f(x)=${MMmath.signIfOne(:a)}x^2-${:c}$$ (Eingabe: $$x_1;x_2$$).",
+            "shortq": "Nullstellen von $$${MMmath.signIfOne(:a)}x^2-${:c}$$",
+            "answer": "$$${MMmath.signIfOne(:a)}x^2=${:c}$$${:a>1?' ⇒ $$x^2='+:k*:k+'$$':''}<br>$$\\color{red}{x_1=-${:k}}$$ und $$\\color{red}{x_2=${:k}}$$",
+            "value": ["-${:k};${:k}","${:k};-${:k}"]
+        },
+        {
+            "name": "Nullstellen durch Ausklammern",
+            "vars": {"a":[-1,1,1,2,3],"r":"-6_6_^0","b":"${-:a*:r}"},
+            "question": "Bestimme die Nullstellen von $$f(x)=${MMmath.signIfOne(:a)}x^2${MMmath.signedNumberButOne(:b)}x$$ (Eingabe: $$x_1;x_2$$).",
+            "shortq": "Nullstellen von $$${MMmath.signIfOne(:a)}x^2${MMmath.signedNumberButOne(:b)}x$$",
+            "answer": "$$f(x)=x\\,(${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)})=0$$<br>$$\\color{red}{x_1=0}$$ oder $$${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}=0$$, also $$\\color{red}{x_2=${:r}}$$",
+            "value": ["0;${:r}","${:r};0"]
+        },
+        {
+            "name": "Nullstellen einer Funktion x² + px + q",
+            "vars": {"r1":"-6_6","r2":"-6_6_^${:r1},${-:r1}","p":"${-(:r1+:r2)}","q":"${:r1*:r2}"},
+            "question": "Bestimme die Nullstellen von $$f(x)=x^2${MMmath.signedNumberButOne(:p)}x${MMmath.signedNumber(:q)}$$ (Eingabe: $$x_1;x_2$$).",
+            "shortq": "Nullstellen von $$x^2${MMmath.signedNumberButOne(:p)}x${MMmath.signedNumber(:q)}$$",
+            "answer": "Gesucht sind zwei Zahlen mit Summe $$${-:p}$$ und Produkt $$${:q}$$ (Satz von Vieta) oder mit der pq-Formel: $$x_{1,2}=${MMmath.fractionSimplifiee(-:p,2)}\\pm\\sqrt{${MMmath.fractionSimplifiee(:p*:p-4*:q,4)}}$$<br>$$\\color{red}{x_1=${Math.min(:r1,:r2)}}$$ und $$\\color{red}{x_2=${Math.max(:r1,:r2)}}$$",
+            "value": ["${Math.min(:r1,:r2)};${Math.max(:r1,:r2)}","${Math.max(:r1,:r2)};${Math.min(:r1,:r2)}"]
+        },
+        {
+            "name": "Anzahl der Nullstellen aus der Scheitelpunktform",
+            "vars": {
+                "a": [-3,-2,-1,1,2,3],
+                "d": "-5_5",
+                "t": "0_2",
+                "e0": "1_9",
+                "e": "${:t==0?0:(:t==1?-Math.sign(:a)*:e0:Math.sign(:a)*:e0)}",
+                "n": "${:t==0?1:(:t==1?2:0)}"
+            },
+            "question": "Wie viele Nullstellen hat die Funktion $$f(x)=${MMmath.signIfOne(:a)}${:d==0?'x':'(x'+MMmath.signedNumber(-:d)+')'}^2${MMmath.signedNumber(:e)}$$?",
+            "shortq": "Anzahl der Nullstellen von $$${MMmath.signIfOne(:a)}${:d==0?'x':'(x'+MMmath.signedNumber(-:d)+')'}^2${MMmath.signedNumber(:e)}$$",
+            "answer": "Scheitelpunkt $$S(${:d}|{${:e}})$$, Parabel nach ${:a>0?'oben':'unten'} geöffnet.<br>${:n==1?'Der Scheitelpunkt liegt auf der x-Achse':'Der Scheitelpunkt liegt '+(:e>0?'oberhalb':'unterhalb')+' der x-Achse'+(:n==2?', die Parabel schneidet die x-Achse zweimal':', die Parabel erreicht die x-Achse nicht')}: $$\\color{red}{${:n}}$$ Nullstelle${:n==1?'':'n'}.",
+            "value": "${:n}"
+        },
+        {
+            "name": "Anwendung: senkrechter Wurf",
+            "vars": {"v":[5,10,15,20,25,30,35,40],"o":["Ball","Stein","Tennisball","Apfel"],"T":"${:v/5}"},
+            "question": "Ein ${:o} wird senkrecht nach oben geworfen. Seine Höhe über dem Boden beträgt näherungsweise $$h(t)=-5t^2+${:v}t$$ ($$t$$ in s, $$h$$ in m). Nach wie vielen Sekunden landet er wieder auf dem Boden?",
+            "shortq": "$$h(t)=-5t^2+${:v}t$$: Landezeitpunkt?",
+            "answer": "$$-5t^2+${:v}t=0 \\iff t\\,(-5t+${:v})=0$$, also $$t=0$$ (Abwurf) oder $$t=\\color{red}{${:T}}$$ s.",
+            "value": "${:T}"
+        },
+        {
+            "name": "Anwendung: Rechteck mit gegebenem Flächeninhalt",
+            "vars": {"w":"2_12","dd":"1_6","A":"${:w*(:w+:dd)}"},
+            "question": "Ein Rechteck ist $$${:dd}$$ cm länger als breit und hat den Flächeninhalt $$${:A}$$ cm². Wie breit ist es (in cm)?",
+            "shortq": "Rechteck: Länge = Breite + $$${:dd}$$ cm, $$A=${:A}$$ cm²: Breite?",
+            "answer": "$$x\\,(x+${:dd})=${:A} \\iff x^2${MMmath.signedNumberButOne(:dd)}x-${:A}=0$$, positive Lösung: $$x=\\color{red}{${:w}}$$ cm (Probe: $$${:w}\\cdot${:w+:dd}=${:A}$$).",
+            "value": "${:w}"
+        }
+    ]
+}

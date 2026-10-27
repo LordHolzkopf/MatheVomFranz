@@ -1,0 +1,63 @@
+{
+    "title": "Statistische Erhebungen auswerten und Darstellungen prüfen",
+    "ID": "D9FA1",
+    "description": "Statistik, Umfrage, Erhebung, Stichprobe, Hochrechnung, relative Häufigkeit, Prozent, arithmetisches Mittel, Mittelwert, Median, Zentralwert, Kreisdiagramm, Mittelpunktswinkel, Säulendiagramm, abgeschnittene Achse, Manipulation, irreführende Darstellung",
+    "dest": ["9FA","10AA"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["_","_","-","+","%","_","_","°"],
+    "options": [
+        {
+            "name": "Relative Häufigkeit in Prozent",
+            "consts": {"N":[20,25,40,50,200,250,400,500],"S":[5,4,5,2,1,2,1,1]},
+            "vars": {"i":"0_7","j":"1_${Math.floor(95/:S[:i])}","p":"${:S[:i]*:j}","k":"${:N[:i]*:p/100}"},
+            "question": "Bei einer Umfrage unter $$${:N[:i]}$$ Jugendlichen gaben $$${:k}$$ an, regelmäßig Sport im Verein zu treiben. Wie viel Prozent sind das?",
+            "shortq": "$$${:k}$$ von $$${:N[:i]}$$ in Prozent?",
+            "answer": "$$\\dfrac{${:k}}{${:N[:i]}}=${:p/100}=\\color{red}{${:p}\\,\\%}$$",
+            "value": ["${:p}","${:p}\\%"]
+        },
+        {
+            "name": "Ergebnis einer Stichprobe hochrechnen",
+            "consts": {"N":[20,25,50,100],"F":[4,5,6,8,10,12,20]},
+            "vars": {"i":"0_3","f":"0_6","k":"${MMmath.aleaInt(2,:N[:i]-2)}","G":"${:N[:i]*:F[:f]}","H":"${:k*:F[:f]}"},
+            "question": "In einer Stichprobe von $$${:N[:i]}$$ Schülerinnen und Schülern einer Schule kommen $$${:k}$$ mit dem Fahrrad zur Schule. Die Schule hat $$${:G}$$ Schülerinnen und Schüler. Wie viele kommen nach dieser Stichprobe ungefähr mit dem Fahrrad?",
+            "shortq": "Stichprobe: $$${:k}$$ von $$${:N[:i]}$$; hochgerechnet auf $$${:G}$$?",
+            "answer": "Die Schule ist $$${:F[:f]}$$-mal so groß wie die Stichprobe: $$${:k}\\cdot${:F[:f]}=\\color{red}{${:H}}$$",
+            "value": "${:H}"
+        },
+        {
+            "name": "Arithmetisches Mittel",
+            "vars": {"m":"17_40","dv":"-4_4_4","a":"${:m+:dv[0]}","b":"${:m+:dv[1]}","c":"${:m+:dv[2]}","d":"${:m+:dv[3]}","e":"${5*:m-:a-:b-:c-:d}"},
+            "question": "Fünf Teilnehmende eines Wettbewerbs erreichten $$${:a}$$; $$${:b}$$; $$${:c}$$; $$${:d}$$ und $$${:e}$$ Punkte. Berechne das arithmetische Mittel.",
+            "shortq": "Mittelwert von $$${:a}$$; $$${:b}$$; $$${:c}$$; $$${:d}$$; $$${:e}$$",
+            "answer": "$$\\bar{x}=\\dfrac{${:a}+${:b}+${:c}+${:d}+${:e}}{5}=\\dfrac{${5*:m}}{5}=\\color{red}{${:m}}$$",
+            "value": "${:m}"
+        },
+        {
+            "name": "Median",
+            "vars": {"w":"1_30_7_^&","md":"${:w.slice().sort((p,q)=>p-q)[3]}"},
+            "question": "Bei einer Erhebung wurde gefragt, wie viele Minuten der Schulweg dauert. Antworten: $$${:w.join(';\\;')}$$. Bestimme den Median.",
+            "shortq": "Median von $$${:w.join(';\\;')}$$",
+            "answer": "Geordnet: $$${:w.slice().sort((p,q)=>p-q).join(';\\;')}$$<br>Der mittlere (4.) Wert ist der Median: $$\\color{red}{${:md}}$$",
+            "value": "${:md}"
+        },
+        {
+            "name": "Winkel im Kreisdiagramm",
+            "consts": {"N":[20,24,30,36,40,45,60,72,90,120,180]},
+            "vars": {"i":"0_10","k":"${MMmath.aleaInt(2,Math.floor(:N[:i]/2))}","al":"${360*:k/:N[:i]}"},
+            "question": "Von $$${:N[:i]}$$ Befragten wählten $$${:k}$$ die Antwort „Bus“. Wie groß ist der zugehörige Mittelpunktswinkel im Kreisdiagramm (in Grad)?",
+            "shortq": "$$${:k}$$ von $$${:N[:i]}$$: Winkel im Kreisdiagramm?",
+            "answer": "$$\\dfrac{${:k}}{${:N[:i]}}\\cdot360^\\circ=${:k}\\cdot${360/:N[:i]}^\\circ=\\color{red}{${:al}^\\circ}$$",
+            "value": ["${:al}","${:al}\\degree","${:al}°"]
+        },
+        {
+            "name": "Abgeschnittene Achse im Säulendiagramm",
+            "consts": {"B":[50,80,100,200,500]},
+            "vars": {"i":"0_4","u":"2_9","f":"2_4","A":"${:B[:i]+:u}","C":"${:B[:i]+:f*:u}"},
+            "question": "In einem Säulendiagramm beginnt die Hochachse bei $$${:B[:i]}$$. Säule A steht für den Wert $$${:A}$$, Säule B für $$${:C}$$. Wie viel Mal so hoch wie Säule A erscheint Säule B?",
+            "shortq": "Achse ab $$${:B[:i]}$$; A $$=${:A}$$, B $$=${:C}$$: B wirkt wie viel Mal so hoch?",
+            "answer": "Sichtbare Höhen: $$${:A}-${:B[:i]}=${:u}$$ und $$${:C}-${:B[:i]}=${:f*:u}$$.<br>Säule B erscheint $$\\color{red}{${:f}}$$-mal so hoch, obwohl der Wert nur etwa $$${MMmath.round((:C/:A-1)*100)}\\,\\%$$ größer ist.",
+            "value": "${:f}"
+        }
+    ]
+}

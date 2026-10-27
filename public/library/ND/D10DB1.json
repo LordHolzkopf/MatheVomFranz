@@ -1,0 +1,57 @@
+{
+    "title": "Mit Exponentialfunktionen f(x) = a·bˣ rechnen",
+    "ID": "D10DB1",
+    "description": "Exponentialfunktion, f(x)=a·b^x, Anfangswert, Startwert, Wachstumsfaktor, Basis, Funktionswert berechnen, Funktionsgleichung aufstellen, exponentielles Wachstum, exponentielle Abnahme, Parameter",
+    "dest": ["10DB"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["/","*","-","+","(","x","^","_"],
+    "consts": {
+        "B": [2,3,4,5,10,0.5],
+        "BT": ["2","3","4","5","10","\\left(\\frac{1}{2}\\right)"],
+        "BV": ["2","3","4","5","10","\\frac{1}{2}"],
+        "XM": [4,3,3,2,3,4]
+    },
+    "options": [
+        {
+            "name": "Funktionswert berechnen",
+            "vars": {"i":"0_5","m":"1_5","a":"${:i==5?16*Math.min(:m,3):(:m)}","xx":"0_4","x0":"${Math.min(:xx,:XM[:i])}","y0":"${:a*Math.pow(:B[:i],:x0)}"},
+            "question": "Berechne $$f(${:x0})$$ für $$f(x)=${:a==1?''::a+'\\cdot '}${:BT[:i]}^x$$.",
+            "shortq": "$$f(x)=${:a==1?''::a+'\\cdot '}${:BT[:i]}^x$$, $$f(${:x0})=?$$",
+            "answer": "$$f(${:x0})=${:a==1?''::a+'\\cdot '}${:BT[:i]}^{${:x0}}${:a==1?'':'='+:a+'\\cdot '+MMmath.fractionSimplifiee(Math.round(Math.pow(:B[:i],:x0)*16),16)}=\\color{red}{${:y0}}$$",
+            "value": "${:y0}"
+        },
+        {
+            "name": "Funktionsgleichung aus zwei Punkten aufstellen",
+            "vars": {"i":"0_5","m":"1_6","a":"${:i==5?2*:m:(:m)}","y1":"${:a*:B[:i]}"},
+            "question": "Der Graph einer Exponentialfunktion $$f(x)=a\\cdot b^x$$ geht durch die Punkte $$P(0|{${:a}})$$ und $$Q(1|{${:y1}})$$. Gib die Funktionsgleichung an.",
+            "shortq": "$$f(x)=a\\cdot b^x$$ durch $$(0|{${:a}})$$ und $$(1|{${:y1}})$$",
+            "answer": "$$a=f(0)=${:a}$$ und $$b=\\dfrac{f(1)}{f(0)}=\\dfrac{${:y1}}{${:a}}=${:BV[:i]}$$, also $$f(x)=\\color{red}{${:a==1?''::a+'\\cdot '}${:BT[:i]}^x}$$",
+            "value": ["${:a==1?''::a+'\\cdot '}${:BT[:i]}^x","${:a==1?''::a+'\\cdot '}${:B[:i]}^x","${:a==1?''::a+'\\cdot '}${String(:B[:i]).replace('.',',')}^x","f(x)=${:a==1?''::a+'\\cdot '}${:BT[:i]}^x","f(x)=${:a==1?''::a+'\\cdot '}${:B[:i]}^x"]
+        },
+        {
+            "name": "Wachstumsfaktor aus zwei Funktionswerten",
+            "vars": {"i":"0_5","m":"1_5","n":"1_3","f1":"${:i==5?8*:m:(:m)}","f2":"${:f1*:B[:i]}"},
+            "question": "Für eine Exponentialfunktion $$f(x)=a\\cdot b^x$$ gilt $$f(${:n})=${:f1}$$ und $$f(${:n+1})=${:f2}$$. Bestimme $$b$$.",
+            "shortq": "$$f(${:n})=${:f1}$$, $$f(${:n+1})=${:f2}$$: $$b=?$$",
+            "answer": "Erhöht man $$x$$ um 1, wird der Funktionswert mit $$b$$ multipliziert: $$b=\\dfrac{${:f2}}{${:f1}}=\\color{red}{${:BV[:i]}}$$",
+            "value": ["${:BV[:i]}","${:B[:i]}","${String(:B[:i]).replace('.',',')}"]
+        },
+        {
+            "name": "Nächsten oder vorherigen Funktionswert bestimmen",
+            "vars": {"i":"0_5","m":"1_6","n":"2_6","t":"0_1","fn":"${:i==5?(:t==1?2*:m:(:m)):(:t==1?(:m):(:m)*:B[:i])}","g":"${:t==1?:fn*:B[:i]::fn/:B[:i]}"},
+            "question": "Für $$f(x)=a\\cdot ${:BT[:i]}^x$$ gilt $$f(${:n})=${:fn}$$. Berechne $$f(${:t==1?:n+1::n-1})$$.",
+            "shortq": "$$f(x)=a\\cdot ${:BT[:i]}^x$$, $$f(${:n})=${:fn}$$: $$f(${:t==1?:n+1::n-1})=?$$",
+            "answer": "${:t==1?'Erhöht man $$x$$ um 1, wird mit $$'+:BV[:i]+'$$ multipliziert':'Verringert man $$x$$ um 1, wird durch $$'+:BV[:i]+'$$ geteilt'}: $$f(${:t==1?:n+1::n-1})=\\color{red}{${:g}}$$",
+            "value": "${:g}"
+        },
+        {
+            "name": "Basis aus Anfangswert und Funktionswert",
+            "vars": {"i":"0_5","m":"1_5","a":"${:i==5?4*:m:(:m)}","y2":"${:a*:B[:i]*:B[:i]}"},
+            "question": "Eine Exponentialfunktion $$f(x)=${:a==1?''::a+'\\cdot '}b^x$$ mit $$b>0$$ geht durch den Punkt $$P(2|{${:y2}})$$. Bestimme $$b$$.",
+            "shortq": "$$f(x)=${:a==1?''::a+'\\cdot '}b^x$$, $$P(2|{${:y2}})$$: $$b=?$$",
+            "answer": "$$${:a==1?''::a+'\\cdot '}b^2=${:y2}$$${:a==1?'':', also $$b^2='+MMmath.fractionSimplifiee(:y2,:a)+'$$'} und wegen $$b>0$$: $$b=\\color{red}{${:BV[:i]}}$$",
+            "value": ["${:BV[:i]}","${:B[:i]}","${String(:B[:i]).replace('.',',')}"]
+        }
+    ]
+}

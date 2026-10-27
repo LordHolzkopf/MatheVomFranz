@@ -1,0 +1,59 @@
+{
+    "title": "Zwischen Darstellungsformen quadratischer Funktionen wechseln",
+    "ID": "D10BA1",
+    "description": "quadratische Funktion, Parabel, Normalform, Scheitelpunktform, Produktform, faktorisierte Form, Linearfaktoren, Scheitelpunkt ablesen, Nullstellen ablesen, y-Achsenabschnitt, ausmultiplizieren, Darstellungsformen",
+    "dest": ["10BA"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["_","_","-","+","(",";","x²","x"],
+    "options": [
+        {
+            "name": "Scheitelpunkt aus der Scheitelpunktform ablesen",
+            "vars": {"a":[-3,-2,-1,1,2,3],"d":"-6_6_^0","e":"-8_8"},
+            "question": "Gib den Scheitelpunkt der Parabel mit $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$ an (Eingabe: $$x;y$$).",
+            "shortq": "$$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$: Scheitelpunkt?",
+            "answer": "$$f(x)=a(x-d)^2+e$$ hat den Scheitelpunkt $$S(d|e)$$, hier $$\\color{red}{S(${:d}|{${:e}})}$$.",
+            "value": ["(${:d}|${:e})","${:d};${:e}"]
+        },
+        {
+            "name": "Scheitelpunktform in Normalform umwandeln",
+            "vars": {"a":[-2,-1,1,2],"d":"-5_5_^0","e":"-6_6","B":"${-2*:a*:d}","C":"${:a*:d*:d+:e}"},
+            "question": "Schreibe $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$ in der Normalform $$f(x)=ax^2+bx+c$$.",
+            "shortq": "$$${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$ in Normalform",
+            "answer": "$$f(x)=${:a==1?'':MMmath.signIfOne(:a)+'('}x^2${MMmath.signedNumberButOne(-2*:d)}x${MMmath.signedNumber(:d*:d)}${:a==1?'':')'}${MMmath.signedNumber(:e)}=\\color{red}{${MMmath.signIfOne(:a)}x^2${MMmath.signedNumberButOne(:B)}x${MMmath.signedNumber(:C)}}$$",
+            "value": ["${MMmath.signIfOne(:a)}x^2${MMmath.signedNumberButOne(:B)}x${MMmath.signedNumber(:C)}","f(x)=${MMmath.signIfOne(:a)}x^2${MMmath.signedNumberButOne(:B)}x${MMmath.signedNumber(:C)}"]
+        },
+        {
+            "name": "Produktform in Normalform umwandeln",
+            "vars": {"a":[-1,1,1,2],"p":"-6_6_2_^&,0","B":"${-:a*(:p[0]+:p[1])}","C":"${:a*:p[0]*:p[1]}"},
+            "question": "Schreibe $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$ in der Normalform $$f(x)=ax^2+bx+c$$.",
+            "shortq": "$$${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$ in Normalform",
+            "answer": "$$f(x)=${:a==1?'x^2'+MMmath.signedNumberButOne(-:p[1])+'x'+MMmath.signedNumberButOne(-:p[0])+'x'+MMmath.signedNumber(:p[0]*:p[1]):MMmath.signIfOne(:a)+'(x^2'+(:p[0]+:p[1]==0?'':MMmath.signedNumberButOne(-(:p[0]+:p[1]))+'x')+MMmath.signedNumber(:p[0]*:p[1])+')'}=\\color{red}{${MMmath.signIfOne(:a)}x^2${:B==0?'':MMmath.signedNumberButOne(:B)+'x'}${MMmath.signedNumber(:C)}}$$",
+            "value": ["${MMmath.signIfOne(:a)}x^2${:B==0?'':MMmath.signedNumberButOne(:B)+'x'}${MMmath.signedNumber(:C)}","f(x)=${MMmath.signIfOne(:a)}x^2${:B==0?'':MMmath.signedNumberButOne(:B)+'x'}${MMmath.signedNumber(:C)}"]
+        },
+        {
+            "name": "Nullstellen aus der Produktform ablesen",
+            "vars": {"a":[-3,-2,-1,1,2,3],"p":"-7_7_2_^&,0"},
+            "question": "Gib die Nullstellen von $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$ an (Eingabe: $$x_1;x_2$$).",
+            "shortq": "Nullstellen von $$${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$",
+            "answer": "Ein Produkt ist null, wenn ein Faktor null ist: $$\\color{red}{x_1=${Math.min(:p[0],:p[1])}}$$ und $$\\color{red}{x_2=${Math.max(:p[0],:p[1])}}$$.",
+            "value": ["${Math.min(:p[0],:p[1])};${Math.max(:p[0],:p[1])}","${Math.max(:p[0],:p[1])};${Math.min(:p[0],:p[1])}"]
+        },
+        {
+            "name": "y-Achsenabschnitt bestimmen",
+            "vars": {"a":[-2,-1,1,2],"d":"-5_5_^0","e":"-6_6","p":"-5_5_2_^&,0"},
+            "question": ["In welchem Punkt $$(0|y)$$ schneidet der Graph von $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$ die y-Achse? Gib $$y$$ an.","In welchem Punkt $$(0|y)$$ schneidet der Graph von $$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$ die y-Achse? Gib $$y$$ an."],
+            "shortq": ["$$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$: $$f(0)=?$$","$$f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:p[0])})(x${MMmath.signedNumber(-:p[1])})$$: $$f(0)=?$$"],
+            "answer": ["$$f(0)=${MMmath.signIfOne(:a)}${MMmath.nP(-:d)}^2${MMmath.signedNumber(:e)}=\\color{red}{${:a*:d*:d+:e}}$$","$$f(0)=${:a==1?'':(:a==-1?'-'::a+'\\cdot ')}${MMmath.nP(-:p[0])}\\cdot${MMmath.nP(-:p[1])}=\\color{red}{${:a*:p[0]*:p[1]}}$$"],
+            "value": ["${:a*:d*:d+:e}","${:a*:p[0]*:p[1]}"]
+        },
+        {
+            "name": "Scheitelpunkt aus der Produktform bestimmen",
+            "vars": {"m":"-4_4","h":"1_4","p0":"${:m-:h}","p1":"${:m+:h}","a":[-1,1,2]},
+            "question": "Bestimme den Scheitelpunkt der Parabel mit $$f(x)=${MMmath.signIfOne(:a)}${:p1==0?'x(x'+MMmath.signedNumber(-:p0)+')':(:p0==0?'x':'(x'+MMmath.signedNumber(-:p0)+')')+'(x'+MMmath.signedNumber(-:p1)+')'}$$ (Eingabe: $$x;y$$).",
+            "shortq": "$$f(x)=${MMmath.signIfOne(:a)}${:p1==0?'x(x'+MMmath.signedNumber(-:p0)+')':(:p0==0?'x':'(x'+MMmath.signedNumber(-:p0)+')')+'(x'+MMmath.signedNumber(-:p1)+')'}$$: Scheitelpunkt?",
+            "answer": "Der Scheitelpunkt liegt mittig zwischen den Nullstellen $$${:p0}$$ und $$${:p1}$$: $$x_S=${:m}$$.<br>$$f(${:m})=${:a==1?'':(:a==-1?'-'::a+'\\cdot ')}${:h}\\cdot(${-:h})=${-:a*:h*:h}$$, also $$\\color{red}{S(${:m}|{${-:a*:h*:h}})}$$",
+            "value": ["(${:m}|${-:a*:h*:h})","${:m};${-:a*:h*:h}"]
+        }
+    ]
+}

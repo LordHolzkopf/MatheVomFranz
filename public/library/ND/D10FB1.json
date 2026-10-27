@@ -1,0 +1,67 @@
+{
+    "title": "Parameter der Sinusfunktion bestimmen und deuten",
+    "ID": "D10FB1",
+    "description": "Sinusfunktion, trigonometrische Funktion, f(x)=a·sin(bx)+d, Amplitude, Periode, Periodenlänge, Verschiebung in y-Richtung, Mittellinie, Maximum, Minimum, Wertebereich, Parameter, Funktionsgleichung aufstellen",
+    "dest": ["10FB"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["/","*","-","+","(","x","pi","_"],
+    "consts": {
+        "BT": ["","2","3","4","\\frac{1}{2}","\\frac{1}{3}","\\pi","\\frac{\\pi}{2}","\\frac{\\pi}{3}","\\frac{\\pi}{4}","\\frac{\\pi}{6}"],
+        "BV": ["1","2","3","4","\\frac{1}{2}","\\frac{1}{3}","\\pi","\\frac{\\pi}{2}","\\frac{\\pi}{3}","\\frac{\\pi}{4}","\\frac{\\pi}{6}"],
+        "P": ["2\\pi","\\pi","\\frac{2\\pi}{3}","\\frac{\\pi}{2}","4\\pi","6\\pi","2","4","6","8","12"],
+        "XT": [["0","\\frac{\\pi}{2}","\\pi","\\frac{3\\pi}{2}","2\\pi"],["0","\\frac{\\pi}{4}","\\frac{\\pi}{2}","\\frac{3\\pi}{4}","\\pi"]],
+        "SV": [0,1,0,-1,0]
+    },
+    "options": [
+        {
+            "name": "Amplitude ablesen",
+            "vars": {"a":"-5_5_^0","i":"0_10","d":"-3_3"},
+            "question": "Gib die Amplitude der Funktion $$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$ an.",
+            "shortq": "Amplitude von $$${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$",
+            "answer": "Die Amplitude ist $$|a|=|{${:a}}|=\\color{red}{${Math.abs(:a)}}$$",
+            "value": "${Math.abs(:a)}"
+        },
+        {
+            "name": "Periode bestimmen",
+            "vars": {"a":"-4_4_^0","i":"0_10","d":"-3_3"},
+            "question": "Gib die Periodenlänge der Funktion $$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$ an.",
+            "shortq": "Periode von $$${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$",
+            "answer": "$$p=\\dfrac{2\\pi}{b}=\\dfrac{2\\pi}{${:BV[:i]}}=\\color{red}{${:P[:i]}}$$",
+            "value": "${:P[:i]}"
+        },
+        {
+            "name": "Faktor b aus der Periode bestimmen",
+            "vars": {"i":"0_10","a":"1_4","d":"-3_3"},
+            "question": "Die Funktion $$f(x)=${MMmath.signIfOne(:a)}\\sin(b\\,x)${MMmath.signedNumber(:d)}$$ mit $$b>0$$ hat die Periodenlänge $$p=${:P[:i]}$$. Bestimme $$b$$.",
+            "shortq": "$$${MMmath.signIfOne(:a)}\\sin(b\\,x)${MMmath.signedNumber(:d)}$$ mit $$p=${:P[:i]}$$: $$b=?$$",
+            "answer": "$$b=\\dfrac{2\\pi}{p}=\\dfrac{2\\pi}{${:P[:i]}}=\\color{red}{${:BV[:i]}}$$",
+            "value": "${:BV[:i]}"
+        },
+        {
+            "name": "Größten und kleinsten Funktionswert bestimmen",
+            "vars": {"a":"-5_5_^0","i":"0_10","d":"-4_4"},
+            "question": ["Bestimme den größten Funktionswert von $$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$.","Bestimme den kleinsten Funktionswert von $$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$."],
+            "shortq": ["Maximum von $$${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$","Minimum von $$${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$"],
+            "answer": ["Der Sinus nimmt Werte von $$-1$$ bis $$1$$ an: größter Wert $$d+|a|=${:d}+${Math.abs(:a)}=\\color{red}{${:d+Math.abs(:a)}}$$","Der Sinus nimmt Werte von $$-1$$ bis $$1$$ an: kleinster Wert $$d-|a|=${:d}-${Math.abs(:a)}=\\color{red}{${:d-Math.abs(:a)}}$$"],
+            "value": ["${:d+Math.abs(:a)}","${:d-Math.abs(:a)}"]
+        },
+        {
+            "name": "Funktionswert an besonderen Stellen",
+            "vars": {"a":"-5_5_^0","b":"1_2","k":"1_4","d":"-3_3","i":"${:b-1}","y":"${:a*:SV[:k]+:d}"},
+            "question": "Berechne $$f\\left(${:XT[:b-1][:k]}\\right)$$ für $$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$.",
+            "shortq": "$$f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}$$, $$f\\left(${:XT[:b-1][:k]}\\right)=?$$",
+            "answer": "$$f\\left(${:XT[:b-1][:k]}\\right)=${:a}\\cdot\\sin\\left(${:ARG[:k]}\\right)${MMmath.signedNumber(:d)}=${:a}\\cdot${MMmath.nP(:SV[:k])}${MMmath.signedNumber(:d)}=\\color{red}{${:y}}$$",
+            "value": "${:y}",
+            "consts": {"ARG":["0","\\frac{\\pi}{2}","\\pi","\\frac{3\\pi}{2}","2\\pi"]}
+        },
+        {
+            "name": "Funktionsgleichung aus Amplitude, Periode und Verschiebung",
+            "vars": {"a":"1_5","i":"0_10","d":"-4_4_^0"},
+            "question": "Eine Funktion $$f(x)=a\\sin(b\\,x)+d$$ mit $$a>0$$ und $$b>0$$ hat die Amplitude $$${:a}$$ und die Periodenlänge $$${:P[:i]}$$. Ihr Graph ist gegenüber dem Graphen von $$a\\sin(b\\,x)$$ um $$${Math.abs(:d)}$$ nach ${:d>0?'oben':'unten'} verschoben. Gib die Funktionsgleichung an.",
+            "shortq": "Amplitude $$${:a}$$, Periode $$${:P[:i]}$$, $$${Math.abs(:d)}$$ nach ${:d>0?'oben':'unten'}",
+            "answer": "$$a=${:a}$$, $$b=\\dfrac{2\\pi}{${:P[:i]}}=${:BV[:i]}$$, $$d=${:d}$$<br>$$f(x)=\\color{red}{${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}}$$",
+            "value": ["${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}","f(x)=${MMmath.signIfOne(:a)}\\sin\\left({${:BT[:i]}}x\\right)${MMmath.signedNumber(:d)}"]
+        }
+    ]
+}

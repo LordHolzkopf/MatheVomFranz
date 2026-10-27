@@ -1,0 +1,54 @@
+{
+    "title": "Funktionsgleichungen quadratischer Funktionen aufstellen",
+    "ID": "D9BE1",
+    "description": "quadratische Funktion, Parabel, Funktionsgleichung aufstellen, Scheitelpunktform, Scheitelpunkt, Streckfaktor bestimmen, verschieben, strecken, spiegeln, Parameter deuten, Sachkontext, Wurfparabel",
+    "dest": ["9BE"],
+    "type": "text",
+    "textSize": "medium",
+    "keys": ["/","_","-","+","(","x","x²","_"],
+    "consts": {"A":[-3,-2,-1,1,2,3,0.5,-0.5],"AT":["-3","-2","-","","2","3","\\frac{1}{2}","-\\frac{1}{2}"]},
+    "options": [
+        {
+            "name": "Normalparabel mit gegebenem Scheitelpunkt",
+            "vars": {"s":[1,-1],"d":"-5_5_^0","e":"-6_6"},
+            "question": "Eine ${:s==1?'nach oben':'nach unten'} geöffnete Normalparabel hat den Scheitelpunkt $$S(${:d}|{${:e}})$$. Gib ihre Funktionsgleichung in Scheitelpunktform an.",
+            "shortq": "Normalparabel, ${:s==1?'nach oben':'nach unten'} geöffnet, $$S(${:d}|{${:e}})$$",
+            "answer": "$$f(x)=\\color{red}{${:s==1?'':'-'}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}}$$",
+            "value": ["${:s==1?'':'-'}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","f(x)=${:s==1?'':'-'}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","${:s==1?'':'-'}x^2${MMmath.signedNumberButOne(-2*:s*:d)}x${MMmath.signedNumber(:s*:d*:d+:e)}"]
+        },
+        {
+            "name": "Gleichung aus Strecken, Spiegeln und Verschieben",
+            "vars": {"i":"0_7","d":"-5_5_^0","e":"-6_6_^0","a":"${:A[:i]}"},
+            "question": "Die Normalparabel wird ${Math.abs(:a)==1?'':(Math.abs(:a)>1?'mit dem Faktor $$'+Math.abs(:a)+'$$ in y-Richtung gestreckt, ':'mit dem Faktor $$\\frac{1}{2}$$ in y-Richtung gestaucht, ')}${:a<0?'an der x-Achse gespiegelt, ':''}um $$${Math.abs(:d)}$$ nach ${:d>0?'rechts':'links'} und um $$${Math.abs(:e)}$$ nach ${:e>0?'oben':'unten'} verschoben. Gib die neue Funktionsgleichung in Scheitelpunktform an.",
+            "shortq": "Normalparabel: ${Math.abs(:a)==1?'':'Faktor $$'+(Math.abs(:a)==0.5?'\\frac{1}{2}':Math.abs(:a))+'$$, '}${:a<0?'gespiegelt, ':''}$$${Math.abs(:d)}$$ nach ${:d>0?'rechts':'links'}, $$${Math.abs(:e)}$$ nach ${:e>0?'oben':'unten'}",
+            "answer": "Streckfaktor $$a=${:AT[:i]==''?'1':(:AT[:i]=='-'?'-1'::AT[:i])}$$, Scheitelpunkt $$S(${:d}|{${:e}})$$:<br>$$f(x)=\\color{red}{${:AT[:i]}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}}$$",
+            "value": ["${:AT[:i]}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","${String(MMmath.signIfOne(:a)).replace('.',',')}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","f(x)=${:AT[:i]}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}","f(x)=${MMmath.signIfOne(:a)}(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}"]
+        },
+        {
+            "name": "Streckfaktor aus Scheitelpunkt und Punkt bestimmen",
+            "vars": {
+                "i": "0_7",
+                "hh": [-2,-1,1,2],
+                "h": "${:i>5?2*Math.sign(:hh):(:hh)}",
+                "d": "-4_4_^0",
+                "e": "-6_6",
+                "a": "${:A[:i]}",
+                "px": "${:d+:h}",
+                "py": "${:e+:a*:h*:h}"
+            },
+            "question": "Eine Parabel hat den Scheitelpunkt $$S(${:d}|{${:e}})$$ und geht durch den Punkt $$P(${:px}|{${:py}})$$. Bestimme den Streckfaktor $$a$$ in $$f(x)=a(x${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$.",
+            "shortq": "$$S(${:d}|{${:e}})$$, $$P(${:px}|{${:py}})$$: $$a=?$$",
+            "answer": "$$${:py}=a\\cdot(${:px}${MMmath.signedNumber(-:d)})^2${MMmath.signedNumber(:e)}$$<br>$$${:py-:e}=${:h*:h==1?''::h*:h}a$$, also $$a=\\color{red}{${:AT[:i]==''?'1':(:AT[:i]=='-'?'-1'::AT[:i])}}$$",
+            "value": ["${:a}","${String(:a).replace('.',',')}","${:AT[:i]==''?'1':(:AT[:i]=='-'?'-1'::AT[:i])}"]
+        },
+        {
+            "name": "Parameter im Sachkontext deuten (Wurfparabel)",
+            "consts": {"K":[0.1,0.2,0.25,0.5]},
+            "vars": {"k":"0_3","d":"2_9","e":"3_12","a":"${:K[:k]}"},
+            "question": ["Die Flugbahn eines Balls wird beschrieben durch $$h(x)=-${:a}(x-${:d})^2+${:e}$$ ($$x$$: waagerechte Entfernung, $$h(x)$$: Höhe, beides in m). Wie hoch fliegt der Ball höchstens (in m)?","Die Flugbahn eines Balls wird beschrieben durch $$h(x)=-${:a}(x-${:d})^2+${:e}$$ ($$x$$: waagerechte Entfernung, $$h(x)$$: Höhe, beides in m). In welcher waagerechten Entfernung erreicht der Ball seine größte Höhe (in m)?"],
+            "shortq": ["$$h(x)=-${:a}(x-${:d})^2+${:e}$$: größte Höhe?","$$h(x)=-${:a}(x-${:d})^2+${:e}$$: Entfernung beim höchsten Punkt?"],
+            "answer": ["Der Scheitelpunkt ist $$S(${:d}|{${:e}})$$, der höchste Punkt. Größte Höhe: $$\\color{red}{${:e}}$$ m","Der Scheitelpunkt ist $$S(${:d}|{${:e}})$$, der höchste Punkt. Entfernung: $$\\color{red}{${:d}}$$ m"],
+            "value": ["${:e}","${:d}"]
+        }
+    ]
+}

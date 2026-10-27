@@ -1,0 +1,57 @@
+{
+    "title": "Lösungsmengen linearer Gleichungssysteme deuten",
+    "ID": "D8EC1",
+    "description": "lineares Gleichungssystem, LGS, Anzahl der Lösungen, keine Lösung, genau eine Lösung, unendlich viele Lösungen, parallele Geraden, identische Geraden, Schnittpunkt, Lösungsmenge",
+    "dest": ["8EC"],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Anzahl der Lösungen bestimmen (Form ax+by=c)",
+            "vars": {
+                "t": "0_2",
+                "a": "1_4",
+                "b": "-4_4_^0",
+                "x0": "-4_4",
+                "y0": "-4_4",
+                "c": "${:a*:x0+:b*:y0}",
+                "k": [-2,2,3],
+                "s": "-2_2_^0,${-:k*:b}",
+                "e": "-3_3_^0",
+                "d": "${:k*:a}",
+                "f": "${:t==1?:k*:b+:s::k*:b}",
+                "g": "${:t==0?:k*:c+:e::d*:x0+:f*:y0}"
+            },
+            "question": "Wie viele Lösungen hat das Gleichungssystem?<br>$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:d)}x${MMmath.signedNumberButOne(:f)}y&=${:g}\\end{aligned}$$<br>(A) keine &nbsp; (B) genau eine &nbsp; (C) unendlich viele",
+            "shortq": "$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:d)}x${MMmath.signedNumberButOne(:f)}y&=${:g}\\end{aligned}$$ Anzahl der Lösungen?",
+            "answer": "${:t==1?'Die linken Seiten sind keine Vielfachen voneinander, die Geraden schneiden sich in einem Punkt: <span class=\"red\">(B) genau eine Lösung</span>, nämlich $$('+:x0+'|{'+:y0+'})$$.':'Die erste Gleichung mal $$'+:k+'$$ ergibt $$'+MMmath.signIfOne(:d)+'x'+MMmath.signedNumberButOne(:k*:b)+'y='+(:k*:c)+'$$. '+(:t==0?'Die rechten Seiten sind verschieden, die Geraden sind parallel: <span class=\"red\">(A) keine Lösung</span>.':'Die Gleichungen sind gleichwertig, die Geraden sind identisch: <span class=\"red\">(C) unendlich viele Lösungen</span>.')}",
+            "value": "${['A','B','C'][:t]}",
+            "keys": ["a","b","c","_","_","_","_","_"]
+        },
+        {
+            "name": "Anzahl der Lösungen bestimmen (Geradengleichungen)",
+            "vars": {"t":"0_2","m1":"-3_3_^0","n1":"-5_5","k":"2_3","dm":"-2_2_^0,${-:m1}","dn":"-4_4_^0","m2":"${:t==1?:m1+:dm::m1}","n2":"${:t==2?:n1::n1+:dn}"},
+            "question": "Wie viele Lösungen hat das Gleichungssystem?<br>$$\\begin{aligned} y&=${MMmath.signIfOne(:m1)}x${MMmath.signedNumber(:n1)}\\\\ ${:k}y&=${MMmath.signIfOne(:k*:m2)}x${MMmath.signedNumber(:k*:n2)}\\end{aligned}$$<br>(A) keine &nbsp; (B) genau eine &nbsp; (C) unendlich viele",
+            "shortq": "$$\\begin{aligned} y&=${MMmath.signIfOne(:m1)}x${MMmath.signedNumber(:n1)}\\\\ ${:k}y&=${MMmath.signIfOne(:k*:m2)}x${MMmath.signedNumber(:k*:n2)}\\end{aligned}$$ Anzahl der Lösungen?",
+            "answer": "Zweite Gleichung durch $$${:k}$$: $$y=${MMmath.signIfOne(:m2)}x${MMmath.signedNumber(:n2)}$$<br>${:t==1?'Verschiedene Steigungen, die Geraden schneiden sich: <span class=\"red\">(B) genau eine Lösung</span>.':(:t==0?'Gleiche Steigung, verschiedene y-Achsenabschnitte, die Geraden sind parallel: <span class=\"red\">(A) keine Lösung</span>.':'Beide Gleichungen beschreiben dieselbe Gerade: <span class=\"red\">(C) unendlich viele Lösungen</span>.')}",
+            "value": "${['A','B','C'][:t]}",
+            "keys": ["a","b","c","_","_","_","_","_"]
+        },
+        {
+            "name": "Koeffizient so wählen, dass es keine Lösung gibt",
+            "vars": {"a":"1_4","b":"-4_4_^0","c":"-9_9","k":[-3,-2,2,3,4],"e":"-3_3_^0","d":"${:k*:a}","g":"${:k*:c+:e}"},
+            "question": "Für welche Zahl $$p$$ hat das Gleichungssystem keine Lösung?<br>$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:d)}x+p\\,y&=${:g}\\end{aligned}$$",
+            "shortq": "$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:d)}x+p\\,y&=${:g}\\end{aligned}$$ keine Lösung für $$p=?$$",
+            "answer": "Die linke Seite der zweiten Gleichung muss das $$${:k}$$-Fache der ersten sein: $$p=${:k}\\cdot${MMmath.nP(:b)}=\\color{red}{${:k*:b}}$$.<br>Wegen $$${:k}\\cdot${MMmath.nP(:c)}=${:k*:c}\\neq${:g}$$ sind die Geraden dann parallel.",
+            "value": "${:k*:b}"
+        },
+        {
+            "name": "Rechte Seite so wählen, dass es unendlich viele Lösungen gibt",
+            "vars": {"a":"1_4","b":"-4_4_^0","c":"-9_9","k":[-3,-2,2,3,4]},
+            "question": "Für welche Zahl $$r$$ hat das Gleichungssystem unendlich viele Lösungen?<br>$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:k*:a)}x${MMmath.signedNumberButOne(:k*:b)}y&=r\\end{aligned}$$",
+            "shortq": "$$\\begin{aligned} ${MMmath.signIfOne(:a)}x${MMmath.signedNumberButOne(:b)}y&=${:c}\\\\ ${MMmath.signIfOne(:k*:a)}x${MMmath.signedNumberButOne(:k*:b)}y&=r\\end{aligned}$$ unendlich viele Lösungen für $$r=?$$",
+            "answer": "Die zweite Gleichung muss das $$${:k}$$-Fache der ersten sein: $$r=${:k}\\cdot${MMmath.nP(:c)}=\\color{red}{${:k*:c}}$$",
+            "value": "${:k*:c}"
+        }
+    ]
+}

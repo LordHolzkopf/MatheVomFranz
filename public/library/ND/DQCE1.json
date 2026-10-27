@@ -1,0 +1,115 @@
+{
+    "ID": "DQCE1",
+    "dest": [
+        "QCE"
+    ],
+    "title": "Beliebige Exponentialfunktionen ableiten",
+    "description": "Ableitung von b^x, Ableitung von a^x, beliebige Basis, natürlicher Logarithmus, b^x = e^(x·ln b), Umschreiben in e-Funktion, Kettenregel, Steigung, Leistungskurs",
+    "type": "text",
+    "textSize": "medium",
+    "repeat": true,
+    "keys": [
+        "/",
+        "ln",
+        "-",
+        "+",
+        "(",
+        "x",
+        "^",
+        "e"
+    ],
+    "options": [
+        {
+            "name": "Ableitung von bˣ",
+            "vars": {
+                "b": [
+                    2,
+                    3,
+                    5,
+                    6,
+                    7,
+                    10
+                ]
+            },
+            "question": "Gib die Ableitung von $$f(x)=${:b}^x$$ an.",
+            "answer": "$$${:b}^x=e^{x\\ln(${:b})}$$, also $$f'(x)=\\color{red}{\\ln(${:b})\\cdot ${:b}^x}$$",
+            "value": [
+                "\\ln(${:b})\\cdot ${:b}^{x}",
+                "${:b}^{x}\\cdot\\ln(${:b})"
+            ]
+        },
+        {
+            "name": "Ableitung von c·bˣ",
+            "vars": {
+                "b": [
+                    2,
+                    3,
+                    5,
+                    6,
+                    7
+                ],
+                "c": "-5_5_^-1,0,1"
+            },
+            "question": "Gib die Ableitung von $$f(x)=${:c}\\cdot ${:b}^x$$ an.",
+            "answer": "$$f'(x)=${:c}\\cdot\\ln(${:b})\\cdot ${:b}^x=\\color{red}{${:c}\\ln(${:b})\\cdot ${:b}^x}$$",
+            "value": [
+                "${:c}\\ln(${:b})\\cdot ${:b}^{x}",
+                "${:c}\\cdot${:b}^{x}\\cdot\\ln(${:b})"
+            ]
+        },
+        {
+            "name": "bˣ als e-Funktion schreiben",
+            "vars": {
+                "b": [
+                    2,
+                    3,
+                    5,
+                    6,
+                    7,
+                    10
+                ]
+            },
+            "question": "Es gilt $$${:b}^x=e^{kx}$$. Gib $$k$$ exakt an.",
+            "answer": "$$${:b}=e^{\\ln(${:b})}$$, also $$${:b}^x=\\left(e^{\\ln(${:b})}\\right)^x=e^{\\ln(${:b})\\cdot x}$$ und $$k=\\color{red}{\\ln(${:b})}$$",
+            "value": [
+                "\\ln(${:b})",
+                "\\ln${:b}"
+            ]
+        },
+        {
+            "name": "Steigung an einer Stelle",
+            "vars": {
+                "b": [
+                    2,
+                    3,
+                    5
+                ],
+                "n": "0_3",
+                "p": "${Math.pow(:b,:n)}"
+            },
+            "question": "Berechne für $$f(x)=${:b}^x$$ die Steigung $$f'(${:n})$$ exakt.",
+            "answer": "$$f'(x)=\\ln(${:b})\\cdot ${:b}^x$$<br>$$f'(${:n})=\\ln(${:b})\\cdot ${:b}^{${:n}}=\\color{red}{${:p==1 ? '' : :p}\\ln(${:b})}$$",
+            "value": [
+                "${:p==1 ? '' : :p}\\ln(${:b})",
+                "${:p==1 ? '' : :p}\\ln${:b}"
+            ]
+        },
+        {
+            "name": "Ableitung von b hoch kx",
+            "vars": {
+                "b": [
+                    2,
+                    3,
+                    5
+                ],
+                "k": "2_3"
+            },
+            "question": "Gib die Ableitung von $$f(x)=${:b}^{${:k}x}$$ an.",
+            "answer": "$$${:b}^{${:k}x}=e^{${:k}x\\ln(${:b})}$$, also $$f'(x)=\\color{red}{${:k}\\ln(${:b})\\cdot ${:b}^{${:k}x}}$$",
+            "value": [
+                "${:k}\\ln(${:b})\\cdot ${:b}^{${:k}x}",
+                "${:k}\\cdot${:b}^{${:k}x}\\cdot\\ln(${:b})"
+            ]
+        }
+    ]
+}

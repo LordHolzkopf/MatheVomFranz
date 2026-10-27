@@ -1,0 +1,78 @@
+{
+    "ID":"DQAA1",
+    "dest":["QAA"],
+    "title":"Ganzrationale Funktionen untersuchen (Wiederholung)",
+    "description":"Funktionsuntersuchung, Kurvendiskussion, Hochpunkt, Tiefpunkt, Extrempunkt, Extremstelle, Wendepunkt, Wendestelle, Symmetrie, achsensymmetrisch, punktsymmetrisch, Nullstellen, ganzrationale Funktion, Ableitung, notwendige und hinreichende Bedingung",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "options":[{
+        "name":"Hochpunkt bestimmen",
+        "vars":{
+            "a":"1_4",
+            "k":[1,-1,2,-2],
+            "c":"-6_6",
+            "xh":"${:k>0 ? -:a : :a}",
+            "f":"${MMmath.calc(:k+'*x^3+('+(-3*:k*:a*:a)+')*x+('+:c+')')}",
+            "fs":"${MMmath.calc((3*:k)+'*x^2+('+(-3*:k*:a*:a)+')')}"
+        },
+        "question":"Gegeben ist $$f(x)=${:f}$$. Gib die $$x$$-Koordinate des Hochpunkts an.",
+        "answer":"$$f'(x)=${:fs}=0\\;\\Rightarrow\\;x=\\pm ${:a}$$<br>$$f''(x)=${MMmath.calc((6*:k)+'*x')}$$, $$f''(${:xh})=${6*:k*:xh}<0$$, also $$x_H=\\color{red}{${:xh}}$$",
+        "value":"${:xh}"
+    },{
+        "name":"Tiefpunkt bestimmen (y-Koordinate)",
+        "vars":{
+            "a":"1_3",
+            "s":[1,-1],
+            "c":"-5_9",
+            "xt":"${:s*:a}",
+            "yt":"${:c-2*:a*:a*:a}",
+            "f":"${MMmath.calc(:s+'*x^3+('+(-3*:s*:a*:a)+')*x+('+:c+')')}",
+            "fs":"${MMmath.calc((3*:s)+'*x^2+('+(-3*:s*:a*:a)+')')}"
+        },
+        "question":"Gegeben ist $$f(x)=${:f}$$. Gib die $$y$$-Koordinate des Tiefpunkts an.",
+        "answer":"$$f'(x)=${:fs}=0\\;\\Rightarrow\\;x=\\pm ${:a}$$<br>$$f''(${:xt})=${6*:a}>0$$, also Tiefpunkt bei $$x=${:xt}$$:<br>$$f(${:xt})=\\color{red}{${:yt}}$$",
+        "value":"${:yt}"
+    },{
+        "name":"Wendestelle bestimmen",
+        "vars":{
+            "a":[1,-1,2,-2],
+            "w":"-3_3",
+            "b":"${-3*:a*:w}",
+            "c":"-6_6",
+            "d":"-6_6",
+            "f":"${MMmath.calc(:a+'*x^3+('+:b+')*x^2+('+:c+')*x+('+:d+')')}",
+            "fss":"${MMmath.calc((6*:a)+'*x+('+(2*:b)+')')}"
+        },
+        "question":"Gegeben ist $$f(x)=${:f}$$. Gib die Wendestelle von $$f$$ an.",
+        "answer":"$$f''(x)=${:fss}=0\\;\\Rightarrow\\;x=\\color{red}{${:w}}$$<br>(hinreichend, da $$f'''(x)=${6*:a}\\neq0$$)",
+        "value":"${:w}"
+    },{
+        "name":"Symmetrie erkennen",
+        "vars":{
+            "typ":"0_6",
+            "q":"0_1",
+            "p":"-5_5_^0",
+            "r":"-5_5_^0",
+            "t":"-5_5_^0",
+            "f":"${[MMmath.calc(:p+'*x^4+('+:r+')*x^2+('+:t+')'), MMmath.calc(:p+'*x^4+('+:r+')*x^2'), MMmath.calc(:p+'*x^3+('+:r+')*x'), MMmath.calc(:p+'*x^5+('+:r+')*x'), MMmath.calc(:p+'*x^3+('+:r+')*x+('+:t+')'), MMmath.calc(:p+'*x^4+('+:r+')*x^3'), MMmath.calc(:p+'*x^2+('+:r+')*x')][:typ]}",
+            "sym":"${:typ<2 ? 'y' : (:typ<4 ? 'u' : 'k')}",
+            "ja":"${(:q==0 && :sym=='y') || (:q==1 && :sym=='u')}"
+        },
+        "question":"Ist der Graph von $$f(x)=${:f}$$ ${:q==0 ? 'achsensymmetrisch zur $$y$$-Achse' : 'punktsymmetrisch zum Ursprung'}?",
+        "answer":"${:sym=='y' ? 'Im Funktionsterm kommen nur gerade Exponenten vor'+(:typ==0 ? ' (die Konstante zählt als $$x^0$$)' : '')+', also ist der Graph achsensymmetrisch zur $$y$$-Achse.' : (:sym=='u' ? 'Im Funktionsterm kommen nur ungerade Exponenten vor, also ist der Graph punktsymmetrisch zum Ursprung.' : 'Im Funktionsterm kommen gerade und ungerade Exponenten vor'+(:typ==4 ? ' (die Konstante zählt als $$x^0$$)' : '')+', also ist der Graph weder achsensymmetrisch zur $$y$$-Achse noch punktsymmetrisch zum Ursprung.')}<br>Antwort: $$\\color{red}{\\text{${:ja ? 'ja' : 'nein'}}}$$",
+        "value":["${:ja ? '\\text{ja}' : '\\text{nein}'}","${:ja ? 'ja' : 'nein'}"],
+        "keys":["o","n"]
+    },{
+        "name":"Anzahl der Nullstellen",
+        "vars":{
+            "typ":"0_1",
+            "p":[-16,-9,-4,-1,1,4,9,16],
+            "f":"${:typ==0 ? MMmath.calc('x^3+('+:p+')*x') : MMmath.calc('x^4+('+:p+')*x^2')}",
+            "n":"${:p<0 ? 3 : 1}"
+        },
+        "question":"Wie viele Nullstellen hat die Funktion $$f(x)=${:f}$$?",
+        "answer":"$$f(x)=${:typ==0 ? 'x' : 'x^2'}\\left(x^2${MMmath.signedNumber(:p)}\\right)$$<br>${:p<0 ? '$$x^2='+(-:p)+'$$ liefert $$x=\\pm'+Math.sqrt(-:p)+'$$, dazu kommt $$x=0$$.' : '$$x^2='+(-:p)+'$$ hat keine Lösung, es bleibt nur $$x=0$$.'}<br>Anzahl der Nullstellen: $$\\color{red}{${:n}}$$",
+        "value":"${:n}"
+    }]
+}

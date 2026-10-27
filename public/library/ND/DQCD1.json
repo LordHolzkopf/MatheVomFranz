@@ -1,0 +1,83 @@
+{
+    "ID":"DQCD1",
+    "dest":["QCD"],
+    "title":"Wachstum und Zerfall beschreiben",
+    "description":"exponentielles Wachstum, exponentieller Zerfall, Verdopplungszeit, Halbwertszeit, prozentuale Zunahme, begrenztes Wachstum, Schranke, Sättigungsgrenze, momentane Änderungsrate, f'=k·f, Wachstumskonstante, e-Funktion",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/","ln"],
+    "options":[{
+        "name":"Verdopplungszeit",
+        "vars":{
+            "B0":[50,100,200,300,500],
+            "T":[2,3,4,5,6,8,10,12,20],
+            "n":"1_4",
+            "w":"${:B0*Math.pow(2,:n)}"
+        },
+        "question":"Eine Bakterienkultur besteht zu Beginn aus $$${:B0}$$ Bakterien. Ihre Anzahl verdoppelt sich alle $$${:T}$$ Stunden. Wie viele Bakterien sind es nach $$${:n*:T}$$ Stunden?",
+        "answer":"$$${:n*:T}\\text{ h}=${:n}\\cdot${:T}\\text{ h}$$, also $$${:n}$$-mal verdoppeln:<br>$$${:B0}\\cdot2^{${:n}}=${:B0}\\cdot${Math.pow(2,:n)}=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Halbwertszeit",
+        "vars":{
+            "k":"1_10",
+            "n":"1_4",
+            "r":"${5*:k}",
+            "m0":"${:r*Math.pow(2,:n)}",
+            "T":[3,5,8,10,12,20,25,30]
+        },
+        "question":"Ein radioaktives Präparat hat eine Halbwertszeit von $$${:T}$$ Jahren. Zu Beginn sind $$${:m0}\\text{ mg}$$ vorhanden. Wie viel mg sind nach $$${:n*:T}$$ Jahren noch vorhanden?",
+        "answer":"$$${:n*:T}$$ Jahre sind $$${:n}$$ Halbwertszeiten:<br>$$${:m0}\\cdot\\left(\\tfrac12\\right)^{${:n}}=\\dfrac{${:m0}}{${Math.pow(2,:n)}}=\\color{red}{${:r}}\\text{ mg}$$",
+        "value":"${:r}"
+    },{
+        "name":"Prozentuale Zu- und Abnahme über zwei Jahre",
+        "vars":{
+            "B0":[100,200,400,500,1000,2000],
+            "p":[10,20,30,40,50],
+            "zu":"0_1",
+            "q":"${MMmath.round(1+(:zu==1 ? 1 : -1)*:p/100,2)}",
+            "w":"${MMmath.round(:B0*:q*:q,6)}"
+        },
+        "question":"Ein Bestand von $$${:B0}$$ ${:zu==1 ? 'wächst' : 'nimmt'} jedes Jahr um $$${:p}\\,\\%$$${:zu==1 ? '' : ' ab'}. Wie groß ist er nach $$2$$ Jahren?",
+        "answer":"Wachstumsfaktor $$b=${String(:q).replace('.','{,}')}$$:<br>$$${:B0}\\cdot${String(:q).replace('.','{,}')}^2=${:B0}\\cdot${String(MMmath.round(:q*:q,4)).replace('.','{,}')}=\\color{red}{${String(:w).replace('.','{,}')}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Begrenztes Wachstum: Schranke und Anfangswert",
+        "vars":{
+            "S":[50,80,100,120,150,200],
+            "c":"${'1_'+(:S/10-1)}",
+            "cc":"${10*:c}",
+            "k":["0{,}1","0{,}2","0{,}5"]
+        },
+        "question":[
+            "Ein begrenztes Wachstum wird durch $$f(t)=${:S}-${:cc}\\,e^{-${:k}t}$$ beschrieben. Gib die Schranke (Sättigungsgrenze) an.",
+            "Ein begrenztes Wachstum wird durch $$f(t)=${:S}-${:cc}\\,e^{-${:k}t}$$ beschrieben. Gib den Anfangsbestand $$f(0)$$ an."
+        ],
+        "answer":[
+            "Für $$t\\to\\infty$$ gilt $$e^{-${:k}t}\\to0$$, also $$f(t)\\to\\color{red}{${:S}}$$.",
+            "$$f(0)=${:S}-${:cc}\\cdot e^0=${:S}-${:cc}=\\color{red}{${:S-:cc}}$$"
+        ],
+        "value":["${:S}","${:S-:cc}"]
+    },{
+        "name":"Momentane Änderungsrate aus dem Bestand",
+        "vars":{
+            "B":[50,100,200,300,400,500,1000],
+            "k":[0.02,0.05,0.1,0.2,0.5,-0.05,-0.1,-0.2],
+            "w":"${MMmath.round(:k*:B,6)}",
+            "kd":"${String(:k).replace('.','{,}')}"
+        },
+        "question":"Ein Bestand wird durch $$f(t)=a\\cdot e^{${:kd}t}$$ beschrieben. Zu einem Zeitpunkt beträgt der Bestand $$${:B}$$. Wie groß ist dort die momentane Änderungsrate?",
+        "answer":"$$f'(t)=${:kd}\\cdot a\\cdot e^{${:kd}t}=${:kd}\\cdot f(t)$$<br>An dieser Stelle: $$f'(t)=${:kd}\\cdot${:B}=\\color{red}{${String(:w).replace('.','{,}')}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Wachstumskonstante aus Verdopplungs- oder Halbwertszeit",
+        "vars":{
+            "T":"2_10",
+            "zu":"0_1"
+        },
+        "question":"Ein Bestand $$f(t)=a\\cdot e^{kt}$$ ($$t$$ in Jahren) hat die ${:zu==1 ? 'Verdopplungszeit' : 'Halbwertszeit'} $$${:T}$$ Jahre. Gib $$k$$ exakt an.",
+        "answer":"$$e^{k\\cdot${:T}}=${:zu==1 ? '2' : '\\tfrac12'}\\;\\Rightarrow\\;${:T}k=${:zu==1 ? '' : '-'}\\ln(2)\\;\\Rightarrow\\;k=\\color{red}{${:zu==1 ? '' : '-'}\\dfrac{\\ln(2)}{${:T}}}$$",
+        "value":["${:zu==1 ? '' : '-'}\\dfrac{\\ln(2)}{${:T}}","${:zu==1 ? '' : '-'}\\dfrac{\\ln2}{${:T}}","\\dfrac{${:zu==1 ? '' : '-'}\\ln(2)}{${:T}}","\\dfrac{${:zu==1 ? '' : '-'}\\ln2}{${:T}}","\\dfrac{\\ln(${:zu==1 ? '2' : '0.5'})}{${:T}}","\\dfrac{\\ln(${:zu==1 ? '2' : '\\frac{1}{2}'})}{${:T}}"]
+    }]
+}

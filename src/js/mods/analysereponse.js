@@ -188,6 +188,10 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
       // seulement si la réponse attendue contient π
       if (typeof goodAnswer === "string" && goodAnswer.includes("\\pi"))
         userAnswer = userAnswer.replace(/(?<!\\)pi/g, "\\pi ");
+      // de même pour ln, sin, cos, tan tapés en lettres
+      for (const fn of ["ln", "sin", "cos", "tan"])
+        if (typeof goodAnswer === "string" && goodAnswer.includes("\\" + fn))
+          userAnswer = userAnswer.replace(new RegExp("(?<![\\\\a-zA-Z])" + fn, "g"), "\\" + fn + " ");
       // MatheVomFranz : virgule décimale tapée au clavier (0,5 ou 0{,}5) → point,
       // sauf pour les couples et listes où la virgule peut séparer des valeurs
       userAnswer = userAnswer.replace(/(\d)\{,\}(\d)/g, "$1.$2");

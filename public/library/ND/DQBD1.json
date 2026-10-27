@@ -1,0 +1,79 @@
+{
+    "ID":"DQBD1",
+    "dest":["QBD"],
+    "title":"Flächeninhalte mit Integralen berechnen",
+    "description":"Flächeninhalt, Fläche unter einem Graphen, Fläche zwischen Graph und x-Achse, Fläche zwischen zwei Graphen, Schnittstellen, Integral und Flächeninhalt bei Vorzeichenwechsel, Mittelwert einer Funktion",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/"],
+    "options":[{
+        "name":"Fläche zwischen Parabel und x-Achse",
+        "vars":{
+            "a":"1_6",
+            "s":[1,-1],
+            "f":"${MMmath.calc(:s+'*x^2+('+(-:s*:a)+')*x')}",
+            "A":"${MMmath.fractionSimplifiee(:a*:a*:a,6)}"
+        },
+        "question":"Berechne den Inhalt der Fläche, die der Graph von $$f(x)=${:f}$$ mit der $$x$$-Achse einschließt.",
+        "answer":"Nullstellen: $$x=0$$ und $$x=${:a}$$<br>$$\\displaystyle\\int_0^{${:a}} f(x)\\,dx=\\Big[${:s>0 ? '' : '-'}\\tfrac13x^3${:s>0 ? '-' : '+'}${:a==2 ? '' : MMmath.fractionSimplifiee(:a,2)}x^2\\Big]_0^{${:a}}=${:s>0 ? '-' : ''}${:A}$$<br>Flächeninhalt: $$A=\\color{red}{${:A}}$$",
+        "value":"${:A}"
+    },{
+        "name":"Fläche unter einem Graphen",
+        "vars":{
+            "n":"1_3",
+            "a":"0_1",
+            "b":"${:n==3 ? '2_3' : '2_4'}",
+            "w":"${Math.pow(:b,:n+1)-Math.pow(:a,:n+1)}"
+        },
+        "question":"Berechne den Inhalt der Fläche zwischen dem Graphen von $$f(x)=${:n+1}x${:n>1 ? '^'+:n : ''}$$, der $$x$$-Achse und den Geraden $$x=${:a}$$ und $$x=${:b}$$.",
+        "answer":"$$f(x)\\ge0$$ auf $$[${:a};\\,${:b}]$$:<br>$$A=\\displaystyle\\int_{${:a}}^{${:b}} ${:n+1}x${:n>1 ? '^'+:n : ''}\\,dx=\\Big[x^${:n+1}\\Big]_{${:a}}^{${:b}}=${Math.pow(:b,:n+1)}-${Math.pow(:a,:n+1)}=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Fläche zwischen Parabel und Parallele zur x-Achse",
+        "vars":{
+            "a":"1_4",
+            "d":"-3_3",
+            "c":"${:a*:a+:d}",
+            "A":"${MMmath.fractionSimplifiee(4*:a*:a*:a,3)}"
+        },
+        "question":"Berechne den Inhalt der Fläche zwischen den Graphen von $$f(x)=${MMmath.calc('x^2+('+:d+')')}$$ und $$g(x)=${:c}$$.",
+        "answer":"Schnittstellen: $$${:d==0 ? '' : MMmath.calc('x^2+('+:d+')')+'='+:c+'\\;\\Rightarrow\\;'}x^2=${:a*:a}\\;\\Rightarrow\\;x=\\pm${:a}$$<br>$$A=\\displaystyle\\int_{-${:a}}^{${:a}} \\big(g(x)-f(x)\\big)\\,dx=\\displaystyle\\int_{-${:a}}^{${:a}} (${:a*:a}-x^2)\\,dx=\\Big[${:a==1 ? '' : :a*:a}x-\\tfrac13x^3\\Big]_{-${:a}}^{${:a}}=2\\cdot\\left(${:a*:a*:a}-${MMmath.fractionSimplifiee(:a*:a*:a,3)}\\right)=\\color{red}{${:A}}$$",
+        "value":"${:A}"
+    },{
+        "name":"Fläche zwischen Parabel und Ursprungsgerade",
+        "vars":{
+            "k":"-6_6_^0",
+            "ak":"${Math.abs(:k)}",
+            "A":"${MMmath.fractionSimplifiee(:ak*:ak*:ak,6)}"
+        },
+        "question":"Berechne den Inhalt der Fläche zwischen den Graphen von $$f(x)=x^2$$ und $$g(x)=${MMmath.signIfOne(:k)}x$$.",
+        "answer":"Schnittstellen: $$x^2=${MMmath.signIfOne(:k)}x\\;\\Rightarrow\\;x=0$$ oder $$x=${:k}$$<br>Dazwischen gilt $$g(x)\\ge f(x)$$:<br>$$A=\\displaystyle\\int_{${Math.min(0,:k)}}^{${Math.max(0,:k)}} (${MMmath.signIfOne(:k)}x-x^2)\\,dx=\\Big[${:k%2==0 ? MMmath.signIfOne(:k/2) : (:k<0 ? '-' : '')+'\\tfrac{'+:ak+'}{2}'}x^2-\\tfrac13x^3\\Big]_{${Math.min(0,:k)}}^{${Math.max(0,:k)}}=${:k>0 ? '\\dfrac{'+(:ak*:ak*:ak)+'}{2}-\\dfrac{'+(:ak*:ak*:ak)+'}{3}' : '0-\\left(-\\dfrac{'+(:ak*:ak*:ak)+'}{2}+\\dfrac{'+(:ak*:ak*:ak)+'}{3}\\right)'}=\\color{red}{${:A}}$$",
+        "value":"${:A}"
+    },{
+        "name":"Integral und Flächeninhalt bei Vorzeichenwechsel",
+        "vars":{
+            "a":"1_5",
+            "b":"1_5"
+        },
+        "question":[
+            "Berechne $$\\displaystyle\\int_{-${:a}}^{${:b}} 2x\\,dx$$.",
+            "Berechne den Inhalt der Fläche zwischen dem Graphen von $$f(x)=2x$$ und der $$x$$-Achse über dem Intervall $$[-${:a};\\,${:b}]$$."
+        ],
+        "answer":[
+            "$$\\Big[x^2\\Big]_{-${:a}}^{${:b}}=${:b*:b}-${:a*:a}=\\color{red}{${:b*:b-:a*:a}}$$ (Flächen unterhalb der $$x$$-Achse zählen negativ)",
+            "Nullstelle bei $$x=0$$, also getrennt integrieren:<br>$$A=\\left|\\displaystyle\\int_{-${:a}}^{0}2x\\,dx\\right|+\\displaystyle\\int_{0}^{${:b}}2x\\,dx=|{-${:a*:a}}|+${:b*:b}=\\color{red}{${:a*:a+:b*:b}}$$"
+        ],
+        "value":["${:b*:b-:a*:a}","${:a*:a+:b*:b}"]
+    },{
+        "name":"Mittelwert einer Funktion",
+        "vars":{
+            "typ":"0_1",
+            "b":"2_6",
+            "a":"0_${:b-2}"
+        },
+        "question":"Berechne den Mittelwert der Funktion $$f(x)=${:typ==0 ? '3x^2' : '2x'}$$ auf dem Intervall $$[${:typ==0 ? 0 : :a};\\,${:b}]$$.",
+        "answer":"${:typ==0 ? '$$\\overline{m}=\\dfrac{1}{'+:b+'}\\displaystyle\\int_0^{'+:b+'}3x^2\\,dx=\\dfrac{1}{'+:b+'}\\cdot'+(:b*:b*:b)+'=\\color{red}{'+(:b*:b)+'}$$' : '$$\\overline{m}=\\dfrac{1}{'+(:b-:a)+'}\\displaystyle\\int_{'+:a+'}^{'+:b+'}2x\\,dx=\\dfrac{'+(:b*:b-:a*:a)+'}{'+(:b-:a)+'}=\\color{red}{'+(:a+:b)+'}$$'}",
+        "value":"${:typ==0 ? :b*:b : :a+:b}"
+    }]
+}

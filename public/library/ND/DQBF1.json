@@ -1,0 +1,60 @@
+{
+    "ID":"DQBF1",
+    "dest":["QBF"],
+    "title":"Volumen von Rotationskörpern berechnen",
+    "description":"Rotationskörper, Volumen, Rotation um die x-Achse, Drehkörper, Zylinder, Kegel, Kugel, Paraboloid, Integral von f(x)², Leistungskurs",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/","pi"],
+    "options":[{
+        "name":"Zylinder",
+        "vars":{
+            "r":"1_5",
+            "h":"1_6",
+            "V":"${:r*:r*:h}"
+        },
+        "question":"Der Graph von $$f(x)=${:r}$$ rotiert über dem Intervall $$[0;\\,${:h}]$$ um die $$x$$-Achse. Berechne das Volumen des Rotationskörpers.",
+        "answer":"$$V=\\pi\\displaystyle\\int_0^{${:h}} ${:r}^2\\,dx=\\pi\\Big[${:r==1 ? '' : :r*:r}x\\Big]_0^{${:h}}=\\color{red}{${:V==1 ? '' : :V}\\pi}$$",
+        "value":"${:V==1 ? '' : :V}\\pi"
+    },{
+        "name":"Kegel",
+        "vars":{
+            "m":"1_3",
+            "h":"1_3",
+            "V":"${((P,Q) => { const g = MMmath.pgcd(P,Q); P = P/g; Q = Q/g; return Q==1 ? (P==1 ? '\\pi' : P+'\\pi') : '\\dfrac{'+P+'}{'+Q+'}\\pi'; })(:m*:m*:h*:h*:h, 3)}"
+        },
+        "question":"Der Graph von $$f(x)=${MMmath.signIfOne(:m)}x$$ rotiert über dem Intervall $$[0;\\,${:h}]$$ um die $$x$$-Achse. Berechne das Volumen des entstehenden Kegels.",
+        "answer":"$$V=\\pi\\displaystyle\\int_0^{${:h}} ${:m==1 ? 'x^2' : '('+:m+'x)^2'}\\,dx=\\pi\\Big[${:m*:m==1 ? '' : :m*:m+'\\cdot'}\\tfrac{x^3}{3}\\Big]_0^{${:h}}=\\color{red}{${:V}}$$",
+        "value":"${:V}"
+    },{
+        "name":"Paraboloid (Wurzelfunktion)",
+        "vars":{
+            "k":"1_4",
+            "b":"1_6",
+            "V":"${((P,Q) => { const g = MMmath.pgcd(P,Q); P = P/g; Q = Q/g; return Q==1 ? (P==1 ? '\\pi' : P+'\\pi') : '\\dfrac{'+P+'}{'+Q+'}\\pi'; })(:k*:b*:b, 2)}"
+        },
+        "question":"Der Graph von $$f(x)=\\sqrt{${MMmath.signIfOne(:k)}x}$$ rotiert über dem Intervall $$[0;\\,${:b}]$$ um die $$x$$-Achse. Berechne das Volumen des Rotationskörpers.",
+        "answer":"$$V=\\pi\\displaystyle\\int_0^{${:b}} ${MMmath.signIfOne(:k)}x\\,dx=\\pi\\Big[${:k==2 ? '' : MMmath.fractionSimplifiee(:k,2)}x^2\\Big]_0^{${:b}}=\\color{red}{${:V}}$$",
+        "value":"${:V}"
+    },{
+        "name":"Rotation einer Parabel",
+        "vars":{
+            "c":"1_2",
+            "b":"1_3",
+            "V":"${((P,Q) => { const g = MMmath.pgcd(P,Q); P = P/g; Q = Q/g; return Q==1 ? (P==1 ? '\\pi' : P+'\\pi') : '\\dfrac{'+P+'}{'+Q+'}\\pi'; })(:c*:c*Math.pow(:b,5), 5)}"
+        },
+        "question":"Der Graph von $$f(x)=${MMmath.signIfOne(:c)}x^2$$ rotiert über dem Intervall $$[0;\\,${:b}]$$ um die $$x$$-Achse. Berechne das Volumen des Rotationskörpers.",
+        "answer":"$$V=\\pi\\displaystyle\\int_0^{${:b}} ${MMmath.signIfOne(:c*:c)}x^4\\,dx=\\pi\\Big[${:c==1 ? '' : (:c*:c)+'\\cdot'}\\tfrac{x^5}{5}\\Big]_0^{${:b}}=\\color{red}{${:V}}$$",
+        "value":"${:V}"
+    },{
+        "name":"Kugel",
+        "vars":{
+            "r":"1_6",
+            "V":"${((P,Q) => { const g = MMmath.pgcd(P,Q); P = P/g; Q = Q/g; return Q==1 ? (P==1 ? '\\pi' : P+'\\pi') : '\\dfrac{'+P+'}{'+Q+'}\\pi'; })(4*:r*:r*:r, 3)}"
+        },
+        "question":"Der Graph von $$f(x)=\\sqrt{${:r*:r}-x^2}$$ rotiert über dem Intervall $$[-${:r};\\,${:r}]$$ um die $$x$$-Achse. Berechne das Volumen der entstehenden Kugel.",
+        "answer":"$$V=\\pi\\displaystyle\\int_{-${:r}}^{${:r}} (${:r*:r}-x^2)\\,dx=\\pi\\Big[${:r*:r==1 ? '' : :r*:r}x-\\tfrac{x^3}{3}\\Big]_{-${:r}}^{${:r}}=\\color{red}{${:V}}$$",
+        "value":"${:V}"
+    }]
+}

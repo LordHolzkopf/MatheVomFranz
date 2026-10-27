@@ -1,0 +1,65 @@
+{
+    "ID":"DQBE1",
+    "dest":["QBE"],
+    "title":"Uneigentliche Integrale berechnen",
+    "description":"uneigentliches Integral, unbegrenzte Fläche, Grenzwert, Integral bis unendlich, Polstelle, Konvergenz, endlicher Flächeninhalt, Leistungskurs",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/"],
+    "consts":{
+        "K":[
+            ["\\dfrac{1}{\\sqrt{x}}","nein","\\int_1^z \\dfrac{1}{\\sqrt{x}}\\,dx=2\\sqrt{z}-2\\to\\infty"],
+            ["\\dfrac{1}{x^2}","ja","\\int_1^z \\dfrac{1}{x^2}\\,dx=1-\\dfrac{1}{z}\\to1"],
+            ["\\dfrac{1}{x^3}","ja","\\int_1^z \\dfrac{1}{x^3}\\,dx=\\dfrac12-\\dfrac{1}{2z^2}\\to\\dfrac12"],
+            ["\\dfrac{1}{x\\sqrt{x}}","ja","\\int_1^z x^{-\\frac32}\\,dx=2-\\dfrac{2}{\\sqrt{z}}\\to2"],
+            ["\\sqrt{x}","nein","\\int_1^z \\sqrt{x}\\,dx=\\dfrac23z\\sqrt{z}-\\dfrac23\\to\\infty"],
+            ["\\dfrac{1}{\\sqrt[3]{x}}","nein","\\int_1^z x^{-\\frac13}\\,dx=\\dfrac32\\sqrt[3]{z^2}-\\dfrac32\\to\\infty"],
+            ["\\dfrac{1}{x^4}","ja","\\int_1^z \\dfrac{1}{x^4}\\,dx=\\dfrac13-\\dfrac{1}{3z^3}\\to\\dfrac13"]
+        ]
+    },
+    "options":[{
+        "name":"Integral von k/x² bis unendlich",
+        "vars":{
+            "k":"1_12",
+            "a":"1_6",
+            "ka":"${:a==1 ? :k : '\\dfrac{'+:k+'}{'+:a+'}'}",
+            "w":"${MMmath.fractionSimplifiee(:k,:a)}"
+        },
+        "question":[
+            "Berechne $$\\displaystyle\\int_{${:a}}^{\\infty} \\dfrac{${:k}}{x^2}\\,dx$$.",
+            "Die Fläche zwischen dem Graphen von $$f(x)=\\dfrac{${:k}}{x^2}$$ und der $$x$$-Achse für $$x\\ge${:a}$$ ist nach rechts unbegrenzt. Berechne ihren Inhalt."
+        ],
+        "answer":"$$\\displaystyle\\int_{${:a}}^{z} \\dfrac{${:k}}{x^2}\\,dx=\\Big[-\\dfrac{${:k}}{x}\\Big]_{${:a}}^{z}=${:ka}-\\dfrac{${:k}}{z}\\;\\xrightarrow{z\\to\\infty}\\;\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Integral von k/x³ bis unendlich",
+        "vars":{
+            "k":"1_10",
+            "a":"1_3",
+            "w":"${MMmath.fractionSimplifiee(:k,2*:a*:a)}"
+        },
+        "question":"Berechne $$\\displaystyle\\int_{${:a}}^{\\infty} \\dfrac{${:k}}{x^3}\\,dx$$.",
+        "answer":"$$\\displaystyle\\int_{${:a}}^{z} \\dfrac{${:k}}{x^3}\\,dx=\\Big[-\\dfrac{${:k}}{2x^2}\\Big]_{${:a}}^{z}=\\dfrac{${:k}}{${2*:a*:a}}-\\dfrac{${:k}}{2z^2}\\;\\xrightarrow{z\\to\\infty}\\;\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Integral mit Polstelle bei 0",
+        "vars":{
+            "r":"1_5",
+            "b":"${:r*:r}",
+            "k":"1_5"
+        },
+        "question":"Berechne $$\\displaystyle\\int_{0}^{${:b}} \\dfrac{${:k}}{\\sqrt{x}}\\,dx$$.",
+        "answer":"Der Integrand ist bei $$x=0$$ nicht definiert, also mit $$z>0$$:<br>$$\\displaystyle\\int_{z}^{${:b}} \\dfrac{${:k}}{\\sqrt{x}}\\,dx=\\Big[${2*:k}\\sqrt{x}\\Big]_{z}^{${:b}}=${2*:k}\\cdot${:r}-${2*:k}\\sqrt{z}\\;\\xrightarrow{z\\to0}\\;\\color{red}{${2*:k*:r}}$$",
+        "value":"${2*:k*:r}"
+    },{
+        "name":"Konvergiert das Integral?",
+        "vars":{
+            "i":"0_6"
+        },
+        "question":"Hat das uneigentliche Integral $$\\displaystyle\\int_1^{\\infty} ${:K[:i][0]}\\,dx$$ einen endlichen Wert?",
+        "answer":"$$\\displaystyle ${:K[:i][2]}$$ für $$z\\to\\infty$$<br>Antwort: $$\\color{red}{\\text{${:K[:i][1]}}}$$",
+        "value":["\\text{${:K[:i][1]}}","${:K[:i][1]}"],
+        "keys":["o","n"]
+    }]
+}

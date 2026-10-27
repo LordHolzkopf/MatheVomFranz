@@ -1,0 +1,78 @@
+{
+    "ID":"DQBB1",
+    "dest":["QBB","QBC"],
+    "title":"Bestimmte Integrale und Integralfunktionen berechnen",
+    "description":"bestimmtes Integral, Integral berechnen, Stammfunktion, Hauptsatz der Differenzial- und Integralrechnung, Integralfunktion, untere Grenze, Intervalladditivität, Linearität, Vertauschen der Grenzen",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "options":[{
+        "name":"Integral von 3x²",
+        "vars":{
+            "a":"-2_2",
+            "b":"${:a+1}_3",
+            "w":"${:b*:b*:b-:a*:a*:a}"
+        },
+        "question":"Berechne $$\\displaystyle\\int_{${:a}}^{${:b}} 3x^2\\,dx$$.",
+        "answer":"$$\\displaystyle\\int_{${:a}}^{${:b}} 3x^2\\,dx=\\Big[x^3\\Big]_{${:a}}^{${:b}}=${MMmath.nP(:b)}^3-${MMmath.nP(:a)}^3=${:b*:b*:b}-${MMmath.nP(:a*:a*:a)}=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Integral einer linearen Funktion",
+        "vars":{
+            "a":"-2_2",
+            "b":"${:a+1}_4",
+            "c":"-5_5_^0",
+            "Fb":"${:b*:b+:c*:b}",
+            "Fa":"${:a*:a+:c*:a}"
+        },
+        "question":"Berechne $$\\displaystyle\\int_{${:a}}^{${:b}} (2x${MMmath.signedNumber(:c)})\\,dx$$.",
+        "answer":"$$\\displaystyle\\int_{${:a}}^{${:b}} (2x${MMmath.signedNumber(:c)})\\,dx=\\Big[x^2${MMmath.signedNumberButOne(:c)}x\\Big]_{${:a}}^{${:b}}=${:Fb}-${MMmath.nP(:Fa)}=\\color{red}{${:Fb-:Fa}}$$",
+        "value":"${:Fb-:Fa}"
+    },{
+        "name":"Intervalladditivität und Linearität",
+        "vars":{
+            "a":"-3_1",
+            "b":"${:a+1}_3",
+            "c":"${:b+1}_5",
+            "p":"-9_9_^0",
+            "q":"-9_9_^0",
+            "k":"2_5",
+            "d":"-3_3_^0"
+        },
+        "question":[
+            "Es gilt $$\\displaystyle\\int_{${:a}}^{${:b}} f(x)\\,dx=${:p}$$ und $$\\displaystyle\\int_{${:b}}^{${:c}} f(x)\\,dx=${:q}$$. Berechne $$\\displaystyle\\int_{${:a}}^{${:c}} f(x)\\,dx$$.",
+            "Es gilt $$\\displaystyle\\int_{${:a}}^{${:b}} f(x)\\,dx=${:p}$$ und $$\\displaystyle\\int_{${:b}}^{${:c}} f(x)\\,dx=${:q}$$. Berechne $$\\displaystyle\\int_{${:b}}^{${:a}} f(x)\\,dx$$.",
+            "Es gilt $$\\displaystyle\\int_{${:a}}^{${:b}} f(x)\\,dx=${:p}$$ und $$\\displaystyle\\int_{${:b}}^{${:c}} f(x)\\,dx=${:q}$$. Berechne $$\\displaystyle\\int_{${:a}}^{${:b}} ${:k}f(x)\\,dx$$.",
+            "Es gilt $$\\displaystyle\\int_{${:a}}^{${:b}} f(x)\\,dx=${:p}$$ und $$\\displaystyle\\int_{${:b}}^{${:c}} f(x)\\,dx=${:q}$$. Berechne $$\\displaystyle\\int_{${:a}}^{${:c}} \\big(f(x)${MMmath.signedNumber(:d)}\\big)\\,dx$$."
+        ],
+        "answer":[
+            "Intervalladditivität: $$${:p}${MMmath.signedNumber(:q)}=\\color{red}{${:p+:q}}$$",
+            "Vertauschen der Grenzen ändert das Vorzeichen: $$\\color{red}{${-:p}}$$",
+            "Linearität: $$${:k}\\cdot${MMmath.nP(:p)}=\\color{red}{${:k*:p}}$$",
+            "$$\\displaystyle\\int_{${:a}}^{${:c}} f(x)\\,dx+\\int_{${:a}}^{${:c}} ${MMmath.nP(:d)}\\,dx=${:p+:q}${MMmath.signedNumber(:d)}\\cdot${:c-:a}=\\color{red}{${:p+:q+:d*(:c-:a)}}$$"
+        ],
+        "value":["${:p+:q}","${-:p}","${:k*:p}","${:p+:q+:d*(:c-:a)}"]
+    },{
+        "name":"Untere Grenze einer Integralfunktion",
+        "vars":{
+            "a":"-3_3_^0",
+            "t":"${MMmath.signedNumber(-:a*:a*:a)}"
+        },
+        "question":"Die Integralfunktion $$I_a(x)=\\displaystyle\\int_a^x 3t^2\\,dt$$ hat den Funktionsterm $$I_a(x)=x^3${:t}$$. Bestimme die untere Grenze $$a$$.",
+        "answer":"$$I_a(x)=\\Big[t^3\\Big]_a^x=x^3-a^3$$<br>$$-a^3=${-:a*:a*:a}\\;\\Rightarrow\\;a^3=${:a*:a*:a}\\;\\Rightarrow\\;a=\\color{red}{${:a}}$$",
+        "value":"${:a}"
+    },{
+        "name":"Ableitung einer Integralfunktion (Hauptsatz)",
+        "vars":{
+            "u":"-3_3",
+            "p":"-4_4",
+            "q":"-6_6",
+            "c":"-3_3_^0",
+            "f":"${MMmath.calc('t^2+('+:p+')*t+('+:q+')')}",
+            "w":"${:c*:c+:p*:c+:q}"
+        },
+        "question":"Gegeben ist $$I(x)=\\displaystyle\\int_{${:u}}^{x} \\left(${:f}\\right)dt$$. Berechne $$I'(${:c})$$.",
+        "answer":"Nach dem Hauptsatz ist $$I'(x)=f(x)=${MMmath.calc('x^2+('+:p+')*x+('+:q+')')}$$.<br>$$I'(${:c})=${MMmath.nP(:c)}^2${:p==0 ? '' : MMmath.signedNumber(:p)+'\\cdot'+MMmath.nP(:c)}${MMmath.signedNumber(:q)}=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    }]
+}

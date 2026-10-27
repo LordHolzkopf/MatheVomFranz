@@ -1,0 +1,80 @@
+{
+    "ID":"DQAC1",
+    "dest":["QAC"],
+    "title":"Ganzrationale Funktionen aus Bedingungen bestimmen",
+    "description":"Steckbriefaufgabe, Funktion aus Bedingungen bestimmen, Rekonstruktion, Bedingungen aufstellen, Koeffizienten bestimmen, Punktprobe, Hochpunkt, Scheitelpunkt, Steigung, Symmetrie, lineares Gleichungssystem",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "options":[{
+        "name":"Parabel durch einen Punkt",
+        "vars":{
+            "a":"-3_3_^0",
+            "c":"-5_5",
+            "p":"-3_3_^0",
+            "q":"${:a*:p*:p+:c}"
+        },
+        "question":"Der Graph von $$f(x)=ax^2+c$$ schneidet die $$y$$-Achse bei $$${:c}$$ und verläuft durch $$P(${:p}\\,|\\,${:q})$$. Bestimme $$a$$.",
+        "answer":"$$f(0)=c=${:c}$$<br>$$f(${:p})=${MMmath.signIfOne(:p*:p)}a${MMmath.signedNumber(:c)}=${:p*:p==1 && :c==0 ? '' : :q+(:p*:p==1 || :c==0 ? '' : '\\;\\Rightarrow\\;'+(:p*:p)+'a='+(:q-:c))+'\\;\\Rightarrow\\;a='}\\color{red}{${:a}}$$",
+        "value":"${:a}"
+    },{
+        "name":"Parabel aus Scheitelpunkt und y-Achsenabschnitt",
+        "vars":{
+            "a":"-3_3_^0",
+            "h":"-3_3_^0",
+            "k":"-5_5",
+            "c":"${:a*:h*:h+:k}"
+        },
+        "question":"Eine quadratische Funktion $$f(x)=a(x-x_S)^2+y_S$$ hat den Scheitelpunkt $$S(${:h}\\,|\\,${:k})$$ und schneidet die $$y$$-Achse bei $$${:c}$$. Bestimme $$a$$.",
+        "answer":"$$f(x)=a(x${MMmath.signedNumber(-:h)})^2${MMmath.signedNumber(:k)}$$<br>$$f(0)=${MMmath.signIfOne(:h*:h)}a${MMmath.signedNumber(:k)}=${:h*:h==1 && :k==0 ? '' : :c+(:h*:h==1 || :k==0 ? '' : '\\;\\Rightarrow\\;'+MMmath.signIfOne(:h*:h)+'a='+(:c-:k))+'\\;\\Rightarrow\\;a='}\\color{red}{${:a}}$$",
+        "value":"${:a}"
+    },{
+        "name":"Steigung vorgegeben",
+        "vars":{
+            "a":"-3_3_^0",
+            "x0":"-2_2_^0",
+            "m":"${3*:a*:x0*:x0}",
+            "d":"-5_5"
+        },
+        "question":"Der Graph von $$f(x)=ax^3${MMmath.signedNumber(:d)}$$ hat an der Stelle $$x=${:x0}$$ die Steigung $$${:m}$$. Bestimme $$a$$.",
+        "answer":"$$f'(x)=3ax^2$$<br>$$f'(${:x0})=${3*:x0*:x0}a=${:m}\\;\\Rightarrow\\;a=\\color{red}{${:a}}$$",
+        "value":"${:a}"
+    },{
+        "name":"Punktsymmetrisch mit Hochpunkt",
+        "vars":{
+            "a":"-3_-1",
+            "h":"1_2",
+            "y":"${-2*:a*:h*:h*:h}",
+            "c":"${-3*:a*:h*:h}",
+            "lsg":"$$f'(${:h})=0:\\;${MMmath.signIfOne(3*:h*:h)}a+c=0$$ und $$f(${:h})=${:y}:\\;${MMmath.signIfOne(:h*:h*:h)}a+${MMmath.signIfOne(:h)}c=${:y}$$<br>Mit $$c=-${MMmath.signIfOne(3*:h*:h)}a$$ folgt $$${-2*:h*:h*:h}a=${:y}$$."
+        },
+        "question":[
+            "Der Graph einer ganzrationalen Funktion 3. Grades ist punktsymmetrisch zum Ursprung, also $$f(x)=ax^3+cx$$. Er hat den Hochpunkt $$H(${:h}\\,|\\,${:y})$$. Bestimme $$a$$.",
+            "Der Graph einer ganzrationalen Funktion 3. Grades ist punktsymmetrisch zum Ursprung, also $$f(x)=ax^3+cx$$. Er hat den Hochpunkt $$H(${:h}\\,|\\,${:y})$$. Bestimme $$c$$."
+        ],
+        "answer":[
+            "${:lsg}<br>$$a=\\color{red}{${:a}}$$ und $$c=${:c}$$",
+            "${:lsg}<br>$$a=${:a}$$ und $$c=\\color{red}{${:c}}$$"
+        ],
+        "value":["${:a}","${:c}"]
+    },{
+        "name":"Parabel durch drei Punkte",
+        "vars":{
+            "a":"-4_4_^0",
+            "b":"-4_4",
+            "c":"-4_4",
+            "y1":"${:a-:b+:c}",
+            "y2":"${:a+:b+:c}",
+            "lsg":"$$c=f(0)=${:c}$$<br>$$f(1)=a+b+c=${:y2}$$ und $$f(-1)=a-b+c=${:y1}$$<br>Addieren: $$2a+2c=${:y1+:y2}$$, subtrahieren: $$2b=${:y2-:y1}$$"
+        },
+        "question":[
+            "Der Graph von $$f(x)=ax^2+bx+c$$ verläuft durch $$P(-1\\,|\\,${:y1})$$, $$Q(0\\,|\\,${:c})$$ und $$R(1\\,|\\,${:y2})$$. Bestimme $$a$$.",
+            "Der Graph von $$f(x)=ax^2+bx+c$$ verläuft durch $$P(-1\\,|\\,${:y1})$$, $$Q(0\\,|\\,${:c})$$ und $$R(1\\,|\\,${:y2})$$. Bestimme $$b$$."
+        ],
+        "answer":[
+            "${:lsg}<br>$$a=\\color{red}{${:a}}$$, $$b=${:b}$$",
+            "${:lsg}<br>$$a=${:a}$$, $$b=\\color{red}{${:b}}$$"
+        ],
+        "value":["${:a}","${:b}"]
+    }]
+}

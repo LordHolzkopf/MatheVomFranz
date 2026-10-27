@@ -1,0 +1,65 @@
+{
+    "ID":"DQCA1",
+    "dest":["QCA"],
+    "title":"Exponentialfunktionen f(x) = a·bˣ untersuchen (Wiederholung)",
+    "description":"Exponentialfunktion, Wachstumsfaktor, Anfangswert, Funktionswert berechnen, prozentuale Zunahme, prozentuale Abnahme, Exponentialgleichung, waagerechte Asymptote, f(x)=a·b^x",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/"],
+    "options":[{
+        "name":"Funktionswerte berechnen",
+        "vars":{
+            "b":[2,3,5],
+            "n":"${:b==2 ? '-3_5' : (:b==3 ? '-2_3' : '-1_2')}",
+            "c0":"1_5",
+            "c":"${:n<0 ? :c0*Math.pow(:b,-:n) : :c0}",
+            "w":"${:n<0 ? :c0 : :c0*Math.pow(:b,:n)}",
+            "p":"${:n<0 ? '\\dfrac{1}{'+Math.pow(:b,-:n)+'}' : Math.pow(:b,:n)}"
+        },
+        "question":"Gegeben ist $$f(x)=${:c==1 ? '' : :c+'\\cdot'}${:b}^x$$. Berechne $$f(${:n})$$.",
+        "answer":"$$f(${:n})=${:c==1 ? '' : :c+'\\cdot'}${:b}^{${:n}}=${:c==1 ? '' : :c+'\\cdot'+:p+'='}\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Wachstumsfaktor aus zwei Punkten",
+        "vars":{
+            "a":"1_6",
+            "b":"2_5",
+            "q":"${:a*:b*:b}"
+        },
+        "question":"Der Graph von $$f(x)=a\\cdot b^x$$ (mit $$b>0$$) verläuft durch $$P(0\\,|\\,${:a})$$ und $$Q(2\\,|\\,${:q})$$. Bestimme $$b$$.",
+        "answer":"$$f(0)=a=${:a}$$<br>$$f(2)=${:a==1 ? '' : :a+'\\cdot '}b^2=${:q}${:a==1 ? '' : '\\;\\Rightarrow\\;b^2='+(:b*:b)}\\;\\Rightarrow\\;b=\\color{red}{${:b}}$$ (wegen $$b>0$$)",
+        "value":"${:b}"
+    },{
+        "name":"Wachstumsfaktor aus Prozentangabe",
+        "vars":{
+            "p":[1,2,3,4,5,6,8,10,12,15,20,25,30,40,50],
+            "zu":"0_1",
+            "b":"${MMmath.round(1+(:zu==1 ? 1 : -1)*:p/100,2)}"
+        },
+        "question":"Ein Bestand ${:zu==1 ? 'wächst' : 'nimmt'} jedes Jahr um $$${:p}\\,\\%$$${:zu==1 ? '' : ' ab'}. Gib den Wachstumsfaktor $$b$$ in $$f(t)=a\\cdot b^t$$ an ($$t$$ in Jahren).",
+        "answer":"$$b=1${:zu==1 ? '+' : '-'}\\dfrac{${:p}}{100}=\\color{red}{${String(:b).replace('.','{,}')}}$$",
+        "value":["${:b}","${String(:b).replace('.','{,}')}","${String(:b).replace('.',',')}"]
+    },{
+        "name":"Einfache Exponentialgleichungen",
+        "vars":{
+            "b":[2,3,5,10],
+            "x":"${:b==2 ? '-3_6' : (:b==3 ? '-2_4' : (:b==5 ? '-2_3' : '-3_4'))}",
+            "y":"${:x<0 ? '\\dfrac{1}{'+Math.pow(:b,-:x)+'}' : Math.pow(:b,:x)}"
+        },
+        "question":"Löse die Gleichung $$${:b}^x=${:y}$$.",
+        "answer":"$$${:y}=${:b}^{${:x}}$$, also $$x=\\color{red}{${:x}}$$",
+        "value":"${:x}"
+    },{
+        "name":"Waagerechte Asymptote",
+        "vars":{
+            "i":"0_3",
+            "c":"-4_4_^0",
+            "d":"-6_6_^0"
+        },
+        "consts":{"B":["2","3","\\left(\\tfrac12\\right)","\\left(\\tfrac13\\right)"]},
+        "question":"Der Graph von $$f(x)=${:c==1 ? '' : (:c==-1 ? '-' : :c+'\\cdot')}${:B[:i]}^x${MMmath.signedNumber(:d)}$$ nähert sich für $$x\\to${:i<2 ? '-' : '+'}\\infty$$ einer waagerechten Asymptote $$y=k$$. Gib $$k$$ an.",
+        "answer":"Für $$x\\to${:i<2 ? '-' : '+'}\\infty$$ gilt $$${:B[:i]}^x\\to0$$, also $$f(x)\\to${:d}$$.<br>Asymptote: $$y=\\color{red}{${:d}}$$",
+        "value":["${:d}","y=${:d}"]
+    }]
+}

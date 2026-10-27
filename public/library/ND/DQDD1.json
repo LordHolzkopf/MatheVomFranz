@@ -1,0 +1,84 @@
+{
+    "ID":"DQDD1",
+    "dest":["QDD"],
+    "title":"Zusammengesetzte Funktionen mit e-Funktion untersuchen",
+    "description":"zusammengesetzte Funktion, Produkt mit e-Funktion, Verkettung, Produktregel, Kettenregel, Nullstellen, Satz vom Nullprodukt, Extremstelle, waagerechte Asymptote, Grenzverhalten, e-Funktion dominiert",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "keys":["/"],
+    "options":[{
+        "name":"Nullstellen (Satz vom Nullprodukt)",
+        "vars":{
+            "a":"-5_5_^0",
+            "p":"1_6",
+            "k":[1,-1,2,-2,3],
+            "ek":"${:k==1 ? 'x' : (:k==-1 ? '-x' : :k+'x')}"
+        },
+        "question":[
+            "Gib die Nullstelle von $$f(x)=(x${MMmath.signedNumber(-:a)})\\cdot e^{${:ek}}$$ an.",
+            "Gib die positive Nullstelle von $$f(x)=(x^2-${:p*:p})\\cdot e^{${:ek}}$$ an."
+        ],
+        "answer":[
+            "Da $$e^{${:ek}}>0$$ für alle $$x$$, muss $$x${MMmath.signedNumber(-:a)}=0$$ sein: $$x=\\color{red}{${:a}}$$",
+            "Da $$e^{${:ek}}>0$$ für alle $$x$$, muss $$x^2-${:p*:p}=0$$ sein: $$x=\\pm${:p}$$, positive Nullstelle $$x=\\color{red}{${:p}}$$"
+        ],
+        "value":["${:a}","${:p}"]
+    },{
+        "name":"Extremstelle eines Produkts",
+        "vars":{
+            "a":"-4_4",
+            "s":[1,-1],
+            "xe":"${:a-:s}",
+            "lin":"${:a==0 ? 'x' : '(x'+MMmath.signedNumber(-:a)+')'}",
+            "ab":"${:s==1 ? (:a==1 ? 'x' : '(x'+MMmath.signedNumber(1-:a)+')') : (:a==-1 ? '(-x)' : '('+(:a+1)+'-x)')}"
+        },
+        "question":"Gib die Extremstelle von $$f(x)=${:lin}\\cdot e^{${:s==1 ? 'x' : '-x'}}$$ an.",
+        "answer":"Produktregel: $$f'(x)=${:s==1 ? '' : '-'}e^{${:s==1 ? 'x' : '-x'}}\\cdot ${:lin}+e^{${:s==1 ? 'x' : '-x'}}=${:ab}\\cdot e^{${:s==1 ? 'x' : '-x'}}$$<br>$$f'(x)=0\\;\\Rightarrow\\;x=\\color{red}{${:xe}}$$ (Vorzeichenwechsel von $$f'$$)",
+        "value":"${:xe}"
+    },{
+        "name":"Extremstelle von x·e^(−kx)",
+        "vars":{
+            "k":"1_5",
+            "c":"1_5",
+            "kk":"${:k==1 ? '' : :k}",
+            "cc":"${:c==1 ? '' : :c}",
+            "w":"${:k==1 ? 1 : '\\dfrac{1}{'+:k+'}'}"
+        },
+        "question":"Gib die Extremstelle von $$f(x)=${:cc}x\\cdot e^{-${:kk}x}$$ an.",
+        "answer":"$$f'(x)=${:cc}e^{-${:kk}x}+${:cc}x\\cdot(-${:k})\\,e^{-${:kk}x}=${:cc}(1-${:kk}x)\\,e^{-${:kk}x}$$<br>$$1-${:kk}x=0\\;\\Rightarrow\\;x=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    },{
+        "name":"Extremstelle einer Verkettung",
+        "vars":{
+            "a":"-5_5_^0",
+            "g":"${MMmath.calc('x^2+('+(-2*:a)+')*x')}"
+        },
+        "question":"Gib die Extremstelle von $$f(x)=e^{${:g}}$$ an.",
+        "answer":"Kettenregel: $$f'(x)=(2x${MMmath.signedNumber(-2*:a)})\\cdot e^{${:g}}$$<br>Da $$e^{${:g}}>0$$: $$2x${MMmath.signedNumber(-2*:a)}=0\\;\\Rightarrow\\;x=\\color{red}{${:a}}$$",
+        "value":"${:a}"
+    },{
+        "name":"Waagerechte Asymptote",
+        "vars":{
+            "c":"-5_5_^0",
+            "d":"-4_4",
+            "s":[1,-1],
+            "lin":"${:d==0 ? 'x' : '(x'+MMmath.signedNumber(:d)+')'}"
+        },
+        "question":"Der Graph von $$f(x)=${:lin}\\cdot e^{${:s==1 ? '-x' : 'x'}}${MMmath.signedNumber(:c)}$$ hat für $$x\\to${:s==1 ? '+' : '-'}\\infty$$ eine waagerechte Asymptote $$y=k$$. Gib $$k$$ an.",
+        "answer":"Für $$x\\to${:s==1 ? '+' : '-'}\\infty$$ gilt $$${:lin}\\cdot e^{${:s==1 ? '-x' : 'x'}}\\to0$$ (die e-Funktion „gewinnt“).<br>Also $$f(x)\\to${:c}$$: $$y=\\color{red}{${:c}}$$",
+        "value":["${:c}","y=${:c}"]
+    },{
+        "name":"Steigung im Ursprung (Produktregel)",
+        "vars":{
+            "a":"-4_4_^0",
+            "b":"-5_5_^0",
+            "k":[1,-1,2,-2,3],
+            "ek":"${:k==1 ? 'x' : (:k==-1 ? '-x' : :k+'x')}",
+            "w":"${:a+:k*:b}"
+        },
+        "question":"Berechne $$f'(0)$$ für $$f(x)=(${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)})\\cdot e^{${:ek}}$$.",
+        "answer":"$$f'(x)=${MMmath.signIfOne(:a)}${Math.abs(:a)==1 ? '' : '\\cdot '}e^{${:ek}}+(${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)})\\cdot ${:k==1 ? '' : MMmath.nP(:k)+'\\,'}e^{${:ek}}$$<br>$$f'(0)=${:a}${MMmath.signedNumber(:k)}\\cdot${MMmath.nP(:b)}=\\color{red}{${:w}}$$",
+        "value":"${:w}"
+    }]
+}

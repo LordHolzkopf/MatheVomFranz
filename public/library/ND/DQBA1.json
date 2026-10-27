@@ -1,0 +1,69 @@
+{
+    "ID":"DQBA1",
+    "dest":["QBA"],
+    "title":"Bestand aus Änderungsraten rekonstruieren",
+    "description":"Rekonstruktion, Änderungsrate, Bestand, Zufluss, Abfluss, Produktsumme, orientierter Flächeninhalt, Fläche unter dem Graphen der Änderungsrate, Geschwindigkeit und Weg, Rechteck, Dreieck, Trapez, Bestand maximal",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "options":[{
+        "name":"Stückweise konstante Änderungsrate",
+        "vars":{
+            "B":"3_8",
+            "B0":"${10*:B}",
+            "r1":"2_9",
+            "t1":"2_6",
+            "r2":"1_6",
+            "t2":"2_5",
+            "zu":"0_1",
+            "ende":"${:B0+:r1*:t1+(:zu==1 ? 1 : -1)*:r2*:t2}"
+        },
+        "question":"In einem Becken sind zu Beginn $$${:B0}\\text{ L}$$ Wasser. In den ersten $$${:t1}$$ Minuten fließen pro Minute $$${:r1}\\text{ L}$$ zu, in den folgenden $$${:t2}$$ Minuten fließen pro Minute $$${:r2}\\text{ L}$$ ${:zu==1 ? 'zu' : 'ab'}. Wie viel Liter Wasser sind danach im Becken?",
+        "answer":"Zuwachs als Produktsumme (orientierte Rechteckflächen):<br>$$${:B0}+${:r1}\\cdot${:t1}${:zu==1 ? '+' : '-'}${:r2}\\cdot${:t2}=${:B0}+${:r1*:t1}${:zu==1 ? '+' : '-'}${:r2*:t2}=\\color{red}{${:ende}}\\text{ L}$$",
+        "value":"${:ende}"
+    },{
+        "name":"Linear wachsende Zuflussrate",
+        "vars":{
+            "m":"1_6",
+            "T1":"2_10",
+            "T0":"1_5",
+            "T":"${:m%2==0 ? :T1 : 2*:T0}",
+            "V":"${:m*:T*:T/2}"
+        },
+        "question":"In einen zu Beginn leeren Tank fließt Wasser mit der Zuflussrate $$r(t)=${MMmath.signIfOne(:m)}t$$ ($$t$$ in Minuten, $$r(t)$$ in Liter pro Minute). Wie viel Liter sind nach $$${:T}$$ Minuten im Tank?",
+        "answer":"Gesucht ist die Fläche unter dem Graphen von $$r$$ zwischen $$0$$ und $$${:T}$$ (Dreieck):<br>$$\\tfrac12\\cdot${:T}\\cdot r(${:T})=\\tfrac12\\cdot${:T}\\cdot${:m*:T}=\\color{red}{${:V}}\\text{ L}$$",
+        "value":"${:V}"
+    },{
+        "name":"Gleichmäßig beschleunigte Bewegung (Trapez)",
+        "vars":{
+            "v1":"2_15",
+            "d":"1_5",
+            "v2":"${:v1+2*:d}",
+            "T":"2_8",
+            "s":"${(:v1+:d)*:T}"
+        },
+        "question":"Ein Auto beschleunigt in $$${:T}\\text{ s}$$ gleichmäßig von $$${:v1}\\,\\tfrac{\\text{m}}{\\text{s}}$$ auf $$${:v2}\\,\\tfrac{\\text{m}}{\\text{s}}$$. Welche Strecke (in m) legt es in dieser Zeit zurück?",
+        "answer":"Der Weg ist die Fläche unter dem Graphen der Geschwindigkeit (Trapez):<br>$$\\dfrac{${:v1}+${:v2}}{2}\\cdot${:T}=${:v1+:d}\\cdot${:T}=\\color{red}{${:s}}\\text{ m}$$",
+        "value":"${:s}"
+    },{
+        "name":"Wann ist der Bestand am größten?",
+        "vars":{
+            "k":"1_5",
+            "t0":"1_10",
+            "c":"${:k*:t0}"
+        },
+        "question":"Die Änderungsrate eines Bestands ist $$r(t)=${:c}${MMmath.signedNumberButOne(-:k)}t$$ ($$t$$ in Stunden, $$0\\le t\\le ${2*:t0+2}$$). Zu welchem Zeitpunkt ist der Bestand am größten?",
+        "answer":"Solange $$r(t)>0$$ ist, wächst der Bestand, danach nimmt er ab.<br>$$r(t)=${:c}${MMmath.signedNumberButOne(-:k)}t=0\\;\\Rightarrow\\;t=\\color{red}{${:t0}}$$ (in Stunden)",
+        "value":"${:t0}"
+    },{
+        "name":"Wann ist der Anfangsbestand wieder erreicht?",
+        "vars":{
+            "k":"1_4",
+            "a":"1_6",
+            "r":"${MMmath.calc(:k+'*t-'+(:k*:a))}"
+        },
+        "question":"Die Änderungsrate eines Bestands ist $$r(t)=${:r}$$ ($$t$$ in Stunden). Nach wie vielen Stunden ($$t>0$$) hat der Bestand wieder seinen Anfangswert?",
+        "answer":"Bis $$t=${:a}$$ ist $$r(t)<0$$ (Abnahme), danach $$r(t)>0$$ (Zunahme). Die orientierten Flächen müssen sich aufheben:<br>Dreieck unterhalb der $$t$$-Achse von $$0$$ bis $$${:a}$$ mit Inhalt $$\\tfrac12\\cdot${:a}\\cdot${:k*:a}=${String(:k*:a*:a/2).replace('.','{,}')}$$, ein gleich großes Dreieck oberhalb der Achse von $$${:a}$$ bis $$${2*:a}$$.<br>Also $$T=\\color{red}{${2*:a}}$$ Stunden.",
+        "value":"${2*:a}"
+    }]
+}

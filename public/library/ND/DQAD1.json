@@ -1,0 +1,67 @@
+{
+    "ID":"DQAD1",
+    "dest":["QAD"],
+    "title":"Funktionenscharen untersuchen",
+    "description":"Funktionenschar, Schar, Parameter, Scharparameter, gemeinsame Punkte aller Graphen, Parameter bestimmen, Extremstelle in Abhängigkeit vom Parameter, Graph berührt die x-Achse, Ortskurve der Tiefpunkte",
+    "type":"text",
+    "textSize":"medium",
+    "repeat":true,
+    "options":[{
+        "name":"Gemeinsame Punkte aller Graphen",
+        "vars":{
+            "a":"-4_4_^0",
+            "m":"-3_3",
+            "f":"${MMmath.calc('t*x^2+('+(-:a)+')*t*x+('+:m+')*x')}"
+        },
+        "question":[
+            "Gegeben ist die Funktionenschar $$f_t(x)=${:f}$$ mit $$t\\neq0$$. Alle Graphen verlaufen durch den Ursprung und durch einen weiteren gemeinsamen Punkt $$P$$. Gib die $$x$$-Koordinate von $$P$$ an.",
+            "Gegeben ist die Funktionenschar $$f_t(x)=${:f}$$ mit $$t\\neq0$$. Alle Graphen verlaufen durch den Ursprung und durch einen weiteren gemeinsamen Punkt $$P$$. Gib die $$y$$-Koordinate von $$P$$ an."
+        ],
+        "answer":[
+            "$$f_t(x)=t\\cdot x\\,(x${MMmath.signedNumber(-:a)})${:m==0 ? '' : MMmath.signedNumberButOne(:m)+'x'}$$<br>Der Summand mit $$t$$ ist für $$x=0$$ und $$x=${:a}$$ null, dort hängt $$f_t(x)$$ nicht von $$t$$ ab: $$f_t(${:a})=${:m*:a}$$.<br>$$P(\\color{red}{${:a}}\\,|\\,${:m*:a})$$",
+            "$$f_t(x)=t\\cdot x\\,(x${MMmath.signedNumber(-:a)})${:m==0 ? '' : MMmath.signedNumberButOne(:m)+'x'}$$<br>Der Summand mit $$t$$ ist für $$x=0$$ und $$x=${:a}$$ null, dort hängt $$f_t(x)$$ nicht von $$t$$ ab: $$f_t(${:a})=${:m*:a}$$.<br>$$P(${:a}\\,|\\,\\color{red}{${:m*:a}})$$"
+        ],
+        "value":["${:a}","${:m*:a}"]
+    },{
+        "name":"Parameter so bestimmen, dass der Graph durch einen Punkt geht",
+        "vars":{
+            "t":"-5_5_^0",
+            "p":"-3_3_^0",
+            "c":"-5_5",
+            "q":"${:p*:p-:t*:p+:c}"
+        },
+        "question":"Gegeben ist die Funktionenschar $$f_t(x)=x^2-tx${MMmath.signedNumber(:c)}$$. Für welchen Wert von $$t$$ verläuft der Graph von $$f_t$$ durch $$P(${:p}\\,|\\,${:q})$$?",
+        "answer":"$$f_t(${:p})=${:p*:p}${MMmath.signedNumberButOne(-:p)}t${MMmath.signedNumber(:c)}=${:q}${:p==-1 ? '' : '\\;\\Rightarrow\\;'+MMmath.signIfOne(-:p)+'t='+(:q-:p*:p-:c)}\\;\\Rightarrow\\;t=\\color{red}{${:t}}$$",
+        "value":"${:t}"
+    },{
+        "name":"Graph berührt die x-Achse",
+        "vars":{
+            "k":"1_9",
+            "c":"${:k*:k}"
+        },
+        "question":"Gegeben ist die Funktionenschar $$f_t(x)=x^2-2tx+${:c}$$ mit $$t>0$$. Für welchen Wert von $$t$$ berührt der Graph von $$f_t$$ die $$x$$-Achse?",
+        "answer":"$$f_t'(x)=2x-2t=0\\;\\Rightarrow\\;x=t$$ (Tiefpunkt)<br>$$f_t(t)=t^2-2t^2+${:c}=${:c}-t^2=0\\;\\Rightarrow\\;t=\\color{red}{${:k}}$$ (wegen $$t>0$$)",
+        "value":"${:k}"
+    },{
+        "name":"Parameter für eine vorgegebene Extremstelle",
+        "vars":{
+            "t":"-4_4_^0",
+            "e":"-3_3_^0",
+            "b":"${-2*:t*:e}",
+            "c":"-5_5"
+        },
+        "question":"Gegeben ist die Funktionenschar $$f_t(x)=tx^2${MMmath.signedNumberButOne(:b)}x${MMmath.signedNumber(:c)}$$ mit $$t\\neq0$$. Für welchen Wert von $$t$$ hat $$f_t$$ bei $$x=${:e}$$ eine Extremstelle?",
+        "answer":"$$f_t'(x)=2tx${MMmath.signedNumber(:b)}$$<br>$$f_t'(${:e})=${2*:e}t${MMmath.signedNumber(:b)}=0\\;\\Rightarrow\\;t=\\color{red}{${:t}}$$",
+        "value":"${:t}"
+    },{
+        "name":"Ortskurve der Tiefpunkte",
+        "vars":{
+            "c":"-4_4_^0",
+            "f":"${MMmath.calc('x^2-2*t*x+('+:c+')*t')}",
+            "o":"${MMmath.calc('('+:c+')*x-x^2')}"
+        },
+        "question":"Gegeben ist die Funktionenschar $$f_t(x)=${:f}$$. Bestimme die Ortskurve der Tiefpunkte: Gib $$y$$ in Abhängigkeit von $$x$$ an.",
+        "answer":"$$f_t'(x)=2x-2t=0\\;\\Rightarrow\\;x=t$$<br>$$y=f_t(t)=${MMmath.calc('t^2-2*t^2+('+:c+')*t')}$$<br>Mit $$t=x$$: $$y=\\color{red}{${:o}}$$",
+        "value":["${:o}","y=${:o}"]
+    }]
+}

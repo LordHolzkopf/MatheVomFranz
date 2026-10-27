@@ -1,6 +1,6 @@
 {
-    "title":"Fraction de quantité",
-    "description":"fraction d'une quantité, fraction de nombre, calculer une fraction, partage",
+    "title":"Bruchteile von Größen berechnen",
+    "description":"Bruchteil einer Größe, Anteil von, Bruch von einer Zahl, Bruch mal natürliche Zahl, Brüche vervielfachen, Ganzes teilen",
     "ID":"7NB1",
     "speech":1,
     "keys":"numerique",
@@ -8,28 +8,28 @@
     "textSize":"small",
     "dest":["5FF", "6AF", "6EA"],
     "options":[{
-        "name":"Fraction de quantité en CM2",
-        "consts":{"unites":["u","cm", "cm²", "oranges", "pommes", "bonbons"],
-        "uv":["unités","centimètres", "centimères carrés", "oranges", "pommes", "bonbons", "oeufs", "stylos"]},
+        "name":"Bruchteil einer Größe",
+        "consts":{"unites":["Murmeln","cm", "cm²", "Orangen", "Äpfel", "Bonbons"],
+        "uv":["Murmeln","Zentimeter", "Quadratzentimeter", "Orangen", "Äpfel", "Bonbons", "Eier", "Stifte"]},
         "vars":{"den":"2_5", "fq":"0_9", "num":"1_${:fq<2?:den::den-1}", "unite":"1_5", "qte":"${:den*:unite}", "u":"0_5"},
-        "question": ["Partage $$${:qte}$$ ${:unites[:u]} en $$\\dfrac{${:num}}{${:den}}$$",
-            "Trouve les $$\\dfrac{${:num}}{${:den}}$$ de $$${:qte}$$ ${:unites[:u]}"],
-        "audio": ["Partage ${:qte} ${:uv[:u]} en ${:num}${MMmath.NumberToFraction(:den)}",
-            "Trouve les ${:num} ${MMmath.NumberToFraction(:den)} de ${:qte} ${:uv[:u]}"],
-        "answer":"$$\\dfrac{${:num}}{${:den}}$$ de $$${:qte}$$ ${:unites[:u]} vaut $$\\color{red}{${:qte*:num/:den}}$$ ${:unites[:u]}",
+        "question": ["Berechne $$\\dfrac{${:num}}{${:den}}$$ von $$${:qte}$$ ${:unites[:u]}.",
+            "Wie viel sind $$\\dfrac{${:num}}{${:den}}$$ von $$${:qte}$$ ${:unites[:u]}?"],
+        "audio": ["Berechne ${MMmath.bruchwort(:num,:den)} von ${:qte} ${:uv[:u]}.",
+            "Wie viel sind ${MMmath.bruchwort(:num,:den)} von ${:qte} ${:uv[:u]}?"],
+        "answer":"$$\\dfrac{${:num}}{${:den}}$$ von $$${:qte}$$ ${:unites[:u]} sind $$\\color{red}{${:qte*:num/:den}}$$ ${:unites[:u]}.",
         "value":["${:qte*:num/:den}${:unites[:u]}","${:qte*:num/:den}"]
     },{
-        "name":"Petites quantités (tables < 5)",
+        "name":"Bruch mal Zahl, kleine Einmaleinsreihen (bis 5)",
         "vars":{"den":"2_5", "fq":"0_9", "num":"1_${:fq<2?:den::den-1}","unite":"1_5","qte":"${:den*:unite}"},
         "question":["$$\\dfrac{${:num}}{${:den}}\\times${:qte}$$","$$${:qte}\\times\\dfrac{${:num}}{${:den}}$$"],
-        "audio":["${:num} ${MMmath.NumberToFraction(:den)} × ${:qte}","${:qte} × ${:num} ${MMmath.NumberToFraction(:den)}"],
+        "audio":["${MMmath.bruchwort(:num,:den)} mal ${:qte}","${:qte} mal ${MMmath.bruchwort(:num,:den)}"],
         "answer":["$$\\dfrac{${:num}}{${:den}}\\times${:qte}=\\color{red}{${:qte*:num/:den}}$$","$$${:qte}\\times\\dfrac{${:num}}{${:den}}=\\color{red}{${:qte*:num/:den}}$$"],
         "value":"${:qte*:num/:den}"
     },{
-        "name":"Tables > 5",
+        "name":"Bruch mal Zahl, große Einmaleinsreihen (ab 6)",
         "vars":{"den":"6_10", "fq":"0_9", "num":"1_${:fq<2?:den::den-1}","unite":"6_10","qte":"${:den*:unite}"},
         "question":["$$\\dfrac{${:num}}{${:den}}\\times${:qte}$$","$$${:qte}\\times\\dfrac{${:num}}{${:den}}$$"],
-        "audio":["${:num} ${MMmath.NumberToFraction(:den)} × ${:qte}","${:qte} × ${:num} ${MMmath.NumberToFraction(:den)}"],
+        "audio":["${MMmath.bruchwort(:num,:den)} mal ${:qte}","${:qte} mal ${MMmath.bruchwort(:num,:den)}"],
         "answer":["$$\\dfrac{${:num}}{${:den}}\\times${:qte}=\\color{red}{${:qte*:num/:den}}$$","$$${:qte}\\times\\dfrac{${:num}}{${:den}}=\\color{red}{${:qte*:num/:den}}$$"],
         "value":"${:qte*:num/:den}"
     }

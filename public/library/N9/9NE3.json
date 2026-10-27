@@ -1,24 +1,25 @@
 {
-    "title":"Calculer astucieusement en mariant 2 nombres",
-    "description":"nombres qui se marient bien, compléments, somme astucieuse, regrouper, calcul réfléchi",
+    "title":"Geschickt addieren mit Ergänzungspartnern",
+    "description":"geschickt rechnen, Summanden vertauschen und zusammenfassen, Zahlen, die sich zu 10, 100 oder einer glatten Zahl ergänzen, Kommutativgesetz, Assoziativgesetz, Kopfrechnen, auch mit Dezimalzahlen",
     "speech":1,
+    "consigne":"Rechne geschickt.",
     "type":"latex",
     "keys":["_","_","_","_","_","_","_","_"],
     "dest":["5CB", "6CC"],
     "options":[{
-        "name":"Compléments à 10",
+        "name":"Ergänzung zu 10",
         "vars":{"nb1":"1_9","nb2":"${10-:nb1}", "c":"1_9_^${:nb1},${:nb2}", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}
     },{
-        "name":"Compléments dizaine",
+        "name":"Ergänzung zur Zehnerzahl",
         "vars":{"u1":"1_9","u2":"${10-:u1}","nu":"1_9_^${:u1},${:u2}","d0":"2_10","t":"${:d0*10}","d1":"1_${:d0-1}","nd":"1_${:d0-1}","nb1":"${:u1+:d1*10}", "nb2":"${:t-:nb1}", "c":"${:nd*10+:nu}", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}
     },{
-        "name":"Compléments à 100",
+        "name":"Ergänzung zu 100",
         "vars":{"u1":"1_9","u2":"${10-:u1}", "u3":"0_9_^${:u1},${:u2}","d1":"1_9", "d3":"1_99","nb1":"${:d1*10+:u1}", "nb2":"${100-:nb1}", "c":"${:d3*10+:u3}", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}
     },{
-        "name":"Compléments centaine",
+        "name":"Ergänzung zur Hunderterzahl",
         "vars":{"a":"2_10","b":"${:a*100}","nb1":"101_${:b-1}", "nb2":"${:b-:nb1}", "c":"100_999_^${:nb1},${:nb2}", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}
     },{
-        "name":"Avec décimaux",
+        "name":"Mit Dezimalzahlen",
         "vars":{"a":[10,20],"nb1":"d0.1_${:a-1}_1", "nb2":"${MMmath.round(:a-:nb1,1)}", "c":"12_150", "d":["${:nb1}+${:nb2}+${:c}", "${:nb1}+${:c}+${:nb2}","${:c}+${:nb1}+${:nb2}"]}
     }
     ],

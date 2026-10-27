@@ -1,28 +1,28 @@
 {
-    "title":"Multiplier un entier par 10, 100, 1000",
+    "title":"Mit 10, 100, 1000 multiplizieren",
     "speech":1,
     "ID":"9NE1",
     "keys":["_","_","_","_","_","_","_","_"],
-    "description":"multiplier par 10, 100, 1000, glissement des chiffres, zéros",
-    "params":{"fige":{"label":"Garder les mêmes chiffres non nuls","defaut":false,"fige":["m"]}},
+    "description":"natürliche Zahlen mit 10, 100, 1000 multiplizieren, Stellenwerttafel, Ziffern verschieben, Nullen anhängen, Kopfrechnen",
+    "params":{"fige":{"label":"Gleiche Ziffern (außer Nullen) beibehalten","defaut":false,"fige":["m"]}},
     "dest":["5AC"],
     "vars":{"a":[9,99,999,9999], "b0":"1_${:a}", "m":"1_999", "z":"0_1", "b":"${:fige ? :m*Math.pow(10,:z) : :b0}"},
         "options":[{
-        "name":"Multiplier un entier par 10",
+        "name":"Mit 10 multiplizieren",
         "question": ["${:b}\\times 10", "10\\times ${:b}"],
-        "audio":["${:b} × 10", "10 × ${:b}"],
+        "audio":["${:b} mal 10", "10 mal ${:b}"],
         "answer":":question=\\color{red}{${:b*10}}",
         "value":"${:b*10}"
     },{
-        "name":"Multiplier un entier par 100",
+        "name":"Mit 100 multiplizieren",
         "question": ["${:b}\\times 100", "100\\times ${:b}"],
-        "audio":["${:b} × 100", "100 × ${:b}"],
+        "audio":["${:b} mal 100", "100 mal ${:b}"],
         "answer":":question=\\color{red}{${:b*100}}",
         "value":"${:b*100}"
     },{
-        "name":"Multiplier un entier par 1000",
+        "name":"Mit 1000 multiplizieren",
         "question": ["${:b}\\times 1000", "1000\\times ${:b}"],
-        "audio":["${:b} × 1000", "1000 × ${:b}"],
+        "audio":["${:b} mal 1000", "1000 mal ${:b}"],
         "answer":":question=\\color{red}{${:b*1000}}",
         "value":"${:b*1000}"
     }

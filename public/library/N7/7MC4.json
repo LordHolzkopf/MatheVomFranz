@@ -1,6 +1,6 @@
 {
-    "title":"Vocabulaire : jour, année, siècle, millénaire",
-    "description":"jour, année, siècle, millénaire, bissextile, calendrier, durée",
+    "title":"Kalenderwissen: Tag, Jahr, Jahrhundert, Jahrtausend",
+    "description":"Kalender, Tage im Jahr, Schaltjahr, Jahre im Jahrhundert, Jahrtausend, Jahrhundert einer Jahreszahl bestimmen, Zeitspannen",
     "type":"text",
     "speech":1,
     "ID":"7MC4",
@@ -8,66 +8,66 @@
     "keys":["jr","sm","an","scl","_","_","_","_"],
     "options":[
         {
-            "name":"Années bissextiles ou non",
+            "name":"Schaltjahr oder nicht",
             "vars":{"bis":[0,1]},
-            "question":["Combien de jours compte une année ${:bis==1?'bissextile':'non bissextile'} ?",
-                "Une année ${:bis==1?'bissextile':'normale (non bissextile)'} compte combien de jours ?",
-                "Tous les combien d'années y a-t-il une année bissextile ?"],
-            "audio":["Combien de jours compte une année ${:bis==1?'bissextile':'non bissextile'} ?",
-                "Une année ${:bis==1?'bissextile':'normale, non bissextile,'} compte combien de jours ?",
-                "Tous les combien d'années y a-t-il une année bissextile ?"],
-            "answer":["Une année ${:bis==1?'bissextile':'non bissextile'} compte <span class='red'>${:bis==1?366:365}</span> jours.",
-                "Une année ${:bis==1?'bissextile':'non bissextile'} compte <span class='red'>${:bis==1?366:365}</span> jours.",
-                "Il y a une année bissextile tous les <span class='red'>4</span> ans (en général)."],
+            "question":["Wie viele Tage hat ${:bis==1?'ein Schaltjahr':'ein Jahr, das kein Schaltjahr ist'}?",
+                "${:bis==1?'Ein Schaltjahr':'Ein normales Jahr (kein Schaltjahr)'} hat wie viele Tage?",
+                "Alle wie viele Jahre gibt es ein Schaltjahr?"],
+            "audio":["Wie viele Tage hat ${:bis==1?'ein Schaltjahr':'ein Jahr, das kein Schaltjahr ist'}?",
+                "${:bis==1?'Ein Schaltjahr':'Ein normales Jahr, also kein Schaltjahr,'} hat wie viele Tage?",
+                "Alle wie viele Jahre gibt es ein Schaltjahr?"],
+            "answer":["${:bis==1?'Ein Schaltjahr':'Ein Jahr, das kein Schaltjahr ist,'} hat <span class='red'>${:bis==1?366:365}</span> Tage.",
+                "${:bis==1?'Ein Schaltjahr':'Ein normales Jahr'} hat <span class='red'>${:bis==1?366:365}</span> Tage.",
+                "Ein Schaltjahr gibt es (in der Regel) alle <span class='red'>4</span> Jahre."],
             "value":["${:bis==1?366:365}","${:bis==1?366:365}","4"]
         },{
-            "name":"Années dans un siècle",
-            "question":["Combien d'années y a-t-il dans un siècle ?",
-                "Un siècle compte combien d'années ?"],
-            "audio":"Combien d'années y a-t-il dans un siècle ?",
-            "answer":"Un siècle compte <span class='red'>100</span> années.",
-            "value":["100","100 ans","100 années"]
+            "name":"Jahre in einem Jahrhundert",
+            "question":["Wie viele Jahre hat ein Jahrhundert?",
+                "Ein Jahrhundert hat wie viele Jahre?"],
+            "audio":"Wie viele Jahre hat ein Jahrhundert?",
+            "answer":"Ein Jahrhundert hat <span class='red'>100</span> Jahre.",
+            "value":["100","100 Jahre","100 a"]
         },{
-            "name":"Années dans un millénaire",
-            "question":["Combien d'années y a-t-il dans un millénaire ?",
-                "Un millénaire compte combien d'années ?"],
-            "audio":"Combien d'années y a-t-il dans un millénaire ?",
-            "answer":"Un millénaire compte <span class='red'>1000</span> années.",
-            "value":["1000","1000 ans","1000 années", "1000 a"]
+            "name":"Jahre in einem Jahrtausend",
+            "question":["Wie viele Jahre hat ein Jahrtausend?",
+                "Ein Jahrtausend hat wie viele Jahre?"],
+            "audio":"Wie viele Jahre hat ein Jahrtausend?",
+            "answer":"Ein Jahrtausend hat <span class='red'>1000</span> Jahre.",
+            "value":["1000","1000 Jahre","1000 a"]
         },{
-            "name":"Siècles dans un millénaire",
-            "question":["Combien de siècles y a-t-il dans un millénaire ?",
-                "Un millénaire compte combien de siècles ?"],
-            "audio":"Combien de siècles y a-t-il dans un millénaire ?",
-            "answer":"Un millénaire compte <span class='red'>10</span> siècles.",
-            "value":["10","10 siècles"]
+            "name":"Jahrhunderte in einem Jahrtausend",
+            "question":["Wie viele Jahrhunderte hat ein Jahrtausend?",
+                "Ein Jahrtausend hat wie viele Jahrhunderte?"],
+            "audio":"Wie viele Jahrhunderte hat ein Jahrtausend?",
+            "answer":"Ein Jahrtausend hat <span class='red'>10</span> Jahrhunderte.",
+            "value":["10","10 Jahrhunderte","10 Jh."]
         },{
-            "name":"Conversions siècles <=> années",
+            "name":"Jahrhunderte und Jahre umrechnen",
             "vars":{"s":"1_20","an":"0_99","totalQ":"${:s*100+:an}","totalR":"${:s*100}"},
-            "question":["Combien de siècles y a-t-il dans ${:totalQ} ans ?",
-                "Combien d'années y a-t-il dans ${:s} siècles ?"],
-            "audio":["Combien y a-t-il de siècles dans ${:totalQ} ans ?",
-                "Combien y a-t-il d'années dans ${:s} siècles ?"],
-            "answer":["Dans ${:totalQ} ans, il y a<span class='red'>${:s}</span> siècles.",
-                "${:s} siècles = <span class='red'>${:totalR}</span> années."],
+            "question":["Wie viele volle Jahrhunderte sind ${:totalQ} Jahre?",
+                "Wie viele Jahre ${:s==1?'ist':'sind'} ${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'}?"],
+            "audio":["Wie viele volle Jahrhunderte sind ${:totalQ} Jahre?",
+                "Wie viele Jahre ${:s==1?'ist':'sind'} ${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'}?"],
+            "answer":["${:totalQ} Jahre enthalten <span class='red'>${:s}</span> ${:s==1?'volles Jahrhundert':'volle Jahrhunderte'}.",
+                "${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'} = <span class='red'>${:totalR}</span> Jahre"],
             "value":["${:s}","${:totalR}"]
         },{
-            "name":"Conversions millénaires <=> années",
+            "name":"Jahrtausende und Jahre umrechnen",
             "vars":{"mil":"1_9","an":"0_999","totalQ":"${:mil*1000+:an}","totalR":"${:mil*1000}"},
-            "question":["Combien de millénaires y a-t-il dans ${:totalQ} ans ?",
-                "Combien d'années y a-t-il dans ${:mil} millénaires ?"],
-            "audio":["Combien y a-t-il de millénaires dans ${:totalQ} ans ?",
-                "Combien y a-t-il d'années dans ${:mil} millénaires ?"],
-            "answer":["Dans ${:totalQ} ans, il y a <span class='red'>${:mil}</span> millénaires.",
-                "${:mil} millénaires = <span class='red'>${:totalR}</span> années."],
+            "question":["Wie viele volle Jahrtausende sind ${:totalQ} Jahre?",
+                "Wie viele Jahre ${:mil==1?'ist':'sind'} ${:mil} ${:mil==1?'Jahrtausend':'Jahrtausende'}?"],
+            "audio":["Wie viele volle Jahrtausende sind ${:totalQ} Jahre?",
+                "Wie viele Jahre ${:mil==1?'ist':'sind'} ${:mil} ${:mil==1?'Jahrtausend':'Jahrtausende'}?"],
+            "answer":["${:totalQ} Jahre enthalten <span class='red'>${:mil}</span> ${:mil==1?'volles Jahrtausend':'volle Jahrtausende'}.",
+                "${:mil} ${:mil==1?'Jahrtausend':'Jahrtausende'} = <span class='red'>${:totalR}</span> Jahre"],
             "value":["${:mil}","${:totalR}"]
         },{
-            "name":"Trouver le siècle d'une année",
+            "name":"Jahrhundert einer Jahreszahl bestimmen",
             "vars":{"c":"1_21","an":"1_100","year":"${(:c-1)*100+:an}"},
-            "question":"Quel siècle était-ce en l'an ${:year} ?",
-            "audio":"Quel siècle était-ce en l'an ${:year} ?",
-            "answer":"En l'an ${:year}, c'était le <span class='red'>${:c}</span>e siècle.",
-            "value":["${:c}","${:c}e siècle"]
+            "question":"In welchem Jahrhundert liegt das Jahr ${:year}?",
+            "audio":"In welchem Jahrhundert liegt das Jahr ${:year}?",
+            "answer":"Das Jahr ${:year} liegt im <span class='red'>${:c}.</span> Jahrhundert.",
+            "value":["${:c}","${:c}. Jahrhundert","${:c}. Jh."]
         }
     ]
 }

@@ -1,26 +1,26 @@
 {
     "ID":"8MB1",
-    "title":"Aire et périmètres par comptage",
-    "description":"aire, périmètre, quadrillage, carreaux, compter, carré, rectangle",
+    "title":"Flächeninhalt und Umfang durch Kästchenzählen",
+    "description":"Flächeninhalt, Umfang, Kästchen zählen, Karopapier, Einheitsquadrat, Quadrat, Rechteck, cm, cm²",
     "dest":["5DB", "5DC"],
     "keys":["_","_","cm","x²","_","_","_","_"],
     "type":"text",
     "options":[
         {
-            "name":"Aire et périmètre du carré",
+            "name":"Flächeninhalt und Umfang des Quadrats",
             "vars":{
                 "c1":"2_6",
                 "c2":"${:c1}",
-                "fig":"carré",
+                "fig":"Quadrats",
                 "w":"${3+Math.floor((9-:c1)/2)}",
                 "h":"${1+Math.floor((6-:c2)/2)}"
             }
         },{
-            "name":"Aire et périmètre du rectangle",
+            "name":"Flächeninhalt und Umfang des Rechtecks",
             "vars":{
                 "c1":"2_9",
                 "c2":"1_6_^${:c1}",
-                "fig":"rectangle",
+                "fig":"Rechtecks",
                 "w":"${3+Math.floor((9-:c1)/2)}",
                 "h":"${1+Math.floor((6-:c2)/2)}"
             }
@@ -50,18 +50,18 @@
         ]
     },
     "question":[
-        "Quel est le périmètre du ${:fig} ?",
-        "Quelle est l'aire du ${:fig} ?",
-        "Quels sont le périmètre et l’aire du ${:fig} ?"
+        "Wie groß ist der Umfang des ${:fig}?",
+        "Wie groß ist der Flächeninhalt des ${:fig}?",
+        "Wie groß sind Umfang und Flächeninhalt des ${:fig}?"
     ],
     "answer":[
         "$$${:c1*2 + :c2*2} \\text{ cm}$$",
         "$$${:c1*:c2} \\text{ cm}^2$$",
-        "$$${:c1*2 + :c2*2} \\text{ cm}$$ et $$${:c1*:c2} \\text{ cm}^2$$"
+        "Umfang: $$${:c1*2 + :c2*2} \\text{ cm}$$, Flächeninhalt: $$${:c1*:c2} \\text{ cm}^2$$"
     ],
     "value":[
         "${:c1*2 + :c2*2}\\text{ cm}",
         "${:c1*:c2}\\text{ cm}^2",
-        "${:c1*2 + :c2*2}\\text{ cm}$$ et $$${:c1*:c2}\\text{ cm}^2"
+        "${:c1*2 + :c2*2}\\text{ cm}$$ und $$${:c1*:c2}\\text{ cm}^2"
     ]
 }

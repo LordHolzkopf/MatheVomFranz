@@ -1,63 +1,63 @@
 {
-    "title":"Ajouter, soustraire 9, 11, 19...",
-    "description":"ajouter ou soustraire 9, 11, 19, 21, 99, 101, calcul réfléchi, compensation, presque dizaine",
+    "title":"9, 11, 19, 21 … geschickt addieren und subtrahieren",
+    "description":"9, 11, 19, 21, 99, 101 addieren oder subtrahieren, Kopfrechnen, geschickt rechnen, Ausgleichen, fast Zehnerzahl, Rechenstrategie",
     "type":"latex",
     "ID":"8ND1",
     "speech":1,
     "keys":"numerique",
     "dest":["5AC", "5CB"],
     "options":[{
-        "name":"Ajouter 9 ou 99",
+        "name":"9 oder 99 addieren",
         "vars":{"a":[9,99],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Ajouter 9, 19, 29, 39",
+        "name":"9, 19, 29, 39 addieren",
         "vars":{"a":[9,19,29,39],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Ajouter 49, 59, …, 99",
+        "name":"49, 59, …, 99 addieren",
         "vars":{"a":[49,59,69,79,89,99],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Ajouter 11 ou 111",
+        "name":"11 oder 111 addieren",
         "vars":{"a":[11,111],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Ajouter 11, 21, 31, 41",
+        "name":"11, 21, 31, 41 addieren",
         "vars":{"a":[11,21,31,41],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Ajouter 51, 61, …, 101",
+        "name":"51, 61, …, 101 addieren",
         "vars":{"a":[51,61,71,81,91,101],"b":"11_1000"},
         "question": ["${:a}+${:b}", "${:b}+${:a}"],
-        "audio":["${:a} plusse ${:b}","${:b} plusse ${:a}"]
+        "audio":["${:a} plus ${:b}","${:b} plus ${:a}"]
     },{
-        "name":"Soustraire 9 ou 99",
+        "name":"9 oder 99 subtrahieren",
         "vars":{"a":[-9,-99],"b":"100_1000"}
     },{
-        "name":"Soustraire 9, 19, 29, 39, 49",
+        "name":"9, 19, 29, 39, 49 subtrahieren",
         "vars":{"a":[-9,-19,-29,-39,-49],"b":"50_1000"}
     },{
-        "name":"Soustraire 59, …, 99",
+        "name":"59, …, 99 subtrahieren",
         "vars":{"a":[-59,-69,-79,-89,-99],"b":"100_1000"}
     },{
-        "name":"Soustraire 11 ou 111",
+        "name":"11 oder 111 subtrahieren",
         "vars":{"a":[-11,-111],"b":"112_1000"}
     },{
-        "name":"Soustraire 11, 21, 31, 41, 51",
+        "name":"11, 21, 31, 41, 51 subtrahieren",
         "vars":{"a":[-11,-21,-31,-41,-51],"b":"52_1000"}
     },{
-        "name":"Soustraire 61, …, 101",
+        "name":"61, …, 101 subtrahieren",
         "vars":{"a":[-61,-71,-81,-91,-101],"b":"102_1000"}
     }
     ],
     "question": "${:b}${MMmath.signedNumber(:a)}",
-    "audio":"${:b} moins ${-:a}",
+    "audio":"${:b} minus ${-:a}",
     "answer":":question=\\color{red}{${:a+:b}}",
     "value":"${:a+:b}"
 }

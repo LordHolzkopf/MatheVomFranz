@@ -1,33 +1,33 @@
 {
-    "title":"Ajouter des unités, dizaines ... à un entier",
+    "title":"Einer, Zehner, Hunderter … addieren",
     "ID":"8NA3",
     "speech":1,
     "type":"text",
-    "description":"Somme d'un nombre entier avec des unités, dizaines, centaines...",
+    "description":"Stellenwerte: mehrere Einer, Zehner, Hunderter, Tausender, Zehntausender oder Hunderttausender zu einer natürlichen Zahl addieren, Kopfrechnen",
     "dest":["5AA", "5AB", "5AC"],
     "keys":"numerique",
     "options":[{
-            "name":"Ajouter des unité",
-            "vars":{"a":[99,999,9999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b}", "ajout":"unités"}
+            "name":"Einer addieren",
+            "vars":{"a":[99,999,9999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b}", "ajout":"Einer"}
         },{
-            "name":"Ajouter des dizaines",
-            "vars":{"a":[9,99,999,9999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*10}", "ajout":"dizaines"}
+            "name":"Zehner addieren",
+            "vars":{"a":[9,99,999,9999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*10}", "ajout":"Zehner"}
         },{
-            "name":"Ajouter des centaines",
-            "vars":{"a":[9,99,999,9999,99999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*100}", "ajout":"centaines"}
+            "name":"Hunderter addieren",
+            "vars":{"a":[9,99,999,9999,99999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*100}", "ajout":"Hunderter"}
         },{
-            "name":"Ajouter des milliers",
-            "vars":{"a":[9,99,999,9999,99999,999999,99999,999999],"t1":"1_${:a}","u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*1000}", "ajout":"unités de mille"}
+            "name":"Tausender addieren",
+            "vars":{"a":[9,99,999,9999,99999,999999,99999,999999],"t1":"1_${:a}","u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*1000}", "ajout":"Tausender"}
         },{
-            "name":"Ajouter des dizaines de mille",
-            "vars":{"a":[9,99,999,9999,99999,999999,999999,999999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*10000}", "ajout":"dizaines de mille"}
+            "name":"Zehntausender addieren",
+            "vars":{"a":[9,99,999,9999,99999,999999,999999,999999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*10000}", "ajout":"Zehntausender"}
         },{
-            "name":"Ajouter des centaines de mille",
-            "vars":{"a":[9,99,999,9999,99999,999999,9999999,999999,9999999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*100000}", "ajout":"centaines de mille"}
+            "name":"Hunderttausender addieren",
+            "vars":{"a":[9,99,999,9999,99999,999999,9999999,999999,9999999],"t1":"1_${:a}", "u":[0,1,2,3], "d":[0,1,2,3], "c":[0,1,2], "b":"${:u+10*:d+100*:c}", "t2":"${:b*100000}", "ajout":"Hunderttausender"}
         }
     ],
-    "question": "Quel nombre obtient-on si l'on ajoute <b>${:b} ${:ajout}</b> à $$${:t1}$$ ?",
-    "audio":"Quel nombre obtient-on si l'on ajoute ${:b} ${:ajout} à ${:t1} ?",
+    "question": "Welche Zahl erhältst du, wenn du <b>${:b} ${:ajout}</b> zu $$${:t1}$$ addierst?",
+    "audio":"Welche Zahl erhältst du, wenn du ${:b} ${:ajout} zu ${:t1} addierst?",
     "answer":"$$${:t1}+${:t2}=\\color{red}{${:t1+:t2}}$$",
     "value":"${:t1+:t2}"
 }

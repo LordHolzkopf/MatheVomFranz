@@ -1,40 +1,44 @@
 {
-    "title": "Faits numériques sur les moitiés",
-    "description": "moitié, diviser par 2, partager en deux, faits numériques",
+    "title": "Halbieren",
+    "description": "halbieren, die Hälfte, durch 2 teilen, in zwei gleiche Teile teilen, Kopfrechnen, Grundaufgaben, Aufwärmübung",
     "ID":"8NN2",
     "dest":["5AC"],
     "type":"text",
     "keys":"numerique",
     "repeat":true,
     "options":[{
-        "name":"Nombres de 2 à 40",
+        "name":"Zahlen von 2 bis 40",
         "vars":{
             "m":"1_20",
             "n":"${:m*2}"
         }
     },{
-        "name":"Nombres de dizaines entières 40, 50... 150",
+        "name":"Zehnerzahlen 40, 50, …, 150",
         "vars":{
             "m":[20,25,30,35,40,45,50,60,75],
             "n":"${:m*2}"
         }
     },{
-        "name":"Nombres de centaines entières 200, 300... 1200",
+        "name":"Hunderterzahlen 200, 300, …, 1200",
         "vars":{
             "m":[100,150,200,250,300,400,500,600],
             "n":"${:m*2}"
         }
     }],
     "question":[
-        "Quelle est la moitié de $$${:n}$$ ?",
+        "Was ist die Hälfte von $$${:n}$$?",
         "$$${:n} \\div 2$$"
     ],
     "shortq":[
-      "Moitié de $$:n$$ ?",
+      "Die Hälfte von $$:n$$?",
       "$$:n \\div 2=\\colorbox{#ECECEC}{\\quad}$$"
     ],
     "answer":[
-        "La moitié de $$${:n}$$ est $$\\color{red}{${:m}}$$.",
+        "Die Hälfte von $$${:n}$$ ist $$\\color{red}{${:m}}$$.",
         "$$${:n}\\div 2 = \\color{red}{${:m}}$$"
+    ],
+    "value":[
+      "${:m}",
+      "${:m}"
     ]
 }

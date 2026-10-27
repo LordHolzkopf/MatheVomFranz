@@ -1,6 +1,6 @@
 {
-    "title":"Double, triple, quadruple / moitié, tiers, quart : relier deux nombres",
-    "description":"Relier deux nombres : double, triple, quadruple, moitié, tiers, quart, multiple, diviseur. Non adapté au mode interactif (online/duel).",
+    "title":"Das Doppelte, die Hälfte …: Zahlen in Beziehung setzen",
+    "description":"Zwei Zahlen in Beziehung setzen: das Doppelte, das Dreifache, das Vierfache, die Hälfte, ein Drittel, ein Viertel, Vielfache, Teiler. Nicht für den interaktiven Modus (online/Duell) geeignet.",
     "ID":"8ND5",
     "type":"text",
     "speech":1,
@@ -11,37 +11,37 @@
         "k":"2_4",
         "n":"2_20",
         "p":"${:n*:k}",
-        "mot":"${:k==2?'double':(:k==3?'triple':'quadruple')}",
-        "motd":"${:k==2?'moitié':(:k==3?'tiers':'quart')}",
-        "artd":"${:k==2?'la':'le'}"
+        "mot":"${:k==2?'Doppelte':(:k==3?'Dreifache':'Vierfache')}",
+        "motd":"${:k==2?'Hälfte':(:k==3?'Drittel':'Viertel')}",
+        "artd":"${:k==2?'die':'ein'}"
     },
     "options":[
         {
-            "name":"Multiple : double, triple, quadruple",
+            "name":"Vielfaches: das Doppelte, Dreifache, Vierfache",
             "question":[
-                "Complète : $$${:p}$$ est le … de $$${:n}$$.",
-                "$$${:p}$$, est-il le double, le triple ou le quadruple de $$${:n}$$ ?"
+                "Ergänze: $$${:p}$$ ist das … von $$${:n}$$.",
+                "Ist $$${:p}$$ das Doppelte, das Dreifache oder das Vierfache von $$${:n}$$?"
             ],
             "audio":[
-                "${:p} est le combien de ${:n} ? Double, triple ou quadruple ?",
-                "${:p}, est-il le double, le triple ou le quadruple de ${:n} ?"
+                "${:p} ist das Wievielfache von ${:n}? Das Doppelte, das Dreifache oder das Vierfache?",
+                "Ist ${:p} das Doppelte, das Dreifache oder das Vierfache von ${:n}?"
             ],
-            "shortq":["$$${:p}$$ est le … de $$${:n}$$","$$${:p}$$ est le … de $$${:n}$$"],
-            "answer":"$$${:p}=${:n}\\times ${:k}$$ donc ${:p} est le <span class='red'>${:mot}</span> de ${:n}.",
-            "value":["${:mot}","le ${:mot}"]
+            "shortq":["$$${:p}$$ ist das … von $$${:n}$$","$$${:p}$$ ist das … von $$${:n}$$"],
+            "answer":"$$${:p}=${:n}\\times ${:k}$$, also ist ${:p} das <span class='red'>${:mot}</span> von ${:n}.",
+            "value":["${:mot}","das ${:mot}"]
         },
         {
-            "name":"Diviseur : moitié, tiers, quart",
+            "name":"Teil: die Hälfte, ein Drittel, ein Viertel",
             "question":[
-                "Complète : $$${:n}$$ est … de $$${:p}$$.",
-                "$$${:n}$$, est-il la moitié, le tiers ou le quart de $$${:p}$$ ?"
+                "Ergänze: $$${:n}$$ ist … von $$${:p}$$.",
+                "Ist $$${:n}$$ die Hälfte, ein Drittel oder ein Viertel von $$${:p}$$?"
             ],
             "audio":[
-                "${:n} est quelle part de ${:p} ? La moitié, le tiers ou le quart ?",
-                "${:n}, est-il la moitié, le tiers ou le quart de ${:p} ?"
+                "Welcher Teil von ${:p} ist ${:n}? Die Hälfte, ein Drittel oder ein Viertel?",
+                "Ist ${:n} die Hälfte, ein Drittel oder ein Viertel von ${:p}?"
             ],
-            "shortq":["$$${:n}$$ est … de $$${:p}$$","$$${:n}$$ est … de $$${:p}$$"],
-            "answer":"$$${:n}=${:p}\\div ${:k}$$ donc ${:n} est <span class='red'>${:artd} ${:motd}</span> de ${:p}.",
+            "shortq":["$$${:n}$$ ist … von $$${:p}$$","$$${:n}$$ ist … von $$${:p}$$"],
+            "answer":"$$${:n}=${:p}\\div ${:k}$$, also ist ${:n} <span class='red'>${:artd} ${:motd}</span> von ${:p}.",
             "value":["${:motd}","${:artd} ${:motd}"]
         }
     ]

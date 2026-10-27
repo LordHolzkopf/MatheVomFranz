@@ -1,64 +1,64 @@
 {
-    "title":"Nombre de, chiffre des ... ?",
-    "description":"Indiquer le chiffre de, ou le nombre (entier) d'unités, dizaines, ...",
+    "title":"Ziffer an einer Stelle und Anzahl der Einer, Zehner, …",
+    "description":"Stellenwerte: Ziffer an der Einer-, Zehner-, Hunderter-, Tausenderstelle … angeben oder die Anzahl der Zehner, Hunderter, Tausender … insgesamt bestimmen, Stellenwerttafel, große Zahlen",
     "speech":1,
     "type":"text",
     "ID":"9NA1",
     "textSize":"medium",
     "dest":["5AA", "5AB"],
-    "consts":{"u":["centaines", "dizaines", "unités"],
-        "dm":["unités de mille","centaines", "dizaines", "unités"],
-        "v":["centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"],
-        "w":["centaines de millions", "dizaines de millions", "unités de millions","centaines de mille", "dizaines de mille", "unités de mille","centaines", "dizaines", "unités"]
+    "consts":{"u":["Hunderter", "Zehner", "Einer"],
+        "dm":["Tausender","Hunderter", "Zehner", "Einer"],
+        "v":["Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"],
+        "w":["Hundertmillionen", "Zehnmillionen", "Millionen","Hunderttausender", "Zehntausender", "Tausender","Hunderter", "Zehner", "Einer"]
     },
     "options":[{
-            "name":"Chiffre des ... entier inférieur à $$1000$$",
+            "name":"Ziffer an einer Stelle, Zahl kleiner als $$1000$$",
             "vars":{"a0":"1_9","a":"0_9_2_^&,${:a0}", "b":"0_2", "c":"${:a0+''+:a.join('')}", "d":"${:u[:b]}"}
         },{
-            "name":"Nombre de ... entier inférieur à $$1000$$",
+            "name":"Anzahl der Einer, Zehner …, Zahl kleiner als $$1000$$",
             "vars":{"a0":"1_9","a":"0_9_2_^&,${:a0}", "b":"0_2", "c":"${:a0+''+:a.join('')}", "d":"${:u[:b]}"},
-            "question":"Dans $$${:c}$$, quel est le nombre ${:b==2?'d’':'de '}<b>${:d}</b> ?",
-            "audio":"Dans ${:c}, quel est le nombre ${:b==2?'d’':'de '} ${:d} ?",
-            "answer":"Dans $$${:c}$$, le nombre ${:b==2?'d’':'de '}<b>${:d}</b> est $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,2-:b))}}$$",
+            "question":"Wie viele <b>${:d}</b> stecken insgesamt in $$${:c}$$?",
+            "audio":"Wie viele ${:d} stecken insgesamt in ${:c}?",
+            "answer":"In $$${:c}$$ stecken insgesamt $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,2-:b))}}$$ <b>${:d}</b>.",
             "value":"${Math.floor(Number(:c)/Math.pow(10,2-:b))}"
         },{
-            "name":"Chiffre des ... entier inférieur à $$10000$$ (CE2)",
+            "name":"Ziffer an einer Stelle, Zahl kleiner als $$10000$$",
             "vars":{"a0":"1_9","a":"0_9_3_^&,${:a0}", "b":"0_3", "c":"${:a0+''+:a.join('')}", "d":"${:dm[:b]}"}
         },{
-            "name":"Nombre de ... entier inférieur à $$10000$$",
+            "name":"Anzahl der Einer, Zehner …, Zahl kleiner als $$10000$$",
             "vars":{"a0":"1_9","a":"0_9_3_^&,${:a0}", "b":"0_3", "c":"${:a0+''+:a.join('')}", "d":"${:dm[:b]}"},
-            "question":"Dans $$${:c}$$, quel est le nombre ${:b==0||:b==3?'d’':'de '}<b>${:d}</b> ?",
-            "audio":"Dans ${:c}, quel est le nombre ${:b==0||:b==3?'d’':'de '} ${:d} ?",
-            "answer":"Dans $$${:c}$$, le nombre ${:b==0||:b==3?'d’':'de '}<b>${:d}</b> est $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,3-:b))}}$$",
+            "question":"Wie viele <b>${:d}</b> stecken insgesamt in $$${:c}$$?",
+            "audio":"Wie viele ${:d} stecken insgesamt in ${:c}?",
+            "answer":"In $$${:c}$$ stecken insgesamt $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,3-:b))}}$$ <b>${:d}</b>.",
             "value":"${Math.floor(Number(:c)/Math.pow(10,3-:b))}"
         },{
-            "name":"Chiffre des ... entier inférieur à $$1000000$$ (CM)",
+            "name":"Ziffer an einer Stelle, Zahl kleiner als $$1000000$$",
             "vars":{"a":"0_9_6_^&", "b":"0_5", "c":"${:a.join('')}", "d":"${:v[:b]}"},
-            "answer":"Dans $$${:c}$$, le chiffre des <u>${:d}</u> est $$\\color{red}{${((:c<1e5?'0':'')+String(:c)).charAt(Number(:b))}}$$",
+            "answer":"In $$${:c}$$ steht an der <u>${:d}stelle</u> die Ziffer $$\\color{red}{${((:c<1e5?'0':'')+String(:c)).charAt(Number(:b))}}$$.",
             "value":"${((:c<1e5?'0':'')+String(:c)).charAt(Number(:b))}"        
         },{
-            "name":"Nombre de ... entier inférieur à $$1000000$$",
+            "name":"Anzahl der Einer, Zehner …, Zahl kleiner als $$1000000$$",
             "vars":{"a":"0_9_6_^&", "b":"0_5", "c":"${:a.join('')}", "d":"${:v[:b]}"},
-            "question":"Dans $$${:c}$$, quel est le nombre ${:b==2||:b==5?'d’':'de '}<b>${:d}</b> ?",
-            "audio":"Dans ${:c}, quel est le nombre ${:b==2||:b==5?'d’':'de '} ${:d} ?",
-            "answer":"Dans $$${:c}$$, le nombre ${:b==2||:b==5?'d’':'de '}<b>${:d}</b> est $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,5-:b))}}$$",
+            "question":"Wie viele <b>${:d}</b> stecken insgesamt in $$${:c}$$?",
+            "audio":"Wie viele ${:d} stecken insgesamt in ${:c}?",
+            "answer":"In $$${:c}$$ stecken insgesamt $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,5-:b))}}$$ <b>${:d}</b>.",
             "value":"${Math.floor(Number(:c)/Math.pow(10,5-:b))}"
         },{
-            "name":"Chiffre des ... entier inférieur à $$1000000000$$ (CM)",
+            "name":"Ziffer an einer Stelle, Zahl kleiner als $$1000000000$$",
             "vars":{"a":"0_9_9_^&", "b":"0_8", "c":"${:a.join('')}", "d":"${:w[:b]}"},
-            "answer":"Dans $$${:c}$$, le chiffre des <u>${:d}</u> est $$\\color{red}{${((:c<1e8?'0':'')+String(:c)).charAt(Number(:b))}}$$",
+            "answer":"In $$${:c}$$ steht an der <u>${:d}stelle</u> die Ziffer $$\\color{red}{${((:c<1e8?'0':'')+String(:c)).charAt(Number(:b))}}$$.",
             "value":"${((:c<1e8?'0':'')+String(:c)).charAt(Number(:b))}"
                 },{
-            "name":"Nombre de ... entier inférieur à $$1000000000$$",
+            "name":"Anzahl der Einer, Zehner …, Zahl kleiner als $$1000000000$$",
             "vars":{"a":"0_9_9_^&", "b":"0_8", "c":"${:a.join('')}", "d":"${:w[:b]}"},
-            "question":"Dans $$${:c}$$, quel est le nombre ${:b==2||:b==5||:b==8?'d’':'de '}<b>${:d}</b> ?",
-            "audio":"Dans ${:c}, quel est le nombre ${:b==2||:b==5||:b==8?'d’':'de '} ${:d} ?",
-            "answer":"Dans $$${:c}$$, le nombre ${:b==2||:b==5||:b==8?'d’':'de '}<b>${:d}</b> est $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,8-:b))}}$$",
+            "question":"Wie viele <b>${:d}</b> stecken insgesamt in $$${:c}$$?",
+            "audio":"Wie viele ${:d} stecken insgesamt in ${:c}?",
+            "answer":"In $$${:c}$$ stecken insgesamt $$\\color{red}{${Math.floor(Number(:c)/Math.pow(10,8-:b))}}$$ <b>${:d}</b>.",
             "value":"${Math.floor(Number(:c)/Math.pow(10,8-:b))}"
         }
     ],
-    "question": "Dans $$${:c}$$, quel est le chiffre des <b>${:d}</b> ?",
-    "audio":"Dans ${:c}, quel est le chiffre des ${:d} ?",
-    "answer":"Dans $$${:c}$$, le chiffre des <u>${:d}</u> est $$\\color{red}{${String(:c).charAt(Number(:b))}}$$",
+    "question": "Welche Ziffer steht in $$${:c}$$ an der <b>${:d}stelle</b>?",
+    "audio":"Welche Ziffer steht in ${:c} an der ${:d}stelle?",
+    "answer":"In $$${:c}$$ steht an der <u>${:d}stelle</u> die Ziffer $$\\color{red}{${String(:c).charAt(Number(:b))}}$$.",
     "value":"${String(:c).charAt(Number(:b))}"
 }

@@ -1,68 +1,68 @@
 {
     "ID":"8ND4",
-    "title":"Diviser un entier par 4 ou par 8",
-    "description":"diviser par 4 ou 8, moitié de la moitié, calcul réfléchi",
+    "title":"Durch 4 oder 8 dividieren (Hälfte der Hälfte)",
+    "description":"durch 4 oder 8 teilen, Hälfte der Hälfte, mehrfach halbieren, Kopfrechnen, Rechenstrategie, ein Viertel, ein Achtel",
     "type":"text",
     "keys":"numerique",
     "dest":["5AC", "5CB"],
     "options":[
         {
-            "name":"Diviser par 4 en utilisant les tables",
+            "name":"Durch 4 dividieren (Einmaleins)",
             "vars":{
                 "n":"1_10",
                 "m":4,
-                "nom":"quart",
+                "nom":"ein Viertel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 2"
             }
         },{
-            "name":"Diviser par 4 un multiple 40",
+            "name":"Vielfache von 40 durch 4 dividieren",
             "vars":{
                 "n0":"1_10",
                 "n":"${:n0*10}",
                 "m":4,
-                "nom":"quart",
+                "nom":"ein Viertel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 2"
             }
         },{
-            "name":"Diviser par 4 un multiple de 4 > 40",
+            "name":"Vielfache von 4 über 40 durch 4 dividieren",
             "vars":{
                 "u":"1_9",
                 "d":"1_9",
                 "n":"${:d*10+:u}",
                 "m":4,
-                "nom":"quart",
+                "nom":"ein Viertel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 2"
             }
         },{
-            "name":"Diviser par 8 en utilisant les tables",
+            "name":"Durch 8 dividieren (Einmaleins)",
             "vars":{
                 "n":"1_10",
                 "m":8,
-                "nom":"huitième",
+                "nom":"ein Achtel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 4=${:p/4}\\div 2"
             }
         },{
-            "name":"Diviser par 8 un multiple 80",
+            "name":"Vielfache von 80 durch 8 dividieren",
             "vars":{
                 "n0":"1_10",
                 "n":"${:n0*10}",
                 "m":8,
-                "nom":"huitième",
+                "nom":"ein Achtel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 4=${:p/4}\\div 2"
             }
         },{
-            "name":"Diviser par 8 un multiple de 8 > 80",
+            "name":"Vielfache von 8 über 80 durch 8 dividieren",
             "vars":{
                 "u":"1_9",
                 "d":"1_9",
                 "n":"${:d*10+:u}",
                 "m":8,
-                "nom":"huitième",
+                "nom":"ein Achtel",
                 "p":"${:n*:m}",
                 "ci":"${:p/2}\\div 4=${:p/4}\\div 2"
             }
@@ -71,14 +71,14 @@
     "question":[
         "$$${:p}\\div ${:m}$$",
         "$$\\dfrac{${:p}}{${:m}}$$",
-        "Divise $$${:p}$$ par $$${:m}$$",
-        "Quel est le ${:nom} de $$${:p}$$ ?"
+        "Dividiere $$${:p}$$ durch $$${:m}$$.",
+        "Wie viel ist ${:nom} von $$${:p}$$?"
     ],
     "answer":[
         "$$${:p}\\div ${:m}=${:ci}=\\color{red}{${:n}}$$",
         "$$\\dfrac{${:p}}{${:m}}=${:ci}=\\color{red}{${:n}}$$",
         "$$${:p}\\div ${:m}=${:ci}=\\color{red}{${:n}}$$",
-        "Le ${:nom} de $$${:p}$$ est $$\\color{red}{${:n}}$$"
+        "${:nom.charAt(0).toUpperCase()+:nom.slice(1)} von $$${:p}$$ ist $$\\color{red}{${:n}}$$."
     ],
     "value":"${:n}"
 }

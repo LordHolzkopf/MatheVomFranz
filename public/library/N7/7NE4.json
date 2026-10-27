@@ -1,37 +1,37 @@
 {
-    "title":"CM Procédures -> Diviser un nombre par 4 ou par 8",
-    "description":"diviser par 4 ou 8, moitié de la moitié, calcul réfléchi",
+    "title":"Durch 4 oder durch 8 dividieren",
+    "description":"durch 4 teilen, durch 8 teilen, Hälfte der Hälfte, zweimal halbieren, dreimal halbieren, Kopfrechnen, Rechenstrategie, Dezimalzahl als Ergebnis",
     "auteur":"Xavier Levet",
     "dest":["5AC", "6EF"],
-    "consigne":"Calculer",
+    "consigne":"Berechne.",
     "speech":1,
     "keys":"numerique",
     "options":[{
-        "name":"Diviser par 4, résultat entier",
+        "name":"Durch 4 dividieren, Ergebnis natürliche Zahl",
         "vars":{"a":"1_25","c":"${MMmath.round(:a*4)}"},
         "question": "${:c}\\div 4",
-        "audio": "${String(:c).replace('.',',')} divisé par 4",
+        "audio": "${String(:c).replace('.',',')} geteilt durch 4",
         "answer":":question=\\color{red}{${MMmath.round(:c/4)}}",
         "value":"${MMmath.round(:c/4)}"
     },{
-        "name":"Diviser par 4, résultat décimal",
+        "name":"Durch 4 dividieren, Ergebnis Dezimalzahl",
         "vars":{"a":"1_50","c":"${MMmath.round(:a*2)}"},
         "question": "${:c}\\div 4",
-        "audio": "${String(:c).replace('.',',')} divisé par 4",
+        "audio": "${String(:c).replace('.',',')} geteilt durch 4",
         "answer":":question=\\color{red}{${MMmath.round(:c/4,1)}}",
         "value":"${MMmath.round(:c/4,1)}"
     },{
-        "name":"Diviser par 8, résultat entier",
+        "name":"Durch 8 dividieren, Ergebnis natürliche Zahl",
         "vars":{"a":"1_12","c":"${MMmath.round(:a*8)}"},
         "question": "${:c}\\div 8",
-        "audio": "${String(:c).replace('.',',')} divisé par 8",
+        "audio": "${String(:c).replace('.',',')} geteilt durch 8",
         "answer":":question=\\color{red}{${MMmath.round(:c/8)}}",
         "value":"${MMmath.round(:c/8)}"
     },{
-        "name":"Diviser par 8, résultat décimal",
+        "name":"Durch 8 dividieren, Ergebnis Dezimalzahl",
         "vars":{"a":"1_25","c":"${MMmath.round(:a*4)}"},
         "question": "${:c}\\div 8",
-        "audio": "${String(:c).replace('.',',')} divisé par 8",
+        "audio": "${String(:c).replace('.',',')} geteilt durch 8",
         "answer":":question=\\color{red}{${MMmath.round(:c/8,1)}}",
         "value":"${MMmath.round(:c/8,1)}"
     }

@@ -1,28 +1,28 @@
 {
-    "title":"Reconnaitre une figure particulière",
+    "title":"Besondere Figuren in Freihandskizzen erkennen",
     "ID":"8GC4",
     "dest":["5BD", "5BA"],
     "type":"text",
     "repeat":2,
-    "description":"À partir d’un dessin à main levée, reconnaitre droite, segment, demi-droite, parallèles, perpendiculaires, carré, losange, rectangle, triangle isocèle, équilatéral, rectangle. Non adapté au mode interactif (online/duel).",
+    "description":"In einer Freihandskizze Gerade, Strecke, Halbgerade (Strahl), parallele und senkrechte Geraden, Quadrat, Raute, Rechteck, gleichschenkliges, gleichseitiges und rechtwinkliges Dreieck erkennen. Nicht für den interaktiven Modus (online/Duell) geeignet.",
     "options":[
         {
-            "name":"Droite",
+            "name":"Gerade",
             "vars":{
                 "droite":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m.8919 88.93c5.784-.8171 12.36-1.63 15.23-2.462 4.98-.83 19.39-5.65 24.23-7.06 4.85-1.41 19.3-6.03 24.24-7.06 4.75-1.38 19.39-4.04 24.23-5.06 4.85-1.01 19.48-3.67 24.24-5.05 4.94-1.04 19.39-5.65 24.23-7.06 4.85-1.42 19.26-6.23 24.24-7.06 4.72-1.38 19.52-2.69 24.23-4.06 4.98-.84 19.39-5.65 24.24-7.06'/><path d='m51.76 72.5 2.96 5.517'/><path d='m55.98 73.48-5.478 3.43'/><path d='m148.8 48.5 2.96 5.517'/><path d='m153 49.48-5.478 3.43'/></svg>",
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m8.109 1.757c3.939 3.439 8.108 6.994 10.29 8.443 3.74 3.16 16.32 10.83 20.4 13.53 4.08 2.71 16.76 10.26 20.4 13.54 4.12 2.73 14.34 13.7 18.4 16.53 3.52 3.16 15.46 10.92 19.4 13.53 4.02 2.8 16.66 10.38 20.4 13.54 4.01 2.66 14.72 12.42 18.4 15.53s14.39 12.87 18.4 15.53c3.74 3.16 16.38 10.74 20.4 13.54 3.94 2.61 15.52 10.82 19.4 13.53'/><path d='m57.76 34.5 2.96 5.517'/><path d='m61.98 35.48-5.478 3.43'/><path d='m151.8 108.5 2.96 5.517'/><path d='m156 109.5-5.478 3.43'/></svg>"
                 ]
             },
-            "answer":"Une ligne droite passant par deux points, donc c’est certainement <span class='red'>une droite</span>.",
-            "value":"une droite",
+            "answer":"Eine gerade Linie durch zwei Punkte, die nicht begrenzt ist, also ist es <span class='red'>eine Gerade</span>.",
+            "value":"eine Gerade",
             "figure":{
                 "type":"svg",
                 "content":"${:droite}"
             }
         },
         {
-            "name":"Demi-droite",
+            "name":"Halbgerade",
             "vars":{
                 "demidroite":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m35 91s16.33-8.72 21.88-11c4.22-2.13 17.5-7.2 21.87-9 4.38-1.8 17.73-6.72 21.88-9 4.61-1.9 17.26-10.1 21.87-12 4.15-2.28 17.5-7.2 21.88-9 4.37-1.8 17.64-6.87 21.87-9 4.53-1.86 17.5-8.8 21.88-11 4.37-2.2 17.5-8.8 21.87-11'/><path d='m33.76 88.5 2.96 5.517'/><path d='m37.98 89.48-5.478 3.43'/><path d='m130.8 42.79 2.96 5.517'/><path d='m135.1 43.78-5.478 3.43'/></svg>",
@@ -30,30 +30,30 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m-85 140s16.56-7.52 22.25-9.42c4.32-1.82 17.8-5.93 22.25-7.41 4.45-1.49 18-5.43 22.25-7.42 4.66-1.55 17.59-8.86 22.25-10.42 4.25-1.99 17.8-5.93 22.25-7.41 4.45-1.49 17.93-5.59 22.25-7.42 4.58-1.53 17.8-7.53 22.25-9.42 4.45-1.88 17.61-8.07 22.25-9.41 4.27-1.81 17.98-4.61 22.25-6.42 4.64-1.34 17.8-7.53 22.25-9.42 4.45-1.88 17.67-7.89 22.25-9.41 4.32-1.83 17.8-5.94 22.25-7.42'/><path d='m77.76 74.5 2.96 5.517'/><path d='m81.98 75.48-5.478 3.43'/><path d='m179.8 36.5 2.96 5.517'/><path d='m184 37.48-5.478 3.43'/></svg>"
                 ]
             },
-            "answer":"Une ligne droite qui commence à un point et passe par un autre, donc c’est certainement <span class='red'>une demi-droite</span>.",
-            "value":"une demi-droite",
+            "answer":"Eine gerade Linie, die in einem Punkt beginnt und durch einen anderen Punkt verläuft, also ist es <span class='red'>eine Halbgerade</span> (ein Strahl).",
+            "value":"eine Halbgerade",
             "figure":{
                 "type":"svg",
                 "content":"${:demidroite}"
             }
         },
         {
-            "name":"Segment",
+            "name":"Strecke",
             "vars":{
                 "segment":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m38 41s17.79 5.37 23.33 7.67c4.8 1.57 18.67 7.73 23.34 9.66 4.66 1.94 18.47 8.28 23.33 9.67 4.48 1.86 18.85 4.81 23.33 6.67 4.86 1.38 18.67 7.73 23.34 9.66m0 0c4.66 1.94 18.66 7.74 23.33 9.67'/><path d='m36.7 38.08 2.96 5.517'/><path d='m40.92 39.06-5.478 3.43'/><path d='m177 91.47 2.96 5.517'/><path d='m181.2 92.45-5.478 3.43'/></svg>",
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m35 91s13.52-8.05 19-10.5c3.64-2.01 15.2-6.8 19-8.5s15.44-6.34 19-8.5c4.05-1.81 14.95-9.69 19-11.5 3.56-2.16 15.2-6.8 19-8.5s15.2-6.8 19-8.5'/><path d='m147.7 32.19 2.96 5.517'/><path d='m151.9 33.17-5.478 3.43'/><path d='m33.76 88.5 2.96 5.517'/><path d='m37.98 89.48-5.478 3.43'/></svg>"
                 ]
             },
-            "answer":"Une ligne droite limitée par deux points, donc c’est certainement <span class='red'>un segment</span>.",
-            "value":"un segment",
+            "answer":"Eine gerade Linie, die von zwei Punkten begrenzt wird, also ist es <span class='red'>eine Strecke</span>.",
+            "value":"eine Strecke",
             "figure":{
                 "type":"svg",
                 "content":"${:segment}"
             }
         },
         {
-            "name":"Droites parallèles",
+            "name":"Parallele Geraden",
             "vars":{
                 "paralleles":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg'><path d='m11 140s14.58-9.62 19.9-12.4c3.81-2.37 15.92-8.32 19.9-10.4s16.18-7.89 19.9-10.4c4.25-2.22 15.65-11.18 19.9-13.4 3.72-2.51 15.92-8.32 19.9-10.4s16.09-8.03 19.9-10.4c4.16-2.17 15.92-9.92 19.9-12.4s15.66-10.4 19.9-12.4c3.74-2.33 16.16-7.07 19.9-9.4 4.24-2 15.92-9.92 19.9-12.4' style='fill:none;stroke:black'/><path d='m7.14 92.43c3.8-2.56 16.23-8.52 20.29-10.64 4.06-2.13 16.4-8.22 20.28-10.65 4.24-2.22 16.23-10.11 20.29-12.64s15.97-10.59 20.29-12.64c3.81-2.38 16.47-7.27 20.28-9.65 4.32-2.05 16.23-10.11 20.29-12.64 4.05-2.53 16.05-10.42 20.28-12.64 3.89-2.42 16.23-8.52 20.29-10.64' style='fill:none;stroke:#000000'/></svg>",
@@ -61,30 +61,30 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg'><path d='m37.2 5.2c1.87 4.17 5.44 17.44 6.8 21.8s5.09 17.56 6.8 21.8c1.4 4.49 7.04 17.44 8.8 21.8s7.59 17.26 8.8 21.8c1.69 4.18 4.11 17.62 5.8 21.8 1.21 4.54 7.04 17.44 8.8 21.8' style='fill:none;stroke:#000000'/><path d='m65.8 5.2c1.85 4.17 5.36 17.44 6.7 21.8s5.01 17.56 6.7 21.8c1.38 4.49 6.96 17.44 8.7 21.8s7.51 17.26 8.7 21.8c1.67 4.19 4.03 17.61 5.7 21.8 1.19 4.54 6.96 17.44 8.7 21.8' style='fill:none;stroke:#000000'/></svg>"
                 ]
             },
-            "answer":"Deux lignes droites qui vont dans la même direction, ce sont <span class='red'>des droites parallèles</span>.",
-            "value":"des droites parallèles",
+            "answer":"Zwei gerade Linien mit derselben Richtung, also sind es <span class='red'>parallele Geraden</span>.",
+            "value":"parallele Geraden",
             "figure":{
                 "type":"svg",
                 "content":"${:paralleles}"
             }
         },
         {
-            "name":"Droites perpendiculaires",
+            "name":"Senkrechte Geraden",
             "vars":{
                 "perpendiculaires":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m4 54.5c4.4 1.74 18.31 4.84 22.89 6.06 4.58 1.21 18.42 4.48 22.89 6.05 4.69 1.24 18.31 6.45 22.89 8.06 4.57 1.61 18.19 6.81 22.89 8.05 4.46 1.57 18.31 4.85 22.88 6.06 4.58 1.21 18.49 4.31 22.89 6.05 4.76 1.26 18.13 7.8 22.89 9.06 4.41 1.74 18.31 4.84 22.89 6.05 4.58 1.22 18.31 4.85 22.89 6.06'/><path d='m93 140s3.78-16.15 5.8-21.8c1.19-4.48 6.24-17.44 7.8-21.8s6.8-17.28 7.8-21.8c1.5-4.2 3.3-17.6 4.8-21.8 1-4.52 6.24-17.44 7.8-21.8s6.61-17.32 7.8-21.8'/><path d='m112.6 80.63 6.202 1.335-2.12 6.281' style='fill:none;stroke-width:1px;stroke:#000000'/></svg>",
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t1'><style>.s8GC4t1 path{fill:none;stroke-linecap:round;stroke-width:1px;stroke:#000000}</style><path d='m11 140s14.58-9.62 19.9-12.4c3.81-2.37 15.92-8.32 19.9-10.4s16.18-7.89 19.9-10.4c4.25-2.22 15.65-11.18 19.9-13.4 3.72-2.51 15.92-8.32 19.9-10.4s16.09-8.03 19.9-10.4c4.16-2.17 15.92-9.92 19.9-12.4s15.66-10.4 19.9-12.4c3.74-2.33 16.16-7.07 19.9-9.4 4.24-2 15.92-9.92 19.9-12.4'/><path d='m69.45 1.27c2.51 3.71 8.3 15.86 10.37 19.82s7.99 16.02 10.36 19.82c2.17 4.14 9.89 15.85 12.37 19.82 2.47 3.96 10.36 15.59 12.36 19.82 2.32 3.71 7.04 16.09 9.36 19.81 2 4.23 9.89 15.86 12.37 19.82 2.47 3.97 9.89 15.86 12.36 19.82'/><path d='m112.5 75.6 4.946-2.591 2.669 5.024'/></svg>"
                 ]
             },
-            "answer":"Deux lignes droites formant un angle droit, ce sont <span class='red'>des droites perpendiculaires</span>.",
-            "value":"des droites perpendiculaires",
+            "answer":"Zwei gerade Linien, die einen rechten Winkel bilden, also sind es <span class='red'>zueinander senkrechte Geraden</span>.",
+            "value":"zueinander senkrechte Geraden",
             "figure":{
                 "type":"svg",
                 "content":"${:perpendiculaires}"
             }
         },
         {
-            "name":"Triangle isocèle",
+            "name":"Gleichschenkliges Dreieck",
             "vars":{
                 "isocele":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M67 115 C67 115 82.01 113.89 88 114.25 C92.2 114.1 104.8 115.25 109 115.5 C113.2 115.75 125.81 117.1 130 116.75 M130 116.75 C134.21 117.0 146.8 115.35 151 115 '/><path style='stroke:black;fill:none;' d='M110.07 25.47 C110.07 25.47 103.1 42.54 100.3 47.85 C98.28 52.49 90.89 65.76 88.54 70.24 C86.18 74.71 78.61 87.91 76.77 92.62 M76.77 92.62 C74.53 96.87 69.75 110.52 68 115 '/><line x1='92.973426' y1='67.931275' x2='87.566589' y2='65.330098' style='stroke:black;'/><line x1='91.239308' y1='71.535832' x2='85.832472' y2='68.934656' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M151 116 C151 116 142.03 98.92 139.77 93.37 C137.59 88.99 132.38 75.26 130.54 70.74 C128.69 66.21 123.63 52.4 121.3 48.1 M121.3 48.1 C119.36 43.34 111.52 30.0 109.07 25.47 '/><line x1='129.450092' y1='75.615924' x2='134.91732' y2='73.144201' style='stroke:black;'/><line x1='127.802276' y1='71.971106' x2='133.269504' y2='69.499382' style='stroke:black;'/></svg>",
@@ -92,28 +92,28 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M174 119 C174 119 174.02 102.46 174.75 96.5 C174.9 91.97 176.95 78.5 177.5 74 C178.05 69.5 180.3 56.03 180.25 51.5 M180.25 51.5 C180.8 47.03 180.05 33.5 180 29 '/><path style='stroke:black;fill:none;' d='M39.21 63.24 C39.21 63.24 56.22 69.04 61.68 71.54 C66.31 73.25 79.65 79.77 84.14 81.83 C88.64 83.89 101.91 90.6 106.61 92.12 C110.9 94.09 124.78 97.45 129.07 99.41 C133.77 100.94 147.04 107.65 151.54 109.71 M151.54 109.71 C156.03 111.77 169.51 117.94 174 120 '/><line x1='104.057663' y1='86.821054' x2='101.764178' y2='92.365414' style='stroke:black;'/><line x1='107.753903' y1='88.350044' x2='105.460418' y2='93.894404' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M181 29 C181 29 163.25 34.54 157.37 35.71 C152.73 37.02 138.46 39.47 133.74 40.41 C129.01 41.36 114.69 43.63 110.11 45.12 C105.23 46.09 91.35 51.86 86.48 52.83 C81.89 54.32 67.57 56.6 62.85 57.54 M62.85 57.54 C58.12 58.48 43.94 61.3 39.21 62.24 '/><line x1='114.699679' y1='48.099286' x2='113.291046' y2='42.266984' style='stroke:black;'/><line x1='110.811477' y1='49.038375' x2='109.402844' y2='43.206072' style='stroke:black;'/></svg>"
                 ]
             },
-            "answer":"C'est un triangle avec deux côtés égaux, donc c’est un <span class='red'>triangle isocèle</span>.",
-            "value":"un triangle isocèle",
+            "answer":"Ein Dreieck mit zwei gleich langen Seiten, also ist es ein <span class='red'>gleichschenkliges Dreieck</span>.",
+            "value":"ein gleichschenkliges Dreieck",
             "figure":{
                 "type":"svg",
                 "content":"${:isocele}"
             }
         },{
-            "name":"Triangle équilatéral",
+            "name":"Gleichseitiges Dreieck",
             "vars":{
                 "equilateral":[
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M52 122 C52 122 69.22 121.48 75.2 122 C79.86 122 93.76 123.6 98.4 124 C103.04 124.4 116.95 126.2 121.6 126 C126.23 126.4 140.17 124.6 144.8 125 M144.8 125 C149.45 124.8 163.36 126.6 168 127 '/><line x1='106.132901' y1='121.330529' x2='105.87452' y2='127.324963' style='stroke:black;'/><line x1='110.12919' y1='121.502783' x2='109.87081' y2='127.497217' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M52 122 C52 122 59.95 106.27 63.47 101.41 C65.7 97.4 74.33 86.6 76.93 82.82 C79.72 78.97 88.16 67.42 90.4 63.22 C92.91 59.56 98.35 47.29 100.86 43.63 M100.86 43.63 C103.1 39.44 111.64 27.96 114.33 24.04 '/><line x1='78.486672' y1='74.784797' x2='83.548814' y2='78.005778' style='stroke:black;'/><line x1='80.633993' y1='71.410036' x2='85.696134' y2='74.631017' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M168 127 C168 127 158.83 111.83 156.27 106.41 C154.01 102.45 148.48 89.93 146.53 85.82 C144.59 81.7 139.19 69.1 136.8 65.22 C134.73 60.85 126.13 49.01 124.06 44.63 M124.06 44.63 C121.67 40.76 116.28 28.16 114.33 24.04 '/><line x1='140.353771' y1='80.454268' x2='145.674293' y2='77.680815' style='stroke:black;'/><line x1='138.504802' y1='76.907253' x2='143.825325' y2='74.1338' style='stroke:black;'/></svg>",
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M33 27 C33 27 43.87 39.48 47 44.6 C49.86 48.2 56.51 60.34 59 64.2 C61.31 67.98 68.22 79.35 71 82.8 C73.59 86.82 83.41 97.38 86 101.4 M86 101.4 C88.78 104.85 95.6 116.28 98 120 '/><line x1='65.667455' y1='68.502805' x2='60.74958' y2='71.940029' style='stroke:black;'/><line x1='67.958937' y1='71.781388' x2='63.041063' y2='75.218612' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M33 27 C33 27 49.61 24.3 55.61 24.04 C60.1 23.45 73.69 23.28 78.22 23.08 C82.74 22.89 96.37 22.91 100.82 22.13 C105.41 21.93 118.85 18.36 123.43 18.17 M123.43 18.17 C127.89 17.39 141.52 17.4 146.04 17.21 '/><line x1='85.276211' y1='19.460557' x2='85.793997' y2='25.438173' style='stroke:black;'/><line x1='89.261288' y1='19.115366' x2='89.779074' y2='25.092983' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M98 120 C98 120 103.86 104.77 106.61 99.44 C108.4 95.17 115.09 83.0 117.22 78.88 C119.34 74.77 126.22 62.66 127.82 58.33 C129.83 54.43 133.42 41.66 135.43 37.77 M135.43 37.77 C137.04 33.43 143.92 21.32 146.04 17.21 '/><line x1='117.608756' y1='70.957752' x2='123.044417' y2='73.498144' style='stroke:black;'/><line x1='119.302351' y1='67.333978' x2='124.738012' y2='69.87437' style='stroke:black;'/></svg>"
                 ]
             },
-            "answer":"C'est un triangle dont les trois côtés sont égaux, donc c’est un <span class='red'>triangle équilatéral</span>.",
-            "value":"un triangle équilatéral",
+            "answer":"Ein Dreieck mit drei gleich langen Seiten, also ist es ein <span class='red'>gleichseitiges Dreieck</span>.",
+            "value":"ein gleichseitiges Dreieck",
             "figure":{
                 "type":"svg",
                 "content":"${:equilateral}"
             }
         },{
-            "name":"Triangle rectangle",
+            "name":"Rechtwinkliges Dreieck",
             "vars":{
                 "rectangle":[
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><line x1='44' y1='108' x2='172' y2='111' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M45.87 28.03 C45.87 28.03 60.1 35.27 64.89 38.88 C68.6 41.0 78.44 49.26 81.91 51.74 C85.44 54.4 96.04 62.46 99.93 64.59 C103.27 66.97 114.6 72.06 117.95 74.44 C121.83 76.57 132.43 84.63 135.96 87.29 C139.44 89.77 149.28 98.03 152.98 100.15 M152.98 100.15 C156.48 102.79 168.2 108.83 172 111 '/><path style='stroke:black;fill:none;' d='M44 108 C44 108 43.03 93.99 43.47 88.01 C43.36 84.0 44.64 72.01 44.94 68.01 C45.23 64.02 46.71 52.02 46.41 48.02 M46.41 48.02 C46.7 44.02 45.18 32.03 44.87 28.03 '/><path d='M 43.557001,93.938494 C 62.596354,92.8764 59.029085,92.257983 59.442142,108.5752' style='stroke:black;fill:none;'/></svg>",
@@ -122,14 +122,14 @@
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M189 114 C189 114 187.56 95.75 187.75 89.75 C187.5 84.9 188.35 70.35 188.5 65.5 C188.65 60.65 189.7 46.08 189.25 41.25 M189.25 41.25 C189.4 36.38 187.45 21.85 187 17 '/><path style='stroke:black;fill:none;' d='M38.06 115.56 C38.06 115.56 50.6 105.22 55.8 102.24 C59.44 99.5 71.65 93.27 75.55 90.92 C79.35 88.74 90.81 82.26 94.29 79.6 C98.33 77.16 108.99 67.72 113.03 65.28 C116.51 62.62 127.97 56.14 131.77 53.96 C135.67 51.61 147.88 45.37 151.52 42.64 C155.36 40.43 165.64 31.89 169.26 29.32 M169.26 29.32 C172.94 26.56 184.25 18.66 188 16 '/><path style='stroke:black;fill:none;' d='M189 114 C189 114 173.43 115.44 167.44 115.22 C163.13 115.47 150.19 114.6 145.87 114.44 C141.56 114.29 128.61 113.22 124.31 113.67 C119.98 113.51 107.08 116.05 102.75 115.89 C98.46 116.33 85.5 115.27 81.19 115.11 C76.87 114.96 63.93 114.09 59.62 114.33 M59.62 114.33 C55.31 114.18 42.37 115.31 38.06 115.56 '/><path d='m 172.0635,115.12121 c 0.0618,-15.706299 -3.68252,-15.25548 16.36026,-15.185151' style='stroke:black;fill:none;'/></svg>"
                 ]
             },
-            "answer":"C'est un triangle qui possède un angle droit, donc c’est un <span class='red'>triangle rectangle</span>.",
-            "value":"un triangle rectangle",
+            "answer":"Ein Dreieck mit einem rechten Winkel, also ist es ein <span class='red'>rechtwinkliges Dreieck</span>.",
+            "value":"ein rechtwinkliges Dreieck",
             "figure":{
                 "type":"svg",
                 "content":"${:rectangle}"
             }
         },{
-            "name":"Triangle rectangle isocèle",
+            "name":"Rechtwinklig-gleichschenkliges Dreieck",
             "vars":{
                 "rectangleisocele":[
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><line x1='114' y1='23' x2='31' y2='100' style='stroke:black;'/><line x1='77.472769' y1='60.978875' x2='73.392095' y2='56.580227' style='stroke:black;'/><line x1='74.540337' y1='63.699324' x2='70.459663' y2='59.300676' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M114 23 C114 23 126.6 33.96 130.4 38.6 C133.7 41.73 141.82 52.76 144.8 56.2 C147.58 59.6 155.93 69.87 159.2 72.8 C162.26 76.33 173.64 84.78 176.6 88.4 M176.6 88.4 C179.99 91.44 188.12 102.48 191.0 106.0 '/><line x1='151.978875' y1='59.527231' x2='147.580227' y2='63.607905' style='stroke:black;'/><line x1='154.699324' y1='62.459663' x2='150.300676' y2='66.540337' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M191.0 106.0 C191.0 106.0 174.12 106.63 168.14 106.14 C163.56 106.17 149.86 104.66 145.29 104.29 C140.71 103.91 127.01 102.2 122.43 102.43 C117.87 102.06 104.13 103.94 99.57 103.57 C94.99 103.8 81.29 102.09 76.71 101.71 C72.14 101.34 58.44 99.83 53.86 99.86 M53.86 99.86 C49.3 99.49 35.57 99.97 31 100 '/><path d='m 123.94036,32.02229 c -8.89696,9.134213 -10.37487,9.191055 -19.14816,-1.137836' style='stroke:black;fill:none;'/></svg>",
@@ -137,14 +137,14 @@
                 "<svg width='15em' height='10em' version='1.1' viewBox='0 0 210 140' xmlns='http://www.w3.org/2000/svg'><path style='stroke:black;fill:none;' d='M158 22 C158 22 144.0 23.72 138 23.6 C134.01 23.92 122 23.28 118 23.2 C114 23.12 101.97 22.28 98 22.8 C93.97 22.72 82.03 25.48 78 25.4 M78 25.4 C74.03 25.92 62 25.08 58 25 '/><line x1='112.088161' y1='26.378705' x2='111.908242' y2='20.381403' style='stroke:black;'/><line x1='108.08996' y1='26.498651' x2='107.91004' y2='20.501349' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M158 22 C158 22 159.72 36.0 159.6 42.0 C159.92 45.99 159.28 58.0 159.2 62.0 C159.12 66.0 158.28 78.03 158.8 82.0 C158.72 86.03 161.48 97.97 161.4 102.0 M161.4 102.0 C161.92 105.97 161.08 118.0 161.0 122.0 '/><line x1='162.378705' y1='67.911839' x2='156.381403' y2='68.091758' style='stroke:black;'/><line x1='162.498651' y1='71.91004' x2='156.501349' y2='72.08996' style='stroke:black;'/><path style='stroke:black;fill:none;' d='M161.0 122.0 C161.0 122.0 146.95 111.2 142.83 106.83 C139.21 103.81 130.0 93.0 126.67 89.67 C123.34 86.13 113.33 75.49 109.5 72.5 C106.24 69.24 94.49 61.69 91.33 58.33 C87.61 55.43 78.4 44.6 75.17 41.17 M75.17 41.17 C71.93 37.73 62.23 27.43 59 24 '/><path d='m 158.76413,33.604683 c -13.04036,-0.05038 -10.91332,3.450235 -11.94538,-10.548591' style='stroke:black;fill:none;'/></svg>"
                 ]
             },
-            "answer":"C'est un triangle qui possède un angle droit, donc c’est un <span class='red'>triangle rectangle isocèle</span>.",
-            "value":"un triangle rectangle isocèle",
+            "answer":"Ein Dreieck mit einem rechten Winkel und zwei gleich langen Seiten, also ist es ein <span class='red'>rechtwinklig-gleichschenkliges Dreieck</span>.",
+            "value":"ein rechtwinklig-gleichschenkliges Dreieck",
             "figure":{
                 "type":"svg",
                 "content":"${:rectangleisocele}"
             }
         },{
-            "name":"Rectangle",
+            "name":"Rechteck",
             "vars":{
                 "rectangle":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m27 26s16.29-1.37 22.29-1.14c4.45-.23 17.82.68 22.28.85 4.46.18 17.85 1.29 22.29.86 4.47.17 17.81-2.31 22.28-2.14 4.44-.43 17.83.68 22.29.86 4.46.17 17.83 1.08 22.28.85 4.46.17 17.83-.91 22.29-1.14'/><path d='m183 25s-.13 14.56-1 20.5c-.2 4.14-2.4 16.4-3 20.5s-3 16.36-3 20.5c-.59 4.06 0 16.4 0 20.5'/><path d='m175 107s-17.5 2.12-23.5 2.17c-4.68.43-18.8.13-23.5.16-4.7.04-18.84-.46-23.5.17-4.74.03-18.76 3.13-23.5 3.17-4.66.62-18.8.13-23.5.16-4.7.04-18.8.14-23.5.17'/><path d='m27 26s2.55 16 2.75 22c.55 4.37.6 17.6.75 22s.01 17.66.75 22c.15 4.46 3 17.6 3.75 22'/><path d='m41.2 25.99c.9089 15.63 3.404 14.4-11.82 15.01'/><path d='m162.5 108.5c-.9082-18.29-4.748-14.09 13.12-14.38'/><path d='m182.1 39.68c-15.29-1.492-13.25 2.311-13.35-13.06'/><path d='m33.24 101c16.87-1.342 14.08-5.36 14.92 11.54'/></svg>",
@@ -154,14 +154,14 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m22 48s16.74-3.68 22.71-4.29c4.49-.84 18.18-1.82 22.72-2.28s18.27-1.25 22.71-2.29c4.64-.46 18.08-4.82 22.72-5.28 4.44-1.04 18.17-1.83 22.71-2.29s18.23-1.44 22.72-2.28c4.6-.47 18.17-3.43 22.71-4.29'/><path d='m181 25s-.67 14.6-1.75 20.5c-.35 4.15-3 16.4-3.75 20.5s-3.6 16.33-3.75 20.5c-.74 4.04-.6 16.4-.75 20.5'/><path d='m170 107s-18.62 3.67-24.6 4.2c-4.87.83-19.68 1.76-24.6 2.2s-19.77 1.18-24.6 2.2c-5.01.45-19.59 4.75-24.6 5.2-4.83 1.02-19.68 1.76-24.6 2.2'/><path d='m22 48s5.63 12.97 7.25 18.75c1.4 3.63 4.2 15 5.25 18.75s3.68 15.19 5.25 18.75c1.1 3.95 6.6 15 8.25 18.75'/><path d='m36.88 45.59c4.413 12.57 4.254 9.578-9.519 14.17'/><path d='m158 108.9c-.2115-12.39-3.243-11.36 13-13.04'/><path d='m179.4 39.02c-13.47 2.347-12.29 3.006-14.21-10.26'/><path d='m43.98 112.4c13.95-1.298 12.2-2.293 14.1 9.417'/></svg>"
                 ]
             },
-            "answer":"C’est un quadrilatère avec quatre angles droits, donc c’est un <span class='red'>rectangle</span>.",
-            "value":"un rectangle",
+            "answer":"Ein Viereck mit vier rechten Winkeln, also ist es ein <span class='red'>Rechteck</span>.",
+            "value":"ein Rechteck",
             "figure":{
                 "type":"svg",
                 "content":"${:rectangle}"
             }
         },{
-            "name":"Losange",
+            "name":"Raute",
             "vars":{
                 "losange":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m48 43s14.8-1.72 20.8-1.6c4.15-.32 16.64.32 20.8.4s16.67.92 20.8.4c4.19.08 16.61-2.68 20.8-2.6 4.13-.52 16.64.32 20.8.4'/><line x1='95.92' x2='96.09' y1='38.62' y2='44.61'/><line x1='99.91' x2='100.1' y1='38.5' y2='44.5'/><path d='m152 40s2.75 18.01 3 24c.6 4.77.8 19.2 1 24l1 24'/><line x1='157.7' x2='151.7' y1='71.76' y2='72.26'/><line x1='158' x2='152' y1='75.75' y2='76.25'/><path d='m158 112s-16.21 2.88-22.2 3.2c-4.4.63-17.76.96-22.2 1.2s-17.83.37-22.2 1.2c-4.51.24-17.69 3.96-22.2 4.2-4.37.83-17.76.96-22.2 1.2'/><line x1='106.8' x2='106.2' y1='120.1' y2='114.1'/><line x1='102.8' x2='102.2' y1='120.5' y2='114.5'/><path d='m48 43s1.12 14.01.75 20c.15 4-1 16-1.25 20s-1.6 16.01-1.25 20c-.25 4.01 1.4 16 1.75 20'/><line x1='50.55' x2='44.55' y1='79.04' y2='78.96'/><line x1='50.5' x2='44.5' y1='83.04' y2='82.96'/><path d='m289.6-22.04a30 30 0 01-29.45-18.92'/></svg>",
@@ -171,15 +171,15 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m34 18s17.62 1.56 23.5 2.75c4.76.56 18.8 3.8 23.5 4.75s18.72 4.39 23.5 4.75c4.62.93 18.8 1.4 23.5 1.75'/><line x1='77.52' x2='76.58' y1='21.91' y2='27.83'/><line x1='81.47' x2='80.53' y1='22.54' y2='28.46'/><path d='m128 33s8.08 15.66 10.25 21.25c1.98 4.11 6.6 17 8.25 21.25s6.12 17.22 8.25 21.25c1.74 4.48 9 17 11.25 21.25'/><line x1='147.7' x2='142.2' y1='70.64' y2='73.03'/><line x1='149.3' x2='143.7' y1='74.3' y2='76.7'/><path d='m165 118s-14.33-.98-20.2-2.2c-4.1-.45-16.16-3.36-20.2-4.2s-16.08-3.96-20.2-4.2c-3.96-.82-16.24-.38-20.2-1.2-4.12-.24-16.16-3.36-20.2-4.2'/><line x1='118' x2='118.9' y1='113.6' y2='107.7'/><line x1='114' x2='115' y1='113' y2='107'/><path d='m34 18s6.73 15.27 8.5 21c1.65 4.08 5.2 16.8 6.5 21s4.69 16.99 6.5 21c1.36 4.4 7.6 16.8 9.5 21'/><line x1='50.48' x2='44.83' y1='55.22' y2='57.24'/><line x1='51.83' x2='46.17' y1='58.99' y2='61.01'/><path d='m289.6-22.04a30 30 0 01-30.48-21.99'/></svg>"
                 ]
             },
-            "answer":"C’est un quadrilatère avec quatre côtés de même longueur, donc c’est un <span class='red'>losange</span>.",
-            "value":"un losange",
+            "answer":"Ein Viereck mit vier gleich langen Seiten, also ist es eine <span class='red'>Raute</span>.",
+            "value":"eine Raute",
             "figure":{
                 "type":"svg",
                 "content":"${:losange}"
             }
         },
         {
-            "name":"Carré",
+            "name":"Quadrat",
             "vars":{
                 "carre":[
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m48 43s14.8-1.72 20.8-1.6c4.15-.32 16.64.32 20.8.4s16.67.92 20.8.4c4.19.08 16.61-2.68 20.8-2.6 4.13-.52 16.64.32 20.8.4'/><line x1='95.92' x2='96.09' y1='38.62' y2='44.61'/><line x1='99.91' x2='100.1' y1='38.5' y2='44.5'/><path d='m152 40s2.75 18.01 3 24c.6 4.77.8 19.2 1 24l1 24'/><line x1='157.7' x2='151.7' y1='71.76' y2='72.26'/><line x1='158' x2='152' y1='75.75' y2='76.25'/><path d='m158 112s-16.21 2.88-22.2 3.2c-4.4.63-17.76.96-22.2 1.2s-17.83.37-22.2 1.2c-4.51.24-17.69 3.96-22.2 4.2-4.37.83-17.76.96-22.2 1.2'/><line x1='106.8' x2='106.2' y1='120.1' y2='114.1'/><line x1='102.8' x2='102.2' y1='120.5' y2='114.5'/><path d='m48 43s1.12 14.01.75 20c.15 4-1 16-1.25 20s-1.6 16.01-1.25 20c-.25 4.01 1.4 16 1.75 20'/><line x1='50.55' x2='44.55' y1='79.04' y2='78.96'/><line x1='50.5' x2='44.5' y1='83.04' y2='82.96'/><path d='m59.93 42.61c.4918 13.36 3.806 10.98-10.81 12.41'/><path d='m144.9 113.5c-1.574-13.29-1.657-11.52 11.66-12.84'/><path d='m153.6 51.76c-14.72.8795-12.51 3.322-14.11-12'/><path d='m47.22 111.1c12.53.1125 11.01-.9625 12.13 11.1'/><path d='m289.6-22.04a30 30 0 01-29.45-18.92'/></svg>",
@@ -189,13 +189,13 @@
                     "<svg width='15em' height='10em' version='1.1' viewBox='0 0 211 141' xmlns='http://www.w3.org/2000/svg' class='s8GC4t2'><style>.s8GC4t2 path{fill:none;stroke-linecap:round;stroke:#000}.s8GC4t2 line{stroke:#000}.s8GC4t2 text{font-size:12px}</style><path d='m34 18s17.62 1.56 23.5 2.75c4.76.56 18.8 3.8 23.5 4.75s18.72 4.39 23.5 4.75c4.62.93 18.8 1.4 23.5 1.75'/><line x1='77.52' x2='76.58' y1='21.91' y2='27.83'/><line x1='81.47' x2='80.53' y1='22.54' y2='28.46'/><path d='m128 33s8.08 15.66 10.25 21.25c1.98 4.11 6.6 17 8.25 21.25s6.12 17.22 8.25 21.25c1.74 4.48 9 17 11.25 21.25'/><line x1='147.7' x2='142.2' y1='70.64' y2='73.03'/><line x1='149.3' x2='143.7' y1='74.3' y2='76.7'/><path d='m165 118s-14.33-.98-20.2-2.2c-4.1-.45-16.16-3.36-20.2-4.2s-16.08-3.96-20.2-4.2c-3.96-.82-16.24-.38-20.2-1.2-4.12-.24-16.16-3.36-20.2-4.2'/><line x1='118' x2='118.9' y1='113.6' y2='107.7'/><line x1='114' x2='115' y1='113' y2='107'/><path d='m34 18s6.73 15.27 8.5 21c1.65 4.08 5.2 16.8 6.5 21s4.69 16.99 6.5 21c1.36 4.4 7.6 16.8 9.5 21'/><line x1='50.48' x2='44.83' y1='55.22' y2='57.24'/><line x1='51.83' x2='46.17' y1='58.99' y2='61.01'/><path d='m47.53 20.06c4.554 9.722 2.482 11.05-7.837 10.41'/><path d='m152 116.5c-4.52-10.67-5.477-11.89 6.98-10.33'/><path d='m132.1 41.27c-13.88.5095-12.75 1.926-17.58-9.86'/><path d='m60.9 92.04c13.84 1.837 12.59.1601 15.15 12.38'/><path d='m289.6-22.04a30 30 0 01-30.48-21.99'/></svg>"
                 ]
             },
-            "answer":"C’est un quadrilatère avec quatre côté égaux et quatre angles droits, donc c’est un <span class='red'>carré</span>.",
-            "value":"un carré",
+            "answer":"Ein Viereck mit vier gleich langen Seiten und vier rechten Winkeln, also ist es ein <span class='red'>Quadrat</span>.",
+            "value":"ein Quadrat",
             "figure":{
                 "type":"svg",
                 "content":"${:carre}"
             }
         }
     ],
-    "question":"Que représente la figure à main levée ?"
+    "question":"Was stellt die Freihandskizze dar?"
 }

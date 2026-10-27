@@ -1,6 +1,6 @@
 {
-    "title":"Demi-heure, quart d'heure, trois quarts d'heure : correspondance en minutes",
-    "description":"quart d'heure, demi-heure, minutes, fraction d'heure, durée",
+    "title":"Viertelstunde, halbe Stunde, Dreiviertelstunde in Minuten",
+    "description":"Viertelstunde, halbe Stunde, Dreiviertelstunde, Minuten, Bruchteile einer Stunde, Zeitspannen umrechnen",
     "type":"text",
     "speech":1,
     "ID":"8MC3",
@@ -8,20 +8,20 @@
     "keys":["_","/","mn","hr", "1/4h", "1/2h", "3/4h","_"],
     "vars":{
         "m":[15,30,45],
-        "mot":"${:m==15?\"un quart d’heure\":(:m==30?\"une demi-heure\":\"trois quarts d’heure\")}",
-        "Mot":"${:m==15?\"Un quart d’heure\":(:m==30?\"Une demi-heure\":\"Trois quarts d’heure\")}"
+        "mot":"${:m==15?\"eine Viertelstunde\":(:m==30?\"eine halbe Stunde\":\"eine Dreiviertelstunde\")}",
+        "Mot":"${:m==15?\"Eine Viertelstunde\":(:m==30?\"Eine halbe Stunde\":\"Eine Dreiviertelstunde\")}"
     },
     "options":[{
-        "name":"Fraction d’heure => minutes",
-        "question":"Combien de minutes y a-t-il dans ${:mot} ?",
-        "audio":"Combien de minutes y a-t-il dans ${:mot} ?",
-        "answer":"${:Mot} = <span class='red'>${:m}</span> minutes.",
-        "value":["${:m}","${:m} min","${:m} minutes"]
+        "name":"Bruchteil einer Stunde in Minuten",
+        "question":"Wie viele Minuten hat ${:mot}?",
+        "audio":"Wie viele Minuten hat ${:mot}?",
+        "answer":"${:Mot} = <span class='red'>${:m}</span> Minuten.",
+        "value":["${:m}","${:m} min","${:m} Minuten"]
     },{
-        "name":"Minutes => fraction d’heure",
-        "question":"${:m} minutes, c’est quelle fraction d’heure ?",
-        "audio":"${:m} minutes, c’est quelle fraction d’heure ?",
-        "answer":"${:m} minutes = <span class='red'>${:mot}</span>.",
-        "value":["${:m==15?\"quart d’heure\":(:m==30?\"demi-heure\":\"trois quarts d’heure\")}","${:mot}","${:m==15?\"\\dfrac14 h\":(:m==30?\"\\dfrac12 h\":\"\\dfrac34 h\")}"]
+        "name":"Minuten als Bruchteil einer Stunde",
+        "question":"${:m} Minuten sind welcher Bruchteil einer Stunde?",
+        "audio":"${:m} Minuten sind welcher Bruchteil einer Stunde?",
+        "answer":"${:m} Minuten = <span class='red'>${:mot}</span>.",
+        "value":["${:m==15?\"Viertelstunde\":(:m==30?\"halbe Stunde\":\"Dreiviertelstunde\")}","${:mot}","${:m==15?\"\\dfrac14 h\":(:m==30?\"\\dfrac12 h\":\"\\dfrac34 h\")}"]
     }]
 }

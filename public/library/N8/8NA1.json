@@ -1,6 +1,6 @@
 {
-    "title":"Encadrer des entiers",
-    "description":"encadrer, encadrement, entiers, dizaine, centaine, millier",
+    "title":"Natürliche Zahlen zwischen Nachbarzahlen einordnen",
+    "description":"natürliche Zahlen einordnen, benachbarte Zehnerzahlen, Hunderterzahlen, Tausenderzahlen, Zehntausender, Hunderttausender, Zahlenstrahl, Runden vorbereiten",
     "ID":"8NA1",
     "type":"text",
     "dest":["5AA", "5AB"],
@@ -10,7 +10,7 @@
         "dix":[1,10,100,1000,10000]
     },
     "options":[{
-        "name":"Encadrer à la dizaine",
+        "name":"Benachbarte Zehnerzahlen",
         "vars":{
             "p":"1_3",
             "u":"1_9",
@@ -18,10 +18,10 @@
             "n":"${:d*10+:u}",
             "inf":"${Math.floor(:n/10)*10}",
             "sup":"${Math.ceil(:n/10)*10}",
-            "precision":"dizaines"
+            "precision":"Zehnerzahlen"
         }
     },{
-        "name":"Encadrer à la centaine",
+        "name":"Benachbarte Hunderterzahlen",
         "vars":{
             "p":"1_3",
             "u":"1_99",
@@ -29,10 +29,10 @@
             "n":"${:d*100+:u}",
             "inf":"${Math.floor(:n/100)*100}",
             "sup":"${Math.ceil(:n/100)*100}",
-            "precision":"centaines"
+            "precision":"Hunderterzahlen"
         }
     },{
-        "name":"Encadrer à l’unité de mille",
+        "name":"Benachbarte Tausenderzahlen",
         "vars":{
             "p":"1_3",
             "u":"1_999",
@@ -40,10 +40,10 @@
             "n":"${:d*1000+:u}",
             "inf":"${Math.floor(:n/1000)*1000}",
             "sup":"${Math.ceil(:n/1000)*1000}",
-            "precision":"unités de mille"
+            "precision":"Tausenderzahlen"
         }
     },{
-        "name":"Encadrer à la dizaine de mille",
+        "name":"Benachbarte Zehntausenderzahlen",
         "vars":{
             "p":"1_3",
             "u":"1_9999",
@@ -51,10 +51,10 @@
             "n":"${:d*10000+:u}",
             "inf":"${Math.floor(:n/10000)*10000}",
             "sup":"${Math.ceil(:n/10000)*10000}",
-            "precision":"dizaines de mille"
+            "precision":"Zehntausenderzahlen"
         }
     },{
-        "name":"Encadrer à la centaine de mille",
+        "name":"Benachbarte Hunderttausenderzahlen",
         "vars":{
             "p":"1_3",
             "u":"1_99999",
@@ -62,11 +62,11 @@
             "n":"${:d*100000+:u}",
             "inf":"${Math.floor(:n/100000)*100000}",
             "sup":"${Math.ceil(:n/100000)*100000}",
-            "precision":"centaines de mille"
+            "precision":"Hunderttausenderzahlen"
         }
     }],
-    "question":"Encadrer $$${:n}$$ entre deux ${:precision} consécutives.",
-    "shortq":"Entre deux ${:precision} $$\\colorbox{#ECECEC}{\\quad \\quad}\\lt${:n}\\lt\\colorbox{#ECECEC}{\\quad \\quad}$$",
+    "question":"Zwischen welchen benachbarten ${:precision} liegt $$${:n}$$?",
+    "shortq":"Benachbarte ${:precision}: $$\\colorbox{#ECECEC}{\\quad \\quad}\\lt${:n}\\lt\\colorbox{#ECECEC}{\\quad \\quad}$$",
     "answer":"$$\\color{red}{${:inf}}\\lt${:n}\\lt\\color{red}{${:sup}}$$",
     "value":"${:inf};${:sup}"
 }

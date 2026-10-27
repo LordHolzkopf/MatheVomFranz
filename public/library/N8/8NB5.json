@@ -1,21 +1,21 @@
 {
-    "title": "Fraction (inférieure ou égale à 1) d’unité",
+    "title": "Gefärbten Anteil als Bruch angeben",
     "dest":["5FA", "6AA"],
     "type":"text",
     "keys":["_","/","_","_","_","_","_","_"],
-    "consigne":"Quelle fraction de l’objet est colorée ?",
-    "description":"carré, disque, rectangle ou barre découpé en parties égales dont certaines sont colorées.",
+    "consigne":"Welcher Anteil der Figur ist gefärbt?",
+    "description":"Brüche als Anteile: Quadrat, Kreis, Rechteck oder Streifen in gleich große Teile zerlegt, gefärbten Anteil als Bruch angeben",
     "question":"",
     "options":[
       {
-          "name":"Découpe du carré",
+          "name":"Quadrat",
           "vars":{
               "den":[2, 4, 8, 16],
               "num":"1_${:den}",
               "b":["b",""],
               "denb":"${:den==8||:den==2?:den+:b::den}"
           },
-          "answer":"On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du carré.",
+          "answer":"Gefärbt sind $$\\color{red}{\\dfrac{:num}{:den}}$$ des Quadrats.",
           "value":"\\dfrac{${:num}}{:den}",
           "figure":{
               "type":"graph",
@@ -32,12 +32,12 @@
           }
       },
         {
-            "name":"Découpe du disque",
+            "name":"Kreis",
             "vars":{
                 "den":"2_10",
                 "num":"1_${:den}"
             },
-            "answer":"On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du disque. ${:den===:num?'Tout le disque est coloré.':''}",
+            "answer":"Gefärbt sind $$\\color{red}{\\dfrac{:num}{:den}}$$ des Kreises. ${:den===:num?'Der ganze Kreis ist gefärbt.':''}",
             "value":"\\dfrac{:num}{:den}",
             "figure":{
                 "type":"graph",
@@ -50,12 +50,12 @@
                 ]
             }
         },{
-            "name":"Découpe du rectangle",
+            "name":"Rechteck",
             "vars":{
                 "den":[2, 3, 4, 6, 8, 12],
                 "num":"1_${:den}"
             },
-            "answer":"On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ du rectangle.",
+            "answer":"Gefärbt sind $$\\color{red}{\\dfrac{:num}{:den}}$$ des Rechtecks.",
             "value":"\\dfrac{${:num}}{:den}",
             "figure":{
                 "type":"graph",
@@ -71,12 +71,12 @@
                 ]
             }
         },{
-            "name":"Découpe d’une barre",
+            "name":"Streifen",
             "vars":{
               "den":"2_12",
                 "num":"1_${:den}"
             },
-            "answer":"On a coloré $$\\color{red}{\\dfrac{:num}{:den}}$$ de la barre.",
+            "answer":"Gefärbt sind $$\\color{red}{\\dfrac{:num}{:den}}$$ des Streifens.",
             "value":"\\dfrac{:num}{:den}",
             "figure":{
                 "type":"graph",

@@ -1,54 +1,54 @@
 {
-    "title":"Conversions de durées",
+    "title":"Zeitspannen umrechnen",
     "type":"text",
     "speech":1,
     "ID":"7MC2",
-    "description":"Conversions par interprétation de reste.",
+    "description":"Zeitspannen umrechnen mit Rest: Jahre in Jahrhunderte und Jahre, Tage in Wochen und Tage, Minuten in Stunden und Minuten, Sekunden in Minuten und Sekunden",
     "keys":["hr","mn","sc","_","jr","sm","an","scl"],
     "dest":["5AE", "5AF"],
     "params":{
-        "zero":{"groupe":"Ne pas tirer","label":"0","defaut":false,"exclut":{"a":"0","s":"0","j":"0","m":"0","h":"0"}}
+        "zero":{"groupe":"Nicht abfragen","label":"0","defaut":false,"exclut":{"a":"0","s":"0","j":"0","m":"0","h":"0"}}
     },
     "options":[{
-        "name":"Conversions siècle <=> années",
+        "name":"Jahrhunderte und Jahre",
         "vars":{"a":"0_99","s":"0_21","an":"${:a+100*:s}"},
-        "question": ["Combien de siècles et d'années dans ${:an} années ?",
-    "Combien d'années dans ${:s} siècles et ${:a} années ?"],
-        "audio":["Combien y a-t-il de siècles et d'années dans ${:an} années ?",
-        "Combien y a-t-il d'années en tout dans ${:s} siècles et ${:a} années ?"],
-        "answer":["${:an} années = <span class='red'>${:s}</span> siècles et <span class='red'>${:a}</span> années.",
-    "${:s} siècles et ${:a} années = <span class='red'>${:an}</span> années"],
-        "value":["${:s}\\text{ siècles} ${:a}\\text{ a}","${:an}\\text{ a}"]
+        "question": ["Wie viele Jahrhunderte und Jahre sind ${:an} ${:an==1?'Jahr':'Jahre'}?",
+    "Wie viele Jahre sind ${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'} und ${:a} ${:a==1?'Jahr':'Jahre'}?"],
+        "audio":["Wie viele Jahrhunderte und Jahre sind ${:an} ${:an==1?'Jahr':'Jahre'}?",
+        "Wie viele Jahre sind ${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'} und ${:a} ${:a==1?'Jahr':'Jahre'} insgesamt?"],
+        "answer":["${:an} ${:an==1?'Jahr':'Jahre'} = <span class='red'>${:s}</span> ${:s==1?'Jahrhundert':'Jahrhunderte'} und <span class='red'>${:a}</span> ${:a==1?'Jahr':'Jahre'}.",
+    "${:s} ${:s==1?'Jahrhundert':'Jahrhunderte'} und ${:a} ${:a==1?'Jahr':'Jahre'} = <span class='red'>${:an}</span> ${:an==1?'Jahr':'Jahre'}"],
+        "value":["${:s}\\text{ Jh.} ${:a}\\text{ a}","${:an}\\text{ a}"]
     },{
-        "name":"Conversions semaines/jours",
+        "name":"Wochen und Tage",
         "vars":{"j":"0_6","s":"0_10","jrs":"${:j+7*:s}"},
-        "question": ["Combien de semaines et jours dans ${:jrs} jours ?",
-    "Combien de jours dans ${:s} semaines et ${:j} jours ?"],
-        "audio": ["Combien y a-t-il de semaines et jours dans ${:jrs} jours ?",
-        "Combien y a-t-il de jours en tout dans ${:s} semaines et ${:j} jours ?"],
-        "answer":["${:jrs} jours = <span class='red'>${:s}</span> semaines et <span class='red'>${:j}</span> jours.",
-    "${:s} semaines et ${:j} jours = <span class='red'>${:jrs}</span> jours"],
-        "value":["${:s}\\text{ sem} ${:j}\\text{ j}","${:jrs}\\text{ j}"]
+        "question": ["Wie viele Wochen und Tage sind ${:jrs} ${:jrs==1?'Tag':'Tage'}?",
+    "Wie viele Tage sind ${:s} ${:s==1?'Woche':'Wochen'} und ${:j} ${:j==1?'Tag':'Tage'}?"],
+        "audio": ["Wie viele Wochen und Tage sind ${:jrs} ${:jrs==1?'Tag':'Tage'}?",
+        "Wie viele Tage sind ${:s} ${:s==1?'Woche':'Wochen'} und ${:j} ${:j==1?'Tag':'Tage'} insgesamt?"],
+        "answer":["${:jrs} ${:jrs==1?'Tag':'Tage'} = <span class='red'>${:s}</span> ${:s==1?'Woche':'Wochen'} und <span class='red'>${:j}</span> ${:j==1?'Tag':'Tage'}.",
+    "${:s} ${:s==1?'Woche':'Wochen'} und ${:j} ${:j==1?'Tag':'Tage'} = <span class='red'>${:jrs}</span> ${:jrs==1?'Tag':'Tage'}"],
+        "value":["${:s}\\text{ Wo.} ${:j}\\text{ d}","${:jrs}\\text{ d}"]
     },{
-        "name":"Conversions heures/minutes",
+        "name":"Stunden und Minuten",
         "vars":{"m":"0_59","h":"0_23","min":"${:m+60*:h}"},
-        "question": ["Combien d'heures et minutes dans ${:min} minutes ?",
-    "Combien de minutes dans ${:h} heures et ${:m} minutes ?"],
-        "audio": ["Combien y a-t-il d'heures et minutes dans ${:min} minutes ?",
-        "Combien y a-t-il de minutes en tout dans ${:h} heures et ${:m} minutes ?"],
-        "answer":["${:min} minutes = <span class='red'>${:h}</span> heures et <span class='red'>${:m}</span> minutes.",
-    "${:h} heures et ${:m} minutes = <span class='red'>${:min}</span> minutes"],
+        "question": ["Wie viele Stunden und Minuten sind ${:min} ${:min==1?'Minute':'Minuten'}?",
+    "Wie viele Minuten sind ${:h} ${:h==1?'Stunde':'Stunden'} und ${:m} ${:m==1?'Minute':'Minuten'}?"],
+        "audio": ["Wie viele Stunden und Minuten sind ${:min} ${:min==1?'Minute':'Minuten'}?",
+        "Wie viele Minuten sind ${:h} ${:h==1?'Stunde':'Stunden'} und ${:m} ${:m==1?'Minute':'Minuten'} insgesamt?"],
+        "answer":["${:min} ${:min==1?'Minute':'Minuten'} = <span class='red'>${:h}</span> ${:h==1?'Stunde':'Stunden'} und <span class='red'>${:m}</span> ${:m==1?'Minute':'Minuten'}.",
+    "${:h} ${:h==1?'Stunde':'Stunden'} und ${:m} ${:m==1?'Minute':'Minuten'} = <span class='red'>${:min}</span> ${:min==1?'Minute':'Minuten'}"],
         "value":["${:h}\\text{ h } ${:m}\\text{ min}","${:min}\\text{ min}"]
 
     },{
-        "name":"Conversions minutes/secondes",
+        "name":"Minuten und Sekunden",
         "vars":{"m":"0_59","h":"0_23","min":"${:m+60*:h}"},
-        "question": ["Combien de minutes et secondes dans ${:min} secondes ?",
-    "Combien de secondes dans ${:h} minutes et ${:m} secondes ?"],
-        "audio": ["Combien y a-t-il de minutes et secondes dans ${:min} secondes ?",
-        "Combien y a-t-il de secondes en tout dans ${:h} minutes et ${:m} secondes ?"],
-        "answer":["${:min} secondes = <span class='red'>${:h}</span> minutes et <span class='red'>${:m}</span> secondes.",
-    "${:h} minutes et ${:m} secondes = <span class='red'>${:min}</span> secondes"],
+        "question": ["Wie viele Minuten und Sekunden sind ${:min} ${:min==1?'Sekunde':'Sekunden'}?",
+    "Wie viele Sekunden sind ${:h} ${:h==1?'Minute':'Minuten'} und ${:m} ${:m==1?'Sekunde':'Sekunden'}?"],
+        "audio": ["Wie viele Minuten und Sekunden sind ${:min} ${:min==1?'Sekunde':'Sekunden'}?",
+        "Wie viele Sekunden sind ${:h} ${:h==1?'Minute':'Minuten'} und ${:m} ${:m==1?'Sekunde':'Sekunden'} insgesamt?"],
+        "answer":["${:min} ${:min==1?'Sekunde':'Sekunden'} = <span class='red'>${:h}</span> ${:h==1?'Minute':'Minuten'} und <span class='red'>${:m}</span> ${:m==1?'Sekunde':'Sekunden'}.",
+    "${:h} ${:h==1?'Minute':'Minuten'} und ${:m} ${:m==1?'Sekunde':'Sekunden'} = <span class='red'>${:min}</span> ${:min==1?'Sekunde':'Sekunden'}"],
         "value":["${:h}\\text{ min} ${:m}\\text{ s}","${:min}\\text{ s}"]
     }
     ]

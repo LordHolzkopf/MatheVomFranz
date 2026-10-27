@@ -1,0 +1,141 @@
+{
+  "title": "Sachprobleme mit Gleichungen lösen",
+  "ID": "D7DG1",
+  "description": "Textaufgaben mit linearen Gleichungen: Zahlenrätsel, Altersrätsel, Umfang eines Rechtecks, aufeinanderfolgende Zahlen, Tarifvergleich, Geld aufteilen; Gleichung aufstellen, lösen und die Lösung deuten",
+  "dest": [
+    "7DG"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Zahlenrätsel",
+      "vars": {
+        "x": "2_15",
+        "i": "0_4",
+        "b": "1_20",
+        "s": "0_1",
+        "a": "${:i+2}",
+        "w": [
+          [
+            "das Doppelte",
+            "das Dreifache",
+            "das Vierfache",
+            "das Fünffache",
+            "das Sechsfache"
+          ]
+        ],
+        "bb": "${:s===0 ? :b : 1+(:b-1)%(:a*:x-1)}",
+        "e": "${:s===0 ? :a*:x+:bb : :a*:x-:bb}"
+      },
+      "question": "Wenn man ${:w[:i]} einer Zahl ${:s===0 ? 'um '+:bb+' vergrößert' : 'um '+:bb+' verkleinert'}, erhält man ${:e}. Wie heißt die Zahl?",
+      "answer": "$$${:a}x${:s===0 ? '+' : '-'}${:bb}=${:e}\\;\\Rightarrow\\;${:a}x=${:a*:x}\\;\\Rightarrow\\;x=\\color{red}{${:x}}$$",
+      "value": "${:x}"
+    },
+    {
+      "name": "Altersrätsel",
+      "vars": {
+        "t": "5_14",
+        "d": "2_8",
+        "k": "3_4"
+      },
+      "question": [
+        "Anna ist ${:d} Jahre älter als ihr Bruder Ben. Zusammen sind sie ${2*:t+:d} Jahre alt. Wie alt ist Ben?",
+        "Anna ist ${:d} Jahre älter als ihr Bruder Ben. Zusammen sind sie ${2*:t+:d} Jahre alt. Wie alt ist Anna?",
+        "Eine Mutter ist ${['','','doppelt','dreimal','viermal'][:k]} so alt wie ihre Tochter. Zusammen sind sie ${(:k+1)*(:t+5)} Jahre alt. Wie alt ist die Tochter?"
+      ],
+      "answer": [
+        "Ben: $$x$$, Anna: $$x+${:d}$$. $$2x+${:d}=${2*:t+:d}\\;\\Rightarrow\\;x=\\color{red}{${:t}}$$",
+        "Ben: $$x$$, Anna: $$x+${:d}$$. $$2x+${:d}=${2*:t+:d}\\;\\Rightarrow\\;x=${:t}$$, Anna ist $$\\color{red}{${:t+:d}}$$ Jahre alt",
+        "Tochter: $$x$$, Mutter: $$${:k}x$$. $$${:k+1}x=${(:k+1)*(:t+5)}\\;\\Rightarrow\\;x=\\color{red}{${:t+5}}$$"
+      ],
+      "value": [
+        "${:t}",
+        "${:t+:d}",
+        "${:t+5}"
+      ]
+    },
+    {
+      "name": "Umfang eines Rechtecks",
+      "vars": {
+        "b": "2_12",
+        "d": "1_8",
+        "k": "2_3"
+      },
+      "question": [
+        "Ein Rechteck ist ${:d} cm länger als breit. Sein Umfang beträgt ${4*:b+2*:d} cm. Wie breit ist es (in cm)?",
+        "Ein Rechteck ist ${:d} cm länger als breit. Sein Umfang beträgt ${4*:b+2*:d} cm. Wie lang ist es (in cm)?",
+        "Ein Rechteck ist ${:k===2 ? 'doppelt' : 'dreimal'} so lang wie breit. Sein Umfang beträgt ${2*(:k+1)*:b} cm. Wie breit ist es (in cm)?"
+      ],
+      "answer": [
+        "$$2x+2(x+${:d})=${4*:b+2*:d}\\;\\Rightarrow\\;4x=${4*:b}\\;\\Rightarrow\\;x=\\color{red}{${:b}}$$",
+        "$$2x+2(x+${:d})=${4*:b+2*:d}\\;\\Rightarrow\\;x=${:b}$$, Länge $$${:b}+${:d}=\\color{red}{${:b+:d}}$$",
+        "$$2x+2\\cdot ${:k}x=${2*(:k+1)*:b}\\;\\Rightarrow\\;${2*(:k+1)}x=${2*(:k+1)*:b}\\;\\Rightarrow\\;x=\\color{red}{${:b}}$$"
+      ],
+      "value": [
+        "${:b}",
+        "${:b+:d}",
+        "${:b}"
+      ]
+    },
+    {
+      "name": "Aufeinanderfolgende Zahlen",
+      "vars": {
+        "n": "3_40",
+        "k": "2_5",
+        "S": "${:k*:n+:k*(:k-1)/2}",
+        "w": [
+          [
+            "",
+            "",
+            "zwei",
+            "drei",
+            "vier",
+            "fünf"
+          ]
+        ],
+        "kette": "${:k===2 ? 'x+(x+1)' : :k===3 ? 'x+(x+1)+(x+2)' : 'x+(x+1)+\\ldots+(x+'+(:k-1)+')'}"
+      },
+      "question": [
+        "Die Summe von ${:w[:k]} aufeinanderfolgenden natürlichen Zahlen ist ${:S}. Wie heißt die ${:k===2 ? 'kleinere' : 'kleinste'} dieser Zahlen?",
+        "Die Summe von ${:w[:k]} aufeinanderfolgenden natürlichen Zahlen ist ${:S}. Wie heißt die ${:k===2 ? 'größere' : 'größte'} dieser Zahlen?"
+      ],
+      "answer": [
+        "$$${:kette}=${:k}x+${:k*(:k-1)/2}=${:S}\\;\\Rightarrow\\;x=\\color{red}{${:n}}$$",
+        "$$${:kette}=${:k}x+${:k*(:k-1)/2}=${:S}\\;\\Rightarrow\\;x=${:n}$$, ${:k===2 ? 'größere' : 'größte'} Zahl: $$\\color{red}{${:n+:k-1}}$$"
+      ],
+      "value": [
+        "${:n}",
+        "${:n+:k-1}"
+      ]
+    },
+    {
+      "name": "Tarife vergleichen",
+      "vars": {
+        "x": "2_12",
+        "d": "1_4",
+        "a": "1_6",
+        "g": "${:x*:d}",
+        "b": "${:a+:d}"
+      },
+      "question": [
+        "Fahrradverleih A verlangt ${:g} € Grundgebühr und ${:a} € pro Stunde, Verleih B nur ${:b} € pro Stunde. Bei wie vielen Stunden kosten beide gleich viel?",
+        "Tarif A: ${:g} € Grundgebühr im Monat und ${:a} € pro Kinobesuch. Tarif B: ${:b} € pro Kinobesuch ohne Grundgebühr. Bei wie vielen Besuchen im Monat kosten beide gleich viel?"
+      ],
+      "answer": "$$${:g}+${MMmath.signIfOne(:a)}x=${:b}x\\;\\Rightarrow\\;${:g}=${MMmath.signIfOne(:d)}x\\;\\Rightarrow\\;x=\\color{red}{${:x}}$$",
+      "value": "${:x}"
+    },
+    {
+      "name": "Geld aufteilen",
+      "vars": {
+        "x": "5_30",
+        "k": "2_3",
+        "d": "2_15",
+        "T": "${(:k+2)*:x+:d}"
+      },
+      "question": "Anna, Ben und Cem teilen sich ${:T} €. Ben bekommt ${:k===2 ? 'doppelt' : 'dreimal'} so viel wie Anna, Cem bekommt ${:d} € mehr als Anna. Wie viel Euro bekommt Anna?",
+      "answer": "$$x+${:k}x+(x+${:d})=${:T}\\;\\Rightarrow\\;${:k+2}x=${:T-:d}\\;\\Rightarrow\\;x=\\color{red}{${:x}}$$",
+      "value": "${:x}"
+    }
+  ]
+}

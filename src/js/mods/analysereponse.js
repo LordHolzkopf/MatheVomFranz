@@ -156,6 +156,12 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
     if (paarEingabe) return paarEingabe === paarErwartet;
   }
   // on utilise dfrac pour l'affichage des fractions
+  // MatheVomFranz : réponse textuelle (\text{…} ou mot d'au moins 4 lettres) –
+  // jamais comparée par le Compute Engine, qui verrait S·W·S = S·S·W
+  const estTexte =
+    typeof goodAnswer === "string" &&
+    (/^\\text\{[^}]*\}$/.test(goodAnswer.trim()) ||
+      /^[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß\s,.-]{3,}$/.test(goodAnswer.trim()));
   if (typeof goodAnswer === "string") {
     goodAnswer = goodAnswer.replace('dfrac', 'frac');
     goodAnswer = goodAnswer.replace(/\\text\{([^}]*)\}/g, "$1");
@@ -270,6 +276,8 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
       }
     } else if (wortAntwort(goodAnswer, userAnswer)) {
       return true;
+    } else if (estTexte) {
+      return false;
     } else if (String(userAnswer).toLowerCase() == String(goodAnswer).toLowerCase()) {
       // égalité brute de chaines
       return true;

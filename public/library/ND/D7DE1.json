@@ -1,0 +1,133 @@
+{
+  "title": "Lineare Ungleichungen lösen",
+  "ID": "D7DE1",
+  "description": "Ungleichungen mit Äquivalenzumformungen lösen, Ungleichheitszeichen umdrehen bei Multiplikation oder Division mit einer negativen Zahl, kleinste und größte ganzzahlige Lösung, Lösung prüfen, kleiner, größer",
+  "dest": [
+    "7DE"
+  ],
+  "type": "text",
+  "options": [
+    {
+      "name": "x + a < b lösen",
+      "keys": [
+        "<",
+        ">",
+        "-",
+        "_",
+        "_",
+        "x",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "-12_12_^0",
+        "s": "-10_10",
+        "r": "0_1",
+        "b": "${:s+:a}"
+      },
+      "question": "Löse die Ungleichung $$x${MMmath.signedNumber(:a)}${:r===0 ? '\\lt' : '\\gt'} ${:b}$$.",
+      "answer": "$$x${MMmath.signedNumber(:a)}${:r===0 ? '\\lt' : '\\gt'} ${:b}\\quad|\\;${:a>0 ? '-'+:a : '+'+(-:a)}$$ ergibt $$\\color{red}{x${:r===0 ? '\\lt' : '\\gt'} ${:s}}$$",
+      "value": "x${:r===0 ? '\\lt' : '\\gt'} ${:s}"
+    },
+    {
+      "name": "ax + b < c lösen (a > 0)",
+      "keys": [
+        "<",
+        ">",
+        "-",
+        "_",
+        "_",
+        "x",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "2_9",
+        "s": "-6_9",
+        "b": "-15_15_^0",
+        "r": "0_1",
+        "c": "${:a*:s+:b}"
+      },
+      "question": "Löse die Ungleichung $$${:a}x${MMmath.signedNumber(:b)}${:r===0 ? '\\lt' : '\\gt'} ${:c}$$.",
+      "answer": "$$${:a}x${:r===0 ? '\\lt' : '\\gt'} ${:c-:b}\\quad|:${:a}$$ ergibt $$\\color{red}{x${:r===0 ? '\\lt' : '\\gt'} ${:s}}$$",
+      "value": "x${:r===0 ? '\\lt' : '\\gt'} ${:s}"
+    },
+    {
+      "name": "Division durch eine negative Zahl",
+      "keys": [
+        "<",
+        ">",
+        "-",
+        "_",
+        "_",
+        "x",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "2_9",
+        "s": "-9_9",
+        "b": "-12_12",
+        "r": "0_1",
+        "c": "${-:a*:s+:b}"
+      },
+      "question": "Löse die Ungleichung $$-${:a}x${MMmath.signedNumber(:b)}${:r===0 ? '\\lt' : '\\gt'} ${:c}$$.",
+      "answer": "$$-${:a}x${:r===0 ? '\\lt' : '\\gt'} ${:c-:b}\\quad|:(-${:a})$$, das Zeichen dreht sich um: $$\\color{red}{x${:r===0 ? '\\gt' : '\\lt'} ${:s}}$$",
+      "value": "x${:r===0 ? '\\gt' : '\\lt'} ${:s}"
+    },
+    {
+      "name": "Kleinste ganze Zahl als Lösung",
+      "vars": {
+        "a": "2_6",
+        "b": "-10_10",
+        "c": "-10_20",
+        "r": "0_1",
+        "q": "${(:c-:b)/:a}",
+        "lsg": "${:r===0 ? Math.floor(:q)+1 : Math.ceil(:q)}"
+      },
+      "question": "Welches ist die kleinste ganze Zahl, die die Ungleichung $$${:a}x${MMmath.signedNumber(:b)}${:r===0 ? '\\gt' : '\\ge'} ${:c}$$ erfüllt?",
+      "answer": "$$${:a}x${:r===0 ? '\\gt' : '\\ge'} ${:c-:b}$$, also $$x${:r===0 ? '\\gt' : '\\ge'} ${(:c-:b)%:a===0 ? (:c-:b)/:a : ((:c-:b)<0 ? '-' : '')+'\\dfrac{'+Math.abs(:c-:b)/MMmath.pgcd(Math.abs(:c-:b),:a)+'}{'+:a/MMmath.pgcd(Math.abs(:c-:b),:a)+'}'}$$. Kleinste ganze Zahl: $$\\color{red}{${:lsg}}$$",
+      "value": "${:lsg}"
+    },
+    {
+      "name": "Größte ganze Zahl als Lösung",
+      "vars": {
+        "a": "2_6",
+        "b": "-10_10",
+        "c": "-10_20",
+        "r": "0_1",
+        "q": "${(:c-:b)/:a}",
+        "lsg": "${:r===0 ? Math.ceil(:q)-1 : Math.floor(:q)}"
+      },
+      "question": "Welches ist die größte ganze Zahl, die die Ungleichung $$${:a}x${MMmath.signedNumber(:b)}${:r===0 ? '\\lt' : '\\le'} ${:c}$$ erfüllt?",
+      "answer": "$$${:a}x${:r===0 ? '\\lt' : '\\le'} ${:c-:b}$$, also $$x${:r===0 ? '\\lt' : '\\le'} ${(:c-:b)%:a===0 ? (:c-:b)/:a : ((:c-:b)<0 ? '-' : '')+'\\dfrac{'+Math.abs(:c-:b)/MMmath.pgcd(Math.abs(:c-:b),:a)+'}{'+:a/MMmath.pgcd(Math.abs(:c-:b),:a)+'}'}$$. Größte ganze Zahl: $$\\color{red}{${:lsg}}$$",
+      "value": "${:lsg}"
+    },
+    {
+      "name": "Lösung prüfen",
+      "keys": [
+        "o",
+        "n",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "-5_5_^0",
+        "b": "-9_9",
+        "k": "-5_5",
+        "d": "-2_2",
+        "r": "0_3",
+        "l": "${:a*:k+:b}",
+        "c": "${:l+:d}",
+        "ok": "${[:l<:c, :l>:c, :l<=:c, :l>=:c][:r] ? 'ja' : 'nein'}"
+      },
+      "question": "Ist $$x=${:k}$$ eine Lösung der Ungleichung $$${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}${['\\lt','\\gt','\\le','\\ge'][:r]} ${:c}$$?",
+      "answer": "Einsetzen: $$${:a}\\cdot ${MMmath.nP(:k)}${MMmath.signedNumber(:b)}=${:l}$$ und $$${:l}${['\\lt','\\gt','\\le','\\ge'][:r]} ${:c}$$ ist ${:ok==='ja' ? 'wahr' : 'falsch'}, also $$\\color{red}{\\text{${:ok}}}$$",
+      "value": "${:ok}"
+    }
+  ]
+}

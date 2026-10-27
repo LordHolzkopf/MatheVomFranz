@@ -1,0 +1,474 @@
+{
+  "title": "Periodische Dezimalzahlen",
+  "ID": "D6BD1",
+  "description": "Brüche als periodische Dezimalzahlen schreiben (rein und gemischt periodisch), abbrechend oder periodisch erkennen, Ziffer an einer Nachkommastelle bestimmen, periodische Dezimalzahlen in Brüche umwandeln, Periode, Vorperiode, Periodenstrich",
+  "dest": [
+    "6BD"
+  ],
+  "type": "text",
+  "valueType": "fractionIrreductible",
+  "options": [
+    {
+      "name": "Bruch → rein periodische Dezimalzahl",
+      "vars": {
+        "f": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            9
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            13,
+            11
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            13,
+            9
+          ],
+          [
+            14,
+            9
+          ],
+          [
+            16,
+            9
+          ],
+          [
+            17,
+            9
+          ],
+          [
+            12,
+            11
+          ],
+          [
+            14,
+            11
+          ],
+          [
+            15,
+            11
+          ]
+        ],
+        "z": "${:f[0]}",
+        "d": "${:f[1]}",
+        "dz": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:z,:d,'{,}')}",
+        "dv": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:z,:d,'.')}"
+      },
+      "question": "Schreibe $$\\dfrac{${:z}}{${:d}}$$ als Dezimalzahl.",
+      "answer": "$$\\dfrac{${:z}}{${:d}}=${:z}:${:d}=\\color{red}{${:dz}}$$",
+      "value": [
+        "${:dv}",
+        "${String(:dv).replace('.', ',')}",
+        "${:dz}"
+      ]
+    },
+    {
+      "name": "Bruch → gemischt periodische Dezimalzahl",
+      "vars": {
+        "f": [
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            13,
+            12
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            4,
+            15
+          ],
+          [
+            7,
+            15
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            11,
+            15
+          ],
+          [
+            1,
+            18
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            7,
+            18
+          ],
+          [
+            1,
+            30
+          ],
+          [
+            7,
+            30
+          ],
+          [
+            11,
+            30
+          ],
+          [
+            17,
+            6
+          ],
+          [
+            19,
+            12
+          ],
+          [
+            13,
+            15
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            11,
+            18
+          ],
+          [
+            13,
+            18
+          ],
+          [
+            13,
+            30
+          ],
+          [
+            17,
+            30
+          ],
+          [
+            19,
+            30
+          ],
+          [
+            1,
+            24
+          ],
+          [
+            5,
+            24
+          ]
+        ],
+        "z": "${:f[0]}",
+        "d": "${:f[1]}",
+        "dz": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:z,:d,'{,}')}",
+        "dv": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:z,:d,'.')}"
+      },
+      "question": "Schreibe $$\\dfrac{${:z}}{${:d}}$$ als Dezimalzahl.",
+      "answer": "$$\\dfrac{${:z}}{${:d}}=${:z}:${:d}=\\color{red}{${:dz}}$$",
+      "value": [
+        "${:dv}",
+        "${String(:dv).replace('.', ',')}",
+        "${:dz}"
+      ]
+    },
+    {
+      "name": "Abbrechend oder periodisch",
+      "keys": [
+        "o",
+        "n",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "d": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          15,
+          16,
+          20,
+          24,
+          25,
+          30,
+          40,
+          50
+        ],
+        "z": "${MMmath.aleaInt(1, :d-1)}",
+        "g": "${MMmath.pgcd(:z,:d)}",
+        "zr": "${:z/:g}",
+        "dr": "${:d/:g}",
+        "rest": "${(()=>{let n=:dr;while(n%2===0)n/=2;while(n%5===0)n/=5;return n;})()}",
+        "ant": "${:rest>1 ? 'ja' : 'nein'}",
+        "dz": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:zr,:dr,'{,}')}"
+      },
+      "question": "Ist die Dezimalzahl zu $$\\dfrac{${:z}}{${:d}}$$ periodisch? Antworte mit ja oder nein.",
+      "answer": "$$\\dfrac{${:z}}{${:d}}${:g>1 ? '=\\dfrac{'+:zr+'}{'+:dr+'}' : ''}=${:dz}$$. ${:rest>1 ? 'Der gekürzte Nenner hat einen Primfaktor außer 2 und 5, die Dezimalzahl ist periodisch' : 'Der gekürzte Nenner hat nur die Primfaktoren 2 und 5, die Dezimalzahl bricht ab'}: $$\\color{red}{\\text{${:ant}}}$$",
+      "value": "${:ant}"
+    },
+    {
+      "name": "Ziffer an einer Nachkommastelle",
+      "vars": {
+        "f": [
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            11
+          ]
+        ],
+        "z": "${:f[0]}",
+        "d": "${:f[1]}",
+        "k": "10_40",
+        "per": "${((z,d)=>{let r=z%d,s='',pos={},i=0;while(pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}return s.slice(pos[r]);})(:z,:d)}",
+        "L": "${String(:per).length}",
+        "r": "${:k%:L}",
+        "dig": "${String(:per)[(:k-1)%:L]}",
+        "dz": "${((z,d,k)=>{let g=Math.floor(z/d),r=z%d,s='',pos={},i=0;while(r!==0&&pos[r]===undefined){pos[r]=i;r*=10;s+=Math.floor(r/d);r%=d;i++;}if(r===0)return s?g+k+s:String(g);return g+k+s.slice(0,pos[r])+'\\overline{'+s.slice(pos[r])+'}';})(:z,:d,'{,}')}"
+      },
+      "question": "Welche Ziffer steht bei $$\\dfrac{${:z}}{${:d}}$$ an der ${:k}. Nachkommastelle?",
+      "answer": "$$\\dfrac{${:z}}{${:d}}=${:dz}$$. Die Periode hat ${:L} Ziffern. ${:r===0 ? '$$'+:k+'='+(:k/:L)+'\\cdot '+:L+'$$, also ist es die letzte Ziffer der Periode' : '$$'+:k+'='+((:k-:r)/:L)+'\\cdot '+:L+'+'+:r+'$$, also ist es die '+:r+'. Ziffer der Periode'}: $$\\color{red}{${:dig}}$$",
+      "value": "${:dig}"
+    },
+    {
+      "name": "Periodische Dezimalzahl → Bruch (Periode mit 1 Ziffer)",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "g": "0_3",
+        "a": "1_8",
+        "n": "${9*:g+:a}",
+        "b": "${MMmath.fractionSimplifiee(:n,9)}",
+        "kette": "${(:g>0 ? :g+'+\\dfrac{'+:a+'}{9}=' : '')+(MMmath.pgcd(:n,9)>1 ? '\\dfrac{'+:n+'}{9}=' : '')}"
+      },
+      "question": "Schreibe $$${:g}{,}\\overline{${:a}}$$ als vollständig gekürzten Bruch.",
+      "answer": "$$${:g}{,}\\overline{${:a}}=${:kette}\\color{red}{${:b}}$$",
+      "value": "${:b}"
+    },
+    {
+      "name": "Periodische Dezimalzahl → Bruch (Periode mit 2 Ziffern)",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "p": "1_98_^11,22,33,44,55,66,77,88",
+        "pz": "${:p<10 ? '0'+:p : String(:p)}",
+        "b": "${MMmath.fractionSimplifiee(:p,99)}"
+      },
+      "question": "Schreibe $$0{,}\\overline{${:pz}}$$ als vollständig gekürzten Bruch.",
+      "answer": "$$0{,}\\overline{${:pz}}=${MMmath.pgcd(:p,99)>1 ? '\\dfrac{'+:p+'}{99}=' : ''}\\color{red}{${:b}}$$",
+      "value": "${:b}"
+    }
+  ]
+}

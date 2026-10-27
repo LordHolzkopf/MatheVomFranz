@@ -1,0 +1,152 @@
+{
+  "title": "Zuordnungen darstellen: Term, Tabelle, Graph und Worte",
+  "ID": "D7BA1",
+  "description": "Zuordnungen in Tabelle, Graph, Term und Worten; Darstellungswechsel; Werte mit einer Zuordnungsvorschrift berechnen, Werte am Graphen ablesen, Term aus Tabelle oder Text aufstellen, prüfen, ob ein Punkt auf dem Graphen liegt",
+  "dest": [
+    "7BA"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Wert mit der Zuordnungsvorschrift berechnen",
+      "vars": {
+        "a": "-5_5_^0",
+        "b": "-9_9",
+        "x": "-5_5"
+      },
+      "question": "Gegeben ist die Zuordnung $$x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$. Welcher Wert wird $$x=${:x}$$ zugeordnet?",
+      "answer": "$$${:a}\\cdot ${MMmath.nP(:x)}${MMmath.signedNumber(:b)}=\\color{red}{${:a*:x+:b}}$$",
+      "value": "${:a*:x+:b}"
+    },
+    {
+      "name": "Werte am Graphen ablesen",
+      "vars": {
+        "y": "0_8_7_^&",
+        "k": "0_6",
+        "svg": "${(()=>{const X=i=>25+20*i,Y=j=>190-20*j;const t=(x,y,z)=>'<text x=\"'+x+'\" y=\"'+y+'\" font-size=\"9\" font-family=\"sans-serif\" text-anchor=\"middle\">'+z+'</text>';let g='<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 185 205\" width=\"11em\" height=\"12.2em\">';for(let i=0;i<=7;i++)g+='<line x1=\"'+X(i)+'\" y1=\"'+Y(0)+'\" x2=\"'+X(i)+'\" y2=\"'+Y(9)+'\" stroke=\"#bbb\" stroke-width=\"0.6\"/>';for(let j=0;j<=9;j++)g+='<line x1=\"'+X(0)+'\" y1=\"'+Y(j)+'\" x2=\"'+X(7)+'\" y2=\"'+Y(j)+'\" stroke=\"#bbb\" stroke-width=\"0.6\"/>';g+='<line x1=\"'+X(0)+'\" y1=\"'+Y(0)+'\" x2=\"'+(X(7)+8)+'\" y2=\"'+Y(0)+'\" stroke=\"black\" stroke-width=\"1.2\"/>';g+='<line x1=\"'+X(0)+'\" y1=\"'+Y(0)+'\" x2=\"'+X(0)+'\" y2=\"'+(Y(9)-8)+'\" stroke=\"black\" stroke-width=\"1.2\"/>';g+='<path d=\"M'+(X(7)+10)+' '+Y(0)+' l-6 -3 v6 z M'+X(0)+' '+(Y(9)-10)+' l-3 6 h6 z\" fill=\"black\"/>';for(let i=0;i<=6;i++)g+=t(X(i),Y(0)+12,i);for(let j=1;j<=8;j++)g+=t(X(0)-9,Y(j)+3,j);g+=t(X(7)+6,Y(0)+12,'x')+t(X(0)-9,Y(9)-4,'y');for(let i=0;i<=6;i++)g+='<circle cx=\"'+X(i)+'\" cy=\"'+Y(:y[i])+'\" r=\"3.5\" fill=\"#1f4fbf\"/>';return g+'</svg>';})()}",
+        "ctx": [
+          "eine Zuordnung",
+          "die Zuordnung Zeit (in h) → Temperatur (in °C)",
+          "die Zuordnung Zeit (in min) → Füllhöhe (in cm)",
+          "die Zuordnung Uhrzeit (in Stunden nach 8 Uhr) → Besucherzahl (in Hundert)",
+          "die Zuordnung Tag → Wasserstand (in dm)"
+        ]
+      },
+      "figure": {
+        "type": "svg",
+        "content": "${:svg}"
+      },
+      "question": [
+        "Der Graph zeigt ${:ctx}. Welcher Wert wird $$x=${:k}$$ zugeordnet?",
+        "Der Graph zeigt ${:ctx}. Welchem $$x$$-Wert wird der Wert ${:y[:k]} zugeordnet?"
+      ],
+      "answer": [
+        "Der Punkt über $$x=${:k}$$ ist $$(${:k}|${:y[:k]})$$, also $$\\color{red}{${:y[:k]}}$$",
+        "Der Punkt mit dem $$y$$-Wert ${:y[:k]} ist $$(${:k}|${:y[:k]})$$, also $$x=\\color{red}{${:k}}$$"
+      ],
+      "value": [
+        "${:y[:k]}",
+        "${:k}"
+      ]
+    },
+    {
+      "name": "Term aus einer Tabelle",
+      "vars": {
+        "a": "-4_5_^0",
+        "b": "-6_6_^0"
+      },
+      "question": "Die Werte von $$y$$ ändern sich in jedem Schritt um dieselbe Zahl. Gib einen Term an, mit dem man $$y$$ aus $$x$$ berechnet. <table class='inline-table'><tr><td>$$x$$</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr><tr><td>$$y$$</td><td>$$${-:a+:b}$$</td><td>$$${:b}$$</td><td>$$${:a+:b}$$</td><td>$$${2*:a+:b}$$</td></tr></table>",
+      "answer": "Zu $$x=0$$ gehört ${:b}, pro Schritt ändert sich $$y$$ um ${:a}: $$y=\\color{red}{${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}}$$",
+      "value": [
+        "${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}",
+        "y=${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}"
+      ]
+    },
+    {
+      "name": "Term aus einer Beschreibung",
+      "vars": {
+        "a": [
+          35,
+          40,
+          45,
+          50,
+          55,
+          60
+        ],
+        "b": [
+          15,
+          20,
+          25,
+          30,
+          40,
+          50
+        ],
+        "h": "15_30",
+        "r": "2_5",
+        "m": [
+          19,
+          25,
+          29,
+          35,
+          39
+        ]
+      },
+      "question": [
+        "Ein Handwerker berechnet ${:b} € für die Anfahrt und ${:a} € pro Arbeitsstunde. Gib einen Term für die Kosten (in €) nach $$x$$ Stunden an.",
+        "Eine Kerze ist ${:h} cm hoch und brennt pro Stunde ${:r} cm ab. Gib einen Term für ihre Höhe (in cm) nach $$x$$ Stunden an.",
+        "In einem Tank sind ${:h} Liter Wasser. Pro Minute fließen ${:r} Liter dazu. Gib einen Term für die Wassermenge (in Liter) nach $$x$$ Minuten an.",
+        "Ein Fitnessstudio verlangt ${:b} € Aufnahmegebühr und ${:m} € Beitrag pro Monat. Gib einen Term für die Gesamtkosten (in €) nach $$x$$ Monaten an."
+      ],
+      "answer": [
+        "Kosten $$=\\color{red}{${:a}x+${:b}}$$",
+        "Höhe $$=\\color{red}{${:h}-${:r}x}$$",
+        "Wassermenge $$=\\color{red}{${:r}x+${:h}}$$",
+        "Gesamtkosten $$=\\color{red}{${:m}x+${:b}}$$"
+      ],
+      "value": [
+        [
+          "${:a}x+${:b}",
+          "${:b}+${:a}x"
+        ],
+        [
+          "${:h}-${:r}x",
+          "-${:r}x+${:h}"
+        ],
+        [
+          "${:r}x+${:h}",
+          "${:h}+${:r}x"
+        ],
+        [
+          "${:m}x+${:b}",
+          "${:b}+${:m}x"
+        ]
+      ]
+    },
+    {
+      "name": "Punktprobe: Liegt der Punkt auf dem Graphen",
+      "keys": [
+        "o",
+        "n",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "-4_4_^0",
+        "b": "-6_6",
+        "x": "-4_4",
+        "j": "0_1",
+        "dy": "-3_3_^0",
+        "yt": "${:a*:x+:b}",
+        "y": "${:yt+(:j===1 ? 0 : :dy)}"
+      },
+      "question": "Liegt der Punkt $$P(${:x}|{${:y}})$$ auf dem Graphen der Zuordnung $$x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$?",
+      "answer": "$$${:a}\\cdot ${MMmath.nP(:x)}${MMmath.signedNumber(:b)}=${:yt}$$${:j===1 ? '' : ' und nicht $$'+:y+'$$'}, also $$\\color{red}{\\text{${:j===1 ? 'ja' : 'nein'}}}$$",
+      "value": "${:j===1 ? 'ja' : 'nein'}"
+    }
+  ]
+}

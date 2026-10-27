@@ -1,0 +1,252 @@
+{
+  "title": "Zinsen und Zinseszinsen berechnen",
+  "ID": "D7CC1",
+  "description": "Zinsrechnung: Jahreszinsen, Zinssatz, Kapital (Guthaben), Monatszinsen, Zinseszins über zwei Jahre, Laufzeit durch systematisches Probieren, Sparbuch, Kredit",
+  "dest": [
+    "7CC"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Jahreszinsen",
+      "vars": {
+        "k": "1_40",
+        "p": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3,
+          4,
+          5,
+          6
+        ],
+        "K": "${200*:k}",
+        "Z": "${2*:k*:p}"
+      },
+      "question": "Ein Guthaben von $$${:K}$$ € wird ein Jahr lang mit $$${:p}\\,\\%$$ verzinst. Wie viel Euro Zinsen gibt es?",
+      "answer": "$$Z=${:K}\\cdot\\dfrac{${:p}}{100}=\\color{red}{${:Z}}$$ €",
+      "value": "${:Z}"
+    },
+    {
+      "name": "Zinssatz",
+      "keys": [
+        "%",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "k": "1_40",
+        "p": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3,
+          4,
+          5,
+          6
+        ],
+        "K": "${200*:k}",
+        "Z": "${2*:k*:p}"
+      },
+      "question": "Für ein Guthaben von $$${:K}$$ € gibt es nach einem Jahr $$${:Z}$$ € Zinsen. Wie hoch ist der Zinssatz (in %)?",
+      "answer": "$$p\\,\\%=\\dfrac{${:Z}}{${:K}}=${MMmath.round(:p/100,3)}=\\color{red}{${:p}\\,\\%}$$",
+      "value": [
+        "${:p}",
+        "${:p}\\%"
+      ]
+    },
+    {
+      "name": "Guthaben (Kapital)",
+      "vars": {
+        "k": "1_40",
+        "p": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3,
+          4,
+          5,
+          6
+        ],
+        "K": "${200*:k}",
+        "Z": "${2*:k*:p}"
+      },
+      "question": "Bei einem Zinssatz von $$${:p}\\,\\%$$ gibt es nach einem Jahr $$${:Z}$$ € Zinsen. Wie groß ist das Guthaben?",
+      "answer": "$$${:p}\\,\\%$$ entsprechen $$${:Z}$$ €, also $$1\\,\\%$$ entspricht $$${MMmath.round(:Z/:p,4)}$$ € und $$100\\,\\%$$: $$K=\\color{red}{${:K}}$$ €",
+      "value": "${:K}"
+    },
+    {
+      "name": "Zinsen für einige Monate",
+      "vars": {
+        "z": "2_20",
+        "p": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "m": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10
+        ],
+        "K": "${1200*:z/:p}"
+      },
+      "question": "Wie viel Euro Zinsen bringt ein Guthaben von $$${:K}$$ € bei einem Zinssatz von $$${:p}\\,\\%$$ in ${:m} ${:m===1 ? 'Monat' : 'Monaten'}?",
+      "answer": "Jahreszinsen: $$${:K}\\cdot\\dfrac{${:p}}{100}=${12*:z}$$ €, für ${:m} ${:m===1 ? 'Monat' : 'Monate'}: $$${12*:z}\\cdot\\dfrac{${:m}}{12}=\\color{red}{${:z*:m}}$$ €",
+      "value": "${:z*:m}"
+    },
+    {
+      "name": "Zinseszins über zwei Jahre",
+      "vars": {
+        "K": [
+          100,
+          200,
+          500,
+          1000,
+          2000,
+          5000,
+          10000
+        ],
+        "p": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          20
+        ],
+        "e1": "${MMmath.round(:K*(100+:p)/100,2)}",
+        "e2": "${MMmath.round(:K*(100+:p)*(100+:p)/10000,2)}"
+      },
+      "question": "Ein Guthaben von $$${:K}$$ € wird zwei Jahre lang mit $$${:p}\\,\\%$$ verzinst, die Zinsen werden mitverzinst. Wie hoch ist das Guthaben nach zwei Jahren (in €)?",
+      "answer": "$$${:K}\\xrightarrow{+${:p}\\,\\%}${Number.isInteger(:e1) ? :e1 : :e1.toFixed(2)}\\xrightarrow{+${:p}\\,\\%}\\color{red}{${Number.isInteger(:e2) ? :e2 : :e2.toFixed(2)}}$$ €",
+      "value": "${:e2}"
+    },
+    {
+      "name": "Laufzeit durch Probieren",
+      "vars": {
+        "L": [
+          [
+            10,
+            1050
+          ],
+          [
+            10,
+            1150
+          ],
+          [
+            10,
+            1200
+          ],
+          [
+            10,
+            1250
+          ],
+          [
+            10,
+            1300
+          ],
+          [
+            10,
+            1350
+          ],
+          [
+            10,
+            1400
+          ],
+          [
+            10,
+            1450
+          ],
+          [
+            10,
+            1500
+          ],
+          [
+            20,
+            1100
+          ],
+          [
+            20,
+            1300
+          ],
+          [
+            20,
+            1400
+          ],
+          [
+            20,
+            1500
+          ],
+          [
+            20,
+            1600
+          ],
+          [
+            20,
+            1700
+          ],
+          [
+            20,
+            1800
+          ],
+          [
+            20,
+            2000
+          ],
+          [
+            5,
+            1040
+          ],
+          [
+            5,
+            1080
+          ],
+          [
+            5,
+            1120
+          ],
+          [
+            5,
+            1150
+          ],
+          [
+            5,
+            1200
+          ]
+        ],
+        "p": "${:L[0]}",
+        "f": [
+          1,
+          10
+        ],
+        "K": "${1000*:f}",
+        "G": "${:L[1]*:f}",
+        "n": "${(()=>{let k=:K,n=0;while(k<=:G){k=k*(100+:p)/100;n++;}return n;})()}",
+        "staende": "${(()=>{let k=:K,s=[];for(let i=1;i<=:n;i++){k=k*(100+:p)/100;k=MMmath.round(k,2);s.push(Number.isInteger(k) ? k : k.toFixed(2));}return s.join('; ');})()}"
+      },
+      "question": "$$${:K}$$ € werden mit $$${:p}\\,\\%$$ Zinseszins angelegt. Nach wie vielen Jahren sind es erstmals mehr als $$${:G}$$ €?",
+      "answer": "Kontostände nach jedem Jahr: $$${String(:staende).split('; ').join('\\;;\\;')}$$ €, also nach $$\\color{red}{${:n}}$$ Jahren",
+      "value": "${:n}"
+    }
+  ]
+}

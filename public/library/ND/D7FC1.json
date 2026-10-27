@@ -1,0 +1,337 @@
+{
+  "title": "Mehrstufige Zufallsexperimente mit der Pfadregel",
+  "ID": "D7FC1",
+  "description": "Baumdiagramm, Pfadregel (Produktregel), Summenregel für mehrere Pfade, Ziehen mit und ohne Zurücklegen, Urne, zweimal würfeln, Münze, zweistufige Zufallsexperimente",
+  "dest": [
+    "7FC",
+    "8AC"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Urne: Ziehen mit Zurücklegen",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "r": "1_6",
+        "b": "1_6",
+        "n": "${:r+:b}",
+        "rt": "${:r===1 ? 'eine' : :r}",
+        "bt": "${:b===1 ? 'eine blaue Kugel' : :b+' blaue Kugeln'}"
+      },
+      "question": [
+        "In einer Urne liegen ${:rt} rote und ${:bt}. Es werden nacheinander zwei Kugeln mit Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zweimal eine rote Kugel.",
+        "In einer Urne liegen ${:rt} rote und ${:bt}. Es werden nacheinander zwei Kugeln mit Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zweimal eine blaue Kugel.",
+        "In einer Urne liegen ${:rt} rote und ${:bt}. Es werden nacheinander zwei Kugeln mit Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zuerst eine rote, dann eine blaue Kugel.",
+        "In einer Urne liegen ${:rt} rote und ${:bt}. Es werden nacheinander zwei Kugeln mit Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zuerst eine blaue, dann eine rote Kugel."
+      ],
+      "answer": [
+        "$$\\dfrac{${:r}}{${:n}}\\cdot\\dfrac{${:r}}{${:n}}=${MMmath.pgcd((:r)*(:r),(:n)*(:n))>1 ? '\\dfrac{'+((:r)*(:r))+'}{'+((:n)*(:n))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:r)*(:r),(:n)*(:n))}}$$",
+        "$$\\dfrac{${:b}}{${:n}}\\cdot\\dfrac{${:b}}{${:n}}=${MMmath.pgcd((:b)*(:b),(:n)*(:n))>1 ? '\\dfrac{'+((:b)*(:b))+'}{'+((:n)*(:n))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:b)*(:b),(:n)*(:n))}}$$",
+        "$$\\dfrac{${:r}}{${:n}}\\cdot\\dfrac{${:b}}{${:n}}=${MMmath.pgcd((:r)*(:b),(:n)*(:n))>1 ? '\\dfrac{'+((:r)*(:b))+'}{'+((:n)*(:n))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:r)*(:b),(:n)*(:n))}}$$",
+        "$$\\dfrac{${:b}}{${:n}}\\cdot\\dfrac{${:r}}{${:n}}=${MMmath.pgcd((:b)*(:r),(:n)*(:n))>1 ? '\\dfrac{'+((:b)*(:r))+'}{'+((:n)*(:n))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:b)*(:r),(:n)*(:n))}}$$"
+      ],
+      "value": [
+        "${MMmath.fractionSimplifiee((:r)*(:r),(:n)*(:n))}",
+        "${MMmath.fractionSimplifiee((:b)*(:b),(:n)*(:n))}",
+        "${MMmath.fractionSimplifiee((:r)*(:b),(:n)*(:n))}",
+        "${MMmath.fractionSimplifiee((:b)*(:r),(:n)*(:n))}"
+      ]
+    },
+    {
+      "name": "Urne: Ziehen ohne Zurücklegen",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "r": "2_6",
+        "b": "2_6",
+        "n": "${:r+:b}"
+      },
+      "question": [
+        "In einer Urne liegen ${:r} rote und ${:b} blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zweimal eine rote Kugel.",
+        "In einer Urne liegen ${:r} rote und ${:b} blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zweimal eine blaue Kugel.",
+        "In einer Urne liegen ${:r} rote und ${:b} blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zuerst eine rote, dann eine blaue Kugel.",
+        "In einer Urne liegen ${:r} rote und ${:b} blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit für zuerst eine blaue, dann eine rote Kugel."
+      ],
+      "answer": [
+        "$$\\dfrac{${:r}}{${:n}}\\cdot\\dfrac{${:r-1}}{${:n-1}}=${MMmath.pgcd((:r)*(:r-1),(:n)*(:n-1))>1 ? '\\dfrac{'+((:r)*(:r-1))+'}{'+((:n)*(:n-1))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:r)*(:r-1),(:n)*(:n-1))}}$$",
+        "$$\\dfrac{${:b}}{${:n}}\\cdot\\dfrac{${:b-1}}{${:n-1}}=${MMmath.pgcd((:b)*(:b-1),(:n)*(:n-1))>1 ? '\\dfrac{'+((:b)*(:b-1))+'}{'+((:n)*(:n-1))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:b)*(:b-1),(:n)*(:n-1))}}$$",
+        "$$\\dfrac{${:r}}{${:n}}\\cdot\\dfrac{${:b}}{${:n-1}}=${MMmath.pgcd((:r)*(:b),(:n)*(:n-1))>1 ? '\\dfrac{'+((:r)*(:b))+'}{'+((:n)*(:n-1))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:r)*(:b),(:n)*(:n-1))}}$$",
+        "$$\\dfrac{${:b}}{${:n}}\\cdot\\dfrac{${:r}}{${:n-1}}=${MMmath.pgcd((:b)*(:r),(:n)*(:n-1))>1 ? '\\dfrac{'+((:b)*(:r))+'}{'+((:n)*(:n-1))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:b)*(:r),(:n)*(:n-1))}}$$"
+      ],
+      "value": [
+        "${MMmath.fractionSimplifiee((:r)*(:r-1),(:n)*(:n-1))}",
+        "${MMmath.fractionSimplifiee((:b)*(:b-1),(:n)*(:n-1))}",
+        "${MMmath.fractionSimplifiee((:r)*(:b),(:n)*(:n-1))}",
+        "${MMmath.fractionSimplifiee((:b)*(:r),(:n)*(:n-1))}"
+      ]
+    },
+    {
+      "name": "Zweimal würfeln",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "e1": [
+          [
+            "eine Sechs",
+            1
+          ],
+          [
+            "eine Eins",
+            1
+          ],
+          [
+            "eine gerade Zahl",
+            3
+          ],
+          [
+            "eine ungerade Zahl",
+            3
+          ],
+          [
+            "eine Zahl größer als 4",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 3",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 5",
+            4
+          ],
+          [
+            "eine Primzahl",
+            3
+          ],
+          [
+            "keine Sechs",
+            5
+          ],
+          [
+            "eine Zahl größer als 2",
+            4
+          ]
+        ],
+        "e2": [
+          [
+            "eine Sechs",
+            1
+          ],
+          [
+            "eine Eins",
+            1
+          ],
+          [
+            "eine gerade Zahl",
+            3
+          ],
+          [
+            "eine ungerade Zahl",
+            3
+          ],
+          [
+            "eine Zahl größer als 4",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 3",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 5",
+            4
+          ],
+          [
+            "eine Primzahl",
+            3
+          ],
+          [
+            "keine Sechs",
+            5
+          ],
+          [
+            "eine Zahl größer als 2",
+            4
+          ]
+        ]
+      },
+      "question": "Ein Würfel wird zweimal geworfen. Berechne die Wahrscheinlichkeit, dass zuerst ${:e1[0]} und dann ${:e2[0]} fällt.",
+      "answer": "$$\\dfrac{${:e1[1]}}{${6}}\\cdot\\dfrac{${:e2[1]}}{${6}}=${MMmath.pgcd((:e1[1])*(:e2[1]),(6)*(6))>1 ? '\\dfrac{'+((:e1[1])*(:e2[1]))+'}{'+((6)*(6))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:e1[1])*(:e2[1]),(6)*(6))}}$$",
+      "value": "${MMmath.fractionSimplifiee((:e1[1])*(:e2[1]),(6)*(6))}"
+    },
+    {
+      "name": "Münze, Würfel und Glücksrad",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "k": "2_5",
+        "s": [
+          "Zahl",
+          "Kopf"
+        ],
+        "w": [
+          [
+            "",
+            "",
+            "zweimal",
+            "dreimal",
+            "viermal",
+            "fünfmal"
+          ]
+        ],
+        "e": [
+          [
+            "eine Sechs",
+            1
+          ],
+          [
+            "eine Eins",
+            1
+          ],
+          [
+            "eine gerade Zahl",
+            3
+          ],
+          [
+            "eine ungerade Zahl",
+            3
+          ],
+          [
+            "eine Zahl größer als 4",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 3",
+            2
+          ],
+          [
+            "eine Zahl kleiner als 5",
+            4
+          ],
+          [
+            "eine Primzahl",
+            3
+          ],
+          [
+            "keine Sechs",
+            5
+          ],
+          [
+            "eine Zahl größer als 2",
+            4
+          ]
+        ],
+        "g": "4_10",
+        "m": "${MMmath.aleaInt(1,:g-1)}"
+      },
+      "question": [
+        "Eine Münze wird ${:w[:k]} geworfen. Berechne die Wahrscheinlichkeit, dass jedes Mal ${:s} fällt.",
+        "Eine Münze und ein Würfel werden geworfen. Berechne die Wahrscheinlichkeit, dass die Münze ${:s} und der Würfel ${:e[0]} zeigt.",
+        "Ein Glücksrad hat ${:g} gleich große Felder, davon sind ${:m} rot. Es wird zweimal gedreht. Berechne die Wahrscheinlichkeit für zweimal Rot."
+      ],
+      "answer": [
+        "$$\\left(\\dfrac{1}{2}\\right)^{${:k}}=\\color{red}{\\dfrac{1}{${2**:k}}}$$",
+        "$$\\dfrac{${1}}{${2}}\\cdot\\dfrac{${:e[1]}}{${6}}=${MMmath.pgcd((1)*(:e[1]),(2)*(6))>1 ? '\\dfrac{'+((1)*(:e[1]))+'}{'+((2)*(6))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((1)*(:e[1]),(2)*(6))}}$$",
+        "$$\\dfrac{${:m}}{${:g}}\\cdot\\dfrac{${:m}}{${:g}}=${MMmath.pgcd((:m)*(:m),(:g)*(:g))>1 ? '\\dfrac{'+((:m)*(:m))+'}{'+((:g)*(:g))+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee((:m)*(:m),(:g)*(:g))}}$$"
+      ],
+      "value": [
+        "\\dfrac{1}{${2**:k}}",
+        "${MMmath.fractionSimplifiee((1)*(:e[1]),(2)*(6))}",
+        "${MMmath.fractionSimplifiee((:m)*(:m),(:g)*(:g))}"
+      ]
+    },
+    {
+      "name": "Baumdiagramm: Pfadregel",
+      "vars": {
+        "p": "1_9",
+        "q": "1_9",
+        "s": "1_9",
+        "svg": "${(()=>{const d=v=>(v===10 ? '1' : '0,'+v);const t=(x,y,s,a)=>'<text x=\"'+x+'\" y=\"'+y+'\" font-size=\"'+(a||9)+'\" font-family=\"sans-serif\" text-anchor=\"middle\">'+s+'</text>';const l=(x1,y1,x2,y2)=>'<line x1=\"'+x1+'\" y1=\"'+y1+'\" x2=\"'+x2+'\" y2=\"'+y2+'\" stroke=\"black\" stroke-width=\"0.8\"/>';let g='<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 230 125\" width=\"20em\" height=\"10.9em\">';g+=l(12,62,88,30)+l(12,62,88,94)+l(102,26,178,10)+l(102,30,178,44)+l(102,90,178,80)+l(102,94,178,114);g+=t(95,30,'T',10)+t(95,98,'N',10)+t(186,13,'T',10)+t(186,47,'N',10)+t(186,83,'T',10)+t(186,117,'N',10);g+=t(210,13,'TT',8)+t(210,47,'TN',8)+t(210,83,'NT',8)+t(210,117,'NN',8);g+=t(40,38,d(:p))+t(40,92,d(10-:p))+t(135,12,d(:q))+t(135,48,d(10-:q))+t(135,80,d(:s))+t(135,116,d(10-:s));return g+'</svg>';})()}"
+      },
+      "figure": {
+        "type": "svg",
+        "content": "${:svg}"
+      },
+      "question": [
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne $$P(TT)$$.",
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne $$P(TN)$$.",
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne $$P(NT)$$.",
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne $$P(NN)$$."
+      ],
+      "answer": [
+        "$$P(TT)=0{,}${:p}\\cdot 0{,}${:q}=\\color{red}{${MMmath.round((:p*:q)/100,2)}}$$",
+        "$$P(TN)=0{,}${:p}\\cdot 0{,}${10-:q}=\\color{red}{${MMmath.round((:p*(10-:q))/100,2)}}$$",
+        "$$P(NT)=0{,}${10-:p}\\cdot 0{,}${:s}=\\color{red}{${MMmath.round(((10-:p)*:s)/100,2)}}$$",
+        "$$P(NN)=0{,}${10-:p}\\cdot 0{,}${10-:s}=\\color{red}{${MMmath.round(((10-:p)*(10-:s))/100,2)}}$$"
+      ],
+      "value": [
+        "${MMmath.round((:p*:q)/100,2)}",
+        "${MMmath.round((:p*(10-:q))/100,2)}",
+        "${MMmath.round(((10-:p)*:s)/100,2)}",
+        "${MMmath.round(((10-:p)*(10-:s))/100,2)}"
+      ]
+    },
+    {
+      "name": "Baumdiagramm: mehrere Pfade",
+      "vars": {
+        "p": "1_9",
+        "q": "1_9",
+        "s": "1_9",
+        "svg": "${(()=>{const d=v=>(v===10 ? '1' : '0,'+v);const t=(x,y,s,a)=>'<text x=\"'+x+'\" y=\"'+y+'\" font-size=\"'+(a||9)+'\" font-family=\"sans-serif\" text-anchor=\"middle\">'+s+'</text>';const l=(x1,y1,x2,y2)=>'<line x1=\"'+x1+'\" y1=\"'+y1+'\" x2=\"'+x2+'\" y2=\"'+y2+'\" stroke=\"black\" stroke-width=\"0.8\"/>';let g='<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 230 125\" width=\"20em\" height=\"10.9em\">';g+=l(12,62,88,30)+l(12,62,88,94)+l(102,26,178,10)+l(102,30,178,44)+l(102,90,178,80)+l(102,94,178,114);g+=t(95,30,'T',10)+t(95,98,'N',10)+t(186,13,'T',10)+t(186,47,'N',10)+t(186,83,'T',10)+t(186,117,'N',10);g+=t(210,13,'TT',8)+t(210,47,'TN',8)+t(210,83,'NT',8)+t(210,117,'NN',8);g+=t(40,38,d(:p))+t(40,92,d(10-:p))+t(135,12,d(:q))+t(135,48,d(10-:q))+t(135,80,d(:s))+t(135,116,d(10-:s));return g+'</svg>';})()}"
+      },
+      "figure": {
+        "type": "svg",
+        "content": "${:svg}"
+      },
+      "question": [
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne die Wahrscheinlichkeit für „genau ein Treffer“.",
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne die Wahrscheinlichkeit für „zweimal das gleiche Ergebnis“.",
+        "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment (T: Treffer, N: Niete). Berechne die Wahrscheinlichkeit für „mindestens ein Treffer“."
+      ],
+      "answer": [
+        "Pfade TN und NT addieren: $$0{,}${:p}\\cdot 0{,}${10-:q}+0{,}${10-:p}\\cdot 0{,}${:s}=\\color{red}{${MMmath.round((:p*(10-:q)+(10-:p)*:s)/100,2)}}$$",
+        "Pfade TT und NN addieren: $$0{,}${:p}\\cdot 0{,}${:q}+0{,}${10-:p}\\cdot 0{,}${10-:s}=\\color{red}{${MMmath.round((:p*:q+(10-:p)*(10-:s))/100,2)}}$$",
+        "Gegenereignis NN: $$1-0{,}${10-:p}\\cdot 0{,}${10-:s}=1-${MMmath.round((10-:p)*(10-:s)/100,2)}=\\color{red}{${MMmath.round((100-(10-:p)*(10-:s))/100,2)}}$$"
+      ],
+      "value": [
+        "${MMmath.round((:p*(10-:q)+(10-:p)*:s)/100,2)}",
+        "${MMmath.round((:p*:q+(10-:p)*(10-:s))/100,2)}",
+        "${MMmath.round((100-(10-:p)*(10-:s))/100,2)}"
+      ]
+    }
+  ]
+}

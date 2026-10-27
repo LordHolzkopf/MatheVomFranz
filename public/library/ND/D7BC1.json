@@ -1,0 +1,645 @@
+{
+  "title": "Antiproportionale Zuordnungen",
+  "ID": "D7BC1",
+  "description": "Antiproportionale Zuordnungen: Produktgleichheit, Tabellen ergänzen, Sachaufgaben mit dem umgekehrten Dreisatz, antiproportional erkennen, Zuordnungsterm y = k/x, umgekehrt proportional",
+  "dest": [
+    "7BC"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Tabelle ergänzen",
+      "vars": {
+        "c": [
+          [
+            24,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            36,
+            [
+              2,
+              3,
+              4,
+              6,
+              9,
+              12
+            ]
+          ],
+          [
+            48,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            60,
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              10
+            ]
+          ],
+          [
+            72,
+            [
+              3,
+              4,
+              6,
+              8,
+              9,
+              12
+            ]
+          ],
+          [
+            90,
+            [
+              2,
+              3,
+              5,
+              6,
+              9,
+              10
+            ]
+          ],
+          [
+            120,
+            [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          [
+            144,
+            [
+              4,
+              6,
+              8,
+              9,
+              12,
+              16
+            ]
+          ],
+          [
+            180,
+            [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12
+            ]
+          ]
+        ],
+        "P": "${:c[0]}",
+        "ij": "0_5_2_^&",
+        "x1": "${:c[1][:ij[0]]}",
+        "x2": "${:c[1][:ij[1]]}",
+        "y1": "${:P/:x1}",
+        "y2": "${:P/:x2}"
+      },
+      "question": "Die Zuordnung $$x\\mapsto y$$ ist antiproportional. Ergänze den fehlenden Wert. <table class='inline-table'><tr><td>$$x$$</td><td>${:x1}</td><td>${:x2}</td></tr><tr><td>$$y$$</td><td>${:y1}</td><td>?</td></tr></table>",
+      "answer": "Produktgleichheit: $$${:x1}\\cdot ${:y1}=${:P}$$, also $$${:P}:${:x2}=\\color{red}{${:y2}}$$",
+      "value": "${:y2}"
+    },
+    {
+      "name": "Sachaufgabe: gesuchte Größe",
+      "vars": {
+        "c": [
+          [
+            24,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            36,
+            [
+              2,
+              3,
+              4,
+              6,
+              9,
+              12
+            ]
+          ],
+          [
+            48,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            60,
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              10
+            ]
+          ],
+          [
+            72,
+            [
+              3,
+              4,
+              6,
+              8,
+              9,
+              12
+            ]
+          ],
+          [
+            90,
+            [
+              2,
+              3,
+              5,
+              6,
+              9,
+              10
+            ]
+          ],
+          [
+            120,
+            [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          [
+            144,
+            [
+              4,
+              6,
+              8,
+              9,
+              12,
+              16
+            ]
+          ],
+          [
+            180,
+            [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12
+            ]
+          ]
+        ],
+        "P": "${:c[0]}",
+        "ij": "0_5_2_^&",
+        "x1": "${:c[1][:ij[0]]}",
+        "x2": "${:c[1][:ij[1]]}",
+        "y1": "${:P/:x1}",
+        "y2": "${:P/:x2}"
+      },
+      "question": [
+        "${:x1} Maler streichen eine Halle in ${:y1} Tagen. Wie viele Tage brauchen ${:x2} Maler, wenn alle gleich schnell arbeiten?",
+        "${:x1} gleich starke Pumpen leeren ein Becken in ${:y1} Stunden. Wie viele Stunden brauchen ${:x2} solche Pumpen?",
+        "Ein Futtervorrat reicht für ${:x1} Pferde ${:y1} Tage. Wie viele Tage reicht er für ${:x2} Pferde?",
+        "Ein Geldbetrag wird gerecht verteilt. Bei ${:x1} Personen bekommt jede ${:y1} €. Wie viel Euro bekommt jede Person bei ${:x2} Personen?"
+      ],
+      "answer": [
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:x2}=\\color{red}{${:y2}}$$ Tage",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:x2}=\\color{red}{${:y2}}$$ Stunden",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:x2}=\\color{red}{${:y2}}$$ Tage",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:x2}=\\color{red}{${:y2}}$$ €"
+      ],
+      "value": "${:y2}"
+    },
+    {
+      "name": "Sachaufgabe: gesuchte Anzahl",
+      "vars": {
+        "c": [
+          [
+            24,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            36,
+            [
+              2,
+              3,
+              4,
+              6,
+              9,
+              12
+            ]
+          ],
+          [
+            48,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            60,
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              10
+            ]
+          ],
+          [
+            72,
+            [
+              3,
+              4,
+              6,
+              8,
+              9,
+              12
+            ]
+          ],
+          [
+            90,
+            [
+              2,
+              3,
+              5,
+              6,
+              9,
+              10
+            ]
+          ],
+          [
+            120,
+            [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          [
+            144,
+            [
+              4,
+              6,
+              8,
+              9,
+              12,
+              16
+            ]
+          ],
+          [
+            180,
+            [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12
+            ]
+          ]
+        ],
+        "P": "${:c[0]}",
+        "ij": "0_5_2_^&",
+        "x1": "${:c[1][:ij[0]]}",
+        "x2": "${:c[1][:ij[1]]}",
+        "y1": "${:P/:x1}",
+        "y2": "${:P/:x2}"
+      },
+      "question": [
+        "Ein Futtervorrat reicht für ${:x1} Tiere ${:y1} Tage. Für wie viele Tiere reicht er ${:y2} Tage?",
+        "Ein Geldbetrag wird gerecht verteilt. Bei ${:x1} Personen bekommt jede ${:y1} €. Wie viele Personen sind es, wenn jede ${:y2} € bekommt?",
+        "${:x1} gleich starke Pumpen leeren ein Becken in ${:y1} Stunden. Wie viele Pumpen braucht man, um es in ${:y2} Stunden zu leeren?",
+        "Ein Rechteck hat die Seitenlängen ${:x1} cm und ${:y1} cm. Ein anderes Rechteck mit gleichem Flächeninhalt hat eine Seite der Länge ${:y2} cm. Wie lang ist seine andere Seite?"
+      ],
+      "answer": [
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:y2}=\\color{red}{${:x2}}$$ Tiere",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:y2}=\\color{red}{${:x2}}$$ Personen",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:y2}=\\color{red}{${:x2}}$$ Pumpen",
+        "$$${:x1}\\cdot ${:y1}=${:P}$$ und $$${:P}:${:y2}=\\color{red}{${:x2}}$$ cm"
+      ],
+      "value": "${:x2}"
+    },
+    {
+      "name": "Antiproportional oder nicht",
+      "keys": [
+        "o",
+        "n",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "c": [
+          [
+            24,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            36,
+            [
+              2,
+              3,
+              4,
+              6,
+              9,
+              12
+            ]
+          ],
+          [
+            48,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            60,
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              10
+            ]
+          ],
+          [
+            72,
+            [
+              3,
+              4,
+              6,
+              8,
+              9,
+              12
+            ]
+          ],
+          [
+            90,
+            [
+              2,
+              3,
+              5,
+              6,
+              9,
+              10
+            ]
+          ],
+          [
+            120,
+            [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          [
+            144,
+            [
+              4,
+              6,
+              8,
+              9,
+              12,
+              16
+            ]
+          ],
+          [
+            180,
+            [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12
+            ]
+          ]
+        ],
+        "P": "${:c[0]}",
+        "t": "0_2",
+        "f": "2_5",
+        "d": "1_3",
+        "ijk": "0_5_3_^&",
+        "xs": [
+          [
+            "${:c[1][Math.min(...:ijk)]}",
+            "${:c[1][[...:ijk].sort((p,q)=>p-q)[1]]}",
+            "${:c[1][Math.max(...:ijk)]}"
+          ]
+        ],
+        "ys": [
+          [
+            "${:t===1 ? :f*:xs[0] : :P/:xs[0]}",
+            "${:t===1 ? :f*:xs[1] : :P/:xs[1]}",
+            "${:t===1 ? :f*:xs[2] : :P/:xs[2]+(:t===2 ? :d : 0)}"
+          ]
+        ]
+      },
+      "question": "Ist die Zuordnung antiproportional? <table class='inline-table'><tr><td>$$x$$</td><td>${:xs[0]}</td><td>${:xs[1]}</td><td>${:xs[2]}</td></tr><tr><td>$$y$$</td><td>${:ys[0]}</td><td>${:ys[1]}</td><td>${:ys[2]}</td></tr></table>",
+      "answer": "Produkte: $$${:xs[0]}\\cdot ${:ys[0]}=${:xs[0]*:ys[0]}$$, $$${:xs[1]}\\cdot ${:ys[1]}=${:xs[1]*:ys[1]}$$, $$${:xs[2]}\\cdot ${:ys[2]}=${:xs[2]*:ys[2]}$$${:t===0 ? ' – alle gleich' : ' – nicht alle gleich'}, also $$\\color{red}{\\text{${:t===0 ? 'ja' : 'nein'}}}$$",
+      "value": "${:t===0 ? 'ja' : 'nein'}"
+    },
+    {
+      "name": "Zuordnungsterm angeben",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "x",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "c": [
+          [
+            24,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            36,
+            [
+              2,
+              3,
+              4,
+              6,
+              9,
+              12
+            ]
+          ],
+          [
+            48,
+            [
+              2,
+              3,
+              4,
+              6,
+              8,
+              12
+            ]
+          ],
+          [
+            60,
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              10
+            ]
+          ],
+          [
+            72,
+            [
+              3,
+              4,
+              6,
+              8,
+              9,
+              12
+            ]
+          ],
+          [
+            90,
+            [
+              2,
+              3,
+              5,
+              6,
+              9,
+              10
+            ]
+          ],
+          [
+            120,
+            [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          [
+            144,
+            [
+              4,
+              6,
+              8,
+              9,
+              12,
+              16
+            ]
+          ],
+          [
+            180,
+            [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12
+            ]
+          ]
+        ],
+        "P": "${:c[0]}",
+        "ij": "0_5_2_^&",
+        "x1": "${:c[1][:ij[0]]}",
+        "x2": "${:c[1][:ij[1]]}",
+        "y1": "${:P/:x1}",
+        "y2": "${:P/:x2}"
+      },
+      "question": "Bei einer antiproportionalen Zuordnung gehört zu $$x=${:x1}$$ der Wert $$y=${:y1}$$. Gib den Zuordnungsterm an.",
+      "answer": "$$x\\cdot y=${:x1}\\cdot ${:y1}=${:P}$$, also $$y=\\color{red}{\\dfrac{${:P}}{x}}$$",
+      "value": [
+        "\\dfrac{${:P}}{x}",
+        "y=\\dfrac{${:P}}{x}",
+        "${:P+':x'}",
+        "y=${:P+':x'}"
+      ]
+    }
+  ]
+}

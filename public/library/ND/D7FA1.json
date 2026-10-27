@@ -1,0 +1,219 @@
+{
+  "title": "Wahrscheinlichkeiten mit relativen Häufigkeiten schätzen",
+  "ID": "D7FA1",
+  "description": "Absolute und relative Häufigkeit, Wahrscheinlichkeit aus Versuchsreihen schätzen, Gegenereignis, erwartete Anzahl, Gesetz der großen Zahlen, Schätzwert, Reißzwecke, Würfel, Münze",
+  "dest": [
+    "7FA",
+    "8AA"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Relative Häufigkeit berechnen",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "%",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "n": [
+          20,
+          25,
+          40,
+          50,
+          100,
+          125,
+          200,
+          250,
+          500,
+          1000
+        ],
+        "k": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(9*:n/10))}",
+        "kS": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(:n/4))}",
+        "kM": "${MMmath.aleaInt(Math.ceil(2*:n/5),Math.floor(3*:n/5))}"
+      },
+      "question": [
+        "Ein Würfel wird ${:n}-mal geworfen. Dabei fällt ${:kS}-mal eine Sechs. Berechne die relative Häufigkeit.",
+        "Eine Münze wird ${:n}-mal geworfen. Dabei fällt ${:kM}-mal Zahl. Berechne die relative Häufigkeit.",
+        "Eine Reißzwecke wird ${:n}-mal geworfen. Sie landet ${:k}-mal in Kopflage. Berechne die relative Häufigkeit.",
+        "Eine Basketballspielerin wirft ${:n}-mal auf den Korb und trifft ${:k}-mal. Berechne die relative Häufigkeit.",
+        "Ein Glücksrad wird ${:n}-mal gedreht. Es bleibt ${:k}-mal auf Rot stehen. Berechne die relative Häufigkeit."
+      ],
+      "answer": [
+        "$$\\dfrac{${:kS}}{${:n}}=\\color{red}{${MMmath.round(:kS/:n,3)}}$$",
+        "$$\\dfrac{${:kM}}{${:n}}=\\color{red}{${MMmath.round(:kM/:n,3)}}$$",
+        "$$\\dfrac{${:k}}{${:n}}=\\color{red}{${MMmath.round(:k/:n,3)}}$$",
+        "$$\\dfrac{${:k}}{${:n}}=\\color{red}{${MMmath.round(:k/:n,3)}}$$",
+        "$$\\dfrac{${:k}}{${:n}}=\\color{red}{${MMmath.round(:k/:n,3)}}$$"
+      ],
+      "value": [
+        [
+          "${MMmath.round(:kS/:n,3)}",
+          "${MMmath.round(100*:kS/:n,1)}\\%"
+        ],
+        [
+          "${MMmath.round(:kM/:n,3)}",
+          "${MMmath.round(100*:kM/:n,1)}\\%"
+        ],
+        [
+          "${MMmath.round(:k/:n,3)}",
+          "${MMmath.round(100*:k/:n,1)}\\%"
+        ],
+        [
+          "${MMmath.round(:k/:n,3)}",
+          "${MMmath.round(100*:k/:n,1)}\\%"
+        ],
+        [
+          "${MMmath.round(:k/:n,3)}",
+          "${MMmath.round(100*:k/:n,1)}\\%"
+        ]
+      ]
+    },
+    {
+      "name": "Schätzwert für das Gegenereignis",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "%",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "n": [
+          20,
+          25,
+          40,
+          50,
+          100,
+          125,
+          200,
+          250,
+          500,
+          1000
+        ],
+        "k": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(9*:n/10))}",
+        "kS": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(:n/4))}",
+        "kM": "${MMmath.aleaInt(Math.ceil(2*:n/5),Math.floor(3*:n/5))}"
+      },
+      "question": [
+        "Eine Reißzwecke wurde ${:n}-mal geworfen und landete ${:k}-mal in Kopflage. Schätze die Wahrscheinlichkeit für Seitenlage.",
+        "Ein Kronkorken wurde ${:n}-mal geworfen und landete ${:k}-mal mit der offenen Seite nach oben. Schätze die Wahrscheinlichkeit für „offene Seite nach unten“.",
+        "Ein Legostein wurde ${:n}-mal geworfen und landete ${:k}-mal auf der Seite. Schätze die Wahrscheinlichkeit für „nicht auf der Seite“."
+      ],
+      "answer": "$$\\dfrac{${:n}-${:k}}{${:n}}=\\dfrac{${:n-:k}}{${:n}}=\\color{red}{${MMmath.round((:n-:k)/:n,3)}}$$",
+      "value": [
+        "${MMmath.round((:n-:k)/:n,3)}",
+        "${MMmath.round(100*(:n-:k)/:n,1)}\\%"
+      ]
+    },
+    {
+      "name": "Erwartete Anzahl",
+      "vars": {
+        "n": [
+          100,
+          200,
+          300,
+          400,
+          500,
+          1000
+        ],
+        "j": "1_19",
+        "m": "5_100",
+        "je": "10_18"
+      },
+      "question": [
+        "Ein Glücksrad bleibt mit der Wahrscheinlichkeit $$${MMmath.round(:j/20,2)}$$ auf Rot stehen. Es wird ${:n}-mal gedreht. Wie oft ist etwa Rot zu erwarten?",
+        "Ein Würfel wird ${6*:m}-mal geworfen. Wie oft ist etwa eine Sechs zu erwarten?",
+        "Ein Spieler verwandelt Elfmeter mit der Wahrscheinlichkeit $$${MMmath.round(:je/20,2)}$$. Wie viele Treffer sind bei ${:n} Elfmetern etwa zu erwarten?"
+      ],
+      "answer": [
+        "$$${:n}\\cdot ${MMmath.round(:j/20,2)}=\\color{red}{${:n*:j/20}}$$",
+        "$$${6*:m}\\cdot\\dfrac{1}{6}=\\color{red}{${:m}}$$",
+        "$$${:n}\\cdot ${MMmath.round(:je/20,2)}=\\color{red}{${:n*:je/20}}$$"
+      ],
+      "value": [
+        "${:n*:j/20}",
+        "${:m}",
+        "${:n*:je/20}"
+      ]
+    },
+    {
+      "name": "Absolute Häufigkeit aus der relativen",
+      "vars": {
+        "n": [
+          20,
+          25,
+          40,
+          50,
+          100,
+          125,
+          200,
+          250,
+          500,
+          1000
+        ],
+        "k": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(9*:n/10))}",
+        "kS": "${MMmath.aleaInt(Math.ceil(:n/10),Math.floor(:n/4))}",
+        "kM": "${MMmath.aleaInt(Math.ceil(2*:n/5),Math.floor(3*:n/5))}"
+      },
+      "question": [
+        "Bei ${:n} Würfen eines Würfels betrug die relative Häufigkeit für eine Sechs $$${MMmath.round(:kS/:n,3)}$$. Wie oft fiel eine Sechs?",
+        "Bei ${:n} Würfen einer Reißzwecke betrug die relative Häufigkeit für Kopflage $$${MMmath.round(:k/:n,3)}$$. Wie oft landete sie in Kopflage?"
+      ],
+      "answer": [
+        "$$${:n}\\cdot ${MMmath.round(:kS/:n,3)}=\\color{red}{${:kS}}$$",
+        "$$${:n}\\cdot ${MMmath.round(:k/:n,3)}=\\color{red}{${:k}}$$"
+      ],
+      "value": [
+        "${:kS}",
+        "${:k}"
+      ]
+    },
+    {
+      "name": "Bessere Schätzung wählen",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "%",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "n1": [
+          10,
+          20,
+          25
+        ],
+        "k1": "${MMmath.aleaInt(1,:n1-1)}",
+        "n2": [
+          200,
+          250,
+          500,
+          1000
+        ],
+        "k2": "${MMmath.aleaInt(Math.round(:n2/10),Math.round(9*:n2/10))}",
+        "o": "0_1",
+        "A": "${:o===0 ? 'Mia wirft '+:n1+'-mal und trifft '+:k1+'-mal' : 'Mia wirft '+:n2+'-mal und trifft '+:k2+'-mal'}",
+        "B": "${:o===0 ? 'Ole wirft '+:n2+'-mal und trifft '+:k2+'-mal' : 'Ole wirft '+:n1+'-mal und trifft '+:k1+'-mal'}"
+      },
+      "question": "Mia und Ole schätzen die Trefferwahrscheinlichkeit beim Dosenwerfen. ${:A}, ${:B}. Gib den besseren Schätzwert für die Trefferwahrscheinlichkeit an.",
+      "answer": "Die längere Versuchsreihe liefert den besseren Schätzwert (Gesetz der großen Zahlen): $$\\dfrac{${:k2}}{${:n2}}=\\color{red}{${MMmath.round(:k2/:n2,3)}}$$",
+      "value": [
+        "${MMmath.round(:k2/:n2,3)}",
+        "${MMmath.round(100*:k2/:n2,1)}\\%"
+      ]
+    }
+  ]
+}

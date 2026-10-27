@@ -1,0 +1,232 @@
+{
+  "title": "Kongruenz und Kongruenzsätze",
+  "ID": "D7ED1",
+  "description": "Kongruente Dreiecke, Kongruenzsätze SSS, SWS, WSW, SsW erkennen, Eindeutigkeit einer Dreieckskonstruktion beurteilen, entsprechende Seiten und Winkel in kongruenten Dreiecken, deckungsgleich",
+  "dest": [
+    "7ED"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "consts": {
+    "S": [
+      "a",
+      "b",
+      "c"
+    ],
+    "W": [
+      "\\alpha",
+      "\\beta",
+      "\\gamma"
+    ]
+  },
+  "options": [
+    {
+      "name": "Kongruenzsatz erkennen",
+      "keys": [
+        "alphabetique"
+      ],
+      "vars": {
+        "r": "0_2",
+        "x": "3_7",
+        "y": "${:x+MMmath.aleaInt(1,3)}",
+        "z": "${:y+MMmath.aleaInt(1,:x-1)}",
+        "w1": "${5*MMmath.aleaInt(6,16)}",
+        "w2": "${5*MMmath.aleaInt(6,16)}"
+      },
+      "question": [
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:S[(:r+2)%3]}=${:z}\\,\\text{cm}$$. Nach welchem Kongruenzsatz ist das Dreieck eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:W[(:r+2)%3]}=${:w1}^\\circ$$. Nach welchem Kongruenzsatz ist das Dreieck eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:W[(:r+1)%3]}=${:w1}^\\circ$$ und $$${:W[(:r+2)%3]}=${:w2}^\\circ$$. Nach welchem Kongruenzsatz ist das Dreieck eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:W[(:r+1)%3]}=${:w1+40}^\\circ$$. Nach welchem Kongruenzsatz ist das Dreieck eindeutig bestimmt?"
+      ],
+      "answer": [
+        "Drei Seiten sind gegeben: $$\\color{red}{\\text{SSS}}$$",
+        "Zwei Seiten und der eingeschlossene Winkel sind gegeben: $$\\color{red}{\\text{SWS}}$$",
+        "Eine Seite und die beiden anliegenden Winkel sind gegeben: $$\\color{red}{\\text{WSW}}$$",
+        "Zwei Seiten und der Winkel gegenüber der längeren Seite sind gegeben: $$\\color{red}{\\text{SsW}}$$"
+      ],
+      "value": [
+        "SSS",
+        "SwS",
+        [
+          "WsW",
+          "sWW"
+        ],
+        "SsW"
+      ]
+    },
+    {
+      "name": "Eindeutig bestimmt oder nicht",
+      "keys": [
+        "o",
+        "n",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "r": "0_2",
+        "x": "3_7",
+        "y": "${:x+MMmath.aleaInt(1,3)}",
+        "z": "${:y+MMmath.aleaInt(1,:x-1)}",
+        "w1": "${5*MMmath.aleaInt(6,16)}",
+        "w2": "${5*MMmath.aleaInt(6,16)}",
+        "w3": "${5*MMmath.aleaInt(19,26)}",
+        "w4": "${5*MMmath.aleaInt(17,22)}",
+        "w5": "${5*MMmath.aleaInt(7,16)}"
+      },
+      "question": [
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:S[(:r+2)%3]}=${:z}\\,\\text{cm}$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:S[(:r+2)%3]}=${:x+:y+MMmath.aleaInt(0,3)}\\,\\text{cm}$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:W[(:r+2)%3]}=${:w1}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:W[(:r+1)%3]}=${:w1}^\\circ$$ und $$${:W[(:r+2)%3]}=${:w2}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:W[(:r+1)%3]}=${:w3}^\\circ$$ und $$${:W[(:r+2)%3]}=${:w4}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:W[(:r+0)%3]}=${:w1}^\\circ$$, $$${:W[(:r+1)%3]}=${:w2}^\\circ$$ und $$${:W[(:r+2)%3]}=${180-:w1-:w2}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:W[(:r+1)%3]}=${:w1+40}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?",
+        "Von einem Dreieck $$ABC$$ kennt man $$${:S[(:r+0)%3]}=${:x}\\,\\text{cm}$$, $$${:S[(:r+1)%3]}=${:y}\\,\\text{cm}$$ und $$${:W[(:r+0)%3]}=${:w5}^\\circ$$. Ist das Dreieck durch diese Angaben eindeutig bestimmt?"
+      ],
+      "answer": [
+        "SSS: Die längste Seite ist kürzer als die Summe der beiden anderen: $$\\color{red}{\\text{ja}}$$",
+        "Die längste Seite ist nicht kürzer als die Summe der beiden anderen, es gibt kein solches Dreieck: $$\\color{red}{\\text{nein}}$$",
+        "SWS: zwei Seiten und der eingeschlossene Winkel: $$\\color{red}{\\text{ja}}$$",
+        "WSW: eine Seite und die beiden anliegenden Winkel, Winkelsumme unter 180°: $$\\color{red}{\\text{ja}}$$",
+        "Die beiden Winkel sind zusammen mindestens 180°, es gibt kein solches Dreieck: $$\\color{red}{\\text{nein}}$$",
+        "Drei Winkel legen nur die Form fest, nicht die Größe: $$\\color{red}{\\text{nein}}$$",
+        "SsW: Der Winkel liegt der längeren Seite gegenüber: $$\\color{red}{\\text{ja}}$$",
+        "Der Winkel liegt der kürzeren Seite gegenüber (sSW), dann gibt es zwei oder kein Dreieck: $$\\color{red}{\\text{nein}}$$"
+      ],
+      "value": [
+        "ja",
+        "nein",
+        "ja",
+        "ja",
+        "nein",
+        "nein",
+        "ja",
+        "nein"
+      ]
+    },
+    {
+      "name": "Winkel in kongruenten Dreiecken",
+      "keys": [
+        "°",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "consts": {
+        "N": [
+          [
+            "\\alpha",
+            "\\beta",
+            "\\gamma"
+          ],
+          [
+            "\\delta",
+            "\\varepsilon",
+            "\\varphi"
+          ]
+        ]
+      },
+      "vars": {
+        "w1": "${5*MMmath.aleaInt(6,16)}",
+        "w2": "${5*MMmath.aleaInt(6,16)}",
+        "wv": [
+          [
+            "${:w1}",
+            "${:w2}",
+            "${180-:w1-:w2}"
+          ]
+        ],
+        "ij": "0_2_2_^&",
+        "k": "${3-:ij[0]-:ij[1]}",
+        "t": "0_1_3"
+      },
+      "question": "Die Dreiecke $$ABC$$ und $$DEF$$ sind kongruent, dabei entspricht $$A$$ dem Punkt $$D$$, $$B$$ dem Punkt $$E$$ und $$C$$ dem Punkt $$F$$. Es ist $$${:N[:t[0]][:ij[0]]}=${:wv[:ij[0]]}^\\circ$$ und $$${:N[:t[1]][:ij[1]]}=${:wv[:ij[1]]}^\\circ$$. Wie groß ist $$${:N[:t[2]][:k]}$$?",
+      "answer": "Entsprechende Winkel sind gleich groß, Winkelsumme $$180^\\circ$$: $$${:N[:t[2]][:k]}=180^\\circ-${:wv[:ij[0]]}^\\circ-${:wv[:ij[1]]}^\\circ=\\color{red}{${:wv[:k]}^\\circ}$$",
+      "value": [
+        "${:wv[:k]}",
+        "${:wv[:k]}°",
+        "${:wv[:k]}^\\circ"
+      ]
+    },
+    {
+      "name": "Seiten in kongruenten Dreiecken",
+      "consts": {
+        "N": [
+          [
+            "a",
+            "b",
+            "c"
+          ],
+          [
+            "d",
+            "e",
+            "f"
+          ]
+        ]
+      },
+      "vars": {
+        "x": "3_7",
+        "y": "${:x+MMmath.aleaInt(1,3)}",
+        "z": "${:y+MMmath.aleaInt(1,:x-1)}",
+        "sv": [
+          [
+            "${:x}",
+            "${:y}",
+            "${:z}"
+          ]
+        ],
+        "pm": "0_5",
+        "perm": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        ],
+        "ij": "0_2_2_^&",
+        "k": "${3-:ij[0]-:ij[1]}",
+        "t": "0_1_3",
+        "L": "${:sv[:perm[:pm][:k]]}"
+      },
+      "question": "Die Dreiecke $$ABC$$ und $$DEF$$ sind kongruent, dabei entspricht $$A$$ dem Punkt $$D$$, $$B$$ dem Punkt $$E$$ und $$C$$ dem Punkt $$F$$. Es ist $$${:N[:t[0]][:ij[0]]}=${:sv[:perm[:pm][:ij[0]]]}\\,\\text{cm}$$, $$${:N[:t[1]][:ij[1]]}=${:sv[:perm[:pm][:ij[1]]]}\\,\\text{cm}$$, und das Dreieck $$${:t[2]===0 ? 'DEF' : 'ABC'}$$ hat den Umfang $$${:x+:y+:z}\\,\\text{cm}$$. Wie lang ist $$${:N[:t[2]][:k]}$$ (in cm)?",
+      "answer": "Entsprechende Seiten sind gleich lang, beide Dreiecke haben denselben Umfang: $$${:N[:t[2]][:k]}=${:x+:y+:z}-${:sv[:perm[:pm][:ij[0]]]}-${:sv[:perm[:pm][:ij[1]]]}=\\color{red}{${:L}}$$ cm",
+      "value": "${:L}"
+    }
+  ]
+}

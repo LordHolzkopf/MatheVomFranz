@@ -1,0 +1,187 @@
+{
+  "title": "Quartile bestimmen und Boxplots lesen",
+  "ID": "D6FD1",
+  "description": "Unteres Quartil, oberes Quartil, Quartilsabstand, Median, Spannweite, Boxplot ablesen, Anteile im Boxplot, Kenngrößen, Datenreihe, Statistik",
+  "dest": [
+    "6FD"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Unteres Quartil (7 geordnete Werte)",
+      "vars": {
+        "a": "2_20",
+        "d": "0_4_2",
+        "e": "1_5_2",
+        "x": "${(()=>{const x1=:a,x2=x1+:d[0],x4=x2+:e[0],x5=x4+:e[1],x7=x5+:d[1];return [x1,x2,x2,x4,x5,x5,x7].join(',');})()}",
+        "q1": "${Number(String(:x).split(',')[1])}",
+        "q3": "${Number(String(:x).split(',')[4])}",
+        "liste": "${String(:x).split(',').join('; ')}"
+      },
+      "question": "Bestimme das untere Quartil der geordneten Datenreihe ${:liste}.",
+      "answer": "Untere Hälfte: ${String(:x).split(',').slice(0,3).join('; ')}. Ihr Median ist das untere Quartil: $$\\color{red}{${:q1}}$$",
+      "value": "${:q1}"
+    },
+    {
+      "name": "Oberes Quartil (7 geordnete Werte)",
+      "vars": {
+        "a": "2_20",
+        "d": "0_4_2",
+        "e": "1_5_2",
+        "x": "${(()=>{const x1=:a,x2=x1+:d[0],x4=x2+:e[0],x5=x4+:e[1],x7=x5+:d[1];return [x1,x2,x2,x4,x5,x5,x7].join(',');})()}",
+        "q1": "${Number(String(:x).split(',')[1])}",
+        "q3": "${Number(String(:x).split(',')[4])}",
+        "liste": "${String(:x).split(',').join('; ')}"
+      },
+      "question": "Bestimme das obere Quartil der geordneten Datenreihe ${:liste}.",
+      "answer": "Obere Hälfte: ${String(:x).split(',').slice(4).join('; ')}. Ihr Median ist das obere Quartil: $$\\color{red}{${:q3}}$$",
+      "value": "${:q3}"
+    },
+    {
+      "name": "Quartilsabstand (7 ungeordnete Werte)",
+      "vars": {
+        "a": "2_20",
+        "d": "0_4_2",
+        "e": "1_5_2",
+        "x": "${(()=>{const x1=:a,x2=x1+:d[0],x4=x2+:e[0],x5=x4+:e[1],x7=x5+:d[1];return [x1,x2,x2,x4,x5,x5,x7].join(',');})()}",
+        "q1": "${Number(String(:x).split(',')[1])}",
+        "q3": "${Number(String(:x).split(',')[4])}",
+        "liste": "${String(:x).split(',').join('; ')}",
+        "u": "${utils.shuffle(String(:x).split(',')).join('; ')}"
+      },
+      "question": "Bestimme den Quartilsabstand der Daten ${:u}.",
+      "answer": "Geordnet: ${:liste}. Unteres Quartil ${:q1}, oberes Quartil ${:q3}, Quartilsabstand $$${:q3}-${:q1}=\\color{red}{${:q3-:q1}}$$",
+      "value": "${:q3-:q1}"
+    },
+    {
+      "name": "Quartilsabstand (11 geordnete Werte)",
+      "vars": {
+        "a": "2_20",
+        "d": "1_4_10",
+        "x": "${(()=>{let x=[:a];for(let i=0;i<10;i++)x.push(x[i]+(i===2||i===7 ? 0 : :d[i]));return x.join(',');})()}",
+        "q1": "${Number(String(:x).split(',')[2])}",
+        "q3": "${Number(String(:x).split(',')[8])}",
+        "liste": "${String(:x).split(',').join('; ')}"
+      },
+      "question": "Bestimme den Quartilsabstand der geordneten Datenreihe ${:liste}.",
+      "answer": "Unteres Quartil (Median von ${String(:x).split(',').slice(0,5).join('; ')}): ${:q1}, oberes Quartil (Median von ${String(:x).split(',').slice(6).join('; ')}): ${:q3}. Quartilsabstand $$${:q3}-${:q1}=\\color{red}{${:q3-:q1}}$$",
+      "value": "${:q3-:q1}"
+    },
+    {
+      "name": "Kennwerte am Boxplot ablesen",
+      "vars": {
+        "w": "0_20_5_^&",
+        "s": "${[...:w].sort((p,q)=>p-q).join(',')}",
+        "svg": "${(()=>{const s=String(:s).split(',').map(Number);const X=v=>15+10*v;let g='<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 230 70\" width=\"20em\" height=\"6.1em\">';g+='<line x1=\"8\" y1=\"52\" x2=\"222\" y2=\"52\" stroke=\"black\" stroke-width=\"0.8\"/>';for(let i=0;i<=20;i++){g+='<line x1=\"'+X(i)+'\" y1=\"'+(i%2 ? 50 : 48.5)+'\" x2=\"'+X(i)+'\" y2=\"'+(i%2 ? 54 : 55.5)+'\" stroke=\"black\" stroke-width=\"0.6\"/>';if(i%2===0)g+='<text x=\"'+X(i)+'\" y=\"66\" font-size=\"8\" text-anchor=\"middle\" font-family=\"sans-serif\">'+i+'</text>';}g+='<rect x=\"'+X(s[1])+'\" y=\"12\" width=\"'+10*(s[3]-s[1])+'\" height=\"28\" fill=\"#cfe3ff\" stroke=\"black\" stroke-width=\"1\"/>';g+='<line x1=\"'+X(s[2])+'\" y1=\"12\" x2=\"'+X(s[2])+'\" y2=\"40\" stroke=\"black\" stroke-width=\"2\"/>';g+='<line x1=\"'+X(s[0])+'\" y1=\"26\" x2=\"'+X(s[1])+'\" y2=\"26\" stroke=\"black\" stroke-width=\"1\"/>';g+='<line x1=\"'+X(s[3])+'\" y1=\"26\" x2=\"'+X(s[4])+'\" y2=\"26\" stroke=\"black\" stroke-width=\"1\"/>';g+='<line x1=\"'+X(s[0])+'\" y1=\"19\" x2=\"'+X(s[0])+'\" y2=\"33\" stroke=\"black\" stroke-width=\"1\"/>';g+='<line x1=\"'+X(s[4])+'\" y1=\"19\" x2=\"'+X(s[4])+'\" y2=\"33\" stroke=\"black\" stroke-width=\"1\"/>';for(let i=0;i<=20;i++)g+='<line x1=\"'+X(i)+'\" y1=\"10\" x2=\"'+X(i)+'\" y2=\"52\" stroke=\"#999\" stroke-width=\"0.3\" stroke-dasharray=\"1.5,1.5\"/>';return g+'</svg>';})()}",
+        "ctx": [
+          "die Punkte in einem Test",
+          "die Anzahl der Liegestütze in einer Klasse",
+          "die Zahl der gelesenen Bücher im Jahr",
+          "die Tore pro Spieler in einer Saison",
+          "die Sprungweiten (in dm) einer Gruppe",
+          "die Wartezeiten (in min) an einer Kasse"
+        ]
+      },
+      "figure": {
+        "type": "svg",
+        "content": "${:svg}"
+      },
+      "question": [
+        "Der Boxplot zeigt ${:ctx}. Lies den Median ab.",
+        "Der Boxplot zeigt ${:ctx}. Lies das untere Quartil ab.",
+        "Der Boxplot zeigt ${:ctx}. Lies das obere Quartil ab.",
+        "Der Boxplot zeigt ${:ctx}. Bestimme die Spannweite.",
+        "Der Boxplot zeigt ${:ctx}. Bestimme den Quartilsabstand."
+      ],
+      "answer": [
+        "Der Strich in der Box liegt beim Median: $$\\color{red}{${String(:s).split(',')[2]}}$$",
+        "Die Box beginnt beim unteren Quartil: $$\\color{red}{${String(:s).split(',')[1]}}$$",
+        "Die Box endet beim oberen Quartil: $$\\color{red}{${String(:s).split(',')[3]}}$$",
+        "Maximum minus Minimum: $$${String(:s).split(',')[4]}-${String(:s).split(',')[0]}=\\color{red}{${String(:s).split(',')[4]-String(:s).split(',')[0]}}$$",
+        "Länge der Box: $$${String(:s).split(',')[3]}-${String(:s).split(',')[1]}=\\color{red}{${String(:s).split(',')[3]-String(:s).split(',')[1]}}$$"
+      ],
+      "value": [
+        "${String(:s).split(',')[2]}",
+        "${String(:s).split(',')[1]}",
+        "${String(:s).split(',')[3]}",
+        "${String(:s).split(',')[4]-String(:s).split(',')[0]}",
+        "${String(:s).split(',')[3]-String(:s).split(',')[1]}"
+      ]
+    },
+    {
+      "name": "Anteile im Boxplot",
+      "keys": [
+        "%",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "a": "3_8",
+        "d": "2_6_4",
+        "k": [
+          [
+            "${:a}",
+            "${:a+:d[0]}",
+            "${:a+:d[0]+:d[1]}",
+            "${:a+:d[0]+:d[1]+:d[2]}",
+            "${:a+:d[0]+:d[1]+:d[2]+3*:d[3]}"
+          ]
+        ]
+      },
+      "question": [
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen höchstens ${:k[1]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen höchstens ${:k[2]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen höchstens ${:k[3]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen mindestens ${:k[3]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen zwischen ${:k[1]} min und ${:k[3]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen mindestens ${:k[1]} min?",
+        "Eine Umfrage zur Fahrzeit zur Schule ergab die Kennwerte: Minimum ${:k[0]} min, unteres Quartil ${:k[1]} min, Median ${:k[2]} min, oberes Quartil ${:k[3]} min, Maximum ${:k[4]} min. Etwa wie viel Prozent der Befragten brauchen zwischen ${:k[2]} min und ${:k[4]} min?"
+      ],
+      "answer": [
+        "Bis zum unteren Quartil liegen etwa 25 % der Werte: $$\\color{red}{25\\,\\%}$$",
+        "Bis zum Median liegen etwa 50 % der Werte: $$\\color{red}{50\\,\\%}$$",
+        "Bis zum oberen Quartil liegen etwa 75 % der Werte: $$\\color{red}{75\\,\\%}$$",
+        "Ab dem oberen Quartil liegen etwa 25 % der Werte: $$\\color{red}{25\\,\\%}$$",
+        "In der Box zwischen den Quartilen liegen etwa 50 % der Werte: $$\\color{red}{50\\,\\%}$$",
+        "Ab dem unteren Quartil liegen etwa 75 % der Werte: $$\\color{red}{75\\,\\%}$$",
+        "Zwischen Median und Maximum liegen etwa 50 % der Werte: $$\\color{red}{50\\,\\%}$$"
+      ],
+      "value": [
+        [
+          "25",
+          "25\\%"
+        ],
+        [
+          "50",
+          "50\\%"
+        ],
+        [
+          "75",
+          "75\\%"
+        ],
+        [
+          "25",
+          "25\\%"
+        ],
+        [
+          "50",
+          "50\\%"
+        ],
+        [
+          "75",
+          "75\\%"
+        ],
+        [
+          "50",
+          "50\\%"
+        ]
+      ]
+    }
+  ]
+}

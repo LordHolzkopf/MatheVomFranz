@@ -1,0 +1,160 @@
+{
+  "title": "Zufallsexperimente simulieren",
+  "ID": "D7FD1",
+  "description": "Simulation von Zufallsexperimenten mit Zufallsziffern, Würfel und Tabellenkalkulation (ZUFALLSBEREICH): Treffer festlegen, simulierte Wahrscheinlichkeit bestimmen, Simulation auswerten, relative Häufigkeit als Schätzwert",
+  "dest": [
+    "7FD",
+    "8AD"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Zufallsziffern auswerten",
+      "vars": {
+        "z": "0_9_20",
+        "k": "2_8",
+        "ctx": [
+          [
+            "Eine Basketballspielerin trifft",
+            ""
+          ],
+          [
+            "Ein Elfmeterschütze trifft",
+            ""
+          ],
+          [
+            "Ein Saatkorn keimt",
+            ""
+          ],
+          [
+            "Eine Tulpenzwiebel treibt",
+            " aus"
+          ]
+        ]
+      },
+      "question": "${:ctx[0]} mit der Wahrscheinlichkeit $$${MMmath.round(:k/10,1)}$$${:ctx[1]}. Das wird mit Zufallsziffern simuliert, ${:k===2 ? 'die Ziffern 0 und 1 bedeuten' : 'die Ziffern 0 bis '+(:k-1)+' bedeuten'} Treffer. Bestimme die relative Häufigkeit der Treffer in: ${[0,5,10,15].map(i=>:z.slice(i,i+5).join('')).join(' ')}",
+      "answer": "${:z.filter(d=>d<:k).length} Treffer unter 20 Ziffern: $$\\dfrac{${:z.filter(d=>d<:k).length}}{20}=\\color{red}{${MMmath.round(:z.filter(d=>d<:k).length/20,2)}}$$",
+      "value": "${MMmath.round(:z.filter(d=>d<:k).length/20,2)}"
+    },
+    {
+      "name": "Treffer festlegen",
+      "vars": {
+        "a": "1_5",
+        "j": "1_9",
+        "h": "${5*MMmath.aleaInt(1,19)}",
+        "t": "1_19"
+      },
+      "question": [
+        "Mit einem Würfel soll ein Ereignis mit der Wahrscheinlichkeit $$${MMmath.fractionSimplifiee(:a,6)}$$ simuliert werden. Wie viele Augenzahlen müssen als Treffer gelten?",
+        "Mit Zufallsziffern von 0 bis 9 soll ein Ereignis mit der Wahrscheinlichkeit $$${MMmath.round(:j/10,1)}$$ simuliert werden. Wie viele Ziffern müssen als Treffer gelten?",
+        "Mit zweistelligen Zufallszahlen von 00 bis 99 soll ein Ereignis mit der Wahrscheinlichkeit $$${:h}\\,\\%$$ simuliert werden. Wie viele dieser Zahlen müssen als Treffer gelten?",
+        "Eine Tabellenkalkulation erzeugt mit =ZUFALLSBEREICH(1;20) Zahlen von 1 bis 20. Wie viele dieser Zahlen müssen als Treffer gelten, um die Wahrscheinlichkeit $$${MMmath.round(:t/20,2)}$$ zu simulieren?"
+      ],
+      "answer": [
+        "$$${MMmath.fractionSimplifiee(:a,6)}=\\dfrac{${:a}}{6}$$, also $$\\color{red}{${:a}}$$ Augenzahlen",
+        "$$${MMmath.round(:j/10,1)}=\\dfrac{${:j}}{10}$$, also $$\\color{red}{${:j}}$$ Ziffern",
+        "Es gibt 100 Zahlen, $$${:h}\\,\\%$$ davon sind $$\\color{red}{${:h}}$$",
+        "$$${MMmath.round(:t/20,2)}\\cdot 20=\\color{red}{${:t}}$$"
+      ],
+      "value": [
+        "${:a}",
+        "${:j}",
+        "${:h}",
+        "${:t}"
+      ]
+    },
+    {
+      "name": "Simulierte Wahrscheinlichkeit bestimmen",
+      "keys": [
+        "/",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_",
+        "_"
+      ],
+      "vars": {
+        "n": [
+          4,
+          5,
+          6,
+          8,
+          10,
+          12,
+          20,
+          25,
+          50,
+          100
+        ],
+        "k": "${MMmath.aleaInt(1,:n-1)}"
+      },
+      "question": "Eine Tabellenkalkulation erzeugt mit =ZUFALLSBEREICH(1;${:n}) zufällige ganze Zahlen von 1 bis ${:n}. Jede Zahl bis einschließlich ${:k} zählt als Treffer. Welche Wahrscheinlichkeit wird so simuliert?",
+      "answer": "${:k} von ${:n} gleich wahrscheinlichen Zahlen: $$${MMmath.pgcd(:k,:n)>1 ? '\\dfrac{'+:k+'}{'+:n+'}=' : ''}\\color{red}{${MMmath.fractionSimplifiee(:k,:n)}}${Number.isInteger(1000*:k/:n) ? '='+MMmath.round(:k/:n,3) : '\\approx '+MMmath.round(:k/:n,2)}$$",
+      "value": "${MMmath.fractionSimplifiee(:k,:n)}"
+    },
+    {
+      "name": "Zweistufige Simulation auswerten",
+      "vars": {
+        "z": "0_99_10",
+        "k": "3_7",
+        "paare": "${:z.map(x=>(x<10 ? '0' : '')+x).join(' ')}",
+        "zwei": "${:z.filter(x=>Math.floor(x/10)<:k && x%10<:k).length}",
+        "kein": "${:z.filter(x=>Math.floor(x/10)>=:k && x%10>=:k).length}"
+      },
+      "question": [
+        "Zwei Würfe einer Spielerin (Trefferwahrscheinlichkeit $$${MMmath.round(:k/10,1)}$$ je Wurf) werden mit zweistelligen Zufallszahlen simuliert, jede Ziffer steht für einen Wurf, die Ziffern 0 bis ${:k-1} bedeuten Treffer. In wie vielen der 10 Durchgänge gab es zwei Treffer? ${:paare}",
+        "Zwei Würfe einer Spielerin (Trefferwahrscheinlichkeit $$${MMmath.round(:k/10,1)}$$ je Wurf) werden mit zweistelligen Zufallszahlen simuliert, jede Ziffer steht für einen Wurf, die Ziffern 0 bis ${:k-1} bedeuten Treffer. In wie vielen der 10 Durchgänge gab es keinen Treffer? ${:paare}"
+      ],
+      "answer": [
+        "Zahlen, bei denen beide Ziffern kleiner als ${:k} sind: ${:z.filter(x=>Math.floor(x/10)<:k && x%10<:k).map(x=>(x<10 ? '0' : '')+x).join(', ') || 'keine'}, also $$\\color{red}{${:zwei}}$$",
+        "Zahlen, bei denen beide Ziffern mindestens ${:k} sind: ${:z.filter(x=>Math.floor(x/10)>=:k && x%10>=:k).map(x=>(x<10 ? '0' : '')+x).join(', ') || 'keine'}, also $$\\color{red}{${:kein}}$$"
+      ],
+      "value": [
+        "${:zwei}",
+        "${:kein}"
+      ]
+    },
+    {
+      "name": "Schätzwert aus einer Simulation",
+      "vars": {
+        "n": [
+          50,
+          100,
+          200,
+          250,
+          500,
+          1000
+        ],
+        "k": [
+          [
+            "${Math.round(:n*0.3125*(0.9+0.2*utils.alea()))}",
+            "${Math.round(:n/6*(0.9+0.2*utils.alea()))}",
+            "${Math.round(:n*0.4213*(0.9+0.2*utils.alea()))}",
+            "${Math.round(:n/6*(0.9+0.2*utils.alea()))}"
+          ]
+        ]
+      },
+      "question": [
+        "Mit einer Tabellenkalkulation wurde das Werfen von vier Münzen ${:n}-mal simuliert. In ${:k[0]} Fällen fiel mindestens dreimal Zahl. Schätze die Wahrscheinlichkeit für dieses Ereignis.",
+        "Mit einer Tabellenkalkulation wurde das Werfen von zwei Würfeln ${:n}-mal simuliert. In ${:k[1]} Fällen fiel die Augensumme 7. Schätze die Wahrscheinlichkeit für dieses Ereignis.",
+        "Mit einer Tabellenkalkulation wurde das Werfen von drei Würfeln ${:n}-mal simuliert. In ${:k[2]} Fällen fiel mindestens eine Sechs. Schätze die Wahrscheinlichkeit für dieses Ereignis.",
+        "Mit einer Tabellenkalkulation wurde das Werfen von zwei Würfeln ${:n}-mal simuliert. In ${:k[3]} Fällen fiel ein Pasch. Schätze die Wahrscheinlichkeit für dieses Ereignis."
+      ],
+      "answer": [
+        "$$\\dfrac{${:k[0]}}{${:n}}=\\color{red}{${MMmath.round(:k[0]/:n,3)}}$$",
+        "$$\\dfrac{${:k[1]}}{${:n}}=\\color{red}{${MMmath.round(:k[1]/:n,3)}}$$",
+        "$$\\dfrac{${:k[2]}}{${:n}}=\\color{red}{${MMmath.round(:k[2]/:n,3)}}$$",
+        "$$\\dfrac{${:k[3]}}{${:n}}=\\color{red}{${MMmath.round(:k[3]/:n,3)}}$$"
+      ],
+      "value": [
+        "${MMmath.round(:k[0]/:n,3)}",
+        "${MMmath.round(:k[1]/:n,3)}",
+        "${MMmath.round(:k[2]/:n,3)}",
+        "${MMmath.round(:k[3]/:n,3)}"
+      ]
+    }
+  ]
+}

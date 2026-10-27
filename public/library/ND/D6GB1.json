@@ -1,0 +1,105 @@
+{
+  "title": "Abhängigkeiten beschreiben und nutzen",
+  "ID": "D6GB1",
+  "description": "Abhängigkeiten zwischen Größen in Worten, Tabellen und Termen beschreiben: Werte berechnen, Tabellen fortsetzen, Term aus einer Tabelle aufstellen, rückwärts rechnen, Zunahme und Abnahme",
+  "dest": [
+    "6GB"
+  ],
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Wert aus einer Beschreibung (Zunahme)",
+      "vars": {
+        "g": "2_9",
+        "m": "2_9",
+        "x": "3_12"
+      },
+      "question": [
+        "Eine Taxifahrt kostet ${:g} € Grundgebühr und ${:m} € pro Kilometer. Wie viel Euro kostet eine Fahrt von ${:x} km?",
+        "Eine Pflanze ist ${:g} cm hoch und wächst jede Woche um ${:m} cm. Wie hoch ist sie nach ${:x} Wochen (in cm)?",
+        "Lena hat ${:g} € gespart und legt jede Woche ${:m} € dazu. Wie viel Euro hat sie nach ${:x} Wochen?",
+        "In einem Becken sind ${10*:g} Liter Wasser. Pro Minute fließen ${:m} Liter dazu. Wie viele Liter sind nach ${:x} Minuten im Becken?"
+      ],
+      "answer": [
+        "$$${:g}+${:x}\\cdot ${:m}=\\color{red}{${:g+:x*:m}}$$ €",
+        "$$${:g}+${:x}\\cdot ${:m}=\\color{red}{${:g+:x*:m}}$$ cm",
+        "$$${:g}+${:x}\\cdot ${:m}=\\color{red}{${:g+:x*:m}}$$ €",
+        "$$${10*:g}+${:x}\\cdot ${:m}=\\color{red}{${10*:g+:x*:m}}$$ Liter"
+      ],
+      "value": [
+        "${:g+:x*:m}",
+        "${:g+:x*:m}",
+        "${:g+:x*:m}",
+        "${10*:g+:x*:m}"
+      ]
+    },
+    {
+      "name": "Wert aus einer Beschreibung (Abnahme)",
+      "vars": {
+        "r": "1_9",
+        "m": "2_6",
+        "x": "2_8",
+        "g": "${:r+:m*:x}"
+      },
+      "question": [
+        "Eine Kerze ist ${:g} cm lang und brennt pro Stunde ${:m} cm ab. Wie lang ist sie nach ${:x} Stunden (in cm)?",
+        "Ein Tank enthält ${10*:g} Liter. Pro Minute fließen ${10*:m} Liter ab. Wie viele Liter sind nach ${:x} Minuten noch im Tank?",
+        "Auf einer Guthabenkarte sind ${:g} €. Jede Woche werden ${:m} € abgebucht. Wie viel Euro sind nach ${:x} Wochen noch übrig?"
+      ],
+      "answer": [
+        "$$${:g}-${:x}\\cdot ${:m}=\\color{red}{${:r}}$$ cm",
+        "$$${10*:g}-${:x}\\cdot ${10*:m}=\\color{red}{${10*:r}}$$ Liter",
+        "$$${:g}-${:x}\\cdot ${:m}=\\color{red}{${:r}}$$ €"
+      ],
+      "value": [
+        "${:r}",
+        "${10*:r}",
+        "${:r}"
+      ]
+    },
+    {
+      "name": "Tabelle fortsetzen",
+      "vars": {
+        "m": "2_9",
+        "b": "0_9",
+        "k": "8_20"
+      },
+      "question": "Die Werte für $$y$$ wachsen in jedem Schritt gleich stark. <table class='inline-table'><tr><td>$$x$$</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>$$y$$</td><td>${:m*(1)+:b}</td><td>${:m*(2)+:b}</td><td>${:m*(3)+:b}</td><td>${:m*(4)+:b}</td></tr></table> Welcher Wert gehört zu $$x=${:k}$$?",
+      "answer": "Pro Schritt kommen ${:m} dazu, also $$y=${:m}\\cdot x${:b>0 ? '+'+:b : ''}$$. Für $$x=${:k}$$: $$${:m}\\cdot ${:k}${:b>0 ? '+'+:b : ''}=\\color{red}{${:m*:k+:b}}$$",
+      "value": "${:m*:k+:b}"
+    },
+    {
+      "name": "Term aus einer Tabelle",
+      "vars": {
+        "m": "2_9",
+        "b": "1_9"
+      },
+      "question": "Gib einen Term an, mit dem man $$y$$ aus $$x$$ berechnet. <table class='inline-table'><tr><td>$$x$$</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>$$y$$</td><td>${:m*(0)+:b}</td><td>${:m*(1)+:b}</td><td>${:m*(2)+:b}</td><td>${:m*(3)+:b}</td></tr></table>",
+      "answer": "Startwert ${:b}, pro Schritt kommen ${:m} dazu: $$y=\\color{red}{${:m}x+${:b}}$$",
+      "value": [
+        "${:m}x+${:b}",
+        "y=${:m}x+${:b}"
+      ]
+    },
+    {
+      "name": "Rückwärts rechnen",
+      "vars": {
+        "g": "2_15",
+        "m": "2_6",
+        "x": "3_12"
+      },
+      "question": [
+        "Eine Pflanze ist ${:g} cm hoch und wächst jede Woche um ${:m} cm. Nach wie vielen Wochen ist sie ${:g+:m*:x} cm hoch?",
+        "Tim hat ${:g} € und spart jede Woche ${:m} € dazu. Nach wie vielen Wochen hat er ${:g+:m*:x} €?",
+        "Eine Kerze ist ${:g+:m*:x} cm lang und brennt pro Stunde ${:m} cm ab. Nach wie vielen Stunden ist sie nur noch ${:g} cm lang?"
+      ],
+      "answer": [
+        "Sie muss um $$${:g+:m*:x}-${:g}=${:m*:x}$$ cm wachsen: $$${:m*:x}:${:m}=\\color{red}{${:x}}$$ Wochen",
+        "Es fehlen $$${:g+:m*:x}-${:g}=${:m*:x}$$ €: $$${:m*:x}:${:m}=\\color{red}{${:x}}$$ Wochen",
+        "Es müssen $$${:g+:m*:x}-${:g}=${:m*:x}$$ cm abbrennen: $$${:m*:x}:${:m}=\\color{red}{${:x}}$$ Stunden"
+      ],
+      "value": "${:x}"
+    }
+  ]
+}

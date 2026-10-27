@@ -1,26 +1,26 @@
 {
-    "title":"Calculs avec les puissances",
-    "description":"Produit, quotient et puissance de puissances",
+    "title":"Potenzgesetze anwenden",
+    "description":"Potenzgesetze: Potenzen mit gleicher Basis multiplizieren und dividieren, Potenz einer Potenz, Potenzen mit gleichem Exponenten multiplizieren",
     "type":"latex",
     "ID":"3NB3",
     "textSize":"medium",
     "dest":["9DC"],
     "keys":["(","-","^","_","_","_","_","_"],
-    "consigne":"Mettre sous la forme $$a^b$$",
+    "consigne":"Schreibe als eine Potenz der Form $$a^n$$.",
     "options":[{
-        "name":"Produit de puissances",
+        "name":"Produkt von Potenzen",
         "vars":{"a":"-10_10_2_^0","r":"${:a[0]+:a[1]}","n":"-9_9_^0"},
         "question": "${(:n>0)?:n:'('+:n+')'}^{${:a[0]}}\\times ${(:n>0)?:n:'('+:n+')'}^{${:a[1]}}"
     },{
-        "name":"Quotient de puissances",
+        "name":"Quotient von Potenzen",
         "vars":{"a":"-10_10_2_^0","r":"${:a[0]-:a[1]}","n":"-9_9_^0"},
         "question": "\\dfrac{${(:n>0)?:n:'('+:n+')'}^{${:a[0]}}}{${(:n>0)?:n:'('+:n+')'}^{${:a[1]}}}"
     },{
-        "name":"Puissance de puissances",
+        "name":"Potenz einer Potenz",
         "vars":{"a":"-10_10_2","r":"${:a[0]*:a[1]}","n":"-9_9_^0"},
         "question": "\\left(${(:n>0)?:n:'('+:n+')'}^{${:a[0]}}\\right)^{${:a[1]}}"
     },{
-        "name":"Puissance d'un produit",
+        "name":"Produkt von Potenzen mit gleichem Exponenten",
         "vars":{"a":"-10_10_2_^&,0","r":"-10_10_^0,1","n":"${:a[0]*:a[1]}"},
         "question":"${(:a[0]>0)?:a[0]:'('+:a[0]+')'}^{${:r}}\\times ${(:a[1]>0)?:a[1]:'('+:a[1]+')'}^{${:r}}"
     }

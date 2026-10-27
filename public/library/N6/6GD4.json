@@ -1,13 +1,13 @@
 {
     "ID": "6GD4",
-    "title": "Cercle circonscrit au triangle",
-    "description": "Cercle circonscrit à un triangle : cercle passant par les sommets, diamètre, rayon, égalités de longueurs.",
+    "title": "Umkreis eines Dreiecks erkennen",
+    "description": "Umkreis eines Dreiecks erkennen: Kreis durch alle Eckpunkte, Mittelpunkt, Radius, Durchmesser, gleich lange Strecken angeben",
     "type":"text",
     "dest":["8FB", "6DC"],
     "consts":{"lettres":"ABCDEFGHJKLMNPQRSTUVW"},
     "options":[
         {
-            "name": "cercle circonscrit",
+            "name": "Umkreis",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "a1":"-9_9",
@@ -27,7 +27,7 @@
                 "B":"${:lettres[:l[1]]}",
                 "C":"${:lettres[:l[2]]}",
                 "egalites":"O${:A}=O${:B}=O${:C}",
-                "rep":"Oui"
+                "rep":"Ja"
             },
             "figure":{
                 "type": "graph",
@@ -43,7 +43,7 @@
                 ]
             }
         },{
-            "name": "cercle passant par 2 sommets",
+            "name": "Kreis durch zwei Eckpunkte",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "a1":"-9_9",
@@ -64,7 +64,7 @@
                 "B":"${:lettres[:l[1]]}",
                 "C":"${:lettres[:l[2]]}",
                 "egalites":"O${:A}=O${:C}",
-                "rep":"Non"
+                "rep":"Nein"
             },
             "figure":{
                 "type": "graph",
@@ -80,7 +80,7 @@
                 ]
             }
         },{
-            "name": "cercle passant par 1 sommet",
+            "name": "Kreis durch einen Eckpunkt",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "a1":"-9_9",
@@ -102,7 +102,7 @@
                 "B":"${:lettres[:l[1]]}",
                 "C":"${:lettres[:l[2]]}",
                 "egalites":"",
-                "rep":"Non"
+                "rep":"Nein"
             },
             "figure":{
                 "type": "graph",
@@ -118,7 +118,7 @@
                 ]
             }
         },{
-            "name": "cercle de diamètre un côté",
+            "name": "Kreis mit einer Seite als Durchmesser",
             "vars":{
                 "l":"0_${:lettres.length-1}_3_^&",
                 "a1":"-9_9",
@@ -138,8 +138,8 @@
                 "A":"${:lettres[:l[0]]}",
                 "B":"${:lettres[:l[1]]}",
                 "C":"${:lettres[:l[2]]}",
-                "egalites":"O${:A}=O${:C}${:d1==0?'=O'+:C:''}",
-                "rep":"${:d1==0?'Oui':'Non'}"
+                "egalites":"O${:A}=O${:C}${:d1==0?'=O'+:B:''}",
+                "rep":"${:d1==0?'Ja':'Nein'}"
             },
             "figure":{
                 "type": "graph",
@@ -157,7 +157,7 @@
             }
         }
     ],
-    "question":"Le cercle de centre O est-il circonscrit au triangle ${:A+:B+:C} ?<br>Écrire tous les égalités de longueurs possible entre les points O, ${:A}, ${:B} et ${:C}.",
+    "question":"Ist der Kreis um O der Umkreis des Dreiecks ${:A+:B+:C}?<br>Gib alle gleich langen Strecken zwischen den Punkten O, ${:A}, ${:B} und ${:C} an.",
     "answer":"<span class='red'>${:rep}</span><br>$$${:egalites}$$",
     "value":"${:egalites}"
 }

@@ -1,7 +1,7 @@
 {
     "ID":"6GC13",
-    "title":"Reconnaitre une bissectrice",
-    "description":"bissectrice, angle, codage, moitié d'un angle",
+    "title":"Winkelhalbierende erkennen",
+    "description":"Winkelhalbierende erkennen: Winkel, Markierungen, Winkelgröße, Hälfte eines Winkels, gleich große Winkel",
     "dest":["8FC", "6DD"],
     "type":"text",
     "repeat":4,
@@ -13,7 +13,7 @@
     },
     "options":[
         {
-            "name":"À partir des codages",
+            "name":"Anhand der Markierungen",
             "vars":{
                 "ang1":"10_90",
                 "ang2":"${:estBissectrice?:ang1:'10_90_^'+:ang1}",
@@ -48,10 +48,10 @@
                     ["angle",["B","O","C"],{"orthoType":"sector","radius":2,"label":{"visible":false},"fillColor":"transparent","strokeColor":"${:estBissectrice?:color1::color2}"}]
                 ]
             },
-            "question":"La droite rouge est-elle la bissectrice de l'angle ?",
-            "answer":"${:estBissectrice?'Oui, car les codages indiquent que les angles ont la même mesure.':'Non, car les angles n’ont pas un codage indiquant une même mesure.'}"
+            "question":"Ist die rote Halbgerade die Winkelhalbierende des Winkels?",
+            "answer":"${:estBissectrice?'Ja, denn die Markierungen zeigen, dass die beiden Winkel gleich groß sind.':'Nein, denn die Markierungen zeigen keine gleich großen Winkel.'}"
         },{
-            "name":"À partir des mesures",
+            "name":"Anhand der Winkelgrößen",
             "vars":{
                 "ang1":"20_90",
                 "ang2":"${:estBissectrice?:ang1:'20_90_^'+:ang1}",
@@ -80,10 +80,10 @@
                     ["angle",["B","O","C"],{"orthoType":"sector","radius":2.3,"name":"${:ang2}°","fillColor":"transparent","strokeColor":"${:estBissectrice?:color1::color2}"}]
                 ]
             },
-            "question":"La droite rouge est-elle la bissectrice de l'angle ?",
-            "answer":"${:estBissectrice?'Oui, car elle partage l’angle en deux angles de même mesure.':'Non, car les angles n’ont pas la même mesure.'}"
+            "question":"Ist die rote Halbgerade die Winkelhalbierende des Winkels?",
+            "answer":"${:estBissectrice?'Ja, denn sie teilt den Winkel in zwei gleich große Winkel.':'Nein, denn die beiden Winkel sind nicht gleich groß.'}"
         },{
-            "name":"À partir de la position",
+            "name":"Anhand der Lage",
             "vars":{
                 "ang1":"20_90",
                 "ang2":"${:ang1}",
@@ -118,8 +118,8 @@
                     ["angle",["B","O","C"],{"orthoType":"sector","radius":2.3,"name":"${:ang1}°","fillColor":"transparent","strokeColor":"${:color1}","withLabel":"${:angleoucodage?1:0}"}]
                 ]
             },
-            "question":"La droite rouge est-elle la bissectrice de l'angle ?",
-            "answer":"${:estBissectrice?'Oui, car elle partage l’angle en deux angles de même mesure.':'Non, car la droite ne partage pas l’angle.'}"
+            "question":"Ist die rote Halbgerade die Winkelhalbierende des Winkels?",
+            "answer":"${:estBissectrice?'Ja, denn sie teilt den Winkel in zwei gleich große Winkel.':'Nein, denn die rote Halbgerade liegt nicht im Inneren des Winkels.'}"
         }
     ]
 }

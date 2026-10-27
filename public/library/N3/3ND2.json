@@ -1,37 +1,37 @@
 {
-    "title":"Développer une identité remarquable",
-    "description":"Utiliser les identités remarquable pour développer des expression.",
+    "title":"Mit binomischen Formeln ausmultiplizieren",
+    "description":"Terme mithilfe der binomischen Formeln ausmultiplizieren (auflösen): (a + b)², (a − b)², (a + b)(a − b)",
     "ID":"3ND2",
     "dest":["8CC"],
     "keys":["x²","-","+","u","v","t","x","y"],
     "vars":{"a":"1_10", "b":"2_10", "c":["u","v","t","x", "y"]},
     "options":[{
         "name":"$$(ax+b)^2$$",
-        "question": ["\\text{Développer }(${MMmath.signIfOne(:a)}${:c}+${:b})^2", "\\text{Développer }(${:b}+${MMmath.signIfOne(:a)}${:c})^2"],
+        "question": ["\\text{Multipliziere aus: }(${MMmath.signIfOne(:a)}${:c}+${:b})^2", "\\text{Multipliziere aus: }(${:b}+${MMmath.signIfOne(:a)}${:c})^2"],
         "shortq": ["(${MMmath.signIfOne(:a)}${:c}+${:b})^2", "(${:b}+${MMmath.signIfOne(:a)}${:c})^2"],
-        "answer":":question|-18=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2+${2*:a*:b}${:c}+${:b*:b}}",
+        "answer":":question|-26=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2+${2*:a*:b}${:c}+${:b*:b}}",
         "value":"${MMmath.signIfOne(:a*:a)}${:c}^2+${2*:a*:b}${:c}+${:b*:b}"    
     },
     {
         "name":"$$(ax-b)^2$$",
-        "question": ["\\text{Développer }(${MMmath.signIfOne(:a)}${:c}-${:b})^2", "\\text{Développer }(${:b}-${MMmath.signIfOne(:a)}${:c})^2"],
+        "question": ["\\text{Multipliziere aus: }(${MMmath.signIfOne(:a)}${:c}-${:b})^2", "\\text{Multipliziere aus: }(${:b}-${MMmath.signIfOne(:a)}${:c})^2"],
         "shortq": ["(${MMmath.signIfOne(:a)}${:c}-${:b})^2", "(${:b}-${MMmath.signIfOne(:a)}${:c})^2"],
-        "answer":":question|-18=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2-${2*:a*:b}${:c}+${:b*:b}}",
+        "answer":":question|-26=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2-${2*:a*:b}${:c}+${:b*:b}}",
         "value":"${MMmath.signIfOne(:a*:a)}${:c}^2-${2*:a*:b}${:c}+${:b*:b}"    
     },
     {
         "name":"$$(ax-b)(ax+b)$$",
         "question": [
-            "\\text{Développer }(${MMmath.signIfOne(:a)}${:c}-${:b})(${MMmath.signIfOne(:a)}${:c}+${:b})",
-            "\\text{Développer }(${MMmath.signIfOne(:a)}${:c}-${:b})(${:b}+${MMmath.signIfOne(:a)}${:c})",
-            "\\text{Développer }(${MMmath.signIfOne(:a)}${:c}+${:b})(${MMmath.signIfOne(:a)}${:c}-${:b})",
-            "\\text{Développer }(${:b}+${MMmath.signIfOne(:a)}${:c})(${MMmath.signIfOne(:a)}${:c}-${:b})"],
+            "\\text{Multipliziere aus: }(${MMmath.signIfOne(:a)}${:c}-${:b})(${MMmath.signIfOne(:a)}${:c}+${:b})",
+            "\\text{Multipliziere aus: }(${MMmath.signIfOne(:a)}${:c}-${:b})(${:b}+${MMmath.signIfOne(:a)}${:c})",
+            "\\text{Multipliziere aus: }(${MMmath.signIfOne(:a)}${:c}+${:b})(${MMmath.signIfOne(:a)}${:c}-${:b})",
+            "\\text{Multipliziere aus: }(${:b}+${MMmath.signIfOne(:a)}${:c})(${MMmath.signIfOne(:a)}${:c}-${:b})"],
         "shortq": [
             "(${MMmath.signIfOne(:a)}${:c}-${:b})(${MMmath.signIfOne(:a)}${:c}+${:b})",
             "(${MMmath.signIfOne(:a)}${:c}-${:b})(${:b}+${MMmath.signIfOne(:a)}${:c})",
             "(${MMmath.signIfOne(:a)}${:c}+${:b})(${MMmath.signIfOne(:a)}${:c}-${:b})",
             "(${:b}+${MMmath.signIfOne(:a)}${:c})(${MMmath.signIfOne(:a)}${:c}-${:b})"],
-        "answer":":question|-18=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2-${:b*:b}}",
+        "answer":":question|-26=\\color{red}{${MMmath.signIfOne(:a*:a)}${:c}^2-${:b*:b}}",
         "value":"${MMmath.signIfOne(:a*:a)}${:c}^2-${:b*:b}"    
     }
     ]

@@ -1,8 +1,8 @@
 {
-    "title":"Multiplier un décimal par une puissance de 10",
+    "title":"Dezimalzahl mit einer Zehnerpotenz multiplizieren",
     "ID":"4NC5",
     "speech":1,
-    "description":"Multiplication de nombres décimaux tirés au hasard par une puissance négative ou positive de 10 comprise entre -5 et 5",
+    "description":"Dezimalzahlen mit Zehnerpotenzen von 10^−5 bis 10^5 multiplizieren, Komma verschieben, positive und negative Exponenten",
     "dest":["9DB", "6ED"],
     "keys":["_","_","_","_","_","_","_","_"],
     "vars":{
@@ -10,54 +10,54 @@
         "puiss":"2_5"
     },
     "params":{
-        "fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["decs","unites","dizaines"]}
+        "fige":{"label":"Gleiche gültige Ziffern beibehalten","defaut":false,"fige":["decs","unites","dizaines"]}
     },
     "options":[{
-        "name":"Multiplier un décimal à 1 chiffre significatif par une puissance positive",
+        "name":"Dezimalzahl mit 1 gültigen Ziffer mal Zehnerpotenz mit positivem Exponenten",
         "vars":{
             "max":9,
             "decs":"1_${:max}",
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{${:puiss}}", "10^{${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch ${:puiss}", "10 hoch ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,:puiss),3)}}",
         "value":"${MMmath.round(:c*Math.pow(10,:puiss),3)}"
     },{
-        "name":"Multiplier un décimal à 1 chiffre significatif par une puissance négative",
+        "name":"Dezimalzahl mit 1 gültigen Ziffer mal Zehnerpotenz mit negativem Exponenten",
         "vars":{
             "max":9,
             "decs":"1_${:max}",
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{-${:puiss}}", "10^{-${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch minus ${:puiss}", "10 hoch minus ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,-:puiss),8)}}",
         "value":"${MMmath.round(:c*Math.pow(10,-:puiss),8)}"
     },{
-        "name":"Multiplier un décimal à 2 chiffres significatifs par une puissance positive",
+        "name":"Dezimalzahl mit 2 gültigen Ziffern mal Zehnerpotenz mit positivem Exponenten",
         "vars":{
             "max":99,
             "decs":"11_${:max}_^20,30,40,50,60,70,80,90",
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{${:puiss}}", "10^{${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch ${:puiss}", "10 hoch ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,:puiss),3)}}",
         "value":"${MMmath.round(:c*Math.pow(10,:puiss),3)}"
     },{
-        "name":"Multiplier un décimal à 2 chiffres significatifs par une puissance négative",
+        "name":"Dezimalzahl mit 2 gültigen Ziffern mal Zehnerpotenz mit negativem Exponenten",
         "vars":{
             "max":99,
             "decs":"11_${:max}_^20,30,40,50,60,70,80,90",
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{-${:puiss}}", "10^{-${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch minus ${:puiss}", "10 hoch minus ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,-:puiss),8)}}",
         "value":"${MMmath.round(:c*Math.pow(10,-:puiss),8)}"
     },{
-        "name":"Multiplier un décimal à 3 chiffres significatifs par une puissance positive",
+        "name":"Dezimalzahl mit 3 gültigen Ziffern mal Zehnerpotenz mit positivem Exponenten",
         "vars":{
             "unites":"1_9",
             "dizaines":"10_99",
@@ -65,11 +65,11 @@
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{${:puiss}}", "10^{${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch ${:puiss}", "10 hoch ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,:puiss),3)}}",
         "value":"${MMmath.round(:c*Math.pow(10,:puiss),3)}"
     },{
-        "name":"Multiplier un décimal à 3 chiffres significatifs par une puissance négative",
+        "name":"Dezimalzahl mit 3 gültigen Ziffern mal Zehnerpotenz mit negativem Exponenten",
         "vars":{
             "unites":"1_9",
             "dizaines":"10_99",
@@ -77,7 +77,7 @@
             "c":"${MMmath.round(:decs*Math.pow(10,:p),3)}"
         },
         "question": ["${:c}\\times 10^{-${:puiss}}", "10^{-${:puiss}}\\times ${:c}"],
-        "audio": ["${String(:c).replace('.',',')} × 10 exposant ${:puiss}", "10 exposant ${:puiss} × ${String(:c).replace('.',',')}"],
+        "audio": ["${String(:c).replace('.',',')} mal 10 hoch minus ${:puiss}", "10 hoch minus ${:puiss} mal ${String(:c).replace('.',',')}"],
         "answer":":question=\\color{red}{${MMmath.round(:c*Math.pow(10,-:puiss),8)}}",
         "value":"${MMmath.round(:c*Math.pow(10,-:puiss),8)}"
     }

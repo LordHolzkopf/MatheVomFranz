@@ -1,10 +1,11 @@
 {
-    "title":"Déterminer si un triangle est rectangle",
+    "title":"Prüfen, ob ein Dreieck rechtwinklig ist",
     "type":"text",
     "textSize":"small",
     "ID":"4GB8",
-    "description":"Utiliser l'égalité de Pythagore ou la propriété des angles pour savoir si un triangle est rectangle",
+    "description":"Mit der Winkelsumme oder mit der Umkehrung des Satzes des Pythagoras prüfen, ob ein Dreieck rechtwinklig ist",
     "dest":["9EA", "7EB"],
+    "keys":["o","n"],
     "vars":{
         "l":"0_19_3_^&",
         "A":"${:lettres[:l[0]]}",
@@ -13,7 +14,7 @@
     },
     "options":[
         {
-        "name":"Utiliser les angles",
+        "name":"Mit der Winkelsumme",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNPRSTVW",
             "angles":["${:C+:A+:B}","${:A+:B+:C}"],
@@ -33,14 +34,14 @@
             "ma":"${:angA<45?:angB::angA}",
             "idfig":"${:angA<45?'0_2':'3_4'}",
             "lo":"1_10_2_^&"},
-        "question":"Le triangle $$${:A+:B+:C}$$ est-il rectangle en $$${:C}$$, sachant que $$\\widehat{${:angles[0]}}=${:angA}°$$ et $$\\widehat{${:angles[1]}}=${:angB}°$$",
+        "question":"Im Dreieck $$${:A+:B+:C}$$ gilt $$\\angle ${:angles[0]}=${:angA}°$$ und $$\\angle ${:angles[1]}=${:angB}°$$. Ist das Dreieck rechtwinklig bei $$${:C}$$?",
         "figure":{"type":"svg","content":"${:figures[:idfig]}"},
-        "shortq":"$$${:A+:B+:C}$$ rectangle ?",
-        "answer":"<span class='red'>${:choix==0?'Oui':'Non'}</span>, car $$${:angA}°+${:angB}°${:choix==0?'=':'\\not ='}90°$$",
-        "value":["${:choix==0?'O':'N'}","${:choix==0?'OUI':'NON'}"]
+        "shortq":"$$${:A+:B+:C}$$ rechtwinklig?",
+        "answer":"<span class='red'>${:choix==0?'Ja':'Nein'}</span>, denn $$${:angA}°+${:angB}°${:choix==0?'=':'\\not ='}90°$$",
+        "value":["${:choix==0?'\\text{ja}':'\\text{nein}'}","${:choix==0?'ja':'nein'}"]
         },
         {
-        "name":"Utiliser l'égalité de Pythagore",
+        "name":"Mit der Umkehrung des Satzes des Pythagoras",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNPRSTVW",
             "figures":[
@@ -66,13 +67,13 @@
             "CA":["${:C+:A}","${:A+:C}"],
             "ABC":["${:A+:B+:C}","${:A+:C+:B}","${:B+:C+:A}","{${:B+:A+:C}","${:C+:A+:B}","${:C+:B+:A}"],
             "idfig":"0_5",
-            "longueurs":["${:AB+'='+:c}, ${:BC+'='+:a}\\text{ et }${:CA}=${:b}", "${:BC+'='+:a}, ${:AB+'='+:c}\\text{ et }${:CA}=${:b}", "${:CA}=${:b}, ${:BC+'='+:a}\\text{ et }${:AB+'='+:c}", "${:CA}=${:b}, ${:AB+'='+:c}\\text{ et }${:BC+'='+:a}"]
+            "longueurs":["${:AB+'='+:c}, ${:BC+'='+:a}\\text{ und }${:CA}=${:b}", "${:BC+'='+:a}, ${:AB+'='+:c}\\text{ und }${:CA}=${:b}", "${:CA}=${:b}, ${:BC+'='+:a}\\text{ und }${:AB+'='+:c}", "${:CA}=${:b}, ${:AB+'='+:c}\\text{ und }${:BC+'='+:a}"]
         },
-        "question":"Le triangle $$${:A+:B+:C}$$ est-il rectangle sachant que $$${:longueurs}$$ ?",
-        "shortq":"$$${:A+:B+:C}$$ rectangle ?",
+        "question":"Im Dreieck $$${:A+:B+:C}$$ gilt $$${:longueurs}$$. Ist das Dreieck rechtwinklig?",
+        "shortq":"$$${:A+:B+:C}$$ rechtwinklig?",
         "figure":{"type":"svg","content":"${:figures[:idfig]}"},
-        "answer":"<span class='red'>${:choix?'Oui':'Non'}</span>, car $$${:a}^2+${:b}^2${:choix?'=':'\\not ='}${:c}^2$$",
-        "value":["${:choix?'O':'N'}","${:choix?'OUI':'NON'}"]
+        "answer":"<span class='red'>${:choix?'Ja':'Nein'}</span>, denn $$${:a}^2+${:b}^2${:choix?'=':'\\not ='}${:c}^2$$",
+        "value":["${:choix?'\\text{ja}':'\\text{nein}'}","${:choix?'ja':'nein'}"]
         }           
     ]
 }

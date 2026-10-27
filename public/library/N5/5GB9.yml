@@ -1,5 +1,5 @@
-title: "Droites remarquables du triangle : médiatrices, hauteurs, médianes et bissectrices"
-description: "Reconnaître, coder une figure : médiatrice, hauteur, médiane, bissectrice, triangle. Non adapté au mode interactif (online/duel)."
+title: "Besondere Linien im Dreieck: Mittelsenkrechten, Höhen, Seitenhalbierenden und Winkelhalbierenden"
+description: "Besondere Linien im Dreieck erkennen, benennen und durch Markierungen kennzeichnen: Mittelsenkrechte, Höhe, Seitenhalbierende, Winkelhalbierende, Umkreis, Inkreis, Schwerpunkt, Höhenschnittpunkt. Nicht für den interaktiven Modus (online/Duell) geeignet."
 ID: 5GB9
 type: text
 textSize: medium
@@ -13,7 +13,7 @@ consts:
   # lettres des sommets. Ni I ni O (confusion avec 1 et 0), ni X, Y, Z (réservés
   # aux axes et aux inconnues).
   pool: "ABCDEFGHJKLMNPQRSTUVW"
-  formes: [quelconque, obtusangle, isocèle, équilatéral, rectangle]
+  formes: [allgemein, stumpfwinklig, gleichschenklig, gleichseitig, rechtwinklig]
   # ─── forme du triangle : les trois sommets sont posés sur un même cercle, ce
   # qui donne le contrôle de la forme par les arcs qu’ils y découpent.
   # arcs[forme][n] = [arc V0→V1, arc V1→V2, arc V2→V0], en degrés, de somme 360.
@@ -41,23 +41,23 @@ consts:
   # ─── réponses. Les constantes sont traversées par la substitution des
   # variables (resolveVars() les repasse après avoir tiré les variables), on peut
   # donc y écrire :nS ou :nU comme dans un énoncé.
-  repMediatrice: "C’est la <span class='red'>médiatrice de $$[:nU:nV]$$</span>.<br><i>Le codage le dit : elle coupe ce côté en son milieu, perpendiculairement.</i>"
-  repHauteur: "C’est la <span class='red'>hauteur issue de $$:nS$$</span>.<br><i>Elle passe par le sommet $$:nS$$ et, le codage le dit, elle est perpendiculaire au côté $$[:nU:nV]$$.</i>"
-  repMediane: "C’est la <span class='red'>médiane issue de $$:nS$$</span>.<br><i>Elle joint le sommet $$:nS$$ au milieu du côté $$[:nU:nV]$$, que le codage désigne.</i>"
+  repMediatrice: "Das ist die <span class='red'>Mittelsenkrechte von $$\\overline{:nU:nV}$$</span>.<br><i>Das zeigen die Markierungen: Sie geht durch die Mitte dieser Seite und steht senkrecht auf ihr.</i>"
+  repHauteur: "Das ist die <span class='red'>Höhe durch $$:nS$$</span>.<br><i>Sie geht durch den Eckpunkt $$:nS$$ und steht, wie die Markierung zeigt, senkrecht auf der Seite $$\\overline{:nU:nV}$$.</i>"
+  repMediane: "Das ist die <span class='red'>Seitenhalbierende durch $$:nS$$</span>.<br><i>Sie verbindet den Eckpunkt $$:nS$$ mit der Mitte der Seite $$\\overline{:nU:nV}$$, die durch die Markierungen gekennzeichnet ist.</i>"
   # cas où la droite tracée est un axe de symétrie du triangle : les trois
   # droites remarquables y sont confondues, aucune réponse ne peut être exigée
   # plutôt qu’une autre
-  repAxe: '${"C’est <span class=''red''>à la fois la médiatrice de $$["+:nU+:nV+"]$$, la hauteur issue de $$"+:nS+"$$ et la médiane issue de $$"+:nS+"$$</span>.<br><i>"+(:forme===3?"Ce triangle est équilatéral : la médiatrice, la hauteur et la médiane de chaque côté y sont confondues.":"Ce triangle est isocèle de sommet principal $$"+:nS+"$$ : la médiatrice, la hauteur et la médiane issues de ce sommet y sont confondues.")+"</i>"}'
-  repMediatrices: "Ce sont les <span class='red'>trois médiatrices</span> du triangle.<br><i>Chacune coupe un côté en son milieu, perpendiculairement. Elles se coupent en un même point, le centre du cercle circonscrit.</i>"
-  repHauteurs: "Ce sont les <span class='red'>trois hauteurs</span> du triangle.<br><i>Chacune passe par un sommet et est perpendiculaire au côté opposé. Elles se coupent en un même point, l’orthocentre.</i>"
-  repMedianes: "Ce sont les <span class='red'>trois médianes</span> du triangle.<br><i>Chacune joint un sommet au milieu du côté opposé. Elles se coupent en un même point, le centre de gravité.</i>"
-  repAxe3: "Ce sont <span class='red'>à la fois les médiatrices, les hauteurs et les médianes</span> du triangle.<br><i>Dans un triangle équilatéral, ces trois familles de droites sont confondues : ce sont les trois axes de symétrie.</i>"
-  repCodeHauteur: "Il faut coder <span class='red'>l’angle droit</span> en $$:nD$$, entre $$(:nA:nD)$$ et le côté $$[:nB:nC]$$.<br><i>Une hauteur est perpendiculaire au côté opposé au sommet dont elle est issue.</i>"
-  repCodeMediane: "Il faut coder que <span class='red'>$$:nD$$ est le milieu de $$[:nB:nC]$$</span>, par une même marque sur $$[:nB:nD]$$ et sur $$[:nD:nC]$$.<br><i>Une médiane joint un sommet au milieu du côté opposé.</i>"
-  repCodeBissectrice: "Il faut coder que <span class='red'>l’angle $$:nB:nA:nD$$ est égal à l’angle $$:nD:nA:nC$$</span>, par un même codage (un même nombre d’arcs) sur chacun.<br><i>Une bissectrice partage l’angle en deux angles de même mesure.</i>"
-  repCodeMediatrice: "Il faut coder à la fois <span class='red'>l’angle droit en $$:nD$$</span> et que <span class='red'>$$:nD$$ est le milieu de $$[:nB:nC]$$</span>, par une marque d’angle droit et une même marque sur $$[:nB:nD]$$ et sur $$[:nD:nC]$$.<br><i>Une médiatrice est perpendiculaire au côté et passe par son milieu.</i>"
-  repBissectrice: "C’est la <span class='red'>bissectrice issue de $$:nS$$</span>.<br><i>Le codage le dit : elle partage l’angle $$\\widehat{:nU:nS:nV}$$ en deux angles égaux.</i>"
-  repBissectrices: "Ce sont les <span class='red'>trois bissectrices</span> du triangle.<br><i>Chacune part d’un sommet et partage l’angle en deux angles égaux. Elles se coupent en un même point, le centre du cercle inscrit.</i>"
+  repAxe: '${"Das ist <span class=''red''>zugleich die Mittelsenkrechte von $$\overline{"+:nU+:nV+"}$$, die Höhe durch $$"+:nS+"$$ und die Seitenhalbierende durch $$"+:nS+"$$</span>.<br><i>"+(:forme===3?"Das Dreieck ist gleichseitig: Mittelsenkrechte, Höhe und Seitenhalbierende fallen bei jeder Seite zusammen.":"Das Dreieck ist gleichschenklig mit der Spitze $$"+:nS+"$$: Mittelsenkrechte, Höhe und Seitenhalbierende durch diese Spitze fallen zusammen.")+"</i>"}'
+  repMediatrices: "Das sind die <span class='red'>drei Mittelsenkrechten</span> des Dreiecks.<br><i>Jede geht durch die Mitte einer Seite und steht senkrecht auf ihr. Sie schneiden sich in einem Punkt, dem Mittelpunkt des Umkreises.</i>"
+  repHauteurs: "Das sind die <span class='red'>drei Höhen</span> des Dreiecks.<br><i>Jede geht durch einen Eckpunkt und steht senkrecht auf der gegenüberliegenden Seite. Sie schneiden sich in einem Punkt, dem Höhenschnittpunkt.</i>"
+  repMedianes: "Das sind die <span class='red'>drei Seitenhalbierenden</span> des Dreiecks.<br><i>Jede verbindet einen Eckpunkt mit der Mitte der gegenüberliegenden Seite. Sie schneiden sich in einem Punkt, dem Schwerpunkt.</i>"
+  repAxe3: "Das sind <span class='red'>zugleich die Mittelsenkrechten, die Höhen und die Seitenhalbierenden</span> des Dreiecks.<br><i>Im gleichseitigen Dreieck fallen diese drei Arten von Linien zusammen: Es sind die drei Symmetrieachsen.</i>"
+  repCodeHauteur: "Du musst den <span class='red'>rechten Winkel</span> bei $$:nD$$ markieren, zwischen der Geraden $$:nA:nD$$ und der Seite $$\\overline{:nB:nC}$$.<br><i>Eine Höhe steht senkrecht auf der Seite, die dem Eckpunkt gegenüberliegt, durch den sie geht.</i>"
+  repCodeMediane: "Du musst markieren, dass <span class='red'>$$:nD$$ die Mitte von $$\\overline{:nB:nC}$$ ist</span>: mit derselben Markierung auf $$\\overline{:nB:nD}$$ und auf $$\\overline{:nD:nC}$$.<br><i>Eine Seitenhalbierende verbindet einen Eckpunkt mit der Mitte der gegenüberliegenden Seite.</i>"
+  repCodeBissectrice: "Du musst markieren, dass <span class='red'>der Winkel $$\\angle :nB:nA:nD$$ genauso groß ist wie der Winkel $$\\angle :nD:nA:nC$$</span>: mit derselben Markierung (gleich vielen Bögen) in beiden Winkeln.<br><i>Eine Winkelhalbierende teilt einen Winkel in zwei gleich große Winkel.</i>"
+  repCodeMediatrice: "Du musst <span class='red'>den rechten Winkel bei $$:nD$$</span> markieren und außerdem, dass <span class='red'>$$:nD$$ die Mitte von $$\\overline{:nB:nC}$$ ist</span>: mit dem Zeichen für den rechten Winkel und derselben Markierung auf $$\\overline{:nB:nD}$$ und auf $$\\overline{:nD:nC}$$.<br><i>Eine Mittelsenkrechte steht senkrecht auf der Seite und geht durch ihre Mitte.</i>"
+  repBissectrice: "Das ist die <span class='red'>Winkelhalbierende des Winkels bei $$:nS$$</span>.<br><i>Das zeigen die Markierungen: Sie teilt den Winkel $$\\angle :nU:nS:nV$$ in zwei gleich große Winkel.</i>"
+  repBissectrices: "Das sind die <span class='red'>drei Winkelhalbierenden</span> des Dreiecks.<br><i>Jede geht von einem Eckpunkt aus und teilt den Winkel dort in zwei gleich große Winkel. Sie schneiden sich in einem Punkt, dem Mittelpunkt des Inkreises.</i>"
   # ─── figures à main levée de la dernière série, produites par
   # tools/figures-5GB9.mjs (Rough.js). Elles ne portent aucun codage : c’est
   # l’énoncé qui donne la nature de la droite tracée, et l’élève dit le codage
@@ -313,11 +313,11 @@ vars:
   # savoir que le triangle est particulier, l’élève ne peut pas le voir, le
   # codage seul ne le dit pas. On le lui annonce donc, avec le sommet principal
   # quand c’est un isocèle — c’est lui qui porte l’axe de symétrie.
-  questionUne: '${:forme===3?("Le triangle $$"+:nom+"$$ est équilatéral.<br>Comment s’appelle la droite rouge tracée ?"):(:forme===2?("Le triangle $$"+:nom+"$$ est isocèle en $$"+:nA+"$$.<br>Comment s’appelle la droite rouge tracée ?"):("Comment s’appelle la droite rouge tracée dans le triangle $$"+:nom+"$$ ?"))}'
-  nomD: ${:dr===0?"médiatrice":(:dr===1?"hauteur":(:dr===2?"médiane":"bissectrice"))}
-  nomDsa: ${:dr===0?"mediatrice":(:dr===1?"hauteur":(:dr===2?"mediane":"bissectrice"))}
-  nomD3: ${:dr===0?"médiatrices":(:dr===1?"hauteurs":(:dr===2?"médianes":"bissectrices"))}
-  nomD3sa: ${:dr===0?"mediatrices":(:dr===1?"hauteurs":(:dr===2?"medianes":"bissectrices"))}
+  questionUne: '${:forme===3?("Das Dreieck $$"+:nom+"$$ ist gleichseitig.<br>Wie heißt die eingezeichnete rote Gerade?"):(:forme===2?("Das Dreieck $$"+:nom+"$$ ist gleichschenklig mit der Spitze $$"+:nA+"$$.<br>Wie heißt die eingezeichnete rote Gerade?"):("Wie heißt die rote Gerade, die im Dreieck $$"+:nom+"$$ eingezeichnet ist?"))}'
+  nomD: ${:dr===0?"Mittelsenkrechte":(:dr===1?"Höhe":(:dr===2?"Seitenhalbierende":"Winkelhalbierende"))}
+  nomDsa: ${:dr===0?"Mittelsenkrechte":(:dr===1?"Hoehe":(:dr===2?"Seitenhalbierende":"Winkelhalbierende"))}
+  nomD3: ${:dr===0?"Mittelsenkrechten":(:dr===1?"Höhen":(:dr===2?"Seitenhalbierenden":"Winkelhalbierenden"))}
+  nomD3sa: ${:dr===0?"Mittelsenkrechten":(:dr===1?"Hoehen":(:dr===2?"Seitenhalbierenden":"Winkelhalbierenden"))}
   # la droite tracée est-elle un axe de symétrie du triangle ? Alors elle est à
   # la fois médiatrice, hauteur et médiane, et toutes les réponses se valent :
   # c’est le cas de toutes les droites de l’équilatéral, et de celle du sommet
@@ -336,30 +336,30 @@ vars:
   # ce qu’elle est, contrairement aux trois autres droites qui peuvent s’y
   # confondre
   codeBissectrice: ${:dr===3}
-  codNom: ${:cod===1?"hauteur":(:cod===2?"bissectrice":(:cod===3?"médiatrice":"médiane"))}
+  codNom: ${:cod===1?"Höhe":(:cod===2?"Winkelhalbierende":(:cod===3?"Mittelsenkrechte":"Seitenhalbierende"))}
   # ─── figure à main levée de la dernière série
   numfig: "0_9"
   fig: ${:figs[:numfig].replaceAll("%A%",:nA).replaceAll("%B%",:nB).replaceAll("%C%",:nC).replaceAll("%M%",:nD)}
 options:
   # ───────────────── une seule droite tracée
-  - name: Une médiatrice tracée
+  - name: Eine Mittelsenkrechte erkennen
     vars:
       dr: 0
       nb: 1
     question: ${:questionUne}
-    shortq: la droite rouge ?
+    shortq: rote Gerade?
     answer: ${:axe?:repAxe::repMediatrice}
     value: &valeursUne
       - '${:nomD}'
       - '${:nomDsa}'
-      - 'une ${:nomD}'
-      - 'la ${:nomD}'
-      - '${:dr===0?"médiatrice de ["+:nU+:nV+"]"::nomD+" issue de "+:nS}'
-      - '${:axe?"médiatrice"::nomD}'
-      - '${:axe?"mediatrice"::nomDsa}'
-      - '${:axe?"hauteur"::nomD}'
-      - '${:axe?"médiane"::nomD}'
-      - '${:axe?"mediane"::nomDsa}'
+      - 'eine ${:nomD}'
+      - 'die ${:nomD}'
+      - '${:dr===0?"Mittelsenkrechte von "+:nU+:nV::nomD+" durch "+:nS}'
+      - '${:axe?"Mittelsenkrechte"::nomD}'
+      - '${:axe?"Hoehe"::nomDsa}'
+      - '${:axe?"Höhe"::nomD}'
+      - '${:axe?"Seitenhalbierende"::nomD}'
+      - '${:axe?"Seitenhalbierende"::nomDsa}'
     figure: &figureUne
       type: graph
       axis: false
@@ -410,35 +410,35 @@ options:
         - [point, ["${MMmath.round(:ox+:mBx*0.66,4)}", "${MMmath.round(:oy+:mBy*0.66,4)}"], { name: zPN, visible: false, withLabel: false }]
         - [point, ["${MMmath.round(:ox+:mBx*1.14,4)}", "${MMmath.round(:oy+:mBy*1.14,4)}"], { name: zPO, visible: false, withLabel: false }]
         - [segment, [zPN, zPO], { strokeColor: "#7b2cbf", strokeWidth: 1.2, visible: "${:codeBissectrice}" }]
-  - name: Une bissectrice tracée
+  - name: Eine Winkelhalbierende erkennen
     vars:
       dr: 3
       nb: 1
       forme: [0, 1, 4]
     question: ${:questionUne}
-    shortq: la droite rouge ?
+    shortq: rote Gerade?
     answer: ${:repBissectrice}
     value: *valeursUne
     figure: *figureUne
-  - name: Une hauteur tracée
+  - name: Eine Höhe erkennen
     vars:
       dr: 1
       nb: 1
     question: ${:questionUne}
-    shortq: la droite rouge ?
+    shortq: rote Gerade?
     answer: ${:axe?:repAxe::repHauteur}
     value: *valeursUne
     figure: *figureUne
-  - name: Une médiane tracée
+  - name: Eine Seitenhalbierende erkennen
     vars:
       dr: 2
       nb: 1
     question: ${:questionUne}
-    shortq: la droite rouge ?
+    shortq: rote Gerade?
     answer: ${:axe?:repAxe::repMediane}
     value: *valeursUne
     figure: *figureUne
-  - name: Deux droites tracées, laquelle est la médiatrice, la hauteur ou la médiane
+  - name: Zwei Geraden – die gesuchte Linie finden
     vars:
       forme: [0, 1, 4]
       # ─── deux types distincts, tirés parmi les quatre familles (0 médiatrice,
@@ -585,16 +585,16 @@ options:
       targetNU: ${:askA?:nUA::nUB}
       targetNV: ${:askA?:nVA::nVB}
       targetAxe: ${:askA?:axeA::axeB}
-      askedTypeName: ${:targetDr===0?"médiatrice":(:targetDr===1?"hauteur":(:targetDr===2?"médiane":"bissectrice"))}
-      targetDescr: ${:targetDr===0?("la médiatrice de $$["+:targetNU+:targetNV+"]$$"):(:targetDr===1?("la hauteur issue de $$"+:targetNS+"$$"):(:targetDr===2?("la médiane issue de $$"+:targetNS+"$$"):("la bissectrice issue de $$"+:targetNS+"$$")))}
-      targetReason: '${:targetAxe?(:forme===3?"Ce triangle est équilatéral : la médiatrice, la hauteur et la médiane de chaque côté y sont confondues.":"Ce triangle est isocèle de sommet principal $$"+:targetNS+"$$ : la médiatrice, la hauteur et la médiane issues de ce sommet y sont confondues."):(:targetDr===0?"Le codage le dit : elle coupe ce côté en son milieu, perpendiculairement.":(:targetDr===1?("Elle passe par le sommet $$"+:targetNS+"$$ et, le codage le dit, elle est perpendiculaire au côté opposé."):(:targetDr===2?("Elle joint le sommet $$"+:targetNS+"$$ au milieu du côté opposé, que le codage désigne."):("Elle part du sommet $$"+:targetNS+"$$ et, le codage le dit, partage l’angle en deux angles égaux."))))}'
-    question: Deux droites, $$d_1$$ et $$d_2$$, sont tracées dans le triangle $$:nom$$.<br>Laquelle est une :askedTypeName ?
-    shortq: d1 ou d2 ?
-    answer: '${"C’est <span class=''red''>$$"+(:askA?"d_1":"d_2")+"$$</span> : c’est "+:targetDescr+".<br><i>"+:targetReason+"</i>"}'
+      askedTypeName: ${:targetDr===0?"Mittelsenkrechte":(:targetDr===1?"Höhe":(:targetDr===2?"Seitenhalbierende":"Winkelhalbierende"))}
+      targetDescr: ${:targetDr===0?("die Mittelsenkrechte von $$\overline{"+:targetNU+:targetNV+"}$$"):(:targetDr===1?("die Höhe durch $$"+:targetNS+"$$"):(:targetDr===2?("die Seitenhalbierende durch $$"+:targetNS+"$$"):("die Winkelhalbierende des Winkels bei $$"+:targetNS+"$$")))}
+      targetReason: '${:targetAxe?(:forme===3?"Das Dreieck ist gleichseitig: Mittelsenkrechte, Höhe und Seitenhalbierende fallen bei jeder Seite zusammen.":"Das Dreieck ist gleichschenklig mit der Spitze $$"+:targetNS+"$$: Mittelsenkrechte, Höhe und Seitenhalbierende durch diese Spitze fallen zusammen."):(:targetDr===0?"Das zeigen die Markierungen: Sie geht durch die Mitte der Seite und steht senkrecht auf ihr.":(:targetDr===1?("Sie geht durch den Eckpunkt $$"+:targetNS+"$$ und steht, wie die Markierung zeigt, senkrecht auf der gegenüberliegenden Seite."):(:targetDr===2?("Sie verbindet den Eckpunkt $$"+:targetNS+"$$ mit der Mitte der gegenüberliegenden Seite, die durch die Markierungen gekennzeichnet ist."):("Sie geht vom Eckpunkt $$"+:targetNS+"$$ aus und teilt, wie die Markierungen zeigen, den Winkel in zwei gleich große Winkel."))))}'
+    question: Im Dreieck $$:nom$$ sind zwei Geraden $$d_1$$ und $$d_2$$ eingezeichnet.<br>Welche davon ist eine :askedTypeName?
+    shortq: d1 oder d2?
+    answer: '${"<span class=''red''>$$"+(:askA?"d_1":"d_2")+"$$</span> ist "+:targetDescr+".<br><i>"+:targetReason+"</i>"}'
     value:
       - '${:correctLine}'
-      - 'la droite ${:correctLine}'
-      - 'la ${:correctLine}'
+      - 'die Gerade ${:correctLine}'
+      - 'Gerade ${:correctLine}'
     figure: &figureDeux
       type: graph
       axis: false
@@ -675,7 +675,7 @@ options:
         - [point, ["${MMmath.round(:oBx+:btB2x*1.14,4)}", "${MMmath.round(:oBy+:btB2y*1.14,4)}"], { name: zD2O, visible: false, withLabel: false }]
         - [segment, [zD2N, zD2O], { strokeColor: "#7b2cbf", strokeWidth: 1.2, visible: "${:codeBissectriceB}" }]
         - [segment, [zD2J, zD2K], { strokeColor: "#7b2cbf", strokeWidth: 1.4, visible: "${:codeMilieuB}" }]
-  - name: Deux droites tracées, qu’est-ce que d1 ou d2
+  - name: Zwei Geraden – d1 oder d2 benennen
     vars:
       forme: [0, 1, 4]
       # ─── deux types distincts, tirés parmi les quatre familles (0 médiatrice,
@@ -816,51 +816,51 @@ options:
       targetNU: ${:askA?:nUA::nUB}
       targetNV: ${:askA?:nVA::nVB}
       targetAxe: ${:askA?:axeA::axeB}
-      targetDescr: ${:targetAxe?("à la fois la médiatrice de $$["+:targetNU+:targetNV+"]$$, la hauteur issue de $$"+:targetNS+"$$ et la médiane issue de $$"+:targetNS+"$$"):(:targetDr===0?("la médiatrice de $$["+:targetNU+:targetNV+"]$$"):(:targetDr===1?("la hauteur issue de $$"+:targetNS+"$$"):(:targetDr===2?("la médiane issue de $$"+:targetNS+"$$"):("la bissectrice issue de $$"+:targetNS+"$$"))))}
-      targetReason: '${:targetAxe?(:forme===3?"Ce triangle est équilatéral : la médiatrice, la hauteur et la médiane de chaque côté y sont confondues.":"Ce triangle est isocèle de sommet principal $$"+:targetNS+"$$ : la médiatrice, la hauteur et la médiane issues de ce sommet y sont confondues."):(:targetDr===0?"Le codage le dit : elle coupe ce côté en son milieu, perpendiculairement.":(:targetDr===1?("Elle passe par le sommet $$"+:targetNS+"$$ et, le codage le dit, elle est perpendiculaire au côté opposé."):(:targetDr===2?("Elle joint le sommet $$"+:targetNS+"$$ au milieu du côté opposé, que le codage désigne."):("Elle part du sommet $$"+:targetNS+"$$ et, le codage le dit, partage l’angle en deux angles égaux."))))}'
-      targetNomD: ${:targetDr===0?"médiatrice":(:targetDr===1?"hauteur":(:targetDr===2?"médiane":"bissectrice"))}
-      targetNomDsa: ${:targetDr===0?"mediatrice":(:targetDr===1?"hauteur":(:targetDr===2?"mediane":"bissectrice"))}
+      targetDescr: ${:targetAxe?("zugleich die Mittelsenkrechte von $$\overline{"+:targetNU+:targetNV+"}$$, die Höhe durch $$"+:targetNS+"$$ und die Seitenhalbierende durch $$"+:targetNS+"$$"):(:targetDr===0?("die Mittelsenkrechte von $$\overline{"+:targetNU+:targetNV+"}$$"):(:targetDr===1?("die Höhe durch $$"+:targetNS+"$$"):(:targetDr===2?("die Seitenhalbierende durch $$"+:targetNS+"$$"):("die Winkelhalbierende des Winkels bei $$"+:targetNS+"$$"))))}
+      targetReason: '${:targetAxe?(:forme===3?"Das Dreieck ist gleichseitig: Mittelsenkrechte, Höhe und Seitenhalbierende fallen bei jeder Seite zusammen.":"Das Dreieck ist gleichschenklig mit der Spitze $$"+:targetNS+"$$: Mittelsenkrechte, Höhe und Seitenhalbierende durch diese Spitze fallen zusammen."):(:targetDr===0?"Das zeigen die Markierungen: Sie geht durch die Mitte der Seite und steht senkrecht auf ihr.":(:targetDr===1?("Sie geht durch den Eckpunkt $$"+:targetNS+"$$ und steht, wie die Markierung zeigt, senkrecht auf der gegenüberliegenden Seite."):(:targetDr===2?("Sie verbindet den Eckpunkt $$"+:targetNS+"$$ mit der Mitte der gegenüberliegenden Seite, die durch die Markierungen gekennzeichnet ist."):("Sie geht vom Eckpunkt $$"+:targetNS+"$$ aus und teilt, wie die Markierungen zeigen, den Winkel in zwei gleich große Winkel."))))}'
+      targetNomD: ${:targetDr===0?"Mittelsenkrechte":(:targetDr===1?"Höhe":(:targetDr===2?"Seitenhalbierende":"Winkelhalbierende"))}
+      targetNomDsa: ${:targetDr===0?"Mittelsenkrechte":(:targetDr===1?"Hoehe":(:targetDr===2?"Seitenhalbierende":"Winkelhalbierende"))}
     # Comme dans les séries à une seule droite : dans un isocèle ou un
     # équilatéral, la droite tracée peut être à la fois médiatrice, hauteur et
     # médiane, et rien sur la figure ne le dit. On annonce donc la nature du
     # triangle, avec le sommet principal quand il est isocèle.
     # Tout est composé ici, dans l’énoncé, et non dans une variable : une valeur
     # de vars qui contiendrait « d_1 » serait relue comme une plage aléatoire.
-    question: '${(:forme===3?("Le triangle $$"+:nom+"$$ est équilatéral.<br>Deux droites, $$d_1$$ et $$d_2$$, y sont tracées."):(:forme===2?("Le triangle $$"+:nom+"$$ est isocèle en $$"+:nA+"$$.<br>Deux droites, $$d_1$$ et $$d_2$$, y sont tracées."):("Deux droites, $$d_1$$ et $$d_2$$, sont tracées dans le triangle $$"+:nom+"$$.")))+"<br>Qu’est-ce que la droite $$"+(:askA?"d_1":"d_2")+"$$ ?"}'
-    shortq: cette droite ?
-    answer: ${"C’est <span class='red'>"+:targetDescr+"</span>.<br><i>"+:targetReason+"</i>"}
+    question: '${(:forme===3?("Das Dreieck $$"+:nom+"$$ ist gleichseitig.<br>Es sind zwei Geraden $$d_1$$ und $$d_2$$ eingezeichnet."):(:forme===2?("Das Dreieck $$"+:nom+"$$ ist gleichschenklig mit der Spitze $$"+:nA+"$$.<br>Es sind zwei Geraden $$d_1$$ und $$d_2$$ eingezeichnet."):("Im Dreieck $$"+:nom+"$$ sind zwei Geraden $$d_1$$ und $$d_2$$ eingezeichnet.")))+"<br>Welche besondere Linie ist die Gerade $$"+(:askA?"d_1":"d_2")+"$$?"}'
+    shortq: diese Gerade?
+    answer: ${"Das ist <span class='red'>"+:targetDescr+"</span>.<br><i>"+:targetReason+"</i>"}
     value:
       - '${:targetNomD}'
       - '${:targetNomDsa}'
-      - 'une ${:targetNomD}'
-      - 'la ${:targetNomD}'
-      - '${:targetDr===0?"médiatrice de ["+:targetNU+:targetNV+"]"::targetNomD+" issue de "+:targetNS}'
-      - '${:targetAxe?"médiatrice"::targetNomD}'
-      - '${:targetAxe?"mediatrice"::targetNomDsa}'
-      - '${:targetAxe?"hauteur"::targetNomD}'
-      - '${:targetAxe?"médiane"::targetNomD}'
-      - '${:targetAxe?"mediane"::targetNomDsa}'
+      - 'eine ${:targetNomD}'
+      - 'die ${:targetNomD}'
+      - '${:targetDr===0?"Mittelsenkrechte von "+:targetNU+:targetNV::targetNomD+" durch "+:targetNS}'
+      - '${:targetAxe?"Mittelsenkrechte"::targetNomD}'
+      - '${:targetAxe?"Hoehe"::targetNomDsa}'
+      - '${:targetAxe?"Höhe"::targetNomD}'
+      - '${:targetAxe?"Seitenhalbierende"::targetNomD}'
+      - '${:targetAxe?"Seitenhalbierende"::targetNomDsa}'
       - '${:targetLine}'
-      - 'la droite ${:targetLine}'
+      - 'die Gerade ${:targetLine}'
     figure: *figureDeux
   # ───────────────── les trois droites d’une même famille
-  - name: Les trois médiatrices tracées
+  - name: Die drei Mittelsenkrechten erkennen
     vars:
       dr: 0
       nb: 3
-    question: Comment s’appellent les trois droites rouges tracées dans le triangle $$:nom$$ ?
-    shortq: les trois droites rouges ?
+    question: Wie heißen die drei roten Geraden, die im Dreieck $$:nom$$ eingezeichnet sind?
+    shortq: die drei roten Geraden?
     answer: ${:axe3?:repAxe3::repMediatrices}
     value: &valeursTrois
       - '${:nomD3}'
       - '${:nomD3sa}'
-      - 'les ${:nomD3}'
-      - 'les trois ${:nomD3}'
-      - '${:axe3?"médiatrices"::nomD3}'
-      - '${:axe3?"mediatrices"::nomD3sa}'
-      - '${:axe3?"hauteurs"::nomD3}'
-      - '${:axe3?"médianes"::nomD3}'
-      - '${:axe3?"medianes"::nomD3sa}'
+      - 'die ${:nomD3}'
+      - 'die drei ${:nomD3}'
+      - '${:axe3?"Mittelsenkrechten"::nomD3}'
+      - '${:axe3?"Hoehen"::nomD3sa}'
+      - '${:axe3?"Höhen"::nomD3}'
+      - '${:axe3?"Seitenhalbierenden"::nomD3}'
+      - '${:axe3?"Seitenhalbierenden"::nomD3sa}'
     figure: &figureTrois
       type: graph
       axis: false
@@ -965,79 +965,79 @@ options:
         - [point, ["${MMmath.round(:x2+:mB2x*0.66,4)}", "${MMmath.round(:y2+:mB2y*0.66,4)}"], { name: zCT3, visible: false, withLabel: false }]
         - [point, ["${MMmath.round(:x2+:mB2x*1.14,4)}", "${MMmath.round(:y2+:mB2y*1.14,4)}"], { name: zCT4, visible: false, withLabel: false }]
         - [segment, [zCT3, zCT4], { strokeColor: "#7b2cbf", strokeWidth: 1.2, visible: "${:codeBissectrice}" }]
-  - name: Les trois bissectrices tracées
+  - name: Die drei Winkelhalbierenden erkennen
     vars:
       dr: 3
       nb: 3
       forme: [0, 1, 4]
-    question: Comment s’appellent les trois droites rouges tracées dans le triangle $$:nom$$ ?
-    shortq: les trois droites rouges ?
+    question: Wie heißen die drei roten Geraden, die im Dreieck $$:nom$$ eingezeichnet sind?
+    shortq: die drei roten Geraden?
     answer: ${:repBissectrices}
     value: *valeursTrois
     figure: *figureTrois
-  - name: Les trois hauteurs tracées
+  - name: Die drei Höhen erkennen
     vars:
       dr: 1
       nb: 3
-    question: Comment s’appellent les trois droites rouges tracées dans le triangle $$:nom$$ ?
-    shortq: les trois droites rouges ?
+    question: Wie heißen die drei roten Geraden, die im Dreieck $$:nom$$ eingezeichnet sind?
+    shortq: die drei roten Geraden?
     answer: ${:axe3?:repAxe3::repHauteurs}
     value: *valeursTrois
     figure: *figureTrois
-  - name: Les trois médianes tracées
+  - name: Die drei Seitenhalbierenden erkennen
     vars:
       dr: 2
       nb: 3
-    question: Comment s’appellent les trois droites rouges tracées dans le triangle $$:nom$$ ?
-    shortq: les trois droites rouges ?
+    question: Wie heißen die drei roten Geraden, die im Dreieck $$:nom$$ eingezeichnet sind?
+    shortq: die drei roten Geraden?
     answer: ${:axe3?:repAxe3::repMedianes}
     value: *valeursTrois
     figure: *figureTrois
   # ───────────────── coder une figure à main levée
-  - name: Coder une hauteur
+  - name: Höhe markieren
     vars:
       cod: 1
-    question: Sur cette figure à main levée, la droite $$(:nA:nD)$$ est une :codNom du triangle $$:nom$$.<br>Coder la figure.
-    shortq: coder la figure ?
+    question: Die Skizze ist freihand gezeichnet. Die Gerade $$:nA:nD$$ ist eine :codNom des Dreiecks $$:nom$$.<br>Welche Markierungen gehören in die Figur?
+    shortq: Markierungen?
     answer: ${:cod===1?:repCodeHauteur::repCodeMediane}
     value: &valeursCodage
-      - '${:cod===1?"angle droit":"milieu"}'
-      - '${:cod===1?"un angle droit":"un milieu"}'
-      - '${:cod===1?"l’angle droit":"le milieu"}'
-      - '${:cod===1?"l''angle droit":"le milieu de ["+:nB+:nC+"]"}'
-      - '${:cod===1?"angle droit en "+:nD:"milieu de ["+:nB+:nC+"]"}'
+      - '${:cod===1?"rechter Winkel":"Mitte"}'
+      - '${:cod===1?"ein rechter Winkel":"die Mitte"}'
+      - '${:cod===1?"den rechten Winkel":"Mittelpunkt"}'
+      - '${:cod===1?"rechten Winkel":"Mitte von "+:nB+:nC}'
+      - '${:cod===1?"rechter Winkel bei "+:nD:"Mitte von "+:nB+:nC}'
     figure: &figureCodage
       type: svg
       content: ${:fig}
-  - name: Coder une médiane
+  - name: Seitenhalbierende markieren
     vars:
       cod: 0
-    question: Sur cette figure à main levée, la droite $$(:nA:nD)$$ est une :codNom du triangle $$:nom$$.<br>Coder la figure.
-    shortq: coder la figure ?
+    question: Die Skizze ist freihand gezeichnet. Die Gerade $$:nA:nD$$ ist eine :codNom des Dreiecks $$:nom$$.<br>Welche Markierungen gehören in die Figur?
+    shortq: Markierungen?
     answer: ${:cod===1?:repCodeHauteur::repCodeMediane}
     value: *valeursCodage
     figure: *figureCodage
-  - name: Coder une bissectrice
+  - name: Winkelhalbierende markieren
     vars:
       cod: 2
-    question: Sur cette figure à main levée, la droite $$(:nA:nD)$$ est une :codNom du triangle $$:nom$$.<br>Coder la figure.
-    shortq: coder la figure ?
+    question: Die Skizze ist freihand gezeichnet. Die Gerade $$:nA:nD$$ ist eine :codNom des Dreiecks $$:nom$$.<br>Welche Markierungen gehören in die Figur?
+    shortq: Markierungen?
     answer: ${:repCodeBissectrice}
     value:
-      - "angles égaux"
-      - "deux angles égaux"
-      - '${"angle "+:nB+:nA+:nD+" égal à angle "+:nD+:nA+:nC}'
-      - '${"angle "+:nB+:nA+:nD+"=angle "+:nD+:nA+:nC}'
+      - "gleiche Winkel"
+      - "zwei gleich große Winkel"
+      - '${"Winkel "+:nB+:nA+:nD+" gleich Winkel "+:nD+:nA+:nC}'
+      - '${"Winkel "+:nB+:nA+:nD+"=Winkel "+:nD+:nA+:nC}'
     figure: *figureCodage
-  - name: Coder une médiatrice
+  - name: Mittelsenkrechte markieren
     vars:
       cod: 3
-    question: Sur cette figure à main levée, la droite $$(:nA:nD)$$ est une :codNom du triangle $$:nom$$.<br>Coder la figure.
-    shortq: coder la figure ?
+    question: Die Skizze ist freihand gezeichnet. Die Gerade $$:nA:nD$$ ist eine :codNom des Dreiecks $$:nom$$.<br>Welche Markierungen gehören in die Figur?
+    shortq: Markierungen?
     answer: ${:repCodeMediatrice}
     value:
-      - "angle droit et milieu"
-      - '${"angle droit en "+:nD+" et milieu de ["+:nB+:nC+"]"}'
-      - '${"angle droit en "+:nD}'
-      - '${"milieu de ["+:nB+:nC+"]"}'
+      - "rechter Winkel und Mitte"
+      - '${"rechter Winkel bei "+:nD+" und Mitte von "+:nB+:nC}'
+      - '${"rechter Winkel bei "+:nD}'
+      - '${"Mitte von "+:nB+:nC}'
     figure: *figureCodage

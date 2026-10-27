@@ -1,41 +1,41 @@
 {
     "ID":"3DD10",
     "dest":["8BB", "9BA"],
-    "title":"Différencier fonction affine, linéaire par son expression algébrique",
-    "description":"Reconnaitre une fonction linéaire d'une fonction affine non linéaire.",
+    "title":"Proportional oder linear? Am Funktionsterm entscheiden",
+    "description":"Am Funktionsterm erkennen, ob eine lineare Funktion proportional ist (f(x) = mx) oder nicht (f(x) = mx + b mit b ≠ 0), auch mit Brüchen und Klammern",
     "type":"text",
     "repeat":2,
     "keys":["L","A","_","_","_","_","_","_"],
-    "consts":{"vocab":["linéaire", "affine non linéaire"]},
+    "consts":{"vocab":["proportional", "linear, nicht proportional"]},
     "options":[
         {
-            "name":"Fonctions sous forme canonique ax+b ou ax",
+            "name":"Funktionsterm der Form mx + b oder mx",
             "vars":{
                 "a":"-10_10_^0", "b":"-10_10_^0","choix":"0_1", "type":"${:vocab[:choix]}"
             },
             "question":[
-                "La fonction $$f: x \\mapsto ${MMmath.signIfOne(:a)} x ${:choix==0?'':MMmath.signedNumber(:b)}$$ est elle linéaire (L) ou affine non linéaire (A) ?",
-                "La fonction $$f: x \\mapsto ${:choix==0?''::b} ${:choix==0?MMmath.signIfOne(:a):MMmath.signedNumberButOne(:a)} x $$ est elle linéaire (L) ou affine non linéaire (A) ?"
+                "Ist die Funktion $$f: x \\mapsto ${MMmath.signIfOne(:a)} x ${:choix==0?'':MMmath.signedNumber(:b)}$$ proportional oder linear, aber nicht proportional?",
+                "Ist die Funktion $$f: x \\mapsto ${:choix==0?''::b} ${:choix==0?MMmath.signIfOne(:a):MMmath.signedNumberButOne(:a)} x $$ proportional oder linear, aber nicht proportional?"
             ]
         },{
-            "name":"Fonctions sous forme canonique ax+b ou ax avec fractions",
+            "name":"Funktionsterm der Form mx + b oder mx mit Brüchen",
             "vars":{
                 "a":"1_10", "b":"2_10_^${:a}", "c":"1_10","d":"2_10_^${:c}","choix":"0_1","sign0":["","-"], "sign1":["+","-"], "type":"${:vocab[:choix]}"
             },
-            "question":"La fonction $$f: x \\mapsto ${:sign0}\\dfrac{${:a}}{${:b}} x ${:choix==0?''::sign1+'\\dfrac{'+:c+'}{'+:d+'}'}$$ est elle linéaire (L) ou affine non linéaire (A) ?"
+            "question":"Ist die Funktion $$f: x \\mapsto ${:sign0}\\dfrac{${:a}}{${:b}} x ${:choix==0?''::sign1+'\\dfrac{'+:c+'}{'+:d+'}'}$$ proportional oder linear, aber nicht proportional?"
         },{
-            "name":"Fonction sous forme non canonique",
+            "name":"Funktionsterm mit Klammern",
             "vars":{
                 "a":"-10_10_^0", "b":"-10_10_^0","choix":"0_1", "c":"-10_10_^0", "d":"-10_10_^0,${:b}", "type":"${:vocab[:choix]}","formes":["c(ax+b)","c(ax+b)-cb","(ax+b)-(cx+d)"]
             },
             "question":[
-                "La fonction $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${:choix==0?'':MMmath.signedNumber(:b)})$$ est elle linéaire (L) ou affine non linéaire (A) ?",
-                "La fonction $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})${:choix==0?MMmath.signedNumber(-:c*:b):MMmath.signedNumber(:c*:d)}$$ est elle linéaire (L) ou affine non linéaire (A) ?",
-                "La fonction $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})${:choix==0?'':MMmath.signedNumber(-:c*:b)}$$ est elle linéaire (L) ou affine non linéaire (A) ?",
-                "La fonction $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})-(${MMmath.signIfOne(:c)} x ${:choix==0?MMmath.signedNumber(:c*:b):MMmath.signedNumber(:c*:d)})$$ est elle linéaire (L) ou affine non linéaire (A) ?"
+                "Ist die Funktion $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${:choix==0?'':MMmath.signedNumber(:b)})$$ proportional oder linear, aber nicht proportional?",
+                "Ist die Funktion $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})${:choix==0?MMmath.signedNumber(-:c*:b):MMmath.signedNumber(:c*:d)}$$ proportional oder linear, aber nicht proportional?",
+                "Ist die Funktion $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})${:choix==0?'':MMmath.signedNumber(-:c*:b)}$$ proportional oder linear, aber nicht proportional?",
+                "Ist die Funktion $$f: x \\mapsto ${MMmath.signIfOne(:c)}(${MMmath.signIfOne(:a)} x ${MMmath.signedNumber(:b)})-(${MMmath.signIfOne(:c)} x ${:choix==0?MMmath.signedNumber(:c*:b):MMmath.signedNumber(:c*:d)})$$ proportional oder linear, aber nicht proportional?"
             ]
         }
     ],
-    "answer":"La fonction est <span class='red'>${:type}</span>",
+    "answer":"Die Funktion ist <span class='red'>${:type}</span>.",
     "value":"${:type}"
 }

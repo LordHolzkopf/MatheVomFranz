@@ -1,14 +1,14 @@
-title: Calculer avec des racines carrées
+title: Mit Quadratwurzeln rechnen
 description: >-
-  Simplifier une racine carrée, extraire un carré parfait, écrire sous la forme a√b,
-  produit de racines, somme et différence de racines, radicaux.
+  Quadratwurzeln vereinfachen, teilweise die Wurzel ziehen, in der Form a√b schreiben,
+  Produkte, Summen und Differenzen von Wurzeln, Wurzelterme.
 dest: [9AC]
 type: latex
 valueType: racineSimplifiee
-consigne: Simplifier au maximum.
+consigne: Vereinfache so weit wie möglich.
 keys: ["√", "-", "_", "_", "_", "_", "_", "_"]
 options:
-  - name: Simplifier $$a\sqrt{b}$$
+  - name: $$a\sqrt{b}$$ vereinfachen
     vars:
       r: [2, 3, 5, 6, 7, 10, 11]
       k: "2_5"
@@ -17,7 +17,7 @@ options:
     question: ':a\sqrt{:n}'
     answer: ':question = :a\times\sqrt{${:k**2}}\times\sqrt{:r} = :a\times :k\sqrt{:r} = \color{red}{${:a*:k}\sqrt{:r}}'
     value: '${:a*:k}\sqrt{:r}'
-  - name: Produit $$\sqrt{a}\times\sqrt{b}$$
+  - name: Produkt $$\sqrt{a}\times\sqrt{b}$$
     vars:
       r: [2, 3, 5, 6, 7, 10]
       s: [2, 3, 5, 6, 7, 10]
@@ -28,7 +28,7 @@ options:
     question: '\sqrt{:n}\times\sqrt{:m}'
     answer: ':question = \sqrt{${:n*:m}} = \color{red}{${MMmath.simplifieRacine(:n*:m)}}'
     value: '${MMmath.simplifieRacine(:n*:m)}'
-  - name: Produit $$a\sqrt{b}\times c\sqrt{d}$$
+  - name: Produkt $$a\sqrt{b}\times c\sqrt{d}$$
     vars:
       r: [2, 3, 5, 6, 7, 10]
       s: [2, 3, 5, 6, 7, 10]
@@ -40,7 +40,7 @@ options:
     question: ':c[0]\sqrt{:n}\times :c[1]\sqrt{:m}'
     answer: ':question = ${:c[0]*:c[1]}\sqrt{${:n*:m}} = \color{red}{${MMmath.simplifieRacine(:c[0]**2*:c[1]**2*:n*:m)}}'
     value: '${MMmath.simplifieRacine(:c[0]**2*:c[1]**2*:n*:m)}'
-  - name: Somme ou différence $$a\sqrt{b}\pm c\sqrt{d}$$
+  - name: Summe oder Differenz $$a\sqrt{b}\pm c\sqrt{d}$$
     vars:
       r: [2, 3, 5, 6, 7]
       k: "2_5_2_^&"
@@ -57,7 +57,7 @@ options:
     question: '${MMmath.signIfOne(:a)}\sqrt{:n} :op ${MMmath.signIfOne(:b)}\sqrt{:m}'
     answer: ':question = :p\sqrt{:r} :op :q\sqrt{:r} = \color{red}{:res}'
     value: ':res'
-  - name: Somme de trois racines
+  - name: Summe aus drei Wurzeln
     vars:
       r: [2, 3, 5, 6, 7]
       k: "1_5_3_^&"

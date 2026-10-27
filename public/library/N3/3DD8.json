@@ -1,8 +1,8 @@
 {
     "ID":"3DD8",
     "dest":["8BA", "9BA"],
-    "title":"Calcul d'image par une fonction affine",
-    "description":"Calculer l'image d'un nombre par une fonction affine en utilisant son expression algébrique.",
+    "title":"Funktionswerte berechnen",
+    "description":"Funktionswert f(x) einer proportionalen oder linearen Funktion mit dem Funktionsterm berechnen, Zahl einsetzen, ganze Zahlen und Dezimalzahlen",
     "type":"text",
     "textSize":"medium",
     "vars":{
@@ -15,46 +15,46 @@
     },
     "options":[
         {
-            "name":"Image par une fonction linéaire (entiers relatifs)",
+            "name":"Proportionale Funktion (ganze Zahlen)",
             "question":[
-                "Quelle est l'image de $$${:x0}$$ par la fonction $$f(x)=${MMmath.signIfOne(:a0)}x$$ ?",
-                "Quelle est l'image de $$${:x0}$$ par la fonction $$f : x\\mapsto ${MMmath.signIfOne(:a0)}x$$ ?",
-                "Soit la fonction $$f: x\\mapsto ${MMmath.signIfOne(:a0)}x$$,<br>calculer $$f(${:x0})$$"
+                "Berechne den Funktionswert an der Stelle $$${:x0}$$ für $$f(x)=${MMmath.signIfOne(:a0)}x$$.",
+                "Berechne den Funktionswert an der Stelle $$${:x0}$$ für $$f : x\\mapsto ${MMmath.signIfOne(:a0)}x$$.",
+                "Gegeben ist die Funktion $$f: x\\mapsto ${MMmath.signIfOne(:a0)}x$$.<br>Berechne $$f(${:x0})$$."
             ],
             "answer":"$$f(${:x0})=\\color{red}{${:a0*:x0}}$$",
             "value":"${:a0*:x0}"
         },{
-            "name":"Image par une fonction affine (entiers relatifs)",
+            "name":"Lineare Funktion (ganze Zahlen)",
             "vars":{
                 "b":"-10_10_^0"
             },
             "question":[
-                "Quelle est l'image de $$${:x0}$$ par la fonction $$f(x)=${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$ ?",
-                "Quelle est l'image de $$${:x0}$$ par la fonction $$f : x\\mapsto ${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$ ?",
-                "Soit la fonction $$f: x\\mapsto ${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$,<br>calculer $$f(${:x0})$$"
+                "Berechne den Funktionswert an der Stelle $$${:x0}$$ für $$f(x)=${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$.",
+                "Berechne den Funktionswert an der Stelle $$${:x0}$$ für $$f : x\\mapsto ${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$.",
+                "Gegeben ist die Funktion $$f: x\\mapsto ${MMmath.signIfOne(:a0)}x${MMmath.signedNumber(:b)}$$.<br>Berechne $$f(${:x0})$$."
             ],
             "answer":"$$f(${:x0})=\\color{red}{${:a0*:x0+:b}}$$",
             "value":"${:a0*:x0+:b}"
         },{
-            "name":"Image par une fonction linéaire (décimal simple)",
+            "name":"Proportionale Funktion (einfache Dezimalzahlen)",
             "question":[
-                "Quelle est l'image de $$${:x}$$ par la fonction $$f(x)=${MMmath.signIfOne(:a)}x$$ ?",
-                "Quelle est l'image de $$${:x}$$ par la fonction $$f : x\\mapsto ${MMmath.signIfOne(:a)}x$$ ?",
-                "Soit la fonction $$f: x\\mapsto ${:a}x$$,<br>calculer $$f(${:x})$$"
+                "Berechne den Funktionswert an der Stelle $$${:x}$$ für $$f(x)=${MMmath.signIfOne(:a)}x$$.",
+                "Berechne den Funktionswert an der Stelle $$${:x}$$ für $$f : x\\mapsto ${MMmath.signIfOne(:a)}x$$.",
+                "Gegeben ist die Funktion $$f: x\\mapsto ${:a}x$$.<br>Berechne $$f(${:x})$$."
             ],
             "answer":"$$f(${:x})=\\color{red}{${MMmath.round(:a*:x,2)}}$$",
             "value":"${MMmath.round(:a*:x,2)}"
         },{
-            "name":"Image par une fonction affine (décimal simple)",
+            "name":"Lineare Funktion (einfache Dezimalzahlen)",
             "vars":{
                 "choixdecb":"0_1",
                 "b0":"-10_10_^0",
                 "b":"${:choixdecb?:b0:MMmath.round(:b0/10,1)}"
             },
             "question":[
-                "Quelle est l'image de $$${:x}$$ par la fonction $$f(x)=${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$ ?",
-                "Quelle est l'image de $$${:x}$$ par la fonction $$f : x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$ ?",
-                "Soit la fonction $$f: x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$,<br>calculer $$f(${:x})$$"
+                "Berechne den Funktionswert an der Stelle $$${:x}$$ für $$f(x)=${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$.",
+                "Berechne den Funktionswert an der Stelle $$${:x}$$ für $$f : x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$.",
+                "Gegeben ist die Funktion $$f: x\\mapsto ${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}$$.<br>Berechne $$f(${:x})$$."
             ],
             "answer":"$$f(${:x})=\\color{red}{${MMmath.round(:a*:x+:b,2)}}$$",
             "value":"${MMmath.round(:a*:x+:b,2)}"

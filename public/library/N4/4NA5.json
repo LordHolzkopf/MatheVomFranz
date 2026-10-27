@@ -1,36 +1,36 @@
 {
-    "title":"Sens des puissances de 10",
+    "title":"Zehnerpotenzen verstehen",
     "type":"text",
     "textSize":"medium",
-    "description":"Donner l'écriture décimale d'une puissance de 10, ou la puissance de 10 correspondant à une écriture décimale",
+    "description":"Zehnerpotenzen mit positivem oder negativem Exponenten als Dezimalzahl oder Bruch schreiben und umgekehrt eine Zahl als Zehnerpotenz angeben",
     "ID":"4NA5",
     "keys":["_","_","^","10n","_","_","_","_"],
     "dest":["9DB", "9DA"],
     "options":[{
-        "name":"Ecriture décimale d'une puissance de 10 positive",
+        "name":"Zehnerpotenz mit positivem Exponenten als Zahl",
         "vars":{"n":"0_10"},
-        "question": "Quelle est l'écriture décimale de $$10^{${:n}}$$ ?",
+        "question": "Schreibe $$10^{${:n}}$$ in Dezimalschreibweise.",
         "shortq": "$$10^{${:n}}=?$$",
         "answer":"$$10^{${:n}}=\\color{red}{${Math.pow(10,:n)}}$$",
         "value":"${Math.pow(10,:n)}"
     },{
-        "name":"Ecriture décimale d'une puissance de 10 négative",
+        "name":"Zehnerpotenz mit negativem Exponenten als Dezimalzahl",
         "vars":{"n":"1_10"},
-        "question": "Quelle est l'écriture décimale de $$10^{-${:n}}$$ ?",
+        "question": "Schreibe $$10^{-${:n}}$$ in Dezimalschreibweise.",
         "shortq":"$$10^{-${:n}}=?$$",
         "answer":"$$10^{-${:n}}= \\color{red}{${MMmath.bigDecimal(10,'pow',-:n)}}$$",
         "value":"${MMmath.round(Math.pow(10,-:n),10)}"
     },{
-        "name":"Ecriture fractionnaire d'une puissance de 10 négative",
+        "name":"Zehnerpotenz mit negativem Exponenten als Bruch",
         "vars":{"n":"1_10"},
-        "question": "Quelle est la fraction équivalente à $$10^{-${:n}}$$ ?",
+        "question": "Schreibe $$10^{-${:n}}$$ als Bruch.",
         "shortq":"$$10^{-${:n}}=\\dfrac{?}{?}$$",
         "answer":"$$10^{-${:n}}= \\color{red}{\\dfrac{1}{${Math.pow(10,:n)}}}$$",
         "value":"1/${Math.pow(10,:n)}"
     },{
-        "name":"Puissance de 10 correspondante",
+        "name":"Zahl als Zehnerpotenz schreiben",
         "vars":{"n":"-6_6"},
-        "question":"À quelle puissance de dix correspond $$${MMmath.round(Math.pow(10,:n),6)}$$ ?",
+        "question":"Schreibe $$${MMmath.round(Math.pow(10,:n),6)}$$ als Zehnerpotenz.",
         "shortq":"$$${MMmath.round(Math.pow(10,:n),6)}=10^{?}$$",
         "answer":"$$${MMmath.round(Math.pow(10,:n),6)}=\\color{red}{10^{${:n}}}$$",
         "value":"10^${:n}"

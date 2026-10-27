@@ -1,50 +1,50 @@
 {
-    "title":"Racines de carrés parfaits",
-    "description":"racine carrée, carrés parfaits, √, carré",
+    "title":"Wurzeln aus Quadratzahlen ziehen",
+    "description":"Quadratwurzel aus Quadratzahlen ziehen, √, Quadrat, auch aus Quadratzahlen mal oder geteilt durch 100, 10 000, 1 000 000",
     "type":"latex",
     "ID":"4NA4",
     "dest":["9AA"],
     "params":{
-        "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"racine":"1","entier":"1"}},
-        "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"racine":"2","entier":"2"}},
-        "n5":{"groupe":"Ne pas tirer","label":"5","defaut":false,"exclut":{"racine":"5","entier":"5"}},
-        "n10":{"groupe":"Ne pas tirer","label":"10","defaut":false,"exclut":{"racine":"10","entier":"10"}},
-        "n11":{"groupe":"Ne pas tirer","label":"11","defaut":false,"exclut":{"racine":"11","entier":"11"}},
-        "n12":{"groupe":"Ne pas tirer","label":"12","defaut":false,"exclut":{"racine":"12","entier":"12"}}
+        "n1":{"groupe":"Nicht abfragen","label":"1","defaut":false,"exclut":{"racine":"1","entier":"1"}},
+        "n2":{"groupe":"Nicht abfragen","label":"2","defaut":false,"exclut":{"racine":"2","entier":"2"}},
+        "n5":{"groupe":"Nicht abfragen","label":"5","defaut":false,"exclut":{"racine":"5","entier":"5"}},
+        "n10":{"groupe":"Nicht abfragen","label":"10","defaut":false,"exclut":{"racine":"10","entier":"10"}},
+        "n11":{"groupe":"Nicht abfragen","label":"11","defaut":false,"exclut":{"racine":"11","entier":"11"}},
+        "n12":{"groupe":"Nicht abfragen","label":"12","defaut":false,"exclut":{"racine":"12","entier":"12"}}
     },
     "options":[{
-        "name":"Racines de carrés parfaits inférieurs à 400",
+        "name":"Wurzeln aus Quadratzahlen bis 400",
         "vars":{"racine":"1_20",
             "carre":"${:racine*:racine}"
         }
     },{
-        "name":"Racines d'entiers divisés par 10, 100, 1000",
+        "name":"Wurzeln aus Quadratzahlen bis 400, geteilt durch 100, 10 000 oder 1 000 000",
         "vars":{"entier":"1_20",
             "diviseur":[10,100,1000],
             "racine":"${MMmath.round(:entier/:diviseur,3)}",
             "carre":"${MMmath.round(:racine*:racine,6)}"
         }
     },{
-        "name":"Racines d'entiers multipliés par 10, 100, 1000",
+        "name":"Wurzeln aus Quadratzahlen bis 400, mal 100, 10 000 oder 1 000 000",
         "vars":{"entier":"1_20",
             "mult":[10,100,1000],
             "racine":"${:entier*:mult}",
             "carre":"${:racine*:racine}"
         }
     },{
-        "name":"Racines de carrés parfaits ≤144",
+        "name":"Wurzeln aus Quadratzahlen bis 144",
         "vars":{"racine":"1_12",
             "carre":"${:racine*:racine}"
         }
     },{
-        "name":"Racines d'entiers ≤144 divisés par 10, 100, 1000",
+        "name":"Wurzeln aus Quadratzahlen bis 144, geteilt durch 100, 10 000 oder 1 000 000",
         "vars":{"entier":"1_12",
             "diviseur":[10,100,1000],
             "racine":"${MMmath.round(:entier/:diviseur,3)}",
             "carre":"${MMmath.round(:racine*:racine,6)}"
         }
     },{
-        "name":"Racines d'entiers ≤144 multipliés par 10, 100, 1000",
+        "name":"Wurzeln aus Quadratzahlen bis 144, mal 100, 10 000 oder 1 000 000",
         "vars":{"entier":"1_12",
             "mult":[10,100,1000],
             "racine":"${:entier*:mult}",

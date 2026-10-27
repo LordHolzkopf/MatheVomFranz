@@ -1,31 +1,27 @@
-title: Aires de parallélogrammes et de figures composées
+title: Flächeninhalt von Parallelogrammen und zusammengesetzten Figuren
 description: >
-  Lire les informations de la figure pour calculer.
+  Flächeninhalt von Parallelogrammen und zusammengesetzten Figuren (Rechteck oder Parallelogramm mit Dreieck) berechnen, benötigte Längen aus der Figur ablesen, Grundseite mal Höhe
 ID: 5MA5
 type: text
 textSize: small
 speech: 1
-consigne: Lire les longueurs utiles sur la figure.
+consigne: Lies die benötigten Längen aus der Figur ab.
 keys:
   - mm
   - cm
   - dm
   - mt
-  - dam
-  - hm
   - km
   - x²
 dest: [8DA, 8DC]
 consts:
-  unites: [mm, cm, dm, m, dam, hm, km]
+  unites: [mm, cm, dm, m, km]
   uv:
-    mm: millimètres
-    cm: centimètres
-    dm: décimètres
-    m: mètres
-    dam: décamètres
-    hm: hectomètres
-    km: kilomètres
+    mm: Millimeter
+    cm: Zentimeter
+    dm: Dezimeter
+    m: Meter
+    km: Kilometer
   # ─── figures : quatre tracés par option, dessinés d’avance plutôt que
   # construits à la volée par JSXGraph, dans le style de 6MC1 (trait noir fin
   # dans un cadre de 79,35 x 47,7, hauteurs en pointillés, marque d’angle
@@ -64,11 +60,11 @@ consts:
     - "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><path d='M7.36 33.79L53.62 41.95L71.99 24.74L60.91 0.64L25.73 16.58ZM25.73 16.58L71.99 24.74' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round'/><path d='M25.73 16.58L22.23 36.41M60.91 0.64L57.12 22.12' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-dasharray='1.6 1.2'/><path d='M22.23 36.41L24.5 36.81L24.89 34.54L22.63 34.15ZM57.12 22.12L59.38 22.52L59.78 20.25L57.52 19.85Z' fill='#fff' stroke='#000' stroke-width='.4' stroke-linejoin='round'/><text x='25.88' y='28.87' font-family='Arial' font-size='6' text-anchor='start' stroke-width='.265'>%P%</text><text x='30' y='45.56' font-family='Arial' font-size='6' text-anchor='middle' stroke-width='.265'>%B%</text><text x='56.48' y='16.66' font-family='Arial' font-size='6' text-anchor='end' stroke-width='.265'>%T%</text></svg>"
     - "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><path d='M18.84 40.55L52.42 35.83L59.27 13.46L38.91 0.63L25.69 18.18ZM25.69 18.18L59.27 13.46' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round'/><path d='M25.69 18.18L28.64 39.17M38.91 0.63L41.08 16.02' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-dasharray='1.6 1.2'/><path d='M28.64 39.17L30.91 38.85L30.59 36.57L28.32 36.89ZM41.08 16.02L43.35 15.7L43.03 13.42L40.76 13.74Z' fill='#fff' stroke='#000' stroke-width='.4' stroke-linejoin='round'/><text x='28.97' y='30.46' font-family='Arial' font-size='6' text-anchor='start' stroke-width='.265'>%P%</text><text x='35.98' y='45.57' font-family='Arial' font-size='6' text-anchor='middle' stroke-width='.265'>%B%</text><text x='42.16' y='12.68' font-family='Arial' font-size='6' text-anchor='start' stroke-width='.265'>%T%</text></svg>"
 options:
-  - name: Aire d’un parallélogramme
+  - name: Flächeninhalt eines Parallelogramms
     vars:
       b: "2_12"
       h: "2_9"
-      u: "0_6"
+      u: "0_4"
       aire: "${:b*:h}"
       lb: "${:b} ${:unites[:u]}"
       lh: "${:h} ${:unites[:u]}"
@@ -77,19 +73,19 @@ options:
     figure:
       type: svg
       content: "${:fig}"
-    question: 'Quelle est l’<b>aire</b> de ce parallélogramme de base $$${:b}\text{ ${:unites[:u]}}$$ et de hauteur $$${:h}\text{ ${:unites[:u]}}$$ ?'
-    shortq: 'Aire du parallélogramme ?'
-    audio: 'Quelle est l’aire d’un parallélogramme de base ${:b} ${:uv[:unites[:u]]} et de hauteur ${:h} ${:uv[:unites[:u]]} ?'
-    answer: '$$b\times h=${:b}\times${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
+    question: 'Wie groß ist der <b>Flächeninhalt</b> des Parallelogramms mit der Grundseite $$${:b}\text{ ${:unites[:u]}}$$ und der Höhe $$${:h}\text{ ${:unites[:u]}}$$?'
+    shortq: 'Flächeninhalt des Parallelogramms?'
+    audio: 'Wie groß ist der Flächeninhalt eines Parallelogramms mit der Grundseite ${:b} ${:uv[:unites[:u]]} und der Höhe ${:h} ${:uv[:unites[:u]]}?'
+    answer: '$$A=g\cdot h=${:b}\cdot${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
     value:
       - "${:aire}~${:unites[:u]}^2"
       - "${:aire}${:unites[:u]}^2"
       - "${:aire}"
-  - name: Aire d’un parallélogramme, hauteur relative à un côté
+  - name: Flächeninhalt eines Parallelogramms, Höhe zur schrägen Seite
     vars:
       c: "2_12"
       h: "2_9"
-      u: "0_6"
+      u: "0_4"
       aire: "${:c*:h}"
       lc: "${:c} ${:unites[:u]}"
       lh: "${:h} ${:unites[:u]}"
@@ -98,19 +94,19 @@ options:
     figure:
       type: svg
       content: "${:fig}"
-    question: 'Quelle est l’<b>aire</b> de ce parallélogramme de côté $$${:c}\text{ ${:unites[:u]}}$$ et de hauteur relative à ce côté $$${:h}\text{ ${:unites[:u]}}$$ ?'
-    shortq: 'Aire du parallélogramme ?'
-    audio: 'Quelle est l’aire d’un parallélogramme de côté ${:c} ${:uv[:unites[:u]]} et de hauteur relative à ce côté ${:h} ${:uv[:unites[:u]]} ?'
-    answer: '$$c\times h=${:c}\times${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
+    question: 'Wie groß ist der <b>Flächeninhalt</b> des Parallelogramms mit der Seite $$${:c}\text{ ${:unites[:u]}}$$ und der zugehörigen Höhe $$${:h}\text{ ${:unites[:u]}}$$?'
+    shortq: 'Flächeninhalt des Parallelogramms?'
+    audio: 'Wie groß ist der Flächeninhalt eines Parallelogramms mit der Seite ${:c} ${:uv[:unites[:u]]} und der zugehörigen Höhe ${:h} ${:uv[:unites[:u]]}?'
+    answer: '$$A=c\cdot h_c=${:c}\cdot${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
     value:
       - "${:aire}~${:unites[:u]}^2"
       - "${:aire}${:unites[:u]}^2"
       - "${:aire}"
-  - name: Aire d’un parallélogramme non posé
+  - name: Flächeninhalt eines gedrehten Parallelogramms
     vars:
       b: "2_12"
       h: "2_9"
-      u: "0_6"
+      u: "0_4"
       aire: "${:b*:h}"
       lb: "${:b} ${:unites[:u]}"
       lh: "${:h} ${:unites[:u]}"
@@ -119,15 +115,15 @@ options:
     figure:
       type: svg
       content: "${:fig}"
-    question: 'Quelle est l’<b>aire</b> de ce parallélogramme de côté $$${:b}\text{ ${:unites[:u]}}$$ et de hauteur associée $$${:h}\text{ ${:unites[:u]}}$$ ?'
-    shortq: 'Aire du parallélogramme ?'
-    audio: 'Quelle est l’aire d’un parallélogramme de côté ${:b} ${:uv[:unites[:u]]} et de hauteur associée ${:h} ${:uv[:unites[:u]]} ?'
-    answer: '$$b\times h=${:b}\times${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
+    question: 'Wie groß ist der <b>Flächeninhalt</b> des Parallelogramms mit der Seite $$${:b}\text{ ${:unites[:u]}}$$ und der zugehörigen Höhe $$${:h}\text{ ${:unites[:u]}}$$?'
+    shortq: 'Flächeninhalt des Parallelogramms?'
+    audio: 'Wie groß ist der Flächeninhalt eines Parallelogramms mit der Seite ${:b} ${:uv[:unites[:u]]} und der zugehörigen Höhe ${:h} ${:uv[:unites[:u]]}?'
+    answer: '$$A=g\cdot h=${:b}\cdot${:h}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
     value:
       - "${:aire}~${:unites[:u]}^2"
       - "${:aire}${:unites[:u]}^2"
       - "${:aire}"
-  - name: Aire d’un rectangle et d’un triangle
+  - name: Flächeninhalt aus Rechteck und Dreieck
     # la longueur du rectangle est paire : l’aire du triangle qui s’appuie
     # dessus reste entière, et le calcul se fait de tête
     vars:
@@ -137,7 +133,7 @@ options:
       # aux deux côtés égaux serait un carré, et l’énoncé le dirait mal
       la: "2_8_^${:lo}"
       ht: "2_6"
-      u: "0_6"
+      u: "0_4"
       aireR: "${:lo*:la}"
       aireT: "${:k*:ht}"
       aire: "${:aireR+:aireT}"
@@ -149,22 +145,22 @@ options:
     figure:
       type: svg
       content: "${:fig}"
-    question: 'Quelle est l’<b>aire</b> de cette figure, formée d’un rectangle de côtés $$${:lo}\text{ ${:unites[:u]}}$$ et $$${:la}\text{ ${:unites[:u]}}$$ et d’un triangle de base $$${:lo}\text{ ${:unites[:u]}}$$ et de hauteur $$${:ht}\text{ ${:unites[:u]}}$$ ?'
-    shortq: 'Aire de la figure ?'
-    audio: 'Quelle est l’aire d’une figure formée d’un rectangle de côtés ${:lo} et ${:la} ${:uv[:unites[:u]]} et d’un triangle de base ${:lo} et de hauteur ${:ht} ${:uv[:unites[:u]]} ?'
-    answer: '$$${:lo}\times${:la}+\dfrac{${:lo}\times${:ht}}{2}=${:aireR}+${:aireT}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
+    question: 'Wie groß ist der <b>Flächeninhalt</b> der Figur aus einem Rechteck mit den Seitenlängen $$${:lo}\text{ ${:unites[:u]}}$$ und $$${:la}\text{ ${:unites[:u]}}$$ und einem Dreieck mit der Grundseite $$${:lo}\text{ ${:unites[:u]}}$$ und der Höhe $$${:ht}\text{ ${:unites[:u]}}$$?'
+    shortq: 'Flächeninhalt der Figur?'
+    audio: 'Wie groß ist der Flächeninhalt einer Figur aus einem Rechteck mit den Seitenlängen ${:lo} und ${:la} ${:uv[:unites[:u]]} und einem Dreieck mit der Grundseite ${:lo} und der Höhe ${:ht} ${:uv[:unites[:u]]}?'
+    answer: '$$${:lo}\cdot${:la}+\dfrac{${:lo}\cdot${:ht}}{2}=${:aireR}+${:aireT}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
     value:
       - "${:aire}~${:unites[:u]}^2"
       - "${:aire}${:unites[:u]}^2"
       - "${:aire}"
-  - name: Aire d’un parallélogramme et d’un triangle
+  - name: Flächeninhalt aus Parallelogramm und Dreieck
     # même raison : la base commune est paire
     vars:
       k: "2_5"
       b: "${:k*2}"
       hp: "2_8"
       ht: "2_6"
-      u: "0_6"
+      u: "0_4"
       aireP: "${:b*:hp}"
       aireT: "${:k*:ht}"
       aire: "${:aireP+:aireT}"
@@ -176,10 +172,10 @@ options:
     figure:
       type: svg
       content: "${:fig}"
-    question: 'Quelle est l’<b>aire</b> de cette figure, formée d’un parallélogramme de base $$${:b}\text{ ${:unites[:u]}}$$ et de hauteur $$${:hp}\text{ ${:unites[:u]}}$$ et d’un triangle de même base et de hauteur $$${:ht}\text{ ${:unites[:u]}}$$ ?'
-    shortq: 'Aire de la figure ?'
-    audio: 'Quelle est l’aire d’une figure formée d’un parallélogramme de base ${:b} et de hauteur ${:hp} ${:uv[:unites[:u]]} et d’un triangle de même base et de hauteur ${:ht} ${:uv[:unites[:u]]} ?'
-    answer: '$$${:b}\times${:hp}+\dfrac{${:b}\times${:ht}}{2}=${:aireP}+${:aireT}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
+    question: 'Wie groß ist der <b>Flächeninhalt</b> der Figur aus einem Parallelogramm mit der Grundseite $$${:b}\text{ ${:unites[:u]}}$$ und der Höhe $$${:hp}\text{ ${:unites[:u]}}$$ und einem Dreieck mit derselben Grundseite und der Höhe $$${:ht}\text{ ${:unites[:u]}}$$?'
+    shortq: 'Flächeninhalt der Figur?'
+    audio: 'Wie groß ist der Flächeninhalt einer Figur aus einem Parallelogramm mit der Grundseite ${:b} und der Höhe ${:hp} ${:uv[:unites[:u]]} und einem Dreieck mit derselben Grundseite und der Höhe ${:ht} ${:uv[:unites[:u]]}?'
+    answer: '$$${:b}\cdot${:hp}+\dfrac{${:b}\cdot${:ht}}{2}=${:aireP}+${:aireT}=\color{red}{${:aire}\text{ ${:unites[:u]}}^2}$$'
     value:
       - "${:aire}~${:unites[:u]}^2"
       - "${:aire}${:unites[:u]}^2"

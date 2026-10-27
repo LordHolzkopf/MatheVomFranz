@@ -1,20 +1,20 @@
 {
-    "title":"Puissances négatives et fractions",
+    "title":"Potenzen mit negativen Exponenten als Bruch schreiben",
     "type":"latex",
-    "ID":"HP1",
+    "ID":"HPF1",
     "keys":["/"],
-    "description":"Donner une fraction correspondant à la puissance négative",
+    "description":"Potenzen mit negativen Exponenten als Bruch schreiben: Kehrwert, a hoch minus n, Variablen, Brüche, Zehnerpotenzen",
     "dest":["9DA", "9DB"],
     "consts":{"lettres":["a","b","c","d","u","v","t","x","y","z"]},
-    "consigne":"Donner une fraction égale à la puissance",
+    "consigne":"Schreibe als Bruch.",
     "options":[{
-        "name":"Inverse d'une variable",
+        "name":"Kehrwert einer Variablen",
         "vars":{"a":"0_9", "l":"${:lettres[:a]}"},
         "question": "${:l}^{-1}",
         "answer":":question=\\color{red}{\\dfrac{1}{${:l}}}",
         "value":"\\dfrac{1}{${:l}}"
     }, {
-        "name":"Inverse d'une fraction en notation anglo-saxonne",
+        "name":"Kehrwert einer gemischten Zahl",
         "vars":{
             "a":"1_9",
             "b":"1_9",
@@ -26,35 +26,35 @@
         "answer":":question=\\color{red}{${:inv}}",
         "value":"${:inv}"
     }, {
-        "name":"Puissance négative d'un entier positif",
+        "name":"Negativer Exponent, positive ganze Zahl als Basis",
         "vars":{"p":"-3_-2", "a":"2_${:p==-3?5:15}"},
         "question":"${:a}^{${:p}}",
         "answer":":question=\\color{red}{\\dfrac{1}{${:a**(-:p)}}}",
         "value":"\\dfrac{1}{${:a**(-:p)}}"
     }, {
-        "name":"Puissance négative d'un entier négatif",
+        "name":"Negativer Exponent, negative ganze Zahl als Basis",
         "vars":{"p":"-3_-2", "a":"${:p==-3?-5:-15}_-2"},
         "question":"(${:a})^{${:p}}",
         "answer":":question=\\color{red}{\\dfrac{${:p==-3?-1:1}}{${(-:a)**(-:p)}}}",
-        "value":["\\dfrac{${:p==-3?-1:1}}{${(-:a)**(-:p)}}", "\\dfrac1{:a**(-:p)}"]
+        "value":["\\dfrac{${:p==-3?-1:1}}{${(-:a)**(-:p)}}", "\\dfrac{1}{${:a**(-:p)}}"]
     }, {
-        "name":"Puissance négative d'une variable",
+        "name":"Negativer Exponent, Variable als Basis",
         "vars":{"p":"-10_-2", "l":"0_9", "a":"${:lettres[:l]}"},
         "question":"${:a}^{${:p}}",
         "answer":":question=\\color{red}{\\dfrac{1}{${:a}^{${-:p}}}}",
-        "value":"\\dfrac{1}{${:a}^{-:p}}"
+        "value":"\\dfrac{1}{${:a}^{${-:p}}}"
     }, {
-        "name":"Puissance négative d'une fraction",
+        "name":"Negativer Exponent, Bruch als Basis",
         "vars":{"p":"-3_-2", "a":"2_${:p==-3?5:15}", "b":"2_${:p==-3?5:15}"},
         "question":"\\left(\\dfrac{${:a}}{${:b}}\\right)^{${:p}}",
         "answer":":question=\\color{red}{\\dfrac{${:b**(-:p)}}{${:a**(-:p)}}}",
-        "value":"\\dfrac{${:a}}{${:b}^{-:p}}"
+        "value":"\\dfrac{${:b**(-:p)}}{${:a**(-:p)}}"
     }, {
-        "name":"Puissance négative d'une puissance négative de 10",
+        "name":"Negativer Exponent, Dezimalzahl 0,1; 0,01; … als Basis",
         "vars":{"d":"-6_-1", "p":"-6_-1"},
         "question":"${MMmath.round(10**:d,8)}^{${:p}}",
         "answer":":question=\\color{green}{10^{${:d}\\times(${:p})}}=\\color{red}{${10**(:d*:p)}}",
-        "value":"${:d**(-:p)}"
+        "value":["${10**(:d*:p)}","10^{${:d*:p}}"]
     }
     ]
 }

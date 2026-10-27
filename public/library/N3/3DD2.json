@@ -1,28 +1,28 @@
 {
-    "title":"Vocabulaire image, antécédent",
-    "description":"Différencier image et antécédent dans les écritures de fonctions",
+    "title":"Funktionswert und Stelle unterscheiden",
+    "description":"In den Schreibweisen f(x) = y, f: x ↦ y und in der Wertetabelle Funktionswert (y-Wert) und Stelle (x-Wert, Argument) unterscheiden, Fachbegriffe",
     "type":"text",
     "ID":"3DD2",
     "dest":["8BA"],
     "textSize":"medium",
     "vars":{"a":"-30_30", "b":"-30_30_^${:a}"},
     "options":[{
-        "name":"Image d'un nombre",
+        "name":"Funktionswert erkennen",
         "question":[
-            "Dans l'écriture $$f:${:a}\\mapsto${:b}$$, quel nombre est l'<b>image</b> ?",
-            "Dans l'écriture $$f(${:a})=${:b}$$, quel nombre est l'<b>image</b> ?",
-            "Dans le tableau <table class='inline-table'><tr><td>$$x$$</td><td>${:a}</td></tr><tr><td>$$f(x)$$</td><td>${:b}</td></tr></table><br>quel nombre est l'<b>image</b> ?"
+            "Welche Zahl ist in $$f:${:a}\\mapsto${:b}$$ der <b>Funktionswert</b>?",
+            "Welche Zahl ist in $$f(${:a})=${:b}$$ der <b>Funktionswert</b>?",
+            "In der Wertetabelle <table class='inline-table'><tr><td>$$x$$</td><td>${:a}</td></tr><tr><td>$$f(x)$$</td><td>${:b}</td></tr></table><br>Welche Zahl ist der <b>Funktionswert</b>?"
         ],
-        "answer":"L'image est $$\\color{red}{${:b}}$$",
+        "answer":"Der Funktionswert ist $$\\color{red}{${:b}}$$.",
         "value":"${:b}"
     },{
-        "name":"Antécédent d'un nombre",
+        "name":"Stelle (x-Wert) erkennen",
         "question":[
-            "Dans l'écriture $$f:${:a}\\mapsto${:b}$$, quel nombre est un <b>antécédent</b> ?",
-            "Dans l'écriture $$f(${:a})=${:b}$$, quel nombre est un <b>antécédent</b> ?",
-            "Dans le tableau <table class='inline-table'><tr><td>$$x$$</td><td>${:a}</td></tr><tr><td>$$f(x)$$</td><td>${:b}</td></tr></table><br>quel nombre est un <b>antécédent</b> ?"
+            "Welche Zahl ist in $$f:${:a}\\mapsto${:b}$$ die <b>Stelle</b> (der x-Wert)?",
+            "Welche Zahl ist in $$f(${:a})=${:b}$$ die <b>Stelle</b> (der x-Wert)?",
+            "In der Wertetabelle <table class='inline-table'><tr><td>$$x$$</td><td>${:a}</td></tr><tr><td>$$f(x)$$</td><td>${:b}</td></tr></table><br>Welche Zahl ist die <b>Stelle</b> (der x-Wert)?"
         ],
-        "answer":"L'antécédent est $$\\color{red}{${:a}}$$",
+        "answer":"Die Stelle ist $$\\color{red}{${:a}}$$.",
         "value":"${:a}"
     }]
 }

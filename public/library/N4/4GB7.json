@@ -1,13 +1,13 @@
 {
-    "title":"Calculer une longueur à l'aide de l'égalité de Pythagore",
+    "title":"Seitenlängen mit dem Satz des Pythagoras berechnen",
     "type":"text",
     "textSize":"small",
     "ID":"4GB7",
-    "description":"Utiliser l'égalité de Pythagore dans un triangle rectangle",
+    "description":"Im rechtwinkligen Dreieck mit dem Satz des Pythagoras die Länge der Hypotenuse oder einer Kathete exakt berechnen (Wurzel)",
     "dest":["9EA"],
     "options":[
         {
-        "name":"Calculer la longueur de l'hypoténuse",
+        "name":"Länge der Hypotenuse berechnen",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNPRSTVW",
             "long":["$$${:B+:C}$$","$$${:A+:C}$$"],
@@ -26,14 +26,14 @@
             "A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}",
             "idfig":"0_2",
             "lo":"1_10_2_^&"},
-        "question":"Dans le triangle $$${:A+:B+:C}$$ ci-dessous rectangle en $$${:C}$$, sachant que ${:long[0]}$$=${:lo[0]}$$ et que ${:long[1]}$$=${:lo[1]}$$, calculez la longueur exacte $$${:A+:B}$$. ",
+        "question":"Das Dreieck $$${:A+:B+:C}$$ ist rechtwinklig bei $$${:C}$$. Es gilt ${:long[0]}$$=${:lo[0]}$$ und ${:long[1]}$$=${:lo[1]}$$. Berechne die Länge $$${:A+:B}$$ exakt.",
         "figure":{"type":"svg","content":"${:figures[:idfig]}"},
         "shortq":"$$${:A+:B}$$ ?",
         "answer":"$$${:A+:B}=\\color{red}{\\sqrt{${:lo[0]*:lo[0]+:lo[1]*:lo[1]}}}=\\color{green}{\\sqrt{${:lo[0]}^2+${:lo[1]}^2}}$$",
         "value":"\\sqrt{${:lo[0]*:lo[0]+:lo[1]*:lo[1]}}"
         },
         {
-        "name":"Calculer la longueur d'un côté de l'angle droit",
+        "name":"Länge einer Kathete berechnen",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNPRSTVW",
             "figures":[
@@ -43,7 +43,7 @@
             ]
         },
         "vars":{"l":"0_19_3_^&","A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "idfig":"0_2", "lo":"1_10","hyp":"${:lo+1}_15"},
-        "question":"Dans le triangle $$${:A+:B+:C}$$ ci-dessous rectangle en $$${:C}$$, $$${:A+:B}=${:hyp}$$ et $$${:B+:C}=${:lo}$$. Calculez la longueur exacte de $$[${:A+:C}]$$.",
+        "question":"Das Dreieck $$${:A+:B+:C}$$ ist rechtwinklig bei $$${:C}$$. Es gilt $$${:A+:B}=${:hyp}$$ und $$${:B+:C}=${:lo}$$. Berechne die Länge der Strecke $$\\overline{${:A+:C}}$$ exakt.",
         "shortq":"$$${:A+:C}$$ ?",
         "figure":{"type":"svg","content":"${:figures[:idfig]}"},
         "answer":"$$${:A+:C}=\\color{red}{\\sqrt{${:hyp**2-:lo**2}}}=\\color{green}{\\sqrt{${:hyp**2}-${:lo**2}}}=\\color{green}{\\sqrt{${:hyp}^2-${:lo}^2}}$$",

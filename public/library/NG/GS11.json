@@ -1,13 +1,13 @@
 {
-    "title":"Calcul de probabilités-événement contraire",
+    "title":"Fehlende Wahrscheinlichkeit im Baumdiagramm (Gegenereignis)",
     "type":"text",
     "textSize":"small",
     "ID":"GS11",
-    "description":"arbre de probabilités-événement contraire",
+    "description":"Fehlende Wahrscheinlichkeit an einem Ast im Baumdiagramm über das Gegenereignis ergänzen, Summe der Wahrscheinlichkeiten an einer Verzweigung ist 1",
     "dest":["9FC", "10AC", "QHC"],
     "options":[
         {
-        "name":"Arbre à 2 branches par niveau (2 niveaux)",
+        "name":"Zweistufiges Baumdiagramm mit je 2 Ästen",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNRSTUVWXYZ", 
             "figures":[
@@ -17,19 +17,19 @@
            ]        
         },
         "vars":{"l":"0_22_3_^&","A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}", "nb":"0_2","lo":"1_9_3_^&"},
-        "question":"Calculez $$\\color{red}{?}$$",
+        "question":"Berechne die fehlende Wahrscheinlichkeit $$\\color{red}{?}$$.",
         "figure":{"type":"svg","content":"${:figures[:nb]}"},
         "shortq":"${:figures[:nb]}",
         "answer":"$$?=\\color{red}{${MMmath.round(1-:lo[:nb]*0.1,1)}}=\\color{green}{1-${MMmath.round(:lo[:nb]*0.1,1)}}$$",
         "value":"${MMmath.round(1-:lo[:nb]*0.1,1)}"
         },
         {
-        "name":"Arbre à 3 branches niveau 1 et 2 branches niveaux 2",
+        "name":"Baumdiagramm mit 3 Ästen auf Stufe 1 und je 2 Ästen auf Stufe 2",
         "consts":{
             "lettres":"ABCDEFGHIJKLMNRSTUVWXYZ", 
             "figures": "<svg width=\"8em\" height=\"8em\" viewBox=\"0,0 300,400\" xmlns=\"http://www.w3.org/2000/svg\"><g transform=\"rotate(-90 200,200)\"><rect x=\"0\" y=\"0\" width=\"400\" height=\"300\" style=\"fill:#ffffff\" /><text x=\"66.7\" y=\"88\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 66,83.8)\">${:A}</text><text x=\"200\" y=\"88\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 199.3,83.8)\">${:B}</text><text x=\"333.3\" y=\"88\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 332.6,83.8)\">${:C}</text><text x=\"33.3\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 32.6,163.8)\">${:F}&#773;</text><text x=\"100\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 99.3,163.8)\">${:F}</text><text x=\"166.7\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 166,163.8)\">${:E}&#773;</text><text x=\"233.3\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 232.6,163.8)\">${:E}</text><text x=\"300\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 299.3,163.8)\">${:D}&#773;</text><text x=\"366.7\" y=\"168\" font-size=\"16\" fill=\"black\" text-anchor=\"start\" transform=\"rotate(90 366,163.8)\">${:D}</text><line x1=\"183.3\" y1=\"18\" x2=\"135.8\" y2=\"46.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"123.3\" y=\"54\" font-size=\"16\" fill=\"black\" text-anchor=\"middle\" transform=\"rotate(90 122.9,51.3)\">${MMmath.round(:pC*0.1,1)}</text><line x1=\"110.8\" y1=\"61.5\" x2=\"83.3\" y2=\"78\" style=\"stroke:black; stroke-width:1\" /><line x1=\"200\" y1=\"18\" x2=\"200\" y2=\"46.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"200\" y=\"54\" font-size=\"16\" fill=\"black\" text-anchor=\"middle\" transform=\"rotate(90 199.6,51.3)\">${MMmath.round(:lo[1]*0.1,1)}</text><line x1=\"200\" y1=\"61.5\" x2=\"200\" y2=\"78\" style=\"stroke:black; stroke-width:1\" /><line x1=\"216.7\" y1=\"18\" x2=\"264.2\" y2=\"46.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"276.7\" y=\"54\" font-size=\"16\" fill=\"red\" text-anchor=\"middle\" transform=\"rotate(90 276.3,51.3)\">?</text><line x1=\"289.2\" y1=\"61.5\" x2=\"316.7\" y2=\"78\" style=\"stroke:black; stroke-width:1\" /><line x1=\"62.5\" y1=\"98\" x2=\"50.6\" y2=\"126.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"47.5\" y=\"134\" font-size=\"16\" fill=\"black\" text-anchor=\"middle\" transform=\"rotate(90 47.1,131.3)\">${MMmath.round(:lo[4]*0.1,1)}</text><line x1=\"44.4\" y1=\"141.5\" x2=\"37.5\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /><line x1=\"70.8\" y1=\"98\" x2=\"95.8\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /><line x1=\"195.8\" y1=\"98\" x2=\"184\" y2=\"126.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"180.8\" y=\"134\" font-size=\"16\" fill=\"black\" text-anchor=\"middle\" transform=\"rotate(90 180.4,131.3)\">${MMmath.round(:lo[3]*0.1,1)}</text><line x1=\"177.7\" y1=\"141.5\" x2=\"170.8\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /><line x1=\"204.2\" y1=\"98\" x2=\"229.2\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /><line x1=\"329.2\" y1=\"98\" x2=\"317.3\" y2=\"126.5\" style=\"stroke:black; stroke-width:1\" /><text x=\"314.2\" y=\"134\" font-size=\"16\" fill=\"black\" text-anchor=\"middle\" transform=\"rotate(90 313.8,131.3)\">${MMmath.round(:lo[2]*0.1,1)}</text><line x1=\"311\" y1=\"141.5\" x2=\"304.2\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /><line x1=\"337.5\" y1=\"98\" x2=\"362.5\" y2=\"158\" style=\"stroke:black; stroke-width:1\" /></g></svg>"},
         "vars":{"l":"0_22_6_^&","A":"${:lettres[:l[0]]}", "B":"${:lettres[:l[1]]}", "C":"${:lettres[:l[2]]}","D":"${:lettres[:l[3]]}","E":"${:lettres[:l[4]]}","F":"${:lettres[:l[5]]}", "nb":"0_6", "lo":"1_9_5_^&","pC":"1_${10-:lo[1]}"},
-        "question":"Calculez $$\\color{red}{?}$$",
+        "question":"Berechne die fehlende Wahrscheinlichkeit $$\\color{red}{?}$$.",
         "figure":{"type":"svg","content":"${:figures}"},
         "shortq":"${:figures}",
         "answer":"$$P(\\overline{${:lettres[:l[2]]}})=\\color{red}{${MMmath.round(1-:pC*0.1-:lo[1]*0.1,1)}}$$ $$=\\color{green}{1-${MMmath.round(:pC*0.1,1)}-${MMmath.round(:lo[1]*0.1,1)}}$$",

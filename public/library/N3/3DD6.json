@@ -1,15 +1,15 @@
 {
     "ID":"3DD6",
     "dest":["8BA", "EAA"],
-    "title":"Lectures graphiques d'images et d'antécédents",
-    "description":"Utilisation de la représentation graphique pour lire des images et des antécédents : lecture graphique, courbe, fonction. Pas de correction automatique en mode interactif (online/duel).",
+    "title":"Funktionswerte und Stellen am Graphen ablesen",
+    "description":"Am Graphen einer Funktion Funktionswerte ablesen und Stellen x mit f(x) = y näherungsweise bestimmen, grafisch ablesen, Kurve. Keine automatische Auswertung im interaktiven Modus (online/Duell).",
     "type":"text",
     "repeat":2,
     "keys":["L","A","_","_","_","_","_","_"],
     "textSize":"small",
     "options":[
         {
-        "name":"Lecture d'image",
+        "name":"Funktionswert ablesen",
         "consts":{"delt":"MMmath.sqrt(${:a})"},
         "vars":{"cfs":"0_4_3_^$","sig0":"-1_1_^0","a":"${:cfs[0]*:sig0}","b":"${:cfs[1]*:sig0**2}","c":"${:cfs[2]*:sig0**3}","d":"0_${(:sig0**5)*3}",
         "x0":"-5_5",
@@ -33,11 +33,11 @@
             "content" :[
                 ["functiongraph", "${:a}*x**3/125+${:b}*x**2/25+${:c}*x/5+${:d};"]]   
             },
-        "question":"À 0,2 près, lire l'image de $$${:x}$$",
-        "answer":"L’image de $$${:x}$$ est $$\\color{red}{:image}$$ (accepté autour de $$:arr$$)"
+        "question":"Lies den Funktionswert an der Stelle $$${:x}$$ auf 0,2 genau ab.",
+        "answer":"Der Funktionswert an der Stelle $$${:x}$$ ist $$\\color{red}{:image}$$ (ungefähr $$:arr$$ ist auch richtig)."
         },
         {
-        "name":"Lecture d'antécédents",
+        "name":"Stellen ablesen",
         "vars":{"cfs":"0_5_2_^&", "cfc":"0_3","sig0":"-1_1_^0","a":"${:cfs[0]*:sig0}","b":"${:cfs[1]*:sig0**2}","c":"${:cfc*:sig0**3}",
         "x0":"d-5_5_1",
         "im0":"${MMmath.round(:a*:x0**2/25+:b*:x0/5+:c,1)}",
@@ -65,8 +65,8 @@
                     ["functiongraph", ":a*x**2/25+:b*x/5+:c;"]  
                 ]               
             },
-        "question":"Lire le ou les antécédents de $$${:image}$$ (à $$0.2$$ près).",
-        "answer":"${(Math.abs(:sol2)>5.6||Math.abs(:delta)<0.01||Math.abs(:delta-:b*:b/25)<0.01)&&:sol2!=NaN?'L’antécédent de $$'+:image+'$$ est $$\\color{red}{'+:x+'}$$':'Les antécédents de $$'+:image+'$$ sont $$\\color{red}{'+:x+'\\text{ et } '+:sol2+'}$$'} environ."
+        "question":"Für welche $$x$$ gilt $$f(x)=${:image}$$? Lies auf 0,2 genau ab.",
+        "answer":"${(Math.abs(:sol2)>5.6||Math.abs(:delta)<0.01||Math.abs(:delta-:b*:b/25)<0.01)&&:sol2!=NaN?'$$f(x)='+:image+'$$ gilt für $$x\\approx\\color{red}{'+:x+'}$$.':'$$f(x)='+:image+'$$ gilt für $$x\\approx\\color{red}{'+:x+'}$$ und $$x\\approx\\color{red}{'+:sol2+'}$$.'}"
         }
     ]
 }

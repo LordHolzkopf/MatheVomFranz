@@ -1,23 +1,23 @@
 {
-    "title":"Manipuler les racines carrées",
+    "title":"Wurzeln aus Quadratzahlen und teilweises Wurzelziehen",
     "type":"latex",
     "ID":"2N11",
-    "description":"Simplifier une écriture impliquant des racines carrées",
+    "description":"Quadratwurzeln vereinfachen: Wurzel aus einer Quadratzahl, Wurzel aus (−a)², teilweise die Wurzel ziehen",
     "dest":["9AA", "9AC"],
     "options":[{
-        "name":"Racines de carrés parfaits",
+        "name":"Wurzeln aus Quadratzahlen mit Minuszeichen davor",
         "vars":{"a":"1_10"},
         "question": ["-\\sqrt{${:a*:a}}", "-\\sqrt{${:a}^2}", "-\\sqrt{(-${:a})^2}"],
         "answer":":question=\\color{red}{-${:a}}",
         "value":"-${:a}"
     },{
-        "name":"Racines de carrés parfaits",
+        "name":"Wurzeln aus Quadratzahlen",
         "vars":{"a":"1_10"},
         "question": ["\\sqrt{${:a*:a}}", "\\sqrt{${:a}^2}", "\\sqrt{(-${:a})^2}"],
         "answer":":question=\\color{red}{${:a}}",
         "value":"${:a}"
     },{
-        "name":"Simplification de racine carré",
+        "name":"Teilweises Wurzelziehen",
         "vars":{"a":"2_10","b":"2_5"},
         "question":"\\sqrt{${:a*:b*:b}}",
         "answer":":question=\\color{red}{${MMmath.simplifieRacine(:a*:b*:b)}}",

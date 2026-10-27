@@ -1,8 +1,8 @@
 {
     "ID":"3DD1",
     "dest":["8BC", "9BA"],
-    "title":"Lire l'ordonnée à l'origine",
-    "description":"Lire l'ordonnée à l'origine d'une fonction affine sur sa représentation graphique.",
+    "title":"y-Achsenabschnitt am Graphen ablesen",
+    "description":"y-Achsenabschnitt b einer linearen Funktion f(x) = mx + b am Graphen ablesen, Schnittpunkt mit der y-Achse",
     "type":"text",
     "textSize":"small",
     "vars":{"a":"d-2_2_1", "c":"-6_6", "b":"${:c/2}"},
@@ -16,7 +16,7 @@
                 ["functiongraph","${:a}*x+${:b}"]
             ]    
         },
-    "question":"Quelle est l'<b>ordonnée à l'origine</b> de la fonction affine ?",
-    "answer":"L'ordonnée à l'origine de la fonction est <span class='red'>$$${:b}$$</span>",
+    "question":"Lies den <b>y-Achsenabschnitt</b> der linearen Funktion ab.",
+    "answer":"Der y-Achsenabschnitt ist <span class='red'>$$${:b}$$</span>.",
     "value":"${:b}"
 }

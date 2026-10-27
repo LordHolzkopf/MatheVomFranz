@@ -1,6 +1,6 @@
 {
-    "title":"Développer à l'aide de la double distributivité",
-    "description":"développer, double distributivité, calcul littéral",
+    "title":"Summen multiplizieren: (ax + b)(cx + d)",
+    "description":"Zwei Summen multiplizieren, Klammern ausmultiplizieren, jedes Glied mit jedem multiplizieren, zusammenfassen, Terme mit Variablen",
     "type":"latex",
     "ID":"Ko21",
     "textSize":"medium",
@@ -8,9 +8,9 @@
     "consts":{"lettres":["a","b","t","x","y"]},
     "keys":["x²","+","-","a","b","t","x","y"],
     "valueType":"expressionSimplifiee",
-    "consigne":"Développer et réduire",
+    "consigne":"Multipliziere aus und fasse zusammen.",
     "options":[{
-        "name":"Double distributivité",
+        "name":"Zwei Summen multiplizieren",
         "vars":{"l":"0_4", "a":"-10_10_^0","b":"-10_10_^0","c":"-10_10_^0","d":"-10_10_^0,${-:b*:c/:a}","x":"${:lettres[:l]}"},
         "question": "(${MMmath.signIfOne(:a)+:x}${MMmath.signedNumber(:b)})(${MMmath.signIfOne(:c)+:x}${MMmath.signedNumber(:d)})",
         "shortq": "(${MMmath.signIfOne(:a)+:x}${MMmath.signedNumber(:b)})(${MMmath.signIfOne(:c)+:x}${MMmath.signedNumber(:d)})",

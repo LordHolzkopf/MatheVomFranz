@@ -1,8 +1,8 @@
 {
     "ID":"3DD4",
     "dest":["8BC", "9BA"],
-    "title":"Déterminer le coefficient d'une fonction affine",
-    "description":"Utiliser la méthode graphique pour déterminer le coefficient d'une fonction affine.",
+    "title":"Steigung am Graphen ablesen",
+    "description":"Steigung m einer linearen Funktion mit dem Steigungsdreieck am Graphen bestimmen",
     "type":"text",
     "textSize":"small",
     "keys":["_","-","/","_","_","_","_","_"],
@@ -19,7 +19,7 @@
                 ["segment", [["${:xb}","${:ya}"],["${:xb}","${:yb}"]],{"strokeColor":"#222222"}]
             ]
         },
-    "question":"Quel est le coefficient de la fonction affine ?",
-    "answer":"Le coefficient de la fonction est <span class='red'>$$${MMmath.calc(:a+'/('+:b+')')}$$</span>",
+    "question":"Bestimme die Steigung der linearen Funktion mithilfe des Steigungsdreiecks.",
+    "answer":"Die Steigung ist <span class='red'>$$m=${MMmath.calc(:a+'/('+:b+')')}$$</span>.",
     "value":["${MMmath.calc(:a+'/('+:b+')',true)}"]
 }

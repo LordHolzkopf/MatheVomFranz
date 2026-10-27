@@ -1,8 +1,8 @@
 {
     "ID":"3DD9",
     "dest":["8BE", "9BA"],
-    "title":"Calcul d'antécédent par une fonction affine",
-    "description":"Calculer l'antécédent d'un nombre par une fonction affine en utilisant son expression algébrique.",
+    "title":"Stelle zu einem Funktionswert berechnen",
+    "description":"Zu einem gegebenen Funktionswert die Stelle x berechnen, Gleichung f(x) = y lösen, proportionale und lineare Funktion, Funktionsterm",
     "type":"text",
     "textSize":"medium",
     "vars":{
@@ -17,38 +17,38 @@
     },
     "options":[
         {
-            "name":"Antécédent par une fonction linéaire (entiers relatifs)",
+            "name":"Proportionale Funktion (ganze Zahlen)",
             "question":[
-                "Quel est l'antécédent de $$${:a0*:x0}$$ par la fonction $$f(x)=${:a0f}x$$ ?",
-                "Quel est l'antécédent de $$${:a0*:x0}$$ par la fonction $$f : x\\mapsto ${:a0f}x$$ ?",
+                "Gegeben ist $$f(x)=${:a0f}x$$. Für welches $$x$$ gilt $$f(x)=${:a0*:x0}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:a0f}x$$ den Funktionswert $$${:a0*:x0}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:a0f}x \\\\ &? \\mapsto ${:a0*:x0}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:x0}}$$ car $$f(${:x0})=${:a0*:x0}$$ pour $$f(x)=${:a0f}x$$",
+            "answer":"$$x=\\color{red}{${:x0}}$$, denn für $$f(x)=${:a0f}x$$ gilt $$f(${:x0})=${:a0*:x0}$$.",
             "value":"${:x0}"
         },{
-            "name":"Antécédent par une fonction affine (entiers relatifs)",
+            "name":"Lineare Funktion (ganze Zahlen)",
             "vars":{
                 "b":"-10_10_^0",
                 "bf":"${MMmath.signedNumber(:b)}"
             },
             "question":[
-                "Quel est l'antécédent de $$${:a0*:x0+:b}$$ par la fonction $$f(x)=${:a0f}x${:bf}$$ ?",
-                "Quel est l'antécédent de $$${:a0*:x0+:b}$$ par la fonction $$f : x\\mapsto ${:a0f}x${:bf}$$ ?",
+                "Gegeben ist $$f(x)=${:a0f}x${:bf}$$. Für welches $$x$$ gilt $$f(x)=${:a0*:x0+:b}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:a0f}x${:bf}$$ den Funktionswert $$${:a0*:x0+:b}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:a0f}x${:bf} \\\\ &? \\mapsto ${:a0*:x0+:b}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:x0}}$$ car $$f(${:x0})=${:a0*:x0+:b}$$ pour $$f(x)=${:a0f}x${:bf}$$",
+            "answer":"$$x=\\color{red}{${:x0}}$$, denn für $$f(x)=${:a0f}x${:bf}$$ gilt $$f(${:x0})=${:a0*:x0+:b}$$.",
             "value":"${:x0}"
         },{
-            "name":"Antécédent par une fonction linéaire (décimal simple)",
+            "name":"Proportionale Funktion (einfache Dezimalzahlen)",
             "question":[
-                "Quel est l'antécédent de $$${MMmath.round(:a*:x,2)}$$ par la fonction $$f(x)=${:af}x$$ ?",
-                "Quel est l'antécédent de $$${MMmath.round(:a*:x,2)}$$ par la fonction $$f : x\\mapsto ${:af}x$$ ?",
+                "Gegeben ist $$f(x)=${:af}x$$. Für welches $$x$$ gilt $$f(x)=${MMmath.round(:a*:x,2)}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:af}x$$ den Funktionswert $$${MMmath.round(:a*:x,2)}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:af}x \\\\ &?\\mapsto ${MMmath.round(:a*:x,2)}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:x}}$$ car $$f(${:x})=${MMmath.round(:a*:x,2)}$$ pour $$f(x)=${:af}x$$",
+            "answer":"$$x=\\color{red}{${:x}}$$, denn für $$f(x)=${:af}x$$ gilt $$f(${:x})=${MMmath.round(:a*:x,2)}$$.",
             "value":"${:x}"
         },{
-            "name":"Antécédent par une fonction affine (décimal simple)",
+            "name":"Lineare Funktion (einfache Dezimalzahlen)",
             "vars":{
                 "choixdecb":"0_1",
                 "b0":"-10_10_^0",
@@ -56,24 +56,24 @@
                 "bf":"${MMmath.signedNumber(:b)}"
             },
             "question":[
-                "Quel est l'antécédent de $$${MMmath.round(:a*:x+:b,2)}$$ par la fonction $$f(x)=${:a}x${:bf}$$ ?",
-                "Quel est l'antécédent de $$${MMmath.round(:a*:x+:b,2)}$$ par la fonction $$f : x\\mapsto ${:a}x${:bf}$$ ?",
+                "Gegeben ist $$f(x)=${:a}x${:bf}$$. Für welches $$x$$ gilt $$f(x)=${MMmath.round(:a*:x+:b,2)}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:a}x${:bf}$$ den Funktionswert $$${MMmath.round(:a*:x+:b,2)}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:a}x${:bf} \\\\ &? \\mapsto ${MMmath.round(:a*:x+:b,2)}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:x}}$$ car $$f(${:x})=${MMmath.round(:a*:x+:b,2)}$$ pour $$f(x)=${:a}x${:bf}$$",
+            "answer":"$$x=\\color{red}{${:x}}$$, denn für $$f(x)=${:a}x${:bf}$$ gilt $$f(${:x})=${MMmath.round(:a*:x+:b,2)}$$.",
             "value":"${:x}"
         },{
-            "name":"Antécédent par une fonction linéaire (réponse pouvant être fractionnaire)",
+            "name":"Proportionale Funktion (Ergebnis evtl. ein Bruch)",
             "vars":{"x0":"-20_20","rep":"${MMmath.fractionSimplifiee(:x0,:a0)}"},
             "question":[
-                "Quel est l'antécédent de $$${:x0}$$ par la fonction $$f(x)=${:a0f}x$$ ?",
-                "Quel est l'antécédent de $$${:x0}$$ par la fonction $$f : x\\mapsto ${:a0f}x$$ ?",
+                "Gegeben ist $$f(x)=${:a0f}x$$. Für welches $$x$$ gilt $$f(x)=${:x0}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:a0f}x$$ den Funktionswert $$${:x0}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:a0f}x \\\\ &? \\mapsto ${:x0}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:rep}}$$ car $$${:x0}\\div${:a0}=${:rep}$$",
+            "answer":"$$x=\\color{red}{${:rep}}$$, denn $$${:x0}\\div${Number(:a0)>0?:a0:'('+:a0+')'}=${:rep}$$.",
             "value":"${:rep}"
         },{
-            "name":"Antécédent par une fonction affine (réponse pouvant être fractionnaire)",
+            "name":"Lineare Funktion (Ergebnis evtl. ein Bruch)",
             "vars":{
                 "x0":"-20_20",
                 "b":"-10_10_^0",
@@ -81,11 +81,11 @@
                 "rep":"${MMmath.calc('('+:x0+'-('+:b+'))/('+:a0+')')}"
             },
             "question":[
-                "Quel est l'antécédent de $$${:x0}$$ par la fonction $$f(x)=${:a0f}x${:bf}$$ ?",
-                "Quel est l'antécédent de $$${:x0}$$ par la fonction $$f : x\\mapsto ${:a0f}x${:bf}$$ ?",
+                "Gegeben ist $$f(x)=${:a0f}x${:bf}$$. Für welches $$x$$ gilt $$f(x)=${:x0}$$?",
+                "Welche Zahl hat bei $$f: x\\mapsto ${:a0f}x${:bf}$$ den Funktionswert $$${:x0}$$?",
                 "$$\\begin{aligned}f:~&x\\mapsto ${:a0}x${:bf} \\\\ &? \\mapsto ${:x0}\\end{aligned}$$"
             ],
-            "answer":"$$\\color{red}{${:rep}}$$ car $$(${:x0}${MMmath.signedNumber(-:b)})\\div${Number(:a0)>0?:a0:'('+:a0+')'}=${:rep}$$",
+            "answer":"$$x=\\color{red}{${:rep}}$$, denn $$(${:x0}${MMmath.signedNumber(-:b)})\\div${Number(:a0)>0?:a0:'('+:a0+')'}=${:rep}$$.",
             "value":"${:rep}"
         }
     ]

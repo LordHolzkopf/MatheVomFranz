@@ -26,8 +26,8 @@
         "vars":{"a":"4_6", "b":[10,100], "c":"d1_${:b}_3"}
     }
     ],
-    "question": "Schreibe als Zahl:<br>$$${:c}$$ ${:u[:a]}",
-    "audio": "Schreibe ${String(:c).replace('.',',')} ${:u[:a]} als Zahl.",
-    "answer":"$$${:c}$$ ${:u[:a]} $$ = \\color{red}{${MMmath.round(:c*:p[:a],6)}}$$",
+    "question": "Schreibe als Zahl:<br>$$${:c}$$ ${:c==1&&:a==0?'Million'::u[:a]}",
+    "audio": "Schreibe ${String(:c).replace('.',',')} ${:c==1&&:a==0?'Million'::u[:a]} als Zahl.",
+    "answer":"$$${:c}$$ ${:c==1&&:a==0?'Million'::u[:a]} $$ = \\color{red}{${MMmath.round(:c*:p[:a],6)}}$$",
     "value":"${MMmath.round(:c*:p[:a],8)}"
 }

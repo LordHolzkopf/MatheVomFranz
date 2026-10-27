@@ -24,5 +24,5 @@
     "question": "Schreibe die Zahl <b>${:n}</b> in Worten.",
     "shortq":"<b>${:n}</b> in Worten?",
     "answer":"${:n} schreibt man <span class='red'>${MMmath.zahlwort(:n)}</span>",
-    "value":"${MMmath.zahlwort(:n)}"
+    "value":["${MMmath.zahlwort(:n)}","${MMmath.zahlwort(:n).replace(/^ein(?=hundert|tausend)/,'')}"]
 }

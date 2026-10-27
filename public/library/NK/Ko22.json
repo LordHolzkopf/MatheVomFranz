@@ -4,7 +4,7 @@
     "type":"latex",
     "ID":"Ko22",
     "dest":["7DD"],
-    "keys":["_","_","/","-","_","_","_","_"],
+    "keys":["_","_","/","-","_","_","kLsg","uvLsg"],
     "textSize":"medium",
     "consts":{"lettres":["u","v","t","x", "y", "z"]},
     "options":[{

@@ -82,7 +82,7 @@ options:
     answer: "${:paral?'Ja':'Nein'}, die Geraden <span class='red'>sind ${:paral?'':'nicht '}parallel</span>."
     value: ["${:paral?'\\text{ja}':'\\text{nein}'}", "${:paral?'ja':'nein'}"]
   - name: Gemischt, auch nicht entscheidbare Fälle
-    keys: ["o", "n", "_", "_"]
+    keys: ["o", "n", "nent", "_"]
     consts:
       poss:
         [

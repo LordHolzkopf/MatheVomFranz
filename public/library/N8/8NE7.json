@@ -1,6 +1,6 @@
 {
     "ID": "8NE7",
-    "dest":["8NE","7NE","6NE"],
+    "dest":["6NE"],
     "title":"Multiplier un décimal par 5 ou 50",
     "keys":"numerique",
     "description":"décimal contenant au plus 3 chiffres significatifs",

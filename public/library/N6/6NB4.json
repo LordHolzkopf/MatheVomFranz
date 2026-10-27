@@ -4,7 +4,7 @@
     "speech":1,
     "keys":["_","_","/","+"],
     "description":"Écrire une fraction en utilisant la décomposition qui correspond aux notations anglo saxones.",
-    "dest":["7NB","6NB","5NA","4NA","3NA"],
+    "dest":["6NB","5NA","4NA","3NA"],
     "consigne":"Décomposer en entier + fraction inférieure à 1",
     "question":"\\dfrac{${:num}}{${:den}}~=~ ... + \\dfrac{...}{...}",
     "shortq":"\\dfrac{${:num}}{${:den}}~=~ \\colorbox{#ECECEC}{\\quad} + \\dfrac{\\colorbox{#ECECEC}{\\quad}}{\\colorbox{#ECECEC}{\\quad}}",

@@ -53,15 +53,6 @@
             <nav id="nav-menu-niveaux" class="hidden-phone" aria-label="Niveaux">
                 <!--<div class="icon-menu"></div>-->
                 <ul class="menu color-inverse">
-                    <li><button type="button" class="btn-plain" aria-expanded="false">Ecole</button>
-                        <ul>
-                            <li><button type="button" class="btn-plain" data-niv="11">CP</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="10">CE1</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="9">CE2</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="8">CM1</button></li>
-                            <li><button type="button" class="btn-plain" data-niv="7">CM2</button></li>
-                        </ul>
-                    </li>
                     <li><button type="button" class="btn-plain" aria-expanded="false">Collège</button>
                         <ul>
                             <li><button type="button" class="btn-plain" data-niv="6">6e</button></li>
@@ -99,8 +90,6 @@
                         aria-controls="tab-telechargements" aria-selected="false"
                         class="tabs-menu-link">Téléchargements</button>
                 </nav>
-                <a href="docs/guide-utilisateur.html" class="lien-guide" target="_blank" rel="noopener"
-                    title="Guide d’utilisation illustré (s’ouvre dans un nouvel onglet)">📖 Guide</a>
             </div>
 
         </header>
@@ -123,9 +112,6 @@
                 <section class="accueil-recherche">
                     <label for="recherche-accueil">Chercher une activité :</label>
                     <input type="search" id="recherche-accueil" placeholder="fractions, Pythagore, tables… (3 car. min.)">
-                </section>
-                <h2 class="sg-title">École</h2>
-                <section id="grille-ecole" class="grille ecole">
                 </section>
                 <h2 class="sg-title">Collège</h2>
                 <section id="grille-college" class="grille college">
@@ -1103,75 +1089,14 @@
             </section>
             <section id="tab-telechargements" class="tabs-content-item" role="tabpanel"
                 aria-labelledby="tabbtn-telechargements" style="display: none;">
-                <p>MathsMentales est gratuit et placé sous licence libre apache 2.0</p>
-                <h2 class="sg-title">Code source de MathsMentales</h2>
-                <p>Le code source de MathsMentales est visible, téléchargeable, forkable sur la forge du développeur :
+                <!-- MatheVomFranz : contenu provisoire, remplacé lors de la traduction (étape 2). -->
+                <p>MatheVomFranz est gratuit et placé sous licence libre Apache 2.0.</p>
+                <h2 class="sg-title">Code source</h2>
+                <p>MatheVomFranz est une adaptation allemande de MathsMentales de Sébastien Cogez. Le code source de
+                    MathsMentales est disponible sur la forge du développeur :
                     <a
                         href="https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr">https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr</a>
                 </p>
-                <p></p>
-                <p>Les documents ci-dessous sont sous licence libre GPL sauf mention contraire</p>
-                <h2 class="sg-title">Documentation de MathsMentales</h2>
-                <p>Un <a href="docs/guide-utilisateur.html" target="_blank" rel="noopener">guide d’utilisation illustré</a> est disponible (des tutos en vidéo y seront ajoutés). Ancienne documentation de MathsMentales : <a
-                        href="docs/MathsMentales documentation.pdf" rel="noreferrer" target="_blank">Télécharger le
-                        pdf</a></p>
-                <h2 class="sg-title">Automatismes - programmes 2026</h2>
-                <p>Ci-dessous, des pdf des items extraits des projets de programmes pour la rentrée 2026.
-                    Une page dédiée a été réalisée à destination des <a href="brevet-2025.html">élèves de 3e</a> pour leur permettre de travailler
-                    les automatismes prévus à l’épreuve sans calculatrice du DNB 2026. Pour les enseignants,
-                    la sélection des items est à présent possible depuis <a href="#" id="liendirectitems3e">le menu 3e</a>.<br>
-                    Des pages seront bientôt créées sur le même modèle pour les niveaux 5e et 4e.
-                </p>
-                <table>
-                    <tr>
-                        <td><a href="docs/Projet 2026 automatismes 5e.pdf">Classe de 5e</a></td>
-                        <td><a href="docs/Projet 2026 automatismes 4e.pdf">Classe de 4e</a></td>
-                        <td><a href="docs/Projet 2026 automatismes 3e.pdf">Classe de 3e</a></td>
-                    </tr>
-                </table>
-                <h2 class="sg-title">Ceintures de Laureen De-Buyzer</h2>
-                <p>Laureen est une enseignante qui partage son travail sur <a
-                        href="https://www.facebook.com/groups/lecoinboulotdesprofsdemathematiques">le coin boulot des
-                        profs de Mathématiques</a>. Elle a notamment réalisé des ceintures de calcul mental remarquables
-                    pour les classes de 3e et de 5e en partie grace à MathsMentales.</p>
-                <p>Elle a accepté que j'utilise ses fichiers sur mon site, je ne vous propose que les pdf à imprimer. Si
-                    vous voulez les corrigés et les fichiers éditables, il faudra s'inscrire sur le groupe facebook avec
-                    votre adresse académique et faire une recherche sur ses publications.</p>
-                <ul>
-                    <li><a href="docs/LaureenDeBuyzer/3e-ceintures calcul mental-livret-entrainements-partage_pagenumber.pdf">Livret
-                            d'entrainement 3e</a></li>
-                    <li><a href="docs/LaureenDeBuyzer/3e-ceintures calcul mental-livret-évaluations-à imprimer en deux pages par page.pdf">Fichier
-                            d'évaluation 3e</a></li>
-                    <li><a href="docs/LaureenDeBuyzer/5e-ceintures calcul mental-livret-entrainements-partage.pdf">Livret
-                            d'entrainement 5e</a></li>
-                    <li><a href="docs/LaureenDeBuyzer/5e-ceintures calcul mental-toutes les évaluations- à imprimer en deux pages par page.pdf">Fichier
-                            d'évaluation 5e</a></li>
-                </ul>
-                <h2 class="sg-title">Documents obsolètes en 2026</h2>
-
-                <p><b>Livrets de Ceinture de calcul mental</b> dont un descriptif plus approfondi est donné sur la page <a
-                        href="http://olibo.jeduque.net/ceintures-de-calcul-mental-au-college/">ceintures de calcul
-                        mental</a> de mon site.</p>
-                        <table>
-                            <tr>
-                                <td><a href="docs/Livret CM 6e 2019-min.pdf">Livret 6e 2020</a></td>
-                                <td><a href="docs/Livret CM 5e 2019.pdf">Livret 5e 2019</a></td>
-                                <td><a href="docs/Livret CM 4e 2019_compressed.pdf">Livret 4e 2019</a></td>
-                                <td><a href="docs/Livret CM 3e 2021.pdf">Livret 3e 2021</a></td>
-                            </tr>
-                        </table>
-                <p><b>Générateurs LibreOffice Calc</b> de ceintures de calcul mental.
-                Ces fichiers permettent de générer des fiches ainsi que leurs corrigés. Ils sont présentés de manière
-                    à avoir 3 ou 4 fiches par page. Libre à vous de générer autant de fiches que désiré, d'exporter en
-                    pdf...</p>
-                <table>
-                    <tr>
-                        <td><a href="docs/generateur CM 6e 2019.ods">Fichier 6e 2020</a></td>
-                        <td><a href="docs/generateur CM 5e 2019.ods">Fichier 5e 2019</a></td>
-                        <td><a href="docs/generateur CM 4e 2019.ods">Fichier 4e 2019</a></td>
-                        <td><a href="docs/generateur CM 3e 2021.ods">Fichier 3e 2021</a></td>
-                    </tr>
-                </table>
             </section>
             <section id="tab-chercher" class="tabs-content-item" role="tabpanel" aria-labelledby="tabbtn-chercher"
                 style="display: none;">

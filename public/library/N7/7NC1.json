@@ -3,7 +3,7 @@
     "title":"Ajouter un nombre inférieur à 10 d'unités, dizaines, ... avec passage de dizaine",
     "description":"centaines, milliers, dixièmes, centièmes ou millièmes avec retenue",
     "keys":"numerique",
-    "dest":["7NC","6NC"],
+    "dest":["6NC"],
     "type":"text",
     "options":[{
         "name":"Ajouter des milliers",

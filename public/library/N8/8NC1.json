@@ -3,7 +3,7 @@
     "description":"Trouver les unités dans un entier, dans un décimal.",
     "keys":"numerique",
     "ID":"8NC1",
-    "dest": ["8NC","7NC","6NC","5NA"],
+    "dest": ["6NC","5NA"],
     "type":"text",
     "options":[
         {

@@ -2,7 +2,7 @@
     "ID": "8MG1",
     "title":"Identifier une situation de proportionnalité",
     "description":"proportionnalité, proportionnel, situation, reconnaître",
-    "dest":["8MG","7MG","6MF"],
+    "dest":["6MF"],
     "keys":["_","V","F","_","_","_","_","_"],
     "type":"text",
     "consts":{

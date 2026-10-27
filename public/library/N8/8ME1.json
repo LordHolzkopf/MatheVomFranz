@@ -1,6 +1,6 @@
 {
     "ID":"8ME1",
-    "dest":["8ME","7ME","6ME"],
+    "dest":["6ME"],
     "title":"Reconnaître un angle",
     "description":"angle droit, aigu, obtus, plat, nul, adjacents, opposés par le sommet",
     "speech":1,

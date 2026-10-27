@@ -3,7 +3,7 @@
     "description": "Réécrire un nombre en supprimant les zéros qui ne servent pas à sa lecture.",
     "keys":"numerique",
     "ID":"8NC2",
-    "dest": ["8NC","7NC","6NC","5NA"],
+    "dest": ["6NC","5NA"],
     "type":"text",
     "valueType":"sansZeroInutile",
     "options":[{

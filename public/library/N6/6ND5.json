@@ -3,7 +3,7 @@
     "description":"nombres qui se marient bien, compléments, somme astucieuse, regrouper, calcul réfléchi",
     "ID":"6ND5",
     "speech":1,
-    "dest":["6ND", "7ND", "8ND"],
+    "dest":["6ND"],
     "options":[{
         "name":"La somme est une dizaine",
         "vars":{"a":"1_9", "b":"${:a*10}", "c":"2_${:b-2}", "d":"${:b-:c}"}

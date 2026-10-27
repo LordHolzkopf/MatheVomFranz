@@ -1,7 +1,7 @@
 {
     "title":"Reconnaitre des droites parallèles ou perpendiculaires",
     "ID":"6GD2",
-    "dest":["6GD","8GD", "7GD"],
+    "dest":["6GD"],
     "type":"text",
     "repeat":5,
     "keys": [

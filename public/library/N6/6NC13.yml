@@ -5,9 +5,6 @@ type: text
 speech: 1
 keys: ["<", ">", "=", "_"]
 dest:
-  - 9NC
-  - 8NC
-  - 7NC
   - 6NC
 options:
   - name: Entiers pas même nombre de chiffres

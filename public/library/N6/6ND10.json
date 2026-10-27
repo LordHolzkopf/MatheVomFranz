@@ -4,7 +4,7 @@
     "type":"text",
     "description":"Pour répondre, donner le quotient, puis le reste si nécessaire, séparés d'un point-virgule",
     "keys":["_","_",";","_","_","_","_","_"],
-    "dest":["6ND", "7ND","5ND", "4ND", "3NC", "2N2"],
+    "dest":["6ND","5ND", "4ND", "3NC", "2N2"],
     "options":[{
         "name":"Division entière",
         "vars":{"a":"0_10", "b":"1_10", "p":"${:a*:b}"},

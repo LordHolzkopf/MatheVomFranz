@@ -5,7 +5,7 @@
     "ID":"6ND4",
     "speech":1,
     "textSize":"medium",
-    "dest":["6ND", "7ND", "8ND"],
+    "dest":["6ND"],
     "options":[{
         "name":"Trouver le complément à une dizaine",
         "vars":{"a":"2_9", "b":"${10*:a}", "c":"2_${:b-1}"}

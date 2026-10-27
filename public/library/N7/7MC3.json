@@ -5,7 +5,7 @@
     "type":"text",
     "speech":1,
     "keys":["_","_","mn","sc","_","_","_","_"],
-    "dest":["9MC","8MC","7MC","6MB","5MA","4MA","3MA"],
+    "dest":["6MB","5MA","4MA","3MA"],
     "options":[{
         "name":"Conversions minutes en secondes",
         "vars":{"min":"1_10","s":"${60*:min}"},

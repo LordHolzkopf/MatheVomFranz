@@ -6,7 +6,7 @@
     "keys":"numerique",
     "type":"text",
     "textSize":"small",
-    "dest":["7NB", "6NB", "5NC", "4NC", "3NB"],
+    "dest":[ "6NB", "5NC", "4NC", "3NB"],
     "options":[{
         "name":"Fraction de quantité en CM2",
         "consts":{"unites":["u","cm", "cm²", "oranges", "pommes", "bonbons"],

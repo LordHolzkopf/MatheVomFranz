@@ -5,7 +5,7 @@
     "keys":"numerique",
     "description":"Multiplication de nombres à 1, 2 ou 3 chiffres significatifs par 10, 100, 1000",
     "params":{"fige":{"label":"Garder les mêmes chiffres significatifs","defaut":false,"fige":["a","b"]}},
-    "dest":["8NE", "7NE", "6NE", "5NC", "4NC", "3NB"],
+    "dest":[ "6NE", "5NC", "4NC", "3NB"],
     "options":[{
         "name":"Décimal à 1 chiffre significatif par 10",
         "vars":{"a":"1_9","p":"-3_3", "c":"${MMmath.round(:a*Math.pow(10,:p),3)}"},

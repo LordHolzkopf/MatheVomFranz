@@ -2,7 +2,7 @@
     "ID":"8NB1",
     "title": "Fraction (supérieure à 1) d’un rectangle unité",
     "description": "fraction, partage, rectangle, parts, fraction supérieure à 1",
-    "dest": ["8NB", "7NB", "6NB"],
+    "dest": [ "6NB"],
     "keys":["_","/","_","_","_","_","_","_"],
     "type":"text",
     "options":[

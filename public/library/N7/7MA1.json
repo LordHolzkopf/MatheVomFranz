@@ -1,7 +1,7 @@
 {
     "title":"Conversions vers les unités de base",
     "ID":"7MA1",
-    "dest":["7MA", "6MA", "5MA"],
+    "dest":[ "6MA", "5MA"],
     "textSize":"medium",
     "keys":["gr","mt","lt","_"],
     "options":[

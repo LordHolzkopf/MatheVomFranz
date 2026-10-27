@@ -4,7 +4,7 @@
     "speech":1,
     "type":"text",
     "description":"Somme d'un nombre entier avec une unité, une dizaine, une centaine, sans retenue.",
-    "dest":["8NA", "7NA", "6NA"],
+    "dest":[ "6NA"],
     "keys":"numerique",
     "options":[{
             "name":"Ajouter une unité",

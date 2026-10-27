@@ -1,8 +1,6 @@
 title: Moitié des tables de multiplication classiques (sans 0 et 1, ordre croissant)
 dest: # chapitres où sera intégrée l'activité
   - 6ND
-  - 7ND
-  - 8ND
 description: Multiplications sans rappels de celles déjà apprises. Exemple pour la table de 6, on ne travaille que 6x6 à 6x10. Progression possible 2, 5, 4, 8, 9, 3, 6, 7
 type: latex # pas obligatoire, c'est la valeur par défaut
 params: # cases à cocher : valeurs du 2e facteur à ne pas tirer

@@ -470,13 +470,6 @@ window.onload = function () {
       MM.speech.stop();
     };
   }
-  // lien direct items Brevet 3e
-  document.getElementById("liendirectitems3e").onclick = (e) => {
-    e.preventDefault();
-    MM.setHistory("MathsMentales items Brevet 2026", "n=i3");
-    MM.showTab("tab-chercher");
-    MM.loadFromServer("brevet-2025.html");
-  };
   // boutons démarrage
   document.getElementById("btnstart").onclick = () => {
     MM.start();
@@ -821,22 +814,6 @@ window.onload = function () {
         MM.loadActivity(evt.target.dataset.id);
       } else if (evt.target.parentNode.id.indexOf("rcli") === 0) {
         MM.loadActivity(evt.target.parentNode.dataset.id);
-      } else if (evt.target.id === "itemsbrevet2026") {
-        // ouvrir le lien vers les items du brevet
-        MM.loadFromServer("brevet-2025.html");
-        MM.setHistory("Exercice", "n=i3");
-      } else if (evt.target.id === "items6e2025") {
-        // ouvrir le lien vers les items de 6e 2025
-        MM.loadFromServer("automatismes-6e.html");
-        MM.setHistory("Exercice", "n=i6");
-      } else if (evt.target.id === "items5e2026") {
-        // ouvrir le lien vers les items de 5e 2026
-        MM.loadFromServer("automatismes-5e.html");
-        MM.setHistory("Exercice", "n=i5");
-      } else if (evt.target.id === "items4e2027") {
-        // ouvrir le lien vers les items de 4e 2027
-        MM.loadFromServer("automatismes-4e.html");
-        MM.setHistory("Exercice", "n=i5");
       }
     });
   // bouton d'ajout au panier

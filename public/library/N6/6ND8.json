@@ -2,7 +2,7 @@
     "title":"Soustractions d'entiers",
     "description":"soustraction, différence, entiers, retenue",
     "speech":1,
-    "dest":["6ND", "7ND", "8ND", "9ND"],
+    "dest":["6ND"],
     "options":[{
         "name":"Entiers inférieurs à 10",
         "vars":{"a":"0_9", "b":"${:a}_10", "d":"${:b-:a}"}

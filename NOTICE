@@ -1,0 +1,93 @@
+MatheVomFranz
+Copyright 2026 die Mitwirkenden von MatheVomFranz
+
+Dieses Produkt ist eine deutsche Bearbeitung von MathsMentales.
+
+  MathsMentales
+  https://mathsmentales.net
+  https://forge.apps.education.fr/mathsmentales/mathsmentales.forge.apps.education.fr
+  Lizenz: Apache License 2.0 (siehe LICENSE)
+  Übernommener Stand: Commit 0be0bd572548fef833965b1725c2fe9dce182e84
+  vom 22.10.2026 (Version 2.4.12)
+
+Autoren von MathsMentales (laut README des Originals):
+  - Sébastien Cogez – Hauptautor; hat die Anwendung und den Großteil der
+    Aktivitäten entwickelt, teils nach Vorschlägen von Kolleginnen und Kollegen
+  - Guillaume Valmont – Aktivitäten und Korrekturen; Datenaustausch mit
+    Websites, die MathsMentales per iframe einbinden
+  - Sandrine Cartier-Lange – Aktivitäten zu Pythagoras und für das Lycée
+  - Éric Elter – sorgfältige Durchsicht vieler Aktivitäten, neue Aktivitäten
+  - Fayçal Tib – Aktivitäten für das Lycée
+  - Mikael Le Mentec – geänderte und neue Aktivitäten für Collège und Lycée
+  - Xavier Levet – Aktivitäten für die Grundschule (CM)
+  - Dominique Porrone – Aktivitäten für das Collège
+
+Änderungen durch MatheVomFranz (Apache 2.0, Abschnitt 4 b):
+  Alle Dateien, die aus MathsMentales stammen und seit dem oben genannten
+  Stand verändert wurden, sind von den Mitwirkenden von MatheVomFranz
+  bearbeitet worden. Die einzelnen Änderungen sind in der Git-Historie dieses
+  Repositorys nachvollziehbar; der erste Commit nach dem Import enthält den
+  unveränderten Upstream-Stand (ohne die unten genannten Dateien). Wesentliche
+  Änderungen sind:
+  - Übersetzung ins Deutsche und neues Erscheinungsbild
+  - Neuordnung der Aktivitäten nach dem Gymnasial-Lehrplan NRW (G9),
+    orientiert am Stoffverteilungsplan des Lambacher Schweizer
+  - Entfernt: Aktivitäten nur für die Grundschule, französische
+    Automatismen- und Brevet-Seiten, französische Lehrplandokumente
+  - Ersetzt: Figuren und Hintergründe des Duell-Modus (eigene Grafiken)
+
+Nicht übernommen wurden Dateien, die nicht frei weiterverbreitet werden
+dürfen oder Dokumente Dritter sind: die Duell-Grafiken (Freepik-Lizenz des
+Autors), Pngtree- und Pixabay-Bilder, der RebexTinyWebServer sowie
+französische Lehrplan-, Behörden- und Kolleg*innen-Dokumente.
+
+------------------------------------------------------------------------
+Verwendete Bibliotheken und Materialien (übernommen aus MathsMentales)
+------------------------------------------------------------------------
+
+Bibliotheken:
+  - KaTeX – Mathe-Satz – MIT – https://katex.org/
+  - MathLive und Compute Engine (CortexJS) – Eingabe und Darstellung von
+    Formeln – MIT – https://mathlive.io/
+  - Underscore (Teile) – MIT – https://underscorejs.org/
+  - Algebrite – symbolisches Rechnen – MIT – http://algebrite.org/
+  - Sortable – Drag-and-drop-Listen – MIT – https://sortablejs.github.io/Sortable/
+  - seedrandom – reproduzierbare Zufallszahlen – MIT – https://github.com/davidbau/seedrandom
+  - JSXGraph und JessieCode – Grafiken, Geometrie, 3D – LGPL und MIT –
+    https://jsxgraph.org/
+  - qr-code-styling – QR-Codes – MIT – https://qr-code-styling.com/
+  - Vanilla-picker – Farbwähler – ISC – https://github.com/Sphinxxxx/vanilla-picker
+  - js-yaml – YAML-Parser – MIT – https://github.com/nodeca/js-yaml
+  - big.js – MIT – https://github.com/MikeMcl/big.js
+  - JSZip – MIT oder GPLv3 – https://stuk.github.io/jszip/
+  - CodeMirror – MIT – https://codemirror.net/
+  - JSONEditor – Apache 2.0 – https://github.com/josdejong/jsoneditor
+  - scratchblocks – MIT – https://github.com/scratchblocks/scratchblocks
+  - knacss – WTFPL – https://www.knacss.com/
+  - bulma-steps (aus dem Bulma-Projekt) – MIT – https://github.com/Wikiki/bulma-steps
+  - Diagramm-Bibliothek „chartClaude“ – im Original-Projekt entwickelt
+
+Icons und Bilder:
+  - „Circle Icons“ von Nick Roach (teilweise bearbeitet) – GPL –
+    https://www.iconfinder.com/iconsets/circle-icons-1
+  - Illustrationen von unDraw – https://undraw.co/
+  - Color Palette Icon von Icons8 – https://icons8.com
+  - Meteor Icons von Daniel (mit ergänzten Symmetrieachsen) – MIT –
+    https://meteoricons.com/
+  - Icon Park – https://icon-sets.iconify.design/icon-park-outline/
+  - Flag Icons (mit ergänzten Symmetrieachsen) – MIT – https://flagicons.lipis.dev/
+  - SVG Repo, Calcite Sharp Line Icons – gemeinfrei –
+    https://www.svgrepo.com/collection/calcite-sharp-line-icons/
+  - Emoji – https://emojipedia.org/
+
+Schriften (SIL Open Font License 1.1):
+  - Digital Numbers Font – Copyright (c) 2015 Stephan Ahlf
+  - Baloo 2 – Ek Type
+  - Nunito – Vernon Adams, Cyreal, Jacques Le Bailly
+
+Geräusche:
+  - La Sonothèque – https://lasonotheque.org
+
+Eigene Materialien von MatheVomFranz:
+  - Figuren und Hintergründe des Duell-Modus (2026), unter derselben Lizenz
+    wie das Projekt (Apache 2.0)

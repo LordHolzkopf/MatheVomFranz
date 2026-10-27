@@ -3,7 +3,7 @@
     "description":"encadrer, encadrement, entiers, dizaine, centaine, millier",
     "ID":"8NA1",
     "type":"text",
-    "dest":["8NA","7NA","6NA"],
+    "dest":["6NA"],
     "valueType":"listeOrdonnee",
     "keys":["_","_","_",";","_","_","_","_"],
     "consts":{

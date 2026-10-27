@@ -2,7 +2,7 @@
     "title": "Faits numériques sur les moitiés",
     "description": "moitié, diviser par 2, partager en deux, faits numériques",
     "ID":"8NN2",
-    "dest":["8NN","7NN","6NN"],
+    "dest":["6NN"],
     "type":"text",
     "keys":"numerique",
     "repeat":true,

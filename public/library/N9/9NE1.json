@@ -5,7 +5,7 @@
     "keys":["_","_","_","_","_","_","_","_"],
     "description":"multiplier par 10, 100, 1000, glissement des chiffres, zéros",
     "params":{"fige":{"label":"Garder les mêmes chiffres non nuls","defaut":false,"fige":["m"]}},
-    "dest":["9NE", "8ND", "7ND", "6ND"],
+    "dest":[ "6ND"],
     "vars":{"a":[9,99,999,9999], "b0":"1_${:a}", "m":"1_999", "z":"0_1", "b":"${:fige ? :m*Math.pow(10,:z) : :b0}"},
         "options":[{
         "name":"Multiplier un entier par 10",

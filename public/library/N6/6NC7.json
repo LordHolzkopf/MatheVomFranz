@@ -5,7 +5,7 @@
     "ID":"6NC7",
     "keys":["<",">","=","_"],
     "description":"Pour comparer les nombres, utiliser l'un des symboles <, > ou =",
-    "dest":["9NC", "8NC","7NC","6NC", "5NA"],
+    "dest":["6NC", "5NA"],
     "options":[{
         "name":"Comparer des petits entiers",
         "vars":{"c":"100_999","d1":"-99_99","d2":"-99_99","a":"${:c+:d1}","b":"${:c+:d2}","s":"${MMmath.compare(:a,:b)}"}

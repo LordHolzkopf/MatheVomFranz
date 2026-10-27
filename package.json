@@ -1,7 +1,7 @@
 {
-  "name": "mathsmentales",
+  "name": "mathevomfranz",
   "version": "2.4.12",
-  "description": "Outil pour travailler les automatismes et le calcul mental en mathématiques",
+  "description": "Kopfrechnen und Automatisieren in Mathematik – deutsche Bearbeitung von MathsMentales, nach Gymnasial-Lehrplan NRW",
   "main": "index.html",
   "type": "commonjs",
   "scripts": {
@@ -10,9 +10,18 @@
   },
   "keywords": [
     "javascript",
+    "kopfrechnen",
+    "mathematik",
     "calcul mental"
   ],
-  "author": "Sébastien COGEZ <contact@mathsmentales.net",
+  "author": "Mitwirkende von MatheVomFranz",
+  "contributors": [
+    "Sébastien COGEZ <contact@mathsmentales.net> (Autor von MathsMentales)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LordHolzkopf/MatheVomFranz.git"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

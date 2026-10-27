@@ -2,7 +2,7 @@
     "ID":"6GD3",
     "title":"Appartenance au cercle",
     "description":"Déterminer si un point appartient à un cercle donné.",
-    "dest":["6GD", "7GD", "8GD"],
+    "dest":["6GD"],
     "type":"text",
     "fontSize":"small",
     "keys":["o","n"],

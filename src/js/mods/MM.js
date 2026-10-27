@@ -2562,11 +2562,6 @@ const MM = {
       let regex = new RegExp(expression);
       if (vars.embed.match(regex)) MM.embededIn = vars.embed;
     }
-    if (vars.n === "i3") {
-      MM.showTab("tab-chercher");
-      MM.loadFromServer("brevet-2025.html");
-      return;
-    }
     if (vars.search) {
       // chaine de recherche
       document.getElementById("searchinput").value = vars.search;
@@ -3187,38 +3182,6 @@ const MM = {
           continue;
         setContent(ordre[o][i], MM.content[ordre[o][i]]);
       }
-      if (o === "grille-college") {
-        const elt = utils.create("div", {
-          className: "tuile tuile-orange tuile-automatismes",
-        });
-        const titre = utils.create("span", {
-          className: "tuile-titre-automatismes",
-          innerHTML: "Automatismes",
-        });
-        elt.appendChild(titre);
-        const boutons = utils.create("div", {
-          className: "tuile-automatismes-boutons",
-        });
-        [
-          { nom: "6e", url: "automatismes-6e.html" },
-          { nom: "5e", url: "automatismes-5e.html" },
-          { nom: "4e", url: "automatismes-4e.html" },
-          { nom: "3e", url: "brevet-2025.html" },
-        ].forEach((niveau) => {
-          const btn = utils.create("button", {
-            type: "button",
-            className: "btn-plain",
-            innerHTML: niveau.nom,
-            title: "Automatismes " + niveau.nom,
-          });
-          btn.onclick = () => {
-            window.location.href = "/" + niveau.url;
-          };
-          boutons.appendChild(btn);
-        });
-        elt.appendChild(boutons);
-        grille.appendChild(elt);
-      }
     }
   },
   /**
@@ -3598,7 +3561,7 @@ const MM = {
   async loadFromServer(url) {
     try {
       const res = await fetch(url);
-      if (!res.ok) throw new Error("Impossible de charger brevet-2025.html");
+      if (!res.ok) throw new Error("Impossible de charger " + url);
       const text = await res.text();
       await processContent(text);
     } catch (err) {

@@ -4,7 +4,7 @@
     "description": "fois plus, fois moins, fois plus petit, comparaison multiplicative, vocabulaire",
     "type": "text",
     "textSize": "small",
-    "dest": ["7NF", "6NF"],
+    "dest": [ "6NF"],
     "consts": {
         "prenoms": [
             "Alexandre", "Pierre", "Jean", "Paul", "Théo",

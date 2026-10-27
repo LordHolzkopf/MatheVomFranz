@@ -5,7 +5,7 @@
     "speech":1,
     "ID":"6ND3",
     "textSize":"medium",
-    "dest":["8ND", "7ND", "6ND"],
+    "dest":[ "6ND"],
     "options":[{
         "name":"Complément à 10",
         "question": ["Combien manque-t-il à ${:a} pour faire 10 ?",

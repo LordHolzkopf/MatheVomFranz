@@ -63,7 +63,6 @@ function surligner(titre, termes) {
 // lecture de la bibliotheque
 const library = {
   ordre: {
-    "grille-ecole": ["11", "10", "9", "8", "7"],
     "grille-college": ["6", "5", "4", "3"],
     "grille-lycee": ["2", "G", "K", "T", "H"],
   },
@@ -335,16 +334,6 @@ const library = {
     //if(base && !_.isObject(level)) // on change l'url level est un niveau de la bibliothèque
     //MM.setHistory(niveau["nom"],"n="+level);
     // Affichage et mise en forme des données.
-    // Si niveau 3e, on affiche le lien vers la liste des items du Brevet
-    if (level === "3") {
-      html += `<div id="itemsbrevet2026">Items des automatismes du brevet 2026</div>`;
-    } else if (level === "6") {
-      html += `<div id="items6e2025">Items de 6e (2025)</div>`;
-    } else if (level === "5") {
-      html += `<div id="items5e2026">Items de 5e (2026)</div>`;
-    } else if (level === "4") {
-      html += `<div id="items4e2027">Items de 4e (2027)</div>`;
-    }
     let itemsNumber = 0;
     for (let i in niveau["themes"]) {
       //let first = true;

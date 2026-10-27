@@ -4,7 +4,7 @@
     "speech":1,
     "valueType":"inInterval",
     "description":"Trouver un nombre entre deux valeurs données",
-    "dest":["9NC", "8NC","7NC","6NC", "5NA"],
+    "dest":["6NC", "5NA"],
     "options":[{
         "name":"Entre deux dizaines consécutives",
         "vars":{"a":"1_9","b":"${:a+1}","c":"1_9"},

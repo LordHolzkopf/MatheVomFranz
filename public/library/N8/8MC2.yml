@@ -1,7 +1,5 @@
 title: Placer les aiguilles d'une horloge
 dest:
-  - 8MC
-  - 7MC
   - 6MB
 type: text
 description: "Placer les aiguilles d'une horloge : heures, minutes, quart d'heure, lire l'heure. Non adapté au mode interactif (online/duel)."

@@ -2,7 +2,7 @@
     "title":"Multiplications dérivées des tables",
     "description":"multiplication, décimaux, tables, multiples de 10, calcul réfléchi",
     "ID":"6NE5",
-    "dest":["6NE","7NE","5NC","4NC","3NB"],
+    "dest":["6NE","5NC","4NC","3NB"],
     "options":[{
         "name":"Un décimal parmi deux facteurs",
         "vars":{"a":"1_10","p":"-2_-1","n":"1_10","c":"${Number(eval(:n+'e'+:p))}"}

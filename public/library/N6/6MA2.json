@@ -8,7 +8,7 @@
         "unites":["mm","cm","dm","m","dam","hm","km"],
         "uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}
     },
-    "dest":["6MA","7MA"],
+    "dest":["6MA"],
     "consigne":"Compléter",
     "options":[{
         "name":"Vers l'unité inférieure (nombre entier)",

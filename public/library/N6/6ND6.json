@@ -2,7 +2,7 @@
     "title":"Tables de multiplications classiques",
     "description":"tables de multiplication, livret, produit",
     "speech":1,
-    "dest":["6ND", "7ND", "8NE", "9NE"],
+    "dest":["6ND"],
     "params":{
         "n0":{"groupe":"Ne pas tirer","label":"0","defaut":false,"exclut":{"b":0}},
         "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"b":1}},

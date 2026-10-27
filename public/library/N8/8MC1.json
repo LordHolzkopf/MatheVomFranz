@@ -4,7 +4,7 @@
     "speech":1,
     "type":"text",
     "ID":"8MC1",
-    "dest":["8MC", "7MC", "6MB"],
+    "dest":[ "6MB"],
     "keys":["_","hr","mn",":","_","_","_","_"],
     "params":{
         "h0":{"groupe":"Ne pas tirer","label":"0 h","defaut":false,"exclut":{"h":"0"}},

@@ -2,7 +2,7 @@
     "title": "Faits numériques sur les doubles",
     "description": "double, doubler, fois 2, faits numériques",
     "ID":"8NN1",
-    "dest":["8NN","7NN","6NN"],
+    "dest":["6NN"],
     "type":"text",
     "keys":"numerique",
     "repeat":true,

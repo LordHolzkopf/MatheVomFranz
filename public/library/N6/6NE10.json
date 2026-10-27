@@ -2,7 +2,7 @@
     "title":"Complément à l'unité",
     "description":"Trouver le complément qui donne une unité entière",
     "ID":"6NE10",
-    "dest":["6NE", "5NA", "7NE","4NA"],
+    "dest":["6NE", "5NA","4NA"],
     "repeat":"true",
     "options":[{
         "name":"Compléter des dixièmes",

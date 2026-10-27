@@ -6,7 +6,7 @@
     "speech":1,
     "keys":["dbl","trpl","qdpl","_","moit","tiers","qrt","_"],
     "textSize":"medium",
-    "dest":["8ND","7ND","6ND"],
+    "dest":["6ND"],
     "vars":{
         "k":"2_4",
         "n":"2_20",

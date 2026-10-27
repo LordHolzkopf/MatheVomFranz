@@ -89,13 +89,6 @@
     height: 20px;
 }
 
-#itemsbrevet2026,
-#items6e2025,
-#items5e2026,
-#items4e2027 {
-    color: red;
-    cursor: pointer;
-}
 a.used::after {
     content: " ✔";
     color: rgb(33, 224, 33);
@@ -805,7 +798,7 @@ mark {
     font-size: 1.4rem;
     background: linear-gradient(85deg, #ffffff, #eeeeee);
 }
-.grille .tuile .tuile-titre, .grille .tuile .tuile-titre-automatismes {
+.grille .tuile .tuile-titre {
     font-weight: 500;
     font-size: 2.4rem;
     line-height: 1.2;
@@ -888,23 +881,6 @@ mark {
 }
 .grille .tuile.bleue {
     background: linear-gradient(85deg, #e5efff, #9ec9fa);
-}
-.tuile-automatismes-boutons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-top: 0.8rem;
-}
-.tuile-automatismes-boutons button {
-    border: 1px solid #585858;
-    border-radius: 0.4rem;
-    padding: 0.4rem;
-    font-size: 1.4rem;
-    background: linear-gradient(85deg, #ffffff, #eeeeee);
-    cursor: pointer;
-}
-.tuile-automatismes-boutons button:hover {
-    border-color: #236394;
 }
 @media screen and (max-width: 600px) {
     .grille .tuile {
@@ -1755,9 +1731,7 @@ aside > button {
     font-weight: bold;
 }
 /* L'arbre de recherche est descendu d'un cran (h2/h3/h4) : son apparence est
-   portée par les classes, à l'identique de ce que donnaient h1/h2/h3. Les
-   règles par balise ci-dessus restent en place pour brevet-2025.html et
-   automatismes-6e.html, injectées telles quelles dans #resultat-chercher. */
+   portée par les classes, à l'identique de ce que donnaient h1/h2/h3. */
 #resultat-chercher .rch-niveau::before {
     content: "›› ";
 }

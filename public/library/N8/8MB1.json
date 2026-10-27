@@ -2,7 +2,7 @@
     "ID":"8MB1",
     "title":"Aire et périmètres par comptage",
     "description":"aire, périmètre, quadrillage, carreaux, compter, carré, rectangle",
-    "dest":["8MB","7MB","6MC"],
+    "dest":["6MC"],
     "keys":["_","_","cm","x²","_","_","_","_"],
     "type":"text",
     "options":[

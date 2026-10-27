@@ -3,11 +3,11 @@
     "dest":["5EC"],
     "type":"text",
     "keys":"numerique",
-    "title":"Cubes manquants dans une configuration",
-    "description":"Dénombrer les cubes manquants dans un cube ou un pavé",
+    "title":"Fehlende Würfel bestimmen",
+    "description":"Würfelgebäude: fehlende Einheitswürfel zu einem großen Würfel zählen, Würfelbauten, Volumen, Rauminhalt",
     "options":[
                 {
-            "name":"Dans un cube 3x3 (simple)",
+            "name":"3 × 3 × 3-Würfel (einfach)",
             "vars":{
                 "ah0":3,
                 "bh2":"2_3",
@@ -30,12 +30,12 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:bh3}","${:bh2}","${:ch2}","${:ch5}","${:ch4}","${:ch3}"]}
                 ]
             },
-            "question":"Combien manque-t-il de cubes pour former un grand cube 3x3 ?",
-            "answer":"Il manque $$\\color{red}{:nb}$$ cubes",
+            "question":"Wie viele kleine Würfel fehlen noch zu einem großen Würfel aus 3 × 3 × 3 Würfeln?",
+            "answer":"Es fehlen $$\\color{red}{:nb}$$ Würfel.",
             "value":":nb"
         },
         {
-            "name":"Dans un cube 3x3",
+            "name":"3 × 3 × 3-Würfel",
             "vars":{
                 "ah0":3,
                 "bh2":"1_${:ah0}",
@@ -58,10 +58,10 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:bh3}","${:bh2}","${:ch2}","${:ch5}","${:ch4}","${:ch3}"]}
                 ]
             },
-            "question":"Combien manque-t-il de cubes pour former un grand cube 3x3 ?",
-            "answer":"Il manque $$\\color{red}{:nb}$$ cubes"
+            "question":"Wie viele kleine Würfel fehlen noch zu einem großen Würfel aus 3 × 3 × 3 Würfeln?",
+            "answer":"Es fehlen $$\\color{red}{:nb}$$ Würfel."
         }, {
-            "name":"Dans un cube 4x4 (sur 1 couche)",
+            "name":"4 × 4 × 4-Würfel (eine Schicht)",
             "vars":{
                 "ah0":4,
                 "bh2":"3_4",
@@ -91,10 +91,10 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:dh1}","${:bh3}","${:bh2}","${:ch2}","${:dh2}","${:ch5}","${:ch4}","${:ch3}","${:dh3}","${:dh7}","${:dh6}","${:dh5}","${:dh4}"]}
                 ]
             },
-            "question":"Combien manque-t-il de cubes pour former un grand cube 4x4 ?",
-            "answer":"Il manque $$\\color{red}{:nb}$$ cubes"
+            "question":"Wie viele kleine Würfel fehlen noch zu einem großen Würfel aus 4 × 4 × 4 Würfeln?",
+            "answer":"Es fehlen $$\\color{red}{:nb}$$ Würfel."
         }, {
-            "name":"Dans un cube 4x4 (sur 2 couches)",
+            "name":"4 × 4 × 4-Würfel (zwei Schichten)",
             "vars":{
                 "ah0":4,
                 "bh2":"3_4",
@@ -124,10 +124,10 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:dh1}","${:bh3}","${:bh2}","${:ch2}","${:dh2}","${:ch5}","${:ch4}","${:ch3}","${:dh3}","${:dh7}","${:dh6}","${:dh5}","${:dh4}"]}
                 ]
             },
-            "question":"Combien manque-t-il de cubes pour former un grand cube 4x4 ?",
-            "answer":"Il manque $$\\color{red}{:nb}$$ cubes"
+            "question":"Wie viele kleine Würfel fehlen noch zu einem großen Würfel aus 4 × 4 × 4 Würfeln?",
+            "answer":"Es fehlen $$\\color{red}{:nb}$$ Würfel."
         }, {
-            "name":"Dans un cube 4x4 (difficile)",
+            "name":"4 × 4 × 4-Würfel (schwierig)",
             "vars":{
                 "ah0":4,
                 "bh2":"2_4",
@@ -157,8 +157,8 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:dh1}","${:bh3}","${:bh2}","${:ch2}","${:dh2}","${:ch5}","${:ch4}","${:ch3}","${:dh3}","${:dh7}","${:dh6}","${:dh5}","${:dh4}"]}
                 ]
             },
-            "question":"Combien manque-t-il de cubes pour former un grand cube 4x4 ?",
-            "answer":"Il manque $$\\color{red}{:nb}$$ cubes"
+            "question":"Wie viele kleine Würfel fehlen noch zu einem großen Würfel aus 4 × 4 × 4 Würfeln?",
+            "answer":"Es fehlen $$\\color{red}{:nb}$$ Würfel."
         }
     ],
     "value":":nb"

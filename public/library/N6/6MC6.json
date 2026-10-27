@@ -1,8 +1,8 @@
 {
     "dest":["5AE"],
     "type":"text",
-    "title":"Lire les trois aiguilles d'une horloge",
-    "description":"heures, minutes secondes à partir de la position des aiguilles d'une horloge.",
+    "title":"Uhrzeit an einer Zeigeruhr ablesen",
+    "description":"Uhr lesen: Stunden, Minuten und Sekunden an den Zeigern einer analogen Uhr ablesen, Uhrzeit, Zeigeruhr",
     "textSize":"small",
     "keys":["_","_","_","_","_","_","_",":"],
     "consts":{
@@ -22,27 +22,27 @@
     },
     "options": [
         {
-            "name":"Donner l’heure le matin en heures:minutes",
-            "question":"C’est le matin.<br>Quelle heure est-il en h : min ?",
-            "answer":"Il est <span class='red'>${:h}:${:m>9?'':'0'}:m</span>.",
+            "name":"Vormittags, in Stunden und Minuten",
+            "question":"Es ist vor 12 Uhr mittags.<br>Wie spät ist es? Gib die Uhrzeit mit Stunden und Minuten an (z. B. 9:05).",
+            "answer":"Es ist <span class='red'>${:h}:${:m>9?'':'0'}:m</span> Uhr.",
             "value":["${:h}:${:m>9?'':'0'}:m","${:h}h${:m>9?'':'0'}:m min","${:h}h${:m>9?'':'0'}:m"]
         },
         {
-            "name":"Donner l’heure l'après-midi en heures:minutes",
-            "question":"C'est l’après-midi.<br>Quelle heure est-il en h : min ?",
-            "answer":"Il est <span class='red'>${:h+12} : ${:m>9?'':'0'}:m</span>.",
+            "name":"Nachmittags, in Stunden und Minuten",
+            "question":"Es ist nach 12 Uhr mittags.<br>Wie spät ist es? Gib die Uhrzeit mit Stunden und Minuten an (z. B. 9:05).",
+            "answer":"Es ist <span class='red'>${:h+12}:${:m>9?'':'0'}:m</span> Uhr.",
             "value":["${:h+12}:${:m>9?'':'0'}:m","${:h+12}h${:m>9?'':'0'}:m min","${:h+12}h${:m>9?'':'0'}:m"]
         },
         {
-            "name":"Donner l’heure le matin en heures:minutes:secondes",
-            "question":"C’est le matin.<br>Quelle heure est-il exactement en h : min : s ?",
-            "answer":"Il est <span class='red'>${:h} : ${:m>9?'':'0'}:m : ${:s>9?'':'0'}:s</span>.",
+            "name":"Vormittags, in Stunden, Minuten und Sekunden",
+            "question":"Es ist vor 12 Uhr mittags.<br>Wie spät ist es genau? Gib die Uhrzeit mit Stunden, Minuten und Sekunden an (z. B. 9:05:30).",
+            "answer":"Es ist <span class='red'>${:h}:${:m>9?'':'0'}:m:${:s>9?'':'0'}:s</span> Uhr.",
             "value":["${:h}:${:m>9?'':'0'}:m:${:s>9?'':'0'}:s","${:h}h${:m>9?'':'0'}:m min${:s>9?'':'0'}:s s"]
         },
         {
-            "name":"Donner l’heure l'après-midi en heures:minutes:secondes",
-            "question":"C’est l’après-midi.<br>Quelle heure est-il exactement en h : min : s ?",
-            "answer":"Il est <span class='red'>${:h+12} : ${:m>9?'':'0'}:m : ${:s>9?'':'0'}:s</span>.",
+            "name":"Nachmittags, in Stunden, Minuten und Sekunden",
+            "question":"Es ist nach 12 Uhr mittags.<br>Wie spät ist es genau? Gib die Uhrzeit mit Stunden, Minuten und Sekunden an (z. B. 9:05:30).",
+            "answer":"Es ist <span class='red'>${:h+12}:${:m>9?'':'0'}:m:${:s>9?'':'0'}:s</span> Uhr.",
             "value":["${:h+12}:${:m>9?'':'0'}:m:${:s>9?'':'0'}:s","${:h+12}h${:m>9?'':'0'}:m min${:s>9?'':'0'}:s s"]
         }]
 }

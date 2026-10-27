@@ -1,6 +1,6 @@
 {
-    "title":"Appartient ou n'appartient pas",
-    "description":"appartient, n'appartient pas, point, droite, segment, demi-droite, symboles ∈ et ∉",
+    "title":"Liegt der Punkt darauf?",
+    "description":"Liegt ein Punkt auf einer Geraden, Strecke oder Halbgeraden? Wahr oder falsch, Punkt, Gerade, Strecke, Halbgerade (Strahl)",
     "ID":"6GC4",
     "dest":["5BA"],
     "type":"text",
@@ -10,12 +10,12 @@
         "points":"ABCDEFGHIJKLMNOPRST"
     },
     "options":[{
-        "name":"Appartenance à une droite",
+        "name":"Punkt auf einer Geraden?",
         "consts":{
-            "vrai":["${:A}\\in(${:B+:D})","${:B}\\in(${:A+:D})", "${:C}\\notin(${:D+:A})", "${:D}\\in(${:B+:A})", "${:C}\\notin(${:D+:B})"],
-            "faux":["${:A}\\notin(${:B+:D})", "${:B}\\notin(${:A+:D})", "${:C}\\in(${:D+:A})", "${:D}\\in(${:C+:A})", "${:C}\\in(${:D+:B})"],
-            "repc":["F","V"],
-            "repl":["FAUX","VRAI"]
+            "vrai":["${:A} liegt auf der Geraden ${:B+:D}.","${:B} liegt auf der Geraden ${:A+:D}.", "${:C} liegt nicht auf der Geraden ${:D+:A}.", "${:D} liegt auf der Geraden ${:B+:A}.", "${:C} liegt nicht auf der Geraden ${:D+:B}."],
+            "faux":["${:A} liegt nicht auf der Geraden ${:B+:D}.", "${:B} liegt nicht auf der Geraden ${:A+:D}.", "${:C} liegt auf der Geraden ${:D+:A}.", "${:D} liegt auf der Geraden ${:C+:A}.", "${:C} liegt auf der Geraden ${:D+:B}."],
+            "repc":["F","W"],
+            "repl":["falsch","wahr"]
         },
         "vars":{
             "pts":"0_16_4_^&",
@@ -51,16 +51,16 @@
                 ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
             ]
         },
-        "question":"Vrai ou Faux ?<br><b>a.</b> $$${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}$$<br><b>b.</b> $$${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}$$",
-        "answer":"$$${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}$$ est <span class='red'>${:repl[:yn[0]]}</span>.<br/>$$${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}$$ est <span class='red'>${:repl[:yn[1]]}</span>.",
+        "question":"Wahr oder falsch?<br><b>a.</b> ${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}<br><b>b.</b> ${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}",
+        "answer":"<b>a.</b> ${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]} – <span class='red'>${:repl[:yn[0]]}</span><br/><b>b.</b> ${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]} – <span class='red'>${:repl[:yn[1]]}</span>",
         "value":["${:repl[:yn[0]]};${:repl[:yn[1]]}","${:repc[:yn[0]]};${:repc[:yn[1]]}"]
     },{
-        "name":"Appartenance à la droite, au segment à la demi-droite",
+        "name":"Punkt auf Gerade, Strecke oder Halbgerade?",
         "consts":{
-            "vrai":["${:A}\\in(${:B+:D})","${:C}\\in(${:D+:A})","${:B}\\in(${:A+:C})","${:D}\\in(${:A+:B})","${:A}\\in[${:D+:C})","${:C}\\in[${:A+:D})","${:D}\\in[${:C+:B})","${:B}\\in[${:C+:D})","${:C}\\in[${:A+:D})","${:D}\\in[${:A+:B}]","${:B}\\in[${:D+:B}]","${:D}\\in[${:B+:C}]","${:A}\\notin[${:C+:D})","${:A}\\notin[${:D+:B})","${:C}\\notin[${:D+:B})","${:D}\\notin[${:C+:A})","${:B}\\notin[${:D+:C})","${:B}\\notin[${:D+:A})","${:A}\\notin[${:C+:D}]","${:A}\\notin[${:C+:B}]","${:A}\\notin[${:D+:B}]","${:C}\\notin[${:B+:D}]","${:D}\\notin[${:C+:A}]","${:B}\\notin[${:C+:D}]","${:B}\\notin[${:D+:A}]"],
-            "faux":["${:A}\\notin(${:B+:D})", "${:C}\\notin(${:D+:A})", "${:B}\\notin(${:A+:C})", "${:D}\\notin(${:A+:B})", "${:A}\\notin(${:D+:C})", "${:C}\\notin(${:A+:D})", "${:D}\\notin(${:C+:B})", "${:B}\\notin(${:C+:D})","${:C}\\notin[${:A+:D})","${:D}\\notin[${:A+:B}]","${:B}\\notin[${:D+:B}]","${:D}\\notin[${:B+:C}]","${:A}\\in[${:C+:D})","${:A}\\in(${:D+:B})","${:C}\\in[${:D+:B})","${:D}\\in[${:C+:A})","${:B}\\in[${:D+:C})","${:B}\\in[${:D+:A})","${:A}\\in[${:C+:D}]","${:A}\\in[${:C+:B}]","${:A}\\in[${:D+:B}]","${:C}\\in[${:B+:D}]","${:D}\\in[${:C+:A}]","${:B}\\in[${:C+:D}]","${:B}\\in[${:D+:A}]"],
-            "repc":["F","V"],
-            "repl":["FAUX","VRAI"]
+            "vrai":["${:A} liegt auf der Geraden ${:B+:D}.","${:C} liegt auf der Geraden ${:D+:A}.","${:B} liegt auf der Geraden ${:A+:C}.","${:D} liegt auf der Geraden ${:A+:B}.","${:A} liegt auf der Halbgeraden ${:D+:C}.","${:C} liegt auf der Halbgeraden ${:A+:D}.","${:D} liegt auf der Halbgeraden ${:C+:B}.","${:B} liegt auf der Halbgeraden ${:C+:D}.","${:C} liegt auf der Halbgeraden ${:A+:D}.","${:D} liegt auf der Strecke $$\\overline{${:A+:B}}$$.","${:B} liegt auf der Strecke $$\\overline{${:D+:B}}$$.","${:D} liegt auf der Strecke $$\\overline{${:B+:C}}$$.","${:A} liegt nicht auf der Halbgeraden ${:C+:D}.","${:A} liegt nicht auf der Halbgeraden ${:D+:B}.","${:C} liegt nicht auf der Halbgeraden ${:D+:B}.","${:D} liegt nicht auf der Halbgeraden ${:C+:A}.","${:B} liegt nicht auf der Halbgeraden ${:D+:C}.","${:B} liegt nicht auf der Halbgeraden ${:D+:A}.","${:A} liegt nicht auf der Strecke $$\\overline{${:C+:D}}$$.","${:A} liegt nicht auf der Strecke $$\\overline{${:C+:B}}$$.","${:A} liegt nicht auf der Strecke $$\\overline{${:D+:B}}$$.","${:C} liegt nicht auf der Strecke $$\\overline{${:B+:D}}$$.","${:D} liegt nicht auf der Strecke $$\\overline{${:C+:A}}$$.","${:B} liegt nicht auf der Strecke $$\\overline{${:C+:D}}$$.","${:B} liegt nicht auf der Strecke $$\\overline{${:D+:A}}$$."],
+            "faux":["${:A} liegt nicht auf der Geraden ${:B+:D}.", "${:C} liegt nicht auf der Geraden ${:D+:A}.", "${:B} liegt nicht auf der Geraden ${:A+:C}.", "${:D} liegt nicht auf der Geraden ${:A+:B}.", "${:A} liegt nicht auf der Geraden ${:D+:C}.", "${:C} liegt nicht auf der Geraden ${:A+:D}.", "${:D} liegt nicht auf der Geraden ${:C+:B}.", "${:B} liegt nicht auf der Geraden ${:C+:D}.","${:C} liegt nicht auf der Halbgeraden ${:A+:D}.","${:D} liegt nicht auf der Strecke $$\\overline{${:A+:B}}$$.","${:B} liegt nicht auf der Strecke $$\\overline{${:D+:B}}$$.","${:D} liegt nicht auf der Strecke $$\\overline{${:B+:C}}$$.","${:A} liegt auf der Halbgeraden ${:C+:D}.","${:A} liegt auf der Halbgeraden ${:D+:B}.","${:C} liegt auf der Halbgeraden ${:D+:B}.","${:D} liegt auf der Halbgeraden ${:C+:A}.","${:B} liegt auf der Halbgeraden ${:D+:C}.","${:B} liegt auf der Halbgeraden ${:D+:A}.","${:A} liegt auf der Strecke $$\\overline{${:C+:D}}$$.","${:A} liegt auf der Strecke $$\\overline{${:C+:B}}$$.","${:A} liegt auf der Strecke $$\\overline{${:D+:B}}$$.","${:C} liegt auf der Strecke $$\\overline{${:B+:D}}$$.","${:D} liegt auf der Strecke $$\\overline{${:C+:A}}$$.","${:B} liegt auf der Strecke $$\\overline{${:C+:D}}$$.","${:B} liegt auf der Strecke $$\\overline{${:D+:A}}$$."],
+            "repc":["F","W"],
+            "repl":["falsch","wahr"]
         },
         "vars":{
             "pts":"0_16_4_^&",
@@ -94,8 +94,8 @@
                 ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
             ]
         },
-        "question":"Vrai ou Faux ?<br><b>a.</b> $$${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}$$ &nbsp; &nbsp; <b>b.</b> $$${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}$$<br><b>c.</b> $$${:yn[2]==0?:faux[:num[2]]::vrai[:num[2]]}$$ &nbsp; &nbsp; <b>d.</b> $$${:yn[3]==0?:faux[:num[3]]::vrai[:num[3]]}$$",
-        "answer":"$$${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}$$ est <span class='red'>${:repl[:yn[0]]}</span>.<br>$$${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}$$ est <span class='red'>${:repl[:yn[1]]}</span>.<br>$$${:yn[2]==0?:faux[:num[2]]::vrai[:num[2]]}$$ est <span class='red'>${:repl[:yn[2]]}</span>.<br>$$${:yn[3]==0?:faux[:num[3]]::vrai[:num[3]]}$$ est <span class='red'>${:repl[:yn[3]]}</span>.",
+        "question":"Wahr oder falsch? (Bei der Halbgeraden XY ist X der Anfangspunkt.)<br><b>a.</b> ${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]}<br><b>b.</b> ${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]}<br><b>c.</b> ${:yn[2]==0?:faux[:num[2]]::vrai[:num[2]]}<br><b>d.</b> ${:yn[3]==0?:faux[:num[3]]::vrai[:num[3]]}",
+        "answer":"<b>a.</b> ${:yn[0]==0?:faux[:num[0]]::vrai[:num[0]]} – <span class='red'>${:repl[:yn[0]]}</span><br><b>b.</b> ${:yn[1]==0?:faux[:num[1]]::vrai[:num[1]]} – <span class='red'>${:repl[:yn[1]]}</span><br><b>c.</b> ${:yn[2]==0?:faux[:num[2]]::vrai[:num[2]]} – <span class='red'>${:repl[:yn[2]]}</span><br><b>d.</b> ${:yn[3]==0?:faux[:num[3]]::vrai[:num[3]]} – <span class='red'>${:repl[:yn[3]]}</span>",
         "value":["${:repl[:yn[0]]};${:repl[:yn[1]]};${:repl[:yn[2]]};${:repl[:yn[3]]}","${:repc[:yn[0]]};${:repc[:yn[1]]};${:repc[:yn[2]]};${:repc[:yn[3]]}"]
     }]
 }

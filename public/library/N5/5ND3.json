@@ -1,6 +1,6 @@
 {
-    "title":"Liste des diviseurs",
-    "description":"liste des diviseurs, diviseurs, multiples, divisibilité",
+    "title":"Teiler einer Zahl angeben",
+    "description":"Teilermenge, alle Teiler, Teiler, Vielfache, Teilbarkeit",
     "type":"text",
     "ID":"5ND3",
     "valueType":"liste",
@@ -8,23 +8,23 @@
     "keys":["_","_","-",";","_","_","_","_"],
     "dest":["5CD"],
     "options":[{
-        "name":"Nombres inférieurs à 50",
+        "name":"Zahlen bis 50",
         "vars":{"a":"2_30","b":"1_${~~(50/:a)}","c":"${:a*:b}"}
    },{
-        "name":"Nombres entre 50 et 100",
+        "name":"Zahlen zwischen 50 und 100",
         "vars":{"a":"2_30","b":"${Math.ceil(50/:a)}_${~~(100/:a)}","c":"${:a*:b}"}
     },{
-        "name":"Nombres supérieurs à 100",
+        "name":"Zahlen über 100",
         "vars":{"a":"2_30","b":"${Math.ceil(100/:a)}_30","c":"${:a*:b}"}
     },{
-        "name":"Diviseurs parmi 2, 3, 4, 9 et 10 (5e+)",
+        "name":"Teiler unter 2, 3, 5, 9 und 10",
         "vars":{"a":[2,3,5,9,10],"b":"20_2000", "c":"0_1", "d":"${:b*:a**:c}"},
-        "question":"Quels sont les diviseurs de ${:d} parmi 2, 3, 5, 9 et 10 ?",
-        "answer":"${:d} est divisible par <span class='red'>${MMmath.listeDiviseurs10(:d)}</span>",
-        "value":"${MMmath.listeDiviseurs10(:d)}"
+        "question":"Welche der Zahlen 2, 3, 5, 9 und 10 sind Teiler von ${:d}?",
+        "answer":"Teiler von ${:d} unter 2, 3, 5, 9 und 10: <span class='red'>${MMmath.listeDiviseurs10(:d).replace('aucun des nombres','keine')}</span>",
+        "value":"${MMmath.listeDiviseurs10(:d).replace('aucun des nombres','keine')}"
     }
     ],
-    "question": "Quels sont tous les diviseurs de ${:c} ?",
-    "answer":"Diviseurs de ${:c} : <span class='red'>${MMmath.listeDiviseurs(:c)}</span>",
+    "question": "Gib alle Teiler von ${:c} an.",
+    "answer":"Teiler von ${:c}: <span class='red'>${MMmath.listeDiviseurs(:c)}</span>",
     "value":"${MMmath.listeDiviseurs(:c)}"
 }

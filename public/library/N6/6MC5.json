@@ -1,21 +1,21 @@
 {
     "ID":"6MC5",
     "dest":["5AE", "6BE"],
-    "title":"Conversions d’unités à partir d’une autre",
-    "description":"conversions, unités, longueur, masse, contenance, tonne, quintal, kg",
+    "title":"Umrechnungszahlen zwischen Einheiten",
+    "description":"Einheiten umrechnen, Größen, Länge, Masse (Gewicht), Volumen, Liter, Tonne, Doppelzentner, kg",
     "type":"latex",
     "consts":{"units":["k","h","da","","d","c","m"]},
     "params":{
-        "kilo":{"groupe":"Ne pas tirer","label":"kilo","defaut":false,"exclut":{"iu2":"0"}},
-        "hecto":{"groupe":"Ne pas tirer","label":"hecto","defaut":false,"exclut":{"iu2":"1"}},
-        "deca":{"groupe":"Ne pas tirer","label":"déca","defaut":false,"exclut":{"iu2":"2"}},
-        "deci":{"groupe":"Ne pas tirer","label":"déci","defaut":false,"exclut":{"iu2":"4"}},
-        "centi":{"groupe":"Ne pas tirer","label":"centi","defaut":false,"exclut":{"iu2":"5"}},
-        "milli":{"groupe":"Ne pas tirer","label":"milli","defaut":false,"exclut":{"iu2":"6"}}
+        "kilo":{"groupe":"Nicht abfragen","label":"kilo","defaut":false,"exclut":{"iu2":"0"}},
+        "hecto":{"groupe":"Nicht abfragen","label":"hekto","defaut":false,"exclut":{"iu2":"1"}},
+        "deca":{"groupe":"Nicht abfragen","label":"deka","defaut":false,"exclut":{"iu2":"2"}},
+        "deci":{"groupe":"Nicht abfragen","label":"dezi","defaut":false,"exclut":{"iu2":"4"}},
+        "centi":{"groupe":"Nicht abfragen","label":"centi","defaut":false,"exclut":{"iu2":"5"}},
+        "milli":{"groupe":"Nicht abfragen","label":"milli","defaut":false,"exclut":{"iu2":"6"}}
     },
     "options":[
         {
-            "name":"De l’unité principale aux sous unités",
+            "name":"Von der Grundeinheit zu kleineren Einheiten",
             "vars":{
                 "unit1":"",
                 "iu2":"4_6",
@@ -24,7 +24,7 @@
                 "coef":"${Math.pow(10,:iu2-3)}"
             }
         },{
-            "name":"De l’unité principale à ses multiples",
+            "name":"Von der Grundeinheit zu größeren Einheiten",
             "vars":{
                 "unit1":"",
                 "iu2":"0_2",
@@ -33,7 +33,7 @@
                 "coef":"${Math.pow(10,-3+:iu2)}"
             }
         },{
-            "name":"Des sous unités à l’unité principale",
+            "name":"Von kleineren Einheiten zur Grundeinheit",
             "vars":{
                 "unit2":"",
                 "iu2":"4_6",
@@ -42,7 +42,7 @@
                 "coef":"${Math.pow(10,3-:iu2)}"
             }
         },{
-            "name":"Des multiples à l’unité principale",
+            "name":"Von größeren Einheiten zur Grundeinheit",
             "vars":{
                 "unit2":"",
                 "iu2":"0_2",
@@ -51,10 +51,10 @@
                 "coef":"${Math.pow(10,3-:iu2)}"
             }
         },{
-            "name":"Du kg à la tonne et au quintal",
+            "name":"Von kg in Tonnen und Doppelzentner",
             "vars":{
                 "unit1":"kg",
-                "unit2":["t","q"],
+                "unit2":["t","dt"],
                 "p":"1_4",
                 "n":1,
                 "coef":"${:unit2=='t'?0.001:0.01}"
@@ -62,10 +62,10 @@
             "question":"${:n}\\text{ ${:unit1}} = \\text{...}\\text{ ${:unit2}}",
             "answer":"${:n}\\text{ ${:unit1}} = \\color{red}{${MMmath.round(:n*:coef,3)}}\\text{ ${:unit2}}"
         },{
-            "name":"De la tonne ou du quintal au kg",
+            "name":"Von Tonnen oder Doppelzentnern in kg",
             "vars":{
                 "unit2":"kg",
-                "unit1":["t","q"],
+                "unit1":["t","dt"],
                 "coef":"${:unit1=='t'?1000:100}",
                 "n":1
             },

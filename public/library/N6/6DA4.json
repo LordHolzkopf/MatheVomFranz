@@ -2,42 +2,42 @@
     "ID":"6DA4",
     "dest":["5AG"],
     "type":"text",
-    "title":"Créer un tableau à double entrée à partir d’une collection",
-    "description":"Construire un tableau à double entrée, effectifs, dénombrer une collection, objets et couleurs. Non adapté au mode interactif (online/duel).",
+    "title":"Kreuztabelle anlegen",
+    "description":"Zweidimensionale Häufigkeitstabelle (Kreuztabelle) anlegen, Anzahl, abzählen, Gegenstände und Farben. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "consts":{
         "icons":[
-        ["de pommes","pommes","apple-one.svg"],
-        ["de carottes","carottes","carrot.svg"],
-        ["de glaces","glaces","icecream-three.svg"],
-        ["de pêches","pêches","peach.svg"],
-        ["de poires","poires","pear.svg"],
-        ["de palmiers","palmiers","coconut-tree.svg"],
-        ["de canards","canards","duck.svg"],
-        ["de papillons","papillons","butterfly.svg"],
-        ["d’éléphants","éléphants","elephant.svg"],
-        ["d’avions","avions","acceleration.svg"],
-        ["de poucettes","poucettes","boy-stroller.svg"],
-        ["de chateaux","chateaux","castle.svg"],
-        ["de diamants","diamants","diamond.svg"],
-        ["de ballons de basket","ballons de basket","dribble.svg"],
-        ["de smileys","smileys","emotion-happy.svg"],
-        ["de microphones","micros","entertainment.svg"],
-        ["de fantomes","fantomes","ghost.svg"],
-        ["de ceintres","ceintres","hanger.svg"],
-        ["de feuilles","feuilles","leaves.svg"],
-        ["de phares","phares","light-house.svg"],
-        ["de lunes","lunes","moon.svg"],
-        ["de souris","souris","mouse-one.svg"],
-        ["de fusées","fusées","rocket-one.svg"],
-        ["de bateaux","bateaux","sailboat-one.svg"],
-        ["de parapluies","parapluies","security.svg"],
-        ["de soleils","soleils","sun.svg"],
-        ["de montres","montres","watch-one.svg"]],
-        "colors":[["orange","orange"],["bleu","blue"],["violet","purple"],["vert","green"],["rouge","red"],["turquoise","turquoise"]]
+        ["die Äpfel","Äpfel","apple-one.svg"],
+        ["die Möhren","Möhren","carrot.svg"],
+        ["die Eistüten","Eistüten","icecream-three.svg"],
+        ["die Pfirsiche","Pfirsiche","peach.svg"],
+        ["die Birnen","Birnen","pear.svg"],
+        ["die Palmen","Palmen","coconut-tree.svg"],
+        ["die Enten","Enten","duck.svg"],
+        ["die Schmetterlinge","Schmetterlinge","butterfly.svg"],
+        ["die Elefanten","Elefanten","elephant.svg"],
+        ["die Flugzeuge","Flugzeuge","acceleration.svg"],
+        ["die Kinderwagen","Kinderwagen","boy-stroller.svg"],
+        ["die Burgen","Burgen","castle.svg"],
+        ["die Diamanten","Diamanten","diamond.svg"],
+        ["die Basketbälle","Basketbälle","dribble.svg"],
+        ["die Smileys","Smileys","emotion-happy.svg"],
+        ["die Mikrofone","Mikrofone","entertainment.svg"],
+        ["die Gespenster","Gespenster","ghost.svg"],
+        ["die Kleiderbügel","Kleiderbügel","hanger.svg"],
+        ["die Blätter","Blätter","leaves.svg"],
+        ["die Leuchttürme","Leuchttürme","light-house.svg"],
+        ["die Monde","Monde","moon.svg"],
+        ["die Mäuse","Mäuse","mouse-one.svg"],
+        ["die Raketen","Raketen","rocket-one.svg"],
+        ["die Segelboote","Segelboote","sailboat-one.svg"],
+        ["die Regenschirme","Regenschirme","security.svg"],
+        ["die Sonnen","Sonnen","sun.svg"],
+        ["die Armbanduhren","Armbanduhren","watch-one.svg"]],
+        "colors":[["orange","orange"],["blau","blue"],["violett","purple"],["grün","green"],["rot","red"],["türkis","turquoise"]]
     },
     "options":[
         {
-            "name":"Deux Objets et couleurs",
+            "name":"Zwei Gegenstände und zwei Farben",
             "vars":{
                 "ido":"0_${:icons.length-1}_2_^&",
                 "obj1":"${:icons[:ido[0]][1]}",
@@ -56,10 +56,10 @@
                 "nbo2c1":"${:soc.filter(x=>x===2).length}",
                 "nbo2c2":"${:soc.filter(x=>x===3).length}"
             },
-            "question":"Crée un tableau pour résumer la liste des objets avec leurs couleurs.<br>${:soc.map(x=>'<custom-svg style=color:'+(x%2?:color2::color1)+' src=library/illustrations/iconify/icon-park-outline--'+(x<2?:obj1url::obj2url)+'></custom-svg>').join(' ')}",
-            "answer":"<table class='inline-table'><tr><th>Couleurs\\Objets</th><th>${:obj1}</th><th>${:obj2}</th></tr><tr><th>${:couleur1}</th><td>$$\\color{red}{${:nbo1c1}}$$</td><td>$$\\color{red}{${:nbo2c1}}$$</th></tr><tr><th>${:couleur2}</th><td>$$\\color{red}{${:nbo1c2}}$$</td><td>$$\\color{red}{${:nbo2c2}}$$</td></tr></table>"
+            "question":"Lege eine Tabelle an: Zähle die Gegenstände nach Art und Farbe.<br>${:soc.map(x=>'<custom-svg style=color:'+(x%2?:color2::color1)+' src=library/illustrations/iconify/icon-park-outline--'+(x<2?:obj1url::obj2url)+'></custom-svg>').join(' ')}",
+            "answer":"<table class='inline-table'><tr><th>Farbe \\ Gegenstand</th><th>${:obj1}</th><th>${:obj2}</th></tr><tr><th>${:couleur1}</th><td>$$\\color{red}{${:nbo1c1}}$$</td><td>$$\\color{red}{${:nbo2c1}}$$</td></tr><tr><th>${:couleur2}</th><td>$$\\color{red}{${:nbo1c2}}$$</td><td>$$\\color{red}{${:nbo2c2}}$$</td></tr></table>"
         },{
-            "name":"Trois Objet et deux couleurs",
+            "name":"Drei Gegenstände und zwei Farben",
             "vars":{
                 "ido":"0_${:icons.length-1}_3_^&",
                 "obj1":"${:icons[:ido[0]][1]}",
@@ -82,8 +82,8 @@
                 "nbo3c1":"${:soc.filter(x=>x===4).length}",
                 "nbo3c2":"${:soc.filter(x=>x===5).length}"
             },
-            "question":"Crée un tableau pour résumer la liste des objets avec leurs couleurs.<br>${:soc.map(x=>'<custom-svg style=color:'+(x%2?:color2::color1)+' src=library/illustrations/iconify/icon-park-outline--'+(x<2?:obj1url:x<4?:obj2url::obj3url)+'></custom-svg>').join(' ')}",
-            "answer":"<table class='inline-table'><tr><th>Couleurs\\Objets</th><th>${:obj1}</th><th>${:obj2}</th><th>${:obj3}</th></tr><tr><th>${:couleur1}</th><td>$$\\color{red}{${:nbo1c1}}$$</td><td>$$\\color{red}{${:nbo2c1}}$$</td><td>$$\\color{red}{${:nbo3c1}}$$</th></tr><tr><th>${:couleur2}</th><td>$$\\color{red}{${:nbo1c2}}$$</td><td>$$\\color{red}{${:nbo2c2}}$$</td><td>$$\\color{red}{${:nbo3c2}}$$ </td></tr></table>"
+            "question":"Lege eine Tabelle an: Zähle die Gegenstände nach Art und Farbe.<br>${:soc.map(x=>'<custom-svg style=color:'+(x%2?:color2::color1)+' src=library/illustrations/iconify/icon-park-outline--'+(x<2?:obj1url:x<4?:obj2url::obj3url)+'></custom-svg>').join(' ')}",
+            "answer":"<table class='inline-table'><tr><th>Farbe \\ Gegenstand</th><th>${:obj1}</th><th>${:obj2}</th><th>${:obj3}</th></tr><tr><th>${:couleur1}</th><td>$$\\color{red}{${:nbo1c1}}$$</td><td>$$\\color{red}{${:nbo2c1}}$$</td><td>$$\\color{red}{${:nbo3c1}}$$</td></tr><tr><th>${:couleur2}</th><td>$$\\color{red}{${:nbo1c2}}$$</td><td>$$\\color{red}{${:nbo2c2}}$$</td><td>$$\\color{red}{${:nbo3c2}}$$ </td></tr></table>"
         }
     ]
 }

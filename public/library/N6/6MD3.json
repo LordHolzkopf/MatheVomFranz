@@ -2,11 +2,11 @@
     "ID":"6MD3",
     "dest":["5EC", "5ED"],
     "type":"text",
-    "title":"Volume en cm³ par comptage de cubes",
-    "description":"Dénombrer les cubes pour trouver le volume",
+    "title":"Volumen in cm³ durch Würfelzählen",
+    "description":"Volumen, Rauminhalt in cm³ bestimmen durch Abzählen von Einheitswürfeln, Würfelgebäude, Kubikzentimeter",
     "options":[
         {
-            "name":"Cube complet (taille 2 à 5)",
+            "name":"Vollständiger Würfel (Kantenlänge 2 bis 5)",
             "vars":{
                 "a":"2_5"
             },
@@ -20,10 +20,10 @@
                     {"cube":"${:a}"}
                 ]
             },
-            "answer":"Ce cube a un volume de $$${:a}\\times${:a}\\times${:a}=\\color{red}{${:a**3}}$$&nbsp;cm³",
+            "answer":"Dieser Würfel hat das Volumen $$${:a}\\times${:a}\\times${:a}=\\color{red}{${:a**3}}$$&nbsp;cm³.",
             "value":"${:a**3}"
         },{
-            "name":"Mur de cubes (jusqu’à 6 colonnes de 1 à 6 cubes)",
+            "name":"Würfelmauer (bis zu 6 Säulen aus 1 bis 6 Würfeln)",
             "vars":{
                 "a":"2_6",
                 "h0":"1_6",
@@ -43,10 +43,10 @@
                     {"mur":["${:h0}","${:h1}","${:h2}","${:h3}","${:h4}","${:h5}"]}
                 ]
             },
-            "answer":"Ce solide a un volume de $$${:h0}+${:h1}${:h2>0?'+'+:h2:''}${:h3>0?'+'+:h3:''}${:h4>0?'+'+:h4:''}${:h5>0?'+'+:h5:''}=\\color{red}{${:h0+:h1+:h2+:h3+:h4+:h5}}$$&nbsp;cm³",
+            "answer":"Dieser Körper hat das Volumen $$${:h0}+${:h1}${:h2>0?'+'+:h2:''}${:h3>0?'+'+:h3:''}${:h4>0?'+'+:h4:''}${:h5>0?'+'+:h5:''}=\\color{red}{${:h0+:h1+:h2+:h3+:h4+:h5}}$$&nbsp;cm³.",
             "value":"${:h0+:h1+:h2+:h3+:h4+:h5}"
         },{
-            "name":"Cubes sur deux murs (jusqu'à 11 colonnes de 1 à 6 cubes)",
+            "name":"Würfel an zwei Mauern (bis zu 11 Säulen aus 1 bis 5 Würfeln)",
             "vars":{
                 "a":"2_5",
                 "b":"1_4",
@@ -70,10 +70,10 @@
                     {"doublemur":[["${:ah0}","${:ah1}","${:ah2}","${:ah3}","${:ah4}"],["${:bh1}","${:bh2}","${:bh3}","${:bh4}"]]}
                 ]
             },
-            "answer":"Le volume de ce solide est $$${:ah0}+${:ah1}${:ah2>0?'+'+:ah2:''}${:ah3>0?'+'+:ah3:''}${:ah4>0?'+'+:ah4:''}+${:bh1}${:bh2>0?'+'+:bh2:''}${:bh3>0?'+'+:bh3:''}${:bh4>0?'+'+:bh4:''}=\\color{red}{${:ah0+:ah1+:ah2+:ah3+:ah4+:bh1+:bh2+:bh3+:bh4}}$$&nbsp;cm³",
+            "answer":"Dieser Körper hat das Volumen $$${:ah0}+${:ah1}${:ah2>0?'+'+:ah2:''}${:ah3>0?'+'+:ah3:''}${:ah4>0?'+'+:ah4:''}+${:bh1}${:bh2>0?'+'+:bh2:''}${:bh3>0?'+'+:bh3:''}${:bh4>0?'+'+:bh4:''}=\\color{red}{${:ah0+:ah1+:ah2+:ah3+:ah4+:bh1+:bh2+:bh3+:bh4}}$$&nbsp;cm³.",
             "value":"${:ah0+:ah1+:ah2+:ah3+:ah4+:bh1+:bh2+:bh3+:bh4}"
         },{
-            "name":"Pyramides (6 cas)",
+            "name":"Pyramiden (6 Fälle)",
             "vars":{
                 "type":[
                     [4,[[2,1,1,1],[1,2,1,1],[1,1,2,1],[2,2,1,0],[2,1,2,0]],5],
@@ -96,11 +96,11 @@
                     {"cubeincomplet":"${:type[1][:cols]}"}
                 ]
             },
-            "question":"Un petit cube a pour volume 1 cm³. Quel est le volume de cette pyramide ?",
-            "answer":"Cette pyramide a un volume de <span class='red'>${:type[2]}&nbsp;cm³</red>",
+            "question":"Ein kleiner Würfel hat das Volumen 1 cm³. Welches Volumen hat diese Pyramide?",
+            "answer":"Diese Pyramide hat das Volumen <span class='red'>${:type[2]}&nbsp;cm³</span>.",
             "value":"${:type[2]}"
         },{
-            "name":"Extrait de pavé droit (de base 3x3)",
+            "name":"Teil eines Quaders (Grundfläche 3 × 3)",
             "vars":{
                 "ah0":"2_5",
                 "bh2":"1_${:ah0}",
@@ -122,9 +122,9 @@
                     {"cubeincomplet":["${:ah0}","${:bh1}","${:ch1}","${:bh3}","${:bh2}","${:ch2}","${:ch5}","${:ch4}","${:ch3}"]}
                 ]
             },
-            "answer":"Ce solide a un volume de $$${:ah0}+${:bh1}${:ch1>0?'+'+:ch1:''}+${:bh3}+${:bh2}${:ch2>0?'+'+:ch2:''}${:ch5>0?'+'+:ch5:''}${:ch4>0?'+'+:ch4:''}${:ch3>0?'+'+:ch3:''}=\\color{red}{${:ah0+:bh1+:bh2+:bh3+:ch1+:ch2+:ch3+:ch4+:ch5}}$$&nbsp;cm³",
+            "answer":"Dieser Körper hat das Volumen $$${:ah0}+${:bh1}${:ch1>0?'+'+:ch1:''}+${:bh3}+${:bh2}${:ch2>0?'+'+:ch2:''}${:ch5>0?'+'+:ch5:''}${:ch4>0?'+'+:ch4:''}${:ch3>0?'+'+:ch3:''}=\\color{red}{${:ah0+:bh1+:bh2+:bh3+:ch1+:ch2+:ch3+:ch4+:ch5}}$$&nbsp;cm³.",
             "value":"${:ah0+:bh1+:bh2+:bh3+:ch1+:ch2+:ch3+:ch4+:ch5}"
         }
     ],
-    "question":"Un petit cube a pour volume 1 cm³. Quel est le volume de ce solide (aucune colonne cachée) ?"
+    "question":"Ein kleiner Würfel hat das Volumen 1 cm³. Welches Volumen hat dieser Körper? (Es sind keine Säulen verdeckt.)"
 }

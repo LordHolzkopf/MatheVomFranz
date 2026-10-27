@@ -3,12 +3,12 @@
     "dest":["5DA", "5DD"],
     "type":"text",
     "repeat":2,
-    "title":"Comparer les aires de deux figures",
-    "description":"Comparer des aires, surfaces, découpage, recollage, figures. Non adapté au mode interactif (online/duel).",
-    "question":"Sans calculer, quelle figure a la plus grande aire : la figure 1, la figure 2, ou ont-elles la même aire ?",
+    "title":"Flächeninhalte zweier Figuren vergleichen",
+    "description":"Flächeninhalte ohne Rechnung vergleichen, Kästchen zählen, Zerlegen und Ergänzen, Umlegen, Figuren. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
+    "question":"Welche Figur hat den größeren Flächeninhalt: Figur 1 oder Figur 2? Oder sind beide gleich groß? Entscheide ohne zu rechnen.",
     "options":[
         {
-            "name":"Même forme, une encoche sur un bord",
+            "name":"Gleiche Form, eine Kerbe am Rand",
             "vars":{
                 "a":"3_5",
                 "b":"3_5",
@@ -49,15 +49,15 @@
                     ["point",["${:ox2+:nx1}","${:b}"],{"name":"R7","face":"","label":{"visible":false}}],
                     ["point",["${:ox2}","${:b}"],{"name":"R8","face":"","label":{"visible":false}}],
                     ["polygon",["R1","R2","R3","R4","R5","R6","R7","R8"],{"fillColor":"none","strokeWidth":2}],
-                    ["text",["${:a/2}","${:b+1}","Figure 1"],{"anchorX":"middle","fontSize":14}],
-                    ["text",["${:ox2+:a/2}","${:b+1}","Figure 2"],{"anchorX":"middle","fontSize":14}]
+                    ["text",["${:a/2}","${:b+1}","Figur 1"],{"anchorX":"middle","fontSize":14}],
+                    ["text",["${:ox2+:a/2}","${:b+1}","Figur 2"],{"anchorX":"middle","fontSize":14}]
                 ]
             },
-            "answer":"La figure ${:otherFig} est plus grande : elle compte ${:areaFull} carreaux, contre ${:areaNotch} pour la figure ${:notchFig}, qui a une encoche sur un bord.",
-            "value":"Figure ${:otherFig}"
+            "answer":"Figur ${:otherFig} ist größer: Sie besteht aus ${:areaFull} Kästchen, Figur ${:notchFig} mit der Kerbe am Rand nur aus ${:areaNotch}.",
+            "value":"Figur ${:otherFig}"
         },
         {
-            "name":"Formes différentes, découpage/recollage",
+            "name":"Verschiedene Formen, Zerlegen und Umlegen",
             "vars":{
                 "hts":"1_6_4_^&",
                 "h0":"${:hts[0]}",
@@ -97,12 +97,12 @@
                     ["point",["${:ox2+4}","${:h0}"],{"name":"B8","face":"","label":{"visible":false}}],
                     ["point",["${:ox2+4}",0],{"name":"B9","face":"","label":{"visible":false}}],
                     ["polygon",["B0","B1","B2","B3","B4","B5","B6","B7","B8","B9"],{"fillColor":"none","strokeWidth":2}],
-                    ["text",[2,"${:maxH+1}","Figure 1"],{"anchorX":"middle","fontSize":14}],
-                    ["text",["${:ox2+2}","${:maxH+1}","Figure 2"],{"anchorX":"middle","fontSize":14}]
+                    ["text",[2,"${:maxH+1}","Figur 1"],{"anchorX":"middle","fontSize":14}],
+                    ["text",["${:ox2+2}","${:maxH+1}","Figur 2"],{"anchorX":"middle","fontSize":14}]
                 ]
             },
-            "answer":"Les figures ont la même aire (${:areaTot} carreaux chacune) : on obtient la figure 2 en découpant la première colonne de la figure 1 et en la recollant à la fin de la rangée.",
-            "value":"Égales"
+            "answer":"Beide Figuren sind gleich groß (je ${:areaTot} Kästchen): Schneidet man bei Figur 1 die erste Spalte ab und setzt sie am Ende der Reihe wieder an, erhält man Figur 2.",
+            "value":"gleich groß"
         }
     ]
 }

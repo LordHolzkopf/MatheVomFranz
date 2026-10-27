@@ -1,31 +1,31 @@
 {
-    "title":"Leçon : Nombres entiers et décimaux",
+    "title":"Wissen: natürliche Zahlen und Dezimalzahlen",
     "type":"text",
-    "description":"15 questions sur la numération : nombres entiers, décimaux, chiffres, rangs, connaissances. Non adapté au mode interactif (online/duel).",
+    "description":"15 Wissensfragen zum Stellenwertsystem: Ziffer und Zahl, Stellenwert, natürliche Zahlen, Dezimalzahlen, Prozent, vergleichen, eingrenzen, runden, Überschlag. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "dest":["5AA", "6BA"],
     "options":[
         {
-            "name":"Nombres entiers naturels",
-            "consts":{"unites":["unités","dizaines","centaines","milliers","dizaines de mille", "centaines de mille","millions","dizaines de millions","centaines de millions"]},
+            "name":"Natürliche Zahlen",
+            "consts":{"unites":["Einer","Zehner","Hunderter","Tausender","Zehntausender", "Hunderttausender","Millionen","Zehnmillionen","Hundertmillionen"]},
             "vars":{
                 "nb":"100000_100000000",
                 "chi":"0_9",
                 "un":"0_${:unites.length-1}_2"
             },
             "question":[
-                "Qu’est-ce qu’un <b>chiffre</b> ?",
-                "Quelle est la <b>valeur</b> d’un chiffre ?",
-                "Qu’appelle-t-on un <b>entier naturel</b> ?",
-                "Comment <b>bien écrire</b> un grand nombre entier ?"
+                "Was ist eine <b>Ziffer</b>?",
+                "Wovon hängt der <b>Wert</b> einer Ziffer ab?",
+                "Was ist eine <b>natürliche Zahl</b>?",
+                "Wie schreibt man eine große Zahl <b>übersichtlich</b>?"
             ],
             "answer":[
-                "Un chiffre est un dessin qui représente une quantité.",
-                "La valeur d’un chiffre dépend de sa position dans l’écriture du nombre. Par exemple $$:chi$$ ${:unites[:un[0]]} ou ${:unites[:un[1]]}.",
-                "Un entier naturel est un nombre qui représente une quantité exacte d’objets ou d’unités.",
-                "Pour bien écrire un nombre entier, on regroupe les chiffres par paquets de 3 en partant des unités. Exemple : $$:nb$$"
+                "Eine Ziffer ist ein Zeichen, mit dem man Zahlen schreibt. Im Zehnersystem gibt es die zehn Ziffern 0, 1, 2, …, 9. Eine Zahl kann aus mehreren Ziffern bestehen.",
+                "Der Wert einer Ziffer hängt von ihrer Stelle in der Zahl ab (Stellenwert). Zum Beispiel kann die Ziffer $$:chi$$ für $$:chi$$ ${:unites[:un[0]]} oder für $$:chi$$ ${:unites[:un[1]]} stehen.",
+                "Natürliche Zahlen sind die Zahlen 0, 1, 2, 3, … Mit ihnen gibt man an, wie viele Gegenstände es genau sind.",
+                "Man bildet von rechts, also von den Einern aus, Dreiergruppen und lässt zwischen ihnen eine kleine Lücke. Beispiel: $$:nb$$"
             ]
         },{
-            "name":"Nombres décimaux",
+            "name":"Dezimalzahlen",
             "vars":{
                 "ent":"100_999",
                 "dec":"1_999",
@@ -33,40 +33,40 @@
                 "nb":"${MMmath.round(:ent+:dec/1000,3)}"
             },
             "question":[
-                "Qu’appelle-t-on l’<b>écriture décimale</b> ?",
-                "Qu’appelle-t-on un <b>nombre décimal</b> ?",
-                "Quelle est la <b>partie entière</b> de $$:nb$$ ?",
-                "Quelle est la <b>partie décimale</b> de $$:nb$$ ?",
-                "Que signifie l’écriture $$:pc \\%$$ ?"
+                "Was ist die <b>Dezimalschreibweise</b>?",
+                "Was ist eine <b>Dezimalzahl</b>?",
+                "Welche Zahl steht bei $$:nb$$ <b>vor dem Komma</b>?",
+                "Welcher Anteil von $$:nb$$ steht <b>hinter dem Komma</b>?",
+                "Was bedeutet die Schreibweise $$:pc \\%$$?"
             ],
             "answer":[
-                "L’écriture <b>déci</b>male est une façon d’écrire un nombre en n’utilisant que les <b>dix</b> chiffres et éventuellement la virgule.",
-                "Un nombre décimal est un nombre qui peut s’écrire sous la forme d’une fraction décimale (une fraction dont le dénominateur est 1, 10, 100, 1000...).",
-                "La partie entière de $$:nb$$ est $$\\color{red}{:ent}$$.",
-                "La partie décimale de $$:nb$$ est $$\\color{red}{${MMmath.round(:dec/1000,3)}}$$.",
-                "$$:pc \\%$$ se lit $$:pc$$ pourcents. C’est égal à $$\\dfrac{:pc}{100}=${MMmath.round(:pc/100,2)}$$"
+                "In der <b>Dezi</b>malschreibweise (Kommaschreibweise) schreibt man eine Zahl nur mit den <b>zehn</b> Ziffern 0 bis 9 und eventuell einem Komma.",
+                "Eine Dezimalzahl ist eine Zahl, die man als Zehnerbruch schreiben kann, also als Bruch mit dem Nenner 1, 10, 100, 1000, … Ihre Kommaschreibweise bricht nach endlich vielen Stellen ab.",
+                "Vor dem Komma steht $$\\color{red}{:ent}$$ (die Ganzen).",
+                "Hinter dem Komma steht der Anteil $$\\color{red}{${MMmath.round(:dec/1000,3)}}$$.",
+                "$$:pc \\%$$ liest man „:pc Prozent“. Das bedeutet $$\\dfrac{:pc}{100}=${MMmath.round(:pc/100,2)}$$."
             ]
         },{
-            "name":"Connaissances",
+            "name":"Vergleichen, eingrenzen, runden",
             "vars":{
                 "nb":"1000001_8999999_^2000000,3000000,4000000,5000000,6000000,7000000,8000000",
                 "odg":"${Math.round(:nb/1000000)*1000000}"
             },
             "question":[
-                "Que veut dire <b>comparer</b> deux nombres ?",
-                "Que veut dire <b>encadrer</b> un nombre ?",
-                "Qu’est-ce que la <b>précision</b> d’un encadrement ?",
-                "Que veut dire <b>intercaler</b> un nombre entre deux autres ?",
-                "Qu’est-ce qu’un <b>ordre de grandeur</b> d’un nombre ?",
-                "Que veut dire <b>arrondir</b> un nombre ?"
+                "Was bedeutet es, zwei Zahlen zu <b>vergleichen</b>?",
+                "Was bedeutet es, eine Zahl <b>einzugrenzen</b>?",
+                "Was ist die <b>Genauigkeit</b> einer Eingrenzung?",
+                "Was bedeutet es, eine Zahl zwischen zwei andere <b>einzuschieben</b>?",
+                "Was ist ein <b>Überschlagswert</b> einer Zahl?",
+                "Was bedeutet es, eine Zahl zu <b>runden</b>?"
             ],
             "answer":[
-                "Comparer signifie trouver lequel des deux nombres est le plus grand ou si les deux nombres sont égaux. On utilise les symboles < > et =",
-                "Encadrer un nombre, c’est donner un nombre plus petit et un nombre plus grand.<br>Exemple pour $$:nb$$ : $$${Math.floor(:nb/1000000)*1000000}<:nb<${Math.ceil(:nb/1000000)*1000000}$$",
-                "La précision d’un encadrement est l’écart entre les deux nombres qui encadrent.<br>Exemple : dans $$${Math.floor(:nb/1000000)*1000000}<:nb<${Math.ceil(:nb/1000000)*1000000}$$<br>$$:nb$$ est encadré au million près.",
-                "Intercaler un nombre veut dire trouver un nombre entre deux autres, pas obligatoirement au “milieu”.",
-                "Un ordre de grandeur d’un nombre est un nombre proche facile à utiliser en calcul mental. Exemple $$:odg$$ pour $$:nb$$.",
-                "Arrondir un nombre avec une précision donnée, c’est donner la valeur la plus proche du nombre dans un encadrement à cette précision.<br>Exemple : l’arrondi au millions près de $$:nb$$ est $$${MMmath.round(:nb,-6)}$$."
+                "Man stellt fest, welche der beiden Zahlen größer ist oder ob beide gleich groß sind. Dafür benutzt man die Zeichen <, > und =.",
+                "Man gibt eine kleinere und eine größere Zahl an, zwischen denen die Zahl liegt.<br>Beispiel für $$:nb$$: $$${Math.floor(:nb/1000000)*1000000}<:nb<${Math.ceil(:nb/1000000)*1000000}$$",
+                "Die Genauigkeit ist der Abstand der beiden Grenzen voneinander.<br>Beispiel: In $$${Math.floor(:nb/1000000)*1000000}<:nb<${Math.ceil(:nb/1000000)*1000000}$$<br>ist $$:nb$$ auf Millionen genau eingegrenzt.",
+                "Man sucht eine Zahl, die zwischen den beiden anderen liegt – nicht unbedingt genau in der Mitte.",
+                "Ein Überschlagswert ist eine Zahl in der Nähe, mit der man leicht im Kopf rechnen kann. Beispiel: $$:odg$$ für $$:nb$$.",
+                "Man ersetzt die Zahl durch den nächstgelegenen Wert mit der gewünschten Genauigkeit. Ist die erste weggelassene Ziffer 0, 1, 2, 3 oder 4, rundet man ab, bei 5, 6, 7, 8 oder 9 rundet man auf.<br>Beispiel: Auf Millionen gerundet ist $$:nb \\approx ${MMmath.round(:nb,-6)}$$."
             ]
         }
     ]

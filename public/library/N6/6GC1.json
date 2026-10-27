@@ -1,10 +1,10 @@
 {
-    "title":"Reconnaître un objet géométrique",
+    "title":"Strecke, Gerade, Halbgerade erkennen",
     "type":"text",
     "textSize":"small",
     "speech":1,
     "ID":"6GC1",
-    "description":"Différencier les lignes géométriques de base",
+    "description":"Strecke, Gerade, Halbgerade (Strahl) und Punkt unterscheiden und benennen, Schreibweise",
     "keys":["droite","segment","demi-droite","[","("],
     "dest":["5BA"],
     "consts":{"points":"ABCDEFGHJKLMNPRST",
@@ -15,19 +15,19 @@
         "point":"<svg width=\"15em\" height=\"4.5em\" version=\"1.1\" viewBox=\"0 0 52.917 15.875\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"13.297175\" y=\"4.1944108\" fill=\"#000000\" font-family=\"sans-serif\" font-size=\"4.2333px\" letter-spacing=\"0px\" stroke-width=\".26458\" word-spacing=\"0px\" style=\"line-height:1.25\" xml:space=\"preserve\"><tspan x=\"13.297175\" y=\"4.1944108\" font-size=\"4.2333px\" stroke-width=\".26458\">${:A}</tspan></text><path d=\"m10.77 5.2395 2.2034 0.67142\" fill=\"none\" stroke=\"#000\" stroke-width=\".26458px\"/><path d=\"m12.316 4.4621-0.80318 2.1418\" fill=\"none\" stroke=\"#000\" stroke-width=\".26458px\"/></svg>"
     },
     "options":[{
-        "name":"Type d'objet",
+        "name":"Art der Figur",
         "vars":{"pts":"0_16_3_^&","A":"${:points[:pts[0]]}","B":"${:points[:pts[1]]}","qt":"0_4"},
-        "question": "Quel type d'objet est dessiné ?<br>${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}",
-        "audio":"Quel type d'objet est dessiné ?",
-        "answer":"${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point} <br> est <span class='red'>${:qt==0?'un segment'::qt==1?'une droite'::qt<4?'une demi-droite':'un point'}</span>",
-        "value":"${:qt==0?'un segment'::qt==1?'une droite'::qt<4?'une demi-droite':'un point'}"
+        "question": "Was ist hier gezeichnet?<br>${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}",
+        "audio":"Was ist hier gezeichnet?",
+        "answer":"${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point} <br> ist <span class='red'>${:qt==0?'eine Strecke'::qt==1?'eine Gerade'::qt<4?'eine Halbgerade (ein Strahl)':'ein Punkt'}</span>.",
+        "value":["${:qt==0?'Strecke'::qt==1?'Gerade'::qt<4?'Halbgerade':'Punkt'}","${:qt==0?'eine Strecke'::qt==1?'eine Gerade'::qt<4?'Strahl':'ein Punkt'}"]
     },{
-        "name":"Nommer un objet",
+        "name":"Figur benennen",
         "vars":{"pts":"0_16_3_^&","A":"${:points[:pts[0]]}","B":"${:points[:pts[1]]}","qt":"0_4"},
-        "question": "Donne une notation mathématique de cette figure.<br>${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}",
-        "audio":"Donne une notation mathématique de cette figure.",
-        "answer":"${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}<br>se note <span class='red'>${:qt==0?'['+:A+:B+']'::qt==1?'('+:A+:B+')'::qt==2?'['+:A+:B+')'::qt==3?'['+:B+:A+')'::A}</span>",
-        "value":["${:qt==0?'['+:A+:B+']'::qt==1?'('+:A+:B+')'::qt==2?'['+:A+:B+')'::qt==3?'['+:B+:A+')'::A}","${:qt==0?'['+:B+:A+']'::qt==1?'('+:B+:A+')'::qt==2?'('+:B+:A+']'::qt==3?'('+:A+:B+']'::A}"]
+        "question": "Benenne diese Figur mit der passenden Schreibweise.<br>${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}",
+        "audio":"Benenne diese Figur mit der passenden Schreibweise.",
+        "answer":"${:qt==0?:segment::qt==1?:droite::qt==2?:demidroite::qt==3?:demidroite2::point}<br>heißt <span class='red'>${:qt==0?'Strecke $$\\overline{'+:A+:B+'}$$':(:qt==1?'Gerade '+:A+:B:(:qt==2?'Halbgerade '+:A+:B:(:qt==3?'Halbgerade '+:B+:A:'Punkt '+:A)))}</span>${:qt==2?' (Anfangspunkt '+:A+')':(:qt==3?' (Anfangspunkt '+:B+')':'')}",
+        "value":["${:qt==0?'\\overline{'+:A+:B+'}':(:qt==1?'Gerade '+:A+:B:(:qt==2?'Halbgerade '+:A+:B:(:qt==3?'Halbgerade '+:B+:A::A)))}","${:qt==0?'\\overline{'+:B+:A+'}':(:qt==1?'Gerade '+:B+:A:(:qt==2?'Strahl '+:A+:B:(:qt==3?'Strahl '+:B+:A:'Punkt '+:A)))}"]
     }
     ]
 }

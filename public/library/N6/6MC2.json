@@ -1,24 +1,24 @@
 {
     "ID":"6MC2",
-    "title":"Conversions entre m², dm² et cm²",
-    "description":"Penser à 1 m² = 100 dm² ou que 1 cm² est cent fois plus petit que 1 dm²",
+    "title":"Flächeneinheiten umrechnen: m², dm², cm²",
+    "description":"Flächeneinheiten umrechnen mit der Umrechnungszahl 100: 1 m² = 100 dm², 1 dm² = 100 cm², auch mit Dezimalzahlen",
     "type":"text",
     "dest":["5DA", "6BE"],
     "consts":{"units":["m","dm","cm"]},
     "options":[
         {
-            "name":"Conversion de m² ou dm² vers sous unité, entier",
+            "name":"Von m² oder dm² in die nächstkleinere Einheit, ganze Zahlen",
             "vars":{
                 "c":[9,99],
                 "n":"1_${:c}",
                 "unit":"0_1",
                 "n2":"${:n*100}"
             },
-            "question":"Combien de $$\\text{${:units[:unit+1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit+1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit+1]}}^2$$",
             "value":"${:n2}"
         },{
-            "name":"Conversion de m² ou dm² vers sous unité, deux décimales",
+            "name":"Von m² oder dm² in die nächstkleinere Einheit, zwei Nachkommastellen",
             "vars":{
                 "c":"1_9",
                 "d":"10_99",
@@ -26,11 +26,11 @@
                 "unit":"0_1",
                 "n2":"${MMmath.round(:n*100,1)}"
             },
-            "question":"Combien de $$\\text{${:units[:unit+1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit+1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit+1]}}^2$$",
             "value":"${:n2}"
         },{
-            "name":"Conversion de m² ou dm² vers sous unité, une décimale",
+            "name":"Von m² oder dm² in die nächstkleinere Einheit, eine Nachkommastelle",
             "vars":{
                 "c":"1_9",
                 "d":"1_9",
@@ -38,22 +38,22 @@
                 "unit":"0_1",
                 "n2":"${MMmath.round(:n*100,1)}"
             },
-            "question":"Combien de $$\\text{${:units[:unit+1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit+1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit+1]}}^2$$",
             "value":"${:n2}"
         },{
-            "name":"Conversion de dm² ou cm² vers unité multiple, centaines rondes",
+            "name":"Von dm² oder cm² in die nächstgrößere Einheit, glatte Hunderter",
             "vars":{
                 "c":"1_9",
                 "n":"${:c*100}",
                 "unit":"1_2",
                 "n2":"${MMmath.round(:n/100,2)}"
             },
-            "question":"Combien de $$\\text{${:units[:unit-1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit-1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit-1]}}^2$$",
             "value":"${:n2}"
         },{
-            "name":"Conversion de dm² ou cm² vers unité multiple, entier à trois chiffres",
+            "name":"Von dm² oder cm² in die nächstgrößere Einheit, dreistellige Zahlen",
             "vars":{
                 "u":"1_9",
                 "d":"10_99",
@@ -61,18 +61,18 @@
                 "unit":"1_2",
                 "n2":"${MMmath.round(:n/100,2)}"
             },
-            "question":"Combien de $$\\text{${:units[:unit-1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit-1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit-1]}}^2$$",
             "value":"${:n2}"
         },{
-            "name":"Conversion de dm² ou cm² vers unité multiple, multiple de 10",
+            "name":"Von dm² oder cm² in die nächstgrößere Einheit, Zehnerzahlen",
             "vars":{
                 "d":"10_99",
                 "n":"${10*:d}",
                 "unit":"1_2",
                 "n2":"${MMmath.round(:n/100,2)}"
             },
-            "question":"Combien de $$\\text{${:units[:unit-1]}}^2$$ y a-t-il dans $$${:n}\\text{ ${:units[:unit]}}^2$$ ?",
+            "question":"Wie viele $$\\text{${:units[:unit-1]}}^2$$ sind $$${:n}\\text{ ${:units[:unit]}}^2$$?",
             "answer":"$$${:n}\\text{ ${:units[:unit]}}^2=\\color{red}{${:n2}}\\text{ ${:units[:unit-1]}}^2$$",
             "value":"${:n2}"
         }

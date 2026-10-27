@@ -2,44 +2,44 @@
     "ID":"6DA1",
     "dest":["5AG"],
     "type":"text",
-    "title":"Compléter un tableau à partir d’une collection",
-    "description":"tableau, effectifs, dénombrer, collection, organiser des données",
+    "title":"Häufigkeitstabelle ergänzen",
+    "description":"Häufigkeitstabelle, Tabelle ergänzen, Anzahl, abzählen, Strichliste, Daten erfassen und ordnen",
     "keys":["_","_","_",";","_","_","_","_"],
     "valueType":"listeOrdonnee",
     "consts":{
         "icons":[
-        ["de pommes","pommes","apple-one.svg"],
-        ["d’avions","avions","acceleration.svg"],
-        ["de poucettes","poucettes","boy-stroller.svg"],
-        ["de papillons","papillons","butterfly.svg"],
-        ["de carottes","carottes","carrot.svg"],
-        ["de chateaux","chateaux","castle.svg"],
-        ["de palmiers","palmiers","coconut-tree.svg"],
-        ["de diamants","diamants","diamond.svg"],
-        ["de ballons de basket","ballons de basket","dribble.svg"],
-        ["de canards","canards","duck.svg"],
-        ["d’éléphants","éléphants","elephant.svg"],
-        ["de smileys","smileys","emotion-happy.svg"],
-        ["de microphones","micros","entertainment.svg"],
-        ["de fantomes","fantomes","ghost.svg"],
-        ["de ceintres","ceintres","hanger.svg"],
-        ["de glaces","glaces","icecream-three.svg"],
-        ["de feuilles","feuilles","leaves.svg"],
-        ["de phares","phares","light-house.svg"],
-        ["de lunes","lunes","moon.svg"],
-        ["de souris","souris","mouse-one.svg"],
-        ["de pêches","pêches","peach.svg"],
-        ["de poires","poires","pear.svg"],
-        ["de fusées","fusées","rocket-one.svg"],
-        ["de bateaux","bateaux","sailboat-one.svg"],
-        ["de parapluies","parapluies","security.svg"],
-        ["de soleils","soleils","sun.svg"],
-        ["de montres","montres","watch-one.svg"]],
-        "colors":[["orange","orange"],["bleu","blue"],["violet","purple"],["vert","green"],["rouge","red"],["turquoise","turquoise"]]
+        ["die Äpfel","Äpfel","apple-one.svg"],
+        ["die Flugzeuge","Flugzeuge","acceleration.svg"],
+        ["die Kinderwagen","Kinderwagen","boy-stroller.svg"],
+        ["die Schmetterlinge","Schmetterlinge","butterfly.svg"],
+        ["die Möhren","Möhren","carrot.svg"],
+        ["die Burgen","Burgen","castle.svg"],
+        ["die Palmen","Palmen","coconut-tree.svg"],
+        ["die Diamanten","Diamanten","diamond.svg"],
+        ["die Basketbälle","Basketbälle","dribble.svg"],
+        ["die Enten","Enten","duck.svg"],
+        ["die Elefanten","Elefanten","elephant.svg"],
+        ["die Smileys","Smileys","emotion-happy.svg"],
+        ["die Mikrofone","Mikrofone","entertainment.svg"],
+        ["die Gespenster","Gespenster","ghost.svg"],
+        ["die Kleiderbügel","Kleiderbügel","hanger.svg"],
+        ["die Eistüten","Eistüten","icecream-three.svg"],
+        ["die Blätter","Blätter","leaves.svg"],
+        ["die Leuchttürme","Leuchttürme","light-house.svg"],
+        ["die Monde","Monde","moon.svg"],
+        ["die Mäuse","Mäuse","mouse-one.svg"],
+        ["die Pfirsiche","Pfirsiche","peach.svg"],
+        ["die Birnen","Birnen","pear.svg"],
+        ["die Raketen","Raketen","rocket-one.svg"],
+        ["die Segelboote","Segelboote","sailboat-one.svg"],
+        ["die Regenschirme","Regenschirme","security.svg"],
+        ["die Sonnen","Sonnen","sun.svg"],
+        ["die Armbanduhren","Armbanduhren","watch-one.svg"]],
+        "colors":[["orange","orange"],["blau","blue"],["violett","purple"],["grün","green"],["rot","red"],["türkis","turquoise"]]
     },
     "options":[
         {
-            "name":"Compléter un tableau de deux objets",
+            "name":"Tabelle mit zwei Gegenständen ergänzen",
             "vars":{
                 "id1":"0_${:icons.length-1}",
                 "id2":"0_${:icons.length-1}_^${:id1}",
@@ -50,11 +50,11 @@
                 "nbp1":"${:suiteobjets.filter(x=>x===1).length}",
                 "nbp2":"${:nbobj-:nbp1}"
             },
-            "question":"Complète le tableau suivant pour résumer la liste <b>${:icons[:id1][0]}</b> et de <b>${:icons[:id2][1]}</b>.<br>${:suiteobjets.map(x=>'<custom-svg src=library/illustrations/iconify/icon-park-outline--'+(x?:obj1url::obj2url)+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>Objet</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th></tr><tr><td>Quantité</td><td></td><td></td></tr></table>",
-            "answer":"<table class='inline-table'><tr><th>Objet</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th></tr><tr><td>Quantité</td><td> $$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td></tr></table>",
+            "question":"Ergänze die Tabelle. Zähle <b>${:icons[:id1][0]}</b> und <b>${:icons[:id2][0]}</b>.<br>${:suiteobjets.map(x=>'<custom-svg src=library/illustrations/iconify/icon-park-outline--'+(x?:obj1url::obj2url)+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>Gegenstand</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th></tr><tr><td>Anzahl</td><td></td><td></td></tr></table>",
+            "answer":"<table class='inline-table'><tr><th>Gegenstand</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th></tr><tr><td>Anzahl</td><td> $$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td></tr></table>",
             "value":":nbp1;:nbp2"
         },{
-            "name":"Compléter un tableau de trois objets",
+            "name":"Tabelle mit drei Gegenständen ergänzen",
             "vars":{
                 "id1":"0_${:icons.length-1}",
                 "id2":"0_${:icons.length-1}_^${:id1}",
@@ -68,11 +68,11 @@
                 "nbp2":"${:suiteobjets.filter(x=>x===1).length}",
                 "nbp3":"${:nbobj-:nbp1-:nbp2}"
             },
-            "question":"Complète le tableau suivant pour résumer la liste <b>${:icons[:id1][0]}</b>, <b>${:icons[:id2][0]}</b> et <b>${:icons[:id3][0]}</b>.<br>${:suiteobjets.map(x=>'<custom-svg src=library/illustrations/iconify/icon-park-outline--'+(x==0?:obj1url:x==1?:obj2url::obj3url)+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>Objet</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th><th>${:icons[:id3][1]}</th></tr><tr><td>Quantité</td><td> </td><td> </td><td></td></tr></table>",
-            "answer":"<table class='inline-table'><tr><th>Objet</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th><th>${:icons[:id3][1]}</th></tr><tr><td>Quantité</td><td>$$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td><td>$$\\color{red}{${:nbp3}}$$</td></tr></table>",
+            "question":"Ergänze die Tabelle. Zähle <b>${:icons[:id1][0]}</b>, <b>${:icons[:id2][0]}</b> und <b>${:icons[:id3][0]}</b>.<br>${:suiteobjets.map(x=>'<custom-svg src=library/illustrations/iconify/icon-park-outline--'+(x==0?:obj1url:x==1?:obj2url::obj3url)+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>Gegenstand</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th><th>${:icons[:id3][1]}</th></tr><tr><td>Anzahl</td><td> </td><td> </td><td></td></tr></table>",
+            "answer":"<table class='inline-table'><tr><th>Gegenstand</th><th>${:icons[:id1][1]}</th><th>${:icons[:id2][1]}</th><th>${:icons[:id3][1]}</th></tr><tr><td>Anzahl</td><td>$$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td><td>$$\\color{red}{${:nbp3}}$$</td></tr></table>",
             "value":":nbp1;:nbp2;:nbp3"
         },{
-            "name":"Compléter un tableau de deux couleurs",
+            "name":"Tabelle mit zwei Farben ergänzen",
             "vars":{
                 "idobj":"0_${:icons.length-1}",
                 "objurl":"${:icons[:idobj][2]}",
@@ -86,11 +86,11 @@
                 "nbp1":"${:suiteobjets.filter(x=>x===1).length}",
                 "nbp2":"${:nbobj-:nbp1}"
             },
-            "question":"Complète le tableau suivant pour résumer la liste <b>${:icons[:idobj][0]}</b> dont les couleurs sont : ${:couleur1} et ${:couleur2}</b>.<br>${:suiteobjets.map(x=>'<custom-svg style=color:'+(x===1?:color1::color2)+' src=library/illustrations/iconify/icon-park-outline--'+:objurl+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th></tr><tr><td>Quantité</td><td> </td><td></td></tr></table>",
-            "answer":"<table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th></tr><tr><td>Quantité</td><td> $$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td></tr></table>",
+            "question":"Ergänze die Tabelle. Zähle <b>${:icons[:idobj][0]}</b> nach ihrer Farbe (${:couleur1} und ${:couleur2}).<br>${:suiteobjets.map(x=>'<custom-svg style=color:'+(x===1?:color1::color2)+' src=library/illustrations/iconify/icon-park-outline--'+:objurl+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th></tr><tr><td>Anzahl</td><td> </td><td></td></tr></table>",
+            "answer":"<table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th></tr><tr><td>Anzahl</td><td> $$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td></tr></table>",
             "value":":nbp1;:nbp2"
         },{
-            "name":"Compléter un tableau de trois couleurs",
+            "name":"Tabelle mit drei Farben ergänzen",
             "vars":{
                 "idobj":"0_${:icons.length-1}",
                 "objurl":"${:icons[:idobj][2]}",
@@ -107,8 +107,8 @@
                 "nbp2":"${:suiteobjets.filter(x=>x===1).length}",
                 "nbp3":"${:nbobj-:nbp1-:nbp2}"
             },
-            "question":"Complète le tableau suivant pour résumer la liste <b>${:icons[:idobj][0]}</b> dont les couleurs sont : ${:couleur1}, ${:couleur2} et ${:couleur3}</b>.<br>${:suiteobjets.map(x=>'<custom-svg style=color:'+(x===0?:color1:x==1?:color2::color3)+' src=library/illustrations/iconify/icon-park-outline--'+:objurl+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th><th>${:couleur3}</th></tr><tr><td>Quantité</td><td></td><td></td><td></td></tr></table>",
-            "answer":"<table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th><th>${:couleur3}</th></tr><tr><td>Quantité</td><td>$$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td><td>$$\\color{red}{${:nbp3}}$$</td></tr></table>",
+            "question":"Ergänze die Tabelle. Zähle <b>${:icons[:idobj][0]}</b> nach ihrer Farbe (${:couleur1}, ${:couleur2} und ${:couleur3}).<br>${:suiteobjets.map(x=>'<custom-svg style=color:'+(x===0?:color1:x==1?:color2::color3)+' src=library/illustrations/iconify/icon-park-outline--'+:objurl+'></custom-svg>').join(' ')}<br><table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th><th>${:couleur3}</th></tr><tr><td>Anzahl</td><td></td><td></td><td></td></tr></table>",
+            "answer":"<table class='inline-table'><tr><th>${:icons[:idobj][1]}</th><th>${:couleur1}</th><th>${:couleur2}</th><th>${:couleur3}</th></tr><tr><td>Anzahl</td><td>$$\\color{red}{${:nbp1}}$$</td><td>$$\\color{red}{${:nbp2}}$$</td><td>$$\\color{red}{${:nbp3}}$$</td></tr></table>",
             "value":":nbp1;:nbp2;:nbp3"
         }
     ]

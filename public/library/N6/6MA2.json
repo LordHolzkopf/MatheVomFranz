@@ -1,17 +1,17 @@
 {
-    "title":"Relations entre deux unités de longueur successives",
+    "title":"Benachbarte Längeneinheiten umrechnen",
     "ID":"6MA2",
     "type":"text",
-    "description":"Retrouver le lien (×10, fraction, écriture décimale) entre deux unités de longueur qui se suivent.",
+    "description":"Umrechnungszahl 10 zwischen benachbarten Längeneinheiten (mm, cm, dm, m, km) als Faktor, Bruch oder Dezimalzahl angeben, Einheiten umrechnen.",
     "speech":1,
     "consts":{
         "unites":["mm","cm","dm","m","dam","hm","km"],
-        "uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}
+        "uv":{"mm":"Millimeter","cm":"Zentimeter","dm":"Dezimeter","m":"Meter","dam":"Dekameter","hm":"Hektometer","km":"Kilometer"}
     },
     "dest":["5AE", "6BE"],
-    "consigne":"Compléter",
+    "consigne":"Ergänze.",
     "options":[{
-        "name":"Vers l'unité inférieure (nombre entier)",
+        "name":"In die nächstkleinere Einheit (ganze Zahl)",
         "vars":{
             "i":"0_5",
             "petit":"${:unites[:i]}",
@@ -19,11 +19,11 @@
         },
         "question":"$$1\\text{ ${:grand}} = ~...~\\text{${:petit}}$$",
         "shortq":"$$1\\text{ ${:grand}} = \\colorbox{#ECECEC}{\\quad}\\text{ ${:petit}}$$",
-        "audio":"1 ${:uv[:grand]} égale combien de ${:uv[:petit]} ?",
+        "audio":"1 ${:uv[:grand]} sind wie viele ${:uv[:petit]}?",
         "answer":"$$1\\text{ ${:grand}} = \\color{red}{10}\\text{ ${:petit}}$$",
         "value":"10"
     },{
-        "name":"Vers l'unité supérieure (fraction)",
+        "name":"In die nächstgrößere Einheit (Bruch)",
         "vars":{
             "i":"0_5",
             "petit":"${:unites[:i]}",
@@ -31,11 +31,11 @@
         },
         "question":"$$1\\text{ ${:petit}} = ~\\dfrac{1}{~...~}~\\text{${:grand}}$$",
         "shortq":"$$1\\text{ ${:petit}} = \\dfrac{1}{\\colorbox{#ECECEC}{\\quad}}\\text{ ${:grand}}$$",
-        "audio":"1 ${:uv[:petit]} égale un ${:uv[:grand]} divisé par combien ?",
+        "audio":"1 ${:uv[:petit]} ist 1 ${:uv[:grand]} geteilt durch wie viel?",
         "answer":"$$1\\text{ ${:petit}} = \\dfrac{1}{\\color{red}{10}}\\text{ ${:grand}}$$",
         "value":"10"
     },{
-        "name":"Vers l'unité supérieure (écriture décimale)",
+        "name":"In die nächstgrößere Einheit (Dezimalzahl)",
         "vars":{
             "i":"0_5",
             "petit":"${:unites[:i]}",
@@ -43,7 +43,7 @@
         },
         "question":"$$1\\text{ ${:petit}} = ~...~\\text{${:grand}}$$",
         "shortq":"$$1\\text{ ${:petit}} = \\colorbox{#ECECEC}{\\quad}\\text{ ${:grand}}$$",
-        "audio":"1 ${:uv[:petit]} égale combien de ${:uv[:grand]}, en écriture décimale ?",
+        "audio":"1 ${:uv[:petit]} sind wie viele ${:uv[:grand]}? Antworte mit einer Dezimalzahl.",
         "answer":"$$1\\text{ ${:petit}} = \\color{red}{0.1}\\text{ ${:grand}}$$",
         "value":"0.1"
     }]

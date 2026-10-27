@@ -1,5 +1,5 @@
 {
-  "title": "Lire le codage d'une figure",
+  "title": "Markierungen in Figuren lesen",
   "ID": "6GC15",
   "dest":["5BD", "5BA"],
   "type": "text",
@@ -15,40 +15,40 @@
     "_",
     "_"
   ],
-  "description": "Une propriété géométrique se lit sur le codage de la figure, pas à l'œil nu : angles droits, longueurs égales, bissectrices.",
-  "shortq": "Codage de la figure",
+  "description": "Geometrische Eigenschaften liest man an den Markierungen einer Figur ab, nicht nach Augenmaß: rechte Winkel, gleich lange Strecken, Winkelhalbierende.",
+  "shortq": "Markierungen der Figur",
   "consts": {
-    "repnon": "<span class='red'>Non</span>. La figure ne porte aucun codage : on ne peut rien affirmer."
+    "repnon": "<span class='red'>Nein</span>. Die Figur hat keine Markierung, also kann man das nicht sicher sagen."
   },
   "options": [
     {
-      "name": "Angles droits",
+      "name": "Rechte Winkel",
       "consts": {
         "figP": [
-          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M43.64 14.17L7.25 32.71\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M18.28 9.38L32.61 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"25.45\" cy=\"23.44\" r=\"0.7\" fill=\"#000\"/><text x=\"24.02\" y=\"27.81\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">O</text><text x=\"47.92\" y=\"11.99\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d)</text><text x=\"16.1\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d')</text><path d=\"M27.76 22.26L26.58 19.94L24.27 21.12\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
-          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M33.32 9.76L26.4 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M12.29 19.25L47.43 28.01\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"12.29\" cy=\"19.25\" r=\"0.7\" fill=\"#000\"/><circle cx=\"47.43\" cy=\"28.01\" r=\"0.7\" fill=\"#000\"/><circle cx=\"29.86\" cy=\"23.63\" r=\"0.7\" fill=\"#000\"/><text x=\"8.79\" y=\"17.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"51.21\" y=\"29.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"24.63\" y=\"25.64\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">I</text><text x=\"34.48\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d)</text><path d=\"M32.38 24.26L33.01 21.74L30.49 21.11\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
+          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M43.64 14.17L7.25 32.71\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M18.28 9.38L32.61 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"25.45\" cy=\"23.44\" r=\"0.7\" fill=\"#000\"/><text x=\"24.02\" y=\"27.81\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">O</text><text x=\"47.92\" y=\"11.99\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d</text><text x=\"16.1\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d'</text><path d=\"M27.76 22.26L26.58 19.94L24.27 21.12\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
+          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M33.32 9.76L26.4 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M12.29 19.25L47.43 28.01\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"12.29\" cy=\"19.25\" r=\"0.7\" fill=\"#000\"/><circle cx=\"47.43\" cy=\"28.01\" r=\"0.7\" fill=\"#000\"/><circle cx=\"29.86\" cy=\"23.63\" r=\"0.7\" fill=\"#000\"/><text x=\"8.79\" y=\"17.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"51.21\" y=\"29.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"24.63\" y=\"25.64\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">I</text><text x=\"34.48\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d</text><path d=\"M32.38 24.26L33.01 21.74L30.49 21.11\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M24.81 9.03L10.98 32.38L49.02 28.05Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><path d=\"M24.81 9.03L27.25 30.53\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"24.81\" cy=\"9.03\" r=\"0.7\" fill=\"#000\"/><circle cx=\"10.98\" cy=\"32.38\" r=\"0.7\" fill=\"#000\"/><circle cx=\"49.02\" cy=\"28.05\" r=\"0.7\" fill=\"#000\"/><circle cx=\"27.25\" cy=\"30.53\" r=\"0.7\" fill=\"#000\"/><text x=\"24.12\" y=\"5.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"7.11\" y=\"33.41\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"52.89\" y=\"29.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><text x=\"27.64\" y=\"34.91\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">H</text><path d=\"M29.84 30.23L29.54 27.65L26.96 27.94\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.02 13.52L32.94 8.85L44.63 25.21L19.69 31.45Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><circle cx=\"15.02\" cy=\"13.52\" r=\"0.7\" fill=\"#000\"/><circle cx=\"32.94\" cy=\"8.85\" r=\"0.7\" fill=\"#000\"/><circle cx=\"44.63\" cy=\"25.21\" r=\"0.7\" fill=\"#000\"/><circle cx=\"19.69\" cy=\"31.45\" r=\"0.7\" fill=\"#000\"/><text x=\"11.39\" y=\"11.83\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"34.31\" y=\"5.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"48.61\" y=\"24.86\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><text x=\"17.69\" y=\"34.91\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">D</text><path d=\"M30.42 9.5L31.93 11.62L34.45 10.96\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M25.8 9.08L40.12 33.53L19.98 26.99Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><circle cx=\"25.8\" cy=\"9.08\" r=\"0.7\" fill=\"#000\"/><circle cx=\"40.12\" cy=\"33.53\" r=\"0.7\" fill=\"#000\"/><circle cx=\"19.98\" cy=\"26.99\" r=\"0.7\" fill=\"#000\"/><text x=\"25.45\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"43.88\" y=\"34.9\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"16.12\" y=\"28.02\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><path d=\"M20.78 24.51L23.26 25.32L22.45 27.79\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linejoin=\"round\"/></svg>",
-          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M43.64 14.17L7.25 32.71\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M18.28 9.38L32.61 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"25.45\" cy=\"23.44\" r=\"0.7\" fill=\"#000\"/><text x=\"24.02\" y=\"27.81\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">O</text><text x=\"47.92\" y=\"11.99\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d)</text><text x=\"16.1\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d')</text></svg>",
-          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M33.32 9.76L26.4 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M12.29 19.25L47.43 28.01\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"12.29\" cy=\"19.25\" r=\"0.7\" fill=\"#000\"/><circle cx=\"47.43\" cy=\"28.01\" r=\"0.7\" fill=\"#000\"/><circle cx=\"29.86\" cy=\"23.63\" r=\"0.7\" fill=\"#000\"/><text x=\"8.79\" y=\"17.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"51.21\" y=\"29.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"24.63\" y=\"25.64\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">I</text><text x=\"34.48\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">(d)</text></svg>",
+          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M43.64 14.17L7.25 32.71\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M18.28 9.38L32.61 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"25.45\" cy=\"23.44\" r=\"0.7\" fill=\"#000\"/><text x=\"24.02\" y=\"27.81\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">O</text><text x=\"47.92\" y=\"11.99\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d</text><text x=\"16.1\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d'</text></svg>",
+          "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M33.32 9.76L26.4 37.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M12.29 19.25L47.43 28.01\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"12.29\" cy=\"19.25\" r=\"0.7\" fill=\"#000\"/><circle cx=\"47.43\" cy=\"28.01\" r=\"0.7\" fill=\"#000\"/><circle cx=\"29.86\" cy=\"23.63\" r=\"0.7\" fill=\"#000\"/><text x=\"8.79\" y=\"17.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"51.21\" y=\"29.31\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"24.63\" y=\"25.64\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">I</text><text x=\"34.48\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">d</text></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M24.81 9.03L10.98 32.38L49.02 28.05Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><path d=\"M24.81 9.03L27.25 30.53\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"24.81\" cy=\"9.03\" r=\"0.7\" fill=\"#000\"/><circle cx=\"10.98\" cy=\"32.38\" r=\"0.7\" fill=\"#000\"/><circle cx=\"49.02\" cy=\"28.05\" r=\"0.7\" fill=\"#000\"/><circle cx=\"27.25\" cy=\"30.53\" r=\"0.7\" fill=\"#000\"/><text x=\"24.12\" y=\"5.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"7.11\" y=\"33.41\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"52.89\" y=\"29.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><text x=\"27.64\" y=\"34.91\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">H</text></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.02 13.52L32.94 8.85L44.63 25.21L19.69 31.45Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><circle cx=\"15.02\" cy=\"13.52\" r=\"0.7\" fill=\"#000\"/><circle cx=\"32.94\" cy=\"8.85\" r=\"0.7\" fill=\"#000\"/><circle cx=\"44.63\" cy=\"25.21\" r=\"0.7\" fill=\"#000\"/><circle cx=\"19.69\" cy=\"31.45\" r=\"0.7\" fill=\"#000\"/><text x=\"11.39\" y=\"11.83\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"34.31\" y=\"5.09\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"48.61\" y=\"24.86\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><text x=\"17.69\" y=\"34.91\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">D</text></svg>",
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M25.8 9.08L40.12 33.53L19.98 26.99Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><circle cx=\"25.8\" cy=\"9.08\" r=\"0.7\" fill=\"#000\"/><circle cx=\"40.12\" cy=\"33.53\" r=\"0.7\" fill=\"#000\"/><circle cx=\"19.98\" cy=\"26.99\" r=\"0.7\" fill=\"#000\"/><text x=\"25.45\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"43.88\" y=\"34.9\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"16.12\" y=\"28.02\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text></svg>"
         ],
         "questP": [
-          "Peut-on affirmer que les droites (d) et (d') sont perpendiculaires ?",
-          "Peut-on affirmer que la droite (AB) est perpendiculaire à la droite (d) ?",
-          "Peut-on affirmer que la droite (AH) est perpendiculaire à la droite (BC) ?",
-          "Peut-on affirmer que les côtés [AB] et [BC] du quadrilatère ABCD sont perpendiculaires ?",
-          "Peut-on affirmer que le triangle ABC est rectangle en C ?"
+          "Kann man sicher sagen, dass die Geraden d und d' senkrecht zueinander sind?",
+          "Kann man sicher sagen, dass die Gerade AB senkrecht zur Geraden d ist?",
+          "Kann man sicher sagen, dass die Gerade AH senkrecht zur Geraden BC ist?",
+          "Kann man sicher sagen, dass die Seiten $$\\overline{AB}$$ und $$\\overline{BC}$$ des Vierecks ABCD senkrecht zueinander sind?",
+          "Kann man sicher sagen, dass das Dreieck ABC bei C rechtwinklig ist?"
         ],
         "repP": [
-          "<span class='red'>Oui</span>. Le codage indique un angle droit en O : les droites (d) et (d') sont perpendiculaires.",
-          "<span class='red'>Oui</span>. Le codage indique un angle droit en I : la droite (AB) est perpendiculaire à la droite (d).",
-          "<span class='red'>Oui</span>. Le codage indique un angle droit en H : (AH) est perpendiculaire à (BC), c'est la hauteur issue de A.",
-          "<span class='red'>Oui</span>. Le codage indique un angle droit en B : les côtés [AB] et [BC] sont perpendiculaires.",
-          "<span class='red'>Oui</span>. Le codage indique un angle droit en C : le triangle ABC est rectangle en C."
+          "<span class='red'>Ja</span>. Die Markierung zeigt einen rechten Winkel bei O: Die Geraden d und d' sind senkrecht zueinander.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt einen rechten Winkel bei I: Die Gerade AB ist senkrecht zur Geraden d.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt einen rechten Winkel bei H: Die Gerade AH ist senkrecht zu BC, sie ist die Höhe durch A.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt einen rechten Winkel bei B: Die Seiten $$\\overline{AB}$$ und $$\\overline{BC}$$ sind senkrecht zueinander.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt einen rechten Winkel bei C: Das Dreieck ABC ist rechtwinklig mit dem rechten Winkel bei C."
         ]
       },
       "vars": {
@@ -66,12 +66,12 @@
       },
       "answer": "${:code?:repP[:i]::repnon}",
       "value": [
-        "${:code?'oui':'non'}",
-        "${:code?'o':'n'}"
+        "${:code?'ja':'nein'}",
+        "${:code?'j':'n'}"
       ]
     },
     {
-      "name": "Longueurs égales",
+      "name": "Gleich lange Strecken",
       "consts": {
         "figL": [
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.4 27.08L51.6 10.18\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"8.4\" cy=\"27.08\" r=\"0.7\" fill=\"#000\"/><circle cx=\"51.6\" cy=\"10.18\" r=\"0.7\" fill=\"#000\"/><circle cx=\"30\" cy=\"18.63\" r=\"0.7\" fill=\"#000\"/><text x=\"4.64\" y=\"28.45\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"55.36\" y=\"11.55\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"28.35\" y=\"14.55\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">M</text><path d=\"M18.76 21.74L19.64 23.98\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linecap=\"round\"/><path d=\"M40.36 13.29L41.24 15.52\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linecap=\"round\"/></svg>",
@@ -86,18 +86,18 @@
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M39.38 16.59L31.73 10.17L22.35 13.58L20.62 23.41L28.27 29.83L37.65 26.42Z\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linejoin=\"round\"/><circle cx=\"39.38\" cy=\"16.59\" r=\"0.7\" fill=\"#000\"/><circle cx=\"31.73\" cy=\"10.17\" r=\"0.7\" fill=\"#000\"/><circle cx=\"22.35\" cy=\"13.58\" r=\"0.7\" fill=\"#000\"/><circle cx=\"20.62\" cy=\"23.41\" r=\"0.7\" fill=\"#000\"/><circle cx=\"28.27\" cy=\"29.83\" r=\"0.7\" fill=\"#000\"/><circle cx=\"37.65\" cy=\"26.42\" r=\"0.7\" fill=\"#000\"/><text x=\"44.27\" y=\"14.81\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">A</text><text x=\"32.64\" y=\"5.05\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">B</text><text x=\"18.37\" y=\"10.24\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">C</text><text x=\"15.73\" y=\"25.19\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">D</text><text x=\"27.36\" y=\"34.95\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">E</text><text x=\"41.63\" y=\"29.76\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">F</text></svg>"
         ],
         "questL": [
-          "Peut-on affirmer que M est le milieu du segment [AB] ?",
-          "Peut-on affirmer que le triangle ABC est isocèle en A ?",
-          "Peut-on affirmer que le quadrilatère ABCD est un losange ?",
-          "Peut-on affirmer que le pentagone ABCDE a tous ses côtés de la même longueur ?",
-          "Peut-on affirmer que l'hexagone ABCDEF a tous ses côtés de la même longueur ?"
+          "Kann man sicher sagen, dass M der Mittelpunkt der Strecke $$\\overline{AB}$$ ist?",
+          "Kann man sicher sagen, dass das Dreieck ABC gleichschenklig mit der Spitze A ist?",
+          "Kann man sicher sagen, dass das Viereck ABCD eine Raute ist?",
+          "Kann man sicher sagen, dass alle Seiten des Fünfecks ABCDE gleich lang sind?",
+          "Kann man sicher sagen, dass alle Seiten des Sechsecks ABCDEF gleich lang sind?"
         ],
         "repL": [
-          "<span class='red'>Oui</span>. Le codage indique AM = MB, et M appartient à [AB] : M est bien le milieu de [AB].",
-          "<span class='red'>Oui</span>. Le codage indique AB = AC : le triangle ABC est isocèle en A.",
-          "<span class='red'>Oui</span>. Le codage indique que les quatre côtés ont la même longueur : ABCD est un losange.",
-          "<span class='red'>Oui</span>. Le codage indique que les cinq côtés ont la même longueur.",
-          "<span class='red'>Oui</span>. Le codage indique que les six côtés ont la même longueur."
+          "<span class='red'>Ja</span>. Die Markierung zeigt $$\\overline{AM}=\\overline{MB}$$, und M liegt auf $$\\overline{AB}$$: M ist der Mittelpunkt von $$\\overline{AB}$$.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt $$\\overline{AB}=\\overline{AC}$$: Das Dreieck ABC ist gleichschenklig mit der Spitze A.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass alle vier Seiten gleich lang sind: ABCD ist eine Raute.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass alle fünf Seiten gleich lang sind.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass alle sechs Seiten gleich lang sind."
         ]
       },
       "vars": {
@@ -115,12 +115,12 @@
       },
       "answer": "${:code?:repL[:i]::repnon}",
       "value": [
-        "${:code?'oui':'non'}",
-        "${:code?'o':'n'}"
+        "${:code?'ja':'nein'}",
+        "${:code?'j':'n'}"
       ]
     },
     {
-      "name": "Bissectrices",
+      "name": "Winkelhalbierende",
       "consts": {
         "figB": [
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"19.3\" cy=\"31.21\" r=\"0.7\" fill=\"#000\"/><text x=\"16.91\" y=\"34.9\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">O</text><path d=\"M19.3 31.21L41.17 25.35\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M19.3 31.21L15.76 8.85\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M19.3 31.21L30.09 14.6\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><text x=\"44.84\" y=\"24.37\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">x</text><text x=\"15.17\" y=\"5.1\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">y</text><text x=\"32.16\" y=\"11.41\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">z</text><path d=\"M27.51 29.01A8.5 8.5 0 0 0 23.93 24.08\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\"/><path d=\"M25.13 26.98L27.23 25.45\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linecap=\"round\"/><path d=\"M23.93 24.08A8.5 8.5 0 0 0 17.97 22.81\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\"/><path d=\"M20.8 24.17L21.34 21.62\" fill=\"none\" stroke=\"#c00\" stroke-width=\".5\" stroke-linecap=\"round\"/></svg>",
@@ -135,18 +135,18 @@
           "<svg width=\"15em\" height=\"10em\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"41.56\" cy=\"30.31\" r=\"0.7\" fill=\"#000\"/><text x=\"45.08\" y=\"32.96\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">S</text><path d=\"M41.56 30.31L34.11 2.5\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M41.56 30.31L12.78 30.81\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><path d=\"M41.56 30.31L20.05 14.1\" fill=\"none\" stroke=\"#000\" stroke-width=\".4\" stroke-linecap=\"round\"/><circle cx=\"35.79\" cy=\"8.78\" r=\"0.7\" fill=\"#000\"/><circle cx=\"19.28\" cy=\"30.7\" r=\"0.7\" fill=\"#000\"/><circle cx=\"25.99\" cy=\"18.57\" r=\"0.7\" fill=\"#000\"/><text x=\"39.85\" y=\"7.69\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">E</text><text x=\"19.35\" y=\"34.9\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">F</text><text x=\"28.52\" y=\"15.22\" font-family=\"Arial, sans-serif\" font-size=\"4.2\" fill=\"#000\" text-anchor=\"middle\" dominant-baseline=\"central\">K</text></svg>"
         ],
         "questB": [
-          "Peut-on affirmer que la demi-droite [Oz) est la bissectrice de l'angle $$\\widehat{xOy}$$ ?",
-          "Peut-on affirmer que la demi-droite [Ot) est la bissectrice de l'angle $$\\widehat{uOv}$$ ?",
-          "Peut-on affirmer que la demi-droite [OM) est la bissectrice de l'angle $$\\widehat{AOB}$$ ?",
-          "Peut-on affirmer que la demi-droite [Os) est la bissectrice de l'angle $$\\widehat{xOy}$$ ?",
-          "Peut-on affirmer que la demi-droite [SK) est la bissectrice de l'angle $$\\widehat{ESF}$$ ?"
+          "Kann man sicher sagen, dass die Halbgerade Oz die Winkelhalbierende des Winkels $$\\widehat{xOy}$$ ist?",
+          "Kann man sicher sagen, dass die Halbgerade Ot die Winkelhalbierende des Winkels $$\\widehat{uOv}$$ ist?",
+          "Kann man sicher sagen, dass die Halbgerade OM die Winkelhalbierende des Winkels $$\\widehat{AOB}$$ ist?",
+          "Kann man sicher sagen, dass die Halbgerade Os die Winkelhalbierende des Winkels $$\\widehat{xOy}$$ ist?",
+          "Kann man sicher sagen, dass die Halbgerade SK die Winkelhalbierende des Winkels $$\\widehat{ESF}$$ ist?"
         ],
         "repB": [
-          "<span class='red'>Oui</span>. Le codage indique que les angles $$\\widehat{xOz}$$ et $$\\widehat{zOy}$$ ont la même mesure : [Oz) est la bissectrice de l'angle $$\\widehat{xOy}$$.",
-          "<span class='red'>Oui</span>. Le codage indique que les angles $$\\widehat{uOt}$$ et $$\\widehat{tOv}$$ ont la même mesure : [Ot) est la bissectrice de l'angle $$\\widehat{uOv}$$.",
-          "<span class='red'>Oui</span>. Le codage indique que les angles $$\\widehat{AOM}$$ et $$\\widehat{MOB}$$ ont la même mesure : [OM) est la bissectrice de l'angle $$\\widehat{AOB}$$.",
-          "<span class='red'>Oui</span>. Le codage indique que les angles $$\\widehat{xOs}$$ et $$\\widehat{sOy}$$ ont la même mesure : [Os) est la bissectrice de l'angle $$\\widehat{xOy}$$.",
-          "<span class='red'>Oui</span>. Le codage indique que les angles $$\\widehat{ESK}$$ et $$\\widehat{KSF}$$ ont la même mesure : [SK) est la bissectrice de l'angle $$\\widehat{ESF}$$."
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass die Winkel $$\\widehat{xOz}$$ und $$\\widehat{zOy}$$ gleich groß sind: Die Halbgerade Oz ist die Winkelhalbierende des Winkels $$\\widehat{xOy}$$.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass die Winkel $$\\widehat{uOt}$$ und $$\\widehat{tOv}$$ gleich groß sind: Die Halbgerade Ot ist die Winkelhalbierende des Winkels $$\\widehat{uOv}$$.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass die Winkel $$\\widehat{AOM}$$ und $$\\widehat{MOB}$$ gleich groß sind: Die Halbgerade OM ist die Winkelhalbierende des Winkels $$\\widehat{AOB}$$.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass die Winkel $$\\widehat{xOs}$$ und $$\\widehat{sOy}$$ gleich groß sind: Die Halbgerade Os ist die Winkelhalbierende des Winkels $$\\widehat{xOy}$$.",
+          "<span class='red'>Ja</span>. Die Markierung zeigt, dass die Winkel $$\\widehat{ESK}$$ und $$\\widehat{KSF}$$ gleich groß sind: Die Halbgerade SK ist die Winkelhalbierende des Winkels $$\\widehat{ESF}$$."
         ]
       },
       "vars": {
@@ -164,8 +164,8 @@
       },
       "answer": "${:code?:repB[:i]::repnon}",
       "value": [
-        "${:code?'oui':'non'}",
-        "${:code?'o':'n'}"
+        "${:code?'ja':'nein'}",
+        "${:code?'j':'n'}"
       ]
     }
   ]

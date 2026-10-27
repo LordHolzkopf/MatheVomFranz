@@ -1,6 +1,6 @@
 {
-    "title":"Nommer une droite",
-    "description":"Donner le nom d’une droite avec deux lettres.",
+    "title":"Geraden benennen",
+    "description":"Gerade durch zwei Punkte benennen, Name einer Geraden, Schreibweise Gerade AB, alle möglichen Namen angeben",
     "type":"text",
     "ID":"6GC3",
     "keys":["alphabetique","math"],
@@ -12,7 +12,7 @@
     },
     "options":[
         {
-            "name":"Nommer une droite à l’aide de deux points",
+            "name":"Gerade mit zwei Punkten benennen",
             "vars":{
                 "pts":"0_16_2_^&",
                 "A":"${:points[:pts[0]]}",
@@ -34,11 +34,11 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Les points ${:A} et ${:B} sont sur la droite. Quels sont les noms possibles pour cette droite ?",
-            "answer":"$$\\left(${:A+:B}\\right); \\left(${:B+:A}\\right)$$",
-            "value":"(${:A+:B});(${:B+:A})"
+            "question":"Die Punkte ${:A} und ${:B} liegen auf der Geraden. Gib alle möglichen Namen für diese Gerade an.",
+            "answer":"Mögliche Namen: Gerade $$${:A+:B}; ${:B+:A}$$",
+            "value":"${:A+:B};${:B+:A}"
         },{
-            "name":"Nommer une droite à l’aide de trois points",
+            "name":"Gerade mit drei Punkten benennen",
             "vars":{
                 "pts":"0_16_3_^&",
                 "A":"${:points[:pts[0]]}",
@@ -65,11 +65,11 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Les points ${:A}, ${:C} et ${:B} sont sur la droite. Quels sont les noms possibles pour cette droite ?",
-            "answer":"$$\\left(${:A+:C}\\right); \\left(${:A+:B}\\right); \\left(${:C+:B}\\right); \\left(${:B+:C}\\right); \\left(${:B+:A}\\right); \\left(${:C+:A}\\right)$$",
-            "value":"(${:A+:C});(${:A+:B});(${:C+:B});(${:B+:C});(${:B+:A});(${:C+:A})"
+            "question":"Die Punkte ${:A}, ${:C} und ${:B} liegen auf der Geraden. Gib alle möglichen Namen für diese Gerade an.",
+            "answer":"Mögliche Namen: Gerade $$${:A+:C}; ${:A+:B}; ${:C+:B}; ${:B+:C}; ${:B+:A}; ${:C+:A}$$",
+            "value":"${:A+:C};${:A+:B};${:C+:B};${:B+:C};${:B+:A};${:C+:A}"
         }, {
-            "name":"Nommer une droite à l’aide de quatre points",
+            "name":"Gerade mit vier Punkten benennen",
             "vars":{
                 "pts":"0_16_4_^&",
                 "A":"${:points[:pts[0]]}",
@@ -100,11 +100,11 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Les points ${:A}, ${:C}, ${:D} et ${:B} sont sur la droite. Nommer la droite de quatre façons différentes.",
-            "answer":"Les noms possibles sont : $$\\left(${:A+:C}\\right); \\left(${:A+:D}\\right); \\left(${:A+:B}\\right); \\left(${:C+:D}\\right); \\left(${:C+:B}\\right); \\left(${:D+:B}\\right)$$ et ceux avec les lettres inversées.",
-            "value":"(${:A+:C});(${:A+:D});(${:A+:B});(${:C+:D});(${:C+:B});(${:D+:B})"
+            "question":"Die Punkte ${:A}, ${:C}, ${:D} und ${:B} liegen auf der Geraden. Benenne die Gerade auf vier verschiedene Arten.",
+            "answer":"Mögliche Namen: Gerade $$${:A+:C}; ${:A+:D}; ${:A+:B}; ${:C+:D}; ${:C+:B}; ${:D+:B}$$ und dieselben mit vertauschten Buchstaben.",
+            "value":"${:A+:C};${:A+:D};${:A+:B};${:C+:D};${:C+:B};${:D+:B}"
         },{
-            "name":"Nommer une droite à l’aide de deux directions",
+            "name":"Gerade mit zwei Richtungsbuchstaben benennen",
             "vars":{
                 "pts":"0_16_2_^&",
                 "A":"${:points[:pts[0]]}",
@@ -130,11 +130,11 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Quels sont les noms possibles pour cette droite ?",
-            "answer":"La droite peut s’appeler $$\\left(${:x+:y}\\right)$$ ou $$\\left(${:y+:x}\\right)$$.",
+            "question":"Die Enden der Geraden sind mit zwei Buchstaben bezeichnet. Gib alle möglichen Namen für diese Gerade an.",
+            "answer":"Die Gerade heißt Gerade $$${:x+:y}$$ oder Gerade $$${:y+:x}$$.",
             "value":"${:x+:y};${:y+:x}"
         },{
-            "name":"Nommer une droite à l’aide d’un point et deux directions",
+            "name":"Gerade mit einem Punkt und zwei Richtungsbuchstaben benennen",
             "vars":{
                 "pts":"0_16_3_^&",
                 "A":"${:points[:pts[0]]}",
@@ -164,11 +164,11 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Le point ${:C} est sur la droite. Quels sont les noms possibles pour cette droite ?",
-            "answer":" $$\\left(${:x+:y}\\right); \\left(${:y+:x}\\right); \\left(${:x+:C}\\right); \\left(${:C+:x}\\right); \\left(${:C+:y}\\right); \\left(${:y+:C}\\right)$$.",
+            "question":"Der Punkt ${:C} liegt auf der Geraden, die Enden sind mit zwei Buchstaben bezeichnet. Gib alle möglichen Namen für diese Gerade an.",
+            "answer":"Mögliche Namen: Gerade $$${:x+:y}; ${:y+:x}; ${:x+:C}; ${:C+:x}; ${:C+:y}; ${:y+:C}$$.",
             "value":"${:x+:y};${:y+:x};${:x+:C};${:C+:x};${:C+:y};${:y+:C}"
         },{
-            "name":"Nommer une droite à l’aide de deux points et deux directions",
+            "name":"Gerade mit zwei Punkten und zwei Richtungsbuchstaben benennen",
             "vars":{
                 "pts":"0_16_4_^&",
                 "A":"${:points[:pts[0]]}",
@@ -202,8 +202,8 @@
                     ["line", [["${:xA}", "${:yA}"], ["${:xB}", "${:yB}"]]]
                 ]
             },
-            "question":"Les points ${:C} et ${:D} est sur la droite. Donne quatre noms possibles pour cette droite.",
-            "answer":" $$\\left(${:x+:C}\\right); \\left(${:x+:D}\\right); \\left(${:x+:y}\\right); \\left(${:C+:D}\\right); \\left(${:C+:y}\\right); \\left(${:D+:y}\\right)$$ et ceux en inversant les lettres",
+            "question":"Die Punkte ${:C} und ${:D} liegen auf der Geraden, die Enden sind mit zwei Buchstaben bezeichnet. Gib vier mögliche Namen für diese Gerade an.",
+            "answer":"Mögliche Namen: Gerade $$${:x+:C}; ${:x+:D}; ${:x+:y}; ${:C+:D}; ${:C+:y}; ${:D+:y}$$ und dieselben mit vertauschten Buchstaben.",
             "value":"${:x+:C};${:x+:D};${:x+:y};${:C+:D};${:C+:y};${:D+:y}"
         }
     ]

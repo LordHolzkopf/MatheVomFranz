@@ -1,7 +1,7 @@
 {
     "ID":"6GC8",
-    "title":"Dessiner un schéma de triangle à main levée connaissant des longueurs",
-    "description":"Schéma à main levée, construire, dessiner un triangle connaissant ses longueurs : quelconque, isocèle, équilatéral. Non adapté au mode interactif (online/duel).",
+    "title":"Planfigur eines Dreiecks mit gegebenen Seitenlängen skizzieren",
+    "description":"Planfigur, Skizze, Dreieck aus drei Seitenlängen (SSS) skizzieren: allgemein, gleichschenklig, gleichseitig. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "type":"text",
     "dest":["5BD", "7EC"],
     "consts":{
@@ -37,37 +37,37 @@
     },
     "options":[
         {
-            "name":"Triangle quelconque",
+            "name":"Allgemeines Dreieck",
             "vars":{
                 "AB":"d3_20_1",
                 "CA":"d3.1_${:AB-0.5}_1",
                 "BC":"d${MMmath.round(:AB-:CA+0.4,1)}_${:AB-0.5}_1_^:CA",
-                "longueurs":["${:cAB} = ${:AB}~${:u}, ${:cBC} = ${:BC}~${:u}, ${:cCA} = ${:CA}~${:u}", "${:cBC} = ${:BC}~${:u}, ${:cCA} = ${:CA}~${:u}, ${:cAB} = ${:AB}~${:u}", "${:cCA} = ${:CA}~${:u}, ${:cAB} = ${:AB}~${:u}, ${:cBC} = ${:BC}~${:u}"],
+                "longueurs":["\\overline{${:cAB}} = ${:AB}~${:u}, \\overline{${:cBC}} = ${:BC}~${:u}, \\overline{${:cCA}} = ${:CA}~${:u}", "\\overline{${:cBC}} = ${:BC}~${:u}, \\overline{${:cCA}} = ${:CA}~${:u}, \\overline{${:cAB}} = ${:AB}~${:u}", "\\overline{${:cCA}} = ${:CA}~${:u}, \\overline{${:cAB}} = ${:AB}~${:u}, \\overline{${:cBC}} = ${:BC}~${:u}"],
                 "sample":"${:CA/:BC>.87&&:CA/:BC<1.15?0::CA<:BC?1:2}"
             },
-            "question":"Faire un schéma d’un triangle ${:ABC} quelconque de côtés $$${:longueurs}$$",
+            "question":"Skizziere eine Planfigur des Dreiecks ${:ABC} mit den Seitenlängen $$${:longueurs}$$.",
             "answer":"${:schemas.quelconques[:sample]}"
         },
         {
-            "name":"Triangle isocèle",
+            "name":"Gleichschenkliges Dreieck",
             "vars":{
                 "AB":"d3_20_1",
                 "BC":"d${MMmath.round(:AB/2+0.5,1)}_${MMmath.round(:AB*2,1)}_1",
                 "CA":"${:BC}",
                "sample":"${:BC<:AB?'0_1':'2_3'}",
-               "longueurs":["${:cAB}=${:AB}~${:u} \\text{ et } ${:cBC}=${:BC}~${:u}","${:cAB}=${:AB}~${:u} \\text{ et } ${:cCA}=${:CA}~${:u}","${:cBC}=${:BC}~${:u} \\text{ et } ${:cAB}=${:AB}~${:u}", "${:cCA}=${:CA}~${:u} \\text{ et } ${:cAB}=${:AB}~${:u}"]
+               "longueurs":["\\overline{${:cAB}}=${:AB}~${:u} \\text{ und } \\overline{${:cBC}}=${:BC}~${:u}","\\overline{${:cAB}}=${:AB}~${:u} \\text{ und } \\overline{${:cCA}}=${:CA}~${:u}","\\overline{${:cBC}}=${:BC}~${:u} \\text{ und } \\overline{${:cAB}}=${:AB}~${:u}", "\\overline{${:cCA}}=${:CA}~${:u} \\text{ und } \\overline{${:cAB}}=${:AB}~${:u}"]
             },
-            "question":"Faire un schéma de triangle ${:ABC} isocèle en ${:C} tel que $$${:longueurs}$$",
+            "question":"Skizziere eine Planfigur des Dreiecks ${:ABC}, gleichschenklig mit der Spitze ${:C}, mit $$${:longueurs}$$.",
             "answer":"${:schemas.isoceles[:sample]}"
         },{
-            "name":"Triangle équilatéral",
+            "name":"Gleichseitiges Dreieck",
             "vars":{
                 "AB":"d3_20_1",
                 "BC":"${:AB}",
                 "CA":"${:AB}",
                "sample":"0_1"
             },
-            "question":"Faire un schéma codé de triangle ${:ABC} équilatéral de côté $$${:cAB}=${:AB}~${:u}$$",
+            "question":"Skizziere eine Planfigur des gleichseitigen Dreiecks ${:ABC} mit $$\\overline{${:cAB}}=${:AB}~${:u}$$ und markiere die gleich langen Seiten.",
             "answer":"${:schemas.equilateraux[:sample]}"
         }
     ]

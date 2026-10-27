@@ -1,5 +1,5 @@
-title: "Symétrie axiale : trouver le symétrique d’un point, d’un segment, d’un angle"
-description: "symétrie axiale, symétrique, axe, image, point, segment, angle"
+title: "Achsenspiegelung: Bild eines Punktes, einer Strecke, eines Winkels"
+description: "Achsenspiegelung, Spiegelachse, Bildpunkt, Bildfigur, Spiegelbild von Punkt, Strecke, Winkel und Figur bestimmen, achsensymmetrisch"
 ID: 6GD9
 type: text
 textSize: medium
@@ -14,20 +14,20 @@ consts:
   pool: "ABCDEFGHJKLMNPQRSTUVW"
   # [0] point, [1] segment, [2] angle, [3] figure entière
   quest:
-    - "Quel est le symétrique du point $$:eA$$ par rapport à la droite $$(d)$$ ?"
-    - "Quel est le symétrique du segment $$[:sA]$$ par rapport à la droite $$(d)$$ ?"
-    - "Quel est le symétrique de l’angle $$\\widehat{:aA}$$ par rapport à la droite $$(d)$$ ?"
-    - "Quel est le symétrique :dAskPre $$:dAskNom$$ par rapport à la droite $$(d)$$ ?"
+    - "Wie heißt der Bildpunkt von $$:eA$$ bei der Spiegelung an der Geraden $$g$$?"
+    - "Wie heißt die Bildstrecke von $$\\overline{:sA}$$ bei der Spiegelung an der Geraden $$g$$?"
+    - "Wie heißt der Bildwinkel von $$\\widehat{:aA}$$ bei der Spiegelung an der Geraden $$g$$?"
+    - "Wie heißt das Bild :dAskPre $$:dAskNom$$ bei der Spiegelung an der Geraden $$g$$?"
   courte:
-    - "symétrique de $$:eA$$ ?"
-    - "symétrique de $$[:sA]$$ ?"
-    - "symétrique de $$\\widehat{:aA}$$ ?"
-    - "symétrique :dAskPre $$:dAskNom$$ ?"
+    - "Bildpunkt von $$:eA$$?"
+    - "Bild von $$\\overline{:sA}$$?"
+    - "Bild von $$\\widehat{:aA}$$?"
+    - "Bild :dAskPre $$:dAskNom$$?"
   rep:
-    - "Le symétrique du point $$:eA$$ est le point <span class='red'>$$:eB$$</span>.<br>La droite $$(d)$$ est la médiatrice du segment $$[:eA:eB]$$ : les deux points sont sur une même perpendiculaire à $$(d)$$, à la même distance de $$(d)$$."
-    - "Le symétrique du segment $$[:sA]$$ est le segment <span class='red'>$$[:sB]$$</span>.<br>Le symétrique de $$:s1A$$ est $$:s1B$$, celui de $$:s2A$$ est $$:s2B$$. La symétrie axiale conserve les longueurs : $$:sA=:sB$$."
-    - "Le symétrique de l’angle $$\\widehat{:aA}$$ est l’angle <span class='red'>$$\\widehat{:aB}$$</span>.<br>Le symétrique de $$:pA$$ est $$:pB$$, celui de $$:e1A$$ est $$:e1B$$ et celui de $$:nA$$ est $$:nB$$. La symétrie axiale conserve les mesures des angles."
-    - "Le symétrique :dAskPre $$:dAskNom$$ est <span class='red'>:dRepPre $$:dRepNom$$</span>.<br>Les deux figures se superposent par pliage le long de $$(d)$$."
+    - "Der Bildpunkt von $$:eA$$ ist der Punkt <span class='red'>$$:eB$$</span>.<br>Die Gerade $$g$$ ist die Mittelsenkrechte der Strecke $$\\overline{:eA:eB}$$: Beide Punkte liegen auf derselben Senkrechten zu $$g$$ und sind gleich weit von $$g$$ entfernt."
+    - "Die Bildstrecke von $$\\overline{:sA}$$ ist die Strecke <span class='red'>$$\\overline{:sB}$$</span>.<br>Der Bildpunkt von $$:s1A$$ ist $$:s1B$$, der von $$:s2A$$ ist $$:s2B$$. Die Achsenspiegelung ist längentreu: $$\\overline{:sA}=\\overline{:sB}$$."
+    - "Der Bildwinkel von $$\\widehat{:aA}$$ ist der Winkel <span class='red'>$$\\widehat{:aB}$$</span>.<br>Der Bildpunkt von $$:pA$$ ist $$:pB$$, der von $$:e1A$$ ist $$:e1B$$ und der von $$:nA$$ ist $$:nB$$. Die Achsenspiegelung ist winkeltreu: Ein Winkel und sein Bildwinkel sind gleich groß."
+    - "Das Bild :dAskPre $$:dAskNom$$ ist <span class='red'>:dRepPre $$:dRepNom$$</span>.<br>Faltet man entlang $$g$$, liegen beide Figuren genau aufeinander."
 vars:
   # ─── forme tirée
   # 0 triangle, 1 quadrilatère quelconque, 2 rectangle, 3 carré,
@@ -232,11 +232,11 @@ vars:
   # l’angle s’écrit aussi bien dans l’autre sens
   aBr: ${:nB+:e1B+:pB}
   # ─── désignation de la figure entière
-  nat: ${:forme===0?'triangle':(:forme===1?'quadrilatère':(:forme===2?'rectangle':(:forme===3?'carré':(:forme===4?'trapèze':'cercle'))))}
+  nat: ${:forme===0?'Dreieck':(:forme===1?'Viereck':(:forme===2?'Rechteck':(:forme===3?'Quadrat':(:forme===4?'Trapez':'Kreis'))))}
   figA: ${:face===0?:fig::figi}
   figB: ${:face===0?:figi::fig}
-  dAskPre: ${:circ?'du cercle de centre':'du '+:nat}
-  dRepPre: ${:circ?'le cercle de centre':'le '+:nat}
+  dAskPre: ${:circ?'des Kreises mit dem Mittelpunkt':'des '+:nat+(:forme===4?'es':'s')}
+  dRepPre: ${:circ?'der Kreis mit dem Mittelpunkt':'das '+:nat}
   dAskNom: ${:circ?:cA::figA}
   dRepNom: ${:circ?:cB::figB}
   # ─── position, sur la figure interrogée, de l’élément repassé en rouge.
@@ -271,46 +271,46 @@ vars:
   sq2x: ${:segray?:hx::hnx}
   sq2y: ${:segray?:hy::hny}
 options:
-  - name: Triangles et quadrilatères, symétrique d’un point
+  - name: Dreiecke und Vierecke, Bild eines Punktes
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 0
-  - name: Triangles et quadrilatères, symétrique d’un segment
+  - name: Dreiecke und Vierecke, Bild einer Strecke
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 1
-  - name: Triangles et quadrilatères, symétrique d’un angle
+  - name: Dreiecke und Vierecke, Bild eines Winkels
     vars:
       forme: [0, 1, 2, 3, 4]
       k: 2
-  - name: Cercles, symétrique d’un point
+  - name: Kreise, Bild eines Punktes
     vars:
       forme: 5
       k: 0
-  - name: Cercles, symétrique d’un segment
+  - name: Kreise, Bild einer Strecke
     vars:
       forme: 5
       k: 1
-  - name: Cercles, symétrique d’un angle
+  - name: Kreise, Bild eines Winkels
     vars:
       forme: 5
       k: 2
-  - name: Symétrique de la figure entière
+  - name: Bild der ganzen Figur
     vars:
       k: 3
-  - name: Axe horizontal ou vertical, tout mélangé
+  - name: Achse waagerecht oder senkrecht, alles gemischt
     vars:
       dir: [0, 1]
-  - name: Axe oblique, tout mélangé
+  - name: Achse schräg, alles gemischt
     vars:
       dir: 2
 question: "${:quest[:k]}"
 shortq: "${:courte[:k]}"
 answer: "${:rep[:k]}"
 value:
-  - "${:k===0?:eB:(:k===1?'['+:s1B+:s2B+']':(:k===2?:aB::dRepNom))}"
+  - "${:k===0?:eB:(:k===1?'\\overline{'+:s1B+:s2B+'}':(:k===2?:aB::dRepNom))}"
   - "${:k===0?:eB:(:k===1?:s1B+:s2B:(:k===2?:aBr::dRepNom))}"
-  - "${:k===0?:eB:(:k===1?'['+:s2B+:s1B+']':(:k===2?:aB::dRepNom))}"
+  - "${:k===0?:eB:(:k===1?'\\overline{'+:s2B+:s1B+'}':(:k===2?:aB::dRepNom))}"
   - "${:k===0?:eB:(:k===1?:s2B+:s1B:(:k===2?:aBr::dRepNom))}"
 figure:
   type: graph
@@ -367,7 +367,7 @@ figure:
     # le point demandé, marqué par-dessus la croix de sa figure
     - [point, [:pqx, :pqy], { name: zP, face: x, size: 4, strokeWidth: 3, strokeColor: "#c1121f", withLabel: false, visible: "${:k===0}" }]
     # ─── noms de l’axe, des points, des centres
-    - [text, [:dlx, :dly, "(d)"], { anchorX: middle, anchorY: middle, strokeColor: "#333333", fontSize: 14 }]
+    - [text, [:dlx, :dly, "g"], { anchorX: middle, anchorY: middle, strokeColor: "#333333", fontSize: 14 }]
     - [text, [:txA, :tyA, ":ltA"], { anchorX: middle, anchorY: middle, strokeColor: "#118ab2", fontSize: 14 }]
     - [text, [:txB, :tyB, ":ltB"], { anchorX: middle, anchorY: middle, strokeColor: "#118ab2", fontSize: 14 }]
     - [text, [:txC, :tyC, ":ltC"], { anchorX: middle, anchorY: middle, strokeColor: "#118ab2", fontSize: 14 }]

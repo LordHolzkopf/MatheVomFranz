@@ -1,5 +1,5 @@
 {
-    "title":"Reconnaitre des droites parallèles ou perpendiculaires",
+    "title":"Parallele und senkrechte Geraden erkennen",
     "ID":"6GD2",
     "dest":["5BA"],
     "type":"text",
@@ -14,10 +14,10 @@
         "_",
         "_"
     ],
-    "description":"visuellement, savoir identifier le parallélisme ou la perpendicularité",
+    "description":"Nach Augenmaß erkennen, ob Geraden parallel oder senkrecht zueinander sind oder sich schneiden, Parallelität, Orthogonalität",
     "options":[
         {
-            "name":"Parallèles",
+            "name":"Parallel",
             "vars":{
                 "par":[true,false],
                 "xA":-3,
@@ -33,11 +33,11 @@
                 "xD":"${:xC+Math.cos(:angle2/180*Math.PI)}",
                 "yD":"${:yC+Math.sin(:angle2/180*Math.PI)}"
             },
-            "question":"Les droites semblent-elles parallèles ?",
-            "answer":"${:par?'Oui, les droites semblent parallèles.':'Non, les droites ne semblent pas parallèles.'}",
-            "value":["${:par?'oui':'non'}","${:par?'o':'n'}"]
+            "question":"Sehen die Geraden parallel aus?",
+            "answer":"${:par?'Ja, die Geraden sehen parallel aus.':'Nein, die Geraden sehen nicht parallel aus.'}",
+            "value":["${:par?'ja':'nein'}","${:par?'j':'n'}"]
         },{
-            "name":"Perpendiculaire",
+            "name":"Senkrecht",
             "vars":{
                 "perp":[true,false],
                 "xA":-4,
@@ -53,11 +53,11 @@
                 "xD":"${:xC+Math.cos(:angle2/180*Math.PI)}",
                 "yD":"${:yC+Math.sin(:angle2/180*Math.PI)}"
             },
-            "question":"Les droites semblent-elles perpendiculaires ?",
-            "answer":"${:perp?'Oui, les droites semblent perpendiculaires.':'Non, les droites ne semblent pas perpendiculaires.'}",
-            "value":["${:perp?'oui':'non'}","${:perp?'o':'n'}"]
+            "question":"Sehen die Geraden senkrecht zueinander aus?",
+            "answer":"${:perp?'Ja, die Geraden sehen senkrecht zueinander aus.':'Nein, die Geraden sehen nicht senkrecht zueinander aus.'}",
+            "value":["${:perp?'ja':'nein'}","${:perp?'j':'n'}"]
         },{
-            "name":"Relation entre les droites",
+            "name":"Lage der Geraden",
             "vars":{
                 "relation":["par","per","sec"],
                 "xA":-4,
@@ -73,9 +73,9 @@
                 "xD":"${:xC+Math.cos(:angle2/180*Math.PI)}",
                 "yD":"${:yC+Math.sin(:angle2/180*Math.PI)}"
             },
-            "question":"Les droites semblent-elles parallèles, perpendiculaires ou sécantes non perpendiculaires",
-            "answer":"Les droites semblent ${:relation=='par'?'parallèles'::relation=='per'?'perpendiculaires':'sécantes non perpendiculaires'}.",
-            "value":"${:relation=='par'?'parallèles'::relation=='per'?'perpendiculaires':'sécantes non perpendiculaires'}"
+            "question":"Sind die Geraden parallel, senkrecht zueinander oder schneiden sie sich schräg (nicht senkrecht)?",
+            "answer":"Die Geraden sind <span class='red'>${:relation=='par'?'parallel'::relation=='per'?'senkrecht zueinander':'schneidend, aber nicht senkrecht zueinander'}</span>.",
+            "value":"${:relation=='par'?'parallel'::relation=='per'?'senkrecht':'schneidend'}"
         }
     ],
     "figure":{

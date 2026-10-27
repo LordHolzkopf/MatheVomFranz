@@ -1,17 +1,17 @@
 {
-    "title":"Reconnaître un objet géométrique (6GC1+)",
+    "title":"Strecke, Gerade, Halbgerade erkennen und zeichnen",
     "type":"text",
     "textSize":"small",
     "speech":1,
     "repeat":true,
     "ID":"6GC6",
-    "description":"Différencier les lignes géométriques de base : droite, segment, demi-droite, notations. Options « Dessiner » non adaptées au mode interactif (online/duel).",
+    "description":"Punkt, Gerade, Strecke und Halbgerade (Strahl) unterscheiden, benennen und zeichnen, Schreibweise. Die Varianten „Zeichnen“ sind nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "keys":["droite","segment","demi-droite","[","("],
     "dest":["5BA"],
     "consts":{"points":"ABCDEFGHJKLMNPRST"},
     "options": [
         {
-            "name":"Reconnaitre un élément de géométrie",
+            "name":"Figur erkennen",
             "vars":{
                 "obj":["pt","dt","dmd","ddm","sgt"],
                 "l":"0_${:points.length-1}_2_^&",
@@ -32,10 +32,10 @@
                     ["${:obj=='sgt'?'segment':'line'}",["${:A}","${:B}"], {"visible":"${:obj!=='pt'?1:0}", "straightFirst":"${['ddm','dt'].includes(:obj)?1:0}", "straightLast":"${['dmd','dt'].includes(:obj)?1:0}"}]
                 ]
             },
-            "question":"Quel type d'objet est dessiné ?",
-            "answer":"${:obj=='pt'?'un point'::obj=='dt'?'une droite'::obj=='sgt'?'un segment':'une demi-droite'}"
+            "question":"Was ist hier gezeichnet?",
+            "answer":"${:obj=='pt'?'ein Punkt'::obj=='dt'?'eine Gerade'::obj=='sgt'?'eine Strecke':'eine Halbgerade'}"
         },{
-            "name":"Nommer un élément de géométrie",
+            "name":"Figur benennen",
             "vars":{
                 "obj":["pt","dt","dmd","ddm","sgt"],
                 "l":"0_${:points.length-1}_2_^&",
@@ -56,10 +56,10 @@
                     ["${:obj=='sgt'?'segment':'line'}",["${:A}","${:B}"], {"visible":"${:obj!=='pt'?1:0}", "straightFirst":"${['ddm','dt'].includes(:obj)?1:0}", "straightLast":"${['dmd','dt'].includes(:obj)?1:0}"}]
                 ]
             },
-            "question":"Donner le nom de l'objet dessiné.",
-            "answer":"${:obj=='pt'?'un point '+:A::obj=='dt'?'une droite ('+:A+:B+')'::obj=='sgt'?'un segment ['+:A+:B+']'::obj=='dmd'?'une demi-droite ['+:A+:B+')':'une demi-droite ['+:B+:A+')'}"
+            "question":"Benenne die gezeichnete Figur.",
+            "answer":"${:obj=='pt'?'der Punkt '+:A::obj=='dt'?'die Gerade '+:A+:B::obj=='sgt'?'die Strecke $$\\overline{'+:A+:B+'}$$'::obj=='dmd'?'die Halbgerade '+:A+:B+' (Anfangspunkt '+:A+')':'die Halbgerade '+:B+:A+' (Anfangspunkt '+:B+')'}"
         },{
-            "name":"Dessiner un élément de géométrie",
+            "name":"Figur zeichnen",
             "vars":{
                 "obj":["pt","dt","dmd","ddm","sgt"],
                 "l":"0_${:points.length-1}_2_^&",
@@ -80,10 +80,10 @@
                     ["${:obj=='sgt'?'segment':'line'}",["${:A}","${:B}"], {"visible":"${:obj!=='pt'?1:0}", "straightFirst":"${['ddm','dt'].includes(:obj)?1:0}", "straightLast":"${['dmd','dt'].includes(:obj)?1:0}"}]
                 ]
             },
-            "question":"Dessiner ${:obj=='pt'?'un point'::obj=='dt'?'une droite'::obj=='sgt'?'un segment':'une demi-droite'}",
+            "question":"Zeichne ${:obj=='pt'?'einen Punkt'::obj=='dt'?'eine Gerade'::obj=='sgt'?'eine Strecke':'eine Halbgerade'}.",
             "answer":""
         },{
-            "name":"Dessiner un élément de géométrie avec un nom",
+            "name":"Figur mit Namen zeichnen",
             "vars":{
                 "obj":["pt","dt","dmd","ddm","sgt"],
                 "l":"0_${:points.length-1}_2_^&",
@@ -104,7 +104,7 @@
                     ["${:obj=='sgt'?'segment':'line'}",["${:A}","${:B}"], {"visible":"${:obj!=='pt'?1:0}", "straightFirst":"${['ddm','dt'].includes(:obj)?1:0}", "straightLast":"${['dmd','dt'].includes(:obj)?1:0}"}]
                 ]
             },
-            "question":"Dessiner ${:obj=='pt'?'un point '+:A::obj=='dt'?'une droite ('+:A+:B+')'::obj=='sgt'?'un segment ['+:A+:B+']'::obj=='dmd'?'une demi-droite ['+:A+:B+')':'une demi-droite ['+:B+:A+')'}.",
+            "question":"Zeichne ${:obj=='pt'?'den Punkt '+:A::obj=='dt'?'die Gerade '+:A+:B::obj=='sgt'?'die Strecke $$\\overline{'+:A+:B+'}$$'::obj=='dmd'?'die Halbgerade '+:A+:B+' mit Anfangspunkt '+:A:'die Halbgerade '+:B+:A+' mit Anfangspunkt '+:B}.",
             "answer":""
         }
     ]

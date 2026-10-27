@@ -1,18 +1,18 @@
 {
-    "title":"Aires des figures usuelles",
+    "title":"Flächeninhalt von Quadrat, Rechteck, Dreieck und Kreis",
     "type":"text",
     "ID":"6MC1",
     "speech":1,
-    "description":"Aire, surface, formules : carré, rectangle, triangle, disque, π, pi. Non adapté au mode interactif (online/duel).",
+    "description":"Flächeninhalt, Fläche, Formeln: Quadrat, Rechteck, rechtwinkliges Dreieck, Dreieck mit Grundseite und Höhe, Kreisfläche, π, pi. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "textSize":"small",
     "keys":["pi","mm","cm","dm","mt", "dam", "hm", "km","x²"],
     "dest":["5DB", "8DB", "9CA"],
     "consts":{
         "unites":["mm","cm","dm","m", "dam", "hm", "km"],
-        "uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}
+        "uv":{"mm":"Millimeter","cm":"Zentimeter","dm":"Dezimeter","m":"Meter","dam":"Dekameter","hm":"Hektometer","km":"Kilometer"}
     },
     "options":[{
-        "name":"Aire du carré",
+        "name":"Flächeninhalt des Quadrats",
         "vars":{"a":"1_10", "aire":"${:a*:a}","u":"0_6", "fig":"0_2", "cote":"${:a} ${:unites[:u]}"},
         "consts":{"carres":[
                 "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M9.924 5.449h36.2V41.67h-36.2z'/><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M9.924 39.19h2.479v2.48H9.924zM43.645 5.45h2.479v2.48h-2.479zm0 33.741h2.479v2.48h-2.479zM9.925 5.45h2.478v2.48H9.924z'/><text style='line-height:1.25;-inkscape-font-specification:Arial' x='50.247' y='25.674' font-size='7.793' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.9997 1.0003)'><tspan x='50.247' y='25.674'>${:cote}</tspan></text><path d='M28.318 3.557l-2.675 4.111m4.73-4.013l-2.676 4.112m-.162 31.49l-2.675 4.11m4.73-4.013l-2.676 4.113M11.808 20.51l-4.289 2.38m4.616-.422l-4.29 2.38m40.227-4.924l-4.289 2.377m4.616-.42L44.11 24.26' fill='none' stroke='#000' stroke-width='.49'/></svg>",
@@ -23,13 +23,13 @@
             "type":"svg",
             "content":"${:carres[:fig]}"
         },
-        "question": "Quelle est l'<b>aire</b> d'un carré de côté $$${:a}\\text{ ${:unites[:u]}}$$ ?",
-        "shortq": "Aire du carré ?",
-        "audio": "Quelle est l'aire d'un carré de côté ${:a} ${:uv[:unites[:u]]} ?",
+        "question": "Wie groß ist der <b>Flächeninhalt</b> eines Quadrats mit der Seitenlänge $$${:a}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Quadrats?",
+        "audio": "Wie groß ist der Flächeninhalt eines Quadrats mit der Seitenlänge ${:a} ${:uv[:unites[:u]]}?",
         "answer":"$$${:a}\\times${:a}=\\color{red}{${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}~${:unites[:u]}^2", "${:aire}${:unites[:u]}^2", "${:aire}"]
     },{
-        "name":"Aire du rectangle",
+        "name":"Flächeninhalt des Rechtecks",
         "consts":{"rectangles":[
                 "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M3.958 7.394h57.518v25.503H3.958z'/><text style='line-height:1.25;-inkscape-font-specification:Arial' x='65.308' y='21.564' font-size='7.234' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99973 1.00027)'><tspan x='65.308' y='21.564'>${:lar}</tspan></text><text style='line-height:1.25;-inkscape-font-specification:Arial' x='24.672' y='41.548' font-size='7.234' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99973 1.00027)'><tspan x='24.672' y='41.548'>${:long}</tspan></text><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M3.958 7.394h2.3v2.302h-2.3zm0 23.201h2.3v2.302h-2.3zM59.175 7.394h2.301v2.302h-2.3zm0 23.201h2.301v2.302h-2.3z'/><path d='M32.702 5.682L30.22 9.498m4.388-3.724L32.127 9.59m.515 21.172l-2.483 3.816m4.39-3.725l-2.484 3.815M2.384 18.721l3.148 1.697m54.612-1.03l3.149 1.697' fill='none' stroke='#000' stroke-width='.49'/></svg>",
                 "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M8.993 2.814L63.751 18.16l-6.795 24.285L2.198 27.097z'/><text style='line-height:1.25;-inkscape-font-specification:Arial' x='62.006' y='36.18' font-size='7.152' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99964 1.00036)'><tspan x='62.006' y='36.18'>${:lar}</tspan></text><text style='line-height:1.25;-inkscape-font-specification:Arial' x='8.836' y='41.104' font-size='7.152' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99964 1.00036)'><tspan x='8.836' y='41.104'>${:long}</tspan></text><path fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' d='M8.993 2.814l2.192.615-.613 2.191-2.192-.614zM2.812 24.905l2.19.615-.613 2.192-2.19-.615zm58.749-7.358l2.19.612-.614 2.194-2.19-.614zm-6.183 22.09l2.192.615-.614 2.192-2.192-.614z'/><path d='M36.815 8.853l-3.38 2.972m5.17-2.376l-3.379 2.97m-5.152 20.299l-3.38 2.97m5.172-2.376l-3.38 2.973M4.477 13.18l2.546 2.455m52.264 13.59l2.546 2.455' fill='none' stroke='#000' stroke-width='.49'/></svg>",
@@ -40,13 +40,13 @@
             "type":"svg",
             "content":"${:rectangles[:fig]}"
         },
-        "question": "Quelle est l'<b>aire</b> d'un rectangle de côtés $$${:a}\\text{ ${:unites[:u]}}$$ et  $$${:b}\\text{ ${:unites[:u]}}$$?",
-        "shortq": "Aire du rectangle ?",
-        "audio": "Quelle est l'aire d'un rectangle de côtés ${:a} ${:uv[:unites[:u]]} et ${:b} ${:uv[:unites[:u]]} ?",
+        "question": "Wie groß ist der <b>Flächeninhalt</b> eines Rechtecks mit den Seitenlängen $$${:a}\\text{ ${:unites[:u]}}$$ und $$${:b}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Rechtecks?",
+        "audio": "Wie groß ist der Flächeninhalt eines Rechtecks mit den Seitenlängen ${:a} ${:uv[:unites[:u]]} und ${:b} ${:uv[:unites[:u]]}?",
         "answer":"$$${:a}\\times${:b}=\\color{red}{${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}~${:unites[:u]}^2", "${:aire}${:unites[:u]}^2", "${:aire}"]
     },{
-        "name":"Aire du triangle",
+        "name":"Flächeninhalt des Dreiecks",
         "consts":{"triangles":[
                 "<svg width='15em' height='9em' viewBox='0 0 79.375 47.625' xmlns='http://www.w3.org/2000/svg'><path d='M9.7 39.68h55.792L46.522 8.818z' fill='none' stroke='#000' stroke-width='.706'/><path d='M46.523 8.812v30.501' fill='none' stroke='#000' stroke-width='.706' stroke-linecap='round'/><path fill='#fff' stroke='#1a1a1a' stroke-width='.706' stroke-linecap='round' d='M46.523 37.674H48.5v1.977h-1.977z'/><text style='line-height:1.25;text-align:center' x='39.675' y='44.416' font-size='7.793' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' text-anchor='middle'><tspan style='text-align:center' x='34.071' y='46.416'>${:base}</tspan></text><text style='line-height:1.25;text-align:end' x='45.276' y='27.251' font-size='7.793' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='end' stroke-width='.265'><tspan style='text-align:end' x='45.276' y='27.251'>${:h}</tspan></text></svg>",
                 "<svg width='15em' height='9em' viewBox='0 0 79.375 47.625' xmlns='http://www.w3.org/2000/svg'><path d='M9.7 39.68h58.17L25.004 8.818z' fill='none' stroke='#000' stroke-width='.706'/><path d='M24.827 9.492v29.821' fill='none' stroke='#000' stroke-width='.706' stroke-linecap='round'/><path fill='#fff' stroke='#1a1a1a' stroke-width='.706' stroke-linecap='round' d='M24.827 37.674h1.977v1.977h-1.977z'/><text style='line-height:1.25;text-align:center' x='39.675' y='44.416' font-size='7.793' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' text-anchor='middle'><tspan style='text-align:center' x='34.071' y='46.416'>${:base}</tspan></text><text style='line-height:1.25;text-align:start' x='26.216' y='27.366' font-size='7.793' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265'><tspan style='text-align:start' x='30.486' y='27.366'>${:h}</tspan></text></svg>",
@@ -59,40 +59,40 @@
             "type":"svg",
             "content":"${:triangles[:fig]}"
         },
-        "question":"Quelle est l'<b>aire</b> d'un triangle de côté $$${:a}\\text{ ${:unites[:u]}}$$ et de hauteur $$${:h}\\text{ ${:unites[:u]}}$$ ?",
-        "shortq": "Aire du triangle ?",
-        "audio":"Quelle est l'aire d'un triangle de côté ${:a} ${:uv[:unites[:u]]} et de hauteur ${:h} ${:uv[:unites[:u]]} ?",
-        "answer":"$$\\dfrac{b\\times h}{2}=\\dfrac{${:a}\\times${:h}}{2}=\\color{red}{${:aire}\\text{ ${:unites[:u]}}^2}$$",
+        "question":"Wie groß ist der <b>Flächeninhalt</b> eines Dreiecks mit der Grundseite $$${:a}\\text{ ${:unites[:u]}}$$ und der zugehörigen Höhe $$${:h}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Dreiecks?",
+        "audio":"Wie groß ist der Flächeninhalt eines Dreiecks mit der Grundseite ${:a} ${:uv[:unites[:u]]} und der zugehörigen Höhe ${:h} ${:uv[:unites[:u]]}?",
+        "answer":"$$\\dfrac{g\\times h}{2}=\\dfrac{${:a}\\times${:h}}{2}=\\color{red}{${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}~${:unites[:u]}^2", "${:aire}${:unites[:u]}^2", "${:aire}"]
     },
     {
-        "name":"Aire du disque",
+        "name":"Flächeninhalt des Kreises (gerundet)",
         "vars":{"r":"1_5","aire":"${MMmath.round(Math.PI*:r*:r,1)}","r2":"${:r*:r}","u":"0_6","xM":"${:r+5}", "ray":"${:r} ${:unites[:u]}"},
         "figure":{
             "type":"svg",
             "content":"<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><text style='line-height:1.25' font-size='7.546' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99928 1.00072)' text-anchor='end'><tspan x='52.727' y='18.152' style='text-align:end'>${:ray}</tspan></text><ellipse cx='39.006' cy='23.78' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' rx='19.98' ry='20.009'/><path d='M37.544 22.477l2.923 2.606M40.291 22.16l-2.57 3.24M39.05 23.77l19.122-5.775' fill='none' stroke='#000' stroke-width='.49'/></svg>"
         },
-        "question": "Quelle est l'<b>aire</b> d'un disque de rayon $$${:r}\\text{ ${:unites[:u]}}$$ ?",
-        "shortq": "Aire du disque ?",
-        "audio": "Quelle est l'aire d'un disque de rayon ${:r} ${:uv[:unites[:u]]} ?",
-        "answer":"$$\\pi \\times R \\times R = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2 \\approx ${:aire}\\text{ ${:unites[:u]}}^2}$$",
+        "question": "Wie groß ist der <b>Flächeninhalt</b> eines Kreises mit dem Radius $$${:r}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Kreises?",
+        "audio": "Wie groß ist der Flächeninhalt eines Kreises mit dem Radius ${:r} ${:uv[:unites[:u]]}?",
+        "answer":"$$\\pi \\times r \\times r = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2 \\approx ${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}${:unites[:u]}^2","${MMmath.signIfOne(:r2)}\\pi${:unites[:u]}^2", "${:aire}", "${MMmath.signIfOne(:r2)}\\pi"]
     },
     {
-        "name":"Aire du disque à partir du diamètre",
+        "name":"Flächeninhalt des Kreises aus dem Durchmesser (gerundet)",
         "vars":{"r":"1_5", "d":"${:r*2}","aire":"${MMmath.round(Math.PI*:r*:r,1)}","r2":"${:r*:r}","u":"0_6","xM":"${:r+5}","xN":"${5-:r}", "diam":"${:d} ${:unites[:u]}"},
         "figure":{
             "type":"svg",
             "content":"<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><text style='line-height:1.25;text-align:center' x='21.799' y='36.157' transform='rotate(-29.672)' font-size='8.041' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='middle' stroke-width='.265'><tspan style='text-align:center' x='21.799' y='36.157'>${:diam}</tspan></text><circle cx='38.666' cy='23.542' r='21.307' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round'/><path d='M20.688 34.773l36.63-21.385m-19.695 9.716l3.23 2.357' fill='none' stroke='#000' stroke-width='.49'/></svg>"
         },
-        "question": "Quelle est l'<b>aire</b> d'un disque de diamètre $$${:d}\\text{ ${:unites[:u]}}$$ ?",
-        "shortq": "Aire du disque ?",
-        "audio": "Quelle est l'aire d'un disque de diamètre ${:d} ${:uv[:unites[:u]]} ?",
-        "answer":"$$\\pi \\times R \\times R = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2 \\approx ${:aire}\\text{ ${:unites[:u]}}^2}$$",
+        "question": "Wie groß ist der <b>Flächeninhalt</b> eines Kreises mit dem Durchmesser $$${:d}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Kreises?",
+        "audio": "Wie groß ist der Flächeninhalt eines Kreises mit dem Durchmesser ${:d} ${:uv[:unites[:u]]}?",
+        "answer":"$$\\pi \\times r \\times r = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2 \\approx ${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}${:unites[:u]}^2","${MMmath.signIfOne(:r2)}\\pi${:unites[:u]}^2", "${:aire}", "${MMmath.signIfOne(:r2)}\\pi"]
     },
     {
-        "name":"Aire du triangle rectangle",
+        "name":"Flächeninhalt des rechtwinkligen Dreiecks",
         "consts":{"trianglesRectangles":[
                 "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><g font-family='Arial' font-size='4.23' letter-spacing='0' stroke-width='.151' word-spacing='0'><text x='8.96' y='5.084' style='line-height:1.25' transform='matrix(1.62356 0 0 1.89926 3.655 -1.612)'><tspan x='8.96' y='5.084'>A</tspan></text><text x='40.906' y='21.604' style='line-height:1.25' transform='matrix(1.62356 0 0 1.89926 3.655 -1.612)'><tspan x='40.906' y='21.604'>B</tspan></text><text x='8.864' y='22.89' style='line-height:1.25' transform='matrix(1.62356 0 0 1.89926 3.655 -1.612)'><tspan x='8.864' y='22.89'>C</tspan></text></g><g fill='none' stroke='#000' stroke-width='.407'><path d='M12.7 5.79v14.1h27.2z' transform='matrix(1.62356 0 0 1.89926 3.655 -1.612)'/><path stroke-linecap='round' stroke-linejoin='round' d='M12.7 18.7h1.23v1.23H12.7z' transform='matrix(1.62356 0 0 1.89926 3.655 -1.612)'/></g><text style='line-height:1.25;text-align:end' x='23.969' y='22.503'  font-size='6.5' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='end' stroke-width='.265'><tspan style='text-align:end' x='22' y='22.503'>${:lar}</tspan></text><text style='line-height:1.25;text-align:center' x='49.776' y='41.584' font-size='6.5' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='middle' stroke-width='.265'><tspan style='text-align:center' x='49.776' y='43'>${:long}</tspan></text></svg>",
                 "<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><g font-family='Arial' font-size='4.23' letter-spacing='0' stroke-width='.49' word-spacing='0'><text x='41.366' y='6.025' style='line-height:1.25' transform='matrix(1.49084 0 0 1.49084 7.287 3.97)'><tspan x='41.366' y='6.025'>A</tspan></text><text x='9.728' y='23.504' style='line-height:1.25' transform='matrix(1.49084 0 0 1.49084 7.287 3.97)'><tspan x='9.728' y='23.504'>B</tspan></text><text x='9.114' y='5.487' style='line-height:1.25' transform='matrix(1.49084 0 0 1.49084 7.287 3.97)'><tspan x='9.114' y='5.487'>C</tspan></text></g><g fill='none' stroke='#000' stroke-width='.49'><path d='M26.728 34.296V12.711h41.64z' stroke-width='.49'/><path stroke-linecap='round' stroke-linejoin='round' d='M26.728 14.493h1.883V12.65h-1.883z' stroke-width='.49'/></g><text style='line-height:1.25;text-align:center' x='46.379' y='10.137' font-size='6.491' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='middle' stroke-width='.265'><tspan style='text-align:center' x='46.379' y='10.137'>${:long}</tspan></text><text style='line-height:1.25;text-align:end' x='25.21' y='24.855' font-size='6.491' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='end' stroke-width='.265'><tspan style='text-align:end' x='25.21' y='24.855'>${:lar}</tspan></text></svg>",
@@ -106,36 +106,36 @@
             "type":"svg",
             "content":"${:trianglesRectangles[:fig]}"
         },
-        "question": "Quelle est l'<b>aire</b> d'un triangle rectangle de côtés $$${:a}\\text{ ${:unites[:u]}}$$ et  $$${:b}\\text{ ${:unites[:u]}}$$?",
-        "shortq": "Aire du triangle ?",
-        "audio": "Quelle est l'aire d'un triangle rectangle de côtés ${:a} ${:uv[:unites[:u]]} et ${:b} ${:uv[:unites[:u]]} ?",
+        "question": "Wie groß ist der <b>Flächeninhalt</b> eines rechtwinkligen Dreiecks mit den Kathetenlängen $$${:a}\\text{ ${:unites[:u]}}$$ und $$${:b}\\text{ ${:unites[:u]}}$$?",
+        "shortq": "Flächeninhalt des Dreiecks?",
+        "audio": "Wie groß ist der Flächeninhalt eines rechtwinkligen Dreiecks mit den Kathetenlängen ${:a} ${:uv[:unites[:u]]} und ${:b} ${:uv[:unites[:u]]}?",
         "answer":"$$${:a}\\times${:b}\\div 2=\\color{red}{${:aire}\\text{ ${:unites[:u]}}^2}$$",
         "value":["${:aire}~${:unites[:u]}^2", "${:aire}${:unites[:u]}^2", "${:aire}"]
     },
     {
-        "name":"Aire exacte du disque",
+        "name":"Flächeninhalt des Kreises (exakt)",
         "vars":{"r":"1_5","r2":"${:r*:r}","u":"0_6","xM":"${:r+5}", "ray":"${:r} ${:unites[:u]}"},
         "figure":{
             "type":"svg",
             "content":"<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><text style='line-height:1.25' font-size='7.546' font-family='Arial' letter-spacing='0' word-spacing='0' stroke-width='.265' transform='scale(.99928 1.00072)' text-anchor='end'><tspan x='52.727' y='18.152' style='text-align:end'>${:ray}</tspan></text><ellipse cx='39.006' cy='23.78' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round' rx='19.98' ry='20.009'/><path d='M37.544 22.477l2.923 2.606M40.291 22.16l-2.57 3.24M39.05 23.77l19.122-5.775' fill='none' stroke='#000' stroke-width='.49'/></svg>"
         },
-        "question": "Quelle est l'<b>aire</b> exacte d'un disque de rayon $$${:r}\\text{ ${:unites[:u]}}$$ ?",
-        "audio": "Quelle est l'aire exacte d'un disque de rayon ${:r} ${:uv[:unites[:u]]} ?",
-        "shortq": "Aire exacte ?",
-        "answer":"$$\\pi \\times R \\times R = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2}$$",
+        "question": "Gib den <b>Flächeninhalt</b> eines Kreises mit dem Radius $$${:r}\\text{ ${:unites[:u]}}$$ exakt an, also mit π.",
+        "audio": "Gib den Flächeninhalt eines Kreises mit dem Radius ${:r} ${:uv[:unites[:u]]} exakt an, also mit Pi.",
+        "shortq": "Flächeninhalt exakt?",
+        "answer":"$$\\pi \\times r \\times r = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2}$$",
         "value":["${MMmath.signIfOne(:r2)}\\pi~${:unites[:u]}^2","${MMmath.signIfOne(:r2)}\\pi${:unites[:u]}^2"]
     },
     {
-        "name":"Aire exacte du disque à partir du diamètre",
+        "name":"Flächeninhalt des Kreises aus dem Durchmesser (exakt)",
         "vars":{"r":"1_5", "d":"${:r*2}","r2":"${:r*:r}","u":"0_6","xM":"${:r+5}","xN":"${5-:r}", "diam":"${:d} ${:unites[:u]}"},
         "figure":{
             "type":"svg",
             "content":"<svg width='15em' height='9em' viewBox='0 0 79.35 47.7' xmlns='http://www.w3.org/2000/svg'><text style='line-height:1.25;text-align:center' x='21.799' y='36.157' transform='rotate(-29.672)' font-size='8.041' font-family='Arial' letter-spacing='0' word-spacing='0' text-anchor='middle' stroke-width='.265'><tspan style='text-align:center' x='21.799' y='36.157'>${:diam}</tspan></text><circle cx='38.666' cy='23.542' r='21.307' fill='none' stroke='#000' stroke-width='.49' stroke-linecap='round' stroke-linejoin='round'/><path d='M20.688 34.773l36.63-21.385m-19.695 9.716l3.23 2.357' fill='none' stroke='#000' stroke-width='.49'/></svg>"
         },
-        "question": "Quelle est l'<b>aire</b> exacte d'un disque de diamètre $$${:d}\\text{ ${:unites[:u]}}$$ ?",
-        "shortq": "Aire exacte ?",
-        "audio": "Quelle est l'aire exacte d'un disque de diamètre ${:d} ${:uv[:unites[:u]]} ?",
-        "answer":"$$\\pi \\times R \\times R = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2}$$",
+        "question": "Gib den <b>Flächeninhalt</b> eines Kreises mit dem Durchmesser $$${:d}\\text{ ${:unites[:u]}}$$ exakt an, also mit π.",
+        "shortq": "Flächeninhalt exakt?",
+        "audio": "Gib den Flächeninhalt eines Kreises mit dem Durchmesser ${:d} ${:uv[:unites[:u]]} exakt an, also mit Pi.",
+        "answer":"$$\\pi \\times r \\times r = \\pi\\times${:r}\\times ${:r} =\\color{red}{${MMmath.signIfOne(:r2)}\\pi\\text{ ${:unites[:u]}}^2}$$",
         "value":["${MMmath.signIfOne(:r2)}\\pi~${:unites[:u]}^2","${MMmath.signIfOne(:r2)}\\pi${:unites[:u]}^2"]
     }
     ]

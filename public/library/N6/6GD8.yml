@@ -1,5 +1,5 @@
-title: Perpendicularité et parallélisme, les trois propriétés
-description: "Appliquer les trois relations entre droites perpendiculaires et parallèles, puis reconnaitre celle qui est en jeu sur une figure codée. Non adapté au mode interactif (online/duel)."
+title: Parallele und senkrechte Geraden – drei Eigenschaften
+description: "Parallelität und Orthogonalität: die drei Sätze über parallele und senkrechte Geraden anwenden und an einer Figur mit Markierungen erkennen, welcher Satz passt. Nicht für die interaktive Nutzung (online/Duell) geeignet."
 ID: 6GD8
 type: text
 # l’énoncé des options illustrées est constant : c’est la figure qui varie.
@@ -9,18 +9,18 @@ type: text
 repeat: 1
 dest: [5BA]
 consts:
-  p1: Si deux droites sont parallèles à une même droite, alors elles sont parallèles entre elles.
-  p2: Si deux droites sont perpendiculaires à une même droite, alors elles sont parallèles entre elles.
-  p3: Si deux droites sont parallèles, alors toute droite perpendiculaire à l’une est perpendiculaire à l’autre.
-  v1: parallèles à une même droite
-  v2: perpendiculaires à une même droite
-  v3: perpendiculaire à l’une de deux parallèles
-  choix: "<br><b>①</b> Si deux droites sont parallèles à une même droite, alors elles sont parallèles entre elles.<br><b>②</b> Si deux droites sont perpendiculaires à une même droite, alors elles sont parallèles entre elles.<br><b>③</b> Si deux droites sont parallèles, alors toute droite perpendiculaire à l’une est perpendiculaire à l’autre."
+  p1: Wenn zwei Geraden zu derselben Geraden parallel sind, dann sind sie auch zueinander parallel.
+  p2: Wenn zwei Geraden zu derselben Geraden senkrecht sind, dann sind sie zueinander parallel.
+  p3: Wenn zwei Geraden zueinander parallel sind, dann ist jede Gerade, die zu einer von ihnen senkrecht ist, auch zur anderen senkrecht.
+  v1: parallel zu derselben Geraden
+  v2: senkrecht zu derselben Geraden
+  v3: senkrecht zu einer von zwei Parallelen
+  choix: "<br><b>①</b> Wenn zwei Geraden zu derselben Geraden parallel sind, dann sind sie auch zueinander parallel.<br><b>②</b> Wenn zwei Geraden zu derselben Geraden senkrecht sind, dann sind sie zueinander parallel.<br><b>③</b> Wenn zwei Geraden zueinander parallel sind, dann ist jede Gerade, die zu einer von ihnen senkrecht ist, auch zur anderen senkrecht."
   # attention : pas d’underscore dans ces noms. Une variable dont la valeur
   # contient « _ » est relue comme un intervalle par le moteur de variables,
   # et « d… » comme un intervalle décimal. « d_1 » ferait planter le tirage.
   jeux:
-    - ["d", "d'", "d''"]
+    - ["g", "h", "k"]
     - ["a", "b", "c"]
     - ["x", "y", "z"]
     - ["AB", "CD", "EF"]
@@ -57,36 +57,36 @@ vars:
   sC1: ${MMmath.round(:ybas/:vy,4)}
   sC2: ${MMmath.round(:yhaut/:vy,4)}
   # codage écrit du parallélisme, en remplacement des chevrons
-  codage: "${:config===1?'('+:n1+') // ('+:n2+')':(:config===2?'('+:n1+') // ('+:n3+')     et     ('+:n2+') // ('+:n3+')':'')}"
+  codage: "${:config===1?:n1+' ∥ '+:n2:(:config===2?:n1+' ∥ '+:n3+'     und     '+:n2+' ∥ '+:n3:'')}"
 options:
   # ───────────────── application des propriétés, énoncé en toutes lettres
-  - name: Deux perpendiculaires à une même droite
-    question: Les droites $$(:n1)$$ et $$(:n2)$$ sont perpendiculaires à la droite $$(:n3)$$.<br>Que peut-on dire des droites $$(:n1)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>parallèles</span>.<br><i>:p2</i>
-    value: ["parallèles", "paralleles", "parallèle", "parallele"]
-  - name: Perpendiculaire à l’une de deux parallèles
-    question: Les droites $$(:n1)$$ et $$(:n2)$$ sont parallèles, et la droite $$(:n3)$$ est perpendiculaire à $$(:n1)$$.<br>Que peut-on dire des droites $$(:n3)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>perpendiculaires</span>.<br><i>:p3</i>
-    value: ["perpendiculaires", "perpendiculaire"]
-  - name: Deux parallèles à une même droite
-    question: Les droites $$(:n1)$$ et $$(:n2)$$ sont parallèles à la droite $$(:n3)$$.<br>Que peut-on dire des droites $$(:n1)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>parallèles</span>.<br><i>:p1</i>
-    value: ["parallèles", "paralleles", "parallèle", "parallele"]
-  - name: Les trois propriétés mélangées
+  - name: Zwei Senkrechte zu derselben Geraden
+    question: Die Geraden $$:n1$$ und $$:n2$$ sind beide senkrecht zur Geraden $$:n3$$.<br>Was kannst du über die Geraden $$:n1$$ und $$:n2$$ sagen?
+    answer: Sie sind zueinander <span class='red'>parallel</span>.<br><i>:p2</i>
+    value: ["parallel", "zueinander parallel"]
+  - name: Senkrechte zu einer von zwei Parallelen
+    question: Die Geraden $$:n1$$ und $$:n2$$ sind zueinander parallel, und die Gerade $$:n3$$ ist senkrecht zu $$:n1$$.<br>Was kannst du über die Geraden $$:n3$$ und $$:n2$$ sagen?
+    answer: Sie sind zueinander <span class='red'>senkrecht</span>.<br><i>:p3</i>
+    value: ["senkrecht", "zueinander senkrecht"]
+  - name: Zwei Parallelen zu derselben Geraden
+    question: Die Geraden $$:n1$$ und $$:n2$$ sind beide parallel zur Geraden $$:n3$$.<br>Was kannst du über die Geraden $$:n1$$ und $$:n2$$ sagen?
+    answer: Sie sind zueinander <span class='red'>parallel</span>.<br><i>:p1</i>
+    value: ["parallel", "zueinander parallel"]
+  - name: Alle drei Eigenschaften gemischt
     vars:
       cas: [0, 1, 2]
-      concl: "${:cas===1?'perpendiculaires':'parallèles'}"
+      concl: "${:cas===1?'senkrecht':'parallel'}"
       prop: ${:cas===0?:p2:(:cas===1?:p3::p1)}
-    question: "${:cas===0?'Les droites $$('+:n1+')$$ et $$('+:n2+')$$ sont perpendiculaires à la droite $$('+:n3+')$$.<br>Que peut-on dire des droites $$('+:n1+')$$ et $$('+:n2+')$$ ?':(:cas===1?'Les droites $$('+:n1+')$$ et $$('+:n2+')$$ sont parallèles, et la droite $$('+:n3+')$$ est perpendiculaire à $$('+:n1+')$$.<br>Que peut-on dire des droites $$('+:n3+')$$ et $$('+:n2+')$$ ?':'Les droites $$('+:n1+')$$ et $$('+:n2+')$$ sont parallèles à la droite $$('+:n3+')$$.<br>Que peut-on dire des droites $$('+:n1+')$$ et $$('+:n2+')$$ ?')}"
-    answer: Elles sont <span class='red'>:concl</span>.<br><i>:prop</i>
-    value: ["${:concl}", "${:cas===1?'perpendiculaire':'paralleles'}"]
+    question: "${:cas===0?'Die Geraden $$'+:n1+'$$ und $$'+:n2+'$$ sind beide senkrecht zur Geraden $$'+:n3+'$$.<br>Was kannst du über die Geraden $$'+:n1+'$$ und $$'+:n2+'$$ sagen?':(:cas===1?'Die Geraden $$'+:n1+'$$ und $$'+:n2+'$$ sind zueinander parallel, und die Gerade $$'+:n3+'$$ ist senkrecht zu $$'+:n1+'$$.<br>Was kannst du über die Geraden $$'+:n3+'$$ und $$'+:n2+'$$ sagen?':'Die Geraden $$'+:n1+'$$ und $$'+:n2+'$$ sind beide parallel zur Geraden $$'+:n3+'$$.<br>Was kannst du über die Geraden $$'+:n1+'$$ und $$'+:n2+'$$ sagen?')}"
+    answer: Sie sind zueinander <span class='red'>:concl</span>.<br><i>:prop</i>
+    value: ["${:concl}", "${:cas===1?'zueinander senkrecht':'zueinander parallel'}"]
   # ───────────────── reconnaissance de la propriété sur une figure codée
-  - name: Figure codée, deux perpendiculaires à une même droite
+  - name: Figur mit Markierungen, zwei Senkrechte zu derselben Geraden
     vars:
       config: 0
-    question: Selon les informations de la figure, quelle propriété peut-on utiliser ?
+    question: Welchen Satz kannst du mit den Angaben in der Figur anwenden?
     answer: <span class='red'>:p2</span>
-    value: [":v2", "perpendiculaires a une meme droite"]
+    value: [":v2", "senkrecht zur selben Geraden"]
     figure: &figurecodee
       type: graph
       axis: false
@@ -118,11 +118,11 @@ options:
         # laissé à JSXGraph, qui l'envoyait hors du cadre. Décalé sur le côté
         # du tracé et non dans son prolongement, sinon il le chevauche :
         # (d_1) vers la gauche, (d_2) vers la droite, chacun s'écartant du centre.
-        - [text, ["${MMmath.round(:t1*:ux+:sA2*:vx-0.8,4)}", "${:yhaut-0.2}", "(${:n1})"], { anchorX: middle, strokeColor: "#118ab2", visible: "${!:pts}" }]
-        - [text, ["${MMmath.round(:t2*:ux+:sB2*:vx+0.8,4)}", "${:yhaut-0.2}", "(${:n2})"], { anchorX: middle, strokeColor: "#06d6a0", visible: "${!:pts}" }]
+        - [text, ["${MMmath.round(:t1*:ux+:sA2*:vx-0.8,4)}", "${:yhaut-0.2}", "${:n1}"], { anchorX: middle, strokeColor: "#118ab2", visible: "${!:pts}" }]
+        - [text, ["${MMmath.round(:t2*:ux+:sB2*:vx+0.8,4)}", "${:yhaut-0.2}", "${:n2}"], { anchorX: middle, strokeColor: "#06d6a0", visible: "${!:pts}" }]
         # (d_3) quasi horizontale en configurations 0 et 1 : le nom se pose dans
         # son prolongement, à 7,5 alors que le tracé s'arrête à 6,8
-        - [text, ["${MMmath.round(:config===2?:sC2*:vx+0.8:7.5*:ux,4)}", "${MMmath.round(:config===2?:yhaut-0.2:7.5*:uy,4)}", "(${:n3})"], { anchorX: middle, strokeColor: "#333333", visible: "${!:pts}" }]
+        - [text, ["${MMmath.round(:config===2?:sC2*:vx+0.8:7.5*:ux,4)}", "${MMmath.round(:config===2?:yhaut-0.2:7.5*:uy,4)}", "${:n3}"], { anchorX: middle, strokeColor: "#333333", visible: "${!:pts}" }]
         # pour les jeux notés (AB), ce sont les deux points qui sont placés
         - [point, ["${MMmath.round(:t1*:ux+(:sA1+(:sA2-:sA1)*0.28)*:vx,4)}", "${MMmath.round(:ybas+(:yhaut-:ybas)*0.28,4)}"], { name: "${:pts?:n1[0]:''}", visible: "${:pts}", face: x, size: 2, strokeColor: "#118ab2", label: { offset: [-10, -7] } }]
         - [point, ["${MMmath.round(:t1*:ux+(:sA1+(:sA2-:sA1)*0.72)*:vx,4)}", "${MMmath.round(:ybas+(:yhaut-:ybas)*0.72,4)}"], { name: "${:pts?:n1[1]:''}", visible: "${:pts}", face: x, size: 2, strokeColor: "#118ab2", label: { offset: [-10, 7] } }]
@@ -136,57 +136,57 @@ options:
         - [angle, [zBu, zB, zB2], { radius: 0.55, label: { visible: false }, fillColor: "#ff6b6b", visible: "${:config===0}" }]
         # codage du parallélisme, écrit dans la bande libre sous les tracés
         - [text, [0, -4.7, ":codage"], { anchorX: middle, strokeColor: "#7b2cbf", visible: "${:config!==0}" }]
-  - name: Figure codée, perpendiculaire à l’une de deux parallèles
+  - name: Figur mit Markierungen, Senkrechte zu einer von zwei Parallelen
     vars:
       config: 1
-    question: Selon les informations de la figure, quelle propriété peut-on utiliser ?
+    question: Welchen Satz kannst du mit den Angaben in der Figur anwenden?
     answer: <span class='red'>:p3</span>
-    value: [":v3", "perpendiculaire a l'une de deux paralleles"]
+    value: [":v3", "senkrecht zu einer der Parallelen"]
     figure: *figurecodee
-  - name: Figure codée, deux parallèles à une même droite
+  - name: Figur mit Markierungen, zwei Parallelen zu derselben Geraden
     vars:
       config: 2
-    question: Selon les informations de la figure, quelle propriété peut-on utiliser ?
+    question: Welchen Satz kannst du mit den Angaben in der Figur anwenden?
     answer: <span class='red'>:p1</span>
-    value: [":v1", "paralleles a une meme droite"]
+    value: [":v1", "parallel zur selben Geraden"]
     figure: *figurecodee
-  - name: Figures codées mélangées
+  - name: Figuren mit Markierungen gemischt
     vars:
       config: [0, 1, 2]
       prop: ${:config===0?:p2:(:config===1?:p3::p1)}
       court: ${:config===0?:v2:(:config===1?:v3::v1)}
-    question: Selon les informations de la figure, quelle propriété peut-on utiliser ?
+    question: Welchen Satz kannst du mit den Angaben in der Figur anwenden?
     answer: <span class='red'>:prop</span>
     value: [":court"]
     figure: *figurecodee
   # ───────────────── mêmes figures, mais c'est la conclusion qui est demandée
-  - name: Déduction sur la figure, deux perpendiculaires à une même droite
+  - name: Folgerung an der Figur, zwei Senkrechte zu derselben Geraden
     vars:
       config: 0
-    question: Selon les informations de la figure, que peut-on en déduire pour $$(:n1)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>parallèles</span>.<br><i>:p2</i>
-    value: ["parallèles", "paralleles", "parallèle", "parallele"]
+    question: Was folgt aus den Angaben in der Figur für die Geraden $$:n1$$ und $$:n2$$?
+    answer: Sie sind zueinander <span class='red'>parallel</span>.<br><i>:p2</i>
+    value: ["parallel", "zueinander parallel"]
     figure: *figurecodee
-  - name: Déduction sur la figure, perpendiculaire à l’une de deux parallèles
+  - name: Folgerung an der Figur, Senkrechte zu einer von zwei Parallelen
     vars:
       config: 1
-    question: Selon les informations de la figure, que peut-on en déduire pour $$(:n3)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>perpendiculaires</span>.<br><i>:p3</i>
-    value: ["perpendiculaires", "perpendiculaire"]
+    question: Was folgt aus den Angaben in der Figur für die Geraden $$:n3$$ und $$:n2$$?
+    answer: Sie sind zueinander <span class='red'>senkrecht</span>.<br><i>:p3</i>
+    value: ["senkrecht", "zueinander senkrecht"]
     figure: *figurecodee
-  - name: Déduction sur la figure, deux parallèles à une même droite
+  - name: Folgerung an der Figur, zwei Parallelen zu derselben Geraden
     vars:
       config: 2
-    question: Selon les informations de la figure, que peut-on en déduire pour $$(:n1)$$ et $$(:n2)$$ ?
-    answer: Elles sont <span class='red'>parallèles</span>.<br><i>:p1</i>
-    value: ["parallèles", "paralleles", "parallèle", "parallele"]
+    question: Was folgt aus den Angaben in der Figur für die Geraden $$:n1$$ und $$:n2$$?
+    answer: Sie sind zueinander <span class='red'>parallel</span>.<br><i>:p1</i>
+    value: ["parallel", "zueinander parallel"]
     figure: *figurecodee
-  - name: Déduction sur la figure, les trois configurations mélangées
+  - name: Folgerung an der Figur, alle drei Fälle gemischt
     vars:
       config: [0, 1, 2]
       prop: ${:config===0?:p2:(:config===1?:p3::p1)}
-      concl: "${:config===1?'perpendiculaires':'parallèles'}"
-    question: "Selon les informations de la figure, que peut-on en déduire pour ${:config===1?'$$('+:n3+')$$':'$$('+:n1+')$$'} et $$(:n2)$$ ?"
-    answer: Elles sont <span class='red'>:concl</span>.<br><i>:prop</i>
-    value: ["${:concl}", "${:config===1?'perpendiculaire':'paralleles'}"]
+      concl: "${:config===1?'senkrecht':'parallel'}"
+    question: "Was folgt aus den Angaben in der Figur für die Geraden ${:config===1?'$$'+:n3+'$$':'$$'+:n1+'$$'} und $$:n2$$?"
+    answer: Sie sind zueinander <span class='red'>:concl</span>.<br><i>:prop</i>
+    value: ["${:concl}", "${:config===1?'zueinander senkrecht':'zueinander parallel'}"]
     figure: *figurecodee

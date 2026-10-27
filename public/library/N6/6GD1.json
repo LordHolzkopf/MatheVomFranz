@@ -1,20 +1,20 @@
 {
-    "title":"Lien entre aire d'un carré et côté",
-    "description":"Aire du carré et longueur du côté : carré, surface, racine carrée. Non adapté au mode interactif (online/duel).",
+    "title":"Flächeninhalt und Seitenlänge eines Quadrats",
+    "description":"Flächeninhalt eines Quadrats aus der Seitenlänge berechnen und umgekehrt: Quadrat, Fläche, Quadratzahl, Quadratwurzel. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "type":"text",
     "speech":1,
     "textSize":"medium",
     "ID":"6GD1",
     "dest":["5DB", "9AA"],
-    "consts":{"uv":{"mm":"millimètres","cm":"centimètres","dm":"décimètres","m":"mètres","dam":"décamètres","hm":"hectomètres","km":"kilomètres"}},
+    "consts":{"uv":{"mm":"Millimeter","cm":"Zentimeter","dm":"Dezimeter","m":"Meter","dam":"Dekameter","hm":"Hektometer","km":"Kilometer"}},
     "vars":{"a":"1_10",
         "b":"${:a*:a}",
         "c":["mm","cm","dm","m", "dam", "hm", "km"]
     },
     "options":[{
-        "name":"Aire du carré",
-        "question": "Quelle est l'aire d'un carré de côté ${:a} ${:c} ?",
-        "audio": "Quelle est l'aire d'un carré de côté ${:a} ${:uv[:c]} ?",
+        "name":"Flächeninhalt des Quadrats",
+        "question": "Wie groß ist der Flächeninhalt eines Quadrats mit der Seitenlänge ${:a} ${:c}?",
+        "audio": "Wie groß ist der Flächeninhalt eines Quadrats mit der Seitenlänge ${:a} ${:uv[:c]}?",
         "answer":"$$${:a}\\text{ :c }\\times ${:a}\\text{ :c }=\\color{red}{${:b}\\text{ :c}^2}$$",
         "figure":{
             "type":"graph",
@@ -43,9 +43,9 @@
         "value":["${:b} ${:c}^2", "${:b}${:c}^2"]
         },
         {
-            "name":"Côté du carré",
-            "question": "Quel est le côté d'un carré d'aire ${:b} ${:c}² ?",
-            "audio": "Quel est le côté d'un carré d'aire ${:b} ${:uv[:c]} carré ?",
+            "name":"Seitenlänge des Quadrats",
+            "question": "Wie lang ist die Seite eines Quadrats mit dem Flächeninhalt ${:b} ${:c}²?",
+            "audio": "Wie lang ist die Seite eines Quadrats mit dem Flächeninhalt ${:b} Quadrat${:uv[:c].toLowerCase()}?",
             "answer":"$$\\color{red}{${:a}\\text{ :c }}\\times ${:a}\\text{ :c }=${:b}\\text{ :c}^2$$",
             "figure":{
                 "type":"graph",

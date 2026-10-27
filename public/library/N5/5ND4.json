@@ -1,23 +1,23 @@
 {
-    "title":"Trouver le plus grand diviseur commun",
+    "title":"Größten gemeinsamen Teiler bestimmen",
     "type":"text",
     "ID":"5ND4",
     "textSize":"medium",
-    "description":"PGCD de deux nombres",
+    "description":"ggT, größter gemeinsamer Teiler zweier Zahlen, gemeinsame Teiler, Kürzen",
     "dest":["5CD", "5FB", "6AB"],
     "options":[{
-        "name":"Nombres inférieurs à 36",
+        "name":"Zahlen bis 36",
         "vars":{"a":"2_6","b":"2_5", "c":"2_6_^${:b}","n":"${:a*:b}", "d":"${:a*:c}"}
     },{
-        "name":"Nombres plus grands",
+        "name":"Größere Zahlen",
         "vars":{"a":"2_6","b":"2_5", "c":"2_6_^${:b}","e":"2_7_2", "n":"${:a*:b*:e[0]}", "d":"${:a*:c*:e[1]}"}
     }
     ],
     "question": [
-        "Quel est le PGCD de ${:n} et ${:d} ?",
-        "PGCD(${:n};${:d})",
-        "Par quel nombre simplifier au maximum $$\\dfrac{${:d}}{${:n}}$$ ?"
+        "Bestimme den ggT von ${:n} und ${:d}.",
+        "ggT(${:n}; ${:d}) = ?",
+        "Mit welcher Zahl kannst du $$\\dfrac{${:d}}{${:n}}$$ vollständig kürzen?"
     ],
-    "answer":"PGCD(${:d};${:n}) = $$\\color{red}{${MMmath.pgcd(:d,:n)}}$$",
+    "answer":"ggT(${:d}; ${:n}) = $$\\color{red}{${MMmath.pgcd(:d,:n)}}$$",
     "value":"${MMmath.pgcd(:d,:n)}"
 }

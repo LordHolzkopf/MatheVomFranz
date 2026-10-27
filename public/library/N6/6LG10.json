@@ -1,41 +1,41 @@
 {
-    "title":"Leçon : Symétrie axiale",
+    "title":"Wissen: Achsenspiegelung",
     "type":"text",
     "ID":"6LG10",
-    "description":"Questions sur la symétrie axiale : axe, symétrique, définition, propriétés, médiatrice. Non adapté au mode interactif (online/duel).",
+    "description":"Wissensfragen zur Achsenspiegelung: Spiegelachse, Bildpunkt, Symmetrieachse, achsensymmetrisch, Eigenschaften, Mittelsenkrechte. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "dest":["5BC", "6DB"],
     "options":[
         {
-            "name":"Définition",
+            "name":"Begriffe",
             "question":[
-                "Deux points sont symétriques par rapport à une droite (d). Qu’est-ce que (d) pour ces deux points ?",
-                "Quel mouvement est associé à la symétrie axiale ?",
-                "Qu’appelle-t-on axe de symétrie d’une figure ?",
-                "Quand est-ce que deux figures sont symétriques par rapport à une droite ?"
+                "Der Punkt P′ ist das Bild von P bei der Spiegelung an der Geraden g. Was ist g für die Strecke $$\\overline{PP'}$$?",
+                "Wie kann man eine Achsenspiegelung mit den Händen veranschaulichen?",
+                "Was ist eine Symmetrieachse einer Figur?",
+                "Wann liegen zwei Figuren achsensymmetrisch zueinander bezüglich einer Geraden?"
             ],
             "answer":[
-                "(d) est la <span class='red'>médiatrice</span> du segment qui joint les deux points.",
-                "Le mouvement associé à la symétrie axiale est le <span class='red'>pliage</span>.",
-                "L’axe du symétrie d’une figure est une droite par rapport à laquelle le symétrique de la figure se superpose elle-même.",
-                "Deux figures sont symétriques par rapport à une droite si les figures se superposent par pliage le long de cette droite."
+                "g ist die <span class='red'>Mittelsenkrechte</span> der Strecke $$\\overline{PP'}$$: g steht senkrecht auf $$\\overline{PP'}$$ und geht durch ihren Mittelpunkt.",
+                "Durch <span class='red'>Falten</span> entlang der Spiegelachse.",
+                "Eine Symmetrieachse ist eine Gerade, an der man die Figur spiegeln kann, sodass das Bild genau auf der Figur liegt. Faltet man die Figur entlang der Symmetrieachse, liegen beide Hälften genau aufeinander.",
+                "Wenn die eine Figur das Spiegelbild der anderen ist: Faltet man entlang der Geraden, liegen beide Figuren genau aufeinander."
             ]
         },{
-            "name":"Propriétés",
+            "name":"Eigenschaften",
             "question":[
-                "Qu’est-ce que le symétrique d’un <b>point</b> par une symétrie axiale ?",
-                "Qu’est-ce que le symétrique d’une <b>droite</b par une symétrie axiale ?",
-                "Qu’est-ce que le symétrique d’une <b>demi-droite</b> par une symétrie axiale ?",
-                "Qu’est-ce que le symétrique d’un <b>segment</b> par une symétrie axiale ?",
-                "Qu’est-ce que le symétrique d’un <b>angle</b> par une symétrie axiale ?",
-                "Qu’est-ce que le symétrique d’un <b>cercle</b> par une symétrie axiale ?"
+                "Was ist das Bild eines <b>Punktes</b> bei einer Achsenspiegelung?",
+                "Was ist das Bild einer <b>Geraden</b> bei einer Achsenspiegelung?",
+                "Was ist das Bild einer <b>Halbgeraden</b> bei einer Achsenspiegelung?",
+                "Was ist das Bild einer <b>Strecke</b> bei einer Achsenspiegelung?",
+                "Was ist das Bild eines <b>Winkels</b> bei einer Achsenspiegelung?",
+                "Was ist das Bild eines <b>Kreises</b> bei einer Achsenspiegelung?"
             ],
             "answer":[
-                "C’est <span class='red'>un point</span>.",
-                "C’est <span class='red'>une droite</span> car la symétrie axiale conserve l’alignement.",
-                "C’est <span class='red'>une demi-droite</span> car la symétrie axiale conserve l’alignement.",
-                "C’est <span class='red'>un segment de même longueur</span> car la symétrie axiale conserve l’alignement et les distances.",
-                "C’est <span class='red'>un angle de même mesure</span> car la symétrie axiale conserve la mesure des angles.",
-                "C’est <span class='red'>un cercle</span> car la symétrie axiale conserve les longueurs."
+                "Ein <span class='red'>Punkt</span>.",
+                "Eine <span class='red'>Gerade</span>, denn die Achsenspiegelung ist geradentreu.",
+                "Eine <span class='red'>Halbgerade</span>, denn die Achsenspiegelung ist geradentreu.",
+                "Eine <span class='red'>gleich lange Strecke</span>, denn die Achsenspiegelung ist geradentreu und längentreu.",
+                "Ein <span class='red'>gleich großer Winkel</span>, denn die Achsenspiegelung ist winkeltreu.",
+                "Ein <span class='red'>Kreis mit demselben Radius</span>, denn die Achsenspiegelung ist längentreu."
             ]
         }
     ]

@@ -1,75 +1,75 @@
 {
-    "title":"Appliquer un programme de calcul",
+    "title":"Rechenanweisung ausführen",
     "type":"text",
     "ID":"5NE9",
     "textSize":"small",
-    "description":"Un programme de calcul étant proposé, il est demandé de l'appliquer à un nombre donné.",
+    "description":"Rechenanweisung, Rechenkette, Zahlenrätsel „Denke dir eine Zahl“: eine Rechenanweisung für eine gegebene Zahl ausführen",
     "dest":["5AD", "7DA"],
     "consts":{
         "phrases":{
-            "moins":[["Lui enlever", "Lui soustraire", "Lui retrancher", "Lui ôter"],
-        [["Enlever "," au résultat"], ["Soustraire "," au résultat"], ["Retrancher "," au résultat"], ["Ôter "," au résultat"]]],
-            "plus":["Lui ajouter", ["Ajouter "," au résultat"]],
-            "fois":["Le multiplier par", ["Multiplier le résultat par ",""]],
-            "divisé":["Le diviser par", ["Diviser le résultat par ",""]]
+            "moins":[["Subtrahiere", "Vermindere sie um", "Verringere sie um", "Subtrahiere"],
+        [["Subtrahiere "," vom Ergebnis"], ["Ziehe "," vom Ergebnis ab"], ["Vermindere das Ergebnis um ",""], ["Verringere das Ergebnis um ",""]]],
+            "plus":["Erhöhe sie um", ["Addiere "," zum Ergebnis"]],
+            "fois":["Multipliziere sie mit", ["Multipliziere das Ergebnis mit ",""]],
+            "divisé":["Dividiere sie durch", ["Dividiere das Ergebnis durch ",""]]
         },
         "signes":["moins","plus","fois","divisé"],
         "operations":["-","+","\\times","\\div"],
         "opes":["-","+","*","/"]},
     "options":[{
-        "name":"Deux opérations, pas de parenthèses (5e)",
+        "name":"Zwei Rechenschritte, ohne Klammern",
         "vars":{"op1":"0_3","op2":"0_${:op1>1?3:1}","tdiv":"0_3",
             "nb":"1_10","n1":"${:op1==3?MMmath.unDiviseur(:nb):'1_'+(:op1==0?:nb:10)}","n2":"${:op2==3?MMmath.unDiviseur(MMmath.calc(:nb+:opes[:op1]+:n1),false,false):(:op2==0?'0_'+MMmath.calc(:nb+:opes[:op1]+:n1):'1_10')}",
             "phrase1":"${:op1>0?:phrases[:signes[:op1]][0]::phrases['moins'][0][:tdiv]} ${:n1}.",
             "phrase2":"${:op2>0?:phrases[:signes[:op2]][1][0]::phrases['moins'][1][:tdiv][0]}${:n2}${:op2>0?:phrases[:signes[:op2]][1][1]::phrases['moins'][1][:tdiv][1]}."
         },
-        "question": "Voici un programme de calcul :<br><ul><li>Choisir un nombre.</li><li>${:phrase1}</li><li>${:phrase2}</li></ul>Combien obtient-on si on choisit le nombre <b>${:nb}</b> ?",
+        "question": "Hier ist eine Rechenanweisung:<br><ul><li>Denke dir eine Zahl.</li><li>${:phrase1}</li><li>${:phrase2}</li></ul>Welches Ergebnis erhältst du, wenn du dir die Zahl <b>${:nb}</b> denkst?",
         "answer":"$$${:nb}${:operations[:op1]}${:n1}${:operations[:op2]}${:n2}=\\color{red}{${MMmath.calc(:nb+:opes[:op1]+:n1+:opes[:op2]+:n2)}}$$",
         "value":"${MMmath.calc(:nb+:opes[:op1]+:n1+:opes[:op2]+:n2)}"
     },{
-        "name":"Deux opérations, avec parenthèses (5e)",
+        "name":"Zwei Rechenschritte, mit Klammern",
         "vars":{"op1":"0_1","op2":"2_3","tdiv":"0_3",
             "nb":"1_10","n1":"1_${:op1==0?:nb:10}","n2":"${(:op2==3 && MMmath.calc(:nb+:opes[:op1]+:n1)!='0')?MMmath.unDiviseur(MMmath.calc(:nb+:opes[:op1]+:n1),false,false):'1_10'}",
             "phrase1":"${:op1>0?:phrases[:signes[:op1]][0]::phrases['moins'][0][:tdiv]} ${:n1}.",
             "phrase2":"${:phrases[:signes[:op2]][1][0]}${:n2}."
         },
-        "question": "Voici un programme de calcul :<br><ul><li>Choisir un nombre.</li><li>${:phrase1}</li><li>${:phrase2}</li></ul>Combien obtient-on si on choisit le nombre <b>${:nb}</b> ?",
+        "question": "Hier ist eine Rechenanweisung:<br><ul><li>Denke dir eine Zahl.</li><li>${:phrase1}</li><li>${:phrase2}</li></ul>Welches Ergebnis erhältst du, wenn du dir die Zahl <b>${:nb}</b> denkst?",
         "answer":"$$(${:nb}${:operations[:op1]}${:n1})${:operations[:op2]}${:n2}=\\color{red}{${MMmath.calc('('+:nb+:opes[:op1]+:n1+')'+:opes[:op2]+:n2)}}$$",
         "value":"${MMmath.calc('('+:nb+:opes[:op1]+:n1+')'+:opes[:op2]+:n2)}"
     },{
-        "name":"Produit de deux expressions (5e)",
+        "name":"Produkt zweier Terme",
         "vars":{"op1":"0_1","op2":"0_1","tdiv":"0_3",
         "nb":"1_10","n1":"1_${:op1==0?:nb:'10'}","n2":"1_${:op2==0?:nb:'10'}",
         "phrase1":"${:op1>0?:phrases[:signes[:op1]][0]::phrases['moins'][0][:tdiv]} ${:n1}.",
         "phrase2":"${:op2>0?:phrases[:signes[:op2]][0]::phrases['moins'][0][:tdiv]} ${:n2}.",
-        "phrase3":"Multiplier les deux résultats précédents."},
-        "question": "Voici un programme de calcul :<br><ul><li>Choisir un nombre.</li><li>${:phrase1}</li><li>${:phrase2}</li><li>${:phrase3}</li></ul>Combien obtient-on si on choisit <b>${:nb}</b> ?",
+        "phrase3":"Multipliziere die beiden Ergebnisse."},
+        "question": "Hier ist eine Rechenanweisung:<br><ul><li>Denke dir eine Zahl.</li><li>${:phrase1}</li><li>Nimm noch einmal die gedachte Zahl. ${:phrase2}</li><li>${:phrase3}</li></ul>Welches Ergebnis erhältst du, wenn du dir die Zahl <b>${:nb}</b> denkst?",
         "answer":"$$(${:nb}${:operations[:op1]}${:n1})\\times(${:nb}${:operations[:op2]}${:n2})=\\color{red}{${MMmath.calc('('+:nb+:opes[:op1]+:n1+')*('+:nb+:opes[:op2]+:n2+')')}}$$",
         "value":"${MMmath.calc('('+:nb+:opes[:op1]+:n1+')*('+:nb+:opes[:op2]+:n2+')')}"
     },{
-        "name":"Trois opérations (4e+)",
+        "name":"Drei Rechenschritte",
         "vars":{"n1":"1_10","n2":"2_10","n3":"1_20","op1":"0_1","op2":"2_3","op3":"0_3","tdiv":"0_3",
             "nb":"0_10",
             "phrase1":"${:op1>0?:phrases[:signes[:op1]][0]::phrases['moins'][0][:tdiv]} ${:n1}.",
             "phrase2":"${:phrases[:signes[:op2]][1][0]}${:n2}.",
-            "phrase3":"${:op3>0?:phrases[:signes[:op3]][1][0]::phrases['moins'][1][:tdiv][0]}${:n3<11?:n3:'le nombre choisi'}${:op3>0?:phrases[:signes[:op3]][1][1]::phrases['moins'][1][:tdiv][1]}."
+            "phrase3":"${:op3>0?:phrases[:signes[:op3]][1][0]::phrases['moins'][1][:tdiv][0]}${:n3<11?:n3:(:op3==2?'der gedachten Zahl':'die gedachte Zahl')}${:op3>0?:phrases[:signes[:op3]][1][1]::phrases['moins'][1][:tdiv][1]}."
         },
-        "question": "Voici un programme de calcul :<br><ul><li>Choisir un nombre.</li><li>${:phrase1}</li><li>${:phrase2}</li><li>${:phrase3}</li></ul>Combien obtient-on si on choisit le nombre <b>${:nb}</b> ?",
+        "question": "Hier ist eine Rechenanweisung:<br><ul><li>Denke dir eine Zahl.</li><li>${:phrase1}</li><li>${:phrase2}</li><li>${:phrase3}</li></ul>Welches Ergebnis erhältst du, wenn du dir die Zahl <b>${:nb}</b> denkst?",
         "answer":"$$(${:nb}${:operations[:op1]}${:n1})${:operations[:op2]}${:n2}${:operations[:op3]} ${:n3<11?:n3::nb}=\\color{red}{${MMmath.calc('('+:nb+:opes[:op1]+:n1+')'+:opes[:op2]+:n2+:opes[:op3]+(:n3<11?:n3::nb))}}$$",
         "value":"${MMmath.calc('('+:nb+:opes[:op1]+:n1+')'+:opes[:op2]+:n2+:opes[:op3]+(:n3<11?:n3::nb))}"
     },{
-        "name":"Carré, double, triple... (4e+)",
-        "consts":{"multiples":["double","triple","quadruple"],
+        "name":"Quadrat, Doppeltes, Dreifaches …",
+        "consts":{"multiples":["Doppelte","Dreifache","Vierfache"],
         "operations":["-","+","\\times"],
         "opes":["-","+","*"]},
         "vars":{"choix":"0_1","n1":"2_10","op1":"0_1","m1":"0_2","op2":"0_1","n2":"1_10","choix2":"0_1",
         "nb":"0_10",
-        "vs":["Ôter","Soustraire","Retrancher","Enlever"],
-        "phrase1":"${:choix?'Le mettre au carré':'Le multiplier par '+:n1}.",
-        "phrase2":"${:op1?'Ajouter'::vs} ${:choix?'son '+:multiples[:m1]:'son carré'}.",
-        "phrase3":"${:op2?'Ajouter'::vs} ${:n2} au résultat."
+        "vs":["Subtrahiere","Subtrahiere","Subtrahiere","Subtrahiere"],
+        "phrase1":"${:choix?'Quadriere sie':'Multipliziere sie mit '+:n1}.",
+        "phrase2":"${:op1?'Addiere'::vs} das ${:choix?:multiples[:m1]:'Quadrat'} der gedachten Zahl.",
+        "phrase3":"${:op2?'Addiere'::vs} ${:n2}."
         },
-        "question":"Voici un programme de calcul :<br><ul><li>Choisir un nombre.</li><li>${:phrase1}</li><li>${:phrase2}</li>${:choix2?'<li>'+:phrase3+'</li>':''}</ul>Combien obtient-on si on choisit <b>${:nb}</b> ?",
+        "question":"Hier ist eine Rechenanweisung:<br><ul><li>Denke dir eine Zahl.</li><li>${:phrase1}</li><li>${:phrase2}</li>${:choix2?'<li>'+:phrase3+'</li>':''}</ul>Welches Ergebnis erhältst du, wenn du dir die Zahl <b>${:nb}</b> denkst?",
         "answer":"$$${:choix?:nb+'^2'::nb+'\\times'+:n1}${:operations[:op1]}${:choix?:nb+'\\times'+(:m1+2)::nb+'^2'}${:choix2?:operations[:op2]+:n2:''}=\\color{red}{${MMmath.calc((:choix?:nb+'*'+:nb::n1+'*'+:nb)+:opes[:op1]+(:choix?(:m1+2)+'*'+:nb::nb+'*'+:nb)+(:choix2?:opes[:op2]+:n2:''))}}$$",
         "value":"${MMmath.calc((:choix?:nb+'*'+:nb::n1+'*'+:nb)+:opes[:op1]+(:choix?(:m1+2)+'*'+:nb::nb+'*'+:nb)+(:choix2?:opes[:op2]+:n2:''))}"
     }]

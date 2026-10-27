@@ -1,7 +1,7 @@
 {
     "ID":"6GC7",
-    "title":"Tracer un schéma de triangle à main levée (sans donnée numérique)",
-    "description":"Schéma à main levée, construire, dessiner un triangle isocèle, équilatéral, rectangle. Non adapté au mode interactif (online/duel).",
+    "title":"Planfigur eines Dreiecks skizzieren (ohne Maße)",
+    "description":"Planfigur, Skizze mit Markierungen, Dreieck zeichnen: gleichschenklig, gleichseitig, rechtwinklig. Nicht für die interaktive Nutzung (online/Duell) geeignet.",
     "type":"text",
     "dest":["5BD"],
     "consts":{
@@ -37,36 +37,36 @@
 },
     "options":[
         {
-            "name":"Triangle isocèle",
+            "name":"Gleichschenkliges Dreieck",
             "vars":{
                "sample":"0_2"
             },
-            "question":"Réaliser un schéma codé de triangle ${:ABC} isocèle en ${:C}",
-            "answer":"Triangle ${:ABC} isocèle en ${:C}<br>${:schemas.isoceles[:sample]}",
+            "question":"Zeichne eine Planfigur des Dreiecks ${:ABC}: gleichschenklig mit der Spitze ${:C}. Markiere die gleich langen Seiten.",
+            "answer":"Dreieck ${:ABC}, gleichschenklig mit der Spitze ${:C}<br>${:schemas.isoceles[:sample]}",
             "value":"${:schemas.isoceles[:sample]}"
         },{
-            "name":"Triangle équilatéral",
+            "name":"Gleichseitiges Dreieck",
             "vars":{
                "sample":"0_1"
             },
-            "question":"Réaliser un schéma codé de triangle ${:ABC} équilatéral",
-            "answer":"Triangle ${:ABC} équilatéral<br>${:schemas.equilateraux[:sample]}",
+            "question":"Zeichne eine Planfigur des Dreiecks ${:ABC}: gleichseitig. Markiere die gleich langen Seiten.",
+            "answer":"Dreieck ${:ABC}, gleichseitig<br>${:schemas.equilateraux[:sample]}",
             "value":"${:schemas.equilateraux[:sample]}"
         },{
-            "name":"Triangle rectangle",
+            "name":"Rechtwinkliges Dreieck",
             "vars":{
                "sample":"0_3"
             },
-            "question":"Réaliser un schéma codé de triangle ${:ABC} rectangle en ${:A}",
-            "answer":"Triangle ${:ABC} rectangle en ${:A}<br>${:schemas.rectangles[:sample]}",
+            "question":"Zeichne eine Planfigur des Dreiecks ${:ABC}: rechtwinklig mit dem rechten Winkel bei ${:A}. Markiere den rechten Winkel.",
+            "answer":"Dreieck ${:ABC}, rechtwinklig mit dem rechten Winkel bei ${:A}<br>${:schemas.rectangles[:sample]}",
             "value":"${:schemas.rectangles[:sample]}"
         },{
-            "name":"Triangle rectangle isocèle",
+            "name":"Rechtwinklig-gleichschenkliges Dreieck",
             "vars":{
                "sample":"0_2"
             },
-            "question":"Réaliser un schéma codé de triangle ${:ABC} rectangle et isocèle en ${:A}",
-            "answer":"Triangle ${:ABC} rectangle et isocèle en ${:A}<br>${:schemas.rectangleisoceles[:sample]}",
+            "question":"Zeichne eine Planfigur des Dreiecks ${:ABC}: rechtwinklig und gleichschenklig mit dem rechten Winkel bei ${:A}. Markiere den rechten Winkel und die gleich langen Seiten.",
+            "answer":"Dreieck ${:ABC}, rechtwinklig und gleichschenklig, rechter Winkel bei ${:A}<br>${:schemas.rectangleisoceles[:sample]}",
             "value":"${:schemas.rectangleisoceles[:sample]}"
         }
     ]

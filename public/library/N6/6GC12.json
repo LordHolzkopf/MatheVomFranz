@@ -1,11 +1,11 @@
 {
     "ID":"6GC12",
-    "title":"Nature d'un triangle à partir d'un schéma à main levée (sans sommets)",
-    "description":"nature d'un triangle, isocèle, équilatéral, rectangle, codage, schéma",
+    "title":"Dreiecksarten an Skizzen erkennen (ohne Eckpunkte)",
+    "description":"Dreiecksart bestimmen, besondere Dreiecke, gleichschenklig, gleichseitig, rechtwinklig, Planfigur, Markierungen, Skizze",
     "type":"text",
     "dest":["5BD"],
     "keys":["qcq","iso","equi","rect","rec&iso"],
-    "consigne":"Quelle est la nature du triangle ?",
+    "consigne":"Welche Dreiecksart liegt vor? Gleiche Markierungsstriche bedeuten gleich lange Seiten.",
     "consts":{
         "schemas":{
             "quelconques":[
@@ -39,46 +39,46 @@
     },
     "options":[
         {
-            "name":"Triangle quelconque",
+            "name":"Allgemeines Dreieck",
             "vars":{
                 "sample":"0_5"
             },
             "question":"${:schemas.quelconques[:sample]}",
-            "answer":"Le triangle est <span class='red'>quelconque</span>.",
-            "value":"quelconque"
+            "answer":"Das Dreieck ist <span class='red'>allgemein</span>.",
+            "value":"allgemein"
         },
         {
-            "name":"Triangle isocèle",
+            "name":"Gleichschenkliges Dreieck",
             "vars":{
                "sample":"0_2"
             },
             "question":"${:schemas.isoceles[:sample]}",
-            "answer":"Le triangle est <span class='red'>isocèle</span>.",
-            "value":"isocèle"
+            "answer":"Das Dreieck ist <span class='red'>gleichschenklig</span>.",
+            "value":"gleichschenklig"
         },{
-            "name":"Triangle équilatéral",
+            "name":"Gleichseitiges Dreieck",
             "vars":{
                "sample":"0_1"
             },
             "question":"${:schemas.equilateraux[:sample]}",
-            "answer":"Le triangle est <span class='red'>équilatéral</span>.",
-            "value":"équilatéral"
+            "answer":"Das Dreieck ist <span class='red'>gleichseitig</span>.",
+            "value":"gleichseitig"
         },{
-            "name":"Triangle rectangle",
+            "name":"Rechtwinkliges Dreieck",
             "vars":{
                "sample":"0_3"
             },
             "question":"${:schemas.rectangles[:sample]}",
-            "answer":"Le triangle est <span class='red'>rectangle</span>.",
-            "value":"rectangle"
+            "answer":"Das Dreieck ist <span class='red'>rechtwinklig</span>.",
+            "value":"rechtwinklig"
         },{
-            "name":"Triangle rectangle isocèle",
+            "name":"Rechtwinklig-gleichschenkliges Dreieck",
             "vars":{
                "sample":"0_2"
             },
             "question":"${:schemas.rectangleisoceles[:sample]}",
-            "answer":"Le triangle est <span class='red'>rectangle et isocèle</span>.",
-            "value":"rectangle et isocèle"
+            "answer":"Das Dreieck ist <span class='red'>rechtwinklig und gleichschenklig</span>.",
+            "value":"rechtwinklig-gleichschenklig"
         }
     ]
 }

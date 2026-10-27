@@ -1,0 +1,169 @@
+{
+  "ID": "DEFC1",
+  "dest": [
+    "EFC"
+  ],
+  "title": "Geradlinige Bewegungen mit Vektoren beschreiben",
+  "description": "Bewegung, geradlinige Bewegung, Drohne, Flugbahn, Position nach t Sekunden, Geschwindigkeitsvektor, Geschwindigkeit, Betrag, Startpunkt, Parameter als Zeit deuten, Gerade im Raum, Sachzusammenhang. Im Online-Modus Koordinaten durch Semikolon trennen, z. B. (2;-3;5).",
+  "type": "text",
+  "textSize": "small",
+  "options": [
+    {
+      "name": "Position zu einem Zeitpunkt",
+      "vars": {
+        "p": "-20_20_2",
+        "h": "0_10",
+        "v": "-5_5_2_^0",
+        "v3": "0_3",
+        "t0": "2_6"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Eine Drohne fliegt geradlinig mit konstanter Geschwindigkeit. Ihre Position nach $$t$$ Sekunden ist $$\\vec{x}(t)=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:h}\\end{pmatrix}+t\\cdot \\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v3}\\end{pmatrix}$$ (Angaben in m). Wo befindet sich die Drohne nach $$${:t0}$$ Sekunden?",
+      "answer": "$$\\vec{x}(${:t0})=\\begin{pmatrix}${:p[0]+:t0*:v[0]}\\\\${:p[1]+:t0*:v[1]}\\\\${:h+:t0*:v3}\\end{pmatrix}$$, also im Punkt $$\\color{red}{P({${:p[0]+:t0*:v[0]}}\\,|\\,{${:p[1]+:t0*:v[1]}}\\,|\\,{${:h+:t0*:v3}})}$$",
+      "value": [
+        "\\left(${:p[0]+:t0*:v[0]};${:p[1]+:t0*:v[1]};${:h+:t0*:v3}\\right)",
+        "${:p[0]+:t0*:v[0]};${:p[1]+:t0*:v[1]};${:h+:t0*:v3}"
+      ]
+    },
+    {
+      "name": "Zeitpunkt für eine bestimmte Höhe",
+      "vars": {
+        "p": "-20_20_2",
+        "h": "0_20",
+        "v": "-5_5_2",
+        "v3": "1_4",
+        "t0": "2_12",
+        "H": "${:h+:t0*:v3}"
+      },
+      "question": "Eine Drohne fliegt geradlinig mit konstanter Geschwindigkeit. Ihre Position nach $$t$$ Sekunden ist $$\\vec{x}(t)=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${:h}\\end{pmatrix}+t\\cdot \\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v3}\\end{pmatrix}$$ (Angaben in m, die $$x_3$$-Koordinate gibt die Höhe an). Nach wie vielen Sekunden erreicht die Drohne eine Höhe von $$${:H}$$ m?",
+      "answer": "$$${:h}+${:v3==1?''::v3}t=${:H}$$ $$\\Rightarrow$$ $$t=\\color{red}{${:t0}}$$ s",
+      "value": "${:t0}"
+    },
+    {
+      "name": "Geschwindigkeit als Betrag des Geschwindigkeitsvektors",
+      "vars": {
+        "T": [
+          [
+            1,
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            8,
+            9
+          ],
+          [
+            4,
+            4,
+            7,
+            9
+          ],
+          [
+            2,
+            6,
+            9,
+            11
+          ],
+          [
+            6,
+            6,
+            7,
+            11
+          ],
+          [
+            3,
+            4,
+            12,
+            13
+          ],
+          [
+            2,
+            10,
+            11,
+            15
+          ],
+          [
+            0,
+            3,
+            4,
+            5
+          ],
+          [
+            0,
+            6,
+            8,
+            10
+          ],
+          [
+            2,
+            4,
+            4,
+            6
+          ],
+          [
+            0,
+            5,
+            12,
+            13
+          ]
+        ],
+        "s": "-1_1_3_^0",
+        "sg": "0_5",
+        "v0": "${:s[0]*(:T)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][0]]}",
+        "v1": "${:s[1]*(:T)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][1]]}",
+        "v2": "${:s[2]*(:T)[[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]][:sg][2]]}",
+        "p": "-20_20_3"
+      },
+      "question": "Eine Drohne fliegt geradlinig mit konstanter Geschwindigkeit. Ihre Position nach $$t$$ Sekunden ist $$\\vec{x}(t)=\\begin{pmatrix}${:p[0]}\\\\${:p[1]}\\\\${Math.abs(:p[2])}\\end{pmatrix}+t\\cdot \\begin{pmatrix}${:v0}\\\\${:v1}\\\\${:v2}\\end{pmatrix}$$ (Angaben in m). Mit welcher Geschwindigkeit (in m/s) fliegt die Drohne?",
+      "answer": "$$\\left|\\begin{pmatrix}${:v0}\\\\${:v1}\\\\${:v2}\\end{pmatrix}\\right|=\\sqrt{${MMmath.nP(:v0)}^2+${MMmath.nP(:v1)}^2+${MMmath.nP(:v2)}^2}=\\sqrt{${(:T)[3]**2}}=\\color{red}{${(:T)[3]}}$$ m/s",
+      "value": "${(:T)[3]}"
+    },
+    {
+      "name": "Startpunkt bestimmen",
+      "vars": {
+        "q": "-20_20_3",
+        "v": "-5_5_3_^0",
+        "t0": "2_5"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Eine Drohne fliegt geradlinig mit dem Geschwindigkeitsvektor $$\\vec{v}=\\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v[2]}\\end{pmatrix}$$ (in m/s). Nach $$${:t0}$$ Sekunden befindet sie sich im Punkt $$Q({${:q[0]}}\\,|\\,{${:q[1]}}\\,|\\,{${Math.abs(:q[2])+:t0*Math.abs(:v[2])}})$$. In welchem Punkt ist sie gestartet?",
+      "answer": "$$\\begin{pmatrix}${:q[0]}\\\\${:q[1]}\\\\${Math.abs(:q[2])+:t0*Math.abs(:v[2])}\\end{pmatrix}-${:t0}\\cdot \\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v[2]}\\end{pmatrix}$$, also $$\\color{red}{P({${:q[0]-:t0*:v[0]}}\\,|\\,{${:q[1]-:t0*:v[1]}}\\,|\\,{${Math.abs(:q[2])+:t0*Math.abs(:v[2])-:t0*:v[2]}})}$$",
+      "value": [
+        "\\left(${:q[0]-:t0*:v[0]};${:q[1]-:t0*:v[1]};${Math.abs(:q[2])+:t0*Math.abs(:v[2])-:t0*:v[2]}\\right)",
+        "${:q[0]-:t0*:v[0]};${:q[1]-:t0*:v[1]};${Math.abs(:q[2])+:t0*Math.abs(:v[2])-:t0*:v[2]}"
+      ]
+    },
+    {
+      "name": "Geschwindigkeitsvektor aus zwei Positionen",
+      "vars": {
+        "a": "-10_10_3",
+        "v": "-5_5_3_^0",
+        "t0": "2_5",
+        "a3": "${Math.abs(:a[2])+5*:t0}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Eine Drohne fliegt geradlinig mit konstanter Geschwindigkeit. Zum Zeitpunkt $$t=0$$ ist sie im Punkt $$A({${:a[0]}}\\,|\\,{${:a[1]}}\\,|\\,{${:a3}})$$, nach $$${:t0}$$ Sekunden im Punkt $$B({${:a[0]+:t0*:v[0]}}\\,|\\,{${:a[1]+:t0*:v[1]}}\\,|\\,{${:a3+:t0*:v[2]}})$$ (Angaben in m). Bestimme den Geschwindigkeitsvektor $$\\vec{v}$$ (in m/s).",
+      "answer": "$$\\vec{v}=\\dfrac{1}{${:t0}}\\cdot\\overrightarrow{AB}=\\dfrac{1}{${:t0}}\\cdot \\begin{pmatrix}${:t0*:v[0]}\\\\${:t0*:v[1]}\\\\${:t0*:v[2]}\\end{pmatrix}=\\color{red}{\\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v[2]}\\end{pmatrix}}$$",
+      "value": [
+        "\\begin{pmatrix}${:v[0]}\\\\${:v[1]}\\\\${:v[2]}\\end{pmatrix}",
+        "\\left(${:v[0]};${:v[1]};${:v[2]}\\right)",
+        "${:v[0]};${:v[1]};${:v[2]}"
+      ]
+    }
+  ]
+}

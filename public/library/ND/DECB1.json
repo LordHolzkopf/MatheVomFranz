@@ -1,0 +1,85 @@
+{
+  "ID": "DECB1",
+  "dest": [
+    "ECB"
+  ],
+  "title": "Tangentensteigung, Tangente und Normale an einer Stelle bestimmen",
+  "description": "Ableitung an einer Stelle, Tangentensteigung, Tangentengleichung, t(x)=mx+n, y-Achsenabschnitt der Tangente, Normale, Normalensteigung, Steigung des Graphen, f'(x0), Berührpunkt",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Tangentensteigung bei f(x)=ax²+c",
+      "vars": {
+        "a": "-3_3_^0",
+        "c": "-5_5",
+        "x0": "-5_5_^0"
+      },
+      "question": "Bestimme die Steigung der Tangente an den Graphen von $$f(x)=${(([[:a,2],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ an der Stelle $$x_0=${:x0}$$.",
+      "answer": "$$\\dfrac{f(${:x0}+h)-f(${:x0})}{h}=\\dfrac{${2*:a*:x0}h${:a==1?'+':(:a==-1?'-':MMmath.signedNumber(:a))}h^{2}}{h}=${2*:a*:x0}${:a==1?'+':(:a==-1?'-':MMmath.signedNumber(:a))}h\\;\\xrightarrow{h\\to 0}\\;${2*:a*:x0}$$, also $$f'(${:x0})=\\color{red}{${2*:a*:x0}}$$",
+      "value": "${2*:a*:x0}"
+    },
+    {
+      "name": "y-Achsenabschnitt der Tangente",
+      "vars": {
+        "x0": "-5_5_^0",
+        "y0": "-9_9",
+        "m": "-6_6_^0"
+      },
+      "question": "Für eine Funktion $$f$$ gilt $$f(${:x0})=${:y0}$$ und $$f'(${:x0})=${:m}$$. Die Tangente an den Graphen von $$f$$ an der Stelle $$${:x0}$$ hat die Gleichung $$t(x)=${MMmath.signIfOne(:m)}x+n$$. Bestimme $$n$$.",
+      "answer": "$$t(${:x0})=f(${:x0})$$: $$${:m}\\cdot ${MMmath.nP(:x0)}+n=${:y0}$$, also $$n=${:y0}${MMmath.signedNumber(-:m*:x0)}=\\color{red}{${:y0-:m*:x0}}$$",
+      "value": "${:y0-:m*:x0}"
+    },
+    {
+      "name": "Tangentengleichung bei f(x)=ax²",
+      "vars": {
+        "a": [
+          1,
+          -1,
+          2,
+          -2
+        ],
+        "x0": "-5_5_^0"
+      },
+      "keys": [
+        "=",
+        "y",
+        "-",
+        "+"
+      ],
+      "question": "Gib die Gleichung der Tangente an den Graphen von $$f(x)=${MMmath.signIfOne(:a)}x^2$$ im Punkt $$P({${:x0}}\\,|\\,{${:a*:x0*:x0}})$$ an.",
+      "answer": "$$m=f'(${:x0})=\\lim\\limits_{h\\to 0}\\dfrac{f(${:x0}+h)-f(${:x0})}{h}=\\lim\\limits_{h\\to 0}\\left(${2*:a*:x0}${:a==1?'+':(:a==-1?'-':MMmath.signedNumber(:a))}h\\right)=${2*:a*:x0}$$, $$n=${:a*:x0*:x0}-${MMmath.nP(2*:a*:x0)}\\cdot ${MMmath.nP(:x0)}=${-:a*:x0*:x0}$$<br>$$\\color{red}{t(x)=${(([[2*:a*:x0,1],[-:a*:x0*:x0,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}}$$",
+      "value": [
+        "${(([[2*:a*:x0,1],[-:a*:x0*:x0,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "y=${(([[2*:a*:x0,1],[-:a*:x0*:x0,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}",
+        "t(x)=${(([[2*:a*:x0,1],[-:a*:x0*:x0,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}"
+      ]
+    },
+    {
+      "name": "Steigung der Normalen",
+      "vars": {
+        "p": "-6_6_^0",
+        "qq": "1_4",
+        "q": "${MMmath.pgcd(Math.abs(:p),:qq)==1?:qq:1}"
+      },
+      "keys": [
+        "/"
+      ],
+      "question": "Die Tangente an den Graphen von $$f$$ im Punkt $$P$$ hat die Steigung $$m_t=${((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(:p,:q)}$$. Gib die Steigung der Normalen in $$P$$ an.",
+      "answer": "$$m_n=-\\dfrac{1}{m_t}=\\color{red}{${((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(-:q,:p)}}$$ (denn $$m_t\\cdot m_n=-1$$)",
+      "value": "${((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(-:q,:p)}"
+    },
+    {
+      "name": "Stelle mit vorgegebener Tangentensteigung",
+      "vars": {
+        "a": "-3_3_^0",
+        "c": "-5_5",
+        "x0": "-5_5_^0",
+        "m": "${2*:a*:x0}"
+      },
+      "question": "An welcher Stelle hat die Tangente an den Graphen von $$f(x)=${(([[:a,2],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ die Steigung $$${:m}$$?",
+      "answer": "$$f'(x_0)=\\lim\\limits_{h\\to 0}\\dfrac{f(x_0+h)-f(x_0)}{h}=\\lim\\limits_{h\\to 0}\\left(${2*:a}x_0${:a==1?'+':(:a==-1?'-':MMmath.signedNumber(:a))}h\\right)=${2*:a}x_0$$<br>$$${2*:a}x_0=${:m}$$, also $$x_0=\\color{red}{${:x0}}$$",
+      "value": "${:x0}"
+    }
+  ]
+}

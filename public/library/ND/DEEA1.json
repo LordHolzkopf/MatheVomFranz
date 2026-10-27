@@ -1,0 +1,92 @@
+{
+  "ID": "DEEA1",
+  "dest": [
+    "EEA"
+  ],
+  "title": "Punkte im räumlichen Koordinatensystem",
+  "description": "räumliches Koordinatensystem, dreidimensional, Punkt im Raum, Koordinaten, x1x2-Ebene, Koordinatenebene, Koordinatenachse, spiegeln, Spiegelpunkt, Mittelpunkt einer Strecke, Abstand von einer Koordinatenebene, Quader, Eckpunkte. Im Online-Modus Koordinaten durch Semikolon trennen, z. B. (2;-3;5).",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "An einer Koordinatenebene spiegeln",
+      "vars": {
+        "P": "-9_9_3_^0",
+        "e": "0_2",
+        "sx": "${[[1,1,-1],[1,-1,1],[-1,1,1]][:e].join(';')}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Spiegle den Punkt $$P({${:P[0]}}\\,|\\,{${:P[1]}}\\,|\\,{${:P[2]}})$$ an der $$${['x_1x_2','x_1x_3','x_2x_3'][:e]}$$-Ebene. Gib die Koordinaten des Bildpunkts $$P'$$ an.",
+      "answer": "Die ${['$$x_3$$','$$x_2$$','$$x_1$$'][:e]}-Koordinate ändert ihr Vorzeichen: $$\\color{red}{P'({${:P[0]*(String(:sx).split(';').map(Number))[0]}}\\,|\\,{${:P[1]*(String(:sx).split(';').map(Number))[1]}}\\,|\\,{${:P[2]*(String(:sx).split(';').map(Number))[2]}})}$$",
+      "value": [
+        "\\left(${:P[0]*(String(:sx).split(';').map(Number))[0]};${:P[1]*(String(:sx).split(';').map(Number))[1]};${:P[2]*(String(:sx).split(';').map(Number))[2]}\\right)",
+        "${:P[0]*(String(:sx).split(';').map(Number))[0]};${:P[1]*(String(:sx).split(';').map(Number))[1]};${:P[2]*(String(:sx).split(';').map(Number))[2]}"
+      ]
+    },
+    {
+      "name": "An einer Koordinatenachse oder am Ursprung spiegeln",
+      "vars": {
+        "P": "-9_9_3_^0",
+        "t": "0_3",
+        "sx": "${[[1,-1,-1],[-1,1,-1],[-1,-1,1],[-1,-1,-1]][:t].join(';')}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Spiegle den Punkt $$P({${:P[0]}}\\,|\\,{${:P[1]}}\\,|\\,{${:P[2]}})$$ ${['an der $$x_1$$-Achse','an der $$x_2$$-Achse','an der $$x_3$$-Achse','am Ursprung'][:t]}. Gib die Koordinaten des Bildpunkts $$P'$$ an.",
+      "answer": "${:t==3?'Alle Koordinaten ändern ihr Vorzeichen':'Die '+['$$x_1$$','$$x_2$$','$$x_3$$'][:t]+'-Koordinate bleibt, die beiden anderen ändern ihr Vorzeichen'}: $$\\color{red}{P'({${:P[0]*(String(:sx).split(';').map(Number))[0]}}\\,|\\,{${:P[1]*(String(:sx).split(';').map(Number))[1]}}\\,|\\,{${:P[2]*(String(:sx).split(';').map(Number))[2]}})}$$",
+      "value": [
+        "\\left(${:P[0]*(String(:sx).split(';').map(Number))[0]};${:P[1]*(String(:sx).split(';').map(Number))[1]};${:P[2]*(String(:sx).split(';').map(Number))[2]}\\right)",
+        "${:P[0]*(String(:sx).split(';').map(Number))[0]};${:P[1]*(String(:sx).split(';').map(Number))[1]};${:P[2]*(String(:sx).split(';').map(Number))[2]}"
+      ]
+    },
+    {
+      "name": "Mittelpunkt einer Strecke",
+      "vars": {
+        "M": "-6_6_3",
+        "d": "-4_4_3_^0"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme den Mittelpunkt $$M$$ der Strecke $$\\overline{AB}$$ mit $$A({${:M[0]-:d[0]}}\\,|\\,{${:M[1]-:d[1]}}\\,|\\,{${:M[2]-:d[2]}})$$ und $$B({${:M[0]+:d[0]}}\\,|\\,{${:M[1]+:d[1]}}\\,|\\,{${:M[2]+:d[2]}})$$.",
+      "answer": "Koordinatenweise Mittelwert bilden: $$\\color{red}{M({${:M[0]}}\\,|\\,{${:M[1]}}\\,|\\,{${:M[2]}})}$$",
+      "value": [
+        "\\left(${:M[0]};${:M[1]};${:M[2]}\\right)",
+        "${:M[0]};${:M[1]};${:M[2]}"
+      ]
+    },
+    {
+      "name": "Abstand von einer Koordinatenebene",
+      "vars": {
+        "P": "-9_9_3_^0",
+        "e": "0_2",
+        "k": "${[2,1,0][:e]}"
+      },
+      "question": "Wie weit ist der Punkt $$P({${:P[0]}}\\,|\\,{${:P[1]}}\\,|\\,{${:P[2]}})$$ von der $$${['x_1x_2','x_1x_3','x_2x_3'][:e]}$$-Ebene entfernt?",
+      "answer": "Der Abstand ist der Betrag der ${['$$x_3$$','$$x_2$$','$$x_1$$'][:e]}-Koordinate: $$d=|${:P[:k]}|=\\color{red}{${Math.abs(:P[:k])}}$$",
+      "value": "${Math.abs(:P[:k])}"
+    },
+    {
+      "name": "Eckpunkt eines Quaders",
+      "vars": {
+        "A": "-4_4_3",
+        "L": "1_6_3",
+        "g": "0_3",
+        "N": "${['C','F','G','H'][:g]}",
+        "v": "${[[1,1,0],[1,0,1],[1,1,1],[0,1,1]][:g].join(';')}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Der Quader $$ABCDEFGH$$ hat die Eckpunkte $$A({${:A[0]}}\\,|\\,{${:A[1]}}\\,|\\,{${:A[2]}})$$, $$B({${:A[0]+:L[0]}}\\,|\\,{${:A[1]}}\\,|\\,{${:A[2]}})$$, $$D({${:A[0]}}\\,|\\,{${:A[1]+:L[1]}}\\,|\\,{${:A[2]}})$$ und $$E({${:A[0]}}\\,|\\,{${:A[1]}}\\,|\\,{${:A[2]+:L[2]}})$$. Gib die Koordinaten von $$${:N}$$ an.",
+      "answer": "Kantenlängen: $$${:L[0]}$$ in $$x_1$$-Richtung $$(\\overline{AB})$$, $$${:L[1]}$$ in $$x_2$$-Richtung $$(\\overline{AD})$$, $$${:L[2]}$$ in $$x_3$$-Richtung $$(\\overline{AE})$$; also $$\\color{red}{${:N}({${:A[0]+:L[0]*Number(String(:v).split(';')[0])}}\\,|\\,{${:A[1]+:L[1]*Number(String(:v).split(';')[1])}}\\,|\\,{${:A[2]+:L[2]*Number(String(:v).split(';')[2])}})}$$",
+      "value": [
+        "\\left(${:A[0]+:L[0]*Number(String(:v).split(';')[0])};${:A[1]+:L[1]*Number(String(:v).split(';')[1])};${:A[2]+:L[2]*Number(String(:v).split(';')[2])}\\right)",
+        "${:A[0]+:L[0]*Number(String(:v).split(';')[0])};${:A[1]+:L[1]*Number(String(:v).split(';')[1])};${:A[2]+:L[2]*Number(String(:v).split(';')[2])}"
+      ]
+    }
+  ]
+}

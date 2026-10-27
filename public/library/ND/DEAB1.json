@@ -1,0 +1,94 @@
+{
+  "ID": "DEAB1",
+  "dest": [
+    "EAB"
+  ],
+  "title": "Potenzfunktionen: Funktionswerte, Symmetrie und Faktor bestimmen",
+  "description": "Potenzfunktion, Potenzfunktionen mit natürlichen und negativen ganzzahligen Exponenten, Funktionswert berechnen, Exponent gerade oder ungerade, achsensymmetrisch zur y-Achse, punktsymmetrisch zum Ursprung, Streckfaktor aus Punkt bestimmen, x hoch minus n",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Funktionswert (natürlicher Exponent)",
+      "vars": {
+        "n": "2_5",
+        "a": "-3_3_^0",
+        "x": "${:n>=4?'-2_2_^0,1,-1':'-3_3_^0,1,-1'}"
+      },
+      "question": "Gegeben ist $$f(x)=${:a==1?'':(:a==-1?'-': :a)}x^{${:n}}$$. Berechne $$f(${:x})$$.",
+      "answer": "$$f(${:x})=${:a==1?'':(:a==-1?'-': :a+'\\cdot ')}${MMmath.nP(:x)}^{${:n}}=${Math.abs(:a)==1?''::a+'\\cdot '+MMmath.nP(:x**:n)+'='}\\color{red}{${:a*:x**:n}}$$",
+      "value": "${:a*:x**:n}"
+    },
+    {
+      "name": "Funktionswert (negativer Exponent, Stammbruch)",
+      "vars": {
+        "n": "1_3",
+        "k": "${:n==3?'2_2':'2_3'}",
+        "s": "-1_1_^0",
+        "a": "1_3",
+        "x": "${:s*:k}"
+      },
+      "keys": [
+        "/"
+      ],
+      "question": "Gegeben ist $$f(x)=${:a==1?''::a}x^{-${:n}}$$. Berechne $$f\\left(${:s<0?'-':''}\\dfrac{1}{${:k}}\\right)$$.",
+      "answer": "$$f(x)=${:a==1?''::a+'\\cdot '}\\left(\\dfrac{1}{x}\\right)^{${:n}}$$, also $$f\\left(${:s<0?'-':''}\\dfrac{1}{${:k}}\\right)=${:a==1?''::a+'\\cdot '}${MMmath.nP(:x)}^{${:n}}=\\color{red}{${:a*:x**:n}}$$",
+      "value": "${:a*:x**:n}"
+    },
+    {
+      "name": "Funktionswert (negativer Exponent, Ergebnis als Bruch)",
+      "vars": {
+        "n": "1_3",
+        "s": "-1_1_^0",
+        "a": "-3_3_^0",
+        "x": "${2*:s}"
+      },
+      "keys": [
+        "/"
+      ],
+      "question": "Gegeben ist $$f(x)=${:a==1?'':(:a==-1?'-': :a)}x^{-${:n}}$$. Berechne $$f(${:x})$$ als vollständig gekürzten Bruch.",
+      "answer": "$$f(${:x})=\\dfrac{${:a}}{${MMmath.nP(:x)}^{${:n}}}=\\dfrac{${:a}}{${:x**:n}}=\\color{red}{${((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(:a,:x**:n)}}$$",
+      "value": "${((n,d)=>{const g=MMmath.pgcd(Math.abs(n),Math.abs(d));n=n/g;d=d/g;if(d<0){n=-n;d=-d;}return d==1?String(n):(n<0?'-':'')+'\\dfrac{'+Math.abs(n)+'}{'+d+'}';})(:a,:x**:n)}"
+    },
+    {
+      "name": "Symmetrie des Graphen (ja/nein)",
+      "vars": {
+        "n": [
+          -4,
+          -3,
+          -2,
+          -1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "a": "-5_5_^0",
+        "t": "0_1"
+      },
+      "keys": [
+        "o",
+        "n"
+      ],
+      "question": "Ist der Graph von $$f(x)=${:a==1?'':(:a==-1?'-': :a)}x^{${:n}}$$ ${:t==0?'achsensymmetrisch zur $$y$$-Achse':'punktsymmetrisch zum Ursprung'}?",
+      "answer": "Der Exponent $$${:n}$$ ist ${Math.abs(:n)%2==0?'gerade, der Graph ist also achsensymmetrisch zur $$y$$-Achse':'ungerade, der Graph ist also punktsymmetrisch zum Ursprung'}: $$\\color{red}{\\text{${((Math.abs(:n)%2==0)==(:t==0))?'ja':'nein'}}}$$",
+      "value": [
+        "${((Math.abs(:n)%2==0)==(:t==0))?'\\text{ja}':'\\text{nein}'}",
+        "${((Math.abs(:n)%2==0)==(:t==0))?'ja':'nein'}"
+      ]
+    },
+    {
+      "name": "Faktor aus einem Punkt bestimmen",
+      "vars": {
+        "n": "2_4",
+        "x": "${:n==4?'-2_2_^0,1,-1':'-3_3_^0,1,-1'}",
+        "a": "-5_5_^0,1"
+      },
+      "question": "Der Graph von $$f(x)=a\\cdot x^{${:n}}$$ verläuft durch den Punkt $$P({${:x}}\\,|\\,{${:a*:x**:n}})$$. Bestimme $$a$$.",
+      "answer": "$$a\\cdot ${MMmath.nP(:x)}^{${:n}}=${:a*:x**:n}$$, also $$a\\cdot ${MMmath.nP(:x**:n)}=${:a*:x**:n}$$ und $$a=\\color{red}{${:a}}$$",
+      "value": "${:a}"
+    }
+  ]
+}

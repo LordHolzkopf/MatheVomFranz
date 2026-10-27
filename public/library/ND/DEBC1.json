@@ -1,0 +1,98 @@
+{
+  "ID": "DEBC1",
+  "dest": [
+    "EBC"
+  ],
+  "title": "Nullstellen ganzrationaler Funktionen bestimmen",
+  "description": "Nullstellen, Satz vom Nullprodukt, Ausklammern, Polynomgleichung, Produktform, Linearfaktoren, Anzahl der Nullstellen, ganzrationale Funktion. Im Online-Modus mehrere Nullstellen durch Semikolon trennen.",
+  "type": "text",
+  "textSize": "medium",
+  "valueType": "liste",
+  "options": [
+    {
+      "name": "Satz vom Nullprodukt",
+      "vars": {
+        "r": "-6_6_3_^&",
+        "a": [
+          1,
+          1,
+          2,
+          -1,
+          -2,
+          3
+        ]
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme alle Nullstellen von $$f(x)=${MMmath.signIfOne(:a)}${[...:r].sort((u,v)=>(v==0)-(u==0)).map(z=>z==0?'x':'(x'+MMmath.signedNumber(-z)+')').join('')}$$.",
+      "answer": "Ein Produkt ist null, wenn ein Faktor null ist: $$\\color{red}{${[...:r].sort((u,v)=>u-v).map((z,i)=>'x_{'+(i+1)+'}='+z).join(',\\ ')}}$$",
+      "value": "${[...:r].sort((u,v)=>u-v).join(';')}"
+    },
+    {
+      "name": "Ausklammern (Rest linear)",
+      "vars": {
+        "n": "2_3",
+        "a": "-3_3_^0",
+        "z": "-6_6_^0",
+        "b": "${-:a*:z}"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme alle Nullstellen von $$f(x)=${(([[:a,:n+1],[:b,:n]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$.",
+      "answer": "$$f(x)=x^{${:n}}(${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)})=0$$ $$\\Rightarrow$$ $$x^{${:n}}=0$$ oder $$${MMmath.signIfOne(:a)}x${MMmath.signedNumber(:b)}=0$$<br>$$\\color{red}{${[...[0,:z]].sort((u,v)=>u-v).map((z,i)=>'x_{'+(i+1)+'}='+z).join(',\\ ')}}$$",
+      "value": "${[...[0,:z]].sort((u,v)=>u-v).join(';')}"
+    },
+    {
+      "name": "Ausklammern (Rest reinquadratisch)",
+      "vars": {
+        "n": "1_2",
+        "a": "-3_3_^0",
+        "k": "1_6"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme alle Nullstellen von $$f(x)=${(([[:a,:n+2],[-:a*:k*:k,:n]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$.",
+      "answer": "$$f(x)=${MMmath.signIfOne(:a)}${:n==1?'x':'x^2'}(x^2-${:k*:k})=0$$ $$\\Rightarrow$$ $$x=0$$ oder $$x^2=${:k*:k}$$<br>$$\\color{red}{${[...[-:k,0,:k]].sort((u,v)=>u-v).map((z,i)=>'x_{'+(i+1)+'}='+z).join(',\\ ')}}$$",
+      "value": "${[...[-:k,0,:k]].sort((u,v)=>u-v).join(';')}"
+    },
+    {
+      "name": "Ausklammern (Rest quadratisch)",
+      "vars": {
+        "pq": "-5_5_2_^0,&"
+      },
+      "keys": [
+        ";"
+      ],
+      "question": "Bestimme alle Nullstellen von $$f(x)=${(([[1,3],[-(:pq[0]+:pq[1]),2],[:pq[0]*:pq[1],1]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$.",
+      "answer": "$$f(x)=x\\left(${(([[1,2],[-(:pq[0]+:pq[1]),1],[:pq[0]*:pq[1],0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}\\right)=x${:pq[0]==0?'x':'(x'+MMmath.signedNumber(-(:pq[0]))+')'}${:pq[1]==0?'x':'(x'+MMmath.signedNumber(-(:pq[1]))+')'}$$<br>$$\\color{red}{${[...[0,:pq[0],:pq[1]]].sort((u,v)=>u-v).map((z,i)=>'x_{'+(i+1)+'}='+z).join(',\\ ')}}$$",
+      "value": "${[...[0,:pq[0],:pq[1]]].sort((u,v)=>u-v).join(';')}"
+    },
+    {
+      "name": "Anzahl der Nullstellen",
+      "vars": {
+        "t": "0_6",
+        "a": [
+          1,
+          1,
+          2,
+          -1,
+          -2
+        ],
+        "p": "-5_5_^0",
+        "k": "1_5",
+        "m": "${:k==5?4: :k+1}",
+        "c": "1_9",
+        "d": "1_9",
+        "fp": "${MMmath.signIfOne(:a)}${['(x^2+'+:c+')(x^2+'+:d+')','x^2(x^2+'+:c+')','(x'+MMmath.signedNumber(-:p)+')(x^2+'+:c+')','x^2(x'+MMmath.signedNumber(-:p)+')','(x^2-'+(:k*:k)+')(x^2+'+:c+')','x(x^2-'+(:k*:k)+')','(x^2-'+(:k*:k)+')(x^2-'+(:m*:m)+')'][:t]}",
+        "ns": "${[[],[0],[:p],[0,:p],[-:k,:k],[-:k,0,:k],[-:m,-:k,:k,:m]][:t].sort((u,v)=>u-v).join(';')}",
+        "anz": "${[0,1,1,2,2,3,4][:t]}"
+      },
+      "question": "Wie viele Nullstellen hat $$f(x)=${:fp}$$?",
+      "answer": "${:anz==0?'Beide Faktoren sind immer positiv, es gibt keine Nullstelle.':'Nullstelle'+(:anz>1?'n':'')+': $$'+String(:ns).split(';').join(';\\ ')+'$$'+([1,2,4].includes(:t)?' (ein Faktor der Form $$x^2+c$$ mit $$c\\gt 0$$ ist nie null)':'')+'.'}<br>Anzahl: $$\\color{red}{${:anz}}$$",
+      "value": "${:anz}"
+    }
+  ]
+}

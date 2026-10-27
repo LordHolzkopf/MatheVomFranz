@@ -121,6 +121,22 @@ const KURZBEFEHLE = {
 // Les rappels de cycle de vie d'un élément personnalisé sont figés à sa
 // déclaration : on règle donc chaque champ dès qu'il apparaît dans la page.
 function kurzbefehleSetzen(feld) {
+  // « | » tapé au clavier physique déroute MathLive (délimiteur de valeur
+  // absolue) : on l'insère tel quel, pour les points P(x|y|z).
+  if (!feld.dataset.mvfStrich) {
+    feld.dataset.mvfStrich = "1";
+    feld.addEventListener(
+      "keydown",
+      (ev) => {
+        if (ev.key === "|") {
+          ev.preventDefault();
+          ev.stopPropagation();
+          feld.executeCommand(["insert", "|"]);
+        }
+      },
+      true,
+    );
+  }
   try {
     feld.inlineShortcuts = KURZBEFEHLE;
   } catch (e) {

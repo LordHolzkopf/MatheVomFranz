@@ -1,0 +1,96 @@
+{
+  "ID": "DEAC1",
+  "dest": [
+    "EAC"
+  ],
+  "title": "Transformationen von Funktionsgraphen: Verschieben, Strecken, Spiegeln",
+  "description": "Transformation, verschieben in x-Richtung und y-Richtung, strecken, stauchen, spiegeln an der x-Achse, spiegeln an der y-Achse, Parameter deuten, g(x)=a·f(b(x-c))+d, Streckfaktor, Funktionsterm der verschobenen Funktion angeben",
+  "type": "text",
+  "textSize": "medium",
+  "options": [
+    {
+      "name": "Verschobener Graph: Funktionswert berechnen",
+      "vars": {
+        "n": "2_3",
+        "c": "-4_4_^0",
+        "d": "-5_5_^0",
+        "t": "${:n==3?'-2_2':'-3_3'}",
+        "x0": "${:c+:t}"
+      },
+      "question": "Der Graph von $$f(x)=x^{${:n}}$$ wird um ${Math.abs(:c)} Einheit${Math.abs(:c)==1?'':'en'} nach ${:c>0?'rechts':'links'} und um ${Math.abs(:d)} Einheit${Math.abs(:d)==1?'':'en'} nach ${:d>0?'oben':'unten'} verschoben. Berechne für die neue Funktion $$g$$ den Wert $$g(${:x0})$$.",
+      "answer": "$$g(x)=(x${MMmath.signedNumber(-:c)})^{${:n}}${MMmath.signedNumber(:d)}$$<br>$$g(${:x0})=${MMmath.nP(:t)}^{${:n}}${MMmath.signedNumber(:d)}=\\color{red}{${:t**:n+:d}}$$",
+      "value": "${:t**:n+:d}"
+    },
+    {
+      "name": "Parameter deuten",
+      "vars": {
+        "n": "2_4",
+        "a": "2_5",
+        "c": "-5_5_^0",
+        "d": "-6_6_^0",
+        "t": "0_2"
+      },
+      "question": "Der Graph von $$g(x)=${:a}(x${MMmath.signedNumber(-:c)})^{${:n}}${MMmath.signedNumber(:d)}$$ entsteht aus dem Graphen von $$f(x)=x^{${:n}}$$. ${['Gib den Streckfaktor in $$y$$-Richtung an.','Gib die Verschiebung in $$x$$-Richtung an (nach rechts positiv, nach links negativ).','Gib die Verschiebung in $$y$$-Richtung an (nach oben positiv, nach unten negativ).'][:t]}",
+      "answer": "Streckung mit dem Faktor $$${:t==0?'\\color{red}{'+:a+'}':(:a)}$$ in $$y$$-Richtung, Verschiebung um $$${:t==1?'\\color{red}{'+:c+'}':(:c)}$$ in $$x$$-Richtung (nach ${:c>0?'rechts':'links'}) und um $$${:t==2?'\\color{red}{'+:d+'}':(:d)}$$ in $$y$$-Richtung (nach ${:d>0?'oben':'unten'}).",
+      "value": "${[:a,:c,:d][:t]}"
+    },
+    {
+      "name": "An einer Koordinatenachse spiegeln",
+      "vars": {
+        "a": [
+          1,
+          -1
+        ],
+        "b": "-5_5_^0",
+        "c": "-6_6",
+        "t": "0_1",
+        "x0": "-3_3_^0",
+        "f0": "${:a*:x0**2+:b*:x0+:c}",
+        "fm": "${:a*:x0**2-:b*:x0+:c}"
+      },
+      "question": "Der Graph von $$f(x)=${(([[:a,2],[:b,1],[:c,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}$$ wird an der $$${:t==0?'x':'y'}$$-Achse gespiegelt. Berechne für die gespiegelte Funktion $$g$$ den Wert $$g(${:x0})$$.",
+      "answer": "${:t==0?'$$g(x)=-f(x)$$ und $$f('+:x0+')='+:f0+'$$, also $$g('+:x0+')=-f('+:x0+')=\\color{red}{'+(-:f0)+'}$$':'$$g(x)=f(-x)$$, also $$g('+:x0+')=f('+(-:x0)+')=\\color{red}{'+:fm+'}$$'}",
+      "value": "${:t==0?-:f0: :fm}"
+    },
+    {
+      "name": "In x- oder y-Richtung strecken",
+      "vars": {
+        "c": "-9_9_^0",
+        "t": "0_1",
+        "k": "${:t==0?'2_4':'2_3'}",
+        "x0": "${:t==1?'-2_2_^0':'-3_3_^0'}"
+      },
+      "question": "${:t==0?'Der Graph von $$f(x)=x^2'+MMmath.signedNumber(:c)+'$$ wird mit dem Faktor $$'+:k+'$$ in $$y$$-Richtung gestreckt. Berechne für die gestreckte Funktion $$g$$ den Wert $$g('+:x0+')$$.':'Für $$f(x)=x^2'+MMmath.signedNumber(:c)+'$$ ist $$g(x)=f('+:k+'x)$$. Berechne $$g('+:x0+')$$.'}",
+      "answer": "${:t==0?'$$g(x)='+:k+'\\cdot f(x)$$, also $$g('+:x0+')='+:k+'\\cdot f('+:x0+')='+:k+'\\cdot '+MMmath.nP(:x0**2+:c)+'=\\color{red}{'+(:k*(:x0**2+:c))+'}$$':'$$g('+:x0+')=f('+(:k*:x0)+')='+MMmath.nP(:k*:x0)+'^2'+MMmath.signedNumber(:c)+'=\\color{red}{'+(:k*:k*:x0*:x0+:c)+'}$$ (Streckung in $$x$$-Richtung mit dem Faktor $$\\tfrac{1}{'+:k+'}$$)'}",
+      "value": "${:t==0?:k*(:x0**2+:c): :k*:k*:x0*:x0+:c}"
+    },
+    {
+      "name": "Funktionsterm nach Verschiebung angeben",
+      "vars": {
+        "n": "2_3",
+        "s": [
+          1,
+          1,
+          -1
+        ],
+        "c": "-5_5_^0",
+        "d": "-6_6_^0",
+        "g": "${:s<0?'-':''}(x${MMmath.signedNumber(-:c)})^${:n}${MMmath.signedNumber(:d)}",
+        "ga": "${((:n==2?[[:s,2],[-2*:s*:c,1],[:s*:c*:c+:d,0]]:[[:s,3],[-3*:s*:c,2],[3*:s*:c*:c,1],[-:s*:c**3+:d,0]]).filter(t=>t[0]!=0).map((t,i)=>{const c=t[0],k=t[1],m=Math.abs(c);return (c<0?'-':(i>0?'+':''))+((k>0&&m==1)?'' : m)+(k==0?'':(k==1?'x':'x^{'+k+'}'));}).join('')||'0')}"
+      },
+      "keys": [
+        "^",
+        "_",
+        "-",
+        "+"
+      ],
+      "question": "Der Graph von $$f(x)=x^{${:n}}$$ wird ${:s<0?'an der $$x$$-Achse gespiegelt und anschließend ':''}um ${Math.abs(:c)} Einheit${Math.abs(:c)==1?'':'en'} nach ${:c>0?'rechts':'links'} und um ${Math.abs(:d)} Einheit${Math.abs(:d)==1?'':'en'} nach ${:d>0?'oben':'unten'} verschoben. Gib den Funktionsterm der neuen Funktion $$g$$ an.",
+      "answer": "$$g(x)=\\color{red}{${:g}}$$ (ausmultipliziert: $$g(x)=${:ga}$$)",
+      "value": [
+        "${:g}",
+        "g(x)=${:g}",
+        "${:ga}"
+      ]
+    }
+  ]
+}

@@ -730,7 +730,10 @@ const diaporama = {
   },
   showSampleQuestion: function () {
     let nb = diaporama.slidersNumber;
-    diaporama.seed = utils.setSeed("sample");
+    // MatheVomFranz : nouvelle graine pour l'exemple, sans écraser
+    // diaporama.seed – sinon « recommencer avec les mêmes données » et la
+    // graine transmise au site parent ne correspondent plus à la série.
+    utils.setSeed("sample");
     let container = document.getElementById("slideshow");
     let assocSliderActivity = [];
     // génération des données aléatoires pour les exemples

@@ -1,0 +1,365 @@
+{
+    "title": "Lage- und Streumaße berechnen",
+    "ID": "DQHE1",
+    "description": "Mittelwert, arithmetisches Mittel, Median, Zentralwert, Spannweite, empirische Varianz, mittlere quadratische Abweichung, empirische Standardabweichung, Häufigkeitstabelle, Lagemaße, Streumaße, Statistik, Datenerhebung.",
+    "dest": [
+        "QHE"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Arithmetisches Mittel",
+            "vars": {
+                "dv": [
+                    [
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        -3,
+                        -1,
+                        0,
+                        1,
+                        3
+                    ],
+                    [
+                        -4,
+                        -2,
+                        0,
+                        2,
+                        4
+                    ],
+                    [
+                        -3,
+                        -3,
+                        0,
+                        3,
+                        3
+                    ],
+                    [
+                        -5,
+                        0,
+                        0,
+                        0,
+                        5
+                    ],
+                    [
+                        -6,
+                        -3,
+                        0,
+                        3,
+                        6
+                    ],
+                    [
+                        -4,
+                        -1,
+                        1,
+                        2,
+                        2
+                    ],
+                    [
+                        -2,
+                        -2,
+                        -1,
+                        1,
+                        4
+                    ],
+                    [
+                        -5,
+                        -1,
+                        1,
+                        2,
+                        3
+                    ],
+                    [
+                        -3,
+                        -2,
+                        0,
+                        1,
+                        4
+                    ]
+                ],
+                "m": "7_20",
+                "L": "${utils.shuffle(:dv.map(x => x + :m)).join(';\\; ')}"
+            },
+            "question": "Berechne den Mittelwert der Daten $$:L$$.",
+            "answer": "$$\\bar{x}=\\dfrac{${5*:m}}{5}=\\color{red}{:m}$$",
+            "value": ":m",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Median (ungerade Anzahl)",
+            "vars": {
+                "x": "1_40_7_^&",
+                "L": "${:x.join(';\\; ')}",
+                "S": "${:x.slice().sort((a,b) => a-b).join(';\\; ')}",
+                "med": "${:x.slice().sort((a,b) => a-b)[3]}"
+            },
+            "question": "Bestimme den Median der Daten $$:L$$.",
+            "answer": "Geordnet: $$:S$$; der mittlere (4.) Wert ist $$\\tilde{x}=\\color{red}{:med}$$",
+            "value": ":med",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Median (gerade Anzahl)",
+            "vars": {
+                "x": "1_40_6_^&",
+                "L": "${:x.join(';\\; ')}",
+                "S": "${:x.slice().sort((a,b) => a-b).join(';\\; ')}",
+                "u": "${:x.slice().sort((a,b) => a-b)[2]}",
+                "o": "${:x.slice().sort((a,b) => a-b)[3]}",
+                "med": "${(:u+:o)/2}"
+            },
+            "question": "Bestimme den Median der Daten $$:L$$.",
+            "answer": "Geordnet: $$:S$$; $$\\tilde{x}=\\dfrac{:u+:o}{2}=\\color{red}{:med}$$",
+            "value": [
+                "${:med}",
+                "${String(:med).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Mittelwert aus einer Häufigkeitstabelle",
+            "vars": {
+                "a": "1_9",
+                "d": "1_3",
+                "h1": "1_6",
+                "h2": "1_${8-:h1}",
+                "h3": "${10-:h1-:h2}",
+                "N": "${:h1+:h2+:h3}",
+                "S": "${:h1*:a+:h2*(:a+:d)+:h3*(:a+2*:d)}",
+                "M": "${MMmath.round(:S/:N,2)}"
+            },
+            "question": "Berechne den Mittelwert:<br>$$\\begin{array}{c|c|c|c}\\text{Wert} & :a & ${:a+:d} & ${:a+2*:d}\\\\\\hline \\text{Häufigkeit} & :h1 & :h2 & :h3\\end{array}$$",
+            "shortq": "$$\\begin{array}{c|c|c|c}\\text{Wert} & :a & ${:a+:d} & ${:a+2*:d}\\\\\\hline \\text{Häufigkeit} & :h1 & :h2 & :h3\\end{array}$$",
+            "answer": "$$\\bar{x}=\\dfrac{:h1\\cdot :a+:h2\\cdot ${:a+:d}+:h3\\cdot ${:a+2*:d}}{:N}=\\dfrac{:S}{:N}=\\color{red}{:M}$$",
+            "value": [
+                "${:M}",
+                "${String(:M).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Empirische Varianz",
+            "vars": {
+                "dv": [
+                    [
+                        -3,
+                        -1,
+                        1,
+                        3
+                    ],
+                    [
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        -3,
+                        -1,
+                        0,
+                        1,
+                        3
+                    ],
+                    [
+                        -4,
+                        -2,
+                        0,
+                        2,
+                        4
+                    ],
+                    [
+                        -5,
+                        0,
+                        0,
+                        0,
+                        5
+                    ],
+                    [
+                        -4,
+                        -3,
+                        0,
+                        3,
+                        4
+                    ],
+                    [
+                        -2,
+                        -2,
+                        2,
+                        2
+                    ],
+                    [
+                        -1,
+                        -1,
+                        1,
+                        1
+                    ],
+                    [
+                        -4,
+                        -2,
+                        2,
+                        4
+                    ],
+                    [
+                        -2,
+                        0,
+                        0,
+                        2
+                    ],
+                    [
+                        -6,
+                        -3,
+                        0,
+                        3,
+                        6
+                    ]
+                ],
+                "m": "5_15",
+                "L": "${utils.shuffle(:dv.map(x => x + :m)).join(';\\; ')}",
+                "n": "${:dv.length}",
+                "q": "${:dv.reduce((s,x) => s + x*x, 0)}",
+                "V": "${:q/:dv.length}"
+            },
+            "question": "Berechne die empirische Varianz $$s^2$$ (mittlere quadratische Abweichung vom Mittelwert) der Daten $$:L$$.",
+            "answer": "$$\\bar{x}=:m$$, Abweichungen: $$${:dv.join(';\\; ')}$$<br>$$s^2=\\dfrac{${:dv.map(x => x*x).join('+')}}{:n}=\\dfrac{:q}{:n}=\\color{red}{:V}$$",
+            "value": ":V",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Empirische Standardabweichung",
+            "vars": {
+                "dv": [
+                    [
+                        -1,
+                        -1,
+                        1,
+                        1
+                    ],
+                    [
+                        -2,
+                        -2,
+                        2,
+                        2
+                    ],
+                    [
+                        -3,
+                        -3,
+                        3,
+                        3
+                    ],
+                    [
+                        -4,
+                        -4,
+                        4,
+                        4
+                    ],
+                    [
+                        -5,
+                        -5,
+                        5,
+                        5
+                    ],
+                    [
+                        -1,
+                        -1,
+                        -1,
+                        1,
+                        1,
+                        1
+                    ],
+                    [
+                        -2,
+                        -2,
+                        -2,
+                        2,
+                        2,
+                        2
+                    ],
+                    [
+                        -3,
+                        -3,
+                        -3,
+                        3,
+                        3,
+                        3
+                    ],
+                    [
+                        -7,
+                        -1,
+                        1,
+                        7
+                    ]
+                ],
+                "m": "5_15",
+                "L": "${utils.shuffle(:dv.map(x => x + :m)).join(';\\; ')}",
+                "n": "${:dv.length}",
+                "q": "${:dv.reduce((s,x) => s + x*x, 0)}",
+                "sd": "${Math.sqrt(:q/:dv.length)}"
+            },
+            "question": "Berechne die empirische Standardabweichung $$s$$ der Daten $$:L$$.",
+            "answer": "$$\\bar{x}=:m$$, $$s^2=\\dfrac{${:dv.map(x => x*x).join('+')}}{:n}=${:q/:n}$$, also $$s=\\color{red}{:sd}$$",
+            "value": ":sd",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

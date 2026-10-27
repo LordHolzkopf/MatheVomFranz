@@ -1,0 +1,394 @@
+{
+    "title": "Mit den Sigma-Regeln rechnen",
+    "ID": "DQJA1",
+    "description": "Sigma-Regeln, σ-Umgebung, Binomialverteilung, Erwartungswert, Standardabweichung, 68,3 %, 95,4 %, 99,7 %, 90 %, 95 %, 99 %, 1,64σ, 1,96σ, 2,58σ, Laplace-Bedingung σ > 3 (nur LK).",
+    "dest": [
+        "QJA"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Wahrscheinlichkeit einer σ-Umgebung",
+            "vars": {
+                "b": [
+                    [
+                        64,
+                        "0{,}5",
+                        0.5,
+                        4
+                    ],
+                    [
+                        100,
+                        "0{,}5",
+                        0.5,
+                        5
+                    ],
+                    [
+                        144,
+                        "0{,}5",
+                        0.5,
+                        6
+                    ],
+                    [
+                        196,
+                        "0{,}5",
+                        0.5,
+                        7
+                    ],
+                    [
+                        256,
+                        "0{,}5",
+                        0.5,
+                        8
+                    ],
+                    [
+                        400,
+                        "0{,}5",
+                        0.5,
+                        10
+                    ],
+                    [
+                        100,
+                        "0{,}2",
+                        0.2,
+                        4
+                    ],
+                    [
+                        225,
+                        "0{,}2",
+                        0.2,
+                        6
+                    ],
+                    [
+                        400,
+                        "0{,}2",
+                        0.2,
+                        8
+                    ],
+                    [
+                        100,
+                        "0{,}8",
+                        0.8,
+                        4
+                    ],
+                    [
+                        400,
+                        "0{,}1",
+                        0.1,
+                        6
+                    ],
+                    [
+                        400,
+                        "0{,}9",
+                        0.9,
+                        6
+                    ],
+                    [
+                        192,
+                        "0{,}25",
+                        0.25,
+                        6
+                    ],
+                    [
+                        192,
+                        "0{,}75",
+                        0.75,
+                        6
+                    ],
+                    [
+                        150,
+                        "0{,}4",
+                        0.4,
+                        6
+                    ],
+                    [
+                        150,
+                        "0{,}6",
+                        0.6,
+                        6
+                    ],
+                    [
+                        600,
+                        "0{,}4",
+                        0.4,
+                        12
+                    ],
+                    [
+                        180,
+                        "\\tfrac{1}{6}",
+                        0.16666666666666666,
+                        5
+                    ],
+                    [
+                        720,
+                        "\\tfrac{1}{6}",
+                        0.16666666666666666,
+                        10
+                    ]
+                ],
+                "n": "${:b[0]}",
+                "pt": "${:b[1]}",
+                "p": "${:b[2]}",
+                "s": "${:b[3]}",
+                "mu": "${MMmath.round(:b[0]*:b[2],4)}",
+                "c": "1_3",
+                "lo": "${MMmath.round(:mu-:c*:s,4)}",
+                "hi": "${MMmath.round(:mu+:c*:s,4)}",
+                "P": "${[0.683,0.954,0.997][:c-1]}"
+            },
+            "question": "$$X$$ ist binomialverteilt mit $$n=:n$$ und $$p=:pt$$. Gib mit den Sigma-Regeln einen Näherungswert für $$P(:lo\\le X\\le :hi)$$ an.",
+            "shortq": "$$n=:n$$, $$p=:pt$$: $$P(:lo\\le X\\le :hi)\\approx ?$$",
+            "answer": "$$\\mu=:mu$$, $$\\sigma=\\sqrt{${MMmath.round(:n*:p*(1-:p),4)}}=:s$$. Das Intervall ist die $$${:c===1 ? '' : :c}\\sigma$$-Umgebung von $$\\mu$$, also $$P\\approx\\color{red}{${String(:P).replace('.', '{,}')}}$$",
+            "value": [
+                "${:P}",
+                "${String(:P).replace('.', ',')}",
+                "${MMmath.round(100*:P,2)}\\%",
+                "${String(MMmath.round(100*:P,2)).replace('.', ',')}\\%"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "%"
+            ]
+        },
+        {
+            "name": "σ-Umgebung angeben",
+            "vars": {
+                "b": [
+                    [
+                        64,
+                        "0{,}5",
+                        0.5,
+                        4
+                    ],
+                    [
+                        100,
+                        "0{,}5",
+                        0.5,
+                        5
+                    ],
+                    [
+                        144,
+                        "0{,}5",
+                        0.5,
+                        6
+                    ],
+                    [
+                        196,
+                        "0{,}5",
+                        0.5,
+                        7
+                    ],
+                    [
+                        256,
+                        "0{,}5",
+                        0.5,
+                        8
+                    ],
+                    [
+                        400,
+                        "0{,}5",
+                        0.5,
+                        10
+                    ],
+                    [
+                        100,
+                        "0{,}2",
+                        0.2,
+                        4
+                    ],
+                    [
+                        225,
+                        "0{,}2",
+                        0.2,
+                        6
+                    ],
+                    [
+                        400,
+                        "0{,}2",
+                        0.2,
+                        8
+                    ],
+                    [
+                        100,
+                        "0{,}8",
+                        0.8,
+                        4
+                    ],
+                    [
+                        400,
+                        "0{,}1",
+                        0.1,
+                        6
+                    ],
+                    [
+                        400,
+                        "0{,}9",
+                        0.9,
+                        6
+                    ],
+                    [
+                        192,
+                        "0{,}25",
+                        0.25,
+                        6
+                    ],
+                    [
+                        192,
+                        "0{,}75",
+                        0.75,
+                        6
+                    ],
+                    [
+                        150,
+                        "0{,}4",
+                        0.4,
+                        6
+                    ],
+                    [
+                        150,
+                        "0{,}6",
+                        0.6,
+                        6
+                    ],
+                    [
+                        600,
+                        "0{,}4",
+                        0.4,
+                        12
+                    ],
+                    [
+                        180,
+                        "\\tfrac{1}{6}",
+                        0.16666666666666666,
+                        5
+                    ],
+                    [
+                        720,
+                        "\\tfrac{1}{6}",
+                        0.16666666666666666,
+                        10
+                    ]
+                ],
+                "n": "${:b[0]}",
+                "pt": "${:b[1]}",
+                "p": "${:b[2]}",
+                "s": "${:b[3]}",
+                "mu": "${MMmath.round(:b[0]*:b[2],4)}",
+                "c": "1_3",
+                "lo": "${MMmath.round(:mu-:c*:s,4)}",
+                "hi": "${MMmath.round(:mu+:c*:s,4)}"
+            },
+            "question": "$$X$$ ist binomialverteilt mit $$n=:n$$ und $$p=:pt$$. Gib das Intervall an, in dem $$X$$ mit etwa $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$ Wahrscheinlichkeit liegt ($$${:c===1 ? '' : :c}\\sigma$$-Umgebung von $$\\mu$$).",
+            "shortq": "$$n=:n$$, $$p=:pt$$: $$${:c===1 ? '' : :c}\\sigma$$-Umgebung",
+            "answer": "$$\\mu=:mu$$, $$\\sigma=:s$$: $$\\color{red}{\\left[:mu-${:c===1 ? '' : :c + '\\cdot'}:s;\\; :mu+${:c===1 ? '' : :c + '\\cdot'}:s\\right]=\\left[:lo;\\,:hi\\right]}$$",
+            "value": [
+                "\\left[:lo;:hi\\right]",
+                ":lo;:hi"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "[",
+                "_",
+                ";",
+                "_"
+            ]
+        },
+        {
+            "name": "Radius zu einer Sicherheitswahrscheinlichkeit",
+            "vars": {
+                "lv": [
+                    [
+                        90,
+                        1.64
+                    ],
+                    [
+                        95,
+                        1.96
+                    ],
+                    [
+                        99,
+                        2.58
+                    ]
+                ],
+                "s": [
+                    4,
+                    5,
+                    6,
+                    8,
+                    10,
+                    12
+                ],
+                "mu": "20_200",
+                "r": "${MMmath.round(:lv[1]*:s,2)}"
+            },
+            "question": "Für eine binomialverteilte Zufallsgröße gilt $$\\mu=:mu$$ und $$\\sigma=:s$$. Gib den Radius $$r$$ der Umgebung $$[\\mu-r;\\,\\mu+r]$$ an, in der $$X$$ mit etwa $$${:lv[0]}\\,\\%$$ Wahrscheinlichkeit liegt.",
+            "shortq": "$$\\mu=:mu$$, $$\\sigma=:s$$, $$${:lv[0]}\\,\\%$$: $$r=?$$",
+            "answer": "Zu $$${:lv[0]}\\,\\%$$ gehört $$${String(:lv[1]).replace('.', '{,}')}\\sigma$$: $$r=${String(:lv[1]).replace('.', '{,}')}\\cdot :s=\\color{red}{:r}$$",
+            "value": [
+                "${:r}",
+                "${String(:r).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Laplace-Bedingung prüfen (ja/nein)",
+            "vars": {
+                "n": [
+                    20,
+                    30,
+                    40,
+                    50,
+                    60,
+                    80,
+                    100,
+                    150,
+                    200
+                ],
+                "p": [
+                    0.1,
+                    0.2,
+                    0.3,
+                    0.4,
+                    0.5
+                ],
+                "v": "${MMmath.round(:n*:p*(1-:p),4)}"
+            },
+            "question": "$$X$$ ist binomialverteilt mit $$n=:n$$ und $$p=:p$$. Ist die Laplace-Bedingung $$\\sigma>3$$ erfüllt? Antworte mit ja oder nein.",
+            "shortq": "$$n=:n$$, $$p=:p$$: $$\\sigma>3$$?",
+            "answer": "$$\\sigma^2=n\\cdot p\\cdot(1-p)=:v$$; $$\\sigma>3\\iff\\sigma^2>9$$. <span class='red'>${:v > 9 ? 'Ja' : 'Nein'}</span>",
+            "value": [
+                "${:v > 9 ? 'ja' : 'nein'}",
+                "${:v > 9 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

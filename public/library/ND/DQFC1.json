@@ -1,0 +1,433 @@
+{
+    "title": "Mit Ebenen in Parameterform rechnen",
+    "ID": "DQFC1",
+    "description": "Ebene, Parameterform, Parametergleichung, Stützvektor, Spannvektoren, Richtungsvektoren, Punktprobe, Parameter bestimmen, Ebene durch drei Punkte, fehlende Koordinate. Online: Koordinaten bzw. r und s mit Semikolon trennen.",
+    "dest": [
+        "QFC"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Punkt zu Parameterwerten berechnen",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "r0": "-3_3_^0",
+                "s0": "-3_3_^0",
+                "P1": "${:p1+:r0*:u1+:s0*:v1}",
+                "P2": "${:p2+:r0*:u2+:s0*:v2}",
+                "P3": "${:p3+:r0*:u3+:s0*:v3}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}"
+            },
+            "question": "Berechne den Punkt der Ebene $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$ für $$r=:r0$$ und $$s=:s0$$.",
+            "shortq": "$$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$, $$r=:r0$$, $$s=:s0$$",
+            "answer": "$$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:r0)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+${MMmath.nP(:s0)}\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}=\\color{red}{\\begin{pmatrix}:P1\\\\:P2\\\\:P3\\end{pmatrix}}$$",
+            "value": [
+                ":P1;:P2;:P3",
+                "\\left(:P1;:P2;:P3\\right)",
+                "(:P1;:P2;:P3)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Parameterwerte eines Punktes bestimmen",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "r0": "-3_3_^0",
+                "s0": "-3_3_^0",
+                "P1": "${:p1+:r0*:u1+:s0*:v1}",
+                "P2": "${:p2+:r0*:u2+:s0*:v2}",
+                "P3": "${:p3+:r0*:u3+:s0*:v3}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}"
+            },
+            "question": "Der Punkt $$P({:P1}|{:P2}|{:P3})$$ liegt in $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$. Gib die zugehörigen Parameterwerte $$r$$ und $$s$$ an.",
+            "shortq": "$$P({:P1}|{:P2}|{:P3})$$ in $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$: $$r;s$$",
+            "answer": "$$x_{:i}$$: $$${[:P1,:P2,:P3][:i-1]}=${[:p1,:p2,:p3][:i-1]}${MMmath.signedNumberButOne(:f)}r\\Rightarrow r=:r0$$, $$x_{:j}$$: $$${[:P1,:P2,:P3][:j-1]}=${[:p1,:p2,:p3][:j-1]}${MMmath.signedNumberButOne(:g)}s\\Rightarrow s=:s0$$<br>$$\\color{red}{r=:r0;\\; s=:s0}$$",
+            "value": [
+                ":r0;:s0",
+                "\\left(:r0;:s0\\right)",
+                "(:r0;:s0)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Punktprobe (ja/nein)",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "r0": "-3_3_^0",
+                "s0": "-3_3_^0",
+                "P1": "${:p1+:r0*:u1+:s0*:v1}",
+                "P2": "${:p2+:r0*:u2+:s0*:v2}",
+                "P3": "${:p3+:r0*:u3+:s0*:v3}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}",
+                "on": "0_1",
+                "dd": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "Q1": "${:P1+(:on===0 && :k===1 ? :dd : 0)}",
+                "Q2": "${:P2+(:on===0 && :k===2 ? :dd : 0)}",
+                "Q3": "${:P3+(:on===0 && :k===3 ? :dd : 0)}"
+            },
+            "question": "Liegt der Punkt $$Q({:Q1}|{:Q2}|{:Q3})$$ in der Ebene $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$? Antworte mit ja oder nein.",
+            "shortq": "$$Q({:Q1}|{:Q2}|{:Q3})$$ in $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$?",
+            "answer": "$$x_{:i}$$: $$${[:Q1,:Q2,:Q3][:i-1]}=${[:p1,:p2,:p3][:i-1]}${MMmath.signedNumberButOne(:f)}r\\Rightarrow r=:r0$$, $$x_{:j}$$: $$${[:Q1,:Q2,:Q3][:j-1]}=${[:p1,:p2,:p3][:j-1]}${MMmath.signedNumberButOne(:g)}s\\Rightarrow s=:s0$$<br>$$x_{:k}$$: $$${[:p1,:p2,:p3][:k-1]}+${MMmath.nP(:r0)}\\cdot ${MMmath.nP([:u1,:u2,:u3][:k-1])}+${MMmath.nP(:s0)}\\cdot ${MMmath.nP([:v1,:v2,:v3][:k-1])}=${[:P1,:P2,:P3][:k-1]}${:on===1 ? '=' : '\\neq '}${[:Q1,:Q2,:Q3][:k-1]}$$<br><span class='red'>${:on===1 ? 'Ja' : 'Nein'}</span>",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Fehlende Koordinate ergänzen",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "r0": "-3_3_^0",
+                "s0": "-3_3_^0",
+                "P1": "${:p1+:r0*:u1+:s0*:v1}",
+                "P2": "${:p2+:r0*:u2+:s0*:v2}",
+                "P3": "${:p3+:r0*:u3+:s0*:v3}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}"
+            },
+            "question": "Bestimme $$a$$ so, dass der Punkt $$P(${:k===1 ? 'a' : '{'+:P1+'}'}|${:k===2 ? 'a' : '{'+:P2+'}'}|${:k===3 ? 'a' : '{'+:P3+'}'})$$ in der Ebene $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$ liegt.",
+            "shortq": "$$P(${:k===1 ? 'a' : '{'+:P1+'}'}|${:k===2 ? 'a' : '{'+:P2+'}'}|${:k===3 ? 'a' : '{'+:P3+'}'})$$ in $$E:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+r\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$",
+            "answer": "$$x_{:i}$$: $$${[:P1,:P2,:P3][:i-1]}=${[:p1,:p2,:p3][:i-1]}${MMmath.signedNumberButOne(:f)}r\\Rightarrow r=:r0$$, $$x_{:j}$$: $$${[:P1,:P2,:P3][:j-1]}=${[:p1,:p2,:p3][:j-1]}${MMmath.signedNumberButOne(:g)}s\\Rightarrow s=:s0$$<br>$$a=${[:p1,:p2,:p3][:k-1]}+${MMmath.nP(:r0)}\\cdot ${MMmath.nP([:u1,:u2,:u3][:k-1])}+${MMmath.nP(:s0)}\\cdot ${MMmath.nP([:v1,:v2,:v3][:k-1])}=\\color{red}{${[:P1,:P2,:P3][:k-1]}}$$",
+            "value": "${[:P1,:P2,:P3][:k-1]}",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Ebene durch drei Punkte",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "r0": "-3_3_^0",
+                "s0": "-3_3_^0",
+                "P1": "${:p1+:r0*:u1+:s0*:v1}",
+                "P2": "${:p2+:r0*:u2+:s0*:v2}",
+                "P3": "${:p3+:r0*:u3+:s0*:v3}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}",
+                "B1": "${:p1+:u1}",
+                "B2": "${:p2+:u2}",
+                "B3": "${:p3+:u3}",
+                "C1": "${:p1+:v1}",
+                "C2": "${:p2+:v2}",
+                "C3": "${:p3+:v3}"
+            },
+            "question": "Die Ebene $$E$$ enthält $$A({:p1}|{:p2}|{:p3})$$, $$B({:B1}|{:B2}|{:B3})$$ und $$C({:C1}|{:C2}|{:C3})$$. Berechne den Punkt von $$E:\\;\\vec{x}=\\overrightarrow{OA}+r\\cdot\\overrightarrow{AB}+s\\cdot\\overrightarrow{AC}$$ für $$r=:r0$$ und $$s=:s0$$.",
+            "shortq": "$$A({:p1}|{:p2}|{:p3})$$, $$B({:B1}|{:B2}|{:B3})$$, $$C({:C1}|{:C2}|{:C3})$$, $$r=:r0$$, $$s=:s0$$",
+            "answer": "$$\\overrightarrow{AB}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$\\overrightarrow{AC}=\\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$<br>$$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:r0)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}+${MMmath.nP(:s0)}\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}=\\color{red}{\\begin{pmatrix}:P1\\\\:P2\\\\:P3\\end{pmatrix}}$$",
+            "value": [
+                ":P1;:P2;:P3",
+                "\\left(:P1;:P2;:P3\\right)",
+                "(:P1;:P2;:P3)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

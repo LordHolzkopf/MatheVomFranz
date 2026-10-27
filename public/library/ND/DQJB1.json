@@ -1,0 +1,593 @@
+{
+    "title": "Prognoseintervalle für relative Häufigkeiten bestimmen",
+    "ID": "DQJB1",
+    "description": "Prognoseintervall, relative Häufigkeit, Stichprobe, Sigma-Regeln, Standardabweichung der relativen Häufigkeit, Sicherheitswahrscheinlichkeit, 95 %, Stichprobenergebnis im Intervall (nur LK).",
+    "dest": [
+        "QJB"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Standardabweichung der relativen Häufigkeit",
+            "consts": {
+                "mk": [
+                    "ein Merkmal",
+                    "ein Treffer",
+                    "das Ergebnis A",
+                    "die Eigenschaft E"
+                ]
+            },
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        100,
+                        0.03
+                    ],
+                    [
+                        0.9,
+                        100,
+                        0.03
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.5,
+                        625,
+                        0.02
+                    ],
+                    [
+                        0.5,
+                        10000,
+                        0.005
+                    ],
+                    [
+                        0.2,
+                        6400,
+                        0.005
+                    ],
+                    [
+                        0.8,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.9,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.5,
+                        1600,
+                        0.0125
+                    ],
+                    [
+                        0.2,
+                        25,
+                        0.08
+                    ],
+                    [
+                        0.8,
+                        25,
+                        0.08
+                    ],
+                    [
+                        0.5,
+                        25,
+                        0.1
+                    ],
+                    [
+                        0.1,
+                        25,
+                        0.06
+                    ],
+                    [
+                        0.9,
+                        25,
+                        0.06
+                    ],
+                    [
+                        0.2,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.8,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        64,
+                        0.0625
+                    ],
+                    [
+                        0.1,
+                        36,
+                        0.05
+                    ],
+                    [
+                        0.9,
+                        36,
+                        0.05
+                    ]
+                ],
+                "p": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "g": "0_3"
+            },
+            "question": "${(:mk[:g].charAt(0).toUpperCase() + :mk[:g].slice(1))} tritt mit Wahrscheinlichkeit $$p=:p$$ auf. Berechne die Standardabweichung $$\\sqrt{\\dfrac{p(1-p)}{n}}$$ der relativen Häufigkeit bei $$n=:n$$.",
+            "shortq": "$$p=:p$$, $$n=:n$$: $$\\sqrt{\\tfrac{p(1-p)}{n}}=?$$",
+            "answer": "$$\\sqrt{\\dfrac{:p\\cdot ${MMmath.round(1-:p,1)}}{:n}}=\\sqrt{\\dfrac{${MMmath.round(:p*(1-:p),2)}}{:n}}=\\color{red}{:s}$$",
+            "value": [
+                "${:s}",
+                "${String(:s).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Prognoseintervall angeben",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.5,
+                        625,
+                        0.02
+                    ],
+                    [
+                        0.5,
+                        10000,
+                        0.005
+                    ],
+                    [
+                        0.2,
+                        6400,
+                        0.005
+                    ],
+                    [
+                        0.8,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.9,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.5,
+                        1600,
+                        0.0125
+                    ],
+                    [
+                        0.2,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.8,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        64,
+                        0.0625
+                    ]
+                ],
+                "p": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "c": "1_3",
+                "lo": "${MMmath.round(:p-:c*:s,4)}",
+                "hi": "${MMmath.round(:p+:c*:s,4)}"
+            },
+            "question": "Ein Merkmal tritt mit Wahrscheinlichkeit $$p=:p$$ auf. Gib das $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$-Prognoseintervall für die relative Häufigkeit bei $$n=:n$$ an.",
+            "shortq": "$$p=:p$$, $$n=:n$$, $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$-Prognoseintervall",
+            "answer": "$$\\sqrt{\\dfrac{p(1-p)}{n}}=:s$$, Faktor $$:c$$:<br>$$\\color{red}{\\left[:p-${:c===1 ? '' : :c + '\\cdot'}:s;\\; :p+${:c===1 ? '' : :c + '\\cdot'}:s\\right]=\\left[:lo;\\,:hi\\right]}$$",
+            "value": [
+                "\\left[:lo;:hi\\right]",
+                ":lo;:hi",
+                "\\left\\lbrack:lo;:hi\\right\\rbrack",
+                "\\left[${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}\\right]",
+                "\\left\\lbrack${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}\\right\\rbrack",
+                "${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "[",
+                "_",
+                ";",
+                "_"
+            ]
+        },
+        {
+            "name": "Liegt das Ergebnis im Prognoseintervall? (ja/nein)",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ]
+                ],
+                "p": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "f": [
+                    1,
+                    3
+                ],
+                "sg": [
+                    -1,
+                    1
+                ],
+                "k": "${MMmath.round(:n*:p+:sg*:f*:n*:s,0)}",
+                "h": "${MMmath.round(:k/:n,4)}",
+                "lo": "${MMmath.round(:p-2*:s,4)}",
+                "hi": "${MMmath.round(:p+2*:s,4)}"
+            },
+            "question": "Ein Merkmal tritt angeblich mit Wahrscheinlichkeit $$p=:p$$ auf. In einer Stichprobe vom Umfang $$:n$$ tritt es $$:k$$-mal auf. Liegt die relative Häufigkeit im $$95{,}4\\,\\%$$-Prognoseintervall? Antworte mit ja oder nein.",
+            "shortq": "$$p=:p$$, $$:k$$ von $$:n$$: im $$95{,}4\\,\\%$$-Prognoseintervall?",
+            "answer": "$$\\sqrt{\\dfrac{p(1-p)}{n}}=:s$$, Intervall $$[:lo;\\,:hi]$$, $$h=\\dfrac{:k}{:n}=:h$$.<br><span class='red'>${:f===1 ? 'Ja' : 'Nein'}</span>",
+            "value": [
+                "${:f===1 ? 'ja' : 'nein'}",
+                "${:f===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Radius für das 95-%-Prognoseintervall",
+            "consts": {
+                "mk": [
+                    "ein Merkmal",
+                    "ein Treffer",
+                    "das Ergebnis A",
+                    "die Eigenschaft E"
+                ]
+            },
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.5,
+                        625,
+                        0.02
+                    ],
+                    [
+                        0.5,
+                        10000,
+                        0.005
+                    ],
+                    [
+                        0.2,
+                        6400,
+                        0.005
+                    ],
+                    [
+                        0.8,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.9,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.5,
+                        1600,
+                        0.0125
+                    ],
+                    [
+                        0.2,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.8,
+                        64,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        64,
+                        0.0625
+                    ]
+                ],
+                "p": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "g": "0_3",
+                "r": "${MMmath.round(1.96*:s,4)}"
+            },
+            "question": "${(:mk[:g].charAt(0).toUpperCase() + :mk[:g].slice(1))} tritt mit Wahrscheinlichkeit $$p=:p$$ auf. Berechne für das $$95\\,\\%$$-Prognoseintervall der relativen Häufigkeit bei $$n=:n$$ den Radius $$1{,}96\\cdot\\sqrt{\\dfrac{p(1-p)}{n}}$$.",
+            "shortq": "$$p=:p$$, $$n=:n$$: $$1{,}96\\cdot\\sqrt{\\tfrac{p(1-p)}{n}}=?$$",
+            "answer": "$$\\sqrt{\\dfrac{p(1-p)}{n}}=:s$$, $$1{,}96\\cdot :s=\\color{red}{:r}$$",
+            "value": [
+                "${:r}",
+                "${String(:r).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

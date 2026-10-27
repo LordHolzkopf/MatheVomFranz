@@ -1,0 +1,320 @@
+{
+    "title": "Lagebeziehungen von Geraden und Ebenen untersuchen",
+    "ID": "DQGA1",
+    "description": "Lagebeziehung, Gerade und Ebene, schneidet, parallel, liegt in der Ebene, Normalenvektor, Skalarprodukt, Ebene und Ebene, identisch, Geraden windschief oder schneidend, Parameter für Parallelität (nur LK).",
+    "dest": [
+        "QGA"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Schneidet die Gerade die Ebene? (ja/nein)",
+            "vars": {
+                "n1": "-3_3_^0",
+                "n2": "-3_3_^0",
+                "n3": "-3_3",
+                "kk": "1_3",
+                "m": [
+                    -1,
+                    1,
+                    2
+                ],
+                "c1": "${:m*(:kk===1 ? 0 : (:kk===2 ? -:n3 : :n2))}",
+                "c2": "${:m*(:kk===1 ? :n3 : (:kk===2 ? 0 : -:n1))}",
+                "c3": "${:m*(:kk===1 ? -:n2 : (:kk===2 ? :n1 : 0))}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "typ": "0_1",
+                "j": "1_2",
+                "s": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "u1": "${:c1+(:typ===0 && :j===1 ? :s : 0)}",
+                "u2": "${:c2+(:typ===0 && :j===2 ? :s : 0)}",
+                "u3": "${:c3}",
+                "d": "-9_9",
+                "sp": "${:n1*:u1+:n2*:u2+:n3*:u3}"
+            },
+            "question": "Schneidet die Gerade $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ die Ebene $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$ in genau einem Punkt? Antworte mit ja oder nein.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$: Schnittpunkt?",
+            "answer": "$$\\vec{n}\\cdot\\vec{u}=${:n1}\\cdot ${MMmath.nP(:u1)}+${MMmath.nP(:n2)}\\cdot ${MMmath.nP(:u2)}+${MMmath.nP(:n3)}\\cdot ${MMmath.nP(:u3)}=:sp$$<br>${:sp !== 0 ? 'Der Richtungsvektor ist nicht orthogonal zum Normalenvektor: <span class=\"red\">Ja</span>, es gibt genau einen Schnittpunkt.' : 'Der Richtungsvektor ist orthogonal zum Normalenvektor, also ist $$g$$ parallel zu $$E$$ oder liegt in $$E$$: <span class=\"red\">Nein</span>.'}",
+            "value": [
+                "${:sp !== 0 ? 'ja' : 'nein'}",
+                "${:sp !== 0 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Liegt die Gerade in der Ebene? (ja/nein)",
+            "vars": {
+                "n1": "-3_3_^0",
+                "n2": "-3_3_^0",
+                "n3": "-3_3",
+                "kk": "1_3",
+                "m": [
+                    -1,
+                    1,
+                    2
+                ],
+                "c1": "${:m*(:kk===1 ? 0 : (:kk===2 ? -:n3 : :n2))}",
+                "c2": "${:m*(:kk===1 ? :n3 : (:kk===2 ? 0 : -:n1))}",
+                "c3": "${:m*(:kk===1 ? -:n2 : (:kk===2 ? :n1 : 0))}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "on": "0_1",
+                "dd": [
+                    -3,
+                    -2,
+                    -1,
+                    1,
+                    2,
+                    3
+                ],
+                "u1": "${:c1}",
+                "u2": "${:c2}",
+                "u3": "${:c3}",
+                "np": "${:n1*:p1+:n2*:p2+:n3*:p3}",
+                "d": "${:np+(:on===1 ? 0 : :dd)}"
+            },
+            "question": "Die Gerade $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ ist parallel zur Ebene $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$ oder liegt in ihr. Liegt $$g$$ in $$E$$? Antworte mit ja oder nein.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ in $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$?",
+            "answer": "$$\\vec{n}\\cdot\\vec{u}=0$$. Punktprobe mit dem Stützpunkt: $$${:n1}\\cdot ${MMmath.nP(:p1)}+${MMmath.nP(:n2)}\\cdot ${MMmath.nP(:p2)}+${MMmath.nP(:n3)}\\cdot ${MMmath.nP(:p3)}=:np${:on===1 ? '=' : '\\neq '}:d$$<br><span class='red'>${:on===1 ? 'Ja' : 'Nein'}</span>, $$g$$ ${:on===1 ? 'liegt in $$E$$.' : 'ist echt parallel zu $$E$$.'}",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Parameter für Parallelität bestimmen",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "e": [
+                    -1,
+                    1
+                ],
+                "m1": "-4_4",
+                "m2": "-4_4",
+                "w1": "-3_3",
+                "w2": "-3_3",
+                "a": "${-:e*(:m1*:w1+:m2*:w2)}",
+                "n1": "${[:m1,:m2,:e][:pm[0]]}",
+                "n2": "${[:m1,:m2,:e][:pm[1]]}",
+                "n3": "${[:m1,:m2,:e][:pm[2]]}",
+                "k": "${:pm.indexOf(2)+1}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "d": "-9_9",
+                "r": "${:m1*:w1+:m2*:w2}"
+            },
+            "question": "Bestimme $$a$$ so, dass die Gerade $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}${:k===1 ? 'a' : [:w1,:w2,0][:pm[0]]}\\\\${:k===2 ? 'a' : [:w1,:w2,0][:pm[1]]}\\\\${:k===3 ? 'a' : [:w1,:w2,0][:pm[2]]}\\end{pmatrix}$$ parallel zur Ebene $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$ ist (oder in ihr liegt).",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}${:k===1 ? 'a' : [:w1,:w2,0][:pm[0]]}\\\\${:k===2 ? 'a' : [:w1,:w2,0][:pm[1]]}\\\\${:k===3 ? 'a' : [:w1,:w2,0][:pm[2]]}\\end{pmatrix}$$ parallel zu $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "answer": "$$\\vec{n}\\cdot\\vec{u}=0$$: $$:r${:e===1 ? '+' : '-'}a=0\\;\\Rightarrow\\; a=\\color{red}{:a}$$",
+            "value": ":a",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Sind zwei Ebenen identisch? (ja/nein)",
+            "vars": {
+                "n1": "-4_4_^0",
+                "n2": "-4_4",
+                "n3": "-4_4_^0",
+                "f": [
+                    -2,
+                    -1,
+                    2,
+                    3
+                ],
+                "d1": "-6_6",
+                "typ": "0_2",
+                "dd": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "j": "1_3",
+                "s": [
+                    -1,
+                    1
+                ],
+                "m1": "${:f*:n1+(:typ===2 && :j===1 ? :s : 0)}",
+                "m2": "${:f*:n2+(:typ===2 && :j===2 ? :s : 0)}",
+                "m3": "${:f*:n3+(:typ===2 && :j===3 ? :s : 0)}",
+                "d2": "${:f*:d1+(:typ===1 ? :dd : 0)}"
+            },
+            "question": "Sind die Ebenen $$E_1:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d1$$ und $$E_2:\\;${[[:m1,'x_1'],[:m2,'x_2'],[:m3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d2$$ identisch? Antworte mit ja oder nein.",
+            "shortq": "$$E_1:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d1$$, $$E_2:\\;${[[:m1,'x_1'],[:m2,'x_2'],[:m3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d2$$ identisch?",
+            "answer": "${:typ===2 ? 'Die Normalenvektoren sind nicht kollinear, die Ebenen schneiden sich: <span class=\"red\">Nein</span>.' : 'Die Normalenvektoren sind kollinear (Faktor $$' + :f + '$$). ' + (:typ===0 ? 'Auch die rechte Seite passt: $$' + :f + '\\cdot ' + MMmath.nP(:d1) + '=' + :d2 + '$$. <span class=\"red\">Ja</span>, die Ebenen sind identisch.' : 'Aber $$' + :f + '\\cdot ' + MMmath.nP(:d1) + '=' + (:f*:d1) + '\\neq ' + :d2 + '$$: <span class=\"red\">Nein</span>, die Ebenen sind echt parallel.')}",
+            "value": [
+                "${:typ===0 ? 'ja' : 'nein'}",
+                "${:typ===0 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schneiden sich zwei Geraden? (ja/nein)",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "f": [
+                    -1,
+                    1
+                ],
+                "g": [
+                    -1,
+                    1
+                ],
+                "al": "-3_3",
+                "be": "-3_3",
+                "u1": "${:pm[0]===0 ? :f : (:pm[2]===0 ? :al : 0)}",
+                "u2": "${:pm[0]===1 ? :f : (:pm[2]===1 ? :al : 0)}",
+                "u3": "${:pm[0]===2 ? :f : (:pm[2]===2 ? :al : 0)}",
+                "v1": "${:pm[1]===0 ? :g : (:pm[2]===0 ? :be : 0)}",
+                "v2": "${:pm[1]===1 ? :g : (:pm[2]===1 ? :be : 0)}",
+                "v3": "${:pm[1]===2 ? :g : (:pm[2]===2 ? :be : 0)}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "t0": "-3_3",
+                "s0": "-3_3",
+                "on": "0_1",
+                "dd": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "q1": "${:p1+:t0*:u1-:s0*:v1+(:on===0 && :pm[2]===0 ? :dd : 0)}",
+                "q2": "${:p2+:t0*:u2-:s0*:v2+(:on===0 && :pm[2]===1 ? :dd : 0)}",
+                "q3": "${:p3+:t0*:u3-:s0*:v3+(:on===0 && :pm[2]===2 ? :dd : 0)}",
+                "i": "${:pm[0]+1}",
+                "j": "${:pm[1]+1}",
+                "k": "${:pm[2]+1}",
+                "Lk": "${[:p1,:p2,:p3][:pm[2]]+:t0*[:u1,:u2,:u3][:pm[2]]}",
+                "Rk": "${[:q1,:q2,:q3][:pm[2]]+:s0*[:v1,:v2,:v3][:pm[2]]}"
+            },
+            "question": "Schneiden sich die Geraden $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$h:\\;\\vec{x}=\\begin{pmatrix}:q1\\\\:q2\\\\:q3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$? Antworte mit ja oder nein.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$h:\\;\\vec{x}=\\begin{pmatrix}:q1\\\\:q2\\\\:q3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$: Schnittpunkt?",
+            "answer": "Gleichsetzen: Zeile $$x_{:i}$$ liefert $$t=:t0$$, Zeile $$x_{:j}$$ liefert $$s=:s0$$. Zeile $$x_{:k}$$: $$:Lk${:on===1 ? '=' : '\\neq '}:Rk$$<br><span class='red'>${:on===1 ? 'Ja' : 'Nein'}</span>${:on===1 ? ', die Geraden schneiden sich.' : ', die Geraden sind windschief.'}",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

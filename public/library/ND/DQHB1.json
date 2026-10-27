@@ -1,0 +1,210 @@
+{
+    "title": "Mit Ereignisverknüpfungen rechnen",
+    "ID": "DQHB1",
+    "description": "Ereignis, Schnitt, Vereinigung, Differenz, Gegenereignis, und, oder, Additionssatz, weder noch, P(A∪B), P(A∩B), Würfel, Mengen.",
+    "dest": [
+        "QHB"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Vereinigung (Additionssatz)",
+            "vars": {
+                "c": "1_4",
+                "x": "1_7",
+                "y": "1_7",
+                "C": "${5*:c}",
+                "A": "${5*:c+5*:x}",
+                "B": "${5*:c+5*:y}",
+                "U": "${:A+:B-:C}"
+            },
+            "question": "Es gilt $$P(A)=${MMmath.round((:A)/100,2)}$$, $$P(B)=${MMmath.round((:B)/100,2)}$$ und $$P(A\\cap B)=${MMmath.round((:C)/100,2)}$$. Berechne $$P(A\\cup B)$$.",
+            "answer": "$$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)=${MMmath.round((:A)/100,2)}+${MMmath.round((:B)/100,2)}-${MMmath.round((:C)/100,2)}=\\color{red}{${MMmath.round((:U)/100,2)}}$$",
+            "value": [
+                "${MMmath.round((:U)/100,2)}",
+                "${String(MMmath.round((:U)/100,2)).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnitt aus der Vereinigung",
+            "vars": {
+                "c": "1_4",
+                "x": "1_7",
+                "y": "1_7",
+                "C": "${5*:c}",
+                "A": "${5*:c+5*:x}",
+                "B": "${5*:c+5*:y}",
+                "U": "${:A+:B-:C}"
+            },
+            "question": "Es gilt $$P(A)=${MMmath.round((:A)/100,2)}$$, $$P(B)=${MMmath.round((:B)/100,2)}$$ und $$P(A\\cup B)=${MMmath.round((:U)/100,2)}$$. Berechne $$P(A\\cap B)$$.",
+            "answer": "$$P(A\\cap B)=P(A)+P(B)-P(A\\cup B)=${MMmath.round((:A)/100,2)}+${MMmath.round((:B)/100,2)}-${MMmath.round((:U)/100,2)}=\\color{red}{${MMmath.round((:C)/100,2)}}$$",
+            "value": [
+                "${MMmath.round((:C)/100,2)}",
+                "${String(MMmath.round((:C)/100,2)).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Differenz A ohne B",
+            "vars": {
+                "c": "1_6",
+                "x": "1_10",
+                "C": "${5*:c}",
+                "A": "${5*:c+5*:x}"
+            },
+            "question": "Es gilt $$P(A)=${MMmath.round((:A)/100,2)}$$ und $$P(A\\cap B)=${MMmath.round((:C)/100,2)}$$. Berechne $$P(A\\cap\\overline{B})$$.",
+            "answer": "$$P(A\\cap\\overline{B})=P(A)-P(A\\cap B)=${MMmath.round((:A)/100,2)}-${MMmath.round((:C)/100,2)}=\\color{red}{${MMmath.round((:A-:C)/100,2)}}$$",
+            "value": [
+                "${MMmath.round((:A-:C)/100,2)}",
+                "${String(MMmath.round((:A-:C)/100,2)).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Weder A noch B",
+            "vars": {
+                "c": "1_4",
+                "x": "1_7",
+                "y": "1_7",
+                "C": "${5*:c}",
+                "A": "${5*:c+5*:x}",
+                "B": "${5*:c+5*:y}",
+                "U": "${:A+:B-:C}"
+            },
+            "question": "Es gilt $$P(A)=${MMmath.round((:A)/100,2)}$$, $$P(B)=${MMmath.round((:B)/100,2)}$$ und $$P(A\\cap B)=${MMmath.round((:C)/100,2)}$$. Berechne $$P(\\overline{A}\\cap\\overline{B})$$.",
+            "answer": "$$P(\\overline{A}\\cap\\overline{B})=1-P(A\\cup B)=1-(${MMmath.round((:A)/100,2)}+${MMmath.round((:B)/100,2)}-${MMmath.round((:C)/100,2)})=\\color{red}{${MMmath.round((100-:U)/100,2)}}$$",
+            "value": [
+                "${MMmath.round((100-:U)/100,2)}",
+                "${String(MMmath.round((100-:U)/100,2)).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Ereignisse beim Würfeln verknüpfen",
+            "consts": {
+                "ev": [
+                    [
+                        "eine gerade Zahl",
+                        [
+                            2,
+                            4,
+                            6
+                        ]
+                    ],
+                    [
+                        "eine ungerade Zahl",
+                        [
+                            1,
+                            3,
+                            5
+                        ]
+                    ],
+                    [
+                        "eine Primzahl",
+                        [
+                            2,
+                            3,
+                            5
+                        ]
+                    ],
+                    [
+                        "größer als 4",
+                        [
+                            5,
+                            6
+                        ]
+                    ],
+                    [
+                        "kleiner als 3",
+                        [
+                            1,
+                            2
+                        ]
+                    ],
+                    [
+                        "größer als 3",
+                        [
+                            4,
+                            5,
+                            6
+                        ]
+                    ],
+                    [
+                        "ein Teiler von 6",
+                        [
+                            1,
+                            2,
+                            3,
+                            6
+                        ]
+                    ],
+                    [
+                        "eine Quadratzahl",
+                        [
+                            1,
+                            4
+                        ]
+                    ]
+                ]
+            },
+            "vars": {
+                "ij": "0_7_2_^&",
+                "o": "0_2",
+                "z": "${(() => { const A = :ev[:ij[0]][1], B = :ev[:ij[1]][1]; return [1,2,3,4,5,6].filter(x => [A.includes(x) || B.includes(x), A.includes(x) && B.includes(x), A.includes(x) && !B.includes(x)][:o]).length; })()}",
+                "M": "${(() => { const A = :ev[:ij[0]][1], B = :ev[:ij[1]][1]; return [1,2,3,4,5,6].filter(x => [A.includes(x) || B.includes(x), A.includes(x) && B.includes(x), A.includes(x) && !B.includes(x)][:o]).join(';\\,'); })()}"
+            },
+            "question": "Ein Würfel wird einmal geworfen. $$A$$: „Die Augenzahl ist ${:ev[:ij[0]][0]}“, $$B$$: „Die Augenzahl ist ${:ev[:ij[1]][0]}“. Berechne $$P(${['A\\cup B','A\\cap B','A\\cap\\overline{B}'][:o]})$$.",
+            "shortq": "$$A$$: ${:ev[:ij[0]][0]}, $$B$$: ${:ev[:ij[1]][0]}; $$P(${['A\\cup B','A\\cap B','A\\cap\\overline{B}'][:o]})$$",
+            "answer": "$$A=\\{${:ev[:ij[0]][1].join(';\\,')}\\}$$, $$B=\\{${:ev[:ij[1]][1].join(';\\,')}\\}$$<br>$$${['A\\cup B','A\\cap B','A\\cap\\overline{B}'][:o]}=${:z===0 ? '\\emptyset' : '\\{' + :M + '\\}'}$$, also $$P=\\dfrac{:z}{6}=\\color{red}{${MMmath.fractionSimplifiee(:z,6)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:z,6)}",
+            "keys": [
+                "/",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

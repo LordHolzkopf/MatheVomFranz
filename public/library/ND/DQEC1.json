@@ -1,0 +1,619 @@
+{
+    "title": "Winkel zwischen Vektoren und Geraden bestimmen",
+    "ID": "DQEC1",
+    "description": "Winkel zwischen zwei Vektoren, Kosinus, Skalarprodukt, Betrag, Schnittwinkel zweier Geraden, orthogonal, senkrecht, spitzer Winkel, stumpfer Winkel, rechter Winkel. Winkel in Grad ohne Taschenrechner (Standardwerte für den Kosinus).",
+    "dest": [
+        "QEC"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Winkel zwischen zwei Vektoren",
+            "vars": {
+                "b": [
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            -1,
+                            1,
+                            0
+                        ],
+                        135,
+                        "-\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        135,
+                        "-\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            -1,
+                            1
+                        ],
+                        120,
+                        "-\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            -1,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            -1
+                        ],
+                        120,
+                        "-\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        [
+                            2,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            2,
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            3,
+                            4
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2,
+                            -2
+                        ],
+                        180,
+                        "-1"
+                    ]
+                ],
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "s1": [
+                    -1,
+                    1
+                ],
+                "s2": [
+                    -1,
+                    1
+                ],
+                "s3": [
+                    -1,
+                    1
+                ],
+                "f": "1_2",
+                "g": "1_3",
+                "u1": "${:f*:s1*:b[0][:pm[0]]}",
+                "u2": "${:f*:s2*:b[0][:pm[1]]}",
+                "u3": "${:f*:s3*:b[0][:pm[2]]}",
+                "v1": "${:g*:s1*:b[1][:pm[0]]}",
+                "v2": "${:g*:s2*:b[1][:pm[1]]}",
+                "v3": "${:g*:s3*:b[1][:pm[2]]}",
+                "sp": "${:u1*:v1+:u2*:v2+:u3*:v3}",
+                "uu": "${:u1*:u1+:u2*:u2+:u3*:u3}",
+                "vv": "${:v1*:v1+:v2*:v2+:v3*:v3}",
+                "w": "${:b[2]}"
+            },
+            "question": "Berechne den Winkel zwischen $$\\vec{u}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$\\vec{v}=\\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$ (in Grad).",
+            "shortq": "$$\\angle\\left(\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix};\\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}\\right)$$",
+            "answer": "$$\\cos\\alpha=\\dfrac{\\vec{u}\\cdot\\vec{v}}{|\\vec{u}|\\cdot|\\vec{v}|}=\\dfrac{:sp}{\\sqrt{:uu}\\cdot\\sqrt{:vv}}=${:b[3]}$$<br>$$\\alpha=\\color{red}{:w^\\circ}$$",
+            "value": [
+                "${:w}",
+                "${:w}\\degree",
+                "${:w}°"
+            ],
+            "keys": [
+                "°",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnittwinkel zweier Geraden",
+            "vars": {
+                "b": [
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            -1,
+                            1,
+                            0
+                        ],
+                        135,
+                        "-\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        135,
+                        "-\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            -1,
+                            1
+                        ],
+                        120,
+                        "-\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            -1,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            -1
+                        ],
+                        120,
+                        "-\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        [
+                            2,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            2,
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            3,
+                            4
+                        ],
+                        90,
+                        "0"
+                    ]
+                ],
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "s1": [
+                    -1,
+                    1
+                ],
+                "s2": [
+                    -1,
+                    1
+                ],
+                "s3": [
+                    -1,
+                    1
+                ],
+                "f": "1_2",
+                "g": "1_3",
+                "u1": "${:f*:s1*:b[0][:pm[0]]}",
+                "u2": "${:f*:s2*:b[0][:pm[1]]}",
+                "u3": "${:f*:s3*:b[0][:pm[2]]}",
+                "v1": "${:g*:s1*:b[1][:pm[0]]}",
+                "v2": "${:g*:s2*:b[1][:pm[1]]}",
+                "v3": "${:g*:s3*:b[1][:pm[2]]}",
+                "sp": "${:u1*:v1+:u2*:v2+:u3*:v3}",
+                "uu": "${:u1*:u1+:u2*:u2+:u3*:u3}",
+                "vv": "${:v1*:v1+:v2*:v2+:v3*:v3}",
+                "w": "${:b[2]}",
+                "S1": "-4_4",
+                "S2": "-4_4",
+                "S3": "-4_4",
+                "k": "-2_2_^0",
+                "l": "-2_2_^0",
+                "a1": "${:S1-:k*:u1}",
+                "a2": "${:S2-:k*:u2}",
+                "a3": "${:S3-:k*:u3}",
+                "c1": "${:S1-:l*:v1}",
+                "c2": "${:S2-:l*:v2}",
+                "c3": "${:S3-:l*:v3}",
+                "sw": "${Math.min(:w, 180-:w)}"
+            },
+            "question": "Die Geraden $$g:\\;\\vec{x}=\\begin{pmatrix}:a1\\\\:a2\\\\:a3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$h:\\;\\vec{x}=\\begin{pmatrix}:c1\\\\:c2\\\\:c3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$ schneiden sich. Berechne ihren Schnittwinkel.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:a1\\\\:a2\\\\:a3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$h:\\;\\vec{x}=\\begin{pmatrix}:c1\\\\:c2\\\\:c3\\end{pmatrix}+s\\cdot \\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$",
+            "answer": "$$\\cos\\alpha=\\dfrac{|\\vec{u}\\cdot\\vec{v}|}{|\\vec{u}|\\cdot|\\vec{v}|}=\\dfrac{|:sp|}{\\sqrt{:uu}\\cdot\\sqrt{:vv}}=${String(:b[3]).replace('-', '')}$$<br>$$\\alpha=\\color{red}{:sw^\\circ}$$",
+            "value": [
+                "${:sw}",
+                "${:sw}\\degree",
+                "${:sw}°"
+            ],
+            "keys": [
+                "°",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Orthogonalen Vektor ergänzen",
+            "vars": {
+                "j": "1_3",
+                "e": [
+                    -1,
+                    1
+                ],
+                "x1": "-4_4",
+                "x2": "-4_4",
+                "y1": "-4_4_^0",
+                "y2": "-4_4",
+                "u1": "${:j===1 ? :e : :x1}",
+                "u2": "${:j===2 ? :e : (:j===1 ? :x1 : :x2)}",
+                "u3": "${:j===3 ? :e : :x2}",
+                "v1": "${:j===1 ? 0 : :y1}",
+                "v2": "${:j===2 ? 0 : (:j===1 ? :y1 : :y2)}",
+                "v3": "${:j===3 ? 0 : :y2}",
+                "r": "${:u1*:v1+:u2*:v2+:u3*:v3}",
+                "a": "${-:r/:e}"
+            },
+            "question": "Bestimme $$a$$ so, dass die Vektoren $$\\vec{u}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$\\vec{v}=\\begin{pmatrix}${:j===1 ? 'a' : :v1}\\\\${:j===2 ? 'a' : :v2}\\\\${:j===3 ? 'a' : :v3}\\end{pmatrix}$$ orthogonal zueinander sind.",
+            "shortq": "$$\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}\\perp\\begin{pmatrix}${:j===1 ? 'a' : :v1}\\\\${:j===2 ? 'a' : :v2}\\\\${:j===3 ? 'a' : :v3}\\end{pmatrix}$$",
+            "answer": "$$\\vec{u}\\cdot\\vec{v}=0$$: $$${:r}${:e===1 ? '+' : '-'}a=0\\;\\Rightarrow\\; a=\\color{red}{:a}$$",
+            "value": ":a",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Spitz, stumpf oder rechtwinklig?",
+            "vars": {
+                "u1": "-3_3_^0",
+                "u2": "-3_3_^0",
+                "u3": "-3_3",
+                "typ": "0_2",
+                "kk": "1_3",
+                "m": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "z1": "-3_3",
+                "z2": "-3_3",
+                "z3": "-3_3_^0",
+                "col": "${:typ<2 && :z1*:u2===:z2*:u1 && :z2*:u3===:z3*:u2 && :z1*:u3===:z3*:u1 ? 1 : 0}",
+                "v1": "${:typ<2 ? :z1 : :m*(:kk===1 ? 0 : (:kk===2 ? -:u3 : :u2))}",
+                "v2": "${:typ<2 ? :z2 : :m*(:kk===1 ? :u3 : (:kk===2 ? 0 : -:u1))}",
+                "v3": "${:typ<2 ? :z3+:col : :m*(:kk===1 ? -:u2 : (:kk===2 ? :u1 : 0))}",
+                "sp": "${:u1*:v1+:u2*:v2+:u3*:v3}",
+                "art": "${:sp > 0 ? 'spitz' : (:sp < 0 ? 'stumpf' : 'recht')}"
+            },
+            "question": "Ist der Winkel zwischen $$\\vec{u}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$\\vec{v}=\\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}$$ spitz, stumpf oder ein rechter Winkel?",
+            "shortq": "$$\\angle\\left(\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix};\\begin{pmatrix}:v1\\\\:v2\\\\:v3\\end{pmatrix}\\right)$$: spitz, stumpf, recht?",
+            "answer": "$$\\vec{u}\\cdot\\vec{v}=${:u1}\\cdot ${MMmath.nP(:v1)}+${MMmath.nP(:u2)}\\cdot ${MMmath.nP(:v2)}+${MMmath.nP(:u3)}\\cdot ${MMmath.nP(:v3)}=:sp${:sp > 0 ? '\\gt 0' : (:sp < 0 ? '\\lt 0' : '')}$$<br>Der Winkel ist <span class='red'>${:sp > 0 ? 'spitz' : (:sp < 0 ? 'stumpf' : 'ein rechter Winkel')}</span>.",
+            "value": [
+                "${:art}",
+                "\\text{${:art}}",
+                "${:art==='recht' ? 're\\operatorname{\\mathrm{ch}}t' : :art}",
+                "${:art==='recht' ? 'rechter Winkel' : :art}",
+                "${:art==='recht' ? 'rechtwinklig' : :art}",
+                "${:art==='recht' ? 're\\operatorname{\\mathrm{ch}}terW\\in kel' : :art}",
+                "${:art==='recht' ? 're\\operatorname{\\mathrm{ch}}tw\\in klig' : :art}"
+            ],
+            "keys": [
+                "aigu",
+                "obtus",
+                "droit",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

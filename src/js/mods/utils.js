@@ -106,6 +106,43 @@ try {
   MathfieldElement.fontsDirectory = "js/libs/katex/fonts";
 }
 MathfieldElement.soundsDirectory = null;
+// MatheVomFranz : les raccourcis par défaut de MathLive (in → ∈, pi → π,
+// ch → cosh, or → ∨ …) déforment les mots allemands tapés au clavier
+// (« keine » → ke∈e, « recht » → ht). On ne garde que des raccourcis de
+// symboles ; π, √ … restent accessibles par le clavier virtuel.
+const KURZBEFEHLE = {
+  ">=": "\\ge",
+  "<=": "\\le",
+  "!=": "\\ne",
+  "+-": "\\pm",
+  oo: "\\infty",
+  sqrt: "\\sqrt{#0}",
+};
+// Les rappels de cycle de vie d'un élément personnalisé sont figés à sa
+// déclaration : on règle donc chaque champ dès qu'il apparaît dans la page.
+function kurzbefehleSetzen(feld) {
+  try {
+    feld.inlineShortcuts = KURZBEFEHLE;
+  } catch (e) {
+    setTimeout(() => {
+      try {
+        feld.inlineShortcuts = KURZBEFEHLE;
+      } catch (e2) {
+        /* champ indisponible */
+      }
+    }, 50);
+  }
+}
+if (typeof MutationObserver !== "undefined" && typeof document !== "undefined" && document.documentElement) {
+  new MutationObserver((mutations) => {
+    for (const m of mutations)
+      for (const n of m.addedNodes) {
+        if (n.nodeType !== 1) continue;
+        if (n.tagName === "MATH-FIELD") kurzbefehleSetzen(n);
+        else if (n.querySelectorAll) n.querySelectorAll("math-field").forEach(kurzbefehleSetzen);
+      }
+  }).observe(document.documentElement, { childList: true, subtree: true });
+}
 // Some traductions
 const joursDE = [
   "Sonntag",

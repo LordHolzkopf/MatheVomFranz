@@ -1,0 +1,359 @@
+{
+    "title": "Mit der Normalverteilung rechnen",
+    "ID": "DQJD1",
+    "description": "Normalverteilung, Gaußsche Glockenfunktion, Dichtefunktion, Erwartungswert μ, Standardabweichung σ, Sigma-Regeln, Symmetrie, Wendestellen, stetige Zufallsgröße (nur LK).",
+    "dest": [
+        "QJD"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Wahrscheinlichkeiten mit den Sigma-Regeln",
+            "consts": {
+                "nv": [
+                    [
+                        "P({m1}\\le X\\le {p1})",
+                        [
+                            "0.683",
+                            "0,683",
+                            "68.3\\%",
+                            "68,3\\%",
+                            "0.683",
+                            "0.683",
+                            "0.683",
+                            "0.683",
+                            "0.683",
+                            "0.683",
+                            "0.683",
+                            "0.683"
+                        ],
+                        "0{,}683"
+                    ],
+                    [
+                        "P({m2}\\le X\\le {p2})",
+                        [
+                            "0.954",
+                            "0,954",
+                            "95.4\\%",
+                            "95,4\\%",
+                            "0.954",
+                            "0.954",
+                            "0.954",
+                            "0.954",
+                            "0.954",
+                            "0.954",
+                            "0.954",
+                            "0.954"
+                        ],
+                        "0{,}954"
+                    ],
+                    [
+                        "P({m3}\\le X\\le {p3})",
+                        [
+                            "0.997",
+                            "0,997",
+                            "99.7\\%",
+                            "99,7\\%",
+                            "0.997",
+                            "0.997",
+                            "0.997",
+                            "0.997",
+                            "0.997",
+                            "0.997",
+                            "0.997",
+                            "0.997"
+                        ],
+                        "0{,}997"
+                    ],
+                    [
+                        "P(X\\le {mu})",
+                        [
+                            "0.5",
+                            "0,5",
+                            "50\\%",
+                            "50\\%",
+                            "0.5",
+                            "0.5",
+                            "0.5",
+                            "0.5",
+                            "0.5",
+                            "0.5",
+                            "0.5",
+                            "0.5"
+                        ],
+                        "0{,}5"
+                    ],
+                    [
+                        "P(X\\ge {p1})",
+                        [
+                            "0.1585",
+                            "0,1585",
+                            "15.85\\%",
+                            "15,85\\%",
+                            "0.159",
+                            "0,159",
+                            "15.9\\%",
+                            "15,9\\%",
+                            "0.158",
+                            "0,158",
+                            "15.8\\%",
+                            "15,8\\%",
+                            "0.16",
+                            "0,16",
+                            "16\\%",
+                            "16\\%"
+                        ],
+                        "\\tfrac{1-0{,}683}{2}=0{,}1585"
+                    ],
+                    [
+                        "P(X\\le {p2})",
+                        [
+                            "0.977",
+                            "0,977",
+                            "97.7\\%",
+                            "97,7\\%",
+                            "0.977",
+                            "0.977",
+                            "0.977",
+                            "0.977",
+                            "0.977",
+                            "0.977",
+                            "0.977",
+                            "0.977"
+                        ],
+                        "0{,}5+\\tfrac{0{,}954}{2}=0{,}977"
+                    ],
+                    [
+                        "P({mu}\\le X\\le {p1})",
+                        [
+                            "0.3415",
+                            "0,3415",
+                            "34.15\\%",
+                            "34,15\\%",
+                            "0.342",
+                            "0,342",
+                            "34.2\\%",
+                            "34,2\\%",
+                            "0.341",
+                            "0,341",
+                            "34.1\\%",
+                            "34,1\\%"
+                        ],
+                        "\\tfrac{0{,}683}{2}=0{,}3415"
+                    ],
+                    [
+                        "P(X\\le {m2})",
+                        [
+                            "0.023",
+                            "0,023",
+                            "2.3\\%",
+                            "2,3\\%",
+                            "0.023",
+                            "0.023",
+                            "0.023",
+                            "0.023",
+                            "0.023",
+                            "0.023",
+                            "0.023",
+                            "0.023"
+                        ],
+                        "\\tfrac{1-0{,}954}{2}=0{,}023"
+                    ]
+                ],
+                "kx": [
+                    [
+                        "Körpergröße",
+                        "cm"
+                    ],
+                    [
+                        "Füllmenge",
+                        "ml"
+                    ],
+                    [
+                        "Masse",
+                        "g"
+                    ],
+                    [
+                        "Lebensdauer",
+                        "h"
+                    ]
+                ]
+            },
+            "vars": {
+                "t": "0_7",
+                "g": "0_3",
+                "mu": [
+                    40,
+                    50,
+                    60,
+                    75,
+                    80,
+                    100,
+                    120,
+                    150,
+                    170,
+                    200,
+                    250,
+                    500
+                ],
+                "s": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    8,
+                    10
+                ],
+                "E": "${:nv[:t][0].replace('{m1}', :mu-:s).replace('{p1}', :mu+:s).replace('{m2}', :mu-2*:s).replace('{p2}', :mu+2*:s).replace('{m3}', :mu-3*:s).replace('{p3}', :mu+3*:s).replace('{mu}', :mu)}"
+            },
+            "question": "Die ${:kx[:g][0]} $$X$$ (in ${:kx[:g][1]}) ist normalverteilt mit $$\\mu=:mu$$ und $$\\sigma=:s$$. Bestimme mit den Sigma-Regeln $$:E$$.",
+            "shortq": "$$\\mu=:mu$$, $$\\sigma=:s$$: $$:E\\approx ?$$",
+            "answer": "$$:E\\approx\\color{red}{${:nv[:t][2]}}$$",
+            "value": [
+                "${:nv[:t][1][0]}",
+                "${:nv[:t][1][1]}",
+                "${:nv[:t][1][2]}",
+                "${:nv[:t][1][3]}",
+                "${:nv[:t][1][4]}",
+                "${:nv[:t][1][5]}",
+                "${:nv[:t][1][6]}",
+                "${:nv[:t][1][7]}",
+                "${:nv[:t][1][8]}",
+                "${:nv[:t][1][9]}",
+                "${:nv[:t][1][10]}",
+                "${:nv[:t][1][11]}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "%"
+            ]
+        },
+        {
+            "name": "Symmetrie der Glockenkurve",
+            "vars": {
+                "mu": "20_200",
+                "a": "1_15",
+                "q": "5_30",
+                "typ": "0_2",
+                "Q": "${:q/100}",
+                "R": "${MMmath.round([:q, 100-2*:q, 100-:q][:typ]/100,2)}"
+            },
+            "question": "$$X$$ ist normalverteilt mit $$\\mu=:mu$$. Es gilt $$P(X\\le ${:mu-:a})=:Q$$. Berechne $$${['P(X\\ge ' + (:mu+:a) + ')', 'P(' + (:mu-:a) + '\\le X\\le ' + (:mu+:a) + ')', 'P(X\\le ' + (:mu+:a) + ')'][:typ]}$$.",
+            "shortq": "$$\\mu=:mu$$, $$P(X\\le ${:mu-:a})=:Q$$: $$${['P(X\\ge ' + (:mu+:a) + ')', 'P(' + (:mu-:a) + '\\le X\\le ' + (:mu+:a) + ')', 'P(X\\le ' + (:mu+:a) + ')'][:typ]}$$",
+            "answer": "Die Glockenkurve ist symmetrisch zu $$x=:mu$$: $$P(X\\ge ${:mu+:a})=P(X\\le ${:mu-:a})=:Q$$.<br>$$P=${['', '1-2\\cdot ' + :Q + '=', '1-' + :Q + '='][:typ]}\\color{red}{:R}$$",
+            "value": [
+                "${:R}",
+                "${String(:R).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "μ und σ aus der Dichtefunktion ablesen",
+            "vars": {
+                "mu": "-5_20",
+                "s": "1_6",
+                "typ": "0_1",
+                "zz": "${2*:s*:s}"
+            },
+            "question": "Die Dichtefunktion einer Normalverteilung ist $$\\varphi(x)=\\dfrac{1}{${:s===1 ? '' : :s}\\sqrt{2\\pi}}\\,e^{-\\frac{${:mu===0 ? 'x^2' : '(x' + MMmath.signedNumber(-:mu) + ')^2'}}{:zz}}$$. Gib ${:typ===0 ? 'den Erwartungswert $$\\mu$$' : 'die Standardabweichung $$\\sigma$$'} an.",
+            "shortq": "$$\\varphi(x)=\\dfrac{1}{${:s===1 ? '' : :s}\\sqrt{2\\pi}}\\,e^{-\\frac{${:mu===0 ? 'x^2' : '(x' + MMmath.signedNumber(-:mu) + ')^2'}}{:zz}}$$: $$${:typ===0 ? '\\mu' : '\\sigma'}=?$$",
+            "answer": "Vergleich mit $$\\dfrac{1}{\\sigma\\sqrt{2\\pi}}\\,e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$: $$\\mu=:mu$$, $$2\\sigma^2=:zz$$, also $$${:typ===0 ? '\\mu' : '\\sigma'}=\\color{red}{${:typ===0 ? :mu : :s}}$$",
+            "value": "${:typ===0 ? :mu : :s}",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Wendestellen der Glockenkurve",
+            "vars": {
+                "mu": "-10_200",
+                "s": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    8,
+                    10,
+                    15,
+                    20
+                ],
+                "lo": "${:mu-:s}",
+                "hi": "${:mu+:s}"
+            },
+            "question": "$$X$$ ist normalverteilt mit $$\\mu=:mu$$ und $$\\sigma=:s$$. An welchen Stellen hat der Graph der Dichtefunktion seine Wendepunkte?",
+            "shortq": "$$\\mu=:mu$$, $$\\sigma=:s$$: Wendestellen?",
+            "answer": "Die Wendestellen liegen bei $$\\mu\\pm\\sigma$$: $$x_1=\\color{red}{:lo}$$ und $$x_2=\\color{red}{:hi}$$",
+            "value": [
+                ":lo;:hi",
+                ":hi;:lo",
+                "\\left\\{:lo;:hi\\right\\}",
+                "\\left\\{:hi;:lo\\right\\}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                ";",
+                "_"
+            ]
+        },
+        {
+            "name": "Grenze zu einer Wahrscheinlichkeit",
+            "vars": {
+                "mu": "20_200",
+                "s": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    8,
+                    10
+                ],
+                "typ": "0_4",
+                "a": "${:mu+[0,1,-1,2,-2][:typ]*:s}",
+                "P": "${['0{,}5','0{,}841','0{,}159','0{,}977','0{,}023'][:typ]}"
+            },
+            "question": "$$X$$ ist normalverteilt mit $$\\mu=:mu$$ und $$\\sigma=:s$$. Bestimme mit den Sigma-Regeln $$a$$ so, dass $$P(X\\le a)\\approx :P$$ gilt.",
+            "shortq": "$$\\mu=:mu$$, $$\\sigma=:s$$: $$P(X\\le a)\\approx :P$$",
+            "answer": "$$:P${['=0{,}5','\\approx 0{,}5+\\tfrac{0{,}683}{2}','\\approx\\tfrac{1-0{,}683}{2}','\\approx 0{,}5+\\tfrac{0{,}954}{2}','\\approx\\tfrac{1-0{,}954}{2}'][:typ]}$$, also $$a=\\mu${['','+\\sigma','-\\sigma','+2\\sigma','-2\\sigma'][:typ]}=\\color{red}{:a}$$",
+            "value": ":a",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

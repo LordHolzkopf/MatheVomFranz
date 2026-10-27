@@ -1,0 +1,136 @@
+{
+    "title": "Wahrscheinlichkeiten bei Urnen und Würfeln berechnen",
+    "ID": "DQHA1",
+    "description": "Laplace-Wahrscheinlichkeit, Urnenmodell, Ziehen mit Zurücklegen, Ziehen ohne Zurücklegen, Pfadregel, Gegenereignis, mindestens einmal, Glücksrad, zwei Würfel, Augensumme, Wiederholung Wahrscheinlichkeit. Ergebnis als Bruch.",
+    "dest": [
+        "QHA"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Laplace-Wahrscheinlichkeit beim einmaligen Ziehen",
+            "vars": {
+                "r": "1_8",
+                "b": "1_8",
+                "g": "1_6",
+                "f": "0_2",
+                "n": "${:r+:b+:g}",
+                "z": "${[:r,:b,:g][:f]}"
+            },
+            "question": "In einer Urne liegen $$:r$$ rote, $$:b$$ blaue und $$:g$$ grüne Kugeln. Es wird zufällig eine Kugel gezogen. Mit welcher Wahrscheinlichkeit ist sie ${['rot','blau','grün'][:f]}?",
+            "shortq": "$$:r$$ rot, $$:b$$ blau, $$:g$$ grün: $$P(\\text{${['rot','blau','grün'][:f]}})$$",
+            "answer": "$$P=\\dfrac{:z}{:n}=\\color{red}{${MMmath.fractionSimplifiee(:z,:n)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:z,:n)}",
+            "keys": [
+                "/",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Zweimal ziehen mit Zurücklegen",
+            "vars": {
+                "r": "1_6",
+                "b": "1_6",
+                "n": "${:r+:b}"
+            },
+            "question": "In einer Urne liegen $$:r$$ rote und $$:b$$ blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Mit welcher Wahrscheinlichkeit sind beide Kugeln rot?",
+            "shortq": "$$:r$$ rot, $$:b$$ blau, mit Zurücklegen: $$P(\\text{rot, rot})$$",
+            "answer": "$$P=\\dfrac{:r}{:n}\\cdot\\dfrac{:r}{:n}=\\dfrac{${:r*:r}}{${:n*:n}}${MMmath.fractionEstSimplifiable(:r*:r,:n*:n) ? '=' + MMmath.fractionSimplifiee(:r*:r,:n*:n) : ''}$$<br>$$P=\\color{red}{${MMmath.fractionSimplifiee(:r*:r,:n*:n)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:r*:r,:n*:n)}",
+            "keys": [
+                "/",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Zweimal ziehen ohne Zurücklegen",
+            "vars": {
+                "r": "2_7",
+                "b": "1_6",
+                "n": "${:r+:b}",
+                "z": "${:r*(:r-1)}",
+                "N": "${:n*(:n-1)}"
+            },
+            "question": "In einer Urne liegen $$:r$$ rote und $$:b$$ blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Mit welcher Wahrscheinlichkeit sind beide Kugeln rot?",
+            "shortq": "$$:r$$ rot, $$:b$$ blau, ohne Zurücklegen: $$P(\\text{rot, rot})$$",
+            "answer": "$$P=\\dfrac{:r}{:n}\\cdot\\dfrac{${:r-1}}{${:n-1}}=\\dfrac{:z}{:N}=\\color{red}{${MMmath.fractionSimplifiee(:z,:N)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:z,:N)}",
+            "keys": [
+                "/",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Mindestens einmal – über das Gegenereignis",
+            "vars": {
+                "typ": "0_1",
+                "mm": "2_6",
+                "r": "1_3",
+                "b": "1_4",
+                "k": "2_3",
+                "m": "${:typ===0 ? :mm : :r+:b}",
+                "q": "${:typ===0 ? :mm-1 : :b}",
+                "z": "${Math.pow(:m,:k)-Math.pow(:q,:k)}",
+                "N": "${Math.pow(:m,:k)}"
+            },
+            "question": "${:typ===1 ? 'In einer Urne liegen ' + :r + ' rote und ' + :b + ' blaue Kugeln. Es wird ' + :k + '-mal mit Zurücklegen gezogen. Mit welcher Wahrscheinlichkeit ist mindestens eine rote Kugel dabei?' : (:m===6 ? 'Ein Würfel wird ' + :k + '-mal geworfen. Mit welcher Wahrscheinlichkeit fällt mindestens eine Sechs?' : (:m===2 ? 'Eine Münze wird ' + :k + '-mal geworfen. Mit welcher Wahrscheinlichkeit fällt mindestens einmal Zahl?' : 'Ein Glücksrad hat ' + :m + ' gleich große Felder, eines davon ist rot. Es wird ' + :k + '-mal gedreht. Mit welcher Wahrscheinlichkeit erscheint mindestens einmal Rot?'))}",
+            "shortq": "$$P(\\text{mindestens 1 Treffer})$$, $$p=${MMmath.fractionSimplifiee(:m-:q,:m)}$$, $$n=:k$$",
+            "answer": "Gegenereignis „kein Treffer“: $$P=1-\\left(\\dfrac{:q}{:m}\\right)^{:k}=1-\\dfrac{${Math.pow(:q,:k)}}{:N}=\\color{red}{${MMmath.fractionSimplifiee(:z,:N)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:z,:N)}",
+            "keys": [
+                "/",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Augensumme zweier Würfel",
+            "vars": {
+                "typ": "0_4",
+                "s0": "2_12",
+                "s1": "3_10",
+                "s": "${:typ===0 ? :s0 : :s1}",
+                "z": "${[2,3,4,5,6,7,8,9,10,11,12].filter(t => [t === :s, t <= :s, t >= :s, t > :s, t < :s][:typ]).reduce((a,t) => a + 6 - Math.abs(t-7), 0)}",
+                "art": "${['genau','höchstens','mindestens','größer als','kleiner als'][:typ]}"
+            },
+            "question": "Zwei Würfel werden geworfen. Mit welcher Wahrscheinlichkeit ist die Augensumme :art $$:s$$?",
+            "shortq": "Zwei Würfel: $$P(\\text{Augensumme :art } :s)$$",
+            "answer": "Günstige Ergebnisse: $$:z$$ von $$36$$, also $$P=\\dfrac{:z}{36}=\\color{red}{${MMmath.fractionSimplifiee(:z,36)}}$$",
+            "value": "${MMmath.fractionSimplifiee(:z,36)}",
+            "keys": [
+                "/",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

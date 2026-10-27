@@ -1,0 +1,178 @@
+{
+    "title": "Lösungsmengen linearer Gleichungssysteme untersuchen",
+    "ID": "DQFB1",
+    "description": "Lösungsmenge, LGS, lineares Gleichungssystem, eindeutig lösbar, nicht lösbar, unendlich viele Lösungen, Stufenform, Parameter, Lösung mit Parameter angeben, Nullzeile, Widerspruch (nur LK). Online: unendlich viele Lösungen als ∞ (Tastatur: oo) oder „unendlich“ eingeben.",
+    "dest": [
+        "QFB"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Anzahl der Lösungen aus der Stufenform",
+            "vars": {
+                "a1": [
+                    1,
+                    2,
+                    -1
+                ],
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "d1": "-6_6",
+                "b2": [
+                    1,
+                    -1,
+                    2,
+                    3
+                ],
+                "c2": "-3_3",
+                "d2": "-6_6",
+                "typ": "0_2",
+                "c": "-4_4_^0",
+                "dz": "-6_6_^0",
+                "c3": "${:typ===0 ? :c : 0}",
+                "d3": "${:typ===2 ? 0 : (:typ===1 ? :dz : :c*:dz)}"
+            },
+            "question": "Wie viele Lösungen hat das LGS mit der erweiterten Koeffizientenmatrix $$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & :c3 & :d3\\end{array}\\right)$$? (0, 1 oder ∞)",
+            "shortq": "Anzahl der Lösungen: $$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & :c3 & :d3\\end{array}\\right)$$",
+            "answer": "${:typ===0 ? 'Die letzte Zeile liefert genau einen Wert für $$x_3$$, danach $$x_2$$ und $$x_1$$: <span class=\"red\">genau eine Lösung</span>.' : (:typ===1 ? 'Die letzte Zeile bedeutet $$0=' + :d3 + '$$, ein Widerspruch: <span class=\"red\">keine Lösung</span>.' : 'Die letzte Zeile ist eine Nullzeile $$(0=0)$$; $$x_3$$ ist frei wählbar: <span class=\"red\">unendlich viele Lösungen</span>.')}",
+            "value": [
+                "${:typ===0 ? '1' : (:typ===1 ? '0' : '\\infty')}",
+                "${:typ===2 ? 'unendlich' : (:typ===0 ? '1' : '0')}",
+                "${:typ===2 ? 'unendli\\operatorname{\\mathrm{ch}}' : (:typ===0 ? '1' : '0')}"
+            ],
+            "keys": [
+                "alphabetique"
+            ]
+        },
+        {
+            "name": "Parameter: keine Lösung",
+            "vars": {
+                "a1": [
+                    1,
+                    2,
+                    -1
+                ],
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "d1": "-6_6",
+                "b2": [
+                    1,
+                    -1,
+                    2,
+                    3
+                ],
+                "c2": "-3_3",
+                "d2": "-6_6",
+                "c": "-5_5",
+                "d3": "-6_6_^0"
+            },
+            "question": "Für welchen Wert von $$t$$ hat das LGS keine Lösung?<br>$$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & ${'t'+MMmath.signedNumber(-:c)} & :d3\\end{array}\\right)$$",
+            "shortq": "$$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & ${'t'+MMmath.signedNumber(-:c)} & :d3\\end{array}\\right)$$: keine Lösung",
+            "answer": "Für $$t=\\color{red}{:c}$$ lautet die letzte Zeile $$0=:d3$$ – ein Widerspruch. Für alle anderen $$t$$ gibt es genau eine Lösung.",
+            "value": ":c",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Parameter: unendlich viele Lösungen",
+            "vars": {
+                "a1": [
+                    1,
+                    2,
+                    -1
+                ],
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "d1": "-6_6",
+                "b2": [
+                    1,
+                    -1,
+                    2,
+                    3
+                ],
+                "c2": "-3_3",
+                "d2": "-6_6",
+                "c": "-5_5",
+                "m": [
+                    -2,
+                    -1,
+                    2,
+                    3
+                ]
+            },
+            "question": "Für welchen Wert von $$t$$ hat das LGS unendlich viele Lösungen?<br>$$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & ${'t'+MMmath.signedNumber(-:c)} & ${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(-:m*:c,:m)}\\end{array}\\right)$$",
+            "shortq": "$$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & ${'t'+MMmath.signedNumber(-:c)} & ${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(-:m*:c,:m)}\\end{array}\\right)$$: unendlich viele Lösungen",
+            "answer": "Die letzte Zeile lautet $$(t${MMmath.signedNumber(-:c)})\\cdot x_3=${MMmath.nP(:m)}\\cdot(t${MMmath.signedNumber(-:c)})$$. Für $$t=\\color{red}{:c}$$ wird sie zur Nullzeile $$0=0$$; sonst ist $$x_3=:m$$ eindeutig.",
+            "value": ":c",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Lösung mit Parameter: x₂ angeben",
+            "vars": {
+                "a": "-3_3",
+                "b": "-3_3",
+                "c": "-3_3_^0",
+                "d": "-6_6",
+                "e": "-6_6"
+            },
+            "question": "Das LGS hat unendlich viele Lösungen. Setze $$x_3=t$$ und gib $$x_2$$ in Abhängigkeit von $$t$$ an.<br>$$\\begin{array}{lrcl}\\text{I} & ${[[1,'x_1'],[:a,'x_2'],[:b,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d\\\\\\text{II} & ${[[0,'x_1'],[1,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\end{array}$$",
+            "shortq": "$$\\begin{array}{lrcl}\\text{I} & ${[[1,'x_1'],[:a,'x_2'],[:b,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d\\\\\\text{II} & ${[[0,'x_1'],[1,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\end{array}$$, $$x_3=t$$, $$x_2=?$$",
+            "answer": "Aus II: $$x_2=:e${MMmath.signedNumberButOne(-:c)}t$$, also $$x_2=\\color{red}{${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:e,-:c)}}$$",
+            "value": "${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:e,-:c)}",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "+",
+                "_",
+                "t",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Lösung mit Parameter: x₁ angeben",
+            "vars": {
+                "a": "-3_3_^0",
+                "b": "-3_3",
+                "c": "-3_3_^0",
+                "d": "-6_6",
+                "e": "-4_4",
+                "k0": "${:d-:a*:e}",
+                "k1": "${:a*:c-:b}"
+            },
+            "question": "Das LGS hat unendlich viele Lösungen. Setze $$x_3=t$$ und gib $$x_1$$ in Abhängigkeit von $$t$$ an.<br>$$\\begin{array}{lrcl}\\text{I} & ${[[1,'x_1'],[:a,'x_2'],[:b,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d\\\\\\text{II} & ${[[0,'x_1'],[1,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\end{array}$$",
+            "shortq": "$$\\begin{array}{lrcl}\\text{I} & ${[[1,'x_1'],[:a,'x_2'],[:b,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d\\\\\\text{II} & ${[[0,'x_1'],[1,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\end{array}$$, $$x_3=t$$, $$x_1=?$$",
+            "answer": "Aus II: $$x_2=${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:e,-:c)}$$. In I: $$x_1=:d${MMmath.signedNumberButOne(-:a)}(${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:e,-:c)})${MMmath.signedNumberButOne(-:b)}${:b===0 ? '' : 't'}=\\color{red}{${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:k0,:k1)}}$$",
+            "value": "${((a,b) => { const tt = b === 0 ? '' : (b === 1 ? 't' : (b === -1 ? '-t' : b + 't')); if (a === 0) return tt === '' ? '0' : tt; return tt === '' ? String(a) : String(a) + (b > 0 ? '+' : '') + tt; })(:k0,:k1)}",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "+",
+                "_",
+                "t",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

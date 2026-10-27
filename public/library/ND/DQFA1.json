@@ -1,0 +1,197 @@
+{
+    "title": "Lineare Gleichungssysteme mit dem Gauß-Algorithmus lösen",
+    "ID": "DQFA1",
+    "description": "Gauß-Algorithmus, Gaußsches Eliminationsverfahren, lineares Gleichungssystem, LGS, drei Variablen, Stufenform, Dreiecksform, Rückwärtseinsetzen, Koeffizientenmatrix, erweiterte Matrix, Eliminationsschritt, Lösung prüfen. Online: Lösung als x1;x2;x3 eingeben.",
+    "dest": [
+        "QFA"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Stufenform rückwärts lösen",
+            "vars": {
+                "x": "-4_4",
+                "y": "-4_4",
+                "z": "-4_4",
+                "a1": [
+                    1,
+                    1,
+                    2,
+                    -1
+                ],
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "b2": [
+                    1,
+                    1,
+                    -1,
+                    2
+                ],
+                "c2": "-3_3",
+                "c3": [
+                    1,
+                    2,
+                    3,
+                    -1,
+                    -2
+                ],
+                "d1": "${:a1*:x+:b1*:y+:c1*:z}",
+                "d2": "${:b2*:y+:c2*:z}",
+                "d3": "${:c3*:z}"
+            },
+            "question": "Löse das LGS: $$\\begin{array}{lrcl}\\text{I} & ${[[:a1,'x_1'],[:b1,'x_2'],[:c1,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d1\\\\\\text{II} & ${[[0,'x_1'],[:b2,'x_2'],[:c2,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d2\\\\\\text{III} & ${[[0,'x_1'],[0,'x_2'],[:c3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d3\\end{array}$$",
+            "answer": "$$\\text{III:}\\; x_3=\\dfrac{:d3}{${:c3}}=:z$$, $$\\text{II:}\\; ${[[:b2,'x_2'],[0,''],[0,'']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}${MMmath.signedNumber(:c2*:z)}=:d2\\Rightarrow x_2=:y$$, $$\\text{I:}\\; x_1=:x$$<br>$$\\color{red}{(x_1|x_2|x_3)=(${:x}|${:y}|${:z})}$$",
+            "value": [
+                ":x;:y;:z",
+                "\\left(:x;:y;:z\\right)",
+                "(:x;:y;:z)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Stufenform als Matrix lösen",
+            "vars": {
+                "x": "-4_4",
+                "y": "-4_4",
+                "z": "-4_4",
+                "a1": [
+                    1,
+                    1,
+                    2,
+                    -1
+                ],
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "b2": [
+                    1,
+                    1,
+                    -1,
+                    2
+                ],
+                "c2": "-3_3",
+                "c3": [
+                    1,
+                    2,
+                    3,
+                    -1,
+                    -2
+                ],
+                "d1": "${:a1*:x+:b1*:y+:c1*:z}",
+                "d2": "${:b2*:y+:c2*:z}",
+                "d3": "${:c3*:z}"
+            },
+            "question": "Löse das LGS mit der erweiterten Koeffizientenmatrix $$\\left(\\begin{array}{rrr|r}:a1 & :b1 & :c1 & :d1\\\\0 & :b2 & :c2 & :d2\\\\0 & 0 & :c3 & :d3\\end{array}\\right)$$.",
+            "answer": "$$\\text{III:}\\; x_3=\\dfrac{:d3}{${:c3}}=:z$$, $$\\text{II:}\\; ${[[:b2,'x_2'],[0,''],[0,'']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}${MMmath.signedNumber(:c2*:z)}=:d2\\Rightarrow x_2=:y$$, $$\\text{I:}\\; x_1=:x$$<br>$$\\color{red}{(x_1|x_2|x_3)=(${:x}|${:y}|${:z})}$$",
+            "value": [
+                ":x;:y;:z",
+                "\\left(:x;:y;:z\\right)",
+                "(:x;:y;:z)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Faktor für einen Eliminationsschritt",
+            "vars": {
+                "a": [
+                    1,
+                    2,
+                    3,
+                    -1,
+                    -2
+                ],
+                "k": "-4_4_^0",
+                "b": "${-:k*:a}",
+                "p": "-5_5",
+                "q": "-5_5",
+                "r": "-5_5",
+                "s": "-5_5",
+                "e": "-9_9",
+                "f": "-9_9",
+                "n2": "${:s+:k*:p}",
+                "n3": "${:r+:k*:q}",
+                "nr": "${:f+:k*:e}"
+            },
+            "question": "Gib die Zahl $$k$$ an: Wird Gleichung I mit $$k$$ multipliziert und zu Gleichung II addiert, fällt $$x_1$$ weg.<br>$$\\begin{array}{lrcl}\\text{I} & ${[[:a,'x_1'],[:p,'x_2'],[:q,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\\\\\text{II} & ${[[:b,'x_1'],[:s,'x_2'],[:r,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :f\\end{array}$$",
+            "shortq": "$$\\begin{array}{lrcl}\\text{I} & ${[[:a,'x_1'],[:p,'x_2'],[:q,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :e\\\\\\text{II} & ${[[:b,'x_1'],[:s,'x_2'],[:r,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :f\\end{array}$$",
+            "answer": "$$k\\cdot ${MMmath.nP(:a)}+${MMmath.nP(:b)}=0\\;\\Rightarrow\\; k=\\color{red}{:k}$$<br>$$\\text{II}+${MMmath.nP(:k)}\\cdot\\text{I}:\\; ${[[0,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}${:n2===0 && :n3===0 ? '0' : ''}=:nr$$",
+            "value": ":k",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Lösung prüfen (ja/nein)",
+            "vars": {
+                "x": "-3_3",
+                "y": "-3_3",
+                "z": "-3_3",
+                "a1": "-3_3_^0",
+                "b1": "-3_3",
+                "c1": "-3_3",
+                "a2": "-3_3",
+                "b2": "-3_3_^0",
+                "c2": "-3_3",
+                "a3": "-3_3",
+                "b3": "-3_3",
+                "c3": "-3_3_^0",
+                "on": "0_1",
+                "j": "1_3",
+                "dd": [
+                    -2,
+                    -1,
+                    1,
+                    2
+                ],
+                "d1": "${:a1*:x+:b1*:y+:c1*:z+(:on===0 && :j===1 ? :dd : 0)}",
+                "d2": "${:a2*:x+:b2*:y+:c2*:z+(:on===0 && :j===2 ? :dd : 0)}",
+                "d3": "${:a3*:x+:b3*:y+:c3*:z+(:on===0 && :j===3 ? :dd : 0)}",
+                "e1": "${:a1*:x+:b1*:y+:c1*:z}",
+                "e2": "${:a2*:x+:b2*:y+:c2*:z}",
+                "e3": "${:a3*:x+:b3*:y+:c3*:z}"
+            },
+            "question": "Ist $$(x_1|x_2|x_3)=(${:x}|${:y}|${:z})$$ eine Lösung von diesem LGS? Antworte mit ja oder nein.<br>$$\\begin{array}{lrcl}\\text{I} & ${[[:a1,'x_1'],[:b1,'x_2'],[:c1,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d1\\\\\\text{II} & ${[[:a2,'x_1'],[:b2,'x_2'],[:c2,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d2\\\\\\text{III} & ${[[:a3,'x_1'],[:b3,'x_2'],[:c3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d3\\end{array}$$",
+            "shortq": "$$(${:x}|${:y}|${:z})$$ Lösung von $$\\begin{array}{lrcl}\\text{I} & ${[[:a1,'x_1'],[:b1,'x_2'],[:c1,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d1\\\\\\text{II} & ${[[:a2,'x_1'],[:b2,'x_2'],[:c2,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d2\\\\\\text{III} & ${[[:a3,'x_1'],[:b3,'x_2'],[:c3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')} & = & :d3\\end{array}$$?",
+            "answer": "Einsetzen ergibt links $$:e1$$, $$:e2$$ und $$:e3$$${:on===1 ? '; alle Gleichungen stimmen.' : ', aber in Gleichung ' + ['I','II','III'][:j-1] + ' steht rechts ' + [:d1,:d2,:d3][:j-1] + '.'}<br><span class='red'>${:on===1 ? 'Ja' : 'Nein'}</span>",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

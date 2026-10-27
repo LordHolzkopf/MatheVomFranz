@@ -1,0 +1,232 @@
+{
+    "title": "Erwartungswert, Varianz und Standardabweichung von Zufallsgrößen bestimmen",
+    "ID": "DQHF1",
+    "description": "Zufallsgröße, Zufallsvariable, Wahrscheinlichkeitsverteilung, Erwartungswert, faires Spiel, Einsatz, Gewinn, Varianz, Standardabweichung, fehlende Wahrscheinlichkeit, Tabelle.",
+    "dest": [
+        "QHF"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Erwartungswert aus einer Tabelle",
+            "vars": {
+                "x": "-4_8_3_^&",
+                "a": "1_7",
+                "b": "1_${9-:a}",
+                "c": "${10-:a-:b}",
+                "x1": "${Math.min(...:x)}",
+                "x3": "${Math.max(...:x)}",
+                "x2": "${:x[0]+:x[1]+:x[2]-:x1-:x3}",
+                "E": "${MMmath.round((:x1*:a+:x2*:b+:x3*:c)/10,1)}"
+            },
+            "question": "Berechne den Erwartungswert von $$X$$:<br>$$\\begin{array}{c|c|c|c}x_i & :x1 & :x2 & :x3\\\\\\hline P(X=x_i) & ${:a/10} & ${:b/10} & ${:c/10}\\end{array}$$",
+            "shortq": "$$E(X)$$: $$\\begin{array}{c|c|c|c}x_i & :x1 & :x2 & :x3\\\\\\hline P(X=x_i) & ${:a/10} & ${:b/10} & ${:c/10}\\end{array}$$",
+            "answer": "$$E(X)=${MMmath.nP(:x1)}\\cdot ${:a/10}+${MMmath.nP(:x2)}\\cdot ${:b/10}+${MMmath.nP(:x3)}\\cdot ${:c/10}=\\color{red}{:E}$$",
+            "value": [
+                "${:E}",
+                "${String(:E).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Fehlende Wahrscheinlichkeit",
+            "vars": {
+                "a": "1_8",
+                "b": "1_8",
+                "c": "1_${18-:a-:b > 8 ? 8 : 18-:a-:b}",
+                "d": "${20-:a-:b-:c}",
+                "j": "0_3",
+                "x0": "-2_3"
+            },
+            "question": "Ergänze die fehlende Wahrscheinlichkeit:<br>$$\\begin{array}{c|c|c|c|c}x_i & :x0 & ${:x0+1} & ${:x0+2} & ${:x0+3}\\\\\\hline P(X=x_i) & ${:j===0 ? '?' : MMmath.round(:a*0.05,2)} & ${:j===1 ? '?' : MMmath.round(:b*0.05,2)} & ${:j===2 ? '?' : MMmath.round(:c*0.05,2)} & ${:j===3 ? '?' : MMmath.round(:d*0.05,2)}\\end{array}$$",
+            "shortq": "$$\\begin{array}{c|c|c|c|c}x_i & :x0 & ${:x0+1} & ${:x0+2} & ${:x0+3}\\\\\\hline P(X=x_i) & ${:j===0 ? '?' : MMmath.round(:a*0.05,2)} & ${:j===1 ? '?' : MMmath.round(:b*0.05,2)} & ${:j===2 ? '?' : MMmath.round(:c*0.05,2)} & ${:j===3 ? '?' : MMmath.round(:d*0.05,2)}\\end{array}$$",
+            "answer": "Die Summe aller Wahrscheinlichkeiten ist 1: $$?=1-${MMmath.round(1-[:a,:b,:c,:d][:j]*0.05,2)}=\\color{red}{${MMmath.round([:a,:b,:c,:d][:j]*0.05,2)}}$$",
+            "value": [
+                "${MMmath.round([:a,:b,:c,:d][:j]*0.05,2)}",
+                "${String(MMmath.round([:a,:b,:c,:d][:j]*0.05,2)).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Fairer Einsatz",
+            "vars": {
+                "p1": "1_3",
+                "p2": "1_4",
+                "a1": [
+                    5,
+                    10,
+                    20,
+                    50
+                ],
+                "a2": "1_4",
+                "E": "${MMmath.round((:p1*:a1+:p2*:a2)/10,1)}"
+            },
+            "question": "Bei einem Glücksspiel bekommt man mit Wahrscheinlichkeit $$${:p1/10}$$ eine Auszahlung von $$:a1\\text{ €}$$ und mit Wahrscheinlichkeit $$${:p2/10}$$ eine Auszahlung von $$:a2\\text{ €}$$, sonst nichts. Wie hoch muss der Einsatz (in €) sein, damit das Spiel fair ist?",
+            "shortq": "$$${:p1/10}$$: $$:a1\\text{ €}$$, $$${:p2/10}$$: $$:a2\\text{ €}$$; fairer Einsatz?",
+            "answer": "Fair heißt: Einsatz = erwartete Auszahlung. $$E=${:p1/10}\\cdot :a1+${:p2/10}\\cdot :a2=\\color{red}{:E\\text{ €}}$$",
+            "value": [
+                "${:E}",
+                "${String(:E).replace('.', ',')}",
+                "${:E}\\text{ €}",
+                "${:E}€"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "€"
+            ]
+        },
+        {
+            "name": "Varianz einer Zufallsgröße",
+            "vars": {
+                "p": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "k": "1_4",
+                "m": "-2_6",
+                "V": "${MMmath.round(2*:p/10*:k*:k,2)}"
+            },
+            "question": "Berechne die Varianz von $$X$$:<br>$$\\begin{array}{c|c|c|c}x_i & ${:m-:k} & :m & ${:m+:k}\\\\\\hline P(X=x_i) & ${:p/10} & ${MMmath.round(1-2*:p/10,1)} & ${:p/10}\\end{array}$$",
+            "shortq": "$$V(X)$$: $$\\begin{array}{c|c|c|c}x_i & ${:m-:k} & :m & ${:m+:k}\\\\\\hline P(X=x_i) & ${:p/10} & ${MMmath.round(1-2*:p/10,1)} & ${:p/10}\\end{array}$$",
+            "answer": "Wegen der Symmetrie ist $$E(X)=:m$$.<br>$$V(X)=${MMmath.nP(-:k)}^2\\cdot ${:p/10}+0^2\\cdot ${MMmath.round(1-2*:p/10,1)}+:k^2\\cdot ${:p/10}=\\color{red}{:V}$$",
+            "value": [
+                "${:V}",
+                "${String(:V).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Standardabweichung einer Zufallsgröße",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        1,
+                        1
+                    ],
+                    [
+                        0.5,
+                        2,
+                        2
+                    ],
+                    [
+                        0.5,
+                        3,
+                        3
+                    ],
+                    [
+                        0.5,
+                        4,
+                        4
+                    ],
+                    [
+                        0.5,
+                        5,
+                        5
+                    ],
+                    [
+                        0.08,
+                        5,
+                        2
+                    ],
+                    [
+                        0.18,
+                        5,
+                        3
+                    ],
+                    [
+                        0.32,
+                        5,
+                        4
+                    ],
+                    [
+                        0.125,
+                        4,
+                        2
+                    ],
+                    [
+                        0.125,
+                        8,
+                        4
+                    ],
+                    [
+                        0.02,
+                        10,
+                        2
+                    ],
+                    [
+                        0.08,
+                        10,
+                        4
+                    ],
+                    [
+                        0.18,
+                        10,
+                        6
+                    ],
+                    [
+                        0.32,
+                        10,
+                        8
+                    ]
+                ],
+                "m": "0_8",
+                "p": "${:b[0]}",
+                "k": "${:b[1]}",
+                "s": "${:b[2]}",
+                "mitte": "${MMmath.round(1-2*:b[0],3)}"
+            },
+            "question": "Berechne die Standardabweichung von $$X$$:<br>$$\\begin{array}{c|c|c|c}x_i & ${:m-:k} & :m & ${:m+:k}\\\\\\hline P(X=x_i) & :p & :mitte & :p\\end{array}$$",
+            "shortq": "$$\\sigma(X)$$: $$\\begin{array}{c|c|c|c}x_i & ${:m-:k} & :m & ${:m+:k}\\\\\\hline P(X=x_i) & :p & :mitte & :p\\end{array}$$",
+            "answer": "$$E(X)=:m$$ (Symmetrie), $$V(X)=2\\cdot :k^2\\cdot :p=${MMmath.round(2*:k*:k*:p,4)}$$, also $$\\sigma(X)=\\color{red}{:s}$$",
+            "value": ":s",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

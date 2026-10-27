@@ -1,0 +1,677 @@
+{
+    "title": "Schnittpunkte und Schnittwinkel bei Geraden und Ebenen bestimmen",
+    "ID": "DQFE1",
+    "description": "Schnittpunkt Gerade Ebene, Durchstoßpunkt, Koordinatenform, einsetzen, Spurpunkt, Schnittpunkt mit Koordinatenachse, Schnittwinkel Gerade Ebene, Sinus, Schnittwinkel zweier Ebenen, Normalenvektor. Winkel in Grad ohne Taschenrechner (Standardwerte). Online: Koordinaten mit Semikolon trennen.",
+    "dest": [
+        "QFE"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Parameterwert für den Schnittpunkt Gerade–Ebene",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "m1": [
+                    -1,
+                    1
+                ],
+                "m2": "-2_2",
+                "m3": "-2_2",
+                "w2": "-2_2",
+                "w3": "-2_2",
+                "q": [
+                    -3,
+                    -2,
+                    -1,
+                    1,
+                    2,
+                    3
+                ],
+                "w1": "${:m1*(:q-:m2*:w2-:m3*:w3)}",
+                "n1": "${[:m1,:m2,:m3][:pm[0]]}",
+                "n2": "${[:m1,:m2,:m3][:pm[1]]}",
+                "n3": "${[:m1,:m2,:m3][:pm[2]]}",
+                "u1": "${[:w1,:w2,:w3][:pm[0]]}",
+                "u2": "${[:w1,:w2,:w3][:pm[1]]}",
+                "u3": "${[:w1,:w2,:w3][:pm[2]]}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "t0": "-3_3_^0",
+                "S1": "${:p1+:t0*:u1}",
+                "S2": "${:p2+:t0*:u2}",
+                "S3": "${:p3+:t0*:u3}",
+                "d": "${:n1*:S1+:n2*:S2+:n3*:S3}",
+                "np": "${:n1*:p1+:n2*:p2+:n3*:p3}"
+            },
+            "question": "Für welchen Parameterwert $$t$$ schneidet $$g$$ die Ebene $$E$$?<br>$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "answer": "Koordinaten von $$g$$ in $$E$$ einsetzen: $$:np${MMmath.signedNumberButOne(:q)}t=:d\\;\\Rightarrow\\; t=\\color{red}{:t0}$$",
+            "value": ":t0",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnittpunkt Gerade–Ebene",
+            "vars": {
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "m1": [
+                    -1,
+                    1
+                ],
+                "m2": "-2_2",
+                "m3": "-2_2",
+                "w2": "-2_2",
+                "w3": "-2_2",
+                "q": [
+                    -3,
+                    -2,
+                    -1,
+                    1,
+                    2,
+                    3
+                ],
+                "w1": "${:m1*(:q-:m2*:w2-:m3*:w3)}",
+                "n1": "${[:m1,:m2,:m3][:pm[0]]}",
+                "n2": "${[:m1,:m2,:m3][:pm[1]]}",
+                "n3": "${[:m1,:m2,:m3][:pm[2]]}",
+                "u1": "${[:w1,:w2,:w3][:pm[0]]}",
+                "u2": "${[:w1,:w2,:w3][:pm[1]]}",
+                "u3": "${[:w1,:w2,:w3][:pm[2]]}",
+                "p1": "-4_4",
+                "p2": "-4_4",
+                "p3": "-4_4",
+                "t0": "-3_3_^0",
+                "S1": "${:p1+:t0*:u1}",
+                "S2": "${:p2+:t0*:u2}",
+                "S3": "${:p3+:t0*:u3}",
+                "d": "${:n1*:S1+:n2*:S2+:n3*:S3}",
+                "np": "${:n1*:p1+:n2*:p2+:n3*:p3}"
+            },
+            "question": "Berechne den Schnittpunkt von $$g$$ und $$E$$.<br>$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "answer": "Koordinaten von $$g$$ in $$E$$ einsetzen: $$:np${MMmath.signedNumberButOne(:q)}t=:d\\;\\Rightarrow\\; t=:t0$$<br>$$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:t0)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, also $$\\color{red}{S({:S1}|{:S2}|{:S3})}$$",
+            "value": [
+                ":S1;:S2;:S3",
+                "\\left(:S1;:S2;:S3\\right)",
+                "(:S1;:S2;:S3)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnittpunkt einer Ebene mit einer Koordinatenachse",
+            "vars": {
+                "a": "-6_6_^0",
+                "b": "-6_6_^0",
+                "c": "-6_6_^0",
+                "k": "1_3",
+                "m": "-5_5_^0",
+                "d": "${[:a,:b,:c][:k-1]*:m}",
+                "S1": "${:k===1 ? :m : 0}",
+                "S2": "${:k===2 ? :m : 0}",
+                "S3": "${:k===3 ? :m : 0}"
+            },
+            "question": "Berechne den Schnittpunkt der Ebene $$E:\\;${[[:a,'x_1'],[:b,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$ mit der $$x_{:k}$$-Achse.",
+            "shortq": "$$E:\\;${[[:a,'x_1'],[:b,'x_2'],[:c,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$, $$x_{:k}$$-Achse",
+            "answer": "Die anderen beiden Koordinaten sind 0: $$${[:a,:b,:c][:k-1]}\\cdot x_{:k}=:d\\Rightarrow x_{:k}=:m$$, also $$\\color{red}{S({:S1}|{:S2}|{:S3})}$$",
+            "value": [
+                ":S1;:S2;:S3",
+                "\\left(:S1;:S2;:S3\\right)",
+                "(:S1;:S2;:S3)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnittwinkel Gerade–Ebene",
+            "vars": {
+                "b": [
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        30,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        30,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            1,
+                            2,
+                            1
+                        ],
+                        60,
+                        "\\tfrac{\\sqrt{3}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            1,
+                            1
+                        ],
+                        60,
+                        "\\tfrac{\\sqrt{3}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            2
+                        ],
+                        60,
+                        "\\tfrac{\\sqrt{3}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        90,
+                        "1"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        90,
+                        "1"
+                    ],
+                    [
+                        [
+                            2,
+                            1,
+                            2
+                        ],
+                        [
+                            2,
+                            1,
+                            2
+                        ],
+                        90,
+                        "1"
+                    ]
+                ],
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "s1": [
+                    -1,
+                    1
+                ],
+                "s2": [
+                    -1,
+                    1
+                ],
+                "s3": [
+                    -1,
+                    1
+                ],
+                "f": "1_2",
+                "g": "1_2",
+                "n1": "${:f*:s1*:b[0][:pm[0]]}",
+                "n2": "${:f*:s2*:b[0][:pm[1]]}",
+                "n3": "${:f*:s3*:b[0][:pm[2]]}",
+                "u1": "${:g*:s1*:b[1][:pm[0]]}",
+                "u2": "${:g*:s2*:b[1][:pm[1]]}",
+                "u3": "${:g*:s3*:b[1][:pm[2]]}",
+                "sp": "${:n1*:u1+:n2*:u2+:n3*:u3}",
+                "nn": "${:n1*:n1+:n2*:n2+:n3*:n3}",
+                "uu": "${:u1*:u1+:u2*:u2+:u3*:u3}",
+                "w": "${:b[2]}",
+                "a1": "-4_4",
+                "a2": "-4_4",
+                "a3": "-4_4",
+                "d": "-8_8"
+            },
+            "question": "Berechne den Schnittwinkel von $$g:\\;\\vec{x}=\\begin{pmatrix}:a1\\\\:a2\\\\:a3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:a1\\\\:a2\\\\:a3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$E:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d$$",
+            "answer": "$$\\sin\\varphi=\\dfrac{|\\vec{n}\\cdot\\vec{u}|}{|\\vec{n}|\\cdot|\\vec{u}|}=\\dfrac{|:sp|}{\\sqrt{:nn}\\cdot\\sqrt{:uu}}=${:b[3]}$$<br>$$\\varphi=\\color{red}{:w^\\circ}$$",
+            "value": [
+                "${:w}",
+                "${:w}\\degree",
+                "${:w}°"
+            ],
+            "keys": [
+                "°",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Schnittwinkel zweier Ebenen",
+            "vars": {
+                "b": [
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            -1,
+                            1,
+                            0
+                        ],
+                        135,
+                        "-\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ],
+                        45,
+                        "\\tfrac{\\sqrt{2}}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            1
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        60,
+                        "\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            -1,
+                            1
+                        ],
+                        120,
+                        "-\\tfrac{1}{2}"
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            2
+                        ],
+                        [
+                            2,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            2,
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            1
+                        ],
+                        [
+                            1,
+                            1,
+                            -2
+                        ],
+                        90,
+                        "0"
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            3,
+                            4
+                        ],
+                        90,
+                        "0"
+                    ]
+                ],
+                "pm": [
+                    [
+                        0,
+                        1,
+                        2
+                    ],
+                    [
+                        0,
+                        2,
+                        1
+                    ],
+                    [
+                        1,
+                        0,
+                        2
+                    ],
+                    [
+                        1,
+                        2,
+                        0
+                    ],
+                    [
+                        2,
+                        0,
+                        1
+                    ],
+                    [
+                        2,
+                        1,
+                        0
+                    ]
+                ],
+                "s1": [
+                    -1,
+                    1
+                ],
+                "s2": [
+                    -1,
+                    1
+                ],
+                "s3": [
+                    -1,
+                    1
+                ],
+                "f": "1_2",
+                "g": "1_2",
+                "n1": "${:f*:s1*:b[0][:pm[0]]}",
+                "n2": "${:f*:s2*:b[0][:pm[1]]}",
+                "n3": "${:f*:s3*:b[0][:pm[2]]}",
+                "u1": "${:g*:s1*:b[1][:pm[0]]}",
+                "u2": "${:g*:s2*:b[1][:pm[1]]}",
+                "u3": "${:g*:s3*:b[1][:pm[2]]}",
+                "sp": "${:n1*:u1+:n2*:u2+:n3*:u3}",
+                "nn": "${:n1*:n1+:n2*:n2+:n3*:n3}",
+                "uu": "${:u1*:u1+:u2*:u2+:u3*:u3}",
+                "w": "${:b[2]}",
+                "d1": "-8_8",
+                "d2": "-8_8",
+                "sw": "${Math.min(:w, 180-:w)}"
+            },
+            "question": "Berechne den Schnittwinkel der Ebenen $$E_1:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d1$$ und $$E_2:\\;${[[:u1,'x_1'],[:u2,'x_2'],[:u3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d2$$.",
+            "shortq": "$$E_1:\\;${[[:n1,'x_1'],[:n2,'x_2'],[:n3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d1$$, $$E_2:\\;${[[:u1,'x_1'],[:u2,'x_2'],[:u3,'x_3']].filter(t => t[0] !== 0).map((t,i) => (t[0] < 0 ? '-' : (i > 0 ? '+' : '')) + (Math.abs(t[0]) === 1 ? '' : Math.abs(t[0])) + t[1]).join('')}=:d2$$",
+            "answer": "$$\\cos\\alpha=\\dfrac{|\\vec{n_1}\\cdot\\vec{n_2}|}{|\\vec{n_1}|\\cdot|\\vec{n_2}|}=\\dfrac{|:sp|}{\\sqrt{:nn}\\cdot\\sqrt{:uu}}=${String(:b[3]).replace('-', '')}$$<br>$$\\alpha=\\color{red}{:sw^\\circ}$$",
+            "value": [
+                "${:sw}",
+                "${:sw}\\degree",
+                "${:sw}°"
+            ],
+            "keys": [
+                "°",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

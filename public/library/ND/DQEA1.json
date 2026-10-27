@@ -1,0 +1,184 @@
+{
+    "title": "Mit Geraden im Raum rechnen",
+    "ID": "DQEA1",
+    "description": "Gerade, Parameterform, Stützvektor, Richtungsvektor, Punktprobe, Parameter bestimmen, kollinear, parallel, identisch, Lagebeziehung von Geraden, Wiederholung. Online: Koordinaten mit Semikolon trennen.",
+    "dest": [
+        "QEA"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Punkt zu einem Parameterwert berechnen",
+            "vars": {
+                "p1": "-6_6",
+                "p2": "-6_6",
+                "p3": "-6_6",
+                "u1": "-3_3_^0",
+                "u2": "-3_3",
+                "u3": "-3_3",
+                "k": "-3_3_^0",
+                "r1": "${:p1+:k*:u1}",
+                "r2": "${:p2+:k*:u2}",
+                "r3": "${:p3+:k*:u3}"
+            },
+            "question": "Gegeben ist die Gerade $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$. Berechne den Punkt von $$g$$ zum Parameterwert $$t=:k$$.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$t=:k$$",
+            "answer": "$$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:k)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}=\\begin{pmatrix}:r1\\\\:r2\\\\:r3\\end{pmatrix}$$<br>$$\\color{red}{P({:r1}|{:r2}|{:r3})}$$",
+            "value": [
+                ":r1;:r2;:r3",
+                "\\left(:r1;:r2;:r3\\right)",
+                "(:r1;:r2;:r3)"
+            ],
+            "keys": [
+                ";",
+                "_",
+                "-",
+                "_",
+                "(",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Parameter eines Punktes bestimmen",
+            "vars": {
+                "p1": "-6_6",
+                "p2": "-6_6",
+                "p3": "-6_6",
+                "u1": "-3_3_^0",
+                "u2": "-3_3",
+                "u3": "-3_3",
+                "k": "-4_4_^0",
+                "r1": "${:p1+:k*:u1}",
+                "r2": "${:p2+:k*:u2}",
+                "r3": "${:p3+:k*:u3}"
+            },
+            "question": "Der Punkt $$P({:r1}|{:r2}|{:r3})$$ liegt auf der Geraden $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$. Für welchen Wert von $$t$$ erhält man $$P$$?",
+            "shortq": "$$P({:r1}|{:r2}|{:r3})$$ auf $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$t=?$$",
+            "answer": "Erste Koordinate: $$:r1=:p1+t\\cdot ${MMmath.nP(:u1)}\\;\\Rightarrow\\; t=\\color{red}{:k}$$ (die anderen Koordinaten passen ebenfalls).",
+            "value": ":k",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Punktprobe (ja/nein)",
+            "vars": {
+                "p1": "-6_6",
+                "p2": "-6_6",
+                "p3": "-6_6",
+                "u1": "-3_3_^0",
+                "u2": "-3_3",
+                "u3": "-3_3",
+                "k": "-3_3_^0",
+                "on": "0_1",
+                "j": "2_3",
+                "d": "-2_2_^0",
+                "r1": "${:p1+:k*:u1}",
+                "r2": "${:p2+:k*:u2+(:on===0 && :j===2 ? :d : 0)}",
+                "r3": "${:p3+:k*:u3+(:on===0 && :j===3 ? :d : 0)}",
+                "s2": "${:p2+:k*:u2}",
+                "s3": "${:p3+:k*:u3}"
+            },
+            "question": "Liegt der Punkt $$P({:r1}|{:r2}|{:r3})$$ auf der Geraden $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$? Antworte mit ja oder nein.",
+            "shortq": "$$P({:r1}|{:r2}|{:r3})$$ auf $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$?",
+            "answer": "Erste Koordinate: $$:r1=:p1+t\\cdot ${MMmath.nP(:u1)}\\;\\Rightarrow\\; t=:k$$<br>$$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:k)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}=\\begin{pmatrix}:r1\\\\:s2\\\\:s3\\end{pmatrix}${:on===1 ? '=' : '\\neq'}\\begin{pmatrix}:r1\\\\:r2\\\\:r3\\end{pmatrix}$$<br><span class='red'>${:on===1 ? 'Ja' : 'Nein'}</span>, $$P$$ liegt ${:on===1 ? '' : 'nicht '}auf $$g$$.",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Richtungsvektor für Parallelität ergänzen",
+            "vars": {
+                "u1": "-4_4_^0",
+                "u2": "-4_4_^0",
+                "u3": "-4_4_^0",
+                "m": [
+                    -3,
+                    -2,
+                    2,
+                    3
+                ],
+                "j": "1_3",
+                "a": "${[:u1,:u2,:u3][:j-1]*:m}"
+            },
+            "question": "Die Geraden $$g$$ und $$h$$ haben die Richtungsvektoren $$\\vec{u}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$\\vec{v}=\\begin{pmatrix}${:j===1 ? 'a' : :m*:u1}\\\\${:j===2 ? 'a' : :m*:u2}\\\\${:j===3 ? 'a' : :m*:u3}\\end{pmatrix}$$. Bestimme $$a$$ so, dass $$g$$ und $$h$$ parallel (oder identisch) sind.",
+            "shortq": "$$\\vec{u}=\\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$\\vec{v}=\\begin{pmatrix}${:j===1 ? 'a' : :m*:u1}\\\\${:j===2 ? 'a' : :m*:u2}\\\\${:j===3 ? 'a' : :m*:u3}\\end{pmatrix}$$ kollinear",
+            "answer": "$$\\vec{v}=${MMmath.nP(:m)}\\cdot\\vec{u}$$, also $$a=${MMmath.nP(:m)}\\cdot ${MMmath.nP([:u1,:u2,:u3][:j-1])}=\\color{red}{:a}$$",
+            "value": ":a",
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Identisch oder echt parallel? (ja/nein)",
+            "vars": {
+                "p1": "-5_5",
+                "p2": "-5_5",
+                "p3": "-5_5",
+                "u1": "-3_3_^0",
+                "u2": "-3_3",
+                "u3": "-3_3",
+                "m": [
+                    -2,
+                    -1,
+                    2,
+                    3
+                ],
+                "k": "-2_2_^0",
+                "on": "0_1",
+                "j": "2_3",
+                "d": "-2_2_^0",
+                "q1": "${:p1+:k*:u1}",
+                "q2": "${:p2+:k*:u2+(:on===0 && :j===2 ? :d : 0)}",
+                "q3": "${:p3+:k*:u3+(:on===0 && :j===3 ? :d : 0)}",
+                "s2": "${:p2+:k*:u2}",
+                "s3": "${:p3+:k*:u3}"
+            },
+            "question": "Gegeben sind $$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$ und $$h:\\;\\vec{x}=\\begin{pmatrix}:q1\\\\:q2\\\\:q3\\end{pmatrix}+s\\cdot \\begin{pmatrix}${:m*:u1}\\\\${:m*:u2}\\\\${:m*:u3}\\end{pmatrix}$$. Sind $$g$$ und $$h$$ identisch? Antworte mit ja oder nein.",
+            "shortq": "$$g:\\;\\vec{x}=\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+t\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}$$, $$h:\\;\\vec{x}=\\begin{pmatrix}:q1\\\\:q2\\\\:q3\\end{pmatrix}+s\\cdot \\begin{pmatrix}${:m*:u1}\\\\${:m*:u2}\\\\${:m*:u3}\\end{pmatrix}$$",
+            "answer": "Die Richtungsvektoren sind kollinear (Faktor $$:m$$). Punktprobe mit $$Q(:q1|:q2|:q3)$$: erste Koordinate liefert $$t=:k$$, und $$\\begin{pmatrix}:p1\\\\:p2\\\\:p3\\end{pmatrix}+${MMmath.nP(:k)}\\cdot \\begin{pmatrix}:u1\\\\:u2\\\\:u3\\end{pmatrix}=\\begin{pmatrix}:q1\\\\:s2\\\\:s3\\end{pmatrix}${:on===1 ? '=' : '\\neq'}\\overrightarrow{OQ}$$.<br>Die Geraden sind <span class='red'>${:on===1 ? 'identisch' : 'echt parallel'}</span>.",
+            "value": [
+                "${:on===1 ? 'ja' : 'nein'}",
+                "${:on===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

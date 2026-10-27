@@ -1,0 +1,491 @@
+{
+    "title": "Konfidenzintervalle bestimmen und Stichprobenumfänge abschätzen",
+    "ID": "DQJC1",
+    "description": "Konfidenzintervall, Vertrauensintervall, unbekannte Wahrscheinlichkeit schätzen, relative Häufigkeit, Näherung, verträglich, notwendiger Stichprobenumfang, Intervalllänge, Sicherheitswahrscheinlichkeit (nur LK).",
+    "dest": [
+        "QJC"
+    ],
+    "type": "text",
+    "textSize": "medium",
+    "options": [
+        {
+            "name": "Konfidenzintervall (Näherung)",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.5,
+                        10000,
+                        0.005
+                    ],
+                    [
+                        0.2,
+                        6400,
+                        0.005
+                    ],
+                    [
+                        0.8,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.9,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.5,
+                        1600,
+                        0.0125
+                    ],
+                    [
+                        0.5,
+                        64,
+                        0.0625
+                    ]
+                ],
+                "h": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "k": "${MMmath.round(:b[0]*:b[1],0)}",
+                "c": "2_3",
+                "lo": "${MMmath.round(:h-:c*:s,4)}",
+                "hi": "${MMmath.round(:h+:c*:s,4)}"
+            },
+            "question": "In einer Stichprobe vom Umfang $$n=:n$$ tritt ein Merkmal $$:k$$-mal auf. Bestimme das $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$-Konfidenzintervall für $$p$$ mit der Näherung $$\\left[h-:c\\sqrt{\\tfrac{h(1-h)}{n}};\\; h+:c\\sqrt{\\tfrac{h(1-h)}{n}}\\right]$$.",
+            "shortq": "$$:k$$ von $$:n$$, $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$-Konfidenzintervall (Näherung)",
+            "answer": "$$h=:h$$, $$\\sqrt{\\dfrac{h(1-h)}{n}}=:s$$<br>$$\\color{red}{\\left[:h-:c\\cdot :s;\\; :h+:c\\cdot :s\\right]=\\left[:lo;\\,:hi\\right]}$$",
+            "value": [
+                "\\left[:lo;:hi\\right]",
+                ":lo;:hi",
+                "\\left\\lbrack:lo;:hi\\right\\rbrack",
+                "\\left[${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}\\right]",
+                "\\left\\lbrack${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}\\right\\rbrack",
+                "${String(:lo).replace('.', ',')};${String(:hi).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "-",
+                "_",
+                "[",
+                "_",
+                ";",
+                "_"
+            ]
+        },
+        {
+            "name": "Ist ein Wert für p verträglich? (ja/nein)",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ]
+                ],
+                "h": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "k": "${MMmath.round(:b[0]*:b[1],0)}",
+                "f": [
+                    1,
+                    3
+                ],
+                "sg": [
+                    -1,
+                    1
+                ],
+                "p0": "${MMmath.round(:h+:sg*:f*:s,4)}",
+                "lo": "${MMmath.round(:h-2*:s,4)}",
+                "hi": "${MMmath.round(:h+2*:s,4)}"
+            },
+            "question": "In einer Stichprobe vom Umfang $$n=:n$$ tritt ein Merkmal $$:k$$-mal auf. Ist $$p=:p0$$ mit diesem Ergebnis verträglich, d. h. liegt $$p$$ im $$95{,}4\\,\\%$$-Konfidenzintervall (Näherung mit $$h$$)? Antworte mit ja oder nein.",
+            "shortq": "$$:k$$ von $$:n$$: $$p=:p0$$ verträglich?",
+            "answer": "$$h=:h$$, $$\\sqrt{\\dfrac{h(1-h)}{n}}=:s$$, Konfidenzintervall $$[:lo;\\,:hi]$$.<br><span class='red'>${:f===1 ? 'Ja' : 'Nein'}</span>",
+            "value": [
+                "${:f===1 ? 'ja' : 'nein'}",
+                "${:f===1 ? '\\text{ja}' : '\\text{nein}'}"
+            ],
+            "keys": [
+                "o",
+                "n",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Notwendigen Stichprobenumfang abschätzen",
+            "consts": {
+                "gr": [
+                    "Radfahrer",
+                    "Brillenträger",
+                    "Linkshänder",
+                    "Nichtschwimmer",
+                    "Vegetarier",
+                    "Haustierbesitzer"
+                ]
+            },
+            "vars": {
+                "b": [
+                    [
+                        2,
+                        "95{,}4",
+                        0.2,
+                        100
+                    ],
+                    [
+                        2,
+                        "95{,}4",
+                        0.1,
+                        400
+                    ],
+                    [
+                        2,
+                        "95{,}4",
+                        0.08,
+                        625
+                    ],
+                    [
+                        2,
+                        "95{,}4",
+                        0.05,
+                        1600
+                    ],
+                    [
+                        2,
+                        "95{,}4",
+                        0.04,
+                        2500
+                    ],
+                    [
+                        2,
+                        "95{,}4",
+                        0.02,
+                        10000
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.3,
+                        100
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.2,
+                        225
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.15,
+                        400
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.1,
+                        900
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.06,
+                        2500
+                    ],
+                    [
+                        3,
+                        "99{,}7",
+                        0.05,
+                        3600
+                    ],
+                    [
+                        1,
+                        "68{,}3",
+                        0.1,
+                        100
+                    ],
+                    [
+                        1,
+                        "68{,}3",
+                        0.05,
+                        400
+                    ],
+                    [
+                        1,
+                        "68{,}3",
+                        0.02,
+                        2500
+                    ]
+                ],
+                "g": "0_5",
+                "c": "${:b[0]}",
+                "L": "${:b[2]}",
+                "N": "${:b[3]}"
+            },
+            "question": "Der Anteil der ${:gr[:g]} soll geschätzt werden. Das $$${:b[1]}\\,\\%$$-Konfidenzintervall soll höchstens die Länge $$:L$$ haben. Wie groß muss $$n$$ mindestens sein? (Verwende $$h(1-h)\\le\\tfrac{1}{4}$$.)",
+            "shortq": "$$${:b[1]}\\,\\%$$, Länge $$\\le :L$$: $$n\\ge ?$$",
+            "answer": "Länge $$2\\cdot :c\\cdot\\sqrt{\\tfrac{h(1-h)}{n}}\\le 2\\cdot :c\\cdot\\dfrac{0{,}5}{\\sqrt{n}}=\\dfrac{:c}{\\sqrt{n}}\\le :L$$<br>$$\\sqrt{n}\\ge\\dfrac{:c}{:L}=${MMmath.round(:c/:L,4)}\\Rightarrow n\\ge\\color{red}{:N}$$",
+            "value": ":N",
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        },
+        {
+            "name": "Radius für das Konfidenzintervall",
+            "vars": {
+                "b": [
+                    [
+                        0.5,
+                        100,
+                        0.05
+                    ],
+                    [
+                        0.5,
+                        400,
+                        0.025
+                    ],
+                    [
+                        0.5,
+                        2500,
+                        0.01
+                    ],
+                    [
+                        0.2,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.8,
+                        100,
+                        0.04
+                    ],
+                    [
+                        0.2,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.8,
+                        400,
+                        0.02
+                    ],
+                    [
+                        0.2,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.9,
+                        900,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.9,
+                        400,
+                        0.015
+                    ],
+                    [
+                        0.5,
+                        10000,
+                        0.005
+                    ],
+                    [
+                        0.2,
+                        6400,
+                        0.005
+                    ],
+                    [
+                        0.8,
+                        1600,
+                        0.01
+                    ],
+                    [
+                        0.1,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.9,
+                        3600,
+                        0.005
+                    ],
+                    [
+                        0.5,
+                        1600,
+                        0.0125
+                    ],
+                    [
+                        0.5,
+                        64,
+                        0.0625
+                    ]
+                ],
+                "h": "${:b[0]}",
+                "n": "${:b[1]}",
+                "s": "${:b[2]}",
+                "k": "${MMmath.round(:b[0]*:b[1],0)}",
+                "c": "1_3",
+                "r": "${MMmath.round(:c*:s,4)}"
+            },
+            "question": "In einer Stichprobe vom Umfang $$n=:n$$ tritt ein Merkmal $$:k$$-mal auf. Berechne für das $$${['68{,}3','95{,}4','99{,}7'][:c-1]}\\,\\%$$-Konfidenzintervall (Näherung) den Radius $$${:c===1 ? '' : :c}\\sqrt{\\tfrac{h(1-h)}{n}}$$.",
+            "shortq": "$$:k$$ von $$:n$$: $$${:c===1 ? '' : :c}\\sqrt{\\tfrac{h(1-h)}{n}}=?$$",
+            "answer": "$$h=:h$$, $$:c\\cdot\\sqrt{\\dfrac{:h\\cdot ${MMmath.round(1-:h,1)}}{:n}}=:c\\cdot :s=\\color{red}{:r}$$",
+            "value": [
+                "${:r}",
+                "${String(:r).replace('.', ',')}"
+            ],
+            "keys": [
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_",
+                "_"
+            ]
+        }
+    ]
+}

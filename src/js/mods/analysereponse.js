@@ -180,6 +180,10 @@ function analyseReponse (goodAnswer, userAnswer, valueType = false) {
       userAnswer = userAnswer.replace(/>/g, "\\gt").replace(/</g, "\\lt");
       // si l'utilisateur a entré un texte \text{...}, on l'enleve
       userAnswer = userAnswer.replace(/\\text\{([^}]*)\}/g, "$1");
+      // MatheVomFranz : « pi » tapé au clavier (sans raccourci MathLive) → \pi,
+      // seulement si la réponse attendue contient π
+      if (typeof goodAnswer === "string" && goodAnswer.includes("\\pi"))
+        userAnswer = userAnswer.replace(/(?<!\\)pi/g, "\\pi ");
       // MatheVomFranz : virgule décimale tapée au clavier (0,5 ou 0{,}5) → point,
       // sauf pour les couples et listes où la virgule peut séparer des valeurs
       userAnswer = userAnswer.replace(/(\d)\{,\}(\d)/g, "$1.$2");

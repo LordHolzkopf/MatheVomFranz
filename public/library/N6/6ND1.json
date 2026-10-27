@@ -1,6 +1,6 @@
 {
-    "title":"Additions de petits entiers",
-    "description":"addition, somme, entiers, ajouter, addition à trou",
+    "title":"Kleine Zahlen addieren",
+    "description":"Addition, Summe, plus, addieren, Zahlenraum bis 40, Plusaufgaben mit Lücke, Ergänzen",
     "type":"text",
     "textSize":"medium",
     "speech":1,
@@ -8,29 +8,29 @@
     "dest":["WAB"],
     "vars":{"a":"0_20_2", "c":"${:a[0]+:a[1]}"},
     "options":[{
-        "name":"Somme",
-        "question": "Quelle est la somme de ${:a[0]} et de ${:a[1]} ?",
-        "audio": "Quelle est la somme de ${:a[0]} et de ${:a[1]} ?",
-        "answer":"La somme de ${:a[0]} et ${:a[1]} vaut <span class='red'>${:c}</span>",
+        "name":"Summe",
+        "question": "Wie groß ist die Summe von ${:a[0]} und ${:a[1]}?",
+        "audio": "Wie groß ist die Summe von ${:a[0]} und ${:a[1]}?",
+        "answer":"Die Summe von ${:a[0]} und ${:a[1]} ist <span class='red'>${:c}</span>.",
         "value":"${:c}"
     },{
-        "name":"Ajouter",
-        "question":"Quel nombre ajouter à ${:a[0]} pour obtenir ${:c} ?",
-        "audio":"Quel nombre ajouter à ${:a[0]} pour obtenir ${:c} ?",
-        "answer":"Il faut ajouter <span class='red'>${:a[1]}</span> à ${:a[0]} pour obtenir ${:c}",
+        "name":"Ergänzen",
+        "question":"Welche Zahl musst du zu ${:a[0]} addieren, um ${:c} zu erhalten?",
+        "audio":"Welche Zahl musst du zu ${:a[0]} addieren, um ${:c} zu erhalten?",
+        "answer":"Du musst <span class='red'>${:a[1]}</span> zu ${:a[0]} addieren, um ${:c} zu erhalten.",
         "value":"${:a[1]}"
     },
     {
-        "name":"Opération",
+        "name":"Rechenaufgabe",
         "question":"$$ ${:a[0]}+${:a[1]} $$",
-        "audio":"Combien fait ${:a[0]} plusse ${:a[1]} ?",
+        "audio":"Wie viel ist ${:a[0]} plus ${:a[1]}?",
         "answer":"$$ ${:a[0]}+${:a[1]} = \\color{red}{${:c}} $$",
         "value":"${:c}"
     },
     {
-        "name": "Opération à trou",
+        "name": "Rechenaufgabe mit Lücke",
         "question":["$$ ${:a[0]}+?=${:c}$$", "$$ ? + ${:a[0]}=${:c} $$"],
-        "audio":["${:a[0]} plusse combien pour faire ${:c} ?", "Combien plusse ${:a[0]} pour faire ${:c} ?"],
+        "audio":["${:a[0]} plus wie viel ergibt ${:c}?", "Wie viel plus ${:a[0]} ergibt ${:c}?"],
         "answer":"$$ ${:a[0]} + \\color{red}{${:a[1]}}=${:c} $$",
         "value":"${:a[1]}"
     }]

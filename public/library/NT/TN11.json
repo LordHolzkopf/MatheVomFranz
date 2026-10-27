@@ -1,7 +1,7 @@
 {
   "type": "texte",
-  "title": "Formule explicite d'une suite géométrique",
-  "description": "suite géométrique, forme explicite, terme général, raison",
+  "title": "Explizite Darstellung einer geometrischen Folge angeben",
+  "description": "geometrische Folge, explizite Darstellung, Bildungsvorschrift, n-tes Glied, Anfangsglied, Quotient q",
   "ID": "TN11",
   "dest":["WEB"],
   "vars": {
@@ -9,27 +9,27 @@
   },
   "options": [
     {
-      "name": "Raison entière positive",
+      "name": "Positiver Quotient",
       "vars": {
         "q": "0.1_9.9_0.1"
       },
       "question": [
-        "Quelle est la formule explicite d'une suite géométrique définie par $$u_0 = ${:a}$$ et $$q = ${:q}$$ ?"
+        "Gib die explizite Darstellung der geometrischen Folge mit dem Anfangsglied $$a_0 = ${:a}$$ und dem Quotienten $$q = ${:q}$$ an."
       ],
-      "answer": "$$u_n = ${:a} \\times ${MMmath.nP(:q)}^n$$"
+      "answer": "$$a_n = ${:a} \\times ${MMmath.nP(:q)}^n$$"
     },
     {
-      "name": "Raison entière négative",
+      "name": "Negativer Quotient",
       "vars": {
         "q": "0.1_9.9_0.1"
       },
       "question": [
-        "Quelle est la formule explicite d'une suite géométrique définie par $$u_0 = ${:a}$$ et $$q = ${-:q}$$ ?"
+        "Gib die explizite Darstellung der geometrischen Folge mit dem Anfangsglied $$a_0 = ${:a}$$ und dem Quotienten $$q = ${-:q}$$ an."
       ],
-      "answer": "$$u_n = ${:a} \\times ${MMmath.nP(-:q)}^n$$"
+      "answer": "$$a_n = ${:a} \\times ${MMmath.nP(-:q)}^n$$"
     },
     {
-      "name": "Raison fractionnaire positive",
+      "name": "Positiver Quotient als Bruch",
       "consts": {
         "frac": ["\\dfrac{1}{3}","\\dfrac{1}{5}","\\dfrac{2}{3}","\\dfrac{4}{5}","\\dfrac{8}{7}","\\dfrac{5}{6}","\\dfrac{7}{9}","\\dfrac{3}{7}"]
       },
@@ -37,9 +37,9 @@
         "i": "0_7"
       },
       "question": [
-        "Quelle est la formule explicite d'une suite géométrique définie par $$u_0 = ${:a}$$ et $$q = ${:frac[:i]}$$ ?"
+        "Gib die explizite Darstellung der geometrischen Folge mit dem Anfangsglied $$a_0 = ${:a}$$ und dem Quotienten $$q = ${:frac[:i]}$$ an."
       ],
-      "answer": "$$u_n = ${:a} \\times  \\left(    ${:frac[:i]}   \\right)^n$$"
+      "answer": "$$a_n = ${:a} \\times  \\left(    ${:frac[:i]}   \\right)^n$$"
     }
   ]
 }

@@ -1,58 +1,58 @@
 {
-    "title":"Tables de multiplications classiques",
-    "description":"tables de multiplication, livret, produit",
+    "title":"Kleines Einmaleins",
+    "description":"Einmaleins, Einmaleinsreihen, Malaufgaben, multiplizieren, Produkt, Zweierreihe bis Zwölferreihe",
     "speech":1,
     "dest":["WAB", "5AC"],
     "params":{
-        "n0":{"groupe":"Ne pas tirer","label":"0","defaut":false,"exclut":{"b":0}},
-        "n1":{"groupe":"Ne pas tirer","label":"1","defaut":false,"exclut":{"b":1}},
-        "n2":{"groupe":"Ne pas tirer","label":"2","defaut":false,"exclut":{"b":2}},
-        "n3":{"groupe":"Ne pas tirer","label":"3","defaut":false,"exclut":{"b":3}},
-        "n4":{"groupe":"Ne pas tirer","label":"4","defaut":false,"exclut":{"b":4}},
-        "n5":{"groupe":"Ne pas tirer","label":"5","defaut":false,"exclut":{"b":5}},
-        "n6":{"groupe":"Ne pas tirer","label":"6","defaut":false,"exclut":{"b":6}},
-        "n7":{"groupe":"Ne pas tirer","label":"7","defaut":false,"exclut":{"b":7}},
-        "n8":{"groupe":"Ne pas tirer","label":"8","defaut":false,"exclut":{"b":8}},
-        "n9":{"groupe":"Ne pas tirer","label":"9","defaut":false,"exclut":{"b":9}},
-        "n10":{"groupe":"Ne pas tirer","label":"10","defaut":false,"exclut":{"b":10}}
+        "n0":{"groupe":"Nicht abfragen","label":"0","defaut":false,"exclut":{"b":0}},
+        "n1":{"groupe":"Nicht abfragen","label":"1","defaut":false,"exclut":{"b":1}},
+        "n2":{"groupe":"Nicht abfragen","label":"2","defaut":false,"exclut":{"b":2}},
+        "n3":{"groupe":"Nicht abfragen","label":"3","defaut":false,"exclut":{"b":3}},
+        "n4":{"groupe":"Nicht abfragen","label":"4","defaut":false,"exclut":{"b":4}},
+        "n5":{"groupe":"Nicht abfragen","label":"5","defaut":false,"exclut":{"b":5}},
+        "n6":{"groupe":"Nicht abfragen","label":"6","defaut":false,"exclut":{"b":6}},
+        "n7":{"groupe":"Nicht abfragen","label":"7","defaut":false,"exclut":{"b":7}},
+        "n8":{"groupe":"Nicht abfragen","label":"8","defaut":false,"exclut":{"b":8}},
+        "n9":{"groupe":"Nicht abfragen","label":"9","defaut":false,"exclut":{"b":9}},
+        "n10":{"groupe":"Nicht abfragen","label":"10","defaut":false,"exclut":{"b":10}}
     },
     "options":[{
-        "name":"Table de 2",
+        "name":"Zweierreihe",
         "vars":{"a":2, "b":"0_10"}
     },{
-        "name":"Table de 3",
+        "name":"Dreierreihe",
         "vars":{"a":3, "b":"0_10"}
     },{
-        "name":"Table de 4",
+        "name":"Viererreihe",
         "vars":{"a":4, "b":"0_10"}
     },{
-        "name":"Table de 5",
+        "name":"Fünferreihe",
         "vars":{"a":5, "b":"0_10"}
     },{
-        "name":"Table de 6",
+        "name":"Sechserreihe",
         "vars":{"a":6, "b":"0_10"}
     },{
-        "name":"Table de 7",
+        "name":"Siebenerreihe",
         "vars":{"a":7, "b":"0_10"}
     },{
-        "name":"Table de 8",
+        "name":"Achterreihe",
         "vars":{"a":8, "b":"0_10"}
     },{
-        "name":"Table de 9",
+        "name":"Neunerreihe",
         "vars":{"a":9, "b":"0_10"}
     },{
-        "name":"Table de 10",
+        "name":"Zehnerreihe",
         "vars":{"a":10, "b":"0_10"}
     },{
-        "name":"Table de 11",
+        "name":"Elferreihe",
         "vars":{"a":11, "b":"0_11"}
     },{
-        "name":"Table de 12",
+        "name":"Zwölferreihe",
         "vars":{"a":12, "b":"0_12"}
     }
     ],
     "question":["${:a}\\times${:b}", "${:b}\\times${:a}"],
     "answer":["${:a}\\times${:b}=\\color{red}{${:a*:b}}", "${:b}\\times${:a}=\\color{red}{${:b*:a}}"],
-    "audio":["${:a}×${:b}","${:b}×${:a}"],
+    "audio":["${:a} mal ${:b}","${:b} mal ${:a}"],
     "value":"${:a*:b}"
 }

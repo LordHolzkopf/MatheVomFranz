@@ -117,6 +117,12 @@ const KB_SCALE_STEP = 0.1;
           "losg": ["key colored", "Raute", this.insertCmd("\\text{Raute}"), "Raute"],
           "carr": ["key colored", "Quadr", this.insertCmd("\\text{Quadrat}"), "Quadrat"],
           "rchk": ["key colored", "Recht", this.insertCmd("\\text{Rechteck}"), "Rechteck"],
+          "arth": ["key colored", "arith", this.insertCmd("\\text{arithmetisch}"), "arithmetische Folge"],
+          "geom": ["key colored", "geom", this.insertCmd("\\text{geometrisch}"), "geometrische Folge"],
+          "kLsg": ["key colored", "keine", this.insertCmd("\\text{keine Lösung}"), "keine Lösung"],
+          "uvLsg": ["key colored", "∞ Lsg", this.insertCmd("\\text{unendlich viele Lösungen}"), "unendlich viele Lösungen"],
+          "nent": ["key colored", "n. ent", this.insertCmd("\\text{nicht entscheidbar}"), "nicht entscheidbar"],
+          "benach": ["key colored", "benach", this.insertCmd("\\text{benachbart}"), "benachbart"],
             "vec": ["key colored", "→", this.insertCmd("\\vec{#0}"), "Vektor"],
             "o": ["key colored", "Ja", this.insertCmd("\\text{ja}"), "ja"],
             "n": ["key colored", "Nein", this.insertCmd("\\text{nein}"), "nein"],
@@ -168,7 +174,7 @@ const KB_SCALE_STEP = 0.1;
             "qdpl": ["key colored", "Vierf", this.insertCmd("\\text{das Vierfache}"), "das Vierfache"],
         };
         // touches à insertion littérale directe (pas de mise en forme LaTeX)
-        for(const ch of ["a","b","c","e","i","t",":",";","|","u","v","w","x","y","z","€","<",">","=","+","°","'"]){
+        for(const ch of ["a","b","c","d","e","i","q","t",":",";","|","u","v","w","x","y","z","€","<",">","=","+","°","'"]){
             this.keyConf[ch] = ["key times colored", ch, this.insertCmd(ch), undefined];
         }
         this.targetField = target;

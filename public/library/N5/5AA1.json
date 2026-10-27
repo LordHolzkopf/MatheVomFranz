@@ -1,32 +1,32 @@
 {
-    "title":"Comprendre une suite d'\"avancer\"",
-    "description":"Scratch, Estimer le résultat d'un script comportant deux 'avancer'",
+    "title":"Zwei „gehe“-Befehle hintereinander verstehen",
+    "description":"Scratch, Programmieren, Skript lesen, gehe … er Schritt, zwei Bewegungsbefehle hintereinander, zurückgelegte Schritte bestimmen, vorwärts und rückwärts",
     "ID":"5AA1",
     "type":"text",
     "dest":["WGB"],
     "speech":1,
     "options":[
         {
-            "name":"Avancer deux fois",
+            "name":"Zweimal vorwärts gehen",
             "vars":{"x":"2_10","y":"2_10"}
         },{
-            "name":"Avancer puis reculer (6e)",
+            "name":"Vorwärts und dann rückwärts gehen",
             "vars":{"x":"2_10","y":"0_-${:x}"}
         },{
-            "name":"Avancer deux fois (nombres relatifs - 5e)",
+            "name":"Zweimal gehen (mit negativen Zahlen)",
             "vars":{"x":"-10_10_^0", "y":"-10_${:x>0?0:10}_^0"}
         }
     ],
     "figure": {
         "type":"scratch",
         "content":[
-            "Quand @greenFlag est cliqué",
-            "avancer de (${:x}) pas",
-            "avancer de (${:y}) pas"
+            "Wenn @greenFlag angeklickt wird",
+            "gehe (${:x}) er Schritt",
+            "gehe (${:y}) er Schritt"
         ]
     },
-    "question":"De combien de pas a avancé le lutin ?",
-    "answer":"Le lutin a avancé de <span class='red'>${:x+:y} pas</span>.",
-    "audio":"Quand le drapeau vert est cliqué, avancer de ${:x} pas, puis avancer de ${:y} pas. De combien avance le lutin ?",
+    "question":"Um wie viele Schritte ist die Figur insgesamt nach vorne gegangen?",
+    "answer":"Die Figur ist insgesamt <span class='red'>${:x+:y} Schritte</span> nach vorne gegangen.",
+    "audio":"Wenn die grüne Flagge angeklickt wird: gehe ${:x} Schritte, dann gehe ${:y} Schritte. Um wie viele Schritte ist die Figur insgesamt nach vorne gegangen?",
     "value":"${:x+:y}"
 }

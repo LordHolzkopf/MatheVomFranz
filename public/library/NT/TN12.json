@@ -1,7 +1,7 @@
 {
   "type": "texte",
-  "title": "Formule explicite d'une suite arithmétique",
-  "description": "suite arithmétique, forme explicite, terme général, raison, premier terme",
+  "title": "Explizite Darstellung einer arithmetischen Folge",
+  "description": "arithmetische Folge, explizite Darstellung, Bildungsvorschrift, n-tes Glied, Anfangsglied, Differenz d ablesen",
   "ID": "TN12",
   "dest":["WEB"],
   "vars": {
@@ -9,24 +9,24 @@
   },
   "options": [
     {
-      "name": "Donner l'expression",
+      "name": "Explizite Darstellung angeben",
       "vars": {
         "r": "-5_5_^0,1"
       },
       "question": [
-        "Quelle est la formule explicite d'une suite arithmétique définie par $$u_0 = ${:a}$$ et $$r = ${:r}$$ ?"
+        "Gib die explizite Darstellung der arithmetischen Folge mit dem Anfangsglied $$a_0 = ${:a}$$ und der Differenz $$d = ${:r}$$ an."
       ],
-      "answer": "$$u_n = ${:a} ${MMmath.signedNumber(:r)} n$$"
+      "answer": "$$a_n = ${:a} ${MMmath.signedNumberButOne(:r)}n$$"
     },
     {
-      "name": "Retrouver le premier terme et la raison",
+      "name": "Anfangsglied und Differenz ablesen",
       "vars": {
         "r": "-5_5_^0,1"
       },
       "question": [
-        "Une suite est définie sur $$ \\mathbb{N} $$ par $$u_n = ${:a} ${MMmath.signedNumber(:r)} n$$ , préciser sa nature et ses éléments caractéristiques."
+        "Eine Folge ist für $$n \\in \\mathbb{N}$$ gegeben durch $$a_n = ${:a} ${MMmath.signedNumberButOne(:r)}n$$. Um welche Art von Folge handelt es sich? Gib das Anfangsglied und die Differenz an."
       ],
-      "answer": "$$(u_n)$$ est une suite arithmétique de premier terme $$u_0 = ${:a}$$ et de raison $$ ${:r} $$"
+      "answer": "$$(a_n)$$ ist eine arithmetische Folge mit dem Anfangsglied $$a_0 = ${:a}$$ und der Differenz $$d = ${:r}$$."
     }
   ]
 }

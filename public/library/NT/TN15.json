@@ -1,7 +1,7 @@
 {
-  "ID": "",
-  "title": "Limite de suites géométriques",
-  "description": "limite, suite géométrique, convergence, divergence, qⁿ",
+  "ID": "TN15",
+  "title": "Grenzwert geometrischer Folgen bestimmen",
+  "description": "Grenzwert, Limes, geometrische Folge, Konvergenz, Divergenz, Nullfolge, qⁿ, bestimmt divergent, unendlich",
   "type": "text",
   "dest":["WEB"],
   "options": [
@@ -15,7 +15,7 @@
       }
     },
     {
-      "name": "q strictement compris entre -1 et 1",
+      "name": "−1 < q < 1",
       "vars": {
         "a": "-5_5_^0,1",
         "q": "-9_9_^0",
@@ -24,17 +24,17 @@
       }
     },
     {
-      "name": "q <=-1",
+      "name": "q < −1",
       "vars": {
         "a": "-5_5_^0,1",
         "q": "-5_-1.1_0.1",
         "f": "$$  ${:a} \\times (${:q})^{n} $$",
-        "lim": "\\text{ pas de limite }",
+        "lim": "\\text{kein Grenzwert}",
         "set": "\\mathbb{N}"
       }
     }
   ],
-  "question": "Déterminer la limite éventuelle de la suite définie sur $$ \\mathbb{N} $$ par $$u_n =$$ ${:f} lorsque $$n$$ tend vers $$+\\infty$$",
+  "question": "Gegeben ist die Folge mit $$a_n =$$ ${:f} für $$n \\in \\mathbb{N}$$. Bestimme den Grenzwert für $$n \\to +\\infty$$, falls er existiert.",
   "answer": "$$ \\color{red}{${:lim}}$$",
   "value": "${:lim}"
 }

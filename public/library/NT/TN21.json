@@ -1,12 +1,12 @@
 {
   "ID": "TN21",
-  "title": "Limite de suites de références",
-  "description": "limite, suites de référence, convergence, divergence, puissance, racine",
+  "title": "Grenzwerte grundlegender Folgen bestimmen",
+  "description": "Grenzwert, Limes, Folgen, Konvergenz, Divergenz, Nullfolge, Potenz, Wurzel, a·nᵇ, a/nᵇ, a·√n, bestimmt divergent",
   "type": "text",
   "dest":["WEB"],
  "options": [
     {
-      "name": "Suite de type a·n^b",
+      "name": "Folgen der Form a·nᵇ",
       "vars": {
         "a": "-5_5_^0",
         "b": "1_5",
@@ -16,17 +16,17 @@
       }
     },
     {
-      "name": "Suite de type a/n^b",
+      "name": "Folgen der Form a/nᵇ",
       "vars": {
         "a": "-5_5_^0",
         "b": "1_5",
         "f": "${MMmath.box(['Divide', :a, ['Power', 'n', :b]])}",
         "lim": "0",
-        "set": "\\mathbb{N}^*"
+        "set": "\\mathbb{N}\\setminus\\{0\\}"
       }
     },
     {
-      "name": "Suite de type a·√n",
+      "name": "Folgen der Form a·√n",
       "vars": {
         "a": "-5_5_^0",
         "f": "${MMmath.box(['Multiply', :a, ['Sqrt', 'n']])}",
@@ -35,7 +35,7 @@
       }
     }
   ],
-  "question": "Déterminer la limite de la suite définie sur $$ ${:set} $$ par $$u_n = ${:f}$$ lorsque $$n$$ tend vers $$+\\infty$$",
-  "answer": "$$\\lim\\limits_{n \\to +\\infty} u_n = \\color{red}{${:lim}}$$",
+  "question": "Gegeben ist die Folge mit $$a_n = ${:f}$$ für $$n \\in ${:set}$$. Bestimme den Grenzwert für $$n \\to +\\infty$$.",
+  "answer": "$$\\lim\\limits_{n \\to +\\infty} a_n = \\color{red}{${:lim}}$$",
   "value": "${:lim}"
 }

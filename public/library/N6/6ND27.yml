@@ -1,69 +1,69 @@
-title: Tables de multiplication classiques (sans 0 et 1)
+title: Kleines Einmaleins (ohne 0 und 1)
 dest: [WAB, 5AC]
-description: Connaitre les tables de multiplications de 2 à 12, sous plusieurs formes
+description: Einmaleins, Einmaleinsreihen von 2 bis 12 in verschiedenen Formen, Malaufgaben, Aufgaben mit Lücke, Geteiltaufgaben, Umkehraufgaben
 type: latex # pas obligatoire, c'est la valeur par défaut
-params: # cases à cocher : valeurs du 2e facteur à ne pas tirer
-  n2: {groupe: Ne pas tirer, label: "2", defaut: false, exclut: {m: 2}}
-  n3: {groupe: Ne pas tirer, label: "3", defaut: false, exclut: {m: 3}}
-  n4: {groupe: Ne pas tirer, label: "4", defaut: false, exclut: {m: 4}}
-  n5: {groupe: Ne pas tirer, label: "5", defaut: false, exclut: {m: 5}}
-  n6: {groupe: Ne pas tirer, label: "6", defaut: false, exclut: {m: 6}}
-  n7: {groupe: Ne pas tirer, label: "7", defaut: false, exclut: {m: 7}}
-  n8: {groupe: Ne pas tirer, label: "8", defaut: false, exclut: {m: 8}}
-  n9: {groupe: Ne pas tirer, label: "9", defaut: false, exclut: {m: 9}}
-  n10: {groupe: Ne pas tirer, label: "10", defaut: false, exclut: {m: 10}}
+params: # Kästchen zum Ankreuzen: Werte des 2. Faktors, die nicht abgefragt werden
+  n2: {groupe: Nicht abfragen, label: "2", defaut: false, exclut: {m: 2}}
+  n3: {groupe: Nicht abfragen, label: "3", defaut: false, exclut: {m: 3}}
+  n4: {groupe: Nicht abfragen, label: "4", defaut: false, exclut: {m: 4}}
+  n5: {groupe: Nicht abfragen, label: "5", defaut: false, exclut: {m: 5}}
+  n6: {groupe: Nicht abfragen, label: "6", defaut: false, exclut: {m: 6}}
+  n7: {groupe: Nicht abfragen, label: "7", defaut: false, exclut: {m: 7}}
+  n8: {groupe: Nicht abfragen, label: "8", defaut: false, exclut: {m: 8}}
+  n9: {groupe: Nicht abfragen, label: "9", defaut: false, exclut: {m: 9}}
+  n10: {groupe: Nicht abfragen, label: "10", defaut: false, exclut: {m: 10}}
 options:
-  - name: Table de 2
+  - name: Zweierreihe
     vars:
       m: '2_10'
       n: 2
       r: ${2*:m}
-  - name: Table de 3
+  - name: Dreierreihe
     vars:
       m: '2_10'
       n: 3
       r: ${3*:m}
-  - name: Table de 4
+  - name: Viererreihe
     vars:
       m: '2_10'
       n: 4
       r: ${4*:m}
-  - name: Table de 5
+  - name: Fünferreihe
     vars:
       m: '2_10'
       n: 5
       r: ${5*:m}
-  - name: Table de 6
+  - name: Sechserreihe
     vars:
       m: '2_10'
       n: 6
       r: ${6*:m}
-  - name: Table de 7
+  - name: Siebenerreihe
     vars:
       m: '2_10'
       n: 7
       r: ${7*:m}
-  - name: Table de 8
+  - name: Achterreihe
     vars:
       m: '2_10'
       n: 8
       r: ${8*:m}
-  - name: Table de 9
+  - name: Neunerreihe
     vars:
       m: '2_10'
       n: 9
       r: ${9*:m}
-  - name: Table de 10
+  - name: Zehnerreihe
     vars:
       m: '2_10'
       n: 10
       r: ${10*:m}
-  - name: Table de 11
+  - name: Elferreihe
     vars:
       m: '2_10'
       n: 11
       r: ${11*:m}
-  - name: Table de 12
+  - name: Zwölferreihe
     vars:
       m: '2_10'
       n: 12

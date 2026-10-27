@@ -1,12 +1,12 @@
 {
   "type": "texte",
-  "title": "Somme des termes d'une suite arithmétique ou géométrique",
-  "description": "somme des termes, suite arithmétique, suite géométrique, raison",
+  "title": "Summe von Gliedern einer arithmetischen oder geometrischen Folge",
+  "description": "Summe von Folgengliedern, Partialsumme, Reihe, arithmetische Folge, geometrische Folge, Summenformel, Differenz, Quotient",
   "ID": "TN13",
   "dest":["WEB"],
   "options": [
     {
-      "name": "suite arithmétique",
+      "name": "Arithmetische Folge",
       "vars": {
         "a": "-5_5_^0,1",
         "diff": "3_10",
@@ -18,12 +18,12 @@
         "S": "${(:diff+1) * (:u_b + :u_c) / 2}"
       },
       "question": [
-        "On considère la suite $$(u_n)$$ définie sur $$ \\mathbb{N} $$ par $$u_n = ${:a} ${MMmath.signedNumber(:r)} n$$. Calculer la somme   $$S= u_{${:b}} $$+ ...+ $$u_{${:c}} $$ ."
+        "Gegeben ist die Folge $$(a_n)$$ mit $$a_n = ${:a} ${MMmath.signedNumberButOne(:r)}n$$ für $$n \\in \\mathbb{N}$$. Berechne die Summe $$S = a_{${:b}} + \\ldots + a_{${:c}}$$."
       ],
       "answer": "$$S =  ${:diff+1 } \\times  \\frac{  ${:u_b}  ${MMmath.signedNumber(:u_c)}   }{2} = ${:S} $$ "
     },
     {
-      "name": "suite géométrique",
+      "name": "Geometrische Folge",
       "vars": {
         "a": "2_9",
         "diff": "3_10",
@@ -34,7 +34,7 @@
         "S": "${:a * (1 - :q**(:diff+1))/(1-:q)}"
       },
       "question": [
-        "On considère la suite $$(u_n)$$ définie sur $$ \\mathbb{N} $$ par $$u_n = ${:a} \\times ${MMmath.nP(:q)}^n$$. Calculer la somme  $$S= u_0 $$+ ...+ $$u_{${:diff}} $$"
+        "Gegeben ist die Folge $$(a_n)$$ mit $$a_n = ${:a} \\times ${MMmath.nP(:q)}^n$$ für $$n \\in \\mathbb{N}$$. Berechne die Summe $$S = a_0 + \\ldots + a_{${:diff}}$$."
       ],
       "answer": "$$S =  ${:a} \\times  \\frac{ 1- ${MMmath.nP(:q)}^{${:diff +1}} } {1 - ${:q}} =${:S}$$ "
     }

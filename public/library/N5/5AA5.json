@@ -1,34 +1,34 @@
 {
     "ID": "5AA5",
-    "title": "Utiliser des variables",
-    "description":"scratch variables dire texte ou variable",
+    "title": "Variablen verwenden",
+    "description":"Scratch, Programmieren, Variable setzen, Variable ändern, Wert einer Variablen, sage Text oder Variable, was sagt die Figur",
     "type":"text",
     "dest":["WGB"],
     "options":[
         {
-            "name":"Utiliser une variable ou sa valeur",
+            "name":"Variable oder ihren Wert ausgeben",
             "consts":{
                 "varnames":[
-                    "poire","pomme","banane","a", "b", "c","chien","chat","truc","machin"
+                    "Birne","Apfel","Banane","a", "b", "c","Hund","Katze","Ding","Zahl"
                 ]
             },"vars":{"a":"1_10", "b":"1_10", "var0":"0_9", "var":"${:varnames[:var0]}", "varoupas":"0_1"},
             "figure": {
                 "type":"scratch",
                 "content":[
-                    "Quand @greenFlag est cliqué",
-                    "mettre [${:var} v] à (${:a})",
-                    "ajouter (${:b}) à [${:var} v]",
-                    "dire ${:varoupas==0?'['+:var+']':'('+:var+')'}"
+                    "Wenn @greenFlag angeklickt wird",
+                    "setze [${:var} v] auf (${:a})",
+                    "ändere [${:var} v] um (${:b})",
+                    "sage ${:varoupas==0?'['+:var+']':'('+:var+')'}"
                 ]
             },
-            "question":"Que va dire le lutin ?",
-            "answer":"Le lutin va dire <span class='red'>${:varoupas==0?:var::a+:b}</span>.",
+            "question":"Was sagt die Figur?",
+            "answer":"Die Figur sagt <span class='red'>${:varoupas==0?:var::a+:b}</span>.",
             "value":"${:varoupas==0?:var::a+:b}"
         },{
-            "name":"Utiliser une variable et la modifier",
+            "name":"Variable setzen und mit einer Rechnung ändern",
             "consts":{
                 "varnames":[
-                    "poire","pomme","banane","a", "b", "c","chien","chat","truc","machin"
+                    "Birne","Apfel","Banane","a", "b", "c","Hund","Katze","Ding","Zahl"
                 ],
                 "operations":[
                     "+","-","*"
@@ -41,36 +41,36 @@
             "figure": {
                 "type":"scratch",
                 "content":[
-                    "Quand @greenFlag est cliqué",
-                    "mettre [${:var} v] à (${:a})",
-                    "mettre [${:var} v] à ((${:var}) ${:operations[:ope0]} (${:b}))",
-                    "dire ${:varoupas==0?'['+:var+']':'('+:var+')'}"
+                    "Wenn @greenFlag angeklickt wird",
+                    "setze [${:var} v] auf (${:a})",
+                    "setze [${:var} v] auf ((${:var}) ${:operations[:ope0]} (${:b}))",
+                    "sage ${:varoupas==0?'['+:var+']':'('+:var+')'}"
                 ]
             },
-            "question":"Que va dire le lutin ?",
-            "answer":"Le lutin va dire <span class='red'>${:varoupas==0?:var::valeurs[:ope0]}</span>.",
+            "question":"Was sagt die Figur?",
+            "answer":"Die Figur sagt <span class='red'>${:varoupas==0?:var::valeurs[:ope0]}</span>.",
             "value":"${:varoupas==0?:var::valeurs[:ope0]}"
         },{
-            "name":"Utiliser une variable et la modifier",
+            "name":"Variable in einer Wiederholung ändern",
             "consts":{
                 "varnames":[
-                    "poire","pomme","banane","a", "b", "c","chien","chat","truc","machin"
+                    "Birne","Apfel","Banane","a", "b", "c","Hund","Katze","Ding","Zahl"
                 ]
             },
             "vars":{"a":"1_10", "r":"1_9", "b":"-10_10_^0", "ope0":"0_2", "var0":"0_9", "var":"${:varnames[:var0]}", "varoupas":"0_1"},
             "figure": {
                 "type":"scratch",
                 "content":[
-                    "Quand @greenFlag est cliqué",
-                    "mettre [${:var} v] à (${:a})",
-                    "répéter (${:r}) fois",
-                    "ajouter (${:b}) à [${:var} v]",
-                    "fin",
-                    "dire ${:varoupas==0?'['+:var+']':'('+:var+')'}"
+                    "Wenn @greenFlag angeklickt wird",
+                    "setze [${:var} v] auf (${:a})",
+                    "wiederhole (${:r}) mal",
+                    "ändere [${:var} v] um (${:b})",
+                    "Ende",
+                    "sage ${:varoupas==0?'['+:var+']':'('+:var+')'}"
                 ]
             },
-            "question":"Que va dire le lutin ?",
-            "answer":"Le lutin va dire <span class='red'>${:varoupas==0?:var::a+:r*:b}</span>.",
+            "question":"Was sagt die Figur?",
+            "answer":"Die Figur sagt <span class='red'>${:varoupas==0?:var::a+:r*:b}</span>.",
             "value":"${:varoupas==0?:var::a+:r*:b}"
         }
     ]

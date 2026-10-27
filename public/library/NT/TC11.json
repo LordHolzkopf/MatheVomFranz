@@ -1,31 +1,32 @@
 {
-    "title":"Calculs de base avec un complexe",
+    "title":"Grundrechnungen mit einer komplexen Zahl",
     "type":"latex",
     "ID":"TC11",
-    "description":"Conjugué, module, carré, inverse",
+    "description":"Komplexe Zahlen: konjugiert komplexe Zahl, Betrag, Quadrat, Kehrwert, Normalform a + bi, imaginäre Einheit i",
+    "consigne":"Berechne.",
     "keys":["+","-","/","i","_","_","_","_"],
     "dest":["WAD"],
     "options":[{
-        "name":"Conjugué d'un complexe",
+        "name":"Konjugiert komplexe Zahl",
         "vars":{"ip":"0_2", "rp":"-10_10" ,"a":"${:ip>0?:rp:0}", "b":"-10_10_^${:a}"},
         "question":"\\overline{${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(:b)+'i':MMmath.signedNumberButOne(:b)+'i':''}}",
         "answer":":question=\\color{red}{${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(-:b)+'i':MMmath.signedNumber(-:b)+'i':''}}",
         "value":"${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(-:b)+'i':MMmath.signedNumber(-:b)+'i':''}"
     
     },{
-        "name":"Module d'un complexe",
+        "name":"Betrag einer komplexen Zahl",
         "vars":{"a":"-12_12", "b":"-12_12_^${:a}"},
         "question":"\\left|${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(:b)+'i':MMmath.signedNumberButOne(:b)+'i':''}\\right|",
-        "answer":":question=\\color{blue}{\\sqrt{${:a!=0?(:a<0?'('+:a+')'::a)+'^2':''}${:b!=0?'+'+(:b<0?'('+:b+')'::b)+'^2':''}}}=\\color{red}{${MMmath.simplifieRacine(:a*:a+:b*:b)}}",
-        "value":"${MMmath.simplifieRacine(:a*:a+:b*:b)}"
+        "answer":":question=\\color{blue}{\\sqrt{${:a!=0?(:a<0?'('+:a+')'::a)+'^2':''}${:b!=0?(:a!=0?'+':'')+(:b<0?'('+:b+')'::b)+'^2':''}}}=\\color{red}{${:a*:a+:b*:b==1?1:MMmath.simplifieRacine(:a*:a+:b*:b)}}",
+        "value":"${:a*:a+:b*:b==1?1:MMmath.simplifieRacine(:a*:a+:b*:b)}"
     },{
-        "name":"Carré d'un complexe",
+        "name":"Quadrat einer komplexen Zahl",
         "vars":{"a":"-12_12", "b":"-12_12_^${:a}"},
         "question":"\\left(${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(:b)+'i':MMmath.signedNumberButOne(:b)+'i':''}\\right)^2",
         "answer":":question=\\color{red}{${MMmath.box(['Multiply',['Complex',:a,:b],['Complex',:a,:b]])}}",
         "value":"${MMmath.box(['Multiply',['Complex',:a,:b],['Complex',:a,:b]])}"
         },{
-        "name":"Inverse d'un complexe",
+        "name":"Kehrwert einer komplexen Zahl",
         "vars":{"a":"-10_10", "b":"-10_10_^${:a}"},
         "question":["\\left(${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(:b)+'i':MMmath.signedNumberButOne(:b)+'i':''}\\right)^{-1}",
             "\\dfrac{1}{${:a!=0?:a:''}${:b!=0?:a==0?MMmath.signIfOne(:b)+'i':MMmath.signedNumberButOne(:b)+'i':''}}"],

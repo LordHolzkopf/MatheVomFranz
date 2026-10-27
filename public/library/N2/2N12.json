@@ -1,32 +1,32 @@
 {
-    "title":"Equation avec une valeur absolue",
+    "title":"Betragsgleichungen lösen",
     "type":"latex",
     "ID":"2N12",
-    "description":"Résoudre les équations de la forme $$|x-a|=b$$",
+    "description":"Gleichungen mit Betrag lösen, |x| = b und |x − a| = b, Betrag, Abstand auf der Zahlengeraden, Lösungsmenge angeben",
     "keys":["_","{",";","vide"],
     "dest":["WBA", "7AA"],
     "options":[{
-        "name":"Equations de la forme $$|x|=b$$",
+        "name":"Gleichungen der Form $$|x|=b$$",
         "vars":{"b":"1_20"},
-        "question": "\\text{Résoudre dans } \\mathbb{R} : |x| = ${:b}",
-        "answer":"\\text{solutions : } \\color{red}{\\{-${:b} ; ${:b}\\}}",
-        "value":""
+        "question": "\\text{Löse die Gleichung } |x| = ${:b}\\text{.}",
+        "answer":"\\mathbb{L} = \\color{red}{\\{-${:b}; ${:b}\\}}",
+        "value":"\\{-${:b};${:b}\\}"
     },{
-        "name":"Equations de la forme $$|x|=b$$ avec b entier relatif",
+        "name":"Gleichungen der Form $$|x|=b$$ mit ganzzahligem b (auch negativ)",
         "vars":{"b":"-5_20_^0"},
-        "question": "\\text{Résoudre dans } \\mathbb{R} : |x| = ${:b}",
-        "answer":"\\text{solutions : }\\color{red}{${ :b>0 ? -:b +'\\text{ et }'+ :b : '\\emptyset' }}",
+        "question": "\\text{Löse die Gleichung } |x| = ${:b}\\text{.}",
+        "answer":"\\mathbb{L} = \\color{red}{${ :b>0 ? '\\{'+ -:b +'; '+ :b +'\\}' : '\\emptyset' }}",
         "value":"${ :b>0 ? '\\{'+-:b +';'+ :b+'\\}' : '\\emptyset' }"
     },{
-        "name":"Equations de la forme $$|x-a|=b$$",
+        "name":"Gleichungen der Form $$|x-a|=b$$",
         "vars":{
             "b":"1_20",
             "a":"-4_4_^0",
             "rep1" : "${ Number(:a) + Number(:b) }",
             "rep2" : "${ Number(:a) - Number(:b)}"
         },
-        "question": "\\text{Résoudre dans } \\mathbb{R} : ${:a>0 ? '|x-'+:a+'|='+:b : '|x+'+(-:a)+'|='+:b   }  ",
-        "answer":"\\text{solutions : }\\color{red}{\\{ :rep1 ; :rep2 \\}}",
+        "question": "\\text{Löse die Gleichung } ${:a>0 ? '|x-'+:a+'|='+:b : '|x+'+(-:a)+'|='+:b   }\\text{.}",
+        "answer":"\\mathbb{L} = \\color{red}{\\{ :rep1; :rep2 \\}}",
         "value":"\\{${ :rep1 + ';'+ :rep2 }\\}"
     }
     ]

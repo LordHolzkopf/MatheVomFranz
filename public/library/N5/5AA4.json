@@ -1,56 +1,56 @@
 {
     "ID":"5AA4",
-    "title":"Comprendre des commandes de tracé",
+    "title":"Zeichenbefehle verstehen",
     "type":"text",
-    "description":"scratch polygones",
+    "description":"Scratch, Programmieren, Malstift, Vieleck zeichnen, regelmäßiges Vieleck erkennen, Dreieck, Quadrat, Fünfeck, Sechseck, Achteck, Drehwinkel, Außenwinkel",
     "dest":["WGB"],
     "repeat":3,
     "options":[{
-        "name":"Reconnaitre un polygone avec jusqu'à 6 côtés",
+        "name":"Vieleck mit bis zu 6 Seiten erkennen",
         "consts":{
-            "figures":["triangle", "carré", "pentagone", "hexagone"],
+            "figures":["Dreieck", "Quadrat", "Fünfeck", "Sechseck"],
             "angles":[120, 90, 72, 60]
         },
         "vars":{"x":"3_6","d0":"1_10", "d":"${:d0*10}", "sens":["turnright", "turnleft"]},
         "figure":{
             "type":"scratch",
             "content":[
-                "Quand @greenFlag est cliqué",
-                "stylo en position d'écriture",
-                "répéter (${:x}) fois",
-                "avancer de (${:d}) pas",
-                "tourner @${:sens} de (${:angles[:x-3]}) degrés",
-                "fin"
+                "Wenn @greenFlag angeklickt wird",
+                "schalte Stift ein",
+                "wiederhole (${:x}) mal",
+                "gehe (${:d}) er Schritt",
+                "drehe dich @${:sens} um (${:angles[:x-3]}) Grad",
+                "Ende"
             ]
         },
-        "question":"Quelle figure va être tracée ?",
-        "answer":"Un <span class='red'>${:figures[:x-3]}</span> va être tracé.",
+        "question":"Welche Figur wird gezeichnet?",
+        "answer":"Es wird ein <span class='red'>${:figures[:x-3]}</span> gezeichnet.",
         "value":"${:figures[:x-3]}"
     },{
-        "name":"Reconnaitre un polygone avec des cotés en trop",
+        "name":"Vieleck erkennen, mit zu vielen oder zu wenigen Wiederholungen",
         "consts":{
-            "figures":["triangle", "carré", "pentagone", "hexagone"],
+            "figures":["Dreieck", "Quadrat", "Fünfeck", "Sechseck"],
             "angles":[120, 90, 72, 60]
         },
         "vars":{"x":"3_6","d0":"1_10", "d":"${:d0*10}", "sens":["turnright", "turnleft"], "trop":"-3_4_^0"},
         "figure":{
             "type":"scratch",
             "content":[
-                "Quand @greenFlag est cliqué",
-                "stylo en position d'écriture",
-                "répéter (${:x+:trop}) fois",
-                "avancer de (${:d}) pas",
-                "tourner @${:sens} de (${:angles[:x-3]}) degrés",
-                "fin"
+                "Wenn @greenFlag angeklickt wird",
+                "schalte Stift ein",
+                "wiederhole (${:x+:trop}) mal",
+                "gehe (${:d}) er Schritt",
+                "drehe dich @${:sens} um (${:angles[:x-3]}) Grad",
+                "Ende"
             ]
         },
-        "question":"Quelle figure va être tracée ?",
-        "answer":"${:trop>0?'Un <span class=\"red\">'+:figures[:x-3]+'</span> va être tracé.':(:x+:trop)==0?'<span class=\"red\">Un point</span> sera dessiné.':(:x+:trop)==1?'<span class=\"red\">Un segment</span> sera tracé.':'<span class=\"red\">Une ligne brisée</span> sera tracée.'}",
-        "value":"${:trop>0?'Un '+:figures[:x-3]:(:x+:trop)==0?'Un point':(:x+:trop)==1?'Un segment':'Une ligne brisée.'}"
+        "question":"Welche Figur wird gezeichnet?",
+        "answer":"${:trop>0?'Es wird ein <span class=\"red\">'+:figures[:x-3]+'</span> gezeichnet.':(:x+:trop)==0?'Es wird nur <span class=\"red\">ein Punkt</span> gezeichnet.':(:x+:trop)==1?'Es wird <span class=\"red\">eine Strecke</span> gezeichnet.':'Es wird <span class=\"red\">ein Streckenzug</span> gezeichnet.'}",
+        "value":"${:trop>0?:figures[:x-3]:(:x+:trop)==0?'Punkt':(:x+:trop)==1?'Strecke':'Streckenzug'}"
     },{
-        "name":"Reconnaitre un polygone avec 8, 9, 10, 12 côtés",
+        "name":"Vieleck mit 8, 9, 10 oder 12 Seiten erkennen",
         "consts":{
-            "figures":["octogone", "énnéagone", "décagone", "dodécagone"],
+            "figures":["Achteck", "Neuneck", "Zehneck", "Zwölfeck"],
             "cotes":[8, 9, 10, 12],
             "angles":[45, 40, 36, 30]
         },
@@ -58,16 +58,16 @@
         "figure":{
             "type":"scratch",
             "content":[
-                "Quand @greenFlag est cliqué",
-                "stylo en position d'écriture",
-                "répéter (${:cotes[:x]}) fois",
-                "avancer de (${:d}) pas",
-                "tourner @${:sens} de (${:angles[:x]}) degrés",
-                "fin"
+                "Wenn @greenFlag angeklickt wird",
+                "schalte Stift ein",
+                "wiederhole (${:cotes[:x]}) mal",
+                "gehe (${:d}) er Schritt",
+                "drehe dich @${:sens} um (${:angles[:x]}) Grad",
+                "Ende"
             ]
         },
-        "question":"Quelle figure va être tracée ?",
-        "answer":"Un <span class='red'>${:figures[:x]}</span> va être tracé.",
+        "question":"Welche Figur wird gezeichnet?",
+        "answer":"Es wird ein <span class='red'>${:figures[:x]}</span> gezeichnet.",
         "value":"${:figures[:x]}"
     }]
 }

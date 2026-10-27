@@ -1,18 +1,18 @@
 {
-    "title":"Soustractions d'entiers",
-    "description":"soustraction, différence, entiers, retenue",
+    "title":"Subtrahieren im Zahlenraum bis 100",
+    "description":"Subtraktion, Differenz, minus, subtrahieren, Minusaufgaben, Zahlenraum bis 10 und bis 100, mit Zehnerübergang",
     "speech":1,
     "dest":["WAB"],
     "options":[{
-        "name":"Entiers inférieurs à 10",
+        "name":"Zahlen bis 10",
         "vars":{"a":"0_9", "b":"${:a}_10", "d":"${:b-:a}"}
     },{
-        "name":"Entiers entre 11 et 100",
+        "name":"Zahlen von 11 bis 100",
         "vars":{"a":"11_99", "b":"${:a}_100", "d":"${:b-:a}"}
     }
     ],
     "question":"${:b}-${:a}",
-    "audio":"Calcule ${:b} moins ${:a}",
+    "audio":"Berechne ${:b} minus ${:a}.",
     "answer":"${:b}-${:a}=\\color{red}{${:d}}",
     "value":"${:d}"
 }

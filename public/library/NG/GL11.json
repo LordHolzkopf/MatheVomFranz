@@ -1,39 +1,39 @@
 {
-    "title":"Nature d'une suite",
-    "description":"suite arithmétique, suite géométrique, raison, nature",
+    "title":"Art einer Folge bestimmen",
+    "description":"Folge, arithmetische Folge, geometrische Folge, Differenz d, Quotient q, Folgenglieder, lineares und exponentielles Wachstum erkennen",
     "type":"text",
     "textSize":"medium",
     "ID":"GL11",
     "dest":["WEB", "10DD"],
-    "keys":["arth","geom","_",";","r","q","=","_"],
+    "keys":["arth","geom","-",";","d","q","=","_"],
     "options":[
         {
-        "name":"Reconnaître une suite arithmétique (raison positive)",
+        "name":"Arithmetische Folge erkennen (positive Differenz)",
         "vars":{"terme0":"1_9", "raison":"2_10" },
-        "question": "Soit $$(u_n)$$ la suite définie par les valeurs suivantes : $$${:terme0}; ${:terme0+:raison}; ${:terme0+2*:raison}; ${:terme0+3*:raison}; ${:terme0+4*:raison}$$.<br>Quelle est la nature de cette suite ainsi que sa raison ?<br>(Vous inscrirez 'nature;r/q=')",
-        "answer":"$$(u_n)$$ est une suite $$\\color{red}{\\text{arithmétique de raison } r=${:raison}}$$",
-        "value":"arithmétique;r=${:raison}"
+        "question": "Die Folge $$(a_n)$$ beginnt mit den Gliedern $$${:terme0}; ${:terme0+:raison}; ${:terme0+2*:raison}; ${:terme0+3*:raison}; ${:terme0+4*:raison}$$.<br>Ist die Folge arithmetisch oder geometrisch? Gib auch die Differenz d bzw. den Quotienten q an.<br>(Schreibe: Art;d=… bzw. Art;q=…)",
+        "answer":"$$(a_n)$$ ist eine $$\\color{red}{\\text{arithmetische Folge mit } d=${:raison}}$$.",
+        "value":"arithmetisch;d=${:raison}"
         },
         {
-        "name":"Reconnaître une suite arithmétique (raison négative)",
+        "name":"Arithmetische Folge erkennen (negative Differenz)",
         "vars":{"terme0":"1_9","n":"1_5", "raison":"-10_-2"},
-        "question": "Soit $$(u_n)$$ la suite définie par les valeurs suivantes : $$${:terme0}; ${:terme0+:raison}; ${:terme0+2*:raison}; ${:terme0+3*:raison}; ${:terme0+4*:raison}$$.<br>Quelle est la nature de cette suite ainsi que sa raison ?<br>(Vous inscrirez 'nature;r/q=')",
-        "answer":"$$(u_n)$$ est une suite $$\\color{red}{\\text{arithmétique de raison }r=${:raison}}$$",
-        "value":"arithmétique;r=${:raison}"
+        "question": "Die Folge $$(a_n)$$ beginnt mit den Gliedern $$${:terme0}; ${:terme0+:raison}; ${:terme0+2*:raison}; ${:terme0+3*:raison}; ${:terme0+4*:raison}$$.<br>Ist die Folge arithmetisch oder geometrisch? Gib auch die Differenz d bzw. den Quotienten q an.<br>(Schreibe: Art;d=… bzw. Art;q=…)",
+        "answer":"$$(a_n)$$ ist eine $$\\color{red}{\\text{arithmetische Folge mit } d=${:raison}}$$.",
+        "value":"arithmetisch;d=${:raison}"
         },
         {
-        "name":"Reconnaître une suite géométrique (raison supérieure à 1)",
+        "name":"Geometrische Folge erkennen (Quotient größer als 1)",
         "vars":{"terme0":"1_9", "raison":"2_10" },
-        "question": "Soit $$(u_n)$$ la suite définie par les valeurs suivantes : $$${:terme0}; ${:terme0*:raison}; ${:terme0*:raison**2}; ${:terme0*:raison**3}; ${:terme0*:raison**4}$$.<br>Quelle est la nature de cette suite ainsi que sa raison ?<br>(Vous inscrirez 'nature;r/q=')" ,
-        "answer":"$$(u_n)$$ est une suite $$\\color{red}{\\text{géométrique de raison } q=${:raison}}$$",
-        "value":"géométrique;q=${:raison}"
+        "question": "Die Folge $$(a_n)$$ beginnt mit den Gliedern $$${:terme0}; ${:terme0*:raison}; ${:terme0*:raison**2}; ${:terme0*:raison**3}; ${:terme0*:raison**4}$$.<br>Ist die Folge arithmetisch oder geometrisch? Gib auch die Differenz d bzw. den Quotienten q an.<br>(Schreibe: Art;d=… bzw. Art;q=…)" ,
+        "answer":"$$(a_n)$$ ist eine $$\\color{red}{\\text{geometrische Folge mit } q=${:raison}}$$.",
+        "value":"geometrisch;q=${:raison}"
         },
         {
-        "name":"Reconnaître une suite géométrique (|raison| inférieure à 1)",
-        "vars":{"terme0":"1_9", "r":"2_10", "raison":"${MMmath.round(:r*0.1,1)}" },
-        "question": "Soit $$(u_n)$$ la suite définie par les valeurs suivantes : $$${:terme0}; ${MMmath.round(:terme0*:raison,1)}; ${MMmath.round(:terme0*:raison**2,2)}; ${MMmath.round(:terme0*:raison**3,3)}; ${MMmath.round(:terme0*:raison**4,4)}$$.<br>Quelle est la nature de cette suite ainsi que sa raison ?<br>(Vous inscrirez 'nature;r/q=')",
-        "answer":"$$(u_n)$$ est une suite $$\\color{red}{\\text{géométrique de raison } q=${:raison}}$$",
-        "value":"géométrique;q=${:raison}"
+        "name":"Geometrische Folge erkennen (Quotient zwischen 0 und 1)",
+        "vars":{"terme0":"1_9", "r":"2_9", "raison":"${MMmath.round(:r*0.1,1)}" },
+        "question": "Die Folge $$(a_n)$$ beginnt mit den Gliedern $$${:terme0}; ${MMmath.round(:terme0*:raison,1)}; ${MMmath.round(:terme0*:raison**2,2)}; ${MMmath.round(:terme0*:raison**3,3)}; ${MMmath.round(:terme0*:raison**4,4)}$$.<br>Ist die Folge arithmetisch oder geometrisch? Gib auch die Differenz d bzw. den Quotienten q an.<br>(Schreibe: Art;d=… bzw. Art;q=…)",
+        "answer":"$$(a_n)$$ ist eine $$\\color{red}{\\text{geometrische Folge mit } q=${:raison}}$$.",
+        "value":"geometrisch;q=${:raison}"
         }
     ]
 }

@@ -4,7 +4,7 @@
 
 MatheVomFranz erzeugt Kopfrechen- und Automatisierungsübungen mit Zufallswerten: als Diashow, Karteikarten, Übungs- und Testblätter, Duell, Kopfrechen-Gürtel, Dominos, „Ich hab – wer hat?“, Parkour und mehr. Die Aufgaben sind nach dem Gymnasial-Lehrplan NRW (G9) geordnet, orientiert am Stoffverteilungsplan des Lambacher Schweizer.
 
-> **Status:** 490 Aufgaben für Klasse 5 bis Q1/Q2, Oberfläche und Aufgaben auf Deutsch. Vor dem Veröffentlichen müssen Impressum und Datenschutz ausgefüllt werden; offene Punkte stehen am Ende von [`docs/entscheidungen.md`](docs/entscheidungen.md).
+> **Status:** 490 Aufgaben für Klasse 5 bis Q1/Q2, Oberfläche und Aufgaben auf Deutsch. Veröffentlicht über GitHub Pages: <https://lordholzkopf.github.io/MatheVomFranz/>. Offene Punkte stehen am Ende von [`docs/entscheidungen.md`](docs/entscheidungen.md).
 
 ## Basiert auf MathsMentales
 
@@ -15,6 +15,10 @@ MatheVomFranz ist eine deutsche Bearbeitung von **[MathsMentales](https://mathsm
 - Lizenz: Apache 2.0, wie das Original
 
 Welche Bibliotheken, Icons, Schriften und Geräusche verwendet werden und was gegenüber dem Original geändert wurde, steht in [`NOTICE`](NOTICE).
+
+## Veröffentlichen
+
+Jeder Push auf `main` baut die Seite und veröffentlicht sie über GitHub Pages (`.github/workflows/pages.yml`). Voraussetzung: In den Repository-Einstellungen unter *Settings → Pages* ist als *Source* „GitHub Actions“ gewählt.
 
 ## Lokal starten
 

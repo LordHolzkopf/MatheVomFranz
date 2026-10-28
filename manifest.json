@@ -1,7 +1,7 @@
 {
     "name": "MatheVomFranz",
     "short_name": "MatheVomFranz",
-    "id": "/index.html",
+    "id": "index.html",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#fdfcf6",

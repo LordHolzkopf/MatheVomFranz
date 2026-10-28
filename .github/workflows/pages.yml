@@ -1,0 +1,68 @@
+# Veröffentlicht MatheVomFranz bei jedem Push auf main über GitHub Pages.
+# Wie im Original (GitLab Pages): Produktions-Build, dann src/ und public/
+# zu einer statischen Seite zusammenführen.
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Tests
+        run: npm test
+
+      # Das Aufgabenverzeichnis (src/js/mods/content.js) ist eingecheckt und
+      # wird hier nicht neu erzeugt: scan.js braucht für die „neu“-Markierung
+      # die vollständige Git-Historie.
+      - name: Produktions-Build
+        run: npx gulp build minify-css update-version copy-html copy-images
+
+      - name: Seite zusammenstellen
+        run: |
+          mkdir -p _site
+          cp -r src/. _site/
+          cp -r public/. _site/
+          cp manifest.json _site/
+          # PHP-Skripte laufen auf GitHub Pages nicht
+          find _site -name "*.php" -delete
+          rm -rf _site/proxy
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

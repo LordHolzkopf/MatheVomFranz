@@ -111,10 +111,10 @@ Hier steht, was ich (Claude) entschieden habe, während Franz nicht erreichbar w
 
 ## Offene Punkte für Franz
 
-**Vor dem Veröffentlichen**
-1. Impressum und Datenschutzerklärung ausfüllen (gelb markierte Platzhalter) und rechtlich prüfen lassen.
-2. Hosting entscheiden. Für GitHub Pages reicht ein Workflow, der `npx gulp` ausführt und `src/` und `public/` zusammenführt (wie im Original). Kurz-Links (`public/getshort.php`) und Cloud-Verlauf (`public/proxy/`) funktionieren nur mit PHP-Hosting und sind standardmäßig aus.
-3. Die Vorschaubild-Angabe (`og:image`) in `src/index.html` auf die endgültige Adresse umstellen.
+**Veröffentlichung (28.10.2026 erledigt bzw. vorbereitet)**
+- Impressum und Datenschutzerklärung enthalten Franz’ Angaben; die Datenschutzerklärung ist auf GitHub Pages zugeschnitten (IP-Protokolle bei GitHub, kein Tracking, nur localStorage, Pixel-Art als einziger externer Dienst). Ob GitHub derzeit nach dem EU-US Data Privacy Framework zertifiziert ist, ließ sich nicht belegen; die Erklärung verweist deshalb für die USA-Übermittlung auf GitHubs eigene Datenschutzerklärung. Rechtlich prüfen lassen bleibt empfehlenswert.
+- Hosting: **GitHub Pages** über den Workflow `.github/workflows/pages.yml` (Tests, Produktions-Build, `src/` und `public/` zusammenführen, PHP-Skripte entfernen). Adresse: https://lordholzkopf.github.io/MatheVomFranz/
+- Alle Pfade sind relativ, die Seite läuft im Unterordner. Kurz-Links und Cloud-Verlauf gibt es auf GitHub Pages nicht (kein PHP).
 
 **Inhaltlich (nach Bedarf)**
 - Verteilung: Klasse 5–7 sind sehr gut bestückt (Erbe des französischen Collège), Klasse 8–10 und die Oberstufe haben meist ein bis drei Aufgaben je Themenblock. Hier lohnen weitere Generatoren am meisten.

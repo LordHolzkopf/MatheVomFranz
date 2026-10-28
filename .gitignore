@@ -15,24 +15,10 @@ public/js
 public/css
 public/library/test-results
 public/library/illustrations
-dist/
+/dist/
 .cache/
 
-# dev
-src/js/libs
-!src/js/libs/*alllibs.js
-!src/js/libs/*alllibs.min.js
-!public/js/libs/*alllibs.min.js
-!src/js/libs/compute-engine
-!src/js/libs/jsoneditor-9.5.3
-!src/js/libs/JSXGraph1.11.1
-!src/js/libs/katex
-!src/js/libs/mathlive
-!src/js/libs/qr-code-styling
-!src/js/libs/scratchblocks
-!src/js/libs/seedrandom
-!src/js/libs/sortable
-!src/js/libs/vanilla-picker
+# Bibliotheken in src/js/libs werden mit eingecheckt (die Seite braucht sie zur Laufzeit).
 
 # la conf privée
 _private
@@ -49,7 +35,6 @@ public/proxy/webdavhosts.php
 tinyweb-1-94
 *_log
 
-.htaccess
 .zed/tasks.json
 
 # harnais de non-régression (arbre de travail + instantané de référence)
